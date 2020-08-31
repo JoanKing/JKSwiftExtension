@@ -1,0 +1,16 @@
+PODS:
+  - JKSwiftExtension (0.1.0)
+
+DEPENDENCIES:
+  - JKSwiftExtension (from `../`)
+
+EXTERNAL SOURCES:
+  JKSwiftExtension:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  JKSwiftExtension: b3198468ef8911ef27089963321d5bd77de0f3bf
+
+PODFILE CHECKSUM: c1a4b566286392d06e5e810e5a19ebdd69fab9b6
+
+COCOAPODS: 1.9.3

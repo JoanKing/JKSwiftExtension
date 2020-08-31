@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'JKSwiftExtension_Example' do
+  pod 'JKSwiftExtension', :path => '../'
+
+  target 'JKSwiftExtension_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
