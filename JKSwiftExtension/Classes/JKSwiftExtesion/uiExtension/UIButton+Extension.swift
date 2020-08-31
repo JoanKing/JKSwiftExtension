@@ -10,7 +10,5 @@ import UIKit
 
 extension UIButton {
     
-    func setTitle(_ title: JKResource.string, for state: UIControl.State) {
-        setTitle(title.rawValue, for: state)
-    }
+    
 }
