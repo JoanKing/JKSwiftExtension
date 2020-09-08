@@ -28,11 +28,11 @@ public extension UIColor {
     /// - Parameters:
     ///   - hex: 十六进制字符串
     ///   - alpha: 透明度
-    convenience init(hex: String, alpha: CGFloat = 1.0) {
+    convenience init?(hex: String, alpha: CGFloat = 1.0) {
         let color = Self.hexCustomColor(hex: hex)
         guard let r = color.r, let g = color.g, let b = color.b else {
             assert(false, "颜色值有误")
-            self.init(r: 1.0, g: 1.0, b: 1.0, alpha: alpha)
+            return nil
         }
         self.init(r: r, g: g, b: b, alpha: alpha)
     }
@@ -157,6 +157,6 @@ extension UIColor {
     }
     
     /// 通用btn字体的颜色
-    public private(set) static var c444444: UIColor = UIColor(hex: "#444444", alpha: 1.0)
+    public private(set) static var c444444: UIColor = UIColor.hexColor(hex: "#444444", alpha: 1.0)
 }
 
