@@ -5,8 +5,6 @@
 //  Created by IronMan on 2020/9/7.
 //
 
-import UIKit
-
 extension Array {
     
     public subscript(secure index: Int) -> Element? {
@@ -79,30 +77,6 @@ public extension Array {
         for i in 0 ..< count {
             try body(i, self[i])
         }
-    }
-    
-    @inlinable func compactMap<T>(_ transform: (Int, Element) throws -> T?) rethrows -> [T] {
-        if count == 0 { return [] }
-        var newElements: [T] = []
-        for i in 0 ..< count {
-            let newElement = try? transform(i, self[i])
-            if let element = newElement {
-                newElements.append(element!)
-            }
-        }
-        return newElements
-    }
-    
-    @inlinable func map<T>(_ transform: (Int, Element) throws -> T) rethrows -> [T] {
-        if count == 0 { return [] }
-        var newElements: [T] = []
-        
-        for i in 0 ..< count {
-            if let newElement = try? transform(i, self[i]) {
-                newElements.append(newElement)
-            }
-        }
-        return newElements
     }
 }
 
