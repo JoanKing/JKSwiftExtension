@@ -21,6 +21,8 @@ class ViewController: UIViewController {
                 print("第二个数组：\(b)")
             }
         }
+        
+        self.view.backgroundColor = UIColor(hex: "#444444", alpha: 1.0)
     }
 
     override func didReceiveMemoryWarning() {
