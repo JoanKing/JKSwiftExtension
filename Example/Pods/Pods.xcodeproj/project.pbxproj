@@ -17,6 +17,8 @@
 		8467740C2511A98400DE8B44 /* JKAsyncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467740B2511A98400DE8B44 /* JKAsyncs.swift */; };
 		8467740E2511A9B700DE8B44 /* JKUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467740D2511A9B700DE8B44 /* JKUserDefaults.swift */; };
 		846774102511A9FA00DE8B44 /* JKPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467740F2511A9FA00DE8B44 /* JKPrint.swift */; };
+		846774142511FB2100DE8B44 /* JKCommonTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846774132511FB2100DE8B44 /* JKCommonTool.swift */; };
+		84677420251200EB00DE8B44 /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467741F251200EB00DE8B44 /* CGRect+Extension.swift */; };
 		8493DA0D24FC96BB00A0F253 /* JKWidthHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493DA0724FC96BB00A0F253 /* JKWidthHeight.swift */; };
 		8493DA0E24FC96BB00A0F253 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493DA0824FC96BB00A0F253 /* String+Extension.swift */; };
 		8493DA0F24FC96BB00A0F253 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493DA0924FC96BB00A0F253 /* Date+Extension.swift */; };
@@ -80,6 +82,8 @@
 		8467740B2511A98400DE8B44 /* JKAsyncs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKAsyncs.swift; sourceTree = "<group>"; };
 		8467740D2511A9B700DE8B44 /* JKUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKUserDefaults.swift; sourceTree = "<group>"; };
 		8467740F2511A9FA00DE8B44 /* JKPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPrint.swift; sourceTree = "<group>"; };
+		846774132511FB2100DE8B44 /* JKCommonTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKCommonTool.swift; sourceTree = "<group>"; };
+		8467741F251200EB00DE8B44 /* CGRect+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
 		8493DA0724FC96BB00A0F253 /* JKWidthHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKWidthHeight.swift; sourceTree = "<group>"; };
 		8493DA0824FC96BB00A0F253 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		8493DA0924FC96BB00A0F253 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 				8467740B2511A98400DE8B44 /* JKAsyncs.swift */,
 				8467740D2511A9B700DE8B44 /* JKUserDefaults.swift */,
 				8467740F2511A9FA00DE8B44 /* JKPrint.swift */,
+				846774132511FB2100DE8B44 /* JKCommonTool.swift */,
 			);
 			path = SmallTools;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 				8493DA0C24FC96BB00A0F253 /* UIDevice+Extension.swift */,
 				8493DA0B24FC96BB00A0F253 /* UIFont+Extensin.swift */,
 				84CE087525064A970083273A /* Array+Extension.swift */,
+				8467741F251200EB00DE8B44 /* CGRect+Extension.swift */,
 			);
 			path = FoundationExtension;
 			sourceTree = "<group>";
@@ -480,12 +486,14 @@
 				8467740C2511A98400DE8B44 /* JKAsyncs.swift in Sources */,
 				8493DA1B24FC96C800A0F253 /* UILabel+Extension.swift in Sources */,
 				8493DA1024FC96BB00A0F253 /* UIColor+BaseExtension.swift in Sources */,
+				84677420251200EB00DE8B44 /* CGRect+Extension.swift in Sources */,
 				8493DA2224FC96C800A0F253 /* UIScrollView+Extension.swift in Sources */,
 				8493DA1F24FC96C800A0F253 /* UIView+Features.swift in Sources */,
 				8493DA1224FC96BB00A0F253 /* UIDevice+Extension.swift in Sources */,
 				84CE087625064A970083273A /* Array+Extension.swift in Sources */,
 				8493DA0D24FC96BB00A0F253 /* JKWidthHeight.swift in Sources */,
 				8493DA1124FC96BB00A0F253 /* UIFont+Extensin.swift in Sources */,
+				846774142511FB2100DE8B44 /* JKCommonTool.swift in Sources */,
 				8467740A2511A93D00DE8B44 /* JKRuntime.swift in Sources */,
 				8493DA0F24FC96BB00A0F253 /* Date+Extension.swift in Sources */,
 				8493DA0E24FC96BB00A0F253 /* String+Extension.swift in Sources */,
