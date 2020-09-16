@@ -13,6 +13,10 @@
 		547883697AC7874FA673D5A056955EAF /* Pods-JKSwiftExtension_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FBAFD24FF6CE5F36B1682E2A4A1874 /* Pods-JKSwiftExtension_Example-dummy.m */; };
 		6E5646B6E5685A42BFB23F92ED467162 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		7E6C5F9B25A8EE52E626737FBC313F95 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		8467740A2511A93D00DE8B44 /* JKRuntime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846774092511A93D00DE8B44 /* JKRuntime.swift */; };
+		8467740C2511A98400DE8B44 /* JKAsyncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467740B2511A98400DE8B44 /* JKAsyncs.swift */; };
+		8467740E2511A9B700DE8B44 /* JKUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467740D2511A9B700DE8B44 /* JKUserDefaults.swift */; };
+		846774102511A9FA00DE8B44 /* JKPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467740F2511A9FA00DE8B44 /* JKPrint.swift */; };
 		8493DA0D24FC96BB00A0F253 /* JKWidthHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493DA0724FC96BB00A0F253 /* JKWidthHeight.swift */; };
 		8493DA0E24FC96BB00A0F253 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493DA0824FC96BB00A0F253 /* String+Extension.swift */; };
 		8493DA0F24FC96BB00A0F253 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493DA0924FC96BB00A0F253 /* Date+Extension.swift */; };
@@ -27,7 +31,6 @@
 		8493DA2024FC96C800A0F253 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493DA1824FC96C700A0F253 /* UIImage+Extension.swift */; };
 		8493DA2124FC96C800A0F253 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493DA1924FC96C800A0F253 /* UIButton+Extension.swift */; };
 		8493DA2224FC96C800A0F253 /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493DA1A24FC96C800A0F253 /* UIScrollView+Extension.swift */; };
-		84AB904E25072CB20073F61C /* JKPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB904D25072CB20073F61C /* JKPrint.swift */; };
 		84CE087625064A970083273A /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE087525064A970083273A /* Array+Extension.swift */; };
 		90064675F9B6C61D13C0098477C85BF0 /* JKSwiftExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6CEFD4F69382B574F4DCB542FF4282 /* JKSwiftExtension-dummy.m */; };
 		95299547CF4EB6D1CE75CC46CC04FEE9 /* Pods-JKSwiftExtension_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BC725148CEB3BA3B87121E9446C1AD8 /* Pods-JKSwiftExtension_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -73,6 +76,10 @@
 		77FBAFD24FF6CE5F36B1682E2A4A1874 /* Pods-JKSwiftExtension_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JKSwiftExtension_Example-dummy.m"; sourceTree = "<group>"; };
 		7B6CEFD4F69382B574F4DCB542FF4282 /* JKSwiftExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JKSwiftExtension-dummy.m"; sourceTree = "<group>"; };
 		7BA49CC3A937FFB5077A28BA6EC34516 /* JKSwiftExtension.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = JKSwiftExtension.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		846774092511A93D00DE8B44 /* JKRuntime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKRuntime.swift; sourceTree = "<group>"; };
+		8467740B2511A98400DE8B44 /* JKAsyncs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKAsyncs.swift; sourceTree = "<group>"; };
+		8467740D2511A9B700DE8B44 /* JKUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKUserDefaults.swift; sourceTree = "<group>"; };
+		8467740F2511A9FA00DE8B44 /* JKPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPrint.swift; sourceTree = "<group>"; };
 		8493DA0724FC96BB00A0F253 /* JKWidthHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKWidthHeight.swift; sourceTree = "<group>"; };
 		8493DA0824FC96BB00A0F253 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		8493DA0924FC96BB00A0F253 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -87,7 +94,6 @@
 		8493DA1824FC96C700A0F253 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		8493DA1924FC96C800A0F253 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		8493DA1A24FC96C800A0F253 /* UIScrollView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extension.swift"; sourceTree = "<group>"; };
-		84AB904D25072CB20073F61C /* JKPrint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKPrint.swift; sourceTree = "<group>"; };
 		84CE087525064A970083273A /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E419D88487AFE3CA9498B371A260CDB /* JKSwiftExtension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JKSwiftExtension-umbrella.h"; sourceTree = "<group>"; };
@@ -181,20 +187,31 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		846774082511A91000DE8B44 /* SmallTools */ = {
+			isa = PBXGroup;
+			children = (
+				846774092511A93D00DE8B44 /* JKRuntime.swift */,
+				8467740B2511A98400DE8B44 /* JKAsyncs.swift */,
+				8467740D2511A9B700DE8B44 /* JKUserDefaults.swift */,
+				8467740F2511A9FA00DE8B44 /* JKPrint.swift */,
+			);
+			path = SmallTools;
+			sourceTree = "<group>";
+		};
 		8493DA0424FC947800A0F253 /* JKSwiftExtesion */ = {
 			isa = PBXGroup;
 			children = (
-				8493DA0524FC94C100A0F253 /* foundationExtension */,
-				8493DA0624FC94C100A0F253 /* uiExtension */,
+				846774082511A91000DE8B44 /* SmallTools */,
+				8493DA0524FC94C100A0F253 /* FoundationExtension */,
+				8493DA0624FC94C100A0F253 /* UIKitExtension */,
 			);
 			name = JKSwiftExtesion;
 			path = JKSwiftExtension/Classes/JKSwiftExtesion;
 			sourceTree = "<group>";
 		};
-		8493DA0524FC94C100A0F253 /* foundationExtension */ = {
+		8493DA0524FC94C100A0F253 /* FoundationExtension */ = {
 			isa = PBXGroup;
 			children = (
-				84AB904D25072CB20073F61C /* JKPrint.swift */,
 				8493DA0924FC96BB00A0F253 /* Date+Extension.swift */,
 				8493DA0724FC96BB00A0F253 /* JKWidthHeight.swift */,
 				8493DA0824FC96BB00A0F253 /* String+Extension.swift */,
@@ -203,10 +220,10 @@
 				8493DA0B24FC96BB00A0F253 /* UIFont+Extensin.swift */,
 				84CE087525064A970083273A /* Array+Extension.swift */,
 			);
-			path = foundationExtension;
+			path = FoundationExtension;
 			sourceTree = "<group>";
 		};
-		8493DA0624FC94C100A0F253 /* uiExtension */ = {
+		8493DA0624FC94C100A0F253 /* UIKitExtension */ = {
 			isa = PBXGroup;
 			children = (
 				8493DA1424FC96C700A0F253 /* UIBarButtonItem+Extension.swift */,
@@ -218,7 +235,7 @@
 				8493DA1524FC96C700A0F253 /* UIView+Extension.swift */,
 				8493DA1724FC96C700A0F253 /* UIView+Features.swift */,
 			);
-			path = uiExtension;
+			path = UIKitExtension;
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -460,7 +477,7 @@
 			files = (
 				8493DA2024FC96C800A0F253 /* UIImage+Extension.swift in Sources */,
 				8493DA1E24FC96C800A0F253 /* UITableView+Extension.swift in Sources */,
-				84AB904E25072CB20073F61C /* JKPrint.swift in Sources */,
+				8467740C2511A98400DE8B44 /* JKAsyncs.swift in Sources */,
 				8493DA1B24FC96C800A0F253 /* UILabel+Extension.swift in Sources */,
 				8493DA1024FC96BB00A0F253 /* UIColor+BaseExtension.swift in Sources */,
 				8493DA2224FC96C800A0F253 /* UIScrollView+Extension.swift in Sources */,
@@ -469,12 +486,15 @@
 				84CE087625064A970083273A /* Array+Extension.swift in Sources */,
 				8493DA0D24FC96BB00A0F253 /* JKWidthHeight.swift in Sources */,
 				8493DA1124FC96BB00A0F253 /* UIFont+Extensin.swift in Sources */,
+				8467740A2511A93D00DE8B44 /* JKRuntime.swift in Sources */,
 				8493DA0F24FC96BB00A0F253 /* Date+Extension.swift in Sources */,
 				8493DA0E24FC96BB00A0F253 /* String+Extension.swift in Sources */,
 				8493DA1C24FC96C800A0F253 /* UIBarButtonItem+Extension.swift in Sources */,
 				8493DA1D24FC96C800A0F253 /* UIView+Extension.swift in Sources */,
 				90064675F9B6C61D13C0098477C85BF0 /* JKSwiftExtension-dummy.m in Sources */,
 				8493DA2124FC96C800A0F253 /* UIButton+Extension.swift in Sources */,
+				8467740E2511A9B700DE8B44 /* JKUserDefaults.swift in Sources */,
+				846774102511A9FA00DE8B44 /* JKPrint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
