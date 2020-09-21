@@ -41,7 +41,7 @@ import Foundation
     - 系统磁盘空间不足时，系统也会自动清理
 
  */
-extension String {
+public extension String {
     /// MARK: 1.返回Home的完整路径名
     static func homeDir() -> String {
         
@@ -114,7 +114,7 @@ extension String {
     
 }
 
-extension String {
+public extension String {
     
     /// Swift去除字符串前后的换行和空格
     /// - Returns: 处理后的字符串

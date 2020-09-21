@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UITableView {
+public extension UITableView {
 
     func tableViewNeverAdjustContentInset() {
         if #available(iOS 11, *) {

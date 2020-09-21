@@ -11,7 +11,7 @@ import Foundation
 extension UIFont {
     // MARK:- 42号字体
     /// 42号字体 -- 加粗
-    public private(set) static var f42Bold: UIFont = UIFont.boldSystemFont(ofSize: 42)
+    private(set) static var f42Bold: UIFont = UIFont.boldSystemFont(ofSize: 42)
     // MARK:- 40号字体
     public private(set) static var f40: UIFont = UIFont.systemFont(ofSize: 40)
     // MARK:- 36号字体

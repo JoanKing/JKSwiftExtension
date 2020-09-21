@@ -46,7 +46,7 @@ var JKTabbarFrameH: CGFloat { return iPhoneX ? 83 : 49 }
 var JKTabbatBottom: CGFloat { return iPhoneX ? 34 : 0 }
 
 // MARK:- 关于UIView的x，y,width,height的判断
-extension UIView {
+public extension UIView {
 
     // MARK: x的位置
     /// x的位置

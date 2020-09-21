@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     @discardableResult
     func tag(_ tag: Int) -> Self {
         self.tag = tag

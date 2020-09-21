@@ -8,6 +8,22 @@
 
 import Foundation
 
+public extension Date {
+    /// 获取当前 秒级 时间戳 - 10位
+       var timeStamp : String {
+           let timeInterval: TimeInterval = self.timeIntervalSince1970
+           let timeStamp = Int(timeInterval)
+           return "\(timeStamp)"
+       }
+
+       /// 获取当前 毫秒级 时间戳 - 13位
+       var milliStamp : String {
+           let timeInterval: TimeInterval = self.timeIntervalSince1970
+           let millisecond = CLongLong(round(timeInterval*1000))
+           return "\(millisecond)"
+       }
+}
+
 //MARK: - Date
 public extension Date {
     
@@ -256,5 +272,20 @@ public extension NSDate {
         // 5.4.格式化
         return formatter1.string(from: date!) as NSString
     }
-    
+ 
+    // MARK: 当前格式化后的时间
+    /// 当前格式化后的时间
+    /// - Parameter dateFormat: 格式化方式
+    /// - Returns: 返回格式化后的字符串
+    class func currentFormatTime(_ dateFormat: String = "yyyy年MM月HH时mm分ss秒") -> String {
+        // 取到当前时间
+        let currentDate = NSDate()
+        // 初始化时间格式化器
+        let df = DateFormatter()
+        // 指定格式
+        df.dateFormat = dateFormat
+        // 格式当前时间与目标时间成字符串
+        let currentDateString = df.string(from: currentDate as Date)
+        return currentDateString
+    }
 }

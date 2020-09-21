@@ -15,8 +15,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		687E347F9A62286E9AC825CD /* Pods_JKSwiftExtension_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEA1C54E10568E8E6A827CF /* Pods_JKSwiftExtension_Tests.framework */; };
 		6FC5FB83742FE817753295E8 /* Pods_JKSwiftExtension_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3D0426FDCFDD919F4C3DCA /* Pods_JKSwiftExtension_Example.framework */; };
-		846774162511FE5700DE8B44 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846774152511FE5700DE8B44 /* ViewController2.swift */; };
-		84BC8B1825121DE30016A196 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC8B1725121DE30016A196 /* ViewController3.swift */; };
+		848513262513374A00192899 /* slience.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 848513252513374A00192899 /* slience.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,9 +42,8 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		65BA536E406F2B31EC61EC80 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		846774152511FE5700DE8B44 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		846774172511FE9900DE8B44 /* JKSwiftExtension_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JKSwiftExtension_Example-Bridging-Header.h"; sourceTree = "<group>"; };
-		84BC8B1725121DE30016A196 /* ViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
+		848513252513374A00192899 /* slience.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = slience.mp3; sourceTree = "<group>"; };
 		88DDA121456371E8DD11E3A3 /* Pods-JKSwiftExtension_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSwiftExtension_Tests.release.xcconfig"; path = "Target Support Files/Pods-JKSwiftExtension_Tests/Pods-JKSwiftExtension_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9813482D301100D63B15615B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		BB14143CC4D03081EA63A0FB /* Pods-JKSwiftExtension_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSwiftExtension_Tests.debug.xcconfig"; path = "Target Support Files/Pods-JKSwiftExtension_Tests/Pods-JKSwiftExtension_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -111,11 +109,10 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				846774152511FE5700DE8B44 /* ViewController2.swift */,
-				84BC8B1725121DE30016A196 /* ViewController3.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				848513252513374A00192899 /* slience.mp3 */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for JKSwiftExtension";
@@ -255,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				848513262513374A00192899 /* slience.mp3 in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
@@ -342,8 +340,6 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				84BC8B1825121DE30016A196 /* ViewController3.swift in Sources */,
-				846774162511FE5700DE8B44 /* ViewController2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

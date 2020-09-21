@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-extension UILabel {
+public extension UILabel {
 	
 	/// 改变行间距
 	/// - Parameter space: 行间距大小

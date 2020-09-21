@@ -8,8 +8,8 @@
 
 import UIKit
 
-extension UIScrollView {
-    @objc  func neverAdjustContentInset() {
+public extension UIScrollView {
+    @objc func neverAdjustContentInset() {
         if #available(iOS 11.0, *), responds(to: #selector(setter: contentInsetAdjustmentBehavior)) {
             self.contentInsetAdjustmentBehavior = .never
         }

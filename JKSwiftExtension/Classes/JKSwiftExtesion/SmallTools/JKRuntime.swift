@@ -11,7 +11,7 @@ import UIKit
 public class JKRuntime: NSObject {
 
     // MARK:- 使用运行时打印一个类中所有的属性
-    /// 使用运行时打印一个类中所有的属性
+    /// 使用运行时打印一个类中所有的属性(窥探小黑盒)
     /// - Parameter type: 类型
     public static func ivars(_ type: NSObject.Type) {
         var count: UInt32 = 0

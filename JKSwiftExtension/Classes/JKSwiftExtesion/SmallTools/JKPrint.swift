@@ -19,7 +19,7 @@ public func JKPrint<T>(_ msg: T,
                column: Int = #column,
                fn: String = #function) {
     #if DEBUG
-    let prefix = "------\n当前文件完整的路径是：\(file)\n当前文件是：\(file.lastPathComponent)\n第 \(line) 行 \n第 \(column) 列 \n函数名：\(fn)\n打印内容：\(msg)\n------"
+    let prefix = "------\n当前时间：\(NSDate.currentFormatTime())\n当前文件完整的路径是：\(file)\n当前文件是：\(file.lastPathComponent)\n第 \(line) 行 \n第 \(column) 列 \n函数名：\(fn)\n打印内容：\(msg)\n------"
     print(prefix)
     #endif
 }

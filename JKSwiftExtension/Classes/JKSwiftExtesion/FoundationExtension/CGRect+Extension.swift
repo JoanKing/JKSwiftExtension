@@ -7,7 +7,7 @@
 
 import UIKit
 import Foundation
-extension CGRect {
+public extension CGRect {
     func divided(atDistance: CGFloat, from fromEdge: CGRectEdge) {
       
     }

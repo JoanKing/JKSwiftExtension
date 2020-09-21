@@ -7,13 +7,13 @@
 //
 import UIKit
 
-struct JKWidthHeight {
+public struct JKWidthHeight {
     
     /// MARK: 1.返回文字的高度
     /// - Parameter string: 文字的内容
     /// - Parameter size: 文字的最大宽高
     /// - Parameter fontSize: 字体的大小
-    static func JKtextStringSize(string: NSString, size: CGSize, fontSize: CGFloat) -> CGSize {
+    public static func JKtextStringSize(string: NSString, size: CGSize, fontSize: CGFloat) -> CGSize {
         return string.boundingRect(with: size, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)], context: nil).size
     }
     
@@ -22,7 +22,7 @@ struct JKWidthHeight {
     /// - Parameter width: 最大宽度
     /// - Parameter height: 最大高度
     /// - Parameter font: 富文本字体的大小
-     static func attributedStringSize(aString:NSAttributedString ,width:CGFloat, height:CGFloat, font: CGFloat) -> CGSize {
+    public static func attributedStringSize(aString:NSAttributedString ,width:CGFloat, height:CGFloat, font: CGFloat) -> CGSize {
         let tempLabel = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: height))
         tempLabel.font = UIFont.systemFont(ofSize: font)
         tempLabel.attributedText = aString;
