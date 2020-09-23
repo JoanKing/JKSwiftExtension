@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol JKWaterFallLayoutDataSoure: class {
+public protocol JKWaterFallLayoutDataSoure: class {
     func waterfall(_ waterfall: JKWaterFallLayout, item: Int) -> CGFloat
 }
 
-class JKWaterFallLayout: UICollectionViewFlowLayout {
-
+public class JKWaterFallLayout: UICollectionViewFlowLayout {
+    
     weak var dataSource: JKWaterFallLayoutDataSoure?
     
     /// 保存 UICollectionViewLayoutAttributes 的数组
@@ -28,14 +28,14 @@ class JKWaterFallLayout: UICollectionViewFlowLayout {
 }
 
 // MARK:- 准备布局
-extension JKWaterFallLayout {
+public extension JKWaterFallLayout {
     /// 准备
     override func prepare() {
         super.prepare()
         /*
-        totalHeights = Array(repeating: sectionInset.top, count: self.cols)
-        cellAttributes.removeAll()
-        */
+         totalHeights = Array(repeating: sectionInset.top, count: self.cols)
+         cellAttributes.removeAll()
+         */
         // cell -> UICollectionViewLayoutAttributes
         // 1.获取cell个数
         let itemCount = collectionView!.numberOfItems(inSection: 0)
@@ -54,7 +54,7 @@ extension JKWaterFallLayout {
             // 3.设置attr的frame
             let minH = totalHeights.min()!
             let minIndex = totalHeights.firstIndex(of: minH)!
-        
+            
             let cellX: CGFloat = sectionInset.left + (minimumInteritemSpacing + cellW) * CGFloat(minIndex)
             let cellY: CGFloat = minH
             
@@ -71,14 +71,14 @@ extension JKWaterFallLayout {
 }
 
 // MARK:- 返回准备好的所有布局
-extension JKWaterFallLayout {
+public extension JKWaterFallLayout {
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         return cellAttributes
     }
 }
 
 // MARK:- 设置 contentSize
-extension JKWaterFallLayout {
+public extension JKWaterFallLayout {
     override var collectionViewContentSize: CGSize {
         return CGSize(width: 0, height: totalHeights.max()! + sectionInset.bottom - minimumLineSpacing)
     }

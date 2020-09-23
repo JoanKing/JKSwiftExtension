@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol NibLoadable {
+public protocol NibLoadable {
 }
 
 /// 继承于UIView的才可以使用该协议的扩展
-extension NibLoadable where Self: UIView {
+public extension NibLoadable where Self: UIView {
     
     /// 加载xib视图
     /// - Parameter nibName: xib名字

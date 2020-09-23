@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 /// 粒子发射器
-protocol JKEmitterable {
+public protocol JKEmitterable {
     
 }
 
-class JKEmitterStyle: NSObject {
+public class JKEmitterStyle: NSObject {
     /// 开启三维效果
     var preservesDepth: Bool = true
     /// 设置发射器位置
@@ -21,13 +21,13 @@ class JKEmitterStyle: NSObject {
 }
 
 // 只有 控制器才可以遵守协议 extension JKEmitterable where Self : UIViewController
-extension JKEmitterable where Self : UIViewController {
+public extension JKEmitterable where Self : UIViewController {
     
     /// 启动发射器
     /// - Parameters:
     ///   - emitterImageName: 发射器图片的名字
     ///   - style: 发射器的样式
-    func startEmitter(emitterImageName: String, style: JKEmitterStyle = JKEmitterStyle()) {
+    public func startEmitter(emitterImageName: String, style: JKEmitterStyle = JKEmitterStyle()) {
         // 1、发射器的设置
         // 1.1、创建发射器
         let emitter = CAEmitterLayer()
@@ -72,7 +72,7 @@ extension JKEmitterable where Self : UIViewController {
     }
     
     /// 停止发射器
-    func stopEmitter() {
+    public func stopEmitter() {
         // 方式一
         let layers = view.layer.sublayers?.filter({ $0.isKind(of: CAEmitterLayer.self)})
         guard let weaklayers = layers else {
@@ -83,11 +83,11 @@ extension JKEmitterable where Self : UIViewController {
         }
         // 方式二
         /*
-        for layer in view.layer.sublayers! {
-            if layer.isKind(of: CAEmitterLayer.self) {
-                layer.removeFromSuperlayer()
-            }
-        }
-        */
+         for layer in view.layer.sublayers! {
+         if layer.isKind(of: CAEmitterLayer.self) {
+         layer.removeFromSuperlayer()
+         }
+         }
+         */
     }
 }
