@@ -34,6 +34,9 @@
 		8493DA2024FC96C800A0F253 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493DA1824FC96C700A0F253 /* UIImage+Extension.swift */; };
 		8493DA2124FC96C800A0F253 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493DA1924FC96C800A0F253 /* UIButton+Extension.swift */; };
 		8493DA2224FC96C800A0F253 /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493DA1A24FC96C800A0F253 /* UIScrollView+Extension.swift */; };
+		84AEF8D0251AEBB1001B76BF /* JKEmitterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEF8CE251AEBB1001B76BF /* JKEmitterable.swift */; };
+		84AEF8D1251AEBB1001B76BF /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEF8CF251AEBB1001B76BF /* NibLoadable.swift */; };
+		84AEF8D7251AEDE2001B76BF /* JKWaterFallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEF8D6251AEDE2001B76BF /* JKWaterFallLayout.swift */; };
 		84CE087625064A970083273A /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE087525064A970083273A /* Array+Extension.swift */; };
 		90064675F9B6C61D13C0098477C85BF0 /* JKSwiftExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6CEFD4F69382B574F4DCB542FF4282 /* JKSwiftExtension-dummy.m */; };
 		95299547CF4EB6D1CE75CC46CC04FEE9 /* Pods-JKSwiftExtension_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BC725148CEB3BA3B87121E9446C1AD8 /* Pods-JKSwiftExtension_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -100,6 +103,9 @@
 		8493DA1824FC96C700A0F253 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		8493DA1924FC96C800A0F253 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		8493DA1A24FC96C800A0F253 /* UIScrollView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extension.swift"; sourceTree = "<group>"; };
+		84AEF8CE251AEBB1001B76BF /* JKEmitterable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKEmitterable.swift; sourceTree = "<group>"; };
+		84AEF8CF251AEBB1001B76BF /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		84AEF8D6251AEDE2001B76BF /* JKWaterFallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKWaterFallLayout.swift; sourceTree = "<group>"; };
 		84CE087525064A970083273A /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E419D88487AFE3CA9498B371A260CDB /* JKSwiftExtension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JKSwiftExtension-umbrella.h"; sourceTree = "<group>"; };
@@ -202,6 +208,7 @@
 				8467740F2511A9FA00DE8B44 /* JKPrint.swift */,
 				846774132511FB2100DE8B44 /* JKCommonTool.swift */,
 				8493DA0724FC96BB00A0F253 /* JKWidthHeight.swift */,
+				84AEF8D6251AEDE2001B76BF /* JKWaterFallLayout.swift */,
 			);
 			path = SmallTools;
 			sourceTree = "<group>";
@@ -209,6 +216,7 @@
 		8493DA0424FC947800A0F253 /* JKSwiftExtesion */ = {
 			isa = PBXGroup;
 			children = (
+				84AEF8CD251AEBB1001B76BF /* Protocol */,
 				846774082511A91000DE8B44 /* SmallTools */,
 				8493DA0524FC94C100A0F253 /* FoundationExtension */,
 				8493DA0624FC94C100A0F253 /* UIKitExtension */,
@@ -245,6 +253,15 @@
 				8493DA1724FC96C700A0F253 /* UIView+Features.swift */,
 			);
 			path = UIKitExtension;
+			sourceTree = "<group>";
+		};
+		84AEF8CD251AEBB1001B76BF /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				84AEF8CE251AEBB1001B76BF /* JKEmitterable.swift */,
+				84AEF8CF251AEBB1001B76BF /* NibLoadable.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -493,7 +510,9 @@
 				84677420251200EB00DE8B44 /* CGRect+Extension.swift in Sources */,
 				8493DA2224FC96C800A0F253 /* UIScrollView+Extension.swift in Sources */,
 				8493DA1F24FC96C800A0F253 /* UIView+Features.swift in Sources */,
+				84AEF8D0251AEBB1001B76BF /* JKEmitterable.swift in Sources */,
 				8493DA1224FC96BB00A0F253 /* UIDevice+Extension.swift in Sources */,
+				84AEF8D7251AEDE2001B76BF /* JKWaterFallLayout.swift in Sources */,
 				84CE087625064A970083273A /* Array+Extension.swift in Sources */,
 				8493DA0D24FC96BB00A0F253 /* JKWidthHeight.swift in Sources */,
 				8493DA1124FC96BB00A0F253 /* UIFont+Extensin.swift in Sources */,
@@ -501,6 +520,7 @@
 				8467740A2511A93D00DE8B44 /* JKRuntime.swift in Sources */,
 				8493DA0F24FC96BB00A0F253 /* Date+Extension.swift in Sources */,
 				8493DA0E24FC96BB00A0F253 /* String+Extension.swift in Sources */,
+				84AEF8D1251AEBB1001B76BF /* NibLoadable.swift in Sources */,
 				8493DA1C24FC96C800A0F253 /* UIBarButtonItem+Extension.swift in Sources */,
 				8493DA1D24FC96C800A0F253 /* UIView+Extension.swift in Sources */,
 				90064675F9B6C61D13C0098477C85BF0 /* JKSwiftExtension-dummy.m in Sources */,

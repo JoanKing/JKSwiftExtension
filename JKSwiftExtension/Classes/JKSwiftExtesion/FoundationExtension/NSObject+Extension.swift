@@ -7,6 +7,8 @@
 
 import UIKit
 
+#if os(iOS) || os(tvOS)
+
 public extension NSObject {
     
     /// 类名
@@ -19,4 +21,7 @@ public extension NSObject {
         return String(describing: self)
     }
 }
+
+#endif
+
 
