@@ -14,7 +14,7 @@ public protocol JKWaterFallLayoutDataSoure: class {
 
 public class JKWaterFallLayout: UICollectionViewFlowLayout {
     
-    weak var dataSource: JKWaterFallLayoutDataSoure?
+    public weak var dataSource: JKWaterFallLayoutDataSoure?
     
     /// 保存 UICollectionViewLayoutAttributes 的数组
     fileprivate lazy var cellAttributes: [UICollectionViewLayoutAttributes] = [UICollectionViewLayoutAttributes]()

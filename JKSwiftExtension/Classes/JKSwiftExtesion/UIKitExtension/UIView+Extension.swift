@@ -34,16 +34,18 @@ iPhoneXS的分辨率：     2436 * 1125 || pt: 812 * 375
 iPhoneXS Max的分辨率： 2688 * 1242 || pt: 896 * 414
 */
 
-let JKscreenW: CGFloat = UIScreen.main.bounds.width
-let JKscreenH: CGFloat = UIScreen.main.bounds.height
-// 获取statusBar的高度
-let JKstatusBarFrameH: CGFloat = UIApplication.shared.statusBarFrame.height
-//获取导航栏的高度
-var JKNavFrameH: CGFloat { return iPhoneX ? 88 : 64 }
-//获取tabbar的高度
-var JKTabbarFrameH: CGFloat { return iPhoneX ? 83 : 49 }
+/// 屏幕的宽
+public let kScreenW: CGFloat = UIScreen.main.bounds.width
+/// 屏幕的高
+public let kScreenH: CGFloat = UIScreen.main.bounds.height
+/// 获取statusBar的高度
+public let kStatusBarFrameH: CGFloat = UIApplication.shared.statusBarFrame.height
+/// 获取导航栏的高度
+public var kNavFrameH: CGFloat { return iPhoneX ? 88 : 64 }
+/// 获取tabbar的高度
+public var kTabbarFrameH: CGFloat { return iPhoneX ? 83 : 49 }
 /// 底部tabbar多出的部分
-var JKTabbatBottom: CGFloat { return iPhoneX ? 34 : 0 }
+public var kTabbatBottom: CGFloat { return iPhoneX ? 34 : 0 }
 
 // MARK:- 关于UIView的x，y,width,height的判断
 public extension UIView {

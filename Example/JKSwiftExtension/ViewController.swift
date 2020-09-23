@@ -16,6 +16,9 @@ class ViewController: UIViewController {
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor(hex: "#444444", alpha: 1.0)
         
+        let btn = UIButton()
+
+    
         
     }
     
