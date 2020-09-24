@@ -15,6 +15,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		687E347F9A62286E9AC825CD /* Pods_JKSwiftExtension_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEA1C54E10568E8E6A827CF /* Pods_JKSwiftExtension_Tests.framework */; };
 		6FC5FB83742FE817753295E8 /* Pods_JKSwiftExtension_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3D0426FDCFDD919F4C3DCA /* Pods_JKSwiftExtension_Example.framework */; };
+		848331C9251C66AB00DEB439 /* StringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848331C8251C66AB00DEB439 /* StringTest.swift */; };
 		848513262513374A00192899 /* slience.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 848513252513374A00192899 /* slience.mp3 */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		65BA536E406F2B31EC61EC80 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		846774172511FE9900DE8B44 /* JKSwiftExtension_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JKSwiftExtension_Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		848331C8251C66AB00DEB439 /* StringTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTest.swift; sourceTree = "<group>"; };
 		848513252513374A00192899 /* slience.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = slience.mp3; sourceTree = "<group>"; };
 		88DDA121456371E8DD11E3A3 /* Pods-JKSwiftExtension_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSwiftExtension_Tests.release.xcconfig"; path = "Target Support Files/Pods-JKSwiftExtension_Tests/Pods-JKSwiftExtension_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9813482D301100D63B15615B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				848331C8251C66AB00DEB439 /* StringTest.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -349,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				848331C9251C66AB00DEB439 /* StringTest.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -41,8 +41,9 @@ import Foundation
     - 系统磁盘空间不足时，系统也会自动清理
 
  */
+// MARK:- 沙盒路径的获取
 public extension String {
-    /// MARK: 1.返回Home的完整路径名
+    // MARK: 1.返回Home的完整路径名
     static func homeDir() -> String {
         
         //获取程序的Home目录
@@ -50,7 +51,7 @@ public extension String {
         return homeDirectory
     }
     
-    /// MARK: 2.返回Cache的完整路径名
+    // MARK: 2.返回Cache的完整路径名
     static func cacheDir() -> String {
         
         //Cache目录－方法1
@@ -66,7 +67,7 @@ public extension String {
         return cachePath2
     }
     
-    /// MARK: 3.返回Documnets的完整路径名
+    // MARK: 3.返回Documnets的完整路径名
     static func DocumnetsDir() -> String {
         
         //获取程序的documentPaths目录
@@ -85,6 +86,7 @@ public extension String {
      Library/Preferences目录，包含应用程序的偏好设置文件。不应该直接创建偏好设置文件，而是应该使用NSUserDefaults类来取得和设置应用程序的偏好。
      Library/Caches目录，主要存放缓存文件，iTunes不会备份此目录，此目录下文件不会再应用退出时删除
      */
+    // MARK: 4.返回Library的完整路径名
     static func LibraryDir() -> String {
         
         //获取程序的documentPaths目录
@@ -101,6 +103,8 @@ public extension String {
     /**
      用于存放临时文件，保存应用程序再次启动过程中不需要的信息，重启后清空。
      */
+    
+    // MARK: 5.返回Tmp的完整路径名
     static func TmpDir() -> String {
         
         //方法1
@@ -116,13 +120,44 @@ public extension String {
 
 // MARK:- 字符串的空格和特殊字符的处理
 public extension String {
-    
+    // MARK: Swift去除字符串前后的换行和空格
     /// Swift去除字符串前后的换行和空格
     /// - Returns: 处理后的字符串
     func trim() -> String {
         var resultString = self.trimmingCharacters(in: CharacterSet.whitespaces)
         resultString = resultString.trimmingCharacters(in: CharacterSet.newlines)
         return resultString
+    }
+}
+
+// MARK:- 字符串的包含的判断
+public extension String {
+    
+    // MARK: 字符串 转 Float
+    /// 字符串 转 Float
+    /// - Returns: CGFloat
+    func StringToCGFloat() -> (CGFloat) {
+        var cgfloat: CGFloat = 0
+        if let doubleValue = Double(self) {
+            cgfloat = CGFloat(doubleValue)
+        }
+        return cgfloat
+    }
+    
+    // MARK: 判断是否包含某个子串
+    /// 判断是否包含某个子串
+    /// - Parameter find: 子串
+    /// - Returns: Bool
+    func contains(find: String) -> Bool {
+        return self.range(of: find) != nil
+    }
+    
+    // MARK: 判断是否包含某个子串 -- 忽略大小写
+    ///  判断是否包含某个子串 -- 忽略大小写
+    /// - Parameter find: 子串
+    /// - Returns: Bool
+    func containsIgnoringCase(find: String) -> Bool {
+        return self.range(of: find, options: .caseInsensitive) != nil
     }
 }
 

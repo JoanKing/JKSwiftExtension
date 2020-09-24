@@ -16,14 +16,22 @@ class ViewController: UIViewController {
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor(hex: "#444444", alpha: 1.0)
         
+        let label1 = ActionLabel.createActionLabel(frame: CGRect(x: 16, y: 100, width: 100, height: 100), target: self, selector: #selector(tapAction1))
+        label1.backgroundColor = .brown
+        label1.action = { (label) in
+            print("哈哈1")
+        }
+        view.addSubview(label1)
+        
+    }
+    
+    @objc func tapAction1() {
+        print("自定义点击事件")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        MaskingManager.shareManager.isShow()
-        JKAsyncs.delay(10) {
-            MaskingManager.shareManager.dismissloading()
-        }
+       
     }
     
     override func didReceiveMemoryWarning() {
