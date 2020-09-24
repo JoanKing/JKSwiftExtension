@@ -16,10 +16,14 @@ class ViewController: UIViewController {
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor(hex: "#444444", alpha: 1.0)
         
-        let btn = UIButton()
-
+    }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
+        MaskingManager.shareManager.isShow()
+        JKAsyncs.delay(10) {
+            MaskingManager.shareManager.dismissloading()
+        }
     }
     
     override func didReceiveMemoryWarning() {

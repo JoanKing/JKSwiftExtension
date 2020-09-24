@@ -1,15 +1,22 @@
 PODS:
-  - JKSwiftExtension (0.1.0)
+  - JKSwiftExtension (0.1.2):
+    - SnapKit
+  - SnapKit (4.2.0)
 
 DEPENDENCIES:
   - JKSwiftExtension (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
 
 EXTERNAL SOURCES:
   JKSwiftExtension:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JKSwiftExtension: b3198468ef8911ef27089963321d5bd77de0f3bf
+  JKSwiftExtension: 37d8041e6d74856b602dd4accb3db8bd2d7c8a6e
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
 PODFILE CHECKSUM: c1a4b566286392d06e5e810e5a19ebdd69fab9b6
 

@@ -114,6 +114,7 @@ public extension String {
     
 }
 
+// MARK:- 字符串的空格和特殊字符的处理
 public extension String {
     
     /// Swift去除字符串前后的换行和空格
@@ -123,4 +124,19 @@ public extension String {
         resultString = resultString.trimmingCharacters(in: CharacterSet.newlines)
         return resultString
     }
+}
+
+// MARK:- 吐司的提示
+public extension String {
+    /// 提示一
+    /// - Parameters:
+    ///   - duration: 时间
+    ///   - view: 所在的视图
+    func toast(duration: TimeInterval = 2, in view: UIView? = UIApplication.shared.keyWindow) {
+    
+        if !isEmpty {
+            MaskingManager.shareManager.showToast(text: self, duration: duration, in: view)
+        }
+    }
+    
 }
