@@ -123,7 +123,10 @@ public extension UIDevice {
         return UIDeviceScreenType.IPHONE_6
     }
     
-    class func isIpad() -> Bool {
+    // MARK: 判断是否为 Pad
+    /// 判断是否为 Pad
+    /// - Returns: bool
+    static func isIpad() -> Bool {
         let modelName = UIDevice.modelName
         if modelName.contains("iPad") {
             return true
@@ -131,6 +134,23 @@ public extension UIDevice {
         return false
     }
     
+    // MARK: 判断是否是 pad
+    /// 判断是否是 pad
+    /// - Returns: bool
+    static func isPadDevice() -> Bool {
+        return UI_USER_INTERFACE_IDIOM() == .pad
+    }
+    
+    // MARK: 判断是否为 iphone
+    /// 判断是否为 iphone
+    /// - Returns: bool
+    static func isIphone() -> Bool {
+        return UI_USER_INTERFACE_IDIOM() == .phone
+    }
+    
+    // MARK: 判断是否是 iphone5
+    /// 判断是否是 iphone5
+    /// - Returns: bool
     class func isIphone5Screen() -> Bool {
         if UIDevice.screenType() == .IPHONE_5 {
             return true
@@ -138,6 +158,9 @@ public extension UIDevice {
         return false
     }
     
+    // MARK: 判断是否是 iphone6
+    /// 判断是否是 iphone5
+    /// - Returns: bool
     class func isIphone6Screen() -> Bool {
         if UIDevice.screenType() == .IPHONE_6 {
             return true
@@ -145,18 +168,23 @@ public extension UIDevice {
         return false
     }
     
-    class func isIphoneXScreen() -> Bool {
+    // MARK: 是不是 x 系列
+    /// 是不是 x 系列
+    /// - Returns: bool
+    static func isIphoneXScreen() -> Bool {
         if UIDevice.screenType() == .IPHONE_X || UIDevice.screenType() == .IPHONE_XS || UIDevice.screenType() == .IPHONE_XR || UIDevice.screenType() == .IPHONE_XS_Max ||  UIDevice.screenType() == .IPHONE_11 ||  UIDevice.screenType() == .IPHONE_11_PRO ||  UIDevice.screenType() == .IPHONE_11_PRO_MAX {
             return true
         }
         return false
     }
     
-    class func isIphoneXSScreen() -> Bool {
+    // MARK: 是不是 xs系列
+    /// 是不是 xs 系列
+    /// - Returns: bool
+    static func isIphoneXSScreen() -> Bool {
         if UIDevice.screenType() == .IPHONE_XS || UIDevice.screenType() == .IPHONE_XR || UIDevice.screenType() == .IPHONE_XS_Max {
             return true
         }
         return false
     }
-    
 }

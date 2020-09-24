@@ -10,23 +10,40 @@ import Foundation
 
 public extension Date {
     /// 获取当前 秒级 时间戳 - 10 位
-       var timeStamp : String {
-           let timeInterval: TimeInterval = self.timeIntervalSince1970
-           let timeStamp = Int(timeInterval)
-           return "\(timeStamp)"
-       }
-
-       /// 获取当前 毫秒级 时间戳 - 13 位
-       var milliStamp : String {
-           let timeInterval: TimeInterval = self.timeIntervalSince1970
-           let millisecond = CLongLong(round(timeInterval*1000))
-           return "\(millisecond)"
-       }
+    var timeStamp : String {
+        let timeInterval: TimeInterval = self.timeIntervalSince1970
+        let timeStamp = Int(timeInterval)
+        return "\(timeStamp)"
+    }
+    
+    /// 获取当前 毫秒级 时间戳 - 13 位
+    var milliStamp : String {
+        let timeInterval: TimeInterval = self.timeIntervalSince1970
+        let millisecond = CLongLong(round(timeInterval*1000))
+        return "\(millisecond)"
+    }
 }
 
 //MARK: - Date
 public extension Date {
     
+    // MARK: 根据时间戳转化为对应时间的字符串
+    /// 根据时间戳转化为对应时间的字符串
+    /// - Parameters:
+    ///   - timestamp: 时间戳
+    ///   - format: 格式
+    /// - Returns: 对应时间的字符串
+    func timestampToFormatterTimeString(timestamp: String, format: String = "yyyyMMdd") -> String {
+        // 时间戳转为Date
+        let date = Date(timeIntervalSince1970: timestamp.doubleValue)
+        let dateFormatter = DateFormatter()
+        // 设置 dateFormat
+        dateFormatter.dateFormat = format
+        // 按照dateFormat把Date转化为String
+        return dateFormatter.string(from: date)
+    }
+    
+    // MARK:- Date 转换为相应格式的字符串
     /// 日期转换为相应格式的字符串
     /// - Parameter format: 转换的格式
     /// - Returns: 返回具体的字符串
@@ -37,6 +54,7 @@ public extension Date {
         return dateFormatter.string(from: self)
     }
     
+    // MARK: 是否为今天（只比较日期，不比较时分秒）
     /// 是否为今天（只比较日期，不比较时分秒）
     /// - Returns: bool
     func isToday() -> Bool {
@@ -47,6 +65,7 @@ public extension Date {
         return false
     }
     
+    // MARK:-  取得与当前时间的间隔差
     /// 取得与当前时间的间隔差
     /// - Returns: 时间差
     func calTimeAfterNow() -> String {
@@ -89,12 +108,92 @@ public extension Date {
     }
 }
 
-//MARK: - NSDate
+// MARK:- 前天、昨天、今天、明天、后天、是否同一年同一月同一天的判断
+public extension Date {
+
+    // MARK: 是否为昨天
+    /// 是否为昨天
+    var isYesterday: Bool {
+        guard let date = yesterDayDate else {
+            return false
+        }
+        return isSameYeaerMountDay(date)
+    }
+    
+    // MARK: 是否为前天
+    /// 是否为前天
+    var isTheDayBeforeYesterday: Bool  {
+        guard let date = theDayBeforYesterDayDate else {
+            return false
+        }
+        return isSameYeaerMountDay(date)
+    }
+    
+    // MARK: 是否为今年
+    /// 是否为今年
+    var isThisYear: Bool  {
+        let calendar = Calendar.current
+        let nowCmps = calendar.dateComponents([.year], from: Date())
+        let selfCmps = calendar.dateComponents([.year], from: self)
+        let result = nowCmps.year == selfCmps.year
+        return result
+    }
+    
+    // MARK: 是不是昨天
+    /// 是不是昨天
+    var yesterDayDate: Date? {
+        return adding(day: -1)
+    }
+    
+    // MARK: 是不是明天
+    /// 是不是明天
+    var tomorrowDate: Date? {
+        return adding(day: 1)
+    }
+    
+    // MARK: 是不是前天
+    /// 是不是前天
+    var theDayBeforYesterDayDate: Date? {
+        return adding(day: -2)
+    }
+    
+    // MARK: 是不是后天
+    /// 是不是后天
+    var theDayAfterYesterDayDate: Date? {
+        return adding(day: 2)
+    }
+    
+    // MARK: 是否为 同一年 同一月 同一天
+    /// 是否为  同一年  同一月 同一天
+    /// - Returns: bool
+    func isSameYearMonthDayWithToday() -> Bool {
+        return isSameYeaerMountDay(Date())
+    }
+    
+    private func adding(day: Int) -> Date? {
+        return Calendar.current.date(byAdding: DateComponents(day:day), to: self)
+    }
+    
+    /// 是否为  同一年  同一月 同一天
+    private func isSameYeaerMountDay(_ date: Date) -> Bool {
+        let com = Calendar.current.dateComponents([.year, .month, .day], from: self)
+        let comToday = Calendar.current.dateComponents([.year, .month, .day], from: date)
+        
+        return (com.day == comToday.day &&
+            com.month == comToday.month &&
+            com.year == comToday.year )
+    }
+    
+}
+
+// MARK: - NSDate
 public extension NSDate {
     
-    /// 传 str 返回 NSDate
-    /// - Parameter time: 时间戳字符串
-    class func dateWithStr(time: String) ->NSDate {
+    // MARK: 传 时间戳字符串 返回 NSDate
+    /// 传 时间戳字符串 返回 NSDate
+    /// - Parameter time: 时间戳
+    /// - Returns: 返回NSDate
+    class func dateWithStr(time: String) -> NSDate {
         
         // 1. 将服务器返回给我们的时间字符串转化为NSDate
         // 1.1.创建formatter
@@ -160,7 +259,7 @@ public extension NSDate {
         let formatter = DateFormatter()
         // 5.2.设置时间格式
         formatter.dateFormat = formatterStr
-        // 5.3.设置时间的区域(真机必须设置，负责可能转化不成功)
+        // 5.3.设置时间的区域(真机必须设置，否则可能转化不成功)
         formatter.locale = NSLocale(localeIdentifier: "en") as Locale?
         // 5.4.格式化
         return formatter.string(from: self as Date)
@@ -272,7 +371,7 @@ public extension NSDate {
         // 5.4.格式化
         return formatter1.string(from: date!) as NSString
     }
- 
+    
     // MARK: 当前格式化后的时间
     /// 当前格式化后的时间
     /// - Parameter dateFormat: 格式化方式

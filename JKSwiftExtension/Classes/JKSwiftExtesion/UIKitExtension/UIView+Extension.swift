@@ -47,10 +47,80 @@ public var kTabbarFrameH: CGFloat { return iPhoneX ? 83 : 49 }
 /// 底部tabbar多出的部分
 public var kTabbatBottom: CGFloat { return iPhoneX ? 34 : 0 }
 
+// MARK: 是不是 iPhone X
+/// 是不是 iPhone X
+/// - Returns: bool
+public func isIphoneX() -> Bool {
+    return isIphone() && kScreenH == 812
+}
+
+// MARK: 是不是 iPhone XS
+/// 是不是 iPhone XS
+/// - Returns: description
+public func isXs() -> Bool {
+    return isIphone() && kScreenH == 812
+}
+
+// MARK: 是不是 iPhone XR
+/// 是不是 iPhone XR
+/// - Returns: description
+public func isXR() -> Bool {
+    return isIphone() && kScreenH == 896 && kScreenW == 414
+}
+/// iPhone XsMax
+ 
+// MARK: 是不是 iPhone XsMax
+/// 是不是 iPhone XsMax
+/// - Returns: description
+public func isXsMax() -> Bool {
+    return isIphone() && kScreenH == 896 && kScreenW == 414
+}
+
+// MARK: 是不是 iPhone
+/// 判断是不是 iPhone
+/// - Returns: bool
+public func isIphone() -> Bool {
+    return UI_USER_INTERFACE_IDIOM() == .phone
+}
+
+// MARK: 判断是否是 pad
+/// 判断是否是 pad
+/// - Returns: bool
+public func isPadDevice() -> Bool {
+    return UI_USER_INTERFACE_IDIOM() == .pad
+}
+
+// MARK: 判断是不是 4 4s
+/// 4 4s
+/// - Returns: description
+public func is4OrLess() -> Bool {
+    return isIphone() && kScreenH < 568
+}
+
+// MARK: 判断是不是 5 5c 5s
+/// 判断是不是 5 5c 5s
+/// - Returns: description
+public func is5() -> Bool {
+    return isIphone() && kScreenH == 568
+}
+
+// MARK: 判断是不是 6 6s 7 8
+/// 判断是不是 6 6s 7 8
+/// - Returns: description
+public func is678() -> Bool {
+    return isIphone() && kScreenH == 667
+}
+
+// MARK: 判断是不是 6p 7p 8p
+/// 判断是不是 6p 7p 8p
+/// - Returns: description
+public func is678P() -> Bool {
+    return isIphone() && kScreenH == 736
+}
+
 // MARK:- 关于UIView的x，y,width,height的判断
 public extension UIView {
 
-    // MARK: x的位置
     /// x的位置
     var x: CGFloat {
         get {

@@ -41,6 +41,12 @@
 		848331CB251C75C500DEB439 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848331CA251C75C500DEB439 /* UITextView+Extension.swift */; };
 		848331CD251C7C6700DEB439 /* ActionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848331CC251C7C6700DEB439 /* ActionLabel.swift */; };
 		848331CF251C8A5900DEB439 /* BaseData+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848331CE251C8A5900DEB439 /* BaseData+Extension.swift */; };
+		848331D1251C97D200DEB439 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848331D0251C97D200DEB439 /* Bundle+Extension.swift */; };
+		848331D3251C995400DEB439 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848331D2251C995400DEB439 /* CALayer+Extension.swift */; };
+		848331D5251CA04600DEB439 /* JKPOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848331D4251CA04600DEB439 /* JKPOP.swift */; };
+		848331D8251CA08800DEB439 /* JKPOP+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848331D7251CA08800DEB439 /* JKPOP+String.swift */; };
+		848331DA251CA10600DEB439 /* CATextLayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848331D9251CA10600DEB439 /* CATextLayer+Extension.swift */; };
+		848331DC251CA2C400DEB439 /* UIImage+Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848331DB251CA2C400DEB439 /* UIImage+Compression.swift */; };
 		87C6DEC49DA704AFF55D2B8D2F0B2153 /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F8B378A0D395518DE2DD11AE4B6F98 /* ConstraintMaker.swift */; };
 		891FEB19675AA66D8575A64AD324FB53 /* Pods-JKSwiftExtension_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D5DA3C07A8DB383F9CF7D4677C9A9E22 /* Pods-JKSwiftExtension_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8B0E2F9F4D8F4884F9FABC6E3CE13CFD /* SnapKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1B5C574EC29B2A222C6281A4A0B3BC /* SnapKit-dummy.m */; };
@@ -180,6 +186,12 @@
 		848331CA251C75C500DEB439 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		848331CC251C7C6700DEB439 /* ActionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionLabel.swift; sourceTree = "<group>"; };
 		848331CE251C8A5900DEB439 /* BaseData+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseData+Extension.swift"; sourceTree = "<group>"; };
+		848331D0251C97D200DEB439 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		848331D2251C995400DEB439 /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
+		848331D4251CA04600DEB439 /* JKPOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPOP.swift; sourceTree = "<group>"; };
+		848331D7251CA08800DEB439 /* JKPOP+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JKPOP+String.swift"; sourceTree = "<group>"; };
+		848331D9251CA10600DEB439 /* CATextLayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CATextLayer+Extension.swift"; sourceTree = "<group>"; };
+		848331DB251CA2C400DEB439 /* UIImage+Compression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Compression.swift"; sourceTree = "<group>"; };
 		848E9BA38AE7A77B37C78B343E836974 /* SnapKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SnapKit-Info.plist"; sourceTree = "<group>"; };
 		89AB073B6C8F223DF0B2E89C1F52DBCD /* UIScrollView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extension.swift"; sourceTree = "<group>"; };
 		8C80000E1CA4369B2E82035A1825982D /* ConstraintRelation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelation.swift; path = Source/ConstraintRelation.swift; sourceTree = "<group>"; };
@@ -349,6 +361,7 @@
 				43C8BE642630DEDE4A4909BB689447E8 /* UIBarButtonItem+Extension.swift */,
 				BDFAFC46FB487D10004DE369A338C8A4 /* UIButton+Extension.swift */,
 				509BE8E9143A453F092F32FDA853E73E /* UIImage+Extension.swift */,
+				848331DB251CA2C400DEB439 /* UIImage+Compression.swift */,
 				07E7C1FB937364D93B0F077296FC5B31 /* UILabel+Extension.swift */,
 				89AB073B6C8F223DF0B2E89C1F52DBCD /* UIScrollView+Extension.swift */,
 				4ABC7E2666AEC39136EBA3AB786E7267 /* UITableView+Extension.swift */,
@@ -356,6 +369,8 @@
 				E29DB761E8CD326382CF75A8B787BC7C /* UIView+Features.swift */,
 				EC3A7864F3FDFCCED52AC70A26423E63 /* UIViewController+Extension.swift */,
 				848331CA251C75C500DEB439 /* UITextView+Extension.swift */,
+				848331D2251C995400DEB439 /* CALayer+Extension.swift */,
+				848331D9251CA10600DEB439 /* CATextLayer+Extension.swift */,
 			);
 			name = UIKitExtension;
 			path = JKSwiftExtension/Classes/JKSwiftExtesion/UIKitExtension;
@@ -373,9 +388,18 @@
 				24CFBC7762E7DD88A15F5B8C8042FD33 /* UIDevice+Extension.swift */,
 				0B586702457F9C0443D01945FEFB4ACB /* UIFont+Extensin.swift */,
 				848331CE251C8A5900DEB439 /* BaseData+Extension.swift */,
+				848331D0251C97D200DEB439 /* Bundle+Extension.swift */,
 			);
 			name = FoundationExtension;
 			path = JKSwiftExtension/Classes/JKSwiftExtesion/FoundationExtension;
+			sourceTree = "<group>";
+		};
+		848331D6251CA08800DEB439 /* JKPOPExtension */ = {
+			isa = PBXGroup;
+			children = (
+				848331D7251CA08800DEB439 /* JKPOP+String.swift */,
+			);
+			path = JKPOPExtension;
 			sourceTree = "<group>";
 		};
 		C5D6D3B0FAADF1014EFA6DA83F9FDCAD /* Protocol */ = {
@@ -383,6 +407,8 @@
 			children = (
 				F67D74278E85EE9D3B86CE1FEBFA191B /* JKEmitterable.swift */,
 				186E6FA9615FA0C2DC8AE17A704AD77B /* NibLoadable.swift */,
+				848331D4251CA04600DEB439 /* JKPOP.swift */,
+				848331D6251CA08800DEB439 /* JKPOPExtension */,
 			);
 			name = Protocol;
 			path = JKSwiftExtension/Classes/JKSwiftExtesion/Protocol;
@@ -705,12 +731,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E1E798B2F99E4E1845E26EB3BDD5FA6 /* Array+Extension.swift in Sources */,
+				848331D1251C97D200DEB439 /* Bundle+Extension.swift in Sources */,
 				CA74C0B654C1212C4F227D9D9CDAA1EB /* CGRect+Extension.swift in Sources */,
+				848331DC251CA2C400DEB439 /* UIImage+Compression.swift in Sources */,
 				4F3D6D976AE0327884153BE16B96D696 /* Date+Extension.swift in Sources */,
 				C98E5AA93410AF68FDC650DD669D3249 /* JKAsyncs.swift in Sources */,
 				D45C3CA662DBB1DBEBA4B39207D05A41 /* JKCommonTool.swift in Sources */,
 				75EAA702513AB96E6387862858447D0A /* JKEmitterable.swift in Sources */,
 				E52C8831BE2AC99EA90C39C979341AD9 /* JKLoadingView.swift in Sources */,
+				848331DA251CA10600DEB439 /* CATextLayer+Extension.swift in Sources */,
 				B98C2FF45EBFA7E9ECAC3051F86868E7 /* JKPrint.swift in Sources */,
 				9B9D714BDBBE842DA4CC2F5530EB0400 /* JKRuntime.swift in Sources */,
 				1C7D773D443E4413FEE17B1AEC1C3FEA /* JKSwiftExtension-dummy.m in Sources */,
@@ -721,11 +750,14 @@
 				A5D8B72781D78BCF211B0F38B4681A3E /* JKWidthHeight.swift in Sources */,
 				7F63B12D46886D493C233C305D6B4FD6 /* MaskingManager.swift in Sources */,
 				305CAD1B178E43306C2966401102E2C4 /* NibLoadable.swift in Sources */,
+				848331D5251CA04600DEB439 /* JKPOP.swift in Sources */,
 				DB9FD6190B28D5F110405D0B3F1142FF /* NSObject+Extension.swift in Sources */,
 				CAC7AC1B64A6B00439B0C0970905A6D1 /* String+Extension.swift in Sources */,
 				12CC473A28B718627C5C402B52BD9B0D /* ToastTexView.swift in Sources */,
 				2D1F4BC6EE7F63C44B5A602F91FDE55C /* UIBarButtonItem+Extension.swift in Sources */,
+				848331D8251CA08800DEB439 /* JKPOP+String.swift in Sources */,
 				169B88C32FF014E241E85279D1F08120 /* UIButton+Extension.swift in Sources */,
+				848331D3251C995400DEB439 /* CALayer+Extension.swift in Sources */,
 				0F7ABE4346D84C3BAEFFC1DB8B73C523 /* UIColor+BaseExtension.swift in Sources */,
 				F49E774E8C69955B9B0DDA6A286A59F4 /* UIDevice+Extension.swift in Sources */,
 				08675664FB71318EF8701D1FF92F51E8 /* UIFont+Extensin.swift in Sources */,
