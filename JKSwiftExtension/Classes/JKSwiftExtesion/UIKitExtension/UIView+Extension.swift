@@ -11,28 +11,20 @@ import Foundation
 
 // MARK:- 屏幕的宽高
 /*
-iphone硬件型号
-iPhoneX的分辨率：      2436 * 1125 || pt: 812 * 375
-iPhoneXR的分辨率：     1792 * 828 || pt: 896 * 414
-iPhoneXS的分辨率：     2436 * 1125 || pt: 812 * 375
-iPhoneXS Max的分辨率： 2688 * 1242 || pt: 896 * 414
-*/
-let iPhone4 = (CGSize(width: 640, height: 960).equalTo(UIScreen.main.currentMode!.size))
-let iPhone5 = (CGSize(width: 640, height: 1136).equalTo(UIScreen.main.currentMode!.size))
-let iPhone6 = (CGSize(width: 750, height: 1334).equalTo(UIScreen.main.currentMode!.size))
-let iPhone6P = (CGSize(width: 1242, height: 2208).equalTo(UIScreen.main.currentMode!.size))
-let iPhoneX = UIScreen.main.bounds.height >= 812//(CGSize(width: 1125, height: 2436).equalTo(UIScreen.main.currentMode!.size))
-//let iPhoneXR = (CGSize(width: 828, height: 1792).equalTo(UIScreen.main.currentMode!.size))
-//let iPhoneXS = (CGSize(width: 1125, height: 2436).equalTo(UIScreen.main.currentMode!.size))
-//let iPhoneXSMax = (CGSize(width: 1242, height: 2688).equalTo(UIScreen.main.currentMode!.size))
-
-/*
-iphone硬件型号
-iPhoneX的分辨率：      2436 * 1125 || pt: 812 * 375
-iPhoneXR的分辨率：     1792 * 828 || pt: 896 * 414
-iPhoneXS的分辨率：     2436 * 1125 || pt: 812 * 375
-iPhoneXS Max的分辨率： 2688 * 1242 || pt: 896 * 414
-*/
+ iphone硬件型号
+ iPhoneX的分辨率：      2436 * 1125 || pt: 812 * 375
+ iPhoneXR的分辨率：     1792 * 828 || pt: 896 * 414
+ iPhoneXS的分辨率：     2436 * 1125 || pt: 812 * 375
+ iPhoneXS Max的分辨率： 2688 * 1242 || pt: 896 * 414
+ */
+let isIPhone4 = (CGSize(width: 640, height: 960).equalTo(UIScreen.main.currentMode!.size))
+let isIPhone5 = (CGSize(width: 640, height: 1136).equalTo(UIScreen.main.currentMode!.size))
+let isIPhone6 = (CGSize(width: 750, height: 1334).equalTo(UIScreen.main.currentMode!.size))
+let isIPhone6P = (CGSize(width: 1242, height: 2208).equalTo(UIScreen.main.currentMode!.size))
+let isIPhoneX = UIScreen.main.bounds.height >= 812//(CGSize(width: 1125, height: 2436).equalTo(UIScreen.main.currentMode!.size))
+let isIPhoneXR = (CGSize(width: 828, height: 1792).equalTo(UIScreen.main.currentMode!.size))
+let isIPhoneXS = (CGSize(width: 1125, height: 2436).equalTo(UIScreen.main.currentMode!.size))
+let isIiPhoneXSMax = (CGSize(width: 1242, height: 2688).equalTo(UIScreen.main.currentMode!.size))
 
 /// 屏幕的宽
 public let kScreenW: CGFloat = UIScreen.main.bounds.width
@@ -41,11 +33,26 @@ public let kScreenH: CGFloat = UIScreen.main.bounds.height
 /// 获取statusBar的高度
 public let kStatusBarFrameH: CGFloat = UIApplication.shared.statusBarFrame.height
 /// 获取导航栏的高度
-public var kNavFrameH: CGFloat { return iPhoneX ? 88 : 64 }
+public var kNavFrameH: CGFloat { return isIPhoneX ? 88 : 64 }
 /// 获取tabbar的高度
-public var kTabbarFrameH: CGFloat { return iPhoneX ? 83 : 49 }
+public var kTabbarFrameH: CGFloat { return isIPhoneX ? 83 : 49 }
 /// 底部tabbar多出的部分
-public var kTabbatBottom: CGFloat { return iPhoneX ? 34 : 0 }
+public var kTabbatBottom: CGFloat { return isIPhoneX ? 34 : 0 }
+
+// MARK: 设备型号
+/// 设备型号
+/// - Returns: 设备型号信息
+public func deviceModel() -> String {
+    var systemInfo = utsname()
+    uname(&systemInfo)
+    let size = Int(_SYS_NAMELEN)
+    let deviceModelName = withUnsafeMutablePointer(to: &systemInfo.machine) { p in
+        p.withMemoryRebound(to: CChar.self, capacity: size, { p2 in
+            return String(cString: p2)
+        })
+    }
+    return deviceModelName
+}
 
 // MARK: 是不是 iPhone X
 /// 是不是 iPhone X
@@ -68,7 +75,7 @@ public func isXR() -> Bool {
     return isIphone() && kScreenH == 896 && kScreenW == 414
 }
 /// iPhone XsMax
- 
+
 // MARK: 是不是 iPhone XsMax
 /// 是不是 iPhone XsMax
 /// - Returns: description
@@ -120,7 +127,7 @@ public func is678P() -> Bool {
 
 // MARK:- 关于UIView的x，y,width,height的判断
 public extension UIView {
-
+    
     /// x的位置
     var x: CGFloat {
         get {
@@ -132,7 +139,7 @@ public extension UIView {
             frame                 = tempFrame
         }
     }
-
+    
     /// y的位置
     var y: CGFloat {
         get {
@@ -144,7 +151,7 @@ public extension UIView {
             frame                 = tempFrame
         }
     }
-
+    
     /// height: 视图的高度
     var height: CGFloat {
         get {
@@ -180,7 +187,7 @@ public extension UIView {
             frame = tempFrame
         }
     }
-
+    
     /// centerX: 视图的X中间位置
     var centerX: CGFloat {
         get {
@@ -248,7 +255,7 @@ public extension UIView {
             frame.origin.x = newValue - frame.size.width
         }
     }
-
+    
     /// 裁剪 view 的圆角
     func clipRectCorner(direction: UIRectCorner, cornerRadius: CGFloat) {
         let cornerSize = CGSize(width:cornerRadius, height:cornerRadius)
