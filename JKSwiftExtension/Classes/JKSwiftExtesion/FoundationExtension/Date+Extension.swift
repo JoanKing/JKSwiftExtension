@@ -57,7 +57,7 @@ public extension Date {
     // MARK: 是否为今天（只比较日期，不比较时分秒）
     /// 是否为今天（只比较日期，不比较时分秒）
     /// - Returns: bool
-    func isToday() -> Bool {
+    func isTodayJudge() -> Bool {
         let date = Date()
         if self.toString("yyyyMMdd") == date.toString("yyyyMMdd") {
             return true
@@ -111,6 +111,12 @@ public extension Date {
 // MARK:- 前天、昨天、今天、明天、后天、是否同一年同一月同一天的判断
 public extension Date {
 
+    // MARK: 是否为今天
+    /// 是否为今天
+    var isToday: Bool {
+        return  isSameYearMonthDayWithToday()
+    }
+    
     // MARK: 是否为昨天
     /// 是否为昨天
     var isYesterday: Bool {

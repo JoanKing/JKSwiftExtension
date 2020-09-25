@@ -161,17 +161,34 @@ public extension String {
     }
 }
 
-// MARK:- 吐司的提示
+// MARK:- 精确度的处理
 public extension String {
-    /// 提示一
-    /// - Parameters:
-    ///   - duration: 时间
-    ///   - view: 所在的视图
-    func toast(duration: TimeInterval = 2, in view: UIView? = UIApplication.shared.keyWindow) {
-    
-        if !isEmpty {
-            MaskingManager.shareManager.showToast(text: self, duration: duration, in: view)
+    /// - Important: 字符串差不多精确转换成Double——之所以差不多，是因为有精度损失
+    func accuraterDouble() -> Double? {
+        guard let decimal = Decimal(string: self) else { return nil }
+        print(NSDecimalNumber(decimal: decimal).doubleValue)
+        return NSDecimalNumber(decimal: decimal).doubleValue
+    }
+    /// - Important: cut小数点后多余的0
+    func cutLastZeroAfterDot() -> String {
+        var rst = self
+        var i = 1
+        if self.contains(".") {
+            while i < self.count {
+                if rst.hasSuffix("0") {
+                    rst.removeLast()
+                    i = i + 1
+                } else {
+                    break
+                }
+            }
+            if rst.hasSuffix(".") {
+                rst.removeLast()
+            }
+            return rst
+        }
+        else {
+            return self
         }
     }
-    
 }

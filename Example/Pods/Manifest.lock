@@ -1,6 +1,8 @@
 PODS:
-  - JKSwiftExtension (0.1.2):
+  - JKSwiftExtension (0.1.5):
+    - Kingfisher
     - SnapKit
+  - Kingfisher (4.10.1)
   - SnapKit (4.2.0)
 
 DEPENDENCIES:
@@ -8,6 +10,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Kingfisher
     - SnapKit
 
 EXTERNAL SOURCES:
@@ -15,7 +18,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JKSwiftExtension: 37d8041e6d74856b602dd4accb3db8bd2d7c8a6e
+  JKSwiftExtension: 3ac68e7bb518a6dfefe9d2bb971dd4e5d1c40a2c
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
 PODFILE CHECKSUM: c1a4b566286392d06e5e810e5a19ebdd69fab9b6
