@@ -3,14 +3,25 @@ PODS:
     - Kingfisher
     - SnapKit
   - Kingfisher (4.10.1)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
   - SnapKit (4.2.0)
 
 DEPENDENCIES:
   - JKSwiftExtension (from `../`)
+  - RxCocoa
+  - RxSwift
 
 SPEC REPOS:
   trunk:
     - Kingfisher
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - SnapKit
 
 EXTERNAL SOURCES:
@@ -20,8 +31,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   JKSwiftExtension: 3ac68e7bb518a6dfefe9d2bb971dd4e5d1c40a2c
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: c1a4b566286392d06e5e810e5a19ebdd69fab9b6
+PODFILE CHECKSUM: 276dd0f339904c7ba07e86e384ca729dae71e388
 
 COCOAPODS: 1.9.3

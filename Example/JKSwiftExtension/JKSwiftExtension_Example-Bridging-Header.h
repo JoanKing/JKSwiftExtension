@@ -3,3 +3,7 @@
 //
 
 #import <JKSwiftExtension/JKSwiftExtension-Swift.h>
+
+#import <RxCocoa/RxCocoa-Swift.h>
+#import <RxRelay/RxRelay-Swift.h>
+#import <RxSwift/RxSwift-Swift.h>

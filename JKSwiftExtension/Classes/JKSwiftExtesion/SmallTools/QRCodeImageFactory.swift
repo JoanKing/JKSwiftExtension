@@ -12,15 +12,16 @@ public struct QRCodeImageFactory {
     // MARK: 生成二维码中间有图片logo 并且指定大小
     /// 生成二维码中间有图片logo 并且指定大小
     /// - Parameters:
-    ///   - content: 二维码内容 内容会自动被urlencode
+    ///   - content: 二维码内容 内容会自动被 urlencode
     ///   - size: 生成图片的大小
     ///   - logo: 二维码中间的logo
     ///   - logoSize: logo的大小
+    ///   - logoRoundCorner: logo的圆角大小，设置则有，不设置则没有
     /// - Returns: UIImage
     public static func qrCodeImage(content: String,
                                    size: CGSize,
                                    logo: UIImage? = nil,
-                                   logoSize: CGSize? = nil) -> UIImage? {
+                                   logoSize: CGSize? = nil, logoRoundCorner: CGFloat? = nil) -> UIImage? {
         guard size.width > 0, size.height > 0, let originImage = qrCodeImage(content: content) else {
             return nil
         }
@@ -29,13 +30,19 @@ public struct QRCodeImageFactory {
         let transformedImage = originImage.transformed(by: CGAffineTransform(scaleX: scaleX, y: scaleY))
         let image = UIImage(ciImage: transformedImage)
         
-        guard let logo = logo, let logoSize = logoSize else {
+        guard let logoSize = logoSize, let logo = logo else {
             return image
         }
+  
+        var newLogo: UIImage = logo
+        if let newLogoRoundCorner = logoRoundCorner, let roundCornerLogo = logo.isRoundCorner(radius: newLogoRoundCorner, size: logoSize) {
+            newLogo = roundCornerLogo
+        }
+        
         let logoFrame = CGRect.init(origin: CGPoint.init(x:  (size.width - logoSize.width) / 2 , y: (size.height - logoSize.height) / 2), size: logoSize)
         UIGraphicsBeginImageContext(image.size)
         image.draw(in: CGRect(origin: .zero, size: image.size))
-        logo.draw(in: logoFrame)
+        newLogo.draw(in: logoFrame)
         let resultImg = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return resultImg

@@ -8,8 +8,10 @@
 
 import UIKit
 
+// MARK:- UserDefaults
 public struct JKUserDefaults {
     
+    // MARK: 存值
     /// 存值
     /// - Parameter value: 值
     /// - Parameter key: 键
@@ -21,6 +23,7 @@ public struct JKUserDefaults {
         UserDefaults.standard.synchronize()
     }
     
+    // MARK: 取值
     /// 取值
     /// - Parameter key: 键
     public static func userDefaultsGetValue(key:String?) -> Any? {

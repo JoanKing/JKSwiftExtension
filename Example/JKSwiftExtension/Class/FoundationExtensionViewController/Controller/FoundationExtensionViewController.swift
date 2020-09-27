@@ -9,26 +9,118 @@
 import UIKit
 
 class FoundationExtensionViewController: UIViewController {
-
+    
+    fileprivate static let FoundationExtensionViewControllerCellIdentifier = "FoundationExtensionViewControllerCellIdentifier"
+    /// 资源数组
+    fileprivate var dataArray = [Any]()
+    lazy var tableView : UITableView = {
+        
+        let tableView = UITableView(frame:CGRect(x:0, y: 0, width: kScreenW, height: kScreenH - CGFloat(kNavFrameH)), style:.grouped)
+        if #available(iOS 11, *) {
+            tableView.estimatedSectionFooterHeight = 0
+            tableView.estimatedSectionHeaderHeight = 0
+            tableView.contentInsetAdjustmentBehavior = .never
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
+        tableView.backgroundColor = UIColor.white
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
+        tableView.register(HomeViewCell.self, forCellReuseIdentifier: FoundationExtensionViewController.FoundationExtensionViewControllerCellIdentifier)
+        return tableView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.view.backgroundColor = UIColor.white
+        
+        self.title = "JKSwiftExtension"
+        self.edgesForExtendedLayout = []
+        self.view.backgroundColor = UIColor.green
+        dataArray = ["Array+Extension", "BaseData+Extension", "Bundle+Extension", "CGRect+Extension", "Date+Extension", "Double+Divisible", "NSObject+Extension", "String+Extension", "UIColor+BaseExtension", "UIDevice+Extension", "UIFont+Extensin", "NSAttributedString+Extension"]
+        initUI()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        NotificationCenter.default.post(name: NSNotification.Name.FBTradeHomeListDataNotification, object: nil)
+    /// 创建控件
+    private func initUI() {
+        view.addSubview(tableView)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
-    */
+}
 
+extension FoundationExtensionViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: FoundationExtensionViewController.FoundationExtensionViewControllerCellIdentifier, for: indexPath) as! HomeViewCell
+        cell.contentLabel.text = (dataArray[indexPath.row] as! String)
+        // cell.lineView.isHidden = indexPath.row == dataArray.count - 1 ? true : false
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height:0.01))
+        return sectionView
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let sectionFootView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
+        return sectionFootView
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    
+        let cellName = dataArray[indexPath.row] as! String
+        if cellName == "Array+Extension" {
+         
+        } else if cellName == "BaseData+Extension" {
+           
+        } else if cellName == "Bundle+Extension" {
+           
+        } else if cellName == "CGRect+Extension" {
+        
+        } else if cellName == "Date+Extension" {
+            
+        } else if cellName == "Double+Divisible" {
+            
+        } else if cellName == "NSObject+Extension" {
+            
+        } else if cellName == "String+Extension" {
+            
+        } else if cellName == "UIColor+BaseExtension" {
+            
+        } else if cellName == "UIDevice+Extension" {
+            
+        } else if cellName == "UIFont+Extensin" {
+            
+        } else if cellName == "NSAttributedString+Extension" {
+            
+        } else if cellName == "" {
+            
+        } else if cellName == "" {
+            
+        } else if cellName == "" {
+            
+        } else {
+            
+        }
+    }
 }

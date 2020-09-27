@@ -367,3 +367,79 @@ public extension UIImage {
         self.init(named: imageName, in: Bundle(bundleName: bundleName, forParent: aClass), compatibleWith: nil)
     }
 }
+
+// MARK:- 图片圆角的设置
+extension UIImage{
+    
+    // MARK: 设置是否是圆角(默认:3.0,图片大小)
+    /// 设置是否是圆角(默认:3.0,图片大小)
+    /// - Returns: UIImage
+    func isRoundCorner() -> UIImage {
+        return self.isRoundCorner(radius: 3.0, size: self.size)!
+    }
+    
+    /// 设置是否是圆角
+    /// - Parameters:
+    ///   - radius: 圆角大小
+    ///   - size: size
+    /// - Returns: 带圆角的图片
+    func isRoundCorner(radius:CGFloat,size:CGSize) -> UIImage? {
+        let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
+        //开始图形上下文
+        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
+        guard let contentRef:CGContext = UIGraphicsGetCurrentContext() else {
+            //关闭上下文
+            UIGraphicsEndImageContext();
+            return nil
+        }
+        
+        //绘制路线
+        contentRef.addPath(UIBezierPath(roundedRect: rect,
+                                        byRoundingCorners: UIRectCorner.allCorners,
+                                        cornerRadii: CGSize(width: radius, height: radius)).cgPath)
+        //裁剪
+        contentRef.clip()
+        //将原图片画到图形上下文
+        self.draw(in: rect)
+        contentRef.drawPath(using: .fillStroke)
+        guard let output = UIGraphicsGetImageFromCurrentImageContext() else {
+            //关闭上下文
+            UIGraphicsEndImageContext();
+            return nil
+        }
+        //关闭上下文
+        UIGraphicsEndImageContext();
+        return output
+    }
+    
+    // MARK: 设置圆形图片
+    /// 设置圆形图片
+    /// - Returns: 圆形图片
+    func isCircleImage() -> UIImage? {
+        //开始图形上下文
+        UIGraphicsBeginImageContextWithOptions(self.size, false, UIScreen.main.scale)
+        //获取图形上下文
+        guard let contentRef:CGContext = UIGraphicsGetCurrentContext() else {
+            //关闭上下文
+            UIGraphicsEndImageContext();
+            return nil
+        }
+        //设置圆形
+        let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
+        //根据 rect 创建一个椭圆
+        contentRef.addEllipse(in: rect)
+        //裁剪
+        contentRef.clip()
+        //将原图片画到图形上下文
+        self.draw(in: rect)
+        //从上下文获取裁剪后的图片
+        guard let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext() else {
+            //关闭上下文
+            UIGraphicsEndImageContext();
+            return nil
+        }
+        //关闭上下文
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+}
