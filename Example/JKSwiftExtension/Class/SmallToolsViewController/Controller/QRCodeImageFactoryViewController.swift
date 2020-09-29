@@ -24,7 +24,7 @@ class QRCodeImageFactoryViewController: UIViewController {
         self.title = "二维码工厂"
         self.view.backgroundColor = .white
         
-        let btn = UIButton(frame: CGRect(x: self.view.centerX - 150, y: 130, width: 130, height: 50))
+        let btn = UIButton(frame: CGRect(x: self.view.jk.centerX - 150, y: 130, width: 130, height: 50))
         btn.backgroundColor = .brown
         btn.setTitleColor(.white, for: .normal)
         btn.setTitle("生成二维码", for: .normal)
@@ -34,7 +34,7 @@ class QRCodeImageFactoryViewController: UIViewController {
         }.disposed(by: bag)
         self.view.addSubview(btn)
         
-        let saveImageBtn = UIButton(frame: CGRect(x: self.view.centerX + 20, y: 130, width: 130, height: 50))
+        let saveImageBtn = UIButton(frame: CGRect(x: self.view.jk.centerX + 20, y: 130, width: 130, height: 50))
         saveImageBtn.backgroundColor = .brown
         saveImageBtn.setTitleColor(.white, for: .normal)
         saveImageBtn.setTitle("保存二维码", for: .normal)

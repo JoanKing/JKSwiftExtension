@@ -39,6 +39,8 @@ public var kTabbarFrameH: CGFloat { return isIPhoneX ? 83 : 49 }
 /// 底部tabbar多出的部分
 public var kTabbatBottom: CGFloat { return isIPhoneX ? 34 : 0 }
 
+public let kPixel = 1.0 / UIScreen.main.scale
+
 // MARK: 设备型号
 /// 设备型号
 /// - Returns: 设备型号信息
@@ -125,136 +127,140 @@ public func is678P() -> Bool {
     return isIphone() && kScreenH == 736
 }
 
-// MARK:- 关于UIView的x，y,width,height的判断
-public extension UIView {
-    
+extension UIView: JKPOPCompatible {}
+
+public extension JKPOP where Base : UIView {
     /// x的位置
     var x: CGFloat {
         get {
-            return frame.origin.x
+            return base.frame.origin.x
         }
         set(newValue) {
-            var tempFrame: CGRect = frame
+            var tempFrame: CGRect = base.frame
             tempFrame.origin.x    = newValue
-            frame                 = tempFrame
+            base.frame                 = tempFrame
         }
     }
     
     /// y的位置
     var y: CGFloat {
         get {
-            return frame.origin.y
+            return base.frame.origin.y
         }
         set(newValue) {
-            var tempFrame: CGRect = frame
+            var tempFrame: CGRect = base.frame
             tempFrame.origin.y    = newValue
-            frame                 = tempFrame
+            base.frame                 = tempFrame
         }
     }
     
     /// height: 视图的高度
     var height: CGFloat {
         get {
-            return frame.size.height
+            return base.frame.size.height
         }
         set(newValue) {
-            var tempFrame: CGRect = frame
+            var tempFrame: CGRect = base.frame
             tempFrame.size.height = newValue
-            frame                 = tempFrame
+            base.frame                 = tempFrame
         }
     }
     
     /// width: 视图的宽度
     var width: CGFloat {
         get {
-            return frame.size.width
+            return base.frame.size.width
         }
         set(newValue) {
-            var tempFrame: CGRect = frame
+            var tempFrame: CGRect = base.frame
             tempFrame.size.width = newValue
-            frame = tempFrame
+            base.frame = tempFrame
         }
     }
     
     /// size: 视图的zize
     var size: CGSize {
         get {
-            return frame.size
+            return base.frame.size
         }
         set(newValue) {
-            var tempFrame: CGRect = frame
+            var tempFrame: CGRect = base.frame
             tempFrame.size = newValue
-            frame = tempFrame
+            base.frame = tempFrame
         }
     }
     
     /// centerX: 视图的X中间位置
     var centerX: CGFloat {
         get {
-            return center.x
+            return base.center.x
         }
         set(newValue) {
-            var tempCenter: CGPoint = center
+            var tempCenter: CGPoint = base.center
             tempCenter.x = newValue
-            center = tempCenter
+            base.center = tempCenter
         }
     }
     
     /// centerY: 视图Y的中间位置
     var centerY: CGFloat {
         get {
-            return center.y
+            return base.center.y
         }
         set(newValue) {
-            var tempCenter: CGPoint = center
+            var tempCenter: CGPoint = base.center
             tempCenter.y = newValue
-            center = tempCenter;
+            base.center = tempCenter;
         }
     }
     
     /// 上端横坐标
     var top: CGFloat {
         get {
-            return frame.origin.y
+            return base.frame.origin.y
         }
         set(newValue) {
-            var tempFrame: CGRect = frame
+            var tempFrame: CGRect = base.frame
             tempFrame.origin.y    = newValue
-            frame                 = tempFrame
+            base.frame                 = tempFrame
         }
     }
     
     /// 右端横坐标
     var left: CGFloat {
         get {
-            return frame.origin.x
+            return base.frame.origin.x
         }
         set(newValue) {
-            var tempFrame: CGRect = frame
+            var tempFrame: CGRect = base.frame
             tempFrame.origin.x    = newValue
-            frame                 = tempFrame
+            base.frame                 = tempFrame
         }
     }
     
     /// 底端纵坐标
     var bottom: CGFloat {
         get {
-            return frame.origin.y + frame.size.height
+            return base.frame.origin.y + base.frame.size.height
         }
         set(newValue) {
-            frame.origin.y = newValue - frame.size.height
+            base.frame.origin.y = newValue - base.frame.size.height
         }
     }
     
     /// 右端横坐标
     var right: CGFloat {
         get {
-            return frame.origin.x + frame.size.width
+            return base.frame.origin.x + base.frame.size.width
         }
         set(newValue) {
-            frame.origin.x = newValue - frame.size.width
+            base.frame.origin.x = newValue - base.frame.size.width
         }
     }
+}
+// MARK:- 关于UIView的x，y,width,height的判断
+public extension UIView {
+    
     
     /// 裁剪 view 的圆角
     func clipRectCorner(direction: UIRectCorner, cornerRadius: CGFloat) {
@@ -277,5 +283,20 @@ public extension UIView {
         maskLayer.frame = self.bounds
         maskLayer.path = maskPath.cgPath
         self.layer.mask = maskLayer
+    }
+}
+
+// MARK:- 获取当前view的viewcontroller
+public extension UIView {
+    /// 获取当前view的viewcontroller
+    var currentVC: UIViewController? {
+        var parentResponder: UIResponder? = self
+        while parentResponder != nil {
+            parentResponder = parentResponder!.next
+            if let viewController = parentResponder as? UIViewController {
+                return viewController
+            }
+        }
+        return nil
     }
 }

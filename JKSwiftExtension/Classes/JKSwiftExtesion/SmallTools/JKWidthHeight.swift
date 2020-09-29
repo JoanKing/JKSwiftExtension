@@ -34,7 +34,7 @@ public struct JKWidthHeight {
         tempLabel.attributedText = aString;
         tempLabel.numberOfLines = 0;
         tempLabel.sizeToFit()
-        let size: CGSize = tempLabel.size
+        let size: CGSize = tempLabel.jk.size
         return size;
     }
 }

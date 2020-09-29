@@ -7,16 +7,16 @@
 
 import UIKit
 
-struct JKPOP<Base> {
+public struct JKPOP<Base> {
     let base: Base
     init(_ base: Base) {
         self.base = base
     }
 }
 
-protocol JKPOPCompatible {}
+public protocol JKPOPCompatible {}
 
-extension JKPOPCompatible {
+public extension JKPOPCompatible {
     
     static var jk: JKPOP<Self>.Type {
         get{ JKPOP<Self>.self }

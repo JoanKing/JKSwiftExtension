@@ -13,7 +13,12 @@ class ProtocolViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "Protocol"
         self.view.backgroundColor = UIColor.white
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        JKPrint("你是")
     }
     
 

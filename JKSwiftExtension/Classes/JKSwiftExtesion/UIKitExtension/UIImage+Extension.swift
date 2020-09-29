@@ -443,3 +443,37 @@ extension UIImage{
         return newImage
     }
 }
+
+// MARK:- 改变图片颜色 传入图片和自定义颜色
+extension UIImage {
+    
+    /// 改变图片颜色  传入图片和自定义颜色
+    /// - Parameters:
+    ///   - tintColor: 颜色
+    ///   - rawImage: 图片
+    /// - Returns: description
+    public func tintedImage(withColor tintColor: UIColor, withImage rawImage: UIImage?) -> UIImage? {
+        guard let image = rawImage else { return nil }
+        
+        UIGraphicsBeginImageContextWithOptions(image.size, false, UIScreen.main.scale)
+        
+        if let context = UIGraphicsGetCurrentContext() {
+            context.translateBy(x: 0, y: image.size.height)
+            context.scaleBy(x: 1.0, y: -1.0)
+            
+            let rect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+            context.setBlendMode(.normal)
+            
+            guard let cgImage = image.cgImage else { return nil }
+            context.draw(cgImage, in: rect)
+            
+            context.setBlendMode(.sourceIn)
+            tintColor.setFill()
+            context.fill(rect)
+        }
+        
+        let coloredImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return coloredImage
+    }
+}
