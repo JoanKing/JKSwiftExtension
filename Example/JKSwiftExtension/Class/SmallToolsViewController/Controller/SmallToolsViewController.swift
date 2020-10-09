@@ -51,6 +51,10 @@ class SmallToolsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    deinit {
+        JKPrint("销毁")
+    }
 }
 
 extension SmallToolsViewController: UITableViewDelegate, UITableViewDataSource {

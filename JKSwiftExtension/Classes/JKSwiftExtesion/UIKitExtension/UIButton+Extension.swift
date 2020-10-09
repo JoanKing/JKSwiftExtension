@@ -92,7 +92,7 @@ public extension UIButton {
     
     @discardableResult
     func image(_ color: UIColor, _ state: UIControl.State = .normal) -> Self {
-        let image = UIImage.imageWithColor(color)
+        let image = UIImage.createImageWithSize(color: color)
         setImage(image, for: state)
         return self
     }
@@ -129,7 +129,7 @@ public extension UIButton {
     
     @discardableResult
     func bgImage(_ color: UIColor, _ state: UIControl.State = .normal) -> Self {
-        let image = UIImage.imageWithColor(color)
+        let image = UIImage.createImageWithSize(color: color)
         setBackgroundImage(image, for: state)
         return self
     }
@@ -214,7 +214,7 @@ public extension UIButton {
     
     func countDown(_ count: Int, timering: TimeringBlock? = nil, complete: CompletionBlock? = nil, timeringPrefix: String = "再次获取", completeText: String = "重新获取") {
         isEnabled = false
-        var begin = ProcessInfo().systemUptime
+        let begin = ProcessInfo().systemUptime
         let c_default = UIColor.hexColor(hex: "#2798fd")
         let c_default_disable = UIColor.hexColor(hex: "#999999")
         

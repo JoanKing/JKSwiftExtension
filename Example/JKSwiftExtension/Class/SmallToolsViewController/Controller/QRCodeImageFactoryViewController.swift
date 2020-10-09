@@ -18,6 +18,11 @@ class QRCodeImageFactoryViewController: UIViewController {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
+    lazy var qrImageView2: UIImageView = {
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,11 +47,15 @@ class QRCodeImageFactoryViewController: UIViewController {
             guard let weakSelf = self else { return }
             weakSelf.saveQRImage()
         }.disposed(by: bag)
-        
         self.view.addSubview(saveImageBtn)
         
-        qrImageView.center = self.view.center
+        qrImageView.jk.centerX = self.view.jk.centerX
+        qrImageView.jk.y = saveImageBtn.jk.bottom + 20
+        qrImageView2.jk.centerX = self.view.jk.centerX
+        qrImageView2.jk.y = qrImageView.jk.bottom + 20
+
         self.view.addSubview(qrImageView)
+        self.view.addSubview(qrImageView2)
     }
     
     // MARK: 生成二维码
@@ -54,6 +63,8 @@ class QRCodeImageFactoryViewController: UIViewController {
         let image = QRCodeImageFactory.qrCodeImage(content: "https://www.jianshu.com/u/8fed18ed70c9", size: CGSize(width: 100, height: 100), logo: UIImage(named: "ironman"), logoSize: CGSize(width: 30, height: 30), logoRoundCorner: 4)
         qrImageView.image = image
         qrImage = image
+        let image3 = UIImage.QRImage(with: "坏蛋", size: CGSize(width: 100, height: 100), isLogo: true, logoSize: CGSize(width: 30, height: 30), logoImage: UIImage(named: "yy"), logoRoundCorner: 4)
+        qrImageView2.image = image3
     }
     
     // MARK: 保存二维码
@@ -72,5 +83,9 @@ class QRCodeImageFactoryViewController: UIViewController {
                 }
             })
         }
+    }
+
+    deinit {
+       JKPrint("销毁")
     }
 }
