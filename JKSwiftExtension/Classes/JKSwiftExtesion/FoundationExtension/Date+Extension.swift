@@ -111,6 +111,51 @@ public extension Date {
 // MARK:- 前天、昨天、今天、明天、后天、是否同一年同一月同一天的判断
 public extension Date {
 
+    /// Get the year from the date
+    var year: Int {
+        return Calendar.current.component(Calendar.Component.year, from: self)
+    }
+
+    /// Get the month from the date
+    var month: Int {
+        return Calendar.current.component(Calendar.Component.month, from: self)
+    }
+
+    /// Get the weekday from the date
+    var weekday: String {
+        return DateFormatter(format: "EEEE").string(from: self)
+    }
+
+    // Get the month from the date
+    var monthAsString: String {
+        return DateFormatter(format: "MMMM").string(from: self)
+    }
+
+    // Get the day from the date
+    var day: Int {
+        return Calendar.current.component(.day, from: self)
+    }
+
+    /// Get the hours from date
+    var hour: Int {
+        return Calendar.current.component(.hour, from: self)
+    }
+
+    /// Get the minute from date
+    var minute: Int {
+        return Calendar.current.component(.minute, from: self)
+    }
+
+    /// Get the second from the date
+    var second: Int {
+        return Calendar.current.component(.second, from: self)
+    }
+
+    /// Gets the nano second from the date
+    var nanosecond: Int {
+        return Calendar.current.component(.nanosecond, from: self)
+    }
+    
     // MARK: 是否为今天
     /// 是否为今天
     var isToday: Bool {

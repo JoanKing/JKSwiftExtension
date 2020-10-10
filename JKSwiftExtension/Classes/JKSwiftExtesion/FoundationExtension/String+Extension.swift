@@ -145,8 +145,26 @@ public extension String {
     }
 }
 
-// MARK:- 字符串的包含的判断
+// MARK:- 字符串的包含的判断 和 一些其他的处理
 public extension String {
+    
+    /// Init string with a base64 encoded string
+    init ? (base64: String) {
+        let pad = String(repeating: "=", count: base64.length % 4)
+        let base64Padded = base64 + pad
+        if let decodedData = Data(base64Encoded: base64Padded, options: NSData.Base64DecodingOptions(rawValue: 0)), let decodedString = NSString(data: decodedData, encoding: String.Encoding.utf8.rawValue) {
+            self.init(decodedString)
+            return
+        }
+        return nil
+    }
+
+    /// base64 encoded of string
+    var base64: String {
+        let plainData = (self as NSString).data(using: String.Encoding.utf8.rawValue)
+        let base64String = plainData!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+        return base64String
+    }
     
     // MARK: 字符串 转 Float
     /// 字符串 转 Float
@@ -172,6 +190,58 @@ public extension String {
         }
     }
     
+    /// Converts String to Int
+    func toInt() -> Int? {
+        if let num = NumberFormatter().number(from: self) {
+            return num.intValue
+        } else {
+            return nil
+        }
+    }
+    
+    /// Converts String to Double
+    func toDouble() -> Double? {
+        if let num = NumberFormatter().number(from: self) {
+            return num.doubleValue
+        } else {
+            return nil
+        }
+    }
+
+    /// Converts String to Float
+    func toFloat() -> Float? {
+        if let num = NumberFormatter().number(from: self) {
+            return num.floatValue
+        } else {
+            return nil
+        }
+    }
+
+    /// Converts String to Bool
+    func toBool() -> Bool? {
+        let trimmedString = trimmed().lowercased()
+        if trimmedString == "true" || trimmedString == "false" {
+            return (trimmedString as NSString).boolValue
+        }
+        return nil
+    }
+
+    /// Converts String to NSString
+    var toNSString: NSString { return self as NSString }
+
+    ///Returns hight of rendered string
+    func height(_ width: CGFloat, font: UIFont, lineBreakMode: NSLineBreakMode?) -> CGFloat {
+        var attrib: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: font]
+        if lineBreakMode != nil {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineBreakMode = lineBreakMode!
+            attrib.updateValue(paragraphStyle, forKey: NSAttributedString.Key.paragraphStyle)
+        }
+        let size = CGSize(width: width, height: CGFloat(Double.greatestFiniteMagnitude))
+
+        return ceil((self as NSString).boundingRect(with: size, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attrib, context: nil).height)
+    }
+    
     // MARK: 判断是否包含某个子串
     /// 判断是否包含某个子串
     /// - Parameter find: 子串
@@ -186,6 +256,11 @@ public extension String {
     /// - Returns: Bool
     func containsIgnoringCase(find: String) -> Bool {
         return self.range(of: find, options: .caseInsensitive) != nil
+    }
+    
+    /// Trims white space and new line characters, returns a new string
+    func trimmed() -> String {
+        return self.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
 
@@ -824,6 +899,21 @@ extension String {
     
 }
 
-extension String {
+public extension String {
     
+    /// Character count
+    var length: Int {
+        return self.count
+    }
+    
+    /// Checks if String contains Emoji
+    func includesEmoji() -> Bool {
+        for i in 0...length {
+            let c: unichar = (self as NSString).character(at: i)
+            if (0xD800 <= c && c <= 0xDBFF) || (0xDC00 <= c && c <= 0xDFFF) {
+                return true
+            }
+        }
+        return false
+    }
 }

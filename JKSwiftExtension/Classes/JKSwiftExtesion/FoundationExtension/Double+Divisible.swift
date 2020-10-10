@@ -165,3 +165,14 @@ public extension Double {
     }
 }
 
+// MARK:- 浮点数四舍五入
+extension Double {
+    // MARK:- 浮点数四舍五入
+    /// 浮点数四舍五入
+    /// - Parameter places: 数字
+    /// - Returns: Double
+    public func roundTo(places: Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
+    }
+}

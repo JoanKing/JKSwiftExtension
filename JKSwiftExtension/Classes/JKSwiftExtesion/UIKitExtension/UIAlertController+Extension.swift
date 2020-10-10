@@ -11,6 +11,11 @@ public extension UIAlertController {
     convenience init(title: String?, message: String?) {
         self.init(title: title, message: message, preferredStyle: .alert)
     }
+    
+    /// Easy way to present UIAlertController
+    func show() {
+        UIApplication.shared.keyWindow?.rootViewController?.present(self, animated: true, completion: nil)
+    }
 
     @discardableResult
     func addAction(_ alertActionTitle: String?, _ alertActionStyle: UIAlertAction.Style = .default, handler: (@escaping () -> Void) = {}) -> Self {

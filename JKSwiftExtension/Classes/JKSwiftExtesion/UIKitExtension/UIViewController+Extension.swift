@@ -18,6 +18,16 @@ extension UIViewController {
         return curVC
     }
     
+    // MARK: 获取某个控制器present出来的控制器
+    /// 获取某个控制器present出来的控制器
+    /// - Returns: description
+    public func getPresentedViewController() -> UIViewController? {
+        var controller: UIViewController? = self
+        while controller?.presentedViewController != nil {
+            controller = controller?.presentedViewController
+        }
+        return controller
+    }
 }
 
 public extension UIViewController {

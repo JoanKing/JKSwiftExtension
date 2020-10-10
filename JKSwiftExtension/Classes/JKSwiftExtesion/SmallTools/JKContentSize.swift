@@ -1,13 +1,13 @@
 //
-//  JKWidthHeight.swift
-//  nuannuan
+//  JKContentSize.swift
+//  JKSwiftExtension
 //
-//  Created by 王冲 on 2019/12/1.
-//  Copyright © 2019 王冲. All rights reserved.
+//  Created by IronMan on 2020/10/10.
 //
+
 import UIKit
 
-public struct JKWidthHeight {
+public struct JKContentSize {
     
     // MARK:- 返回文字的高度
     /// 返回文字的高度
@@ -16,7 +16,7 @@ public struct JKWidthHeight {
     ///   - size: 文字的最大宽高
     ///   - fontSize: 字体的大小
     /// - Returns: 返回 Size
-    public static func JKtextStringSize(string: NSString, size: CGSize, fontSize: CGFloat) -> CGSize {
+    public static func textStringSize(string: NSString, size: CGSize, fontSize: CGFloat) -> CGSize {
         return string.boundingRect(with: size, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)], context: nil).size
     }
     

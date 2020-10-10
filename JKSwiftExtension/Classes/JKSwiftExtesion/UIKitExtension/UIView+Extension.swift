@@ -129,6 +129,66 @@ public func is678P() -> Bool {
 
 extension UIView: JKPOPCompatible {}
 
+// MARK: Transform Extensions
+extension JKPOP where Base : UIView {
+    
+    // MARK: 旋转x
+    /// 旋转x
+    /// - Parameter x: x值
+    public func setRotationX(_ x: CGFloat) {
+        var transform = CATransform3DIdentity
+        transform.m34 = 1.0 / -1000.0
+        transform = CATransform3DRotate(transform, x.degreesToRadians(), 1.0, 0.0, 0.0)
+        self.base.layer.transform = transform
+    }
+    
+    // MARK: 旋转y
+    /// 旋转y
+    /// - Parameter y: y 值
+    public func setRotationY(_ y: CGFloat) {
+        var transform = CATransform3DIdentity
+        transform.m34 = 1.0 / -1000.0
+        transform = CATransform3DRotate(transform, y.degreesToRadians(), 0.0, 1.0, 0.0)
+        self.base.layer.transform = transform
+    }
+    
+    // MARK:- 旋转z
+    /// 旋转z
+    /// - Parameter z: z 值
+    public func setRotationZ(_ z: CGFloat) {
+        var transform = CATransform3DIdentity
+        transform.m34 = 1.0 / -1000.0
+        transform = CATransform3DRotate(transform, z.degreesToRadians(), 0.0, 0.0, 1.0)
+        self.base.layer.transform = transform
+    }
+    
+    
+    /// 旋转xyz
+    /// - Parameters:
+    ///   - x: x description
+    ///   - y: y description
+    ///   - z: z description
+    public func setRotation(x: CGFloat, y: CGFloat, z: CGFloat) {
+        var transform = CATransform3DIdentity
+        transform.m34 = 1.0 / -1000.0
+        transform = CATransform3DRotate(transform, x.degreesToRadians(), 1.0, 0.0, 0.0)
+        transform = CATransform3DRotate(transform, y.degreesToRadians(), 0.0, 1.0, 0.0)
+        transform = CATransform3DRotate(transform, z.degreesToRadians(), 0.0, 0.0, 1.0)
+        self.base.layer.transform = transform
+    }
+    
+    /// 设置缩放
+    /// - Parameters:
+    ///   - x: x description
+    ///   - y: y description
+    public func setScale(x: CGFloat, y: CGFloat) {
+        var transform = CATransform3DIdentity
+        transform.m34 = 1.0 / -1000.0
+        transform = CATransform3DScale(transform, x, y, 1)
+        self.base.layer.transform = transform
+    }
+}
+
 public extension JKPOP where Base : UIView {
     /// x的位置
     var x: CGFloat {
@@ -258,31 +318,107 @@ public extension JKPOP where Base : UIView {
         }
     }
 }
-// MARK:- 关于UIView的x，y,width,height的判断
+
+// MARK:- 关于UIView的 圆角和阴影的设置
 public extension UIView {
     
-    
-    /// 裁剪 view 的圆角
-    func clipRectCorner(direction: UIRectCorner, cornerRadius: CGFloat) {
-        let cornerSize = CGSize(width:cornerRadius, height:cornerRadius)
-        let maskPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: direction, cornerRadii: cornerSize)
-        let maskLayer = CAShapeLayer()
-        maskLayer.frame = bounds
-        maskLayer.path = maskPath.cgPath
-        layer.addSublayer(maskLayer)
-        layer.mask = maskLayer
-    }
-    
+    // MARK: 添加圆角
     /// 添加圆角
     /// - Parameters:
     ///   - conrners: 具体哪个圆角
     ///   - radius: 圆角的大小
-    func xcr_addCorner(conrners: UIRectCorner , radius: CGFloat) {
+    func addCorner(conrners: UIRectCorner , radius: CGFloat) {
         let maskPath = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: conrners, cornerRadii: CGSize(width: radius, height: radius))
         let maskLayer = CAShapeLayer()
         maskLayer.frame = self.bounds
         maskLayer.path = maskPath.cgPath
         self.layer.mask = maskLayer
+    }
+    
+    // MARK: 给继承于view的类添加阴影
+    /// 给继承于view的类添加阴影
+    /// - Parameters:
+    ///   - sColor: 阴影的颜色
+    ///   - offset: 阴影的偏移度：CGSizeMake(X[正的右偏移,负的左偏移], Y[正的下偏移,负的上偏移]);
+    ///   - opacity: 阴影的透明度
+    ///   - radius: 阴影半径，默认3
+    func xcr_setShadow(sColor:UIColor,offset:CGSize,opacity:Float,radius:CGFloat) {
+        // 设置边框圆角
+        layer.cornerRadius = radius
+        // 设置阴影颜色
+        layer.shadowColor = sColor.cgColor
+        // 设置透明度
+        layer.shadowOpacity = opacity
+        // 设置阴影半径
+        layer.shadowRadius = radius
+        // 设置阴影偏移量
+        layer.shadowOffset = offset
+    }
+    
+    // MARK: 添加边框
+    /// 添加边框
+    /// - Parameters:
+    ///   - width: 边框宽度
+    ///   - color: 边框颜色
+    func addBorder(width: CGFloat, color: UIColor) {
+        layer.borderWidth = width
+        layer.borderColor = color.cgColor
+        layer.masksToBounds = true
+    }
+    
+    /// XCRKit
+    func addBorderTop(size: CGFloat, color: UIColor) {
+        addBorderUtility(x: 0, y: 0, width: frame.width, height: size, color: color)
+    }
+    
+    /// XCRKit
+    func addBorderTopWithPadding(size: CGFloat, color: UIColor, padding: CGFloat) {
+        addBorderUtility(x: padding, y: 0, width: frame.width - padding*2, height: size, color: color)
+    }
+    
+    /// XCRKit
+    func addBorderBottom(size: CGFloat, color: UIColor) {
+        addBorderUtility(x: 0, y: frame.height - size, width: frame.width, height: size, color: color)
+    }
+    
+    /// XCRKit
+    func addBorderLeft(size: CGFloat, color: UIColor) {
+        addBorderUtility(x: 0, y: 0, width: size, height: frame.height, color: color)
+    }
+    
+    /// XCRKit
+    func addBorderRight(size: CGFloat, color: UIColor) {
+        addBorderUtility(x: frame.width - size, y: 0, width: size, height: frame.height, color: color)
+    }
+    
+    /// XCRKit
+    fileprivate func addBorderUtility(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, color: UIColor) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: x, y: y, width: width, height: height)
+        layer.addSublayer(border)
+    }
+    
+    /// XCRKit
+    func drawCircle(fillColor: UIColor, strokeColor: UIColor, strokeWidth: CGFloat) {
+        let path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: self.jk.width, height: self.jk.width), cornerRadius: self.jk.width / 2)
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = path.cgPath
+        shapeLayer.fillColor = fillColor.cgColor
+        shapeLayer.strokeColor = strokeColor.cgColor
+        shapeLayer.lineWidth = strokeWidth
+        self.layer.addSublayer(shapeLayer)
+    }
+    
+    /// XCRKit
+    func drawStroke(width: CGFloat, color: UIColor) {
+        let path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: self.jk.width, height: self.jk.width), cornerRadius: self.jk.width / 2)
+        let shapeLayer = CAShapeLayer ()
+        shapeLayer.path = path.cgPath
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = color.cgColor
+        shapeLayer.lineWidth = width
+        self.layer.addSublayer(shapeLayer)
     }
 }
 
