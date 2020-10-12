@@ -18,6 +18,7 @@
 		8482F3A925207A9300EEC422 /* SectorProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482F3A825207A9300EEC422 /* SectorProgressViewController.swift */; };
 		848331C9251C66AB00DEB439 /* StringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848331C8251C66AB00DEB439 /* StringTest.swift */; };
 		8485CC7E2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485CC7D2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift */; };
+		84A8FEFF2534598A00830EAF /* ArrayExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */; };
 		84BF16C6251D9F8D002ACE76 /* FoundationExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF16C5251D9F8D002ACE76 /* FoundationExtensionViewController.swift */; };
 		84BF16C8251D9FB6002ACE76 /* UIKitExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF16C7251D9FB6002ACE76 /* UIKitExtensionViewController.swift */; };
 		84BF16CA251D9FD3002ACE76 /* ProtocolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF16C9251D9FD3002ACE76 /* ProtocolViewController.swift */; };
@@ -54,6 +55,7 @@
 		8482F3A825207A9300EEC422 /* SectorProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectorProgressViewController.swift; sourceTree = "<group>"; };
 		848331C8251C66AB00DEB439 /* StringTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTest.swift; sourceTree = "<group>"; };
 		8485CC7D2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeImageFactoryViewController.swift; sourceTree = "<group>"; };
+		84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensionViewController.swift; sourceTree = "<group>"; };
 		84BF16C5251D9F8D002ACE76 /* FoundationExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtensionViewController.swift; sourceTree = "<group>"; };
 		84BF16C7251D9FB6002ACE76 /* UIKitExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtensionViewController.swift; sourceTree = "<group>"; };
 		84BF16C9251D9FD3002ACE76 /* ProtocolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolViewController.swift; sourceTree = "<group>"; };
@@ -187,8 +189,8 @@
 		84BF16AD251D9E27002ACE76 /* FoundationExtensionViewController */ = {
 			isa = PBXGroup;
 			children = (
-				84BF16B2251D9EAB002ACE76 /* ViewModel */,
 				84BF16B3251D9EAB002ACE76 /* Controller */,
+				84BF16B2251D9EAB002ACE76 /* ViewModel */,
 				84BF16B4251D9EAB002ACE76 /* Model */,
 				84BF16B5251D9EAB002ACE76 /* View */,
 			);
@@ -239,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				84BF16C5251D9F8D002ACE76 /* FoundationExtensionViewController.swift */,
+				84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				84BF16D0251DDDE7002ACE76 /* Notification+Extension.swift in Sources */,
 				84BF16CC251DA012002ACE76 /* SmallToolsViewController.swift in Sources */,
+				84A8FEFF2534598A00830EAF /* ArrayExtensionViewController.swift in Sources */,
 				84BF16C8251D9FB6002ACE76 /* UIKitExtensionViewController.swift in Sources */,
 				8482F3A925207A9300EEC422 /* SectorProgressViewController.swift in Sources */,
 			);

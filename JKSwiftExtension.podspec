@@ -10,13 +10,6 @@ Pod::Spec.new do |s|
   s.name             = 'JKSwiftExtension'
   s.version          = '0.1.8'
   s.summary          = 'Swift版本的一个扩展'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
   s.description      = '这是Swift版本扩展的一个详细的使用，可以参考里面的用法'
 
   s.homepage         = 'https://github.com/JoanKing/JKSwiftExtension'

@@ -7,31 +7,34 @@
 
 public extension Array {
     
-    subscript(secure index: Int) -> Element? {
-        return indices ~= index ? self[index] : nil
-    }
-    
+    // MARK: 数组新增元素(可转入一个数组)
+    /// 数组新增元素(可转入一个数组)
+    /// - Parameter elements: 数组
     mutating func append(_ elements: [Element]) {
         for e in elements {
             self.append(e)
         }
     }
 }
+
 public extension Array where Element : Equatable {
     
+    // MARK: 删除数组的中的元素
+    /// 删除数组的中的元素
+    /// - Parameters:
+    ///   - element: 要删除的元素
+    ///   - isRepeat: 是否删除重读的元素
     mutating func remove(_ element: Element, isRepeat: Bool = true) {
         var removeIndexs: [Int] = []
         
         for i in 0 ..< count {
             if self[i] == element {
                 removeIndexs.append(i)
-                if !isRepeat {
-                    break
-                }
+                if !isRepeat { break }
             }
         }
-        
-        for index in removeIndexs {
+        // 倒序删除
+        for index in removeIndexs.reversed() {
             self.remove(at: index)
         }
     }
@@ -45,6 +48,7 @@ public extension Array where Element : Equatable {
     }
     
 }
+
 public extension Array where Element : NSObjectProtocol {
     
     mutating func remove(_ object: NSObjectProtocol, isRepeat: Bool = true) {
@@ -80,8 +84,4 @@ public extension Array {
     }
 }
 
-extension Array {
-
-
-}
 

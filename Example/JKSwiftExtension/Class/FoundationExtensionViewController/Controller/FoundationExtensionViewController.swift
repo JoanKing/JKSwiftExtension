@@ -39,7 +39,8 @@ class FoundationExtensionViewController: UIViewController {
         self.title = "JKSwiftExtension"
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green
-        dataArray = ["Array+Extension", "BaseData+Extension", "Bundle+Extension", "CGRect+Extension", "Date+Extension", "Double+Divisible", "NSObject+Extension", "String+Extension", "UIColor+BaseExtension", "UIDevice+Extension", "UIFont+Extensin", "NSAttributedString+Extension"]
+  
+        dataArray = ["Array+Extension", "BaseData+Extension", "Bundle+Extension", "CGRect+Extension", "Date+Extension", "Double+Divisible", "NSObject+Extension", "String+Extension", "UIColor+BaseExtension", "UIDevice+Extension", "UIFont+Extensin", "Timer+Extension", "Int+Extension", "UInt+Extension", "Float+Extension", "Bool+Extension", "CGFloat+Extension", "Character+Extension", "DateFormatter+Extension", "Dictionary+Extension", "FileManager+Extension", "URL+Extension"]
         initUI()
     }
     
@@ -90,7 +91,7 @@ extension FoundationExtensionViewController: UITableViewDelegate, UITableViewDat
     
         let cellName = dataArray[indexPath.row] as! String
         if cellName == "Array+Extension" {
-         
+            navigationController?.pushViewController(ArrayExtensionViewController(), animated: true)
         } else if cellName == "BaseData+Extension" {
            
         } else if cellName == "Bundle+Extension" {
@@ -110,12 +111,28 @@ extension FoundationExtensionViewController: UITableViewDelegate, UITableViewDat
         } else if cellName == "UIDevice+Extension" {
             
         } else if cellName == "UIFont+Extensin" {
+           
+        } else if cellName == "Timer+Extension" {
             
-        } else if cellName == "NSAttributedString+Extension" {
+        } else if cellName == "Int+Extension" {
             
-        } else if cellName == "" {
+        } else if cellName == "UInt+Extension" {
             
-        } else if cellName == "" {
+        } else if cellName == "Float+Extension" {
+            
+        } else if cellName == "Bool+Extension" {
+            
+        } else if cellName == "CGFloat+Extension" {
+            
+        } else if cellName == "Character+Extension" {
+            
+        } else if cellName == "DateFormatter+Extension" {
+            
+        } else if cellName == "Dictionary+Extension" {
+            
+        } else if cellName == "FileManager+Extension" {
+            
+        } else if cellName == "URL+Extension" {
             
         } else if cellName == "" {
             
