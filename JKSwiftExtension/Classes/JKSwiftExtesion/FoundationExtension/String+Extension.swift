@@ -296,7 +296,10 @@ public extension String {
         JKPrint(NSDecimalNumber(decimal: decimal).doubleValue)
         return NSDecimalNumber(decimal: decimal).doubleValue
     }
-    /// - Important: cut小数点后多余的0
+    
+    // MARK:- cut小数点后多余的0
+    /// cut小数点后多余的0
+    /// - Returns: 返回没有 0 的金额
     func cutLastZeroAfterDot() -> String {
         var rst = self
         var i = 1

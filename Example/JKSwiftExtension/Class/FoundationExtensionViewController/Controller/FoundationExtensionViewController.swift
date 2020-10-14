@@ -40,7 +40,7 @@ class FoundationExtensionViewController: UIViewController {
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green
   
-        dataArray = ["Array+Extension", "BaseData+Extension", "Bundle+Extension", "CGRect+Extension", "Date+Extension", "Double+Divisible", "NSObject+Extension", "String+Extension", "UIColor+BaseExtension", "UIDevice+Extension", "UIFont+Extensin", "Timer+Extension", "Int+Extension", "UInt+Extension", "Float+Extension", "Bool+Extension", "CGFloat+Extension", "Character+Extension", "DateFormatter+Extension", "Dictionary+Extension", "FileManager+Extension", "URL+Extension"]
+        dataArray = ["Array+Extension", "BaseData+Extension", "Bundle+Extension", "CGRect+Extension", "Date+Extension", "Double+Divisible", "NSObject+Extension", "String+Extension", "UIColor+BaseExtension", "UIDevice+Extension", "UIFont+Extensin", "Timer+Extension", "Int+Extension", "UInt+Extension", "Float+Extension", "Bool+Extension", "CGFloat+Extension", "Character+Extension", "DateFormatter+Extension", "Dictionary+Extension", "FileManager+Extension", "URL+Extension", "NSDecimalNumberHandler+Extension"]
         initUI()
     }
     
@@ -105,7 +105,7 @@ extension FoundationExtensionViewController: UITableViewDelegate, UITableViewDat
         } else if cellName == "NSObject+Extension" {
             
         } else if cellName == "String+Extension" {
-            
+            navigationController?.pushViewController(StringExtensionViewController(), animated: true)
         } else if cellName == "UIColor+BaseExtension" {
             
         } else if cellName == "UIDevice+Extension" {
@@ -134,8 +134,8 @@ extension FoundationExtensionViewController: UITableViewDelegate, UITableViewDat
             
         } else if cellName == "URL+Extension" {
             
-        } else if cellName == "" {
-            
+        } else if cellName == "NSDecimalNumberHandler+Extension" {
+            navigationController?.pushViewController(NSDecimalNumberHandlerExtensionViewController(), animated: true)
         } else {
             
         }

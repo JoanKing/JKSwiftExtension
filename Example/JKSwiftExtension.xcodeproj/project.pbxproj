@@ -18,6 +18,8 @@
 		8482F3A925207A9300EEC422 /* SectorProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482F3A825207A9300EEC422 /* SectorProgressViewController.swift */; };
 		848331C9251C66AB00DEB439 /* StringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848331C8251C66AB00DEB439 /* StringTest.swift */; };
 		8485CC7E2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485CC7D2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift */; };
+		849D58F02536ADD300CCDF0F /* StringExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */; };
+		849D58F42537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D58F32537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift */; };
 		84A8FEFF2534598A00830EAF /* ArrayExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */; };
 		84BF16C6251D9F8D002ACE76 /* FoundationExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF16C5251D9F8D002ACE76 /* FoundationExtensionViewController.swift */; };
 		84BF16C8251D9FB6002ACE76 /* UIKitExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF16C7251D9FB6002ACE76 /* UIKitExtensionViewController.swift */; };
@@ -55,6 +57,8 @@
 		8482F3A825207A9300EEC422 /* SectorProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectorProgressViewController.swift; sourceTree = "<group>"; };
 		848331C8251C66AB00DEB439 /* StringTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTest.swift; sourceTree = "<group>"; };
 		8485CC7D2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeImageFactoryViewController.swift; sourceTree = "<group>"; };
+		849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionViewController.swift; sourceTree = "<group>"; };
+		849D58F32537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDecimalNumberHandlerExtensionViewController.swift; sourceTree = "<group>"; };
 		84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensionViewController.swift; sourceTree = "<group>"; };
 		84BF16C5251D9F8D002ACE76 /* FoundationExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtensionViewController.swift; sourceTree = "<group>"; };
 		84BF16C7251D9FB6002ACE76 /* UIKitExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtensionViewController.swift; sourceTree = "<group>"; };
@@ -242,6 +246,8 @@
 			children = (
 				84BF16C5251D9F8D002ACE76 /* FoundationExtensionViewController.swift */,
 				84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */,
+				849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */,
+				849D58F32537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -555,11 +561,13 @@
 				84BF16D4251DFDE5002ACE76 /* TestViewController.swift in Sources */,
 				8485CC7E2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift in Sources */,
 				84BF16C6251D9F8D002ACE76 /* FoundationExtensionViewController.swift in Sources */,
+				849D58F02536ADD300CCDF0F /* StringExtensionViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				84BF16D0251DDDE7002ACE76 /* Notification+Extension.swift in Sources */,
 				84BF16CC251DA012002ACE76 /* SmallToolsViewController.swift in Sources */,
 				84A8FEFF2534598A00830EAF /* ArrayExtensionViewController.swift in Sources */,
 				84BF16C8251D9FB6002ACE76 /* UIKitExtensionViewController.swift in Sources */,
+				849D58F42537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift in Sources */,
 				8482F3A925207A9300EEC422 /* SectorProgressViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

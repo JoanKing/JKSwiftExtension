@@ -1,5 +1,5 @@
 PODS:
-  - JKSwiftExtension (0.1.5):
+  - JKSwiftExtension (0.2.0):
     - Kingfisher
     - SnapKit
   - Kingfisher (4.10.1)
@@ -29,7 +29,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JKSwiftExtension: 3ac68e7bb518a6dfefe9d2bb971dd4e5d1c40a2c
+  JKSwiftExtension: b2ed90bc5f56792cac7efe6f2d753ca6307e9d17
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
