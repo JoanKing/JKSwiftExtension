@@ -34,7 +34,7 @@ public enum DecimalNumberHandlerType: String {
     // 减
     case subtracting
     // 乘
-    case multiplyingBy
+    case multiplying
     // 除
     case dividing
 }
@@ -51,10 +51,10 @@ public extension NSDecimalNumberHandler {
     }
 }
 
-// MARK:- Private 私有方法
+// MARK:- public 公有方法
 public extension NSDecimalNumberHandler {
     
-    /// 两个数组的：加 减 乘 除
+    /// 两个数的：加 减 乘 除
     /// - Parameters:
     ///   - type: 计算的类型
     ///   - value1: 第一个值
@@ -77,7 +77,7 @@ public extension NSDecimalNumberHandler {
             result = oneNumber.adding(twoNumber, withBehavior: amountHandler)
         } else if type == .subtracting {
             result = oneNumber.subtracting(twoNumber, withBehavior: amountHandler)
-        } else if type == .multiplyingBy {
+        } else if type == .multiplying {
             result = oneNumber.multiplying(by: twoNumber, withBehavior: amountHandler)
         } else if type == .dividing {
             result = oneNumber.dividing(by: twoNumber, withBehavior: amountHandler)
