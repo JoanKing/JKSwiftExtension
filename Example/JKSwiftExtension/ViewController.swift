@@ -131,7 +131,7 @@ class HomeViewCell: UITableViewCell {
         self.contentView.addSubview(contentLabel)
         self.contentView.addSubview(lineView)
         contentLabel.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 1))
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 1))
         }
         lineView.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(15)

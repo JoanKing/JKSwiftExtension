@@ -16,7 +16,6 @@ class NSDecimalNumberHandlerExtensionViewController: UIViewController {
         self.title = "NSDecimalNumberHandlerExtensionViewController"
         self.view.backgroundColor = .white
         
-        
     }
     
     func test1() {

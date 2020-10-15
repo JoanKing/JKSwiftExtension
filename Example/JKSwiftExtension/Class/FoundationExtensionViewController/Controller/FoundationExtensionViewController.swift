@@ -29,6 +29,8 @@ class FoundationExtensionViewController: UIViewController {
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
+        // 设置行高为自动适配
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.register(HomeViewCell.self, forCellReuseIdentifier: FoundationExtensionViewController.FoundationExtensionViewControllerCellIdentifier)
         return tableView
     }()
@@ -62,14 +64,11 @@ extension FoundationExtensionViewController: UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FoundationExtensionViewController.FoundationExtensionViewControllerCellIdentifier, for: indexPath) as! HomeViewCell
-        cell.contentLabel.text = (dataArray[indexPath.row] as! String)
+        cell.contentLabel.text = "\(indexPath.row + 1)：\((dataArray[indexPath.row] as! String))"
         // cell.lineView.isHidden = indexPath.row == dataArray.count - 1 ? true : false
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 55
-    }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height:0.01))
         return sectionView
