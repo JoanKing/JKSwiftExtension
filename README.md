@@ -18,7 +18,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-    Swif4.0+
+    Swift4.0+
 
 ## Installation
 
