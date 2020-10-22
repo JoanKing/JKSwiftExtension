@@ -197,8 +197,8 @@ public extension JKPOP where Base : UIView {
         }
         set(newValue) {
             var tempFrame: CGRect = base.frame
-            tempFrame.origin.x    = newValue
-            base.frame                 = tempFrame
+            tempFrame.origin.x = newValue
+            base.frame = tempFrame
         }
     }
     
@@ -209,8 +209,8 @@ public extension JKPOP where Base : UIView {
         }
         set(newValue) {
             var tempFrame: CGRect = base.frame
-            tempFrame.origin.y    = newValue
-            base.frame                 = tempFrame
+            tempFrame.origin.y = newValue
+            base.frame = tempFrame
         }
     }
     
@@ -222,7 +222,7 @@ public extension JKPOP where Base : UIView {
         set(newValue) {
             var tempFrame: CGRect = base.frame
             tempFrame.size.height = newValue
-            base.frame                 = tempFrame
+            base.frame = tempFrame
         }
     }
     
@@ -281,8 +281,8 @@ public extension JKPOP where Base : UIView {
         }
         set(newValue) {
             var tempFrame: CGRect = base.frame
-            tempFrame.origin.y    = newValue
-            base.frame                 = tempFrame
+            tempFrame.origin.y = newValue
+            base.frame = tempFrame
         }
     }
     
@@ -293,8 +293,8 @@ public extension JKPOP where Base : UIView {
         }
         set(newValue) {
             var tempFrame: CGRect = base.frame
-            tempFrame.origin.x    = newValue
-            base.frame                 = tempFrame
+            tempFrame.origin.x = newValue
+            base.frame = tempFrame
         }
     }
     
@@ -452,8 +452,7 @@ public extension UIView {
         // 多少行
         let line: NSInteger = NSInteger(self.jk.height * 3.5 / 80)
         // 多少列：自己的宽度/(每个水印的宽度+间隔)
-        let row: NSInteger = NSInteger(self.jk.width / markText.rectSize(font: font, width: self.jk.width).width)
-        
+        let row: NSInteger = NSInteger(self.jk.width / markText.rectWidth(font: font, size: CGSize(width: self.jk.width, height: CGFloat(MAXFLOAT))))
         for i in 0..<line {
             for j in 0..<row {
                 let textLayer: CATextLayer = CATextLayer()
@@ -470,7 +469,5 @@ public extension UIView {
                 self.layer.addSublayer(textLayer)
             }
         }
-        
-        
     }
 }

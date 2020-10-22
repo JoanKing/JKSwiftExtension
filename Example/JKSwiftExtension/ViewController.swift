@@ -123,6 +123,7 @@ class HomeViewCell: UITableViewCell {
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.c444444
         label.textAlignment = .left
+        label.numberOfLines = 0
         return label
     }()
     

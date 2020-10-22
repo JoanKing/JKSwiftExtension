@@ -235,38 +235,55 @@ public extension String {
 // MARK:- 4、字符串UI的处理
 extension String {
     
-    // MARK: 4.1、对字符串指定字体及宽度，获取Size
-    /// 对字符串指定字体及宽度，获取Size
+    // MARK: 4.1、对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)
+    /// 对字符串(多行)指定出字体大小和最大的 Size，获取展示的 Size
     /// - Parameters:
-    ///   - font: 字体的大小
-    ///   - width: 字体的宽度
-    /// - Returns: 返回对应字符串的Size
-    public func rectSize(font: UIFont, width: CGFloat = 320) -> CGSize {
+    ///   - font: 字体大小
+    ///   - size: 字符串的最大宽和高
+    /// - Returns: 按照 font 和 Size 的字符的Size
+    public func rectSize(font: UIFont, size: CGSize) -> CGSize {
         let attributes = [NSAttributedString.Key.font: font]
+        /**
+         usesLineFragmentOrigin: 整个文本将以每行组成的矩形为单位计算整个文本的尺寸
+         usesFontLeading:
+         usesDeviceMetrics:
+         @available(iOS 6.0, *)
+         truncatesLastVisibleLine:
+         */
         let option = NSStringDrawingOptions.usesLineFragmentOrigin
-        let size = CGSize(width: width, height: CGFloat(MAXFLOAT))
         let rect: CGRect = self.boundingRect(with: size, options: option, attributes: attributes, context: nil)
         return rect.size
     }
     
-    // MARK: 4.2、对字符串指定字体及宽度，获取高度
-    /// 对字符串指定字体及宽度，获取高度
+    // MARK: 4.2、对字符串(多行)指定字体及Size，获取 (高度)
+    /// 对字符串指定字体及Size，获取 (高度)
     /// - Parameters:
     ///   - font: 字体的大小
-    ///   - width: 字体的宽度
+    ///   - size: 字体的size
     /// - Returns: 返回对应字符串的高度
-    public func rectHeight(font: UIFont, width: CGFloat = 320) -> CGFloat {
-        return rectSize(font: font, width: width).height
+    public func rectHeight(font: UIFont, size: CGSize) -> CGFloat {
+        return rectSize(font: font, size: size).height
+    }
+    
+    // MARK: 4.3、对字符串(多行)指定字体及Size，获取 (宽度)
+    /// 对字符串指定字体及Size，获取 (宽度)
+    /// - Parameters:
+    ///   - font: 字体的大小
+    ///   - size: 字体的size
+    /// - Returns: 返回对应字符串的宽度
+    public func rectWidth(font: UIFont, size: CGSize) -> CGFloat {
+        return rectSize(font: font, size: size).width
     }
 
-    // MARK: 4.3、对单行字符串指定字体，获取尺寸
-    ///  对单行字符串指定字体，获取尺寸
+    // MARK: 4.4、对字符串(单行)指定字体，获取 (Size)
+    /// 对字符串(单行)指定字体，获取 (Size)
     /// - Parameter font: 字体的大小
     /// - Returns: 返回单行字符串的 size
-    public func sizeWith(font: UIFont) -> CGSize {
+    public func singleLineSize(font: UIFont) -> CGSize {
         let attrs = [NSAttributedString.Key.font: font]
         return self.size(withAttributes: attrs as [NSAttributedString.Key: Any])
     }
+    
     
     // MARK: 4.4、字符串根据宽度&字体——>高度
     /// label 根据宽度&字体——>高度

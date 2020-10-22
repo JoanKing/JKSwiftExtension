@@ -19,7 +19,7 @@ class StringExtensionViewController: UIViewController {
         JKPrint(String.PreferencesDirectory())
   
         headDataArray = ["一、沙盒路径的获取", "二、字符串的空格和特殊字符的处理", "三、字符串的转换", "四、字符串UI的处理"]
-        dataArray = [["获取Home的完整路径名", "获取Documnets的完整路径名", "获取Library的完整路径名", "获取/Library/Cache的完整路径名", "获取Library/Preferences的完整路径名", "获取Tmp的完整路径名"],["去除字符串前后的 空格", "去除字符串前后的 换行", "去除字符串前后的 换行和换行", "去掉所有 空格", "去掉所有 换行", "去掉所有空格 和 换行"], ["字符串 转 CGFloat", "字符串转bool", "字符串转 Int", "字符串转 Double", "字符串转 Float", "字符串转 Bool", "字符串转 NSString"], ["对字符串指定字体及宽度，获取Size"]]
+        dataArray = [["获取Home的完整路径名", "获取Documnets的完整路径名", "获取Library的完整路径名", "获取/Library/Cache的完整路径名", "获取Library/Preferences的完整路径名", "获取Tmp的完整路径名"],["去除字符串前后的 空格", "去除字符串前后的 换行", "去除字符串前后的 换行和换行", "去掉所有 空格", "去掉所有 换行", "去掉所有空格 和 换行"], ["字符串 转 CGFloat", "字符串转bool", "字符串转 Int", "字符串转 Double", "字符串转 Float", "字符串转 Bool", "字符串转 NSString"], ["对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)", "对字符串(多行)指定字体及Size，获取 (高度)", "对字符串(多行)指定字体及Size，获取 (宽度)", "对字符串(单行)指定字体，获取 (Size)"]]
         initUI()
     }
     
@@ -181,6 +181,50 @@ extension StringExtensionViewController {
     /// 字符串转 NSString
     @objc func test26() {
         
+    }
+}
+
+// MARK:- 4、字符串UI的处理
+extension StringExtensionViewController {
+    // MARK: 4.1、对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)
+    /// 对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)
+    @objc func test30() {
+        let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
+        let font = UIFont.systemFont(ofSize: 22)
+        
+        let size = testString.rectSize(font: font, size: CGSize(width: 200, height: CGFloat(MAXFLOAT)))
+        print("对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)：\(size)")
+        
+        var testLabel = UILabel(frame: CGRect(x: 0, y: 100, width: size.width, height: size.height))
+        testLabel.jk.centerX = self.view.jk.centerX
+        testLabel.textAlignment = .left
+        testLabel.numberOfLines = 0
+        testLabel.font = font
+        testLabel.text = testString
+        testLabel.backgroundColor = UIColor.randomColor()
+        self.view.addSubview(testLabel)
+        
+    }
+
+    // MARK: 4.2、对字符串(多行)指定字体及Size，获取 (高度)
+    /// 对字符串(多行)指定字体及Size，获取 (高度)
+    @objc func test31() {
+        let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
+        print("对字符串(多行)指定字体及Size，获取 (高度)：\(testString.rectHeight(font: UIFont.systemFont(ofSize: 22), size: CGSize(width: 200, height: CGFloat(MAXFLOAT))))")
+    }
+    
+    // MARK: 4.3、对字符串(多行)指定字体及Size，获取 (宽度)
+    /// 对字符串(多行)指定字体及Size，获取 (宽度)
+    @objc func test32() {
+        let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
+        print("对字符串(多行)指定字体及Size，获取 (宽度)：\(testString.rectWidth(font: UIFont.systemFont(ofSize: 22), size: CGSize(width: 200, height: CGFloat(MAXFLOAT))))")
+    }
+    
+    // MARK: 4.4、对字符串(单行)指定字体，获取 (Size)
+    /// 对字符串(单行)指定字体，获取 (Size)
+    @objc func test33() {
+        let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
+        print("对字符串(单行)指定字体，获取 (Size)：\(testString.singleLineSize(font: UIFont.systemFont(ofSize: 22)))")
     }
 }
 
