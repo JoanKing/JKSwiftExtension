@@ -107,72 +107,69 @@ public extension String {
     }
 }
 
-// MARK:- 字符串的空格和特殊字符的处理
+// MARK:- 2、字符串的空格和特殊字符的处理
 public extension String {
-    // MARK: Swift去除字符串前后的换行和空格
-    /// Swift去除字符串前后的换行和空格
-    /// - Returns: 处理后的字符串
-    func trim() -> String {
-        var resultString = self.trimmingCharacters(in: CharacterSet.whitespaces)
-        resultString = resultString.trimmingCharacters(in: CharacterSet.newlines)
+    
+    // MARK: 2.1、去除字符串前后的 空格
+    /// 去除字符串前后的换行和换行
+    var removeBeginEndAllSapcefeed: String {
+        let resultString = self.trimmingCharacters(in: CharacterSet.whitespaces)
         return resultString
     }
     
-    // MARK: 去除字符串前后的换行和空格
-    /// 去除字符串前后的换行和空格
-    var removeAllSapceAndLinefeed: String {
+    // MARK: 2.2、去除字符串前后的 换行
+    /// 去除字符串前后的 换行
+    var removeBeginEndAllLinefeed: String {
+        let resultString = self.trimmingCharacters(in: CharacterSet.newlines)
+        return resultString
+    }
+    
+    // MARK: 2.3、去除字符串前后的 换行和空格
+    /// 去除字符串前后的 换行和空格
+    var removeBeginEndAllSapceAndLinefeed: String {
         var resultString = self.trimmingCharacters(in: CharacterSet.whitespaces)
         resultString = resultString.trimmingCharacters(in: CharacterSet.newlines)
         return resultString
     }
 
-    // MARK: 去掉所有空格
+    // MARK: 2.4、去掉所有空格
     /// 去掉所有空格
     var removeAllSapce: String {
         return replacingOccurrences(of: " ", with: "", options: .literal, range: nil)
     }
     
-    // MARK: 去掉所有回车
-    /// 去掉所有回车
-    var removeLinefeed: String {
+    // MARK: 2.5、去掉所有换行
+    /// 去掉所有换行
+    var removeAllLinefeed: String {
         return replacingOccurrences(of: "\n", with: "", options: .literal, range: nil)
+    }
+    
+    // MARK: 2.6、去掉所有空格 和 换行
+    /// 去掉所有的空格 和 换行
+    var removeAllLineAndSapcefeed: String {
+        // 去除所有的空格
+        var resultString = replacingOccurrences(of: " ", with: "", options: .literal, range: nil)
+        // 去除所有的换行
+        resultString = resultString.replacingOccurrences(of: "\n", with: "", options: .literal, range: nil)
+        return resultString
     }
 }
 
-// MARK:- 字符串的包含的判断 和 一些其他的处理
+// MARK:- 3、字符串的转换
 public extension String {
     
-    /// Init string with a base64 encoded string
-    init ? (base64: String) {
-        let pad = String(repeating: "=", count: base64.length % 4)
-        let base64Padded = base64 + pad
-        if let decodedData = Data(base64Encoded: base64Padded, options: NSData.Base64DecodingOptions(rawValue: 0)), let decodedString = NSString(data: decodedData, encoding: String.Encoding.utf8.rawValue) {
-            self.init(decodedString)
-            return
+    // MARK: 3.1、字符串 转 CGFloat
+    /// 字符串 转 Float
+    /// - Returns: CGFloat
+    func toCGFloat() -> CGFloat? {
+        if let doubleValue = Double(self) {
+           return CGFloat(doubleValue)
         }
         return nil
     }
-
-    /// base64 encoded of string
-    var base64: String {
-        let plainData = (self as NSString).data(using: String.Encoding.utf8.rawValue)
-        let base64String = plainData!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-        return base64String
-    }
     
-    // MARK: 字符串 转 Float
-    /// 字符串 转 Float
-    /// - Returns: CGFloat
-    func StringToCGFloat() -> (CGFloat) {
-        var cgfloat: CGFloat = 0
-        if let doubleValue = Double(self) {
-            cgfloat = CGFloat(doubleValue)
-        }
-        return cgfloat
-    }
-    
-    // MARK: 字符串转bool
-    /// 字符串转bool
+    // MARK: 3.2、字符串转 bool
+    /// 字符串转 bool
     var bool: Bool? {
         switch self.lowercased() {
         case "true", "t", "yes", "y", "1":
@@ -184,7 +181,9 @@ public extension String {
         }
     }
     
-    /// Converts String to Int
+    // MARK: 3.3、字符串转 Int
+    /// 字符串转 Int
+    /// - Returns: Int
     func toInt() -> Int? {
         if let num = NumberFormatter().number(from: self) {
             return num.intValue
@@ -193,7 +192,9 @@ public extension String {
         }
     }
     
-    /// Converts String to Double
+    // MARK: 3.4、字符串转 Double
+    /// 字符串转 Double
+    /// - Returns: Double
     func toDouble() -> Double? {
         if let num = NumberFormatter().number(from: self) {
             return num.doubleValue
@@ -201,8 +202,10 @@ public extension String {
             return nil
         }
     }
-
-    /// Converts String to Float
+    
+    // MARK: 3.5、字符串转 Float
+    /// 字符串转 Float
+    /// - Returns: Float
     func toFloat() -> Float? {
         if let num = NumberFormatter().number(from: self) {
             return num.floatValue
@@ -210,8 +213,10 @@ public extension String {
             return nil
         }
     }
-
-    /// Converts String to Bool
+    
+    // MARK: 3.6、字符串转 Bool
+    /// 字符串转 Bool
+    /// - Returns: Bool
     func toBool() -> Bool? {
         let trimmedString = trimmed().lowercased()
         if trimmedString == "true" || trimmedString == "false" {
@@ -219,10 +224,109 @@ public extension String {
         }
         return nil
     }
+    
+    // MARK: 3.7、字符串转 NSString
+    /// 字符串转 NSString
+    var toNSString: NSString {
+        return self as NSString
+    }
+}
 
-    /// Converts String to NSString
-    var toNSString: NSString { return self as NSString }
+// MARK:- 4、字符串UI的处理
+extension String {
+    
+    // MARK: 4.1、对字符串指定字体及宽度，获取Size
+    /// 对字符串指定字体及宽度，获取Size
+    /// - Parameters:
+    ///   - font: 字体的大小
+    ///   - width: 字体的宽度
+    /// - Returns: 返回对应字符串的Size
+    public func rectSize(font: UIFont, width: CGFloat = 320) -> CGSize {
+        let attributes = [NSAttributedString.Key.font: font]
+        let option = NSStringDrawingOptions.usesLineFragmentOrigin
+        let size = CGSize(width: width, height: CGFloat(MAXFLOAT))
+        let rect: CGRect = self.boundingRect(with: size, options: option, attributes: attributes, context: nil)
+        return rect.size
+    }
+    
+    // MARK: 4.2、对字符串指定字体及宽度，获取高度
+    /// 对字符串指定字体及宽度，获取高度
+    /// - Parameters:
+    ///   - font: 字体的大小
+    ///   - width: 字体的宽度
+    /// - Returns: 返回对应字符串的高度
+    public func rectHeight(font: UIFont, width: CGFloat = 320) -> CGFloat {
+        return rectSize(font: font, width: width).height
+    }
 
+    // MARK: 4.3、对单行字符串指定字体，获取尺寸
+    ///  对单行字符串指定字体，获取尺寸
+    /// - Parameter font: 字体的大小
+    /// - Returns: 返回单行字符串的 size
+    public func sizeWith(font: UIFont) -> CGSize {
+        let attrs = [NSAttributedString.Key.font: font]
+        return self.size(withAttributes: attrs as [NSAttributedString.Key: Any])
+    }
+    
+    // MARK: 4.4、字符串根据宽度&字体——>高度
+    /// label 根据宽度&字体——>高度
+    /// - Parameters:
+    ///   - width: 字体宽度
+    ///   - font: 字体大小
+    /// - Returns: 返回对应的高度
+    public func heightAccording(width: CGFloat, font: UIFont) -> CGFloat {
+        if self.isBlank {return 0}
+        let rect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
+        let label = UILabel(frame: rect).font(font).text(self).line(0)
+        return label.sizeThatFits(rect.size).height
+    }
+  
+    // MARK: 4.5、字符串根据宽度 & 字体 & 行间距 ——> 高度
+    /// 字符串根据宽度&字体&行间距——>高度
+    /// - Parameters:
+    ///   - width: 字符串的宽度
+    ///   - font: 字体的大小
+    ///   - lineSpacing: 行间距
+    /// - Returns: 返回对应的高度
+    public func heightAccording(width: CGFloat, font: UIFont, lineSpacing: CGFloat) -> CGFloat {
+        if self.isBlank {return 0}
+        let rect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
+        let label = UILabel(frame: rect).font(font).text(self).line(0)
+        let attrStr = NSMutableAttributedString(string: self)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing
+        attrStr.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, self.count))
+        label.attributedText = attrStr
+        return label.sizeThatFits(rect.size).height
+    }
+
+    // MARK: 4.6、label 根据高度&字体——>宽度
+    /// label 根据高度&字体——>宽度
+    /// - Parameters:
+    ///   - height: 高度
+    ///   - font: 字体大小
+    /// - Returns: 返回宽度大小
+    public func widthAccording(height: CGFloat, font: UIFont) -> CGFloat {
+        if self.isBlank {return 0}
+        let rect = CGRect(x: 0, y: 0, width: CGFloat(MAXFLOAT), height: height)
+        let label = UILabel(frame: rect).font(font).text(self).line(0)
+        return label.sizeThatFits(rect.size).width
+    }
+}
+
+
+// MARK:- 字符串的包含的判断 和 一些其他的处理
+public extension String {
+    
+    /// 字符串的 Base64
+    var base64: String? {
+        guard let plainData = (self as NSString).data(using: String.Encoding.utf8.rawValue) else {
+            return nil
+        }
+        let base64String = plainData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+        return base64String
+    }
+    
     ///Returns hight of rendered string
     func height(_ width: CGFloat, font: UIFont, lineBreakMode: NSLineBreakMode?) -> CGFloat {
         var attrib: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: font]
@@ -714,55 +818,6 @@ extension String {
             return false
         }
         return true
-    }
-}
-
-// MARK:- 字符串UI的处理
-extension String {
-    // MARK: 对字符串指定字体及宽度，获取Size
-    public func rectSize(font: UIFont, width: CGFloat = 320) -> CGSize {
-        let attributes = [NSAttributedString.Key.font: font]
-        let option = NSStringDrawingOptions.usesLineFragmentOrigin
-        let size = CGSize(width: width, height: CGFloat(MAXFLOAT))
-        let rect: CGRect = self.boundingRect(with: size, options: option, attributes: attributes, context: nil)
-        return rect.size
-    }
-
-    // MARK: 对字符串指定字体及宽度，获取高度
-    public func rectHeight(font: UIFont, width: CGFloat = 320) -> CGFloat {
-        return rectSize(font: font, width: width).height
-    }
-
-    // MARK: 对单行字符串指定字体，获取尺寸
-    public func sizeWith(font: UIFont) -> CGSize {
-        let attrs = [NSAttributedString.Key.font: font]
-        return self.size(withAttributes: attrs as [NSAttributedString.Key: Any])
-    }
-    /// label 根据宽度&字体——>高度
-    public func heightAccording(width: CGFloat, font: UIFont) -> CGFloat {
-        if self.isBlank {return 0}
-        let rect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
-        let label = UILabel(frame: rect).font(font).text(self).line(0)
-        return label.sizeThatFits(rect.size).height
-    }
-    /// label 根据宽度&字体&行间距——>高度
-    public func heightAccording(width: CGFloat, font: UIFont, lineSpacing: CGFloat) -> CGFloat {
-        if self.isBlank {return 0}
-        let rect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
-        let label = UILabel(frame: rect).font(font).text(self).line(0)
-        let attrStr = NSMutableAttributedString(string: self)
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = lineSpacing
-        attrStr.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, self.count))
-        label.attributedText = attrStr
-        return label.sizeThatFits(rect.size).height
-    }
-    /// label 根据高度&字体——>宽度
-    public func widthAccording(height: CGFloat, font: UIFont) -> CGFloat {
-        if self.isBlank {return 0}
-        let rect = CGRect(x: 0, y: 0, width: CGFloat(MAXFLOAT), height: height)
-        let label = UILabel(frame: rect).font(font).text(self).line(0)
-        return label.sizeThatFits(rect.size).width
     }
 }
 

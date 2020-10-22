@@ -69,8 +69,8 @@ public extension NSDecimalNumberHandler {
     static func decimalNumberHandlerValue(type: DecimalNumberHandlerType ,value1: Double, value2: Double, roundingMode: NSDecimalNumber.RoundingMode, scale: Int16, raiseOnExactness exact: Bool, raiseOnOverflow overflow: Bool, raiseOnUnderflow underflow: Bool, raiseOnDivideByZero divideByZero: Bool) -> NSDecimalNumber {
 
         let amountHandler = NSDecimalNumberHandler(roundingMode: roundingMode, scale: scale, raiseOnExactness: exact, raiseOnOverflow: overflow, raiseOnUnderflow: underflow, raiseOnDivideByZero: divideByZero)
-        let oneNumber = NSDecimalNumber(value: value1)
-        let twoNumber = NSDecimalNumber(value: value2)
+        let oneNumber = NSDecimalNumber(string: "\(value1)")
+        let twoNumber = NSDecimalNumber(string: "\(value2)")
         
         var result = NSDecimalNumber()
         if type == .add {

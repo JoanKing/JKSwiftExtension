@@ -12,15 +12,14 @@ class StringExtensionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "JKSwiftExtension"
+    
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green
         
         JKPrint(String.PreferencesDirectory())
   
-        headDataArray = ["沙盒路径的获取", "其他"]
-        dataArray = [["获取Home的完整路径名", "获取Documnets的完整路径名", "获取Library的完整路径名", "获取/Library/Cache的完整路径名", "获取Library/Preferences的完整路径名", "获取Tmp的完整路径名"],["去除 数字字符串 后面的 0", "第二个"]]
+        headDataArray = ["一、沙盒路径的获取", "二、字符串的空格和特殊字符的处理", "三、字符串的转换", "四、字符串UI的处理"]
+        dataArray = [["获取Home的完整路径名", "获取Documnets的完整路径名", "获取Library的完整路径名", "获取/Library/Cache的完整路径名", "获取Library/Preferences的完整路径名", "获取Tmp的完整路径名"],["去除字符串前后的 空格", "去除字符串前后的 换行", "去除字符串前后的 换行和换行", "去掉所有 空格", "去掉所有 换行", "去掉所有空格 和 换行"], ["字符串 转 CGFloat", "字符串转bool", "字符串转 Int", "字符串转 Double", "字符串转 Float", "字符串转 Bool", "字符串转 NSString"], ["对字符串指定字体及宽度，获取Size"]]
         initUI()
     }
     
@@ -89,15 +88,111 @@ extension StringExtensionViewController {
     }
 }
 
+// MARK:- 字符串空格的处理
+extension StringExtensionViewController {
+    
+    // MARK: 去除字符串前后的 空格
+    /// 去除字符串前后的 空格
+    @objc func test10() {
+        let str = " 123 456 \n 789 "
+        JKPrint("原字符串=\(str) \n处理后的字符串=\(str.removeBeginEndAllSapcefeed)")
+    }
+    
+    // MARK: 去除字符串前后的 换行
+    /// 去除字符串前后的 换行
+    @objc func test11() {
+        let str = " 123 456 \n 789 "
+        JKPrint("原字符串=\(str) \n处理后的字符串=\(str.removeBeginEndAllLinefeed)")
+    }
+    
+    // MARK: 去除字符串前后的 换行和换行
+    /// 去除字符串前后的 换行和换行
+    @objc func test12() {
+        let str = " 123 456 \n 789 "
+        JKPrint("原字符串=\(str)  \n处理后的字符串=\(str.removeBeginEndAllSapceAndLinefeed)")
+    }
+    
+    // MARK: 去掉所有 空格
+    /// 去掉所有 空格
+    @objc func test13() {
+        let str = " 123 456 \n 789 "
+        JKPrint("原字符串=\(str)  \n处理后的字符串=\(str.removeAllSapce)")
+    }
+    
+    // MARK: 去掉所有 换行
+    /// 去掉所有 换行
+    @objc func test14() {
+        let str = " 123 456 \n 789 "
+        JKPrint("原字符串=\(str)  \n处理后的字符串=\(str.removeAllLinefeed)")
+    }
+    
+    // MARK: 去掉所有空格 和 换行
+    /// 去掉所有空格 和 换行
+    @objc func test15() {
+        let str = " 123 456 \n 789 "
+        JKPrint("原字符串=\(str)  \n处理后的字符串=\(str.removeAllLineAndSapcefeed)")
+    }
+}
+
+// MARK:- 三、字符串的转换
+extension StringExtensionViewController {
+    
+    // MARK: 3.1、字符串 转 CGFloat
+    /// 字符串 转 CGFloat
+    @objc func test20() {
+        let str = "3.2"
+        guard let value = str.toCGFloat() else {
+            return
+        }
+        JKPrint(value)
+    }
+    
+    // MARK: 3.2、字符串转 bool
+    /// 字符串转 bool
+    @objc func test21() {
+        
+    }
+    
+    // MARK: 3.3、字符串转 Int
+    /// 字符串转 Int
+    @objc func test22() {
+        
+    }
+    
+    // MARK: 3.4、字符串转 Double
+    /// 字符串转 Double
+    @objc func test23() {
+        
+    }
+    
+    // MARK: 3.5、字符串转 Float
+    /// 字符串转 Float
+    @objc func test24() {
+        
+    }
+    
+    // MARK: 3.6、字符串转 Bool
+    /// 字符串转 Bool
+    @objc func test25() {
+        
+    }
+    
+    // MARK: 3.7、字符串转 NSString
+    /// 字符串转 NSString
+    @objc func test26() {
+        
+    }
+}
+
 // MARK:- 方法使用的展示区
 extension StringExtensionViewController {
     // MARK: 去除 数字字符串 后面的 0
-    @objc func test10() {
+    @objc func test50() {
         let a = "1.00".cutLastZeroAfterDot()
         JKPrint(a)
     }
     // MARK: 去除 数字字符串 后面的 0
-    @objc func test2() {
+    @objc func test5() {
         
         JKPrint("哈哈")
     }
@@ -123,7 +218,7 @@ extension StringExtensionViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height:50))
-        let label = UILabel(frame: CGRect(x: 20, y: 0, width: kScreenW, height: 50))
+        let label = UILabel(frame: CGRect(x: 10, y: 0, width: kScreenW, height: 50))
         label.text = (headDataArray[section] as! String)
         label.textAlignment = .left
         sectionView.addSubview(label)

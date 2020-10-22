@@ -32,6 +32,7 @@ class FoundationExtensionViewController: UIViewController {
         // 设置行高为自动适配
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(HomeViewCell.self, forCellReuseIdentifier: FoundationExtensionViewController.FoundationExtensionViewControllerCellIdentifier)
+         tableView.addWater(markText: "JKSwiftExtension", textColor: UIColor.randomColor(), font: UIFont.systemFont(ofSize: 12))
         return tableView
     }()
     
@@ -104,7 +105,9 @@ extension FoundationExtensionViewController: UITableViewDelegate, UITableViewDat
         } else if cellName == "NSObject+Extension" {
             
         } else if cellName == "String+Extension" {
-            navigationController?.pushViewController(StringExtensionViewController(), animated: true)
+            let vc = StringExtensionViewController()
+            vc.title = cellName
+            navigationController?.pushViewController(vc, animated: true)
         } else if cellName == "UIColor+BaseExtension" {
             
         } else if cellName == "UIDevice+Extension" {

@@ -8,7 +8,7 @@
 
 import UIKit
 import Foundation
-
+import CoreFoundation
 // MARK:- 屏幕的宽高
 /*
  iphone硬件型号
@@ -434,5 +434,43 @@ public extension UIView {
             }
         }
         return nil
+    }
+}
+
+// MARK:- 添加水印
+public extension UIView {
+    
+    // MARK:- 添加水印
+    /// 添加水印
+    /// - Parameters:
+    ///   - markText: 水印文字
+    ///   - textColor: 水印文字颜色
+    ///   - font: 水印文字大小
+    func addWater(markText: String, textColor: UIColor = UIColor.black, font: UIFont = UIFont.systemFont(ofSize: 12)) {
+        let waterMark: NSString = markText.toNSString
+        let textSize: CGSize = waterMark.size(withAttributes: [NSAttributedString.Key.font : font])
+        // 多少行
+        let line: NSInteger = NSInteger(self.jk.height * 3.5 / 80)
+        // 多少列：自己的宽度/(每个水印的宽度+间隔)
+        let row: NSInteger = NSInteger(self.jk.width / markText.rectSize(font: font, width: self.jk.width).width)
+        
+        for i in 0..<line {
+            for j in 0..<row {
+                let textLayer: CATextLayer = CATextLayer()
+                // textLayer.backgroundColor = UIColor.randomColor().cgColor
+                //按当前屏幕分辨显示，否则会模糊
+                textLayer.contentsScale = UIScreen.main.scale
+                textLayer.font = font
+                textLayer.fontSize = font.pointSize
+                textLayer.foregroundColor = textColor.cgColor
+                textLayer.string = waterMark
+                textLayer.frame = CGRect(x: CGFloat(j) * (textSize.width + 30), y: CGFloat(i) * 60, width: textSize.width, height: textSize.height)
+                // 旋转文字
+                textLayer.transform = CATransform3DMakeRotation(CGFloat(Double.pi*0.2), 0, 0, 3)
+                self.layer.addSublayer(textLayer)
+            }
+        }
+        
+        
     }
 }
