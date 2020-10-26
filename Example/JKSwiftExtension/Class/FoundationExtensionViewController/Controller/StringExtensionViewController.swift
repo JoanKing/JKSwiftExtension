@@ -18,8 +18,8 @@ class StringExtensionViewController: UIViewController {
         
         JKPrint(String.PreferencesDirectory())
   
-        headDataArray = ["一、沙盒路径的获取", "二、字符串的空格和特殊字符的处理", "三、字符串的转换", "四、字符串UI的处理"]
-        dataArray = [["获取Home的完整路径名", "获取Documnets的完整路径名", "获取Library的完整路径名", "获取/Library/Cache的完整路径名", "获取Library/Preferences的完整路径名", "获取Tmp的完整路径名"],["去除字符串前后的 空格", "去除字符串前后的 换行", "去除字符串前后的 换行和换行", "去掉所有 空格", "去掉所有 换行", "去掉所有空格 和 换行"], ["字符串 转 CGFloat", "字符串转bool", "字符串转 Int", "字符串转 Double", "字符串转 Float", "字符串转 Bool", "字符串转 NSString"], ["对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)", "对字符串(多行)指定字体及Size，获取 (高度)", "对字符串(多行)指定字体及Size，获取 (宽度)", "对字符串(单行)指定字体，获取 (Size)"]]
+        headDataArray = ["一、沙盒路径的获取", "二、iOS CharacterSet（字符集）", "三、字符串的转换", "四、字符串UI的处理", "五、字符串有关数字方面的扩展", "六、苹果针对浮点类型计算精度问题提供出来的计算类", "七、字符串包含表情的处理", "八、字符串的一些正则校验", "九、字符串截取的操作"]
+        dataArray = [["获取Home的完整路径名", "获取Documnets的完整路径名", "获取Library的完整路径名", "获取/Library/Cache的完整路径名", "获取Library/Preferences的完整路径名", "获取Tmp的完整路径名"],["去除字符串前后的 空格", "去除字符串前后的 换行", "去除字符串前后的 换行和换行", "去掉所有 空格", "去掉所有 换行", "去掉所有空格 和 换行", "是否是 0-9的数字，也不包含小数点", "url进行编码"], ["字符串 转 CGFloat", "字符串转bool", "字符串转 Int", "字符串转 Double", "字符串转 Float", "字符串转 Bool", "字符串转 NSString"], ["对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)", "对字符串(多行)指定字体及Size，获取 (高度)", "对字符串(多行)指定字体及Size，获取 (宽度)", "对字符串(单行)指定字体，获取 (Size)", "对字符串(单行)指定字体，获取 (width)", "对字符串(单行)指定字体，获取 (Height)", "字符串通过 label 根据高度&字体—>Size", "字符串通过 label 根据高度&字体—>Width", "字符串通过 label 根据宽度&字体—>height", "字符串根据宽度 & 字体&行间距->Size", "字符串根据宽度 & 字体 & 行间距->width", "字符串根据宽度&字体&行间距->height"], ["将金额字符串转化为带逗号的金额 按照千分位划分，如 1234567 => 1,234,567", "字符串差不多精确转换成Double——之所以差不多，是因为有精度损失", "去掉小数点后多余的 0", "将数字的字符串处理成  几位 位小数的情况"], ["+", "-", "*", "/"], ["检查字符串是否包含 Emoji 表情", "去除字符串中的Emoji表情"], ["判断是否全是空白,包括空白字符和换行符号，长度为0返回true", "判断是否全十进制数字，长度为0返回false", "判断是否是整数", "判断是否是Float,此处Float是包含Int的，即Int是特殊的Float", "判断是否全是字母，长度为0返回false", "判断是否是中文, 这里的中文不包括数字及标点符号", "是否是有效昵称，即允许“中文”、“英文”、“数字”", "判断是否是有效的手机号码", "判断是否是有效的电子邮件地址", "判断是否有效的身份证号码，不是太严格", "严格判断是否有效的身份证号码,检验了省份，生日，校验位，不过没检查市县的编码", "校验字符串位置是否合理，并返回String.Index"], ["截取字符串从开始到 index", "截取字符串从index到结束", "获取指定位置和长度的字符串", "切割字符串(区间范围 前闭后开)", "用整数返回子字符串开始的位置"]]
         initUI()
     }
     
@@ -60,7 +60,7 @@ class StringExtensionViewController: UIViewController {
     }
 }
 
-// MARK:- 1、沙盒路径的获取
+// MARK:- 一、沙盒路径的获取
 extension StringExtensionViewController {
     // MARK: 获取Home的完整路径名
     @objc func test00() {
@@ -88,50 +88,68 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK:- 字符串空格的处理
+// MARK:- 二、iOS CharacterSet（字符集）
 extension StringExtensionViewController {
     
-    // MARK: 去除字符串前后的 空格
+    // MARK: 2.1、去除字符串前后的 空格
     /// 去除字符串前后的 空格
     @objc func test10() {
         let str = " 123 456 \n 789 "
         JKPrint("原字符串=\(str) \n处理后的字符串=\(str.removeBeginEndAllSapcefeed)")
     }
     
-    // MARK: 去除字符串前后的 换行
+    // MARK: 2.2、去除字符串前后的 换行
     /// 去除字符串前后的 换行
     @objc func test11() {
         let str = " 123 456 \n 789 "
         JKPrint("原字符串=\(str) \n处理后的字符串=\(str.removeBeginEndAllLinefeed)")
     }
     
-    // MARK: 去除字符串前后的 换行和换行
+    // MARK: 2.3、去除字符串前后的 换行和换行
     /// 去除字符串前后的 换行和换行
     @objc func test12() {
         let str = " 123 456 \n 789 "
         JKPrint("原字符串=\(str)  \n处理后的字符串=\(str.removeBeginEndAllSapceAndLinefeed)")
     }
     
-    // MARK: 去掉所有 空格
+    // MARK: 2.4、去掉所有 空格
     /// 去掉所有 空格
     @objc func test13() {
         let str = " 123 456 \n 789 "
         JKPrint("原字符串=\(str)  \n处理后的字符串=\(str.removeAllSapce)")
     }
     
-    // MARK: 去掉所有 换行
+    // MARK: 2.5、去掉所有 换行
     /// 去掉所有 换行
     @objc func test14() {
         let str = " 123 456 \n 789 "
         JKPrint("原字符串=\(str)  \n处理后的字符串=\(str.removeAllLinefeed)")
     }
     
-    // MARK: 去掉所有空格 和 换行
+    // MARK: 2.6、去掉所有空格 和 换行
     /// 去掉所有空格 和 换行
     @objc func test15() {
         let str = " 123 456 \n 789 "
         JKPrint("原字符串=\(str)  \n处理后的字符串=\(str.removeAllLineAndSapcefeed)")
     }
+    
+    // MARK: 2.7、是否是 0-9 的数字，也不包含小数点
+    /// 是否是 0-9 的数字，也不包含小数点
+    @objc func test16() {
+        let testString1 = "4114"
+        let testString2 = "he"
+        let testString3 = "h5677ha"
+        let testString4 = "m880"
+        JKPrint("是否是 0-9的数字，也不包含小数点", "判断 \(testString1) 是否是 0-9的数字：\(testString1.isValidNumber())", "判断 \(testString2) 是否是 0-9的数字：\(testString2.isValidNumber())", "判断 \(testString3) 是否是 0-9的数字：\(testString3.isValidNumber())", "判断 \(testString4) 是否是 0-9的数字：\(testString4.isValidNumber())")
+    }
+    
+    // MARK: 2.8、url进行编码
+    /// 是否是 0-9 的数字，也不包含小数点
+    @objc func test17() {
+        let testString1 = "https://www.baidu.com"
+        JKPrint("url进行编码", "\(testString1) 编码后为：\(testString1.urlValidate())")
+    }
+
 }
 
 // MARK:- 三、字符串的转换
@@ -184,7 +202,7 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK:- 4、字符串UI的处理
+// MARK:- 四、字符串UI的处理
 extension StringExtensionViewController {
     // MARK: 4.1、对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)
     /// 对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)
@@ -204,41 +222,550 @@ extension StringExtensionViewController {
         testLabel.backgroundColor = UIColor.randomColor()
         self.view.addSubview(testLabel)
         
+        JKAsyncs.asyncDelay(3, {
+            JKPrint("3秒等待中。。。。。。")
+        }) {
+            testLabel.removeFromSuperview()
+        }
+        
     }
 
     // MARK: 4.2、对字符串(多行)指定字体及Size，获取 (高度)
     /// 对字符串(多行)指定字体及Size，获取 (高度)
     @objc func test31() {
+        
         let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
-        print("对字符串(多行)指定字体及Size，获取 (高度)：\(testString.rectHeight(font: UIFont.systemFont(ofSize: 22), size: CGSize(width: 200, height: CGFloat(MAXFLOAT))))")
+        let font = UIFont.systemFont(ofSize: 22)
+        
+        let height = testString.rectHeight(font: font, size: CGSize(width: 100, height: CGFloat(MAXFLOAT)))
+        print("对字符串(多行)指定字体及Size，获取 (高度)：\(height)")
+        
+        var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: 100, height: height))
+        testLabel.jk.centerX = self.view.jk.centerX
+        testLabel.textAlignment = .left
+        testLabel.numberOfLines = 0
+        testLabel.font = font
+        testLabel.text = testString
+        testLabel.backgroundColor = UIColor.randomColor()
+        self.view.addSubview(testLabel)
+        
+        JKAsyncs.asyncDelay(3, {
+            JKPrint("3秒等待中。。。。。。")
+        }) {
+            testLabel.removeFromSuperview()
+        }
     }
     
     // MARK: 4.3、对字符串(多行)指定字体及Size，获取 (宽度)
     /// 对字符串(多行)指定字体及Size，获取 (宽度)
     @objc func test32() {
+
         let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
-        print("对字符串(多行)指定字体及Size，获取 (宽度)：\(testString.rectWidth(font: UIFont.systemFont(ofSize: 22), size: CGSize(width: 200, height: CGFloat(MAXFLOAT))))")
+        let font = UIFont.systemFont(ofSize: 22)
+        
+        let width = testString.rectWidth(font: font, size: CGSize(width: 100, height: CGFloat(MAXFLOAT)))
+        print("对字符串(多行)指定字体及Size，获取 (宽度)：\(width)")
+        
+        var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: width, height: 100))
+        testLabel.jk.centerX = self.view.jk.centerX
+        testLabel.textAlignment = .left
+        testLabel.numberOfLines = 0
+        testLabel.font = font
+        testLabel.text = testString
+        testLabel.backgroundColor = UIColor.randomColor()
+        self.view.addSubview(testLabel)
+        
+        JKAsyncs.asyncDelay(3, {
+            JKPrint("3秒等待中。。。。。。")
+        }) {
+            testLabel.removeFromSuperview()
+        }
     }
     
     // MARK: 4.4、对字符串(单行)指定字体，获取 (Size)
     /// 对字符串(单行)指定字体，获取 (Size)
     @objc func test33() {
+
         let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
-        print("对字符串(单行)指定字体，获取 (Size)：\(testString.singleLineSize(font: UIFont.systemFont(ofSize: 22)))")
+        let font = UIFont.systemFont(ofSize: 22)
+        
+        let size = testString.singleLineSize(font: font)
+        print("对字符串(单行)指定字体，获取 (Size)：\(size)")
+        
+        var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: size.width, height: size.height))
+        testLabel.jk.centerX = self.view.jk.centerX
+        testLabel.textAlignment = .left
+        testLabel.numberOfLines = 0
+        testLabel.font = font
+        testLabel.text = testString
+        testLabel.backgroundColor = UIColor.randomColor()
+        self.view.addSubview(testLabel)
+        
+        JKAsyncs.asyncDelay(3, {
+            JKPrint("3秒等待中。。。。。。")
+        }) {
+            testLabel.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 4.5、对字符串(单行)指定字体，获取 (width)
+    /// 对字符串(单行)指定字体，获取 (width)
+    @objc func test34() {
+
+        let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
+        let font = UIFont.systemFont(ofSize: 22)
+        
+        let width = testString.singleLineWidth(font: font)
+        print("对字符串(单行)指定字体，获取 (width)：\(width)")
+        
+        var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: width, height: 100))
+        testLabel.jk.centerX = self.view.jk.centerX
+        testLabel.textAlignment = .left
+        testLabel.numberOfLines = 0
+        testLabel.font = font
+        testLabel.text = testString
+        testLabel.backgroundColor = UIColor.randomColor()
+        self.view.addSubview(testLabel)
+        
+        JKAsyncs.asyncDelay(3, {
+            JKPrint("3秒等待中。。。。。。")
+        }) {
+            testLabel.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 4.6、对字符串(单行)指定字体，获取 (Height)
+    /// 对字符串(单行)指定字体，获取 (Height)
+    @objc func test35() {
+
+        let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
+        let font = UIFont.systemFont(ofSize: 22)
+        
+        let height = testString.singleLineHeight(font: font)
+        print("对字符串(单行)指定字体，获取 (Height)：\(height)")
+        
+        var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: 100, height: height))
+        testLabel.jk.centerX = self.view.jk.centerX
+        testLabel.textAlignment = .left
+        testLabel.numberOfLines = 0
+        testLabel.font = font
+        testLabel.text = testString
+        testLabel.backgroundColor = UIColor.randomColor()
+        self.view.addSubview(testLabel)
+        
+        JKAsyncs.asyncDelay(3, {
+            JKPrint("3秒等待中。。。。。。")
+        }) {
+            testLabel.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 4.7、字符串通过 label 根据高度&字体——> Size
+    /// 对字符串(单行)指定字体，获取 (Height)
+    @objc func test36() {
+        
+        let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
+        let font = UIFont.systemFont(ofSize: 22)
+        
+        let size = testString.sizeAccording(width: 200, font: font)
+        print("字符串通过 label 根据高度&字体——> Size：\(size)")
+        
+        var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: size.width, height: size.height))
+        testLabel.jk.centerX = self.view.jk.centerX
+        testLabel.textAlignment = .left
+        testLabel.numberOfLines = 0
+        testLabel.font = font
+        testLabel.text = testString
+        testLabel.backgroundColor = UIColor.randomColor()
+        self.view.addSubview(testLabel)
+        
+        JKAsyncs.asyncDelay(3, {
+            JKPrint("3秒等待中。。。。。。")
+        }) {
+            testLabel.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 4.8、字符串通过 label 根据高度&字体 ——> Width
+    @objc func test37() {
+        let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
+        let font = UIFont.systemFont(ofSize: 22)
+        
+        let width = testString.widthAccording(width: 200, font: font)
+        print("字符串通过 label 根据高度&字体 ——> Width：\(width)")
+        
+        var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: width, height: 100))
+        testLabel.jk.centerX = self.view.jk.centerX
+        testLabel.textAlignment = .left
+        testLabel.numberOfLines = 0
+        testLabel.font = font
+        testLabel.text = testString
+        testLabel.backgroundColor = UIColor.randomColor()
+        self.view.addSubview(testLabel)
+        
+        JKAsyncs.asyncDelay(3, {
+            JKPrint("3秒等待中。。。。。。")
+        }) {
+            testLabel.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 4.9、字符串通过 label 根据宽度&字体 ——> height
+    @objc func test38() {
+        let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
+        let font = UIFont.systemFont(ofSize: 22)
+        
+        let height = testString.heightAccording(width: 200, font: font)
+        print("字符串通过 label 根据宽度&字体 ——> height：\(height)")
+        
+        var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: 200, height: height))
+        testLabel.jk.centerX = self.view.jk.centerX
+        testLabel.textAlignment = .left
+        testLabel.numberOfLines = 0
+        testLabel.font = font
+        testLabel.text = testString
+        testLabel.backgroundColor = UIColor.randomColor()
+        self.view.addSubview(testLabel)
+        
+        JKAsyncs.asyncDelay(3, {
+            JKPrint("3秒等待中。。。。。。")
+        }) {
+            testLabel.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 4.10、字符串根据宽度 & 字体 & 行间距 —> Size
+    /// 字符串根据宽度 & 字体 & 行间距 —> Size
+    @objc func test39() {
+
+        let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
+        let font = UIFont.systemFont(ofSize: 22)
+        let lineSpacing: CGFloat = 20
+        
+        let size = testString.sizeAccording(width: 200, font: font, lineSpacing: lineSpacing)
+        print("字符串根据宽度 & 字体 & 行间距 —> Size：\(size)")
+
+        var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: size.width, height: size.height))
+        testLabel.jk.centerX = self.view.jk.centerX
+        testLabel.textAlignment = .left
+        testLabel.numberOfLines = 0
+        testLabel.font = font
+        testLabel.backgroundColor = UIColor.randomColor()
+        
+        let attrStr = NSMutableAttributedString(string: testString)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing
+        attrStr.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, testString.count))
+        testLabel.attributedText = attrStr
+        self.view.addSubview(testLabel)
+        
+        self.view.addSubview(testLabel)
+
+        JKAsyncs.asyncDelay(3, {
+            JKPrint("3秒等待中。。。。。。")
+        }) {
+            testLabel.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 4.11、字符串根据宽度 & 字体 & 行间距 —> width
+    /// 字符串根据宽度 & 字体 & 行间距 —> width
+    @objc func test310() {
+
+        let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
+        let font = UIFont.systemFont(ofSize: 22)
+        let size = CGSize(width: 300, height: CGFloat(MAXFLOAT))
+        let lineSpacing: CGFloat = 20
+        let width = testString.widthAccording(width: size.width, font: font, lineSpacing: 20)
+        print("字符串根据宽度 & 字体 & 行间距 —> width：\(width)")
+
+        var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: width, height: size.height))
+        testLabel.jk.centerX = self.view.jk.centerX
+        testLabel.textAlignment = .left
+        testLabel.numberOfLines = 0
+        testLabel.font = font
+        testLabel.backgroundColor = UIColor.randomColor()
+        
+        let attrStr = NSMutableAttributedString(string: testString)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing
+        attrStr.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, testString.count))
+        testLabel.attributedText = attrStr
+        self.view.addSubview(testLabel)
+
+        JKAsyncs.asyncDelay(3, {
+            JKPrint("3秒等待中。。。。。。")
+        }) {
+            testLabel.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 4.12、字符串根据宽度 & 字体 & 行间距 —> height
+      /// 字符串根据宽度 & 字体 & 行间距 —> height
+    @objc func test311() {
+        
+        let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
+        let font = UIFont.systemFont(ofSize: 22)
+        let size = CGSize(width: 300, height: CGFloat(MAXFLOAT))
+        let lineSpacing: CGFloat = 20
+        
+        let height = testString.heightAccording(width: size.width, font: font, lineSpacing: lineSpacing)
+        print("字符串根据宽度 & 字体 & 行间距 —> height：\(height)")
+        
+        var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: size.width, height: height))
+        testLabel.jk.centerX = self.view.jk.centerX
+        testLabel.textAlignment = .left
+        testLabel.numberOfLines = 0
+        testLabel.font = font
+        testLabel.backgroundColor = UIColor.randomColor()
+        let attrStr = NSMutableAttributedString(string: testString)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing
+        attrStr.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, testString.count))
+        testLabel.attributedText = attrStr
+        self.view.addSubview(testLabel)
+        
+        JKAsyncs.asyncDelay(3, {
+            JKPrint("3秒等待中。。。。。。")
+        }) {
+            testLabel.removeFromSuperview()
+        }
     }
 }
 
-// MARK:- 方法使用的展示区
+// MARK:- 五、字符串有关数字方面的扩展
 extension StringExtensionViewController {
-    // MARK: 去除 数字字符串 后面的 0
-    @objc func test50() {
-        let a = "1.00".cutLastZeroAfterDot()
-        JKPrint(a)
+    // MARK: 5.1、将金额字符串转化为带逗号的金额 按照千分位划分，如  "1234567" => 1,234,567   1234567.56 => 1,234,567.56
+    /// 将金额字符串转化为带逗号的金额 按照千分位划分，如  "1234567" => 1,234,567   1234567.56 => 1,234,567.56
+    @objc func test40() {
+        JKPrint(" 将金额字符串转化为带逗号的金额 按照千分位划分，如1234567 转化后为：\("1234567".toThousands() ?? "无效")")
     }
-    // MARK: 去除 数字字符串 后面的 0
-    @objc func test5() {
-        
-        JKPrint("哈哈")
+    
+    // MARK: 5.2、字符串差不多精确转换成Double——之所以差不多，是因为有精度损失
+    /// 字符串差不多精确转换成Double——之所以差不多，是因为有精度损失
+    @objc func test41() {
+        let testStrinig = "1.3403"
+        JKPrint("字符串差不多精确转换成Double——之所以差不多，是因为有精度损失：\(testStrinig.accuraterDouble() ?? 0)")
+    }
+    
+    // MARK: 5.3、去掉小数点后多余的 0
+    /// 去掉小数点后多余的0
+    @objc func test42() {
+        let testStrinig1 = "1.3400"
+        let testStrinig2 = "1.00"
+        let testStrinig3 = "1.20"
+        let testStrinig4 = "1.020"
+        let testStrinig5 = "1.0010"
+        JKPrint("去掉小数点后多余的 0：\n\(testStrinig1) -> \(testStrinig1.cutLastZeroAfterDot())", "\(testStrinig2) -> \(testStrinig2.cutLastZeroAfterDot())", "\(testStrinig3) -> \(testStrinig3.cutLastZeroAfterDot())", "\(testStrinig4) -> \(testStrinig4.cutLastZeroAfterDot())", "\(testStrinig5) -> \(testStrinig5.cutLastZeroAfterDot())")
+    }
+    
+    // MARK: 5.4、将数字的字符串处理成  几位 位小数的情况
+    /// 将数字的字符串处理成  几位 位小数的情况
+    @objc func test43() {
+        let testStrinig1 = "6.123456789"
+        JKPrint("保留 1 位小数 \(testStrinig1.saveNumberDecimal(numberDecimal: 1))", "保留 2 位小数 \(testStrinig1.saveNumberDecimal(numberDecimal: 2))", "保留 3 位小数 \(testStrinig1.saveNumberDecimal(numberDecimal: 3))", "保留 4 位小数 \(testStrinig1.saveNumberDecimal(numberDecimal: 4))", "保留 5 位小数 \(testStrinig1.saveNumberDecimal(numberDecimal: 5))")
+    }
+    
+
+}
+
+// MARK:- 五、字符串有关数字方面的扩展
+extension StringExtensionViewController {
+    // MARK: 加
+    @objc func test50() {
+        let num1 = "1.21"
+        let num2 = "1.35"
+        JKPrint("\(num1) + \(num2) = \(num1.adding(num2))")
+    }
+    
+    // MARK: 减
+    @objc func test51() {
+       let num1 = "1.21"
+       let num2 = "1.35"
+       JKPrint("\(num1) - \(num2) = \(num1.subtracting(num2))")
+    }
+    
+    // MARK: 乘
+    @objc func test52() {
+       let num1 = "1.21"
+       let num2 = "1.35"
+       JKPrint("\(num1) * \(num2) = \(num1.multiplying(num2))")
+    }
+    
+    // MARK: 除
+    @objc func test53() {
+       let num1 = "1.21"
+       let num2 = "1.35"
+       JKPrint("\(num1) / \(num2) = \(num1.dividing(num2))")
+    }
+    
+}
+
+// MARK:- 七、字符串包含表情的处理
+extension StringExtensionViewController {
+    
+    // MARK: 7.1、检查字符串是否包含 Emoji 表情
+    @objc func test60() {
+        let testString = "我是一只小小鸟😝"
+        JKPrint("第1种方式：\(testString.containsEmoji())", "第2种方式：\(testString.includesEmoji())")
+    }
+    
+    // MARK: 7.2、去除字符串中的Emoji表情
+    @objc func test61() {
+        let testString = "我是一只小小鸟😝"
+        JKPrint("去除字符串中的Emoji表情, 如：\(testString) 去除后为：\(testString.deleteEmoji())")
+    }
+}
+
+// MARK:- 八、字符串的一些正则校验
+extension StringExtensionViewController {
+    
+    // MARK: 8.1、判断是否全是空白,包括空白字符和换行符号，长度为0返回true
+    /// 判断是否全是空白,包括空白字符和换行符号，长度为0返回true
+    @objc func test70() {
+        let testString = " \n \n"
+        JKPrint("\(testString.isBlank)")
+    }
+    
+    // MARK: 8.2、判断是否全十进制数字，长度为0返回false
+    /// 判断是否全十进制数字，长度为0返回false
+    @objc func test71() {
+        let testString = "f"
+        JKPrint("\(testString.isDecimalDigits)")
+    }
+    
+    // MARK: 8.3、判断是否是整数
+    /// 判断是否是整数
+    @objc func test72() {
+        let testString1 = "32"
+        let testString2 = "e"
+        let testString3 = "1.0"
+        JKPrint("判断 \(testString1) 是否是整数：\(testString1.isPureInt)", "判断 \(testString1) 是否是整数：\(testString2.isPureInt)", "判断 \(testString1) 是否是整数：\(testString3.isPureInt)")
+    }
+    
+    // MARK: 8.4、判断是否是Float,此处Float是包含Int的，即Int是特殊的Float
+    /// 判断是否是Float,此处Float是包含Int的，即Int是特殊的Float
+    @objc func test73() {
+        let testString1 = "32"
+        let testString2 = "e"
+        let testString3 = "1.0"
+        JKPrint("判断是否是Float,此处Float是包含Int的，即Int是特殊的Float", "判断 \(testString1) 是否是Float：\(testString1.isPureFloat)", "判断 \(testString2) 是否是Float：\(testString2.isPureFloat)", "判断 \(testString3) 是否是Float：\(testString3.isPureFloat)")
+    }
+    
+    // MARK: 8.5、判断是否全是字母，长度为0返回false
+    /// 判断是否全是字母，长度为0返回false
+    @objc func test74() {
+        let testString1 = "34fgt"
+        let testString2 = "e"
+        let testString3 = "ABC"
+        JKPrint("判断是否全是字母，长度为0返回false，即Int是特殊的Float", "判断 \(testString1) 是否全是字母：\(testString1.isLetters)", "判断 \(testString2) 是否全是字母：\(testString2.isLetters)", "判断 \(testString3) 是否全是字母：\(testString3.isLetters)")
+    }
+    
+    // MARK: 8.6、判断是否是中文, 这里的中文不包括数字及标点符号
+    /// 判断是否是中文, 这里的中文不包括数字及标点符号
+    @objc func test75() {
+        let testString1 = "我爱中国"
+        let testString2 = "e"
+        let testString3 = "I am a boy"
+        JKPrint("判断是否是中文, 这里的中文不包括数字及标点符号", "判断 \(testString1) 是否是中文：\(testString1.isChinese)", "判断 \(testString2) 是否是中文：\(testString2.isChinese)", "判断 \(testString3) 是否是中文：\(testString3.isChinese)")
+    }
+    
+    // MARK: 8.7、是否是有效昵称，即允许“中文”、“英文”、“数字”
+    /// 是否是有效昵称，即允许“中文”、“英文”、“数字”
+    @objc func test76() {
+        let testString1 = "我爱中国--"
+        let testString2 = "12"
+        let testString3 = "Iloveyou"
+        let testString4 = "I love you"
+        JKPrint("是否是有效昵称，即允许 中文 、 英文 、 数字 ", "判断 \(testString1) 是否是有效昵称：\(testString1.isValidNickName)", "判断 \(testString2) 是否是有效昵称：\(testString2.isValidNickName)", "判断 \(testString3) 是否是有效昵称：\(testString3.isValidNickName)", "判断 \(testString4) 是否是有效昵称：\(testString4.isValidNickName)")
+    }
+    
+    // MARK: 8.8、判断是否是有效的手机号码
+    /// 判断是否是有效的手机号码
+    @objc func test77() {
+        let testString1 = "123"
+        let testString2 = "18500652880"
+        let testString3 = "87689022"
+        let testString4 = "12345678912"
+        JKPrint("判断是否是有效的手机号码", "判断 \(testString1) 是否是有效的手机号码：\(testString1.isValidMobile)", "判断 \(testString2) 是否是有效的手机号码：\(testString2.isValidMobile)", "判断 \(testString3) 是否是有效的手机号码：\(testString3.isValidMobile)", "判断 \(testString4) 是否是有效的手机号码：\(testString4.isValidMobile)")
+    }
+    
+    // MARK: 8.9、判断是否是有效的电子邮件地址
+    /// 判断是否是有效的电子邮件地址
+    @objc func test78() {
+        let testString1 = "123"
+        let testString2 = "jkironman@163.com"
+        let testString3 = "29388387@163.com"
+        let testString4 = "chongwang"
+        JKPrint("判断是否是有效的电子邮件地址", "判断 \(testString1) 是否是有效的电子邮件地址：\(testString1.isValidEmail)", "判断 \(testString2) 是否是有效的电子邮件地址：\(testString2.isValidEmail)", "判断 \(testString3) 是否是有效的电子邮件地址：\(testString3.isValidEmail)", "判断 \(testString4) 是否是有效的电子邮件地址：\(testString4.isValidEmail)")
+    }
+    
+    // MARK: 8.10、判断是否有效的身份证号码，不是太严格
+    /// 判断是否有效的身份证号码，不是太严格
+    @objc func test79() {
+        let testString1 = "411423199202026036"
+        let testString2 = "411423199"
+        let testString3 = "411423199993993j"
+        let testString4 = "18500652880"
+        JKPrint("判断是否有效的身份证号码，不是太严格", "判断 \(testString1) 是否是有效的身份证号码：\(testString1.isValidIDCardNumber)", "判断 \(testString2) 是否是有效的身份证号码：\(testString2.isValidIDCardNumber)", "判断 \(testString3) 是否是有效的身份证号码：\(testString3.isValidIDCardNumber)", "判断 \(testString4) 是否是有效的身份证号码：\(testString4.isValidIDCardNumber)")
+    }
+    
+    // MARK: 8.11、严格判断是否有效的身份证号码,检验了省份，生日，校验位，不过没检查市县的编码
+    /// 严格判断是否有效的身份证号码,检验了省份，生日，校验位，不过没检查市县的编码
+    @objc func test710() {
+        let testString1 = "411423199202026036"
+        let testString2 = "411423199"
+        let testString3 = "411423199993993j"
+        let testString4 = "18500652880"
+        JKPrint("严格判断是否有效的身份证号码,检验了省份，生日，校验位，不过没检查市县的编码", "严格判断 \(testString1) 是否是有效的身份证号码：\(testString1.isValidIDCardNumStrict)", "严格判断 \(testString2) 是否是有效的身份证号码：\(testString2.isValidIDCardNumStrict)", "严格判断 \(testString3) 是否是有效的身份证号码：\(testString3.isValidIDCardNumStrict)", "严格判断 \(testString4) 是否是有效的身份证号码：\(testString4.isValidIDCardNumStrict)")
+    }
+    
+    // MARK: 8.12、校验字符串位置是否合理，并返回String.Index
+    /// 校验字符串位置是否合理，并返回String.Index
+    @objc func test711() {
+        let testString1 = "4114231she02026036"
+        let testString2 = "he"
+        let testString3 = "h5677ha"
+        let testString4 = "18500652m880"
+        JKPrint("校验字符串位置是否合理，并返回String.Index", "校验 \(testString1) 是否合理：\(testString1.validIndex(original: 7))", "校验 \(testString2) 是否合理：\(testString2.validIndex(original: 2))", "校验 \(testString3) 是否合理：\(testString3.validIndex(original: 0))", "校验 \(testString4) 是否合理：\(testString4.validIndex(original: 2))")
+    }
+}
+
+// MARK:- 九、字符串截取的操作
+extension StringExtensionViewController {
+    // MARK:- 9.1、截取字符串从开始到 index
+    ///  截取字符串从开始到 index
+    @objc func test80() {
+        let testString1 = "0123456789"
+        JKPrint("字符串截取的操作x", "\(testString1) 从开头截取到index=4 后为：\(testString1.sub(to: 4))")
+    }
+    
+    // MARK:- 9.2、截取字符串从index到结束
+    ///  截取字符串从index到结束
+    @objc func test81() {
+        let testString1 = "0123456789"
+        JKPrint("截取字符串从index到结束", "\(testString1) 截取字符串从index=4到结束后为：\(testString1.sub(from: 4))")
+    }
+    
+    // MARK:- 9.3、获取指定位置和长度的字符串
+    ///  获取指定位置和长度的字符串
+    @objc func test82() {
+        let testString1 = "0123456789"
+        JKPrint("获取指定位置和长度的字符串", "\(testString1) 截取字符串从index=2到长度为2后为：\(testString1.sub(start: 2, length: 2))")
+    }
+    
+    // MARK:- 9.4、切割字符串(区间范围 前闭后开)
+    ///  切割字符串(区间范围 前闭后开)
+    @objc func test83() {
+        let testString1 = "0123456789"
+        JKPrint("切割字符串(区间范围 前闭后开)", "\(testString1) 截取字符串 2..<4 后为：\(testString1.slice(2..<4))")
+    }
+    
+    // MARK:- 9.5、用整数返回子字符串开始的位置
+    ///  截取字符串从index到结束
+    @objc func test84() {
+        let testString1 = "0123456789"
+        JKPrint("用整数返回子字符串开始的位置", "\(testString1) 中字符串 position 开始的位置是：\(testString1.position(of: "012"))")
     }
     
 }
@@ -261,15 +788,23 @@ extension StringExtensionViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height:50))
-        let label = UILabel(frame: CGRect(x: 10, y: 0, width: kScreenW, height: 50))
-        label.text = (headDataArray[section] as! String)
+        let str = headDataArray[section] as! String
+        let size = str.rectSize(font: UIFont.systemFont(ofSize: 18), size: CGSize(width: kScreenW - 20, height: CGFloat(MAXFLOAT)))
+        
+        let sectionView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height:size.height + 20))
+        let label = UILabel(frame: CGRect(x: 10, y: 10, width: kScreenW - 20, height: size.height))
+        label.text = str
+        label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .left
+        label.numberOfLines = 0
         sectionView.addSubview(label)
         return sectionView
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        let str = headDataArray[section] as! String
+        let size = str.rectSize(font: UIFont.systemFont(ofSize: 18), size: CGSize(width: kScreenW - 20, height: CGFloat(MAXFLOAT)))
+        return size.height + 20
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
