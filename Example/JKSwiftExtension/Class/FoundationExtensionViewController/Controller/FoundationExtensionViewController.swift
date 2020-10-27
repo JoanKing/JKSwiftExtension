@@ -88,58 +88,13 @@ extension FoundationExtensionViewController: UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    
-        let cellName = dataArray[indexPath.row] as! String
-        if cellName == "Array+Extension" {
-            navigationController?.pushViewController(ArrayExtensionViewController(), animated: true)
-        } else if cellName == "BaseData+Extension" {
-           
-        } else if cellName == "Bundle+Extension" {
-           
-        } else if cellName == "CGRect+Extension" {
         
-        } else if cellName == "Date+Extension" {
-            
-        } else if cellName == "Double+Divisible" {
-            
-        } else if cellName == "NSObject+Extension" {
-            
-        } else if cellName == "String+Extension" {
-            let vc = StringExtensionViewController()
-            vc.title = cellName
-            navigationController?.pushViewController(vc, animated: true)
-        } else if cellName == "UIColor+BaseExtension" {
-            
-        } else if cellName == "UIDevice+Extension" {
-            
-        } else if cellName == "UIFont+Extensin" {
-           
-        } else if cellName == "Timer+Extension" {
-            
-        } else if cellName == "Int+Extension" {
-            
-        } else if cellName == "UInt+Extension" {
-            
-        } else if cellName == "Float+Extension" {
-            
-        } else if cellName == "Bool+Extension" {
-            
-        } else if cellName == "CGFloat+Extension" {
-            
-        } else if cellName == "Character+Extension" {
-            
-        } else if cellName == "DateFormatter+Extension" {
-            
-        } else if cellName == "Dictionary+Extension" {
-            
-        } else if cellName == "FileManager+Extension" {
-            
-        } else if cellName == "URL+Extension" {
-            
-        } else if cellName == "NSDecimalNumberHandler+Extension" {
-            navigationController?.pushViewController(NSDecimalNumberHandlerExtensionViewController(), animated: true)
-        } else {
-            
+        let cellName = dataArray[indexPath.row] as! String
+        let vcName = cellName.removeSomeStringUseSomeString(removeString: "+") + "ViewController"
+        guard let vc = vcName.toViewController() else {
+            return
         }
+        vc.title = cellName
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

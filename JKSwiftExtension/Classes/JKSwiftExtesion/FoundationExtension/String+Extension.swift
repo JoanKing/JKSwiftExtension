@@ -62,6 +62,41 @@ public extension String {
         }
         return true
     }
+    
+    // MARK: 0.7、字符串转 UIViewController
+    /// 字符串转 UIViewController
+    /// - Returns: 对应的控制器
+    @discardableResult
+    func toViewController() -> UIViewController? {
+        // 1.动态获取命名空间
+        let namespace = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
+        // 2.将字符串转换为类
+        // 2.1.默认情况下命名空间就是项目的名称，但是命名空间的名称是可以更改的
+        guard let Class: AnyClass = NSClassFromString(namespace + "." + self) else {
+            return nil
+        }
+        // 3.通过类创建对象
+        // 3.1.将AnyClass 转化为指定的类
+        let vcClass = Class as! UIViewController.Type
+        // 4.通过class创建对象
+        let vc = vcClass.init()
+        return vc
+    }
+    
+    // MARK: 0.8、字符串转 AnyClass
+    /// 字符串转 AnyClass
+    /// - Returns: 对应的 Class
+    @discardableResult
+    func toClass() -> AnyClass? {
+        // 1.动态获取命名空间
+        let namespace = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
+        // 2.将字符串转换为类
+        // 2.1.默认情况下命名空间就是项目的名称，但是命名空间的名称是可以更改的
+        guard let Class: AnyClass = NSClassFromString(namespace + "." + self) else {
+            return nil
+        }
+        return Class
+    }
 }
 
 // MARK:- 1、沙盒路径的获取
@@ -172,21 +207,31 @@ public extension String {
  总之就是将unicode字符，按组分类，便于搜索查找，验证字符串。通常我们在一些场景下会用到一个字符串是否包含某种特定字符，比如判断密码是否只包含数字，检查url是否有不规范字符，删除多余空格等操作
  
  属性                                                              描述
- CharacterSet.alphanumerics                       字母和数字的组合，包含大小写, 不包含小数点
- CharacterSet.capitalizedLetters                  字母，首字母大写，Lt类别
- CharacterSet.decimalDigits                         0-9的数字，也不包含小数点
- CharacterSet.whitespaces                           空格
- CharacterSet.whitespacesAndNewlines      空格和换行
- CharacterSet.letters                                     所有英文字母，包含大小写 65-90 97-122
- CharacterSet.lowercaseLetters                   小写英文字母 97-122
- CharacterSet.uppercaseLetters                  大写英文字母 65-90
- CharacterSet.nonBaseCharacters              非基础字符 M*
- CharacterSet.illegalCharacters                   不合规字符，没有在Unicode 3.2 标准中定义的字符
- CharacterSet.punctuationCharacters          标点符号，连接线，引号什么的 P*
- CharacterSet.symbols                                 符号，包含S* 所有内容，运算符，货币符号什么的
- CharacterSet.newlines                                返回一个包含换行符的字符集，U+000A ~ U+000D, U+0085, U+2028, and U+2029
- CharacterSet.symbols                                 符号，包含S* 所有内容，运算符，货币符号什么的
- inverted                                                        相反的字符集。例如CharacterSet.whitespaces.inverted 就是没有空格
+ CharacterSet.alphanumerics
+ 
+ controlCharacters:                  控制符
+ whitespaces:                           空格
+ whitespacesAndNewlines:      空格和换行
+ decimalDigits:                          0-9的数字，也不包含小数点
+ letters:                                      所有英文字母，包含大小写 65-90 97-122
+ lowercaseLetters:                     小写英文字母 97-122
+ uppercaseLetters:                    大写英文字母 65-90
+ nonBaseCharacters:                非基础字符 M*
+ alphanumerics:                         字母和数字的组合，包含大小写, 不包含小数点
+ decomposables:                       可分解
+ illegalCharacters:                     不合规字符，没有在Unicode 3.2 标准中定义的字符
+ punctuationCharacters:            标点符号，连接线，引号什么的 P*
+ capitalizedLetters:                    字母，首字母大写，Lt类别
+ symbols:                                   符号，包含S* 所有内容，运算符，货币符号什么的
+ newlines:                                  返回一个包含换行符的字符集，U+000A ~ U+000D, U+0085, U+2028, and U+2029
+ urlUserAllowed:
+ urlPasswordAllowed:
+ urlHostAllowed:
+ urlPathAllowed:
+ urlQueryAllowed:
+ urlFragmentAllowed:
+ bitmapRepresentation:
+ inverted:                                    相反的字符集。例如CharacterSet.whitespaces.inverted 就是没有空格
  */
 public extension String {
     
@@ -251,6 +296,40 @@ public extension String {
     /// - Returns: 返回对应的URL
      func urlValidate() -> URL {
         return URL(string: self.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed) ?? "")!
+    }
+    
+    // MARK: 2.9、某个字符使用某个字符替换掉
+    /// 某个字符使用某个字符替换掉
+    /// - Parameters:
+    ///   - removeString: 原始字符
+    ///   - replacingString: 替换后的字符
+    /// - Returns: 替换后的整体字符串
+    func removeSomeStringUseSomeString(removeString: String, replacingString: String = "") -> String {
+        return replacingOccurrences(of: removeString, with: replacingString)
+    }
+    
+    // MARK: 2.10、使用正则表达式替换某些子串
+    /// 使用正则表达式替换
+    /// - Parameters:
+    ///   - pattern: 正则
+    ///   - with: 用来替换的字符串
+    ///   - options: 策略
+    /// - Returns: 返回替换后的字符串
+    func pregReplace(pattern: String, with: String,
+                     options: NSRegularExpression.Options = []) -> String {
+        let regex = try! NSRegularExpression(pattern: pattern, options: options)
+        return regex.stringByReplacingMatches(in: self, options: [],
+                                              range: NSMakeRange(0, self.count),
+                                              withTemplate: with)
+    }
+    
+    // MARK: 2.11、删除指定的字符
+    /// 删除指定的字符
+    /// - Parameter characterString: 指定的字符
+    /// - Returns: 返回删除后的字符
+    func removeCharacter(characterString: String) -> String {
+        let characterSet = CharacterSet(charactersIn: characterString)
+        return trimmingCharacters(in: characterSet)
     }
 }
 
