@@ -8,32 +8,34 @@
 
 import Foundation
 
+// MARK:- 一、Date 基本的扩展
 public extension Date {
+    // MARK: 1.1、获取当前 秒级 时间戳 - 10 位
     /// 获取当前 秒级 时间戳 - 10 位
-    var timeStamp : String {
-        let timeInterval: TimeInterval = self.timeIntervalSince1970
-        let timeStamp = Int(timeInterval)
-        return "\(timeStamp)"
+    static var secondStamp : String {
+        let timeInterval: TimeInterval = Self().timeIntervalSince1970
+        return "\(Int(timeInterval))"
     }
     
+    // MARK: 1.2、获取当前 毫秒级 时间戳 - 13 位
     /// 获取当前 毫秒级 时间戳 - 13 位
-    var milliStamp : String {
-        let timeInterval: TimeInterval = self.timeIntervalSince1970
+    static var milliStamp : String {
+        let timeInterval: TimeInterval = Self().timeIntervalSince1970
         let millisecond = CLongLong(round(timeInterval*1000))
         return "\(millisecond)"
     }
 }
 
-//MARK: - Date
+//MARK: - 二、时间格式的转换
 public extension Date {
     
-    // MARK: 根据时间戳转化为对应时间的字符串
+    // MARK: 2.1、根据时间戳转化为对应时间的字符串
     /// 根据时间戳转化为对应时间的字符串
     /// - Parameters:
     ///   - timestamp: 时间戳
     ///   - format: 格式
     /// - Returns: 对应时间的字符串
-    func timestampToFormatterTimeString(timestamp: String, format: String = "yyyyMMdd") -> String {
+    static func timestampToFormatterTimeString(timestamp: String, format: String = "yyyy MM dd") -> String {
         // 时间戳转为Date
         let date = Date(timeIntervalSince1970: timestamp.doubleValue)
         let dateFormatter = DateFormatter()

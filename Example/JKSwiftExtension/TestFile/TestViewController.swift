@@ -50,7 +50,7 @@ extension TestViewController {
     fileprivate func judegeIsTodayResuestData() {
         // 1.判断是否有存的时间戳，没有的话进行存储当前的时间戳，并进行消息数量的判断
         guard let timeString = JKUserDefaults.userDefaultsGetValue(key: "TradeMessageTodayIsFirstShow") as? String else {
-            print("存储的时间戳是：\(Date().timeStamp)")
+            print("存储的时间戳是：\(Date.secondStamp)")
             messageMoreZero()
             return
         }
@@ -80,7 +80,7 @@ extension TestViewController {
         }
         
         // 存储当天的时间戳
-        JKUserDefaults.userDefaultsSetValue(value: Date().timeStamp, key: "TradeMessageTodayIsFirstShow")
+        JKUserDefaults.userDefaultsSetValue(value: Date.secondStamp, key: "TradeMessageTodayIsFirstShow")
         
         // 消息大于0弹框
         // 有未读的消息就弹框提示

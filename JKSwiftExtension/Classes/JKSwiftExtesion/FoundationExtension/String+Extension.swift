@@ -34,7 +34,7 @@ public extension String {
         return self.range(of: find, options: .caseInsensitive) != nil
     }
     
-    // MARK:- 0.4、字符串转 Base64
+    // MARK: 0.4、字符串转 Base64
     /// 字符串转 Base64
     var base64: String? {
         guard let plainData = (self as NSString).data(using: String.Encoding.utf8.rawValue) else {
@@ -333,7 +333,7 @@ public extension String {
     }
 }
 
-// MARK:- 3、字符串的转换
+// MARK:- 三、字符串的转换
 public extension String {
     
     // MARK: 3.1、字符串 转 CGFloat
@@ -410,7 +410,7 @@ public extension String {
     }
 }
 
-// MARK:- 4、字符串UI的处理
+// MARK:- 四、字符串UI的处理
 extension String {
     
     // MARK: 4.1、对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)
@@ -581,7 +581,7 @@ extension String {
 }
 
 
-// MARK:- 5、字符串有关数字方面的扩展
+// MARK:- 五、字符串有关数字方面的扩展
 public enum StringCutType {
     case normal, auto
 }
