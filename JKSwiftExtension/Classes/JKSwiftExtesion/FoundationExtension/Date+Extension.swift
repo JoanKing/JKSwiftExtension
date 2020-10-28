@@ -122,7 +122,7 @@ public extension Date {
             #if DEBUG
             fatalError("时间戳位数不是 10 也不是 13")
             #else
-            return "时间戳位数不对"
+            return Date()
             #endif
         }
         let timestampValue = timestamp.count == 10 ? timestamp.doubleValue : timestamp.doubleValue / 1000
@@ -169,7 +169,7 @@ public extension Date {
             #if DEBUG
             fatalError("时间有问题")
             #else
-            return "时间有问题"
+            return Date()
             #endif
         }
         return date
