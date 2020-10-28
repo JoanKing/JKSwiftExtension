@@ -248,9 +248,9 @@
 			children = (
 				84BF16C5251D9F8D002ACE76 /* FoundationExtensionViewController.swift */,
 				84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */,
-				849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */,
 				849D58F32537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift */,
 				84A5D2D52547B48E003D289C /* DateExtensionViewController.swift */,
+				849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

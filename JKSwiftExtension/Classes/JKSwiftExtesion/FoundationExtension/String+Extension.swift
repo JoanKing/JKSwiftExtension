@@ -110,7 +110,7 @@ public extension String {
  - 注意: 不要保存从网络上下载的文件，否则会无法上架!
  - 3、Library
  - 3.1、Library/Cache
- = 保存应用运行时生成的需要持久化的数据，iTunes同步设备时不备份该目录。一般存放体积大、不需要备份的非重要数据
+ - 保存应用运行时生成的需要持久化的数据，iTunes同步设备时不备份该目录。一般存放体积大、不需要备份的非重要数据
  - 保存临时文件,"后续需要使用"，例如: 缓存的图片，离线数据（地图数据）
  - 系统不会清理 cache 目录中的文件
  - 就要求程序开发时, "必须提供 cache 目录的清理解决方案"
@@ -883,7 +883,8 @@ extension String {
     public var isValidNickName: Bool {
         let rgex = "(^[\u{4e00}-\u{9faf}_a-zA-Z0-9]+$)"
         let checker: NSPredicate = NSPredicate(format: "SELF MATCHES %@", rgex)
-        return checker.evaluate(with: self)    }
+        return checker.evaluate(with: self)
+    }
 
     // MARK: 8.8、判断是否是有效的手机号码
     /// 判断是否是有效的手机号码
@@ -995,8 +996,6 @@ extension String {
     /// - Parameter original: 位置
     /// - Returns: String.Index
     public func validIndex(original: Int) -> String.Index {
-        print(startIndex.utf16Offset(in: self))
-        print(endIndex.utf16Offset(in: self))
         switch original {
         case ...startIndex.utf16Offset(in: self):
             return startIndex
@@ -1169,7 +1168,7 @@ extension String {
         if let res = date {
             return res
         } else {
-            print("String Data or Format Error!!!")
+            JKPrint("String Data or Format Error!!!")
             return Date()
         }
     }
