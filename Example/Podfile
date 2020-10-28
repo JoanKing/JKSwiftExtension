@@ -5,6 +5,7 @@ target 'JKSwiftExtension_Example' do
 
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'FDFullscreenPopGesture'
   
   target 'JKSwiftExtension_Tests' do
     inherit! :search_paths

@@ -23,7 +23,7 @@ public func JKPrint(_ msg: Any...,
     for element in msg {
         msgStr += "\(element)\n"
     }
-    let prefix = "------------------😊----------------\n当前时间：\(NSDate.currentFormatTime())\n当前文件完整的路径是：\(file)\n当前文件是：\(file.lastPathComponent)\n第 \(line) 行 \n第 \(column) 列 \n函数名：\(fn)\n打印内容如下：\n\(msgStr)-------------------🥰---------------"
+    let prefix = "------------------😊----------------\n当前时间：\(Date.currentDate)\n当前文件完整的路径是：\(file)\n当前文件是：\(file.lastPathComponent)\n第 \(line) 行 \n第 \(column) 列 \n函数名：\(fn)\n打印内容如下：\n\(msgStr)-------------------🥰---------------"
     print(prefix)
     #endif
 }

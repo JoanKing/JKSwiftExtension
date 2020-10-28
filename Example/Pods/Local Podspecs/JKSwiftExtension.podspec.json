@@ -1,6 +1,6 @@
 {
   "name": "JKSwiftExtension",
-  "version": "0.2.0",
+  "version": "0.2.3",
   "summary": "Swift版本的一个扩展",
   "description": "这是Swift版本扩展的一个详细的使用，可以参考里面的用法",
   "homepage": "https://github.com/JoanKing/JKSwiftExtension",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/JoanKing/JKSwiftExtension.git",
-    "tag": "0.2.0"
+    "tag": "0.2.3"
   },
   "platforms": {
     "ios": "9.0"
