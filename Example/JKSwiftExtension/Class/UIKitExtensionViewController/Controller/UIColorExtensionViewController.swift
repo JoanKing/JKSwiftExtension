@@ -72,7 +72,6 @@ extension UIColorExtensionViewController {
     @objc func test31() {
         self.navigationController?.navigationBar.barTintColor = UIColor.randomColor
     }
-    
 }
 
 // MARK:- 三、UIColor的一些方法
@@ -110,7 +109,15 @@ extension UIColorExtensionViewController {
         guard let r = rgba.r, let g = rgba.g, let b = rgba.b, let a = rgba.a else {
             return
         }
-        JKPrint("color 转 RGBA", "原始颜色：热情的粉红：#FF69B4 -> 255,105,180 透明度 0.6", "color 转化为 RGBA为：r = \(r)", "g = \(g)", "b = \(b)", "a = \(a)")
+        JKPrint("1---color 转 RGBA", "原始颜色：热情的粉红：#FF69B4 -> 255,105,180 透明度 0.6", "color 转化为 RGBA为", "r = \(r)", "g = \(g)", "b = \(b)", "a = \(a)")
+        
+        // 春天的绿色：60,179,113 -> #3CB371
+        let color2 = UIColor(r: 60, g: 179, b: 113, alpha: 0.5)
+        let rgba2 = color2.colorToRGBA()
+        guard let r2 = rgba2.r, let g2 = rgba2.g, let b2 = rgba2.b, let a2 = rgba2.a else {
+            return
+        }
+        JKPrint("2---color 转 RGBA", "原始颜色：春天的绿色：60,179,113 -> #3CB371 透明度 0.5", "color 转化为 RGBA为", "r = \(r2)", "g = \(g2)", "b = \(b2)", "a = \(a2)")
     }
 }
 
@@ -134,8 +141,6 @@ extension UIColorExtensionViewController {
         // 适中的板岩暗蓝灰色：123,104,238 -> #7B68EE
         self.navigationController?.navigationBar.barTintColor = UIColor.hexIntColor(hexInt: 0x7B68EE, alpha: 1.0)
     }
-    
-    
 }
 
 // MARK:- 一、构造器设置颜色
@@ -158,61 +163,6 @@ extension UIColorExtensionViewController {
         // 淡珊瑚色：240,128,128 -> #F08080
         self.navigationController?.navigationBar.barTintColor = UIColor(hexInt: 0xF08080, alpha: 1.0)
     }
-    
-    // MARK: 1.4、从日期获取年份
-    @objc func test03() {
-        let date = Date.currentDate
-        JKPrint("从日期获取年份位", "\(date) 的 年份为：\(date.year)")
-    }
-    
-    // MARK: 1.5、从日期获取月份
-    @objc func test04() {
-        let date = Date.currentDate
-        JKPrint("从日期获取月份", "\(date) 的 月份为：\(date.month)")
-    }
-    
-    // MARK: 1.5、从日期获取 日
-    @objc func test05() {
-        let date = Date.currentDate
-        JKPrint("从日期获取 日", "\(date) 的 日 为：\(date.day)")
-    }
-    
-    // MARK: 1.6、从 Date 获取 小时
-    @objc func test06() {
-        let date = Date.currentDate
-        JKPrint("从日期获取 小时", "\(date) 的 小时 为：\(date.hour)")
-    }
-    
-    // MARK: 1.7、从 Date 获取 分钟
-    @objc func test07() {
-        let date = Date.currentDate
-        JKPrint("从日期获取 分钟", "\(date) 的 分钟 为：\(date.minute)")
-    }
-    
-    // MARK: 1.8、从 Date 获取 秒
-    @objc func test08() {
-        let date = Date.currentDate
-        JKPrint("从日期获取 秒", "\(date) 的 秒 为：\(date.second)")
-    }
-    
-    // MARK: 1.9、从 Date 获取 毫秒
-    @objc func test09() {
-        let date = Date.currentDate
-        JKPrint("从日期获取 毫秒", "\(date) 的 毫秒 为：\(date.nanosecond)")
-    }
-    
-    // MARK: 1.10、从日期获取 星期
-    @objc func test010() {
-        let date = Date.currentDate
-        JKPrint("从日期获取 星期", "\(date) 的 星期 为：\(date.weekday)")
-    }
-    
-    // MARK: 1.11、从日期获取 月(英文)
-    @objc func test011() {
-        let date = Date.currentDate
-        JKPrint("从日期获取 月(英文)", "\(date) 的 月 为：\(date.monthAsString)")
-    }
-    
 }
 
 extension UIColorExtensionViewController: UITableViewDelegate, UITableViewDataSource {

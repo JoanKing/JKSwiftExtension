@@ -97,6 +97,14 @@ public extension String {
         }
         return Class
     }
+    
+    // MARK: 0.9、字符串转数组
+    /// 字符串转数组
+    /// - Returns: 转化后的数组
+    func toArray() -> Array<Any> {
+        let a = Array(self)
+        return a
+    }
 }
 
 // MARK:- 1、沙盒路径的获取
