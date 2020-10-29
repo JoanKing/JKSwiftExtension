@@ -43,7 +43,7 @@ class UIColorExtensionViewController: UIViewController {
         self.view.backgroundColor = UIColor.green
         
         headDataArray = ["一、构造器设置颜色", "二、使用方法设置颜色", "三、UIColor的一些方法", "四、UIColor 的一些属性"]
-        dataArray = [["根据 RGBA 设置颜色", "十六进制字符串设置颜色", "十六进制 Int 设置颜色"], ["根据 RGBA 设置颜色", "十六进制字符串设置颜色(方法)", "十六进制 Int 颜色的使用(方法)"], ["根据 十六进制颜色获取 RGB，如：#3CB371 或者 ##3CB371 -> 60,179,113", "根据 十六进制值 颜色获取 RGB， 如：0x3CB371 -> 60,179,113", "color 转 RGBA"], ["UIColor 转十六进制颜色的字符串", "随机色"]]
+        dataArray = [["根据 RGBA 设置颜色", "十六进制字符串设置颜色", "十六进制 Int 设置颜色"], ["根据 RGBA 设置颜色(方法)", "十六进制字符串设置颜色(方法)", "十六进制 Int 颜色的使用(方法)"], ["根据 十六进制字符串 获取 RGB，如：#3CB371 或者 ##3CB371 -> 60,179,113", "根据 十六进制值 颜色获取 RGB， 如：0x3CB371 -> 60,179,113", "color 转 RGBA"], ["UIColor 转十六进制颜色的字符串", "随机色"]]
         initUI()
     }
     
@@ -78,7 +78,7 @@ extension UIColorExtensionViewController {
 // MARK:- 三、UIColor的一些方法
 extension UIColorExtensionViewController {
     
-    // MARK: 3.1、根据 十六进制颜色获取 RGB
+    // MARK: 3.1、根据 十六进制字符串颜色 获取 RGB
     @objc func test20() {
         // 春天的绿色：60,179,113 -> #3CB371
         let rgb = UIColor.hexStringToColorRGB(hexString: "#3CB371")

@@ -41,7 +41,6 @@ class FoundationExtensionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "JKSwiftExtension"
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green
   
@@ -70,7 +69,7 @@ extension FoundationExtensionViewController: UITableViewDelegate, UITableViewDat
         let cell = tableView.dequeueReusableCell(withIdentifier: FoundationExtensionViewController.FoundationExtensionViewControllerCellIdentifier, for: indexPath) as! HomeViewCell
         let cellName = dataArray[indexPath.row] as! String
         cell.contentLabel.text = "\(indexPath.row + 1)：\(cellName)"
-        cell.contentLabel.textColor = finishedDataArray.contains(cellName) ? UIColor.hexStringColor(hexString: "##DC143C") : UIColor.c444444
+        cell.contentLabel.textColor = finishedDataArray.contains(cellName) ? UIColor.hexStringColor(hexString: "#006400") : UIColor.c444444
         // cell.lineView.isHidden = indexPath.row == dataArray.count - 1 ? true : false
         return cell
     }

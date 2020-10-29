@@ -40,12 +40,12 @@ class UIKitExtensionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "JKSwiftExtension"
+
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green
   
-        dataArray = ["UIColor+Extension"]
+        dataArray = ["UIColor+Extension", "CALayer+Extension", "CATextLayer+Extension", "NSAttributedString+Extension", "UIAlertController+Extension", "UIApplication+Extension", "UIBarButtonItem+Extension", "UIBezierPath+Extension", "UIButton+Extension", "UIControl+Extension", "UIImage+Compression", "UIImage+Extension", "UIImage+Gif", "UIImage+Gradient", "UILabel+Extension", "UINavigationController+Extension", "UIScreen+Extension", "UIScrollView+Extension", "UIStackView+Extension", "UISwitch+Extension", "UITableView+Extension", "UITextField+Extension", "UITextView+Extension", "UIView+Extension", "UIView+Features", "UIViewController+Extension"]
+        finishedDataArray = ["UIColor+Extension"]
         initUI()
     }
     
@@ -69,7 +69,7 @@ extension UIKitExtensionViewController: UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: UIKitExtensionViewController.UIKitExtensionViewControllerCellIdentifier, for: indexPath) as! HomeViewCell
         let cellName = dataArray[indexPath.row] as! String
         cell.contentLabel.text = "\(indexPath.row + 1)：\(cellName)"
-        cell.contentLabel.textColor = finishedDataArray.contains(cellName) ? UIColor.hexStringColor(hexString: "##DC143C") : UIColor.c444444
+        cell.contentLabel.textColor = finishedDataArray.contains(cellName) ? UIColor.hexStringColor(hexString: "#006400") : UIColor.c444444
         // cell.lineView.isHidden = indexPath.row == dataArray.count - 1 ? true : false
         return cell
     }

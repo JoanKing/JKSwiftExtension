@@ -27,7 +27,7 @@ public extension JKEmitterable where Self : UIViewController {
     /// - Parameters:
     ///   - emitterImageName: 发射器图片的名字
     ///   - style: 发射器的样式
-    public func startEmitter(emitterImageName: String, style: JKEmitterStyle = JKEmitterStyle()) {
+    func startEmitter(emitterImageName: String, style: JKEmitterStyle = JKEmitterStyle()) {
         // 1、发射器的设置
         // 1.1、创建发射器
         let emitter = CAEmitterLayer()
@@ -72,7 +72,7 @@ public extension JKEmitterable where Self : UIViewController {
     }
     
     /// 停止发射器
-    public func stopEmitter() {
+    func stopEmitter() {
         // 方式一
         let layers = view.layer.sublayers?.filter({ $0.isKind(of: CAEmitterLayer.self)})
         guard let weaklayers = layers else {

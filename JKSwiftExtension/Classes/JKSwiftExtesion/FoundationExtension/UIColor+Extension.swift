@@ -92,7 +92,7 @@ public extension UIColor {
 public extension UIColor {
     
     // MARK: 3.1、根据 十六进制字符串 颜色获取 RGB，如：#3CB371 或者 ##3CB371 -> 60,179,113
-    /// 根据 十六进制颜色获取 RGB
+    /// 根据 十六进制字符串 颜色获取 RGB
     /// - Parameter hexString: 十六进制颜色的字符串，如：#3CB371 或者 ##3CB371 -> 60,179,113
     /// - Returns: 返回 RGB
     static func hexStringToColorRGB(hexString: String) -> (r: CGFloat?, g: CGFloat?, b: CGFloat?) {
@@ -128,7 +128,7 @@ public extension UIColor {
         Scanner(string: bHex).scanHexInt32(&b)
         return (r: CGFloat(r), g: CGFloat(g), b: CGFloat(b))
     }
-
+    
     // MARK: 3.2、根据 十六进制值 颜色获取 RGB， 如：0x3CB371 -> 60,179,113
     /// 根据 十六进制值 颜色获取 RGB， 如：0x3CB371 -> 60,179,113
     /// - Parameter hexInt: 十六进制值，如：0x3CB37
@@ -148,9 +148,9 @@ public extension UIColor {
         var green: CGFloat = 0
         var blue: CGFloat = 0
         var alpha: CGFloat = 0
-         
+        
         let multiplier = CGFloat(255.999999)
-         
+        
         guard self.getRed(&red, green: &green, blue: &blue, alpha: &alpha) else {
             return (nil, nil, nil, nil)
         }
@@ -160,7 +160,7 @@ public extension UIColor {
 
 // MARK:- 四、UIColor 的一些属性
 public extension UIColor {
-
+    
     // MARK: 4.1、UIColor 转  十六进制颜色的字符串
     /// UIColor 转  十六进制颜色的字符串
     var hexString: String? {
@@ -168,9 +168,9 @@ public extension UIColor {
         var green: CGFloat = 0
         var blue: CGFloat = 0
         var alpha: CGFloat = 0
-         
+        
         let multiplier = CGFloat(255.999999)
-         
+        
         guard self.getRed(&red, green: &green, blue: &blue, alpha: &alpha) else {
             return nil
         }
@@ -198,11 +198,10 @@ public extension UIColor {
     static var randomColor: UIColor {
         return UIColor(r: CGFloat(arc4random()%256), g: CGFloat(arc4random()%256), b: CGFloat(arc4random()%256), alpha: 1.0)
     }
-    
 }
 
 public extension UIColor {
-
+    
     // MARK: 获取颜色的渐变的 RGB
     /// 获取颜色的渐变的 RGB
     /// - Parameters:

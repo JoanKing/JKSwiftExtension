@@ -35,16 +35,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        UIColor(hexString: "#DC143C")
-        
+   
         self.title = "JKSwiftExtension"
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green
         dataArray = ["FoundationExtension", "UIKitExtension", "Protocol", "SmallTools"]
         initUI()
-        
-        
     }
     
     /// 创建控件
@@ -95,15 +91,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let cellName = dataArray[indexPath.row] as! String
         if cellName == "FoundationExtension" {
             let vc = FoundationExtensionViewController()
+            vc.title = cellName
             self.navigationController?.pushViewController(vc, animated: true)
         } else if cellName == "UIKitExtension" {
             let vc = UIKitExtensionViewController()
+            vc.title = cellName
             self.navigationController?.pushViewController(vc, animated: true)
         } else if cellName == "Protocol" {
             let vc = ProtocolViewController()
+            vc.title = cellName
             self.navigationController?.pushViewController(vc, animated: true)
         } else if cellName == "SmallTools" {
             let vc = SmallToolsViewController()
+            vc.title = cellName
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
             

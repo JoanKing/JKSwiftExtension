@@ -10,9 +10,11 @@ import UIKit
 
 class SmallToolsViewController: UIViewController {
     
-    fileprivate static let smallToolsViewControllerCellIdentifier = "SmallToolsViewControllerCellIdentifier"
+    fileprivate static let SmallToolsViewControllerCellIdentifier = "SmallToolsViewControllerCellIdentifier"
     /// 资源数组
     fileprivate var dataArray = [Any]()
+    /// 完成的类
+    fileprivate var finishedDataArray: [String] = []
     lazy var tableView : UITableView = {
         
         let tableView = UITableView(frame:CGRect(x:0, y: 0, width: kScreenW, height: kScreenH - CGFloat(kNavFrameH)), style:.grouped)
@@ -31,17 +33,18 @@ class SmallToolsViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
         // 设置行高为自动适配
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(HomeViewCell.self, forCellReuseIdentifier: SmallToolsViewController.smallToolsViewControllerCellIdentifier)
+        tableView.register(HomeViewCell.self, forCellReuseIdentifier: SmallToolsViewController.SmallToolsViewControllerCellIdentifier)
         return tableView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "JKSwiftExtension"
+
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green
+  
         dataArray = ["ActionLabel", "GradientLabelView", "JKAsyncs", "JKCommonTool", "JKLoadingView", "JKPrint", "JKRuntime", "JKUserDefaults", "JKWaterFallLayout", "JKWidthHeight", "KeyboardAccessory", "MaskingManager", "MaskingManager+Extension", "ToastTexView", "QRCodeImageFactory", "SectorProgressView"]
+        finishedDataArray = [""]
         initUI()
     }
     
@@ -53,10 +56,6 @@ class SmallToolsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    deinit {
-        JKPrint("销毁")
-    }
 }
 
 extension SmallToolsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -66,15 +65,14 @@ extension SmallToolsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SmallToolsViewController.smallToolsViewControllerCellIdentifier, for: indexPath) as! HomeViewCell
-        cell.contentLabel.text = "\(indexPath.row + 1)：\((dataArray[indexPath.row] as! String))"
+        let cell = tableView.dequeueReusableCell(withIdentifier: SmallToolsViewController.SmallToolsViewControllerCellIdentifier, for: indexPath) as! HomeViewCell
+        let cellName = dataArray[indexPath.row] as! String
+        cell.contentLabel.text = "\(indexPath.row + 1)：\(cellName)"
+        cell.contentLabel.textColor = finishedDataArray.contains(cellName) ? UIColor.hexStringColor(hexString: "#006400") : UIColor.c444444
         // cell.lineView.isHidden = indexPath.row == dataArray.count - 1 ? true : false
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 55
-    }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height:0.01))
         return sectionView
@@ -93,44 +91,13 @@ extension SmallToolsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    
-        let cellName = dataArray[indexPath.row] as! String
-        if cellName == "ActionLabel" {
-         
-        } else if cellName == "GradientLabelView" {
-           
-        } else if cellName == "JKAsyncs" {
-           
-        } else if cellName == "JKCommonTool" {
         
-        } else if cellName == "JKLoadingView" {
-            
-        } else if cellName == "JKPrint" {
-            
-        } else if cellName == "JKRuntime" {
-            
-        } else if cellName == "JKUserDefaults" {
-            
-        } else if cellName == "JKWaterFallLayout" {
-            
-        } else if cellName == "JKWidthHeight" {
-            
-        } else if cellName == "KeyboardAccessory" {
-            
-        } else if cellName == "MaskingManager" {
-            
-        } else if cellName == "MaskingManager+Extension" {
-            
-        } else if cellName == "ToastTexView" {
-            
-        } else if cellName == "QRCodeImageFactory" {
-            let qrCodeImageFactoryViewController = QRCodeImageFactoryViewController()
-            self.navigationController?.pushViewController(qrCodeImageFactoryViewController, animated: true)
-        } else if cellName == "SectorProgressView" {
-            let sectorProgressViewController = SectorProgressViewController()
-            self.navigationController?.pushViewController(sectorProgressViewController, animated: true)
-        }else {
-            
+        let cellName = dataArray[indexPath.row] as! String
+        let vcName = cellName.removeSomeStringUseSomeString(removeString: "+") + "ViewController"
+        guard let vc = vcName.toViewController() else {
+            return
         }
+        vc.title = cellName
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
