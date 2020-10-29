@@ -136,8 +136,8 @@ public extension UIButton {
     
     @discardableResult
     func confirmButton() -> Self {
-        let normalImage = UIImage.image(color: UIColor.hexColor(hex: "#E54749"), size: CGSize(width: 10, height: 10), round: 4)?.resizableImage(withCapInsets: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
-        let disableImg = UIImage.image(color: UIColor.hexColor(hex: "#E6E6E6"), size: CGSize(width: 10, height: 10), round: 4)?.resizableImage(withCapInsets: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
+        let normalImage = UIImage.image(color: UIColor.hexStringColor(hexString: "#E54749"), size: CGSize(width: 10, height: 10), round: 4)?.resizableImage(withCapInsets: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
+        let disableImg = UIImage.image(color: UIColor.hexStringColor(hexString: "#E6E6E6"), size: CGSize(width: 10, height: 10), round: 4)?.resizableImage(withCapInsets: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
         setBackgroundImage(normalImage, for: .normal)
         setBackgroundImage(disableImg, for: .disabled)
         return self
@@ -215,8 +215,8 @@ public extension UIButton {
     func countDown(_ count: Int, timering: TimeringBlock? = nil, complete: CompletionBlock? = nil, timeringPrefix: String = "再次获取", completeText: String = "重新获取") {
         isEnabled = false
         let begin = ProcessInfo().systemUptime
-        let c_default = UIColor.hexColor(hex: "#2798fd")
-        let c_default_disable = UIColor.hexColor(hex: "#999999")
+        let c_default = UIColor.hexStringColor(hexString: "#2798fd")
+        let c_default_disable = UIColor.hexStringColor(hexString: "#999999")
         
         self.color(titleColor(for: .normal) ?? c_default)
         self.color(titleColor(for: .disabled) ?? c_default_disable, .disabled)
@@ -401,18 +401,18 @@ public extension UIButton {
 
         switch type {
         case .red:
-            normalColor = .hexColor(hex: "#E54749")
-            disabledColor = .hexColor(hex: "#CCCCCC")
+            normalColor = .hexStringColor(hexString: "#E54749")
+            disabledColor = .hexStringColor(hexString: "#CCCCCC")
             lineTypeNormal = .none
             lineTypeDisable = .none
             titleColorNormal = .white
             titleColorDisable = .white
         case .pink:
-            normalColor = .hexColor(hex: "#FFE8E8")
-            disabledColor = .hexColor(hex: "#CCCCCC")
-            lineTypeNormal = .color(.hexColor(hex: "#F6CDCD"))
-            lineTypeDisable = .color(.hexColor(hex: "#9C9C9C"))
-            titleColorNormal = .hexColor(hex: "#E54749")
+            normalColor = .hexStringColor(hexString: "#FFE8E8")
+            disabledColor = .hexStringColor(hexString: "#CCCCCC")
+            lineTypeNormal = .color(.hexStringColor(hexString: "#F6CDCD"))
+            lineTypeDisable = .color(.hexStringColor(hexString: "#9C9C9C"))
+            titleColorNormal = .hexStringColor(hexString: "#E54749")
             titleColorDisable = .white
         }
 
@@ -429,8 +429,8 @@ public extension UIButton {
         let btn = UIButton(type: .custom).font(.boldSystemFont(ofSize: 18))
         btn.setTitleColor(.white, for: .normal)
         btn.setTitleColor(.white, for: .disabled)
-        btn.setBackgroundImage(drawNormalBtn(color: .hexColor(hex: "#E54749"))?.resizableImage(withCapInsets: UIEdgeInsets(top: 10, left: 15, bottom: 15, right: 15)), for: .normal)
-        btn.setBackgroundImage(drawNormalBtn(color: .hexColor(hex: "#CCCCCC"))?.resizableImage(withCapInsets: UIEdgeInsets(top: 10, left: 15, bottom: 15, right: 15)), for: .disabled)
+        btn.setBackgroundImage(drawNormalBtn(color: .hexStringColor(hexString: "#E54749"))?.resizableImage(withCapInsets: UIEdgeInsets(top: 10, left: 15, bottom: 15, right: 15)), for: .normal)
+        btn.setBackgroundImage(drawNormalBtn(color: .hexStringColor(hexString: "#CCCCCC"))?.resizableImage(withCapInsets: UIEdgeInsets(top: 10, left: 15, bottom: 15, right: 15)), for: .disabled)
         btn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
         return btn
     }

@@ -13,6 +13,8 @@ class FoundationExtensionViewController: UIViewController {
     fileprivate static let FoundationExtensionViewControllerCellIdentifier = "FoundationExtensionViewControllerCellIdentifier"
     /// 资源数组
     fileprivate var dataArray = [Any]()
+    /// 完成的类
+    fileprivate var finishedDataArray: [String] = []
     lazy var tableView : UITableView = {
         
         let tableView = UITableView(frame:CGRect(x:0, y: 0, width: kScreenW, height: kScreenH - CGFloat(kNavFrameH)), style:.grouped)
@@ -32,7 +34,7 @@ class FoundationExtensionViewController: UIViewController {
         // 设置行高为自动适配
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(HomeViewCell.self, forCellReuseIdentifier: FoundationExtensionViewController.FoundationExtensionViewControllerCellIdentifier)
-         tableView.addWater(markText: "JKSwiftExtension", textColor: UIColor.randomColor(), font: UIFont.systemFont(ofSize: 12))
+        // tableView.addWater(markText: "JKSwiftExtension", textColor: UIColor.randomColor(), font: UIFont.systemFont(ofSize: 12))
         return tableView
     }()
     
@@ -44,6 +46,7 @@ class FoundationExtensionViewController: UIViewController {
         self.view.backgroundColor = UIColor.green
   
         dataArray = ["Array+Extension", "BaseData+Extension", "Bundle+Extension", "CGRect+Extension", "Date+Extension", "Double+Divisible", "NSObject+Extension", "String+Extension", "UIColor+BaseExtension", "UIDevice+Extension", "UIFont+Extensin", "Timer+Extension", "Int+Extension", "UInt+Extension", "Float+Extension", "Bool+Extension", "CGFloat+Extension", "Character+Extension", "DateFormatter+Extension", "Dictionary+Extension", "FileManager+Extension", "URL+Extension", "NSDecimalNumberHandler+Extension"]
+        finishedDataArray = ["String+Extension", "Date+Extension"]
         initUI()
     }
     
@@ -65,7 +68,9 @@ extension FoundationExtensionViewController: UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FoundationExtensionViewController.FoundationExtensionViewControllerCellIdentifier, for: indexPath) as! HomeViewCell
-        cell.contentLabel.text = "\(indexPath.row + 1)：\((dataArray[indexPath.row] as! String))"
+        let cellName = dataArray[indexPath.row] as! String
+        cell.contentLabel.text = "\(indexPath.row + 1)：\(cellName)"
+        cell.contentLabel.textColor = finishedDataArray.contains(cellName) ? UIColor.hexStringColor(hexString: "##DC143C") : UIColor.c444444
         // cell.lineView.isHidden = indexPath.row == dataArray.count - 1 ? true : false
         return cell
     }

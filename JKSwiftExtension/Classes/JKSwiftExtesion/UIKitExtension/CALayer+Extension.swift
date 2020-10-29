@@ -23,7 +23,7 @@ public extension CALayer {
     
     @discardableResult
     func backgroundColor(_ hex: String) -> Self {
-        backgroundColor = UIColor.hexColor(hex: hex).cgColor
+        backgroundColor = UIColor.hexStringColor(hexString: hex).cgColor
         return self
     }
     

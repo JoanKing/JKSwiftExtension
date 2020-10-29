@@ -169,7 +169,7 @@ public extension UILabel {
     }
     @discardableResult
     func color(_ hex: String) -> Self {
-        textColor = UIColor.hexColor(hex: hex)
+        textColor = UIColor.hexStringColor(hexString: hex)
         return self
     }
     

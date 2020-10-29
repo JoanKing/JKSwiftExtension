@@ -67,7 +67,7 @@ public extension CATextLayer {
     }
     @discardableResult
     func color(_ hex: String) -> Self {
-        foregroundColor = UIColor.hexColor(hex: hex).cgColor
+        foregroundColor = UIColor.hexStringColor(hexString: hex).cgColor
         return self
     }
     

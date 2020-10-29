@@ -36,7 +36,7 @@ public extension UIView {
     
     @discardableResult
     func backgroundColor(_ hex: String) -> Self {
-        backgroundColor = UIColor.hexColor(hex: hex)
+        backgroundColor = UIColor.hexStringColor(hexString: hex)
         return self
     }
     

@@ -35,7 +35,7 @@ public extension UIImage {
     }
     
     class func gradient(_ hexsString: [String], size: CGSize = CGSize.init(width: 1, height: 1), locations:[CGFloat]? = nil, direction: GradientDirection = .horizontal) -> UIImage? {
-        return gradient(hexsString.map{ UIColor.hexColor(hex: $0) }, size: size, locations: locations, direction: direction)
+        return gradient(hexsString.map{ UIColor.hexStringColor(hexString: $0) }, size: size, locations: locations, direction: direction)
     }
     
     class func gradient(_ colors: [UIColor], size: CGSize = CGSize.init(width: 10, height: 10), locations:[CGFloat]? = nil, direction: GradientDirection = .horizontal) -> UIImage? {

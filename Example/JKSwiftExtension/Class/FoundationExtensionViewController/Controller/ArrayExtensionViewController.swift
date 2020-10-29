@@ -14,7 +14,7 @@ class ArrayExtensionViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "Array+Extension"
-        view.backgroundColor = .randomColor()
+        view.backgroundColor = .randomColor
         
     }
     

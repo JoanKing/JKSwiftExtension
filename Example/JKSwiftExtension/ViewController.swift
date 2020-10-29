@@ -36,6 +36,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UIColor(hexString: "#DC143C")
+        
         self.title = "JKSwiftExtension"
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green

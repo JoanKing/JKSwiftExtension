@@ -28,7 +28,7 @@ public class KeyboardAccessory: UIView {
         }
         backgroundColor = .white
         
-        let line = UIView().backgroundColor(UIColor.hexColor(hex: "#E6E6E6")).addTo(self)
+        let line = UIView().backgroundColor(UIColor.hexStringColor(hexString: "#E6E6E6")).addTo(self)
         line.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
             make.height.equalTo(1)

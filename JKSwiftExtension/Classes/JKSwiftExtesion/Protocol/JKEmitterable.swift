@@ -62,7 +62,7 @@ public extension JKEmitterable where Self : UIViewController {
         // 2.8、设置粒子展示的图片
         cell.contents = UIImage(named: emitterImageName)?.cgImage
         // 设置粒子的颜色
-        cell.color = UIColor.randomColor().cgColor
+        cell.color = UIColor.randomColor.cgColor
         
         // 3、将粒子设置到发射器中
         emitter.emitterCells = [cell]

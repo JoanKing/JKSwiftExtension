@@ -246,7 +246,7 @@ extension StringExtensionViewController {
         testLabel.numberOfLines = 0
         testLabel.font = font
         testLabel.text = testString
-        testLabel.backgroundColor = UIColor.randomColor()
+        testLabel.backgroundColor = UIColor.randomColor
         self.view.addSubview(testLabel)
         
         JKAsyncs.asyncDelay(3, {
@@ -273,7 +273,7 @@ extension StringExtensionViewController {
         testLabel.numberOfLines = 0
         testLabel.font = font
         testLabel.text = testString
-        testLabel.backgroundColor = UIColor.randomColor()
+        testLabel.backgroundColor = UIColor.randomColor
         self.view.addSubview(testLabel)
         
         JKAsyncs.asyncDelay(3, {
@@ -299,7 +299,7 @@ extension StringExtensionViewController {
         testLabel.numberOfLines = 0
         testLabel.font = font
         testLabel.text = testString
-        testLabel.backgroundColor = UIColor.randomColor()
+        testLabel.backgroundColor = UIColor.randomColor
         self.view.addSubview(testLabel)
         
         JKAsyncs.asyncDelay(3, {
@@ -325,7 +325,7 @@ extension StringExtensionViewController {
         testLabel.numberOfLines = 0
         testLabel.font = font
         testLabel.text = testString
-        testLabel.backgroundColor = UIColor.randomColor()
+        testLabel.backgroundColor = UIColor.randomColor
         self.view.addSubview(testLabel)
         
         JKAsyncs.asyncDelay(3, {
@@ -351,7 +351,7 @@ extension StringExtensionViewController {
         testLabel.numberOfLines = 0
         testLabel.font = font
         testLabel.text = testString
-        testLabel.backgroundColor = UIColor.randomColor()
+        testLabel.backgroundColor = UIColor.randomColor
         self.view.addSubview(testLabel)
         
         JKAsyncs.asyncDelay(3, {
@@ -377,7 +377,7 @@ extension StringExtensionViewController {
         testLabel.numberOfLines = 0
         testLabel.font = font
         testLabel.text = testString
-        testLabel.backgroundColor = UIColor.randomColor()
+        testLabel.backgroundColor = UIColor.randomColor
         self.view.addSubview(testLabel)
         
         JKAsyncs.asyncDelay(3, {
@@ -403,7 +403,7 @@ extension StringExtensionViewController {
         testLabel.numberOfLines = 0
         testLabel.font = font
         testLabel.text = testString
-        testLabel.backgroundColor = UIColor.randomColor()
+        testLabel.backgroundColor = UIColor.randomColor
         self.view.addSubview(testLabel)
         
         JKAsyncs.asyncDelay(3, {
@@ -427,7 +427,7 @@ extension StringExtensionViewController {
         testLabel.numberOfLines = 0
         testLabel.font = font
         testLabel.text = testString
-        testLabel.backgroundColor = UIColor.randomColor()
+        testLabel.backgroundColor = UIColor.randomColor
         self.view.addSubview(testLabel)
         
         JKAsyncs.asyncDelay(3, {
@@ -451,7 +451,7 @@ extension StringExtensionViewController {
         testLabel.numberOfLines = 0
         testLabel.font = font
         testLabel.text = testString
-        testLabel.backgroundColor = UIColor.randomColor()
+        testLabel.backgroundColor = UIColor.randomColor
         self.view.addSubview(testLabel)
         
         JKAsyncs.asyncDelay(3, {
@@ -477,7 +477,7 @@ extension StringExtensionViewController {
         testLabel.textAlignment = .left
         testLabel.numberOfLines = 0
         testLabel.font = font
-        testLabel.backgroundColor = UIColor.randomColor()
+        testLabel.backgroundColor = UIColor.randomColor
         
         let attrStr = NSMutableAttributedString(string: testString)
         let paragraphStyle = NSMutableParagraphStyle()
@@ -511,7 +511,7 @@ extension StringExtensionViewController {
         testLabel.textAlignment = .left
         testLabel.numberOfLines = 0
         testLabel.font = font
-        testLabel.backgroundColor = UIColor.randomColor()
+        testLabel.backgroundColor = UIColor.randomColor
         
         let attrStr = NSMutableAttributedString(string: testString)
         let paragraphStyle = NSMutableParagraphStyle()
@@ -544,7 +544,7 @@ extension StringExtensionViewController {
         testLabel.textAlignment = .left
         testLabel.numberOfLines = 0
         testLabel.font = font
-        testLabel.backgroundColor = UIColor.randomColor()
+        testLabel.backgroundColor = UIColor.randomColor
         let attrStr = NSMutableAttributedString(string: testString)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = lineSpacing
