@@ -6,9 +6,7 @@
 //
 
 import UIKit
-
 import Foundation
-import UIKit
 
 // MARK:- 协议
 public protocol ConvertToInt {
@@ -56,7 +54,6 @@ extension Int: ConvertToInt64, ConvertToFloat, ConvertToDouble, ConvertToCGFloat
     public var int: Int {
         return self
     }
-    
 }
 
 // MARK:- Int64

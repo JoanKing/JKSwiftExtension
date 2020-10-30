@@ -18,6 +18,9 @@
 		84813774254A5EC100D9289C /* UIColorExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84813773254A5EC100D9289C /* UIColorExtensionViewController.swift */; };
 		8482F3A925207A9300EEC422 /* SectorProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482F3A825207A9300EEC422 /* SectorProgressViewController.swift */; };
 		848331C9251C66AB00DEB439 /* StringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848331C8251C66AB00DEB439 /* StringTest.swift */; };
+		8483A6CA254BC02B00ACF6FD /* BundleExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483A6C9254BC02B00ACF6FD /* BundleExtensionViewController.swift */; };
+		8483A72C254BF0AD00ACF6FD /* JKBaseKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8483A72B254BF0AD00ACF6FD /* JKBaseKit.bundle */; };
+		8483A730254C0A7F00ACF6FD /* testicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8483A72F254C0A7F00ACF6FD /* testicon.png */; };
 		8485CC7E2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485CC7D2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift */; };
 		849D58F02536ADD300CCDF0F /* StringExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */; };
 		849D58F42537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D58F32537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift */; };
@@ -59,6 +62,9 @@
 		84813773254A5EC100D9289C /* UIColorExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensionViewController.swift; sourceTree = "<group>"; };
 		8482F3A825207A9300EEC422 /* SectorProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectorProgressViewController.swift; sourceTree = "<group>"; };
 		848331C8251C66AB00DEB439 /* StringTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTest.swift; sourceTree = "<group>"; };
+		8483A6C9254BC02B00ACF6FD /* BundleExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtensionViewController.swift; sourceTree = "<group>"; };
+		8483A72B254BF0AD00ACF6FD /* JKBaseKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JKBaseKit.bundle; sourceTree = "<group>"; };
+		8483A72F254C0A7F00ACF6FD /* testicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testicon.png; sourceTree = "<group>"; };
 		8485CC7D2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeImageFactoryViewController.swift; sourceTree = "<group>"; };
 		849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionViewController.swift; sourceTree = "<group>"; };
 		849D58F32537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDecimalNumberHandlerExtensionViewController.swift; sourceTree = "<group>"; };
@@ -149,7 +155,9 @@
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8483A72B254BF0AD00ACF6FD /* JKBaseKit.bundle */,
 				607FACD41AFB9204008FA782 /* Info.plist */,
+				8483A72F254C0A7F00ACF6FD /* testicon.png */,
 				846774172511FE9900DE8B44 /* JKSwiftExtension_Example-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
@@ -248,6 +256,7 @@
 		84BF16B3251D9EAB002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8483A6C9254BC02B00ACF6FD /* BundleExtensionViewController.swift */,
 				84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */,
 				849D58F32537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift */,
 				84A5D2D52547B48E003D289C /* DateExtensionViewController.swift */,
@@ -467,6 +476,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8483A730254C0A7F00ACF6FD /* testicon.png in Resources */,
+				8483A72C254BF0AD00ACF6FD /* JKBaseKit.bundle in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
@@ -515,6 +526,7 @@
 				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/JKSwiftExtension/JKSwiftExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -525,6 +537,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JKSwiftExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -568,6 +581,7 @@
 				84BF16CA251D9FD3002ACE76 /* ProtocolViewController.swift in Sources */,
 				84BF16D4251DFDE5002ACE76 /* TestViewController.swift in Sources */,
 				8485CC7E2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift in Sources */,
+				8483A6CA254BC02B00ACF6FD /* BundleExtensionViewController.swift in Sources */,
 				84BF16C6251D9F8D002ACE76 /* FoundationExtensionViewController.swift in Sources */,
 				849D58F02536ADD300CCDF0F /* StringExtensionViewController.swift in Sources */,
 				84813774254A5EC100D9289C /* UIColorExtensionViewController.swift in Sources */,

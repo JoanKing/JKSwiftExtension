@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JKSwiftExtension'
-  s.version          = '0.2.8'
+  s.version          = '0.2.9'
   s.summary          = 'Swift版本的一个扩展'
   s.description      = '这是Swift版本扩展的一个详细的使用，可以参考里面的用法'
 
@@ -22,9 +22,9 @@ Pod::Spec.new do |s|
   # swift 支持的版本
   s.swift_version = '5.0'
   
-  # s.resource_bundles = {
-  #   'JKSwiftExtension' => ['JKSwiftExtension/Assets/*.png']
-  # }
+  s.resource_bundles = {
+      'JKSwiftExtension' => ['JKSwiftExtension/Assets/*.png']
+  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
