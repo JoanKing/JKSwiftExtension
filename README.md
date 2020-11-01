@@ -11,23 +11,25 @@
     UIKitExtension：UIKit类型的扩展
     Protocol：协议工具
     SmallTools：其他小工具
+    
+## 使用说明
 
-## Example
+   每一个 `Extension` 都会对应一个测试用例的类，如果没有的说明还没有完善，如： String 的分类 `String+Extension` 的测试用例在 `StringExtensionViewController.swift` 里面
+   ![WechatIMG160.jpeg](https://upload-images.jianshu.io/upload_images/1728484-f0bcaccd3f7d26b3.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+## 导入方式
+
+     platform :ios, '9.0'
+     
+     target '项目名字' do
+       use_frameworks!
+       pod 'JKSwiftExtension'
+
+     end
 
 ## Requirements
 
     Swift5.0+
-
-## Installation
-
-JKSwiftExtension is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod 'JKSwiftExtension'
-```
 
 ## Author
 
