@@ -44,7 +44,7 @@ class SmallToolsViewController: UIViewController {
         self.view.backgroundColor = UIColor.green
   
         dataArray = ["ActionLabel", "GradientLabelView", "JKAsyncs", "JKCommonTool", "JKLoadingView", "JKPrint", "JKRuntime", "JKUserDefaults", "JKWaterFallLayout", "JKWidthHeight", "KeyboardAccessory", "MaskingManager", "MaskingManager+Extension", "ToastTexView", "QRCodeImageFactory", "SectorProgressView"]
-        finishedDataArray = [""]
+        finishedDataArray = ["JKPrint", "JKRuntime"]
         initUI()
     }
     

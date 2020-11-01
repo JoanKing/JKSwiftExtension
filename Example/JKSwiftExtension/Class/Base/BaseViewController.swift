@@ -1,20 +1,19 @@
 //
-//  FoundationExtensionViewController.swift
+//  BaseViewController.swift
 //  JKSwiftExtension_Example
 //
-//  Created by IronMan on 2020/9/25.
+//  Created by IronMan on 2020/10/30.
 //  Copyright © 2020 CocoaPods. All rights reserved.
 //
 
 import UIKit
 
-class FoundationExtensionViewController: UIViewController {
-    
-    fileprivate static let FoundationExtensionViewControllerCellIdentifier = "FoundationExtensionViewControllerCellIdentifier"
+class BaseViewController: UIViewController {
+    static let BaseViewControllerCellIdentifier = "BaseViewControllerCellIdentifier"
     /// 资源数组
-    fileprivate var dataArray = [Any]()
-    /// 完成的类
-    fileprivate var finishedDataArray: [String] = []
+    var dataArray = [Any]()
+    /// 资源数组
+    var headDataArray = [Any]()
     lazy var tableView : UITableView = {
         
         let tableView = UITableView(frame:CGRect(x:0, y: 0, width: kScreenW, height: kScreenH - CGFloat(kNavFrameH)), style:.grouped)
@@ -33,8 +32,7 @@ class FoundationExtensionViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
         // 设置行高为自动适配
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(HomeViewCell.self, forCellReuseIdentifier: FoundationExtensionViewController.FoundationExtensionViewControllerCellIdentifier)
-        // tableView.addWater(markText: "JKSwiftExtension", textColor: UIColor.randomColor(), font: UIFont.systemFont(ofSize: 12))
+        tableView.register(HomeViewCell.self, forCellReuseIdentifier: BaseViewController.BaseViewControllerCellIdentifier)
         return tableView
     }()
     
@@ -43,9 +41,9 @@ class FoundationExtensionViewController: UIViewController {
         
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green
-  
-        dataArray = ["Array+Extension", "BaseData+Extension", "Bundle+Extension", "CGRect+Extension", "Date+Extension", "Double+Divisible", "NSObject+Extension", "String+Extension", "UIColor+BaseExtension", "UIDevice+Extension", "UIFont+Extensin", "Timer+Extension", "Int+Extension", "UInt+Extension", "Float+Extension", "Bool+Extension", "CGFloat+Extension", "Character+Extension", "DateFormatter+Extension", "Dictionary+Extension", "FileManager+Extension", "URL+Extension", "NSDecimalNumberHandler+Extension"]
-        finishedDataArray = ["String+Extension", "Date+Extension", "Array+Extension", "Bundle+Extension", "NSObject+Extension"]
+        
+        headDataArray = []
+        dataArray = []
         initUI()
     }
     
@@ -53,33 +51,47 @@ class FoundationExtensionViewController: UIViewController {
     private func initUI() {
         view.addSubview(tableView)
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 }
 
-extension FoundationExtensionViewController: UITableViewDelegate, UITableViewDataSource {
+extension BaseViewController: UITableViewDelegate, UITableViewDataSource {
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return headDataArray.count
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataArray.count
+        let singleDataArray = dataArray[section] as! [String]
+        return singleDataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FoundationExtensionViewController.FoundationExtensionViewControllerCellIdentifier, for: indexPath) as! HomeViewCell
-        let cellName = dataArray[indexPath.row] as! String
-        cell.contentLabel.text = "\(indexPath.row + 1)：\(cellName)"
-        cell.contentLabel.textColor = finishedDataArray.contains(cellName) ? UIColor.hexStringColor(hexString: "#006400") : UIColor.c444444
-        // cell.lineView.isHidden = indexPath.row == dataArray.count - 1 ? true : false
+        let cell = tableView.dequeueReusableCell(withIdentifier: BaseViewController.BaseViewControllerCellIdentifier, for: indexPath) as! HomeViewCell
+        let singleDataArray = dataArray[indexPath.section] as! [String]
+        cell.contentLabel.text = "\(indexPath.row + 1)：\((singleDataArray[indexPath.row]))"
         return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height:0.01))
+        let str = headDataArray[section] as! String
+        let size = str.rectSize(font: UIFont.systemFont(ofSize: 18), size: CGSize(width: kScreenW - 20, height: CGFloat(MAXFLOAT)))
+        
+        let sectionView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height:size.height + 20))
+        let label = UILabel(frame: CGRect(x: 10, y: 10, width: kScreenW - 20, height: size.height))
+        label.text = str
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        sectionView.addSubview(label)
         return sectionView
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.01
+        let str = headDataArray[section] as! String
+        let size = str.rectSize(font: UIFont.systemFont(ofSize: 18), size: CGSize(width: kScreenW - 20, height: CGFloat(MAXFLOAT)))
+        return size.height + 20
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -92,13 +104,12 @@ extension FoundationExtensionViewController: UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        let cellName = dataArray[indexPath.row] as! String
-        let vcName = cellName.removeSomeStringUseSomeString(removeString: "+") + "ViewController"
-        guard let vc = vcName.toViewController() else {
+        let selectorName = "test\(indexPath.section + 1)\(indexPath.row + 1)"
+        let selector = Selector("\(selectorName)")
+        guard self.responds(to: selector) else {
+            JKPrint("没有该方法：\(selector)")
             return
         }
-        vc.title = cellName
-        navigationController?.pushViewController(vc, animated: true)
+        perform(selector)
     }
 }

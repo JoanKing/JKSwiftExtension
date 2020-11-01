@@ -21,6 +21,10 @@
 		8483A6CA254BC02B00ACF6FD /* BundleExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483A6C9254BC02B00ACF6FD /* BundleExtensionViewController.swift */; };
 		8483A72C254BF0AD00ACF6FD /* JKBaseKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8483A72B254BF0AD00ACF6FD /* JKBaseKit.bundle */; };
 		8483A730254C0A7F00ACF6FD /* testicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8483A72F254C0A7F00ACF6FD /* testicon.png */; };
+		8483A732254C0D6200ACF6FD /* JKPrintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483A731254C0D6200ACF6FD /* JKPrintViewController.swift */; };
+		8483A735254C119700ACF6FD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483A734254C119700ACF6FD /* BaseViewController.swift */; };
+		8483A737254C11C200ACF6FD /* JKRuntimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483A736254C11C200ACF6FD /* JKRuntimeViewController.swift */; };
+		8483A739254EC47E00ACF6FD /* NSObjectExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483A738254EC47E00ACF6FD /* NSObjectExtensionViewController.swift */; };
 		8485CC7E2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485CC7D2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift */; };
 		849D58F02536ADD300CCDF0F /* StringExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */; };
 		849D58F42537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D58F32537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift */; };
@@ -65,6 +69,10 @@
 		8483A6C9254BC02B00ACF6FD /* BundleExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtensionViewController.swift; sourceTree = "<group>"; };
 		8483A72B254BF0AD00ACF6FD /* JKBaseKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JKBaseKit.bundle; sourceTree = "<group>"; };
 		8483A72F254C0A7F00ACF6FD /* testicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testicon.png; sourceTree = "<group>"; };
+		8483A731254C0D6200ACF6FD /* JKPrintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPrintViewController.swift; sourceTree = "<group>"; };
+		8483A734254C119700ACF6FD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		8483A736254C11C200ACF6FD /* JKRuntimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKRuntimeViewController.swift; sourceTree = "<group>"; };
+		8483A738254EC47E00ACF6FD /* NSObjectExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtensionViewController.swift; sourceTree = "<group>"; };
 		8485CC7D2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeImageFactoryViewController.swift; sourceTree = "<group>"; };
 		849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionViewController.swift; sourceTree = "<group>"; };
 		849D58F32537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDecimalNumberHandlerExtensionViewController.swift; sourceTree = "<group>"; };
@@ -191,9 +199,18 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		8483A733254C118200ACF6FD /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				8483A734254C119700ACF6FD /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		84BF16A8251D9DEE002ACE76 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				8483A733254C118200ACF6FD /* Base */,
 				84BF16AD251D9E27002ACE76 /* FoundationExtensionViewController */,
 				84BF16AE251D9E3A002ACE76 /* UIKitExtensionViewController */,
 				84BF16AF251D9E5E002ACE76 /* ProtocolViewController */,
@@ -256,11 +273,12 @@
 		84BF16B3251D9EAB002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				849D58F32537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift */,
+				8483A738254EC47E00ACF6FD /* NSObjectExtensionViewController.swift */,
+				849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */,
+				84A5D2D52547B48E003D289C /* DateExtensionViewController.swift */,
 				8483A6C9254BC02B00ACF6FD /* BundleExtensionViewController.swift */,
 				84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */,
-				849D58F32537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift */,
-				84A5D2D52547B48E003D289C /* DateExtensionViewController.swift */,
-				849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */,
 				84BF16C5251D9F8D002ACE76 /* FoundationExtensionViewController.swift */,
 			);
 			path = Controller;
@@ -352,6 +370,8 @@
 				84BF16CB251DA012002ACE76 /* SmallToolsViewController.swift */,
 				8485CC7D2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift */,
 				8482F3A825207A9300EEC422 /* SectorProgressViewController.swift */,
+				8483A731254C0D6200ACF6FD /* JKPrintViewController.swift */,
+				8483A736254C11C200ACF6FD /* JKRuntimeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -579,9 +599,11 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				84BF16CA251D9FD3002ACE76 /* ProtocolViewController.swift in Sources */,
+				8483A737254C11C200ACF6FD /* JKRuntimeViewController.swift in Sources */,
 				84BF16D4251DFDE5002ACE76 /* TestViewController.swift in Sources */,
 				8485CC7E2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift in Sources */,
 				8483A6CA254BC02B00ACF6FD /* BundleExtensionViewController.swift in Sources */,
+				8483A735254C119700ACF6FD /* BaseViewController.swift in Sources */,
 				84BF16C6251D9F8D002ACE76 /* FoundationExtensionViewController.swift in Sources */,
 				849D58F02536ADD300CCDF0F /* StringExtensionViewController.swift in Sources */,
 				84813774254A5EC100D9289C /* UIColorExtensionViewController.swift in Sources */,
@@ -591,6 +613,8 @@
 				84A8FEFF2534598A00830EAF /* ArrayExtensionViewController.swift in Sources */,
 				84A5D2D62547B48E003D289C /* DateExtensionViewController.swift in Sources */,
 				84BF16C8251D9FB6002ACE76 /* UIKitExtensionViewController.swift in Sources */,
+				8483A739254EC47E00ACF6FD /* NSObjectExtensionViewController.swift in Sources */,
+				8483A732254C0D6200ACF6FD /* JKPrintViewController.swift in Sources */,
 				849D58F42537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift in Sources */,
 				8482F3A925207A9300EEC422 /* SectorProgressViewController.swift in Sources */,
 			);
