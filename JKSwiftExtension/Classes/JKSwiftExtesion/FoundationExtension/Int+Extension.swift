@@ -7,65 +7,70 @@
 
 import UIKit
 
+// MARK:- 一、Int 与其他类型的转换
 public extension Int {
     
-    /// Converts integer value to Double.
+    // MARK: 1.1、转 Double
+    /// 转 Double
     var toDouble: Double { return Double(self) }
 
-    /// Converts integer value to Float.
+    // MARK: 1.2、转 Float
+    /// 转 Float
     var toFloat: Float { return Float(self) }
+    
+    // MARK: 1.3、转 Int64
+    /// 转 Int64
+    var toInt64: Int64 { return Int64(self) }
 
-    /// Converts integer value to CGFloat.
+    // MARK: 1.4、转 CGFloat
+    /// 转 CGFloat
     var toCGFloat: CGFloat { return CGFloat(self) }
 
-    /// Converts integer value to String.
+    // MARK: 1.5、转 String
+    /// 转 String
     var toString: String { return String(self) }
 
-    /// Converts integer value to UInt.
+    // MARK: 1.6、转 UInt
+    /// 转 UInt
     var toUInt: UInt { return UInt(self) }
 
-    /// Converts integer value to a 0..<Int range. Useful in for loops.
+    // MARK: 1.7、转 range
+    /// 转 range
     var range: CountableRange<Int> { return 0..<self }
+}
 
-    /// Returns a random integer number in the range min...max, inclusive.
+// MARK:- 二、其他常用方法
+public extension Int {
+
+    // MARK: 2.1、取区间内的随机数，如取  0..<10 之间的随机数
+    ///  取区间内的随机数，如取  0..<10 之间的随机数
+    /// - Parameter within: 0..<10
+    /// - Returns: 返回区间内的随机数
     static func random(within: Range<Int>) -> Int {
         let delta = within.upperBound - within.lowerBound
         return within.lowerBound + Int(arc4random_uniform(UInt32(delta)))
     }
     
-    /// 转换万单位
-    func unitString() -> String {
+    // MARK: 2.2、转换万单位
+    /// 转换万的单位
+    /// - Parameter scale: 小数点后舍入值的位数，默认 1 位
+    /// - Returns: 返回万的字符串
+    func toTenThousandString(scale: Int = 1) -> String {
         if self < 0 {
             return "0"
         } else if self <= 9999 {
             return "\(self)"
         } else {
             let doub = CGFloat(self) / 10000
-            let str = String(format: "%.1f", doub)
-            let index = str.index(str.endIndex, offsetBy: -1)
-            let suffix = str.substring(from: index)
+            let str = String(format: "%.\(scale)f", doub)
+            let start_index = str.index(str.endIndex, offsetBy: -1)
+            let suffix = String(str[start_index ..< str.endIndex])
             if suffix == "0" {
                 let toIndex = str.index(str.endIndex, offsetBy: -2)
-                return str.substring(to: toIndex) + "万"
+                return String(str[str.startIndex ..< toIndex]) + "万"
             } else {
                 return str + "万"
             }
         }
-    }
-    
-    /// 转换成千位分隔符（每三位）
-    func getPrice() -> String? {
-        let priceNumberFormatter = NumberFormatter()
-        priceNumberFormatter.positiveFormat = "###,###"
-        return priceNumberFormatter.string(from: NSNumber(value: self))
-    }
-    
-    /// 整形时间戳转换
-    func toTimeString(dateFormat format: String) -> String {
-        if self < 0 { return "" }
-        let formater = DateFormatter()
-        formater.dateFormat = format
-        formater.locale = Locale.current
-        return formater.string(from: Date(timeIntervalSince1970: Double(self)))
     }
 }

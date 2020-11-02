@@ -30,12 +30,18 @@
 		849D58F42537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D58F32537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift */; };
 		84A5D2D62547B48E003D289C /* DateExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D2D52547B48E003D289C /* DateExtensionViewController.swift */; };
 		84A8FEFF2534598A00830EAF /* ArrayExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */; };
+		84BEA371254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BEA370254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift */; };
+		84BEA373254FAC6600CA8A75 /* UIFontExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BEA372254FAC6600CA8A75 /* UIFontExtensionViewController.swift */; };
+		84BEA379254FD78E00CA8A75 /* FloatExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BEA378254FD78E00CA8A75 /* FloatExtensionViewController.swift */; };
+		84BEA37B25500B8F00CA8A75 /* DoubleExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BEA37A25500B8F00CA8A75 /* DoubleExtensionViewController.swift */; };
 		84BF16C6251D9F8D002ACE76 /* FoundationExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF16C5251D9F8D002ACE76 /* FoundationExtensionViewController.swift */; };
 		84BF16C8251D9FB6002ACE76 /* UIKitExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF16C7251D9FB6002ACE76 /* UIKitExtensionViewController.swift */; };
 		84BF16CA251D9FD3002ACE76 /* ProtocolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF16C9251D9FD3002ACE76 /* ProtocolViewController.swift */; };
 		84BF16CC251DA012002ACE76 /* SmallToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF16CB251DA012002ACE76 /* SmallToolsViewController.swift */; };
 		84BF16D0251DDDE7002ACE76 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF16CF251DDDE7002ACE76 /* Notification+Extension.swift */; };
 		84BF16D4251DFDE5002ACE76 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF16D3251DFDE5002ACE76 /* TestViewController.swift */; };
+		84C4BF5F25500E5C00B3705F /* CGFloatExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C4BF5E25500E5C00B3705F /* CGFloatExtensionViewController.swift */; };
+		84C4BF6125501B3600B3705F /* IntExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C4BF6025501B3600B3705F /* IntExtensionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,12 +84,18 @@
 		849D58F32537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDecimalNumberHandlerExtensionViewController.swift; sourceTree = "<group>"; };
 		84A5D2D52547B48E003D289C /* DateExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionViewController.swift; sourceTree = "<group>"; };
 		84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensionViewController.swift; sourceTree = "<group>"; };
+		84BEA370254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensionViewController.swift; sourceTree = "<group>"; };
+		84BEA372254FAC6600CA8A75 /* UIFontExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensionViewController.swift; sourceTree = "<group>"; };
+		84BEA378254FD78E00CA8A75 /* FloatExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatExtensionViewController.swift; sourceTree = "<group>"; };
+		84BEA37A25500B8F00CA8A75 /* DoubleExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensionViewController.swift; sourceTree = "<group>"; };
 		84BF16C5251D9F8D002ACE76 /* FoundationExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtensionViewController.swift; sourceTree = "<group>"; };
 		84BF16C7251D9FB6002ACE76 /* UIKitExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtensionViewController.swift; sourceTree = "<group>"; };
 		84BF16C9251D9FD3002ACE76 /* ProtocolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolViewController.swift; sourceTree = "<group>"; };
 		84BF16CB251DA012002ACE76 /* SmallToolsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallToolsViewController.swift; sourceTree = "<group>"; };
 		84BF16CF251DDDE7002ACE76 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		84BF16D3251DFDE5002ACE76 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		84C4BF5E25500E5C00B3705F /* CGFloatExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtensionViewController.swift; sourceTree = "<group>"; };
+		84C4BF6025501B3600B3705F /* IntExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensionViewController.swift; sourceTree = "<group>"; };
 		88DDA121456371E8DD11E3A3 /* Pods-JKSwiftExtension_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSwiftExtension_Tests.release.xcconfig"; path = "Target Support Files/Pods-JKSwiftExtension_Tests/Pods-JKSwiftExtension_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9813482D301100D63B15615B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		BB14143CC4D03081EA63A0FB /* Pods-JKSwiftExtension_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSwiftExtension_Tests.debug.xcconfig"; path = "Target Support Files/Pods-JKSwiftExtension_Tests/Pods-JKSwiftExtension_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -273,6 +285,12 @@
 		84BF16B3251D9EAB002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				84BEA370254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift */,
+				84C4BF6025501B3600B3705F /* IntExtensionViewController.swift */,
+				84C4BF5E25500E5C00B3705F /* CGFloatExtensionViewController.swift */,
+				84BEA37A25500B8F00CA8A75 /* DoubleExtensionViewController.swift */,
+				84BEA378254FD78E00CA8A75 /* FloatExtensionViewController.swift */,
+				84BEA372254FAC6600CA8A75 /* UIFontExtensionViewController.swift */,
 				849D58F32537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift */,
 				8483A738254EC47E00ACF6FD /* NSObjectExtensionViewController.swift */,
 				849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */,
@@ -602,20 +620,26 @@
 				8483A737254C11C200ACF6FD /* JKRuntimeViewController.swift in Sources */,
 				84BF16D4251DFDE5002ACE76 /* TestViewController.swift in Sources */,
 				8485CC7E2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift in Sources */,
+				84BEA37B25500B8F00CA8A75 /* DoubleExtensionViewController.swift in Sources */,
 				8483A6CA254BC02B00ACF6FD /* BundleExtensionViewController.swift in Sources */,
 				8483A735254C119700ACF6FD /* BaseViewController.swift in Sources */,
+				84BEA379254FD78E00CA8A75 /* FloatExtensionViewController.swift in Sources */,
 				84BF16C6251D9F8D002ACE76 /* FoundationExtensionViewController.swift in Sources */,
 				849D58F02536ADD300CCDF0F /* StringExtensionViewController.swift in Sources */,
 				84813774254A5EC100D9289C /* UIColorExtensionViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				84BF16D0251DDDE7002ACE76 /* Notification+Extension.swift in Sources */,
+				84BEA371254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift in Sources */,
 				84BF16CC251DA012002ACE76 /* SmallToolsViewController.swift in Sources */,
 				84A8FEFF2534598A00830EAF /* ArrayExtensionViewController.swift in Sources */,
 				84A5D2D62547B48E003D289C /* DateExtensionViewController.swift in Sources */,
 				84BF16C8251D9FB6002ACE76 /* UIKitExtensionViewController.swift in Sources */,
+				84BEA373254FAC6600CA8A75 /* UIFontExtensionViewController.swift in Sources */,
 				8483A739254EC47E00ACF6FD /* NSObjectExtensionViewController.swift in Sources */,
 				8483A732254C0D6200ACF6FD /* JKPrintViewController.swift in Sources */,
+				84C4BF6125501B3600B3705F /* IntExtensionViewController.swift in Sources */,
 				849D58F42537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift in Sources */,
+				84C4BF5F25500E5C00B3705F /* CGFloatExtensionViewController.swift in Sources */,
 				8482F3A925207A9300EEC422 /* SectorProgressViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

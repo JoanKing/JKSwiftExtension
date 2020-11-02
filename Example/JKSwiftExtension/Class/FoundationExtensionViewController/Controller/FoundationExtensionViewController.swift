@@ -44,8 +44,8 @@ class FoundationExtensionViewController: UIViewController {
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green
   
-        dataArray = ["Array+Extension", "BaseData+Extension", "Bundle+Extension", "CGRect+Extension", "Date+Extension", "Double+Divisible", "NSObject+Extension", "String+Extension", "UIColor+BaseExtension", "UIDevice+Extension", "UIFont+Extensin", "Timer+Extension", "Int+Extension", "UInt+Extension", "Float+Extension", "Bool+Extension", "CGFloat+Extension", "Character+Extension", "DateFormatter+Extension", "Dictionary+Extension", "FileManager+Extension", "URL+Extension", "NSDecimalNumberHandler+Extension"]
-        finishedDataArray = ["String+Extension", "Date+Extension", "Array+Extension", "Bundle+Extension", "NSObject+Extension"]
+        dataArray = ["Array+Extension", "BaseData+Extension", "Bundle+Extension", "UserDefaults+Extension", "CGRect+Extension", "Date+Extension", "NSObject+Extension", "String+Extension", "UIDevice+Extension", "UIFont+Extension", "Timer+Extension", "Int+Extension", "Double+Extension", "UInt+Extension", "Float+Extension", "Bool+Extension", "CGFloat+Extension", "Character+Extension", "DateFormatter+Extension", "Dictionary+Extension", "FileManager+Extension", "URL+Extension", "NSDecimalNumberHandler+Extension"]
+        finishedDataArray = ["String+Extension", "Date+Extension", "Array+Extension", "Bundle+Extension", "NSObject+Extension", "UserDefaults+Extension", "UIFont+Extension", "Float+Extension", "Double+Extension", "CGFloat+Extension", "Int+Extension"]
         initUI()
     }
     

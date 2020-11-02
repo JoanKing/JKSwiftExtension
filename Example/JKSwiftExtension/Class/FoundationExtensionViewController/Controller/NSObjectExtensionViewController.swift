@@ -9,22 +9,20 @@
 import UIKit
 
 class NSObjectExtensionViewController: BaseViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-           headDataArray = ["一、 NSObject 属性的扩展", "二、一些常用的方法"]
-             dataArray = [["类名（对象方法）", "类名（类方法）"], ["利用运行时获取类里面的成员变量"]]
+        headDataArray = ["一、 NSObject 属性的扩展", "二、一些常用的方法"]
+        dataArray = [["类名（对象方法）", "类名（类方法）"], ["利用运行时获取类里面的成员变量"]]
     }
-
 }
 
 // MARK:- 一、 NSObject 属性的扩展
 extension NSObjectExtensionViewController {
-   
+    
     // MARK: 1.1、类名（对象方法）
     @objc func test11() {
-      JKPrint("类名（对象方法）", "\(self.className)")
+        JKPrint("类名（对象方法）", "\(self.className)")
     }
     
     // MARK: 1.2、类名（类方法）
