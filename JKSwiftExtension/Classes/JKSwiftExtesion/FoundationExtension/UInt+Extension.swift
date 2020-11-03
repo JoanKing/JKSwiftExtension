@@ -7,7 +7,9 @@
 
 import UIKit
 
+// MARK:- 一、UInt 与其他类型的转换
 extension UInt {
-    /// Convert UInt to Int
+    // MARK: 1.1、转 Int
+    /// 转 Int
     public var toInt: Int { return Int(self) }
 }

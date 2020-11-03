@@ -15,6 +15,10 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		687E347F9A62286E9AC825CD /* Pods_JKSwiftExtension_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEA1C54E10568E8E6A827CF /* Pods_JKSwiftExtension_Tests.framework */; };
 		6FC5FB83742FE817753295E8 /* Pods_JKSwiftExtension_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3D0426FDCFDD919F4C3DCA /* Pods_JKSwiftExtension_Example.framework */; };
+		847DFF262550F07600EEE785 /* Int64ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DFF252550F07600EEE785 /* Int64ExtensionViewController.swift */; };
+		847DFF282550F43C00EEE785 /* UIntExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DFF272550F43C00EEE785 /* UIntExtensionViewController.swift */; };
+		847DFF2A2550F5D400EEE785 /* CharacterExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DFF292550F5D400EEE785 /* CharacterExtensionViewController.swift */; };
+		847DFF2C2550F8C100EEE785 /* BoolExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DFF2B2550F8C100EEE785 /* BoolExtensionViewController.swift */; };
 		84813774254A5EC100D9289C /* UIColorExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84813773254A5EC100D9289C /* UIColorExtensionViewController.swift */; };
 		8482F3A925207A9300EEC422 /* SectorProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482F3A825207A9300EEC422 /* SectorProgressViewController.swift */; };
 		848331C9251C66AB00DEB439 /* StringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848331C8251C66AB00DEB439 /* StringTest.swift */; };
@@ -69,6 +73,10 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		65BA536E406F2B31EC61EC80 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		846774172511FE9900DE8B44 /* JKSwiftExtension_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JKSwiftExtension_Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		847DFF252550F07600EEE785 /* Int64ExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int64ExtensionViewController.swift; sourceTree = "<group>"; };
+		847DFF272550F43C00EEE785 /* UIntExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIntExtensionViewController.swift; sourceTree = "<group>"; };
+		847DFF292550F5D400EEE785 /* CharacterExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterExtensionViewController.swift; sourceTree = "<group>"; };
+		847DFF2B2550F8C100EEE785 /* BoolExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolExtensionViewController.swift; sourceTree = "<group>"; };
 		84813773254A5EC100D9289C /* UIColorExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensionViewController.swift; sourceTree = "<group>"; };
 		8482F3A825207A9300EEC422 /* SectorProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectorProgressViewController.swift; sourceTree = "<group>"; };
 		848331C8251C66AB00DEB439 /* StringTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTest.swift; sourceTree = "<group>"; };
@@ -286,9 +294,13 @@
 			isa = PBXGroup;
 			children = (
 				84BEA370254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift */,
+				847DFF2B2550F8C100EEE785 /* BoolExtensionViewController.swift */,
+				847DFF292550F5D400EEE785 /* CharacterExtensionViewController.swift */,
+				847DFF252550F07600EEE785 /* Int64ExtensionViewController.swift */,
 				84C4BF6025501B3600B3705F /* IntExtensionViewController.swift */,
 				84C4BF5E25500E5C00B3705F /* CGFloatExtensionViewController.swift */,
 				84BEA37A25500B8F00CA8A75 /* DoubleExtensionViewController.swift */,
+				847DFF272550F43C00EEE785 /* UIntExtensionViewController.swift */,
 				84BEA378254FD78E00CA8A75 /* FloatExtensionViewController.swift */,
 				84BEA372254FAC6600CA8A75 /* UIFontExtensionViewController.swift */,
 				849D58F32537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift */,
@@ -297,6 +309,7 @@
 				84A5D2D52547B48E003D289C /* DateExtensionViewController.swift */,
 				8483A6C9254BC02B00ACF6FD /* BundleExtensionViewController.swift */,
 				84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */,
+				84813773254A5EC100D9289C /* UIColorExtensionViewController.swift */,
 				84BF16C5251D9F8D002ACE76 /* FoundationExtensionViewController.swift */,
 			);
 			path = Controller;
@@ -327,7 +340,6 @@
 			isa = PBXGroup;
 			children = (
 				84BF16C7251D9FB6002ACE76 /* UIKitExtensionViewController.swift */,
-				84813773254A5EC100D9289C /* UIColorExtensionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -623,6 +635,7 @@
 				84BEA37B25500B8F00CA8A75 /* DoubleExtensionViewController.swift in Sources */,
 				8483A6CA254BC02B00ACF6FD /* BundleExtensionViewController.swift in Sources */,
 				8483A735254C119700ACF6FD /* BaseViewController.swift in Sources */,
+				847DFF282550F43C00EEE785 /* UIntExtensionViewController.swift in Sources */,
 				84BEA379254FD78E00CA8A75 /* FloatExtensionViewController.swift in Sources */,
 				84BF16C6251D9F8D002ACE76 /* FoundationExtensionViewController.swift in Sources */,
 				849D58F02536ADD300CCDF0F /* StringExtensionViewController.swift in Sources */,
@@ -634,8 +647,11 @@
 				84A8FEFF2534598A00830EAF /* ArrayExtensionViewController.swift in Sources */,
 				84A5D2D62547B48E003D289C /* DateExtensionViewController.swift in Sources */,
 				84BF16C8251D9FB6002ACE76 /* UIKitExtensionViewController.swift in Sources */,
+				847DFF2A2550F5D400EEE785 /* CharacterExtensionViewController.swift in Sources */,
+				847DFF262550F07600EEE785 /* Int64ExtensionViewController.swift in Sources */,
 				84BEA373254FAC6600CA8A75 /* UIFontExtensionViewController.swift in Sources */,
 				8483A739254EC47E00ACF6FD /* NSObjectExtensionViewController.swift in Sources */,
+				847DFF2C2550F8C100EEE785 /* BoolExtensionViewController.swift in Sources */,
 				8483A732254C0D6200ACF6FD /* JKPrintViewController.swift in Sources */,
 				84C4BF6125501B3600B3705F /* IntExtensionViewController.swift in Sources */,
 				849D58F42537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift in Sources */,

@@ -125,7 +125,14 @@ public extension Date {
             return Date()
             #endif
         }
-        let timestampValue = timestamp.count == 10 ? timestamp.doubleValue : timestamp.doubleValue / 1000
+        guard let timestampDouble = timestamp.toDouble() else {
+            #if DEBUG
+            fatalError("时间戳位有问题")
+            #else
+            return Date()
+            #endif
+        }
+        let timestampValue = timestamp.count == 10 ? timestampDouble : timestampDouble / 1000
         // 时间戳转为Date
         let date = Date(timeIntervalSince1970: timestampValue)
         return date

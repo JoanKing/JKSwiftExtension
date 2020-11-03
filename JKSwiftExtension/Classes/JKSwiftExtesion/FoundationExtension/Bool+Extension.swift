@@ -7,9 +7,10 @@
 
 import UIKit
 
-extension Bool {
+// MARK:- 一、基本的扩展
+public extension Bool {
  
-    // MARK:- Bool值转Int
-    /// Bool值转Int
-    public var toInt: Int { return self ? 1 : 0 }
+    // MARK: 1.1、Bool 值转 Int
+    /// Bool 值转 Int
+    var toInt: Int { return self ? 1 : 0 }
 }

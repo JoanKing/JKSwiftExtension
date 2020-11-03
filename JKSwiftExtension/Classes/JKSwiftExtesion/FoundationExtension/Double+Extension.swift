@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK:- 一、Double 的基本转换
-extension Double: ConvertToInt, ConvertToInt64, ConvertToFloat, ConvertToCGFloat, ConvertToNumber, ConvertToString, ConvertToDouble {
+extension Double {
    
     // MARK: 1.1、转 Int
     /// 转 Int

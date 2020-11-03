@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK:- 一、CGFloat 的基本转换
-extension CGFloat: ConvertToInt, ConvertToInt64, ConvertToFloat, ConvertToDouble, ConvertToNumber, ConvertToString, ConvertToCGFloat {
+extension CGFloat {
 
     // MARK: 1.1、转 Int
     /// 转 Int
@@ -55,5 +55,4 @@ extension CGFloat {
     public func radiansToDegrees() -> CGFloat {
         return (self * 180.0) / .pi
     }
-    
 }

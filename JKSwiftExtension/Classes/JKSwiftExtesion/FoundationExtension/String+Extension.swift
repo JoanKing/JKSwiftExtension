@@ -416,6 +416,18 @@ public extension String {
     var toNSString: NSString {
         return self as NSString
     }
+    
+    // MARK: 3.8、字符串转 Int64
+    /// 字符串转 Int64
+    var toInt64Value: Int64 {
+        return Int64(self) ?? 0
+    }
+    
+    // MARK: 3.9、字符串转 NSNumber
+    /// 字符串转 NSNumber
+    var toNumber: NSNumber? {
+        return self.toDouble()?.number
+    }
 }
 
 // MARK:- 四、字符串UI的处理

@@ -63,9 +63,9 @@ extension UIColorExtensionViewController {
     // MARK: 4.1、UIColor 转十六进制颜色的字符串
     @objc func test30() {
         // 纯蓝：#0000FF -> 0,0,255
-        let color = UIColor(hexString: "#0000FF", alpha: 0.8)
+        let color = UIColor(hexString: "#3CB371", alpha: 0.45)
         let hesString = color?.hexString ?? "颜色有问题"
-        JKPrint("UIColor 转十六进制颜色的字符串", "原始颜色：纯蓝：#0000FF -> 0,0,255", "color 转化为 十六进制字符串为：\(hesString)", "透明度为：\(0.9)")
+        JKPrint("UIColor 转十六进制颜色的字符串", "原始颜色：纯蓝：#3CB371 -> 60,179,113", "color 转化为 十六进制字符串为：\(hesString)", "透明度为：\(0.45)")
     }
     
     // MARK: 4.1、随机色

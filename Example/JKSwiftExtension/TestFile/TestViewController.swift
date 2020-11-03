@@ -55,7 +55,10 @@ extension TestViewController {
             return
         }
         print("存在时间戳，时间戳是：\(timeString)")
-        let date = Date(timeIntervalSince1970: timeString.doubleValue)
+        guard let timeStringValue = timeString.toDouble() else {
+            return
+        }
+        let date = Date(timeIntervalSince1970: timeStringValue)
         // 2.判断是不是今天
         if date.isToday {
             print("存在时间戳是：当天")

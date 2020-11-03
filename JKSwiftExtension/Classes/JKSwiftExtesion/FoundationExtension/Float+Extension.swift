@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK:- 一、Float 与其他类型的转换
-extension Float: ConvertToInt, ConvertToInt64, ConvertToDouble, ConvertToCGFloat, ConvertToNumber, ConvertToString, ConvertToFloat {
+extension Float {
     
     // MARK: 1.1、转 Int
     /// 转 Int

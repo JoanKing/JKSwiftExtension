@@ -44,8 +44,8 @@ class UIKitExtensionViewController: UIViewController {
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green
   
-        dataArray = ["UIColor+Extension", "CALayer+Extension", "CATextLayer+Extension", "NSAttributedString+Extension", "UIAlertController+Extension", "UIApplication+Extension", "UIBarButtonItem+Extension", "UIBezierPath+Extension", "UIButton+Extension", "UIControl+Extension", "UIImage+Compression", "UIImage+Extension", "UIImage+Gif", "UIImage+Gradient", "UILabel+Extension", "UINavigationController+Extension", "UIScreen+Extension", "UIScrollView+Extension", "UIStackView+Extension", "UISwitch+Extension", "UITableView+Extension", "UITextField+Extension", "UITextView+Extension", "UIView+Extension", "UIView+Features", "UIViewController+Extension"]
-        finishedDataArray = ["UIColor+Extension"]
+        dataArray = ["CALayer+Extension", "CATextLayer+Extension", "NSAttributedString+Extension", "UIAlertController+Extension", "UIApplication+Extension", "UIBarButtonItem+Extension", "UIBezierPath+Extension", "UIButton+Extension", "UIControl+Extension", "UIImage+Compression", "UIImage+Extension", "UIImage+Gif", "UIImage+Gradient", "UILabel+Extension", "UINavigationController+Extension", "UIScreen+Extension", "UIScrollView+Extension", "UIStackView+Extension", "UISwitch+Extension", "UITableView+Extension", "UITextField+Extension", "UITextView+Extension", "UIView+Extension", "UIView+Features", "UIViewController+Extension"]
+        finishedDataArray = []
         initUI()
     }
     
