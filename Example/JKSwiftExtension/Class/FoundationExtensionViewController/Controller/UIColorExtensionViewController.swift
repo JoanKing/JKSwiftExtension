@@ -63,9 +63,19 @@ extension UIColorExtensionViewController {
     // MARK: 4.1、UIColor 转十六进制颜色的字符串
     @objc func test30() {
         // 纯蓝：#0000FF -> 0,0,255
-        let color = UIColor(hexString: "#3CB371", alpha: 0.45)
-        let hesString = color?.hexString ?? "颜色有问题"
-        JKPrint("UIColor 转十六进制颜色的字符串", "原始颜色：纯蓝：#3CB371 -> 60,179,113", "color 转化为 十六进制字符串为：\(hesString)", "透明度为：\(0.45)")
+        let alpha1: CGFloat = 0.48
+        let color1 = UIColor(hexString: "#3CB371", alpha: alpha1)
+        let hesString1 = color1?.hexString ?? "颜色有问题"
+        let newAlpha1 = String(
+            format: "%0.2f",hesString1.sub(from: hesString1.count - 2).hexadecimalToDecimal().toCGFloat()! / CGFloat(255.999999))
+        
+        let alpha2: CGFloat = 0.44
+        let color2 = UIColor(hexString: "#3CB371", alpha: alpha2)
+        let hesString2 = color2?.hexString ?? "颜色有问题"
+        let newAlpha2 = String(
+            format: "%0.2f",hesString2.sub(from: hesString2.count - 2).hexadecimalToDecimal().toCGFloat()! / CGFloat(255.999999))
+        
+        JKPrint("UIColor 转十六进制颜色的字符串", "原始颜色：纯蓝：#3CB371 -> 60,179,113 透明度：\(alpha1)", "color 转化为 十六进制字符串为：\(hesString1)", "最后的两位是：\(hesString1.sub(from: hesString1.count - 2)) 透明度是：\(newAlpha1)", "", "color 转化为 十六进制字符串为：\(hesString2)", "最后的两位是：\(hesString2.sub(from: hesString2.count - 2)) 透明度是：\(newAlpha2)")
     }
     
     // MARK: 4.1、随机色

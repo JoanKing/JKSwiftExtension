@@ -1177,19 +1177,96 @@ extension String {
     }
 }
 
-// MARK:- 十一、有关时间的处理
-extension String {
-    // MARK: 字符串时间转化为时间
-    // 此处调查了一下，format字符串的类型太多了，暂时不用枚举，由用户传入
-    public func date(format str: String = "yyyy-MM-dd HH:mm") -> Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = str
-        let date = dateFormatter.date(from: self)
-        if let res = date {
-            return res
-        } else {
-            JKPrint("String Data or Format Error!!!")
-            return Date()
+// MARK:- 十一、进制之间的转换
+/*
+ Binary：      二进制
+ Octal：       八进制
+ Decimal：     十进制
+ Hexadecimal： 十六进制
+ */
+public extension String {
+    
+    // MARK: 11.1、二进制 -> 十进制
+    /// 二进制 -> 十进制
+    /// - Returns: 十进制
+    func binaryTodecimal() -> String {
+        let binary = self
+        var sum = 0
+        for c in binary {
+            if let number = "\(c)".toInt() {
+                sum = sum * 2 + number
+            }
         }
+        return "\(sum)"
+    }
+    
+    // MARK: 11.2、八进制 -> 十进制
+    /// 八进制 -> 十进制
+    /// - Returns: 十进制
+    func octalTodecimal() -> String {
+        let binary = self
+        var sum: Int = 0
+        for c in binary {
+            if let number = "\(c)".toInt() {
+                sum = sum * 8 + number
+            }
+        }
+        return "\(sum)"
+    }
+    
+    // MARK: 11.3、十六进制 转 十进制
+    /// 十六进制  转 十进制
+    /// - Returns: 十进制
+    func hexadecimalToDecimal() -> String {
+        let str = self.uppercased()
+        var sum = 0
+        for i in str.utf8 {
+            // 0-9 从48开始
+            sum = sum * 16 + Int(i) - 48
+            // A-Z 从65开始，但有初始值10，所以应该是减去55
+            if i >= 65 {
+                sum -= 7
+            }
+        }
+        return "\(sum)"
+    }
+    
+    // MARK: 11.4、十进制 转 二进制
+    /// 十进制 转 二进制
+    /// - Returns: 二进制
+    func decimalToBinary() -> String {
+        guard var decimal = self.toInt() else {
+            return ""
+        }
+        var str = ""
+        while decimal > 0 {
+            str = "\(decimal % 2)" + str
+            decimal /= 2
+        }
+        return str
+    }
+    // MARK: 11.5、十进制转 八进制
+    /// 十进制转 八进制
+    /// - Returns: 八进制
+    func decimalToOctal() -> String {
+       guard var decimal = self.toInt() else {
+           return ""
+       }
+       var str = ""
+       while decimal > 0 {
+           str = "\(decimal % 8)" + str
+           decimal /= 8
+       }
+       return str
+    }
+    
+    // MARK: 11.6、十进制转 十六进制
+    /// 十进制转 十六进制
+    /// - Returns: 十六进制
+    func decimalToHexadecimal() -> String {
+       guard let decimal = self.toInt() else {
+           return ""
+       }
+       return String(format: "%0X", decimal)
     }
 }
