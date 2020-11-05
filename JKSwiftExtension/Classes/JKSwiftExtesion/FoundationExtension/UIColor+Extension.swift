@@ -140,7 +140,7 @@ public extension UIColor {
         return (red, green, blue)
     }
     
-    // MARK:- 3.3、color 转 RGBA
+    // MARK: 3.3、color 转 RGBA
     /// color 转 RGBA
     /// - Returns: 返回对应的 RGBA
     func colorToRGBA() -> (r: CGFloat?, g: CGFloat?, b: CGFloat?, a: CGFloat?) {

@@ -105,6 +105,32 @@ public extension String {
         let a = Array(self)
         return a
     }
+    
+    // MARK: 0.10、JSON 字符串 ->  Dictionary
+    /// JSON 字符串 ->  Dictionary
+    /// - Returns: Dictionary
+    func jsonStringToDictionary() -> Dictionary<String, Any>? {
+        let jsonString = self
+        let jsonData:Data = jsonString.data(using: .utf8)!
+        let dict = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
+        if dict != nil {
+            return (dict as! Dictionary<String, Any>)
+        }
+        return nil
+    }
+    
+    // MARK: 0.11、JSON 字符串 -> Array
+    /// JSON 字符串 ->  Array
+    /// - Returns: Array
+    func jsonStringToArray() -> Array<Any>? {
+        let jsonString = self
+        let jsonData:Data = jsonString.data(using: .utf8)!
+        let array = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
+        if array != nil {
+            return (array as! Array<Any>)
+        }
+        return nil
+    }
 }
 
 // MARK:- 1、沙盒路径的获取
@@ -264,7 +290,7 @@ public extension String {
         resultString = resultString.trimmingCharacters(in: CharacterSet.newlines)
         return resultString
     }
-
+    
     // MARK: 2.4、去掉所有空格
     /// 去掉所有空格
     var removeAllSapce: String {
@@ -288,21 +314,21 @@ public extension String {
     }
     
     // MARK: 2.7、是否是 0-9 的数字，也不包含小数点
-      /// 是否是 0-9 的数字，也不包含小数点
-      /// - Returns: 结果
+    /// 是否是 0-9 的数字，也不包含小数点
+    /// - Returns: 结果
     func isValidNumber() -> Bool {
-          /// 0-9的数字，也不包含小数点
-          let rst: String = self.trimmingCharacters(in: .decimalDigits)
-          if rst.count > 0 {
-              return false
-          }
-          return true
-      }
+        /// 0-9的数字，也不包含小数点
+        let rst: String = self.trimmingCharacters(in: .decimalDigits)
+        if rst.count > 0 {
+            return false
+        }
+        return true
+    }
     
     // MARK: 2.8、url进行编码
     /// url 进行编码
     /// - Returns: 返回对应的URL
-     func urlValidate() -> URL {
+    func urlValidate() -> URL {
         return URL(string: self.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed) ?? "")!
     }
     
@@ -349,7 +375,7 @@ public extension String {
     /// - Returns: CGFloat
     func toCGFloat() -> CGFloat? {
         if let doubleValue = Double(self) {
-           return CGFloat(doubleValue)
+            return CGFloat(doubleValue)
         }
         return nil
     }
@@ -472,7 +498,7 @@ extension String {
     public func rectWidth(font: UIFont, size: CGSize) -> CGFloat {
         return rectSize(font: font, size: size).width
     }
-
+    
     // MARK: 4.4、对字符串(单行)指定字体，获取 (Size)
     /// 对字符串(单行)指定字体，获取 (Size)
     /// - Parameter font: 字体的大小
@@ -578,7 +604,7 @@ extension String {
         label.attributedText = attrStr
         return label.sizeThatFits(rect.size).width
     }
-
+    
     // MARK: 4.12、字符串根据宽度 & 字体 & 行间距 —> height
     /// 字符串根据宽度 & 字体 & 行间距 ——> height
     /// - Parameters:
@@ -854,7 +880,7 @@ extension String {
     public var isBlank: Bool {
         return trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines) == ""
     }
-
+    
     // MARK: 8.2、判断是否全十进制数字，长度为0返回false
     /// 判断是否全十进制数字，长度为0返回false
     public var isDecimalDigits: Bool {
@@ -864,7 +890,7 @@ extension String {
         // 去除什么的操作
         return trimmingCharacters(in: NSCharacterSet.decimalDigits) == ""
     }
-
+    
     // MARK: 8.3、判断是否是整数
     /// 判断是否是整数
     public var isPureInt: Bool {
@@ -872,7 +898,7 @@ extension String {
         var n: Int = 0
         return scan.scanInt(&n) && scan.isAtEnd
     }
-
+    
     // MARK: 8.4、判断是否是Float,此处Float是包含Int的，即Int是特殊的Float
     /// 判断是否是Float，此处Float是包含Int的，即Int是特殊的Float
     public var isPureFloat: Bool {
@@ -880,7 +906,7 @@ extension String {
         var n: Float = 0.0
         return scan.scanFloat(&n) && scan.isAtEnd
     }
-
+    
     // MARK: 8.5、判断是否全是字母，长度为0返回false
     /// 判断是否全是字母，长度为0返回false
     public var isLetters: Bool {
@@ -889,7 +915,7 @@ extension String {
         }
         return trimmingCharacters(in: NSCharacterSet.letters) == ""
     }
-
+    
     // MARK: 8.6、判断是否是中文, 这里的中文不包括数字及标点符号
     /// 判断是否是中文, 这里的中文不包括数字及标点符号
     public var isChinese: Bool {
@@ -905,7 +931,7 @@ extension String {
         let checker: NSPredicate = NSPredicate(format: "SELF MATCHES %@", rgex)
         return checker.evaluate(with: self)
     }
-
+    
     // MARK: 8.8、判断是否是有效的手机号码
     /// 判断是否是有效的手机号码
     public var isValidMobile: Bool {
@@ -913,7 +939,7 @@ extension String {
         let checker: NSPredicate = NSPredicate(format: "SELF MATCHES %@", mobileRgex)
         return checker.evaluate(with: self)
     }
-
+    
     // MARK: 8.9、判断是否是有效的电子邮件地址
     /// 判断是否是有效的电子邮件地址
     public var isValidEmail: Bool {
@@ -921,7 +947,7 @@ extension String {
         let checker: NSPredicate = NSPredicate(format: "SELF MATCHES %@", mobileRgex)
         return checker.evaluate(with: self)
     }
-
+    
     // MARK: 8.10、判断是否有效的身份证号码，不是太严格
     /// 判断是否有效的身份证号码，不是太严格
     public var isValidIDCardNumber: Bool {
@@ -929,7 +955,7 @@ extension String {
         let checker: NSPredicate = NSPredicate(format: "SELF MATCHES %@", mobileRgex)
         return checker.evaluate(with: self)
     }
-
+    
     // MARK: 8.11、严格判断是否有效的身份证号码,检验了省份，生日，校验位，不过没检查市县的编码
     /// 严格判断是否有效的身份证号码,检验了省份，生日，校验位，不过没检查市县的编码
     public var isValidIDCardNumStrict: Bool {
@@ -963,7 +989,7 @@ extension String {
                 } catch {}
             }
             numberOfMatch = regex.numberOfMatches(in: str, options: NSRegularExpression.MatchingOptions.reportProgress, range: NSMakeRange(0, len))
-
+            
             if numberOfMatch > 0 {
                 return true
             } else {
@@ -1039,7 +1065,7 @@ extension String {
             return self
         }
     }
-
+    
     // MARK:- private 方法
     // MARK: 是否是闰年
     /// 是否是闰年
@@ -1069,7 +1095,7 @@ extension String {
         let end_Index = validIndex(original: index)
         return String(self[startIndex ..< end_Index])
     }
-
+    
     // MARK: 9.2、截取字符串从index到结束
     /// 截取字符串从index到结束
     /// - Parameter index: 截取结束的位置
@@ -1078,7 +1104,7 @@ extension String {
         let start_index = validIndex(original: index)
         return String(self[start_index ..< endIndex])
     }
-
+    
     // MARK: 9.3、获取指定位置和长度的字符串
     /// 获取指定位置和大小的字符串
     /// - Parameters:
@@ -1095,7 +1121,7 @@ extension String {
         let range = st ..< en
         return String(self[range]) // .substring(with:range)
     }
-
+    
     // MARK: 9.4、切割字符串(区间范围 前闭后开)
     /**
      https://blog.csdn.net/wang631106979/article/details/54098910
@@ -1119,7 +1145,7 @@ extension String {
         }
         return String(self[startIndex ..< endIndex])
     }
-
+    
     // MARK: 9.5、用整数返回子字符串开始的位置
     /// 用整数返回子字符串开始的位置
     /// - Parameter sub: 字符串
@@ -1140,7 +1166,7 @@ extension String {
 
 // MARK:- 十、字符串编码的处理
 extension String {
-
+    
     // MARK: 10.1、特殊字符编码处理urlEncoded
     /// url编码 默认urlQueryAllowed
     public func urlEncoding(characters: CharacterSet = .urlQueryAllowed) -> String {
@@ -1148,7 +1174,7 @@ extension String {
             characters)
         return encodeUrlString ?? ""
     }
-
+    
     // MARK:- 10.2、url编码 Alamofire AFNetworking 处理方式 推荐使用
     /// url编码 Alamofire AFNetworking 处理方式 推荐使用
     public var urlEncoded: String {
@@ -1186,8 +1212,8 @@ extension String {
  */
 public extension String {
     
-    // MARK: 11.1、二进制 转 八进制
-    /// 二进制 转 八进制
+    // MARK: 11.1、二进制 -> 八进制
+    /// 二进制 ->转 八进制
     /// - Returns: 八进制
     func binaryToOctal() -> String {
         // 二进制
@@ -1213,7 +1239,7 @@ public extension String {
     }
     
     // MARK: 11.3、二进制 转 十六进制
-    /// 二进制 转 十六进制
+    /// 二进制  ->  十六进制
     /// - Returns: 十六进制
     func binaryToHexadecimal() -> String {
         // 二进制
@@ -1262,8 +1288,8 @@ public extension String {
         return decimal.decimalToHexadecimal()
     }
     
-    // MARK: 11.7、十进制 转 二进制
-    /// 十进制 转 二进制
+    // MARK: 11.7、十进制 -> 二进制
+    /// 十进制 -> 二进制
     /// - Returns: 二进制
     func decimalToBinary() -> String {
         guard var decimal = self.toInt() else {
@@ -1277,39 +1303,39 @@ public extension String {
         return str
     }
     
-    // MARK: 11.8、十进制转 八进制
-    /// 十进制转 八进制
+    // MARK: 11.8、十进制 -> 八进制
+    /// 十进制 -> 八进制
     /// - Returns: 八进制
     func decimalToOctal() -> String {
         guard let decimal = self.toInt() else {
-           return ""
-       }
-       /*
-       guard var decimal = self.toInt() else {
+            return ""
+        }
+        /*
+         guard var decimal = self.toInt() else {
          return ""
-       }
-       var str = ""
-       while decimal > 0 {
-           str = "\(decimal % 8)" + str
-           decimal /= 8
-       }
-       return str
-      */
-       return String(format: "%0O", decimal)
+         }
+         var str = ""
+         while decimal > 0 {
+         str = "\(decimal % 8)" + str
+         decimal /= 8
+         }
+         return str
+         */
+        return String(format: "%0O", decimal)
     }
     
-    // MARK: 11.9、十进制转 十六进制
-    /// 十进制转 十六进制
+    // MARK: 11.9、十进制 -> 十六进制
+    /// 十进制 -> 十六进制
     /// - Returns: 十六进制
     func decimalToHexadecimal() -> String {
-       guard let decimal = self.toInt() else {
-           return ""
-       }
-       return String(format: "%0X", decimal)
+        guard let decimal = self.toInt() else {
+            return ""
+        }
+        return String(format: "%0X", decimal)
     }
     
-    // MARK: 11.10、十六进制 转 二进制
-    /// 十六进制  转 二进制
+    // MARK: 11.10、十六进制 -> 二进制
+    /// 十六进制  -> 二进制
     /// - Returns: 二进制
     func hexadecimalToBinary() -> String {
         // 十六进制
@@ -1320,8 +1346,8 @@ public extension String {
         return decimal.decimalToBinary()
     }
     
-    // MARK: 11.11、十六进制 转 八进制
-    /// 十六进制  转 八进制
+    // MARK: 11.11、十六进制 -> 八进制
+    /// 十六进制  -> 八进制
     /// - Returns: 八进制
     func hexadecimalToOctal() -> String {
         // 十六进制
@@ -1332,8 +1358,8 @@ public extension String {
         return decimal.decimalToOctal()
     }
     
-    // MARK: 11.12、十六进制 转 十进制
-    /// 十六进制  转 十进制
+    // MARK: 11.12、十六进制 -> 十进制
+    /// 十六进制  -> 十进制
     /// - Returns: 十进制
     func hexadecimalToDecimal() -> String {
         let str = self.uppercased()

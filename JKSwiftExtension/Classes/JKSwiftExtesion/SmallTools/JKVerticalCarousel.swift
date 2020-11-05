@@ -79,7 +79,7 @@ public class VerticalCarousel<T: UIView>: UIView {
         }
 
         index = 0
-        timer = Timer.scheduledSafeTimer(timeInterval: timeInterval, repeats: true, callBack: { [weak self] _ in
+        timer = Timer.scheduledSafeTimer(timeInterval: timeInterval, repeats: true, block: { [weak self] _ in
             self?.scroll()
         })
     }

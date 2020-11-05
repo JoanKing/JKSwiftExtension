@@ -6,23 +6,26 @@
 //
 
 import Foundation
-import UIKit
+
+// 这里只指屏幕类型
+public enum UIDeviceScreenType: String {
+    case IPHONE_5
+    case IPHONE_6
+    case IPHONE_PLUS
+    case IPHONE_X
+    case IPHONE_XS
+    case IPHONE_XR
+    case IPHONE_XS_Max
+    case IPHONE_11
+    case IPHONE_11_PRO
+    case IPHONE_11_PRO_MAX
+}
+
+// MARK:- 一、基本的扩展
 public extension UIDevice {
     
-    //这里只指屏幕类型
-    enum UIDeviceScreenType: String {
-        case IPHONE_5
-        case IPHONE_6
-        case IPHONE_PLUS
-        case IPHONE_X
-        case IPHONE_XS
-        case IPHONE_XR
-        case IPHONE_XS_Max
-        case IPHONE_11
-        case IPHONE_11_PRO
-        case IPHONE_11_PRO_MAX
-    }
-    
+    // MARK: 1.1、设备的名字
+    /// 设备的名字
     static let modelName: String = {
         var systemInfo = utsname()
         uname(&systemInfo)
@@ -32,9 +35,7 @@ public extension UIDevice {
             return identifier + String(UnicodeScalar(UInt8(value)))
         }
         
-        //let modelName = UIDevice.modelName
         func mapToDevice(identifier: String) -> String {
-            // swiftlint:disable:this cyclomatic_complexity
             #if os(iOS)
             switch identifier {
             case "iPod5,1":                                 return "iPod Touch 5"
@@ -92,11 +93,13 @@ public extension UIDevice {
             }
             #endif
         }
-        
         return mapToDevice(identifier: identifier)
     }()
     
-    class func screenType() -> UIDeviceScreenType {
+    // MARK: 1.2、获取设备类型
+    /// 获取设备类型
+    /// - Returns: 设备类型
+    static func screenType() -> UIDeviceScreenType {
         let modelName = UIDevice.modelName
         if modelName == "iPhone 5" || modelName == "iPhone 5c" || modelName == "iPhone 5s" || modelName == "iPhone SE" {
             return UIDeviceScreenType.IPHONE_5
@@ -122,7 +125,7 @@ public extension UIDevice {
         return UIDeviceScreenType.IPHONE_6
     }
     
-    // MARK: 判断是否为 Pad
+    // MARK: 1.3、判断是否为 iPad
     /// 判断是否为 Pad
     /// - Returns: bool
     static func isIpad() -> Bool {
@@ -133,21 +136,21 @@ public extension UIDevice {
         return false
     }
     
-    // MARK: 判断是否是 pad
+    // MARK: 1.4、判断是否是 pad
     /// 判断是否是 pad
     /// - Returns: bool
     static func isPadDevice() -> Bool {
         return UI_USER_INTERFACE_IDIOM() == .pad
     }
     
-    // MARK: 判断是否为 iphone
+    // MARK: 1.5、判断是否为 iphone
     /// 判断是否为 iphone
     /// - Returns: bool
     static func isIphone() -> Bool {
         return UI_USER_INTERFACE_IDIOM() == .phone
     }
     
-    // MARK: 判断是否是 iphone5
+    // MARK: 1.6、判断是否是 iphone5
     /// 判断是否是 iphone5
     /// - Returns: bool
     class func isIphone5Screen() -> Bool {
@@ -157,7 +160,7 @@ public extension UIDevice {
         return false
     }
     
-    // MARK: 判断是否是 iphone6
+    // MARK: 1.7、判断是否是 iphone6
     /// 判断是否是 iphone5
     /// - Returns: bool
     class func isIphone6Screen() -> Bool {
@@ -167,7 +170,7 @@ public extension UIDevice {
         return false
     }
     
-    // MARK: 是不是 x 系列
+    // MARK: 1.8、是不是 x 系列
     /// 是不是 x 系列
     /// - Returns: bool
     static func isIphoneXScreen() -> Bool {
@@ -177,7 +180,7 @@ public extension UIDevice {
         return false
     }
     
-    // MARK: 是不是 xs系列
+    // MARK: 1.9、是不是 xs系列
     /// 是不是 xs 系列
     /// - Returns: bool
     static func isIphoneXSScreen() -> Bool {

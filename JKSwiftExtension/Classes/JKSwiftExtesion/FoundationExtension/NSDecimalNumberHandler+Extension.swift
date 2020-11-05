@@ -39,8 +39,10 @@ public enum DecimalNumberHandlerType: String {
     case dividing
 }
 
+// MARK:- 一、基本的扩展
 public extension NSDecimalNumberHandler {
     
+    // MARK: 1.1、向下取整取倍数
     /// 向下取整取倍数
     /// - Parameters:
     ///   - value1: 除数

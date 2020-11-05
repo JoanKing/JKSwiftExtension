@@ -8,24 +8,25 @@
 
 import UIKit
 
-class NSDecimalNumberHandlerExtensionViewController: UIViewController {
+class NSDecimalNumberHandlerExtensionViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "NSDecimalNumberHandlerExtensionViewController"
-        self.view.backgroundColor = .white
-        
+        headDataArray = ["一、基本的扩展"]
+        dataArray = [["向下取整取倍数"]]
     }
-    
-    func test1() {
-       print("结果：\(NSDecimalNumberHandler.getFloorValue(value1: 47.05, value2: 0.05))")
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        test1()
-    }
-    
-    
 
 }
+
+// MARK:- 一、基本的扩展
+extension NSDecimalNumberHandlerExtensionViewController {
+    
+    // MARK: 1.1、向下取整取倍数
+    @objc func test11() {
+        
+        print("结果：\(NSDecimalNumberHandler.getFloorValue(value1: 47.05, value2: 0.05))")
+        
+    }
+}
+

@@ -24,6 +24,20 @@ public extension Array {
             self.append(element)
         }
     }
+    
+    // MARK: 1.3、数组 -> JSON字符串
+    /// 字典转换为JSONString
+    func toJSON() -> String? {
+        let array = self
+        guard JSONSerialization.isValidJSONObject(array) else {
+            JKPrint("无法解析出JSONString")
+            return ""
+        }
+        let data : NSData = try! JSONSerialization.data(withJSONObject: array, options: []) as NSData
+        let JSONString = NSString(data:data as Data,encoding: String.Encoding.utf8.rawValue)
+        return JSONString! as String
+    }
+    
 }
 
 // MARK:- 二、数组 有关索引 的扩展方法

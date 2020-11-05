@@ -7,47 +7,63 @@
 
 import UIKit
 
+// MARK:- 一、基本的扩展
 public extension Timer {
-    class func scheduledSafeTimer(timeInterval ti: TimeInterval, repeats yesOrNo: Bool, callBack cb: @escaping ((Timer) -> Void)) -> Timer {
+    
+    // MARK: 1.1、构造器创建定时器
+    /// 构造器创建定时器
+    /// - Parameters:
+    ///   - timeInterval: 时间间隔
+    ///   - repeats: 是否重复执行
+    ///   - block: 执行代码的block
+    convenience init(safeTimerWithTimeInterval timeInterval: TimeInterval, repeats: Bool, block: @escaping ((Timer) -> Void)) {
         if #available(iOS 10.0, *) {
-            return Timer.scheduledTimer(withTimeInterval: ti, repeats: yesOrNo, block: cb)
+            self.init(timeInterval: timeInterval, repeats: repeats, block: block)
+            return
         }
-        return Timer.scheduledTimer(timeInterval: ti, target: self, selector: #selector(timerCB(timer:)), userInfo: cb, repeats: yesOrNo)
+        self.init(timeInterval: timeInterval, target: Timer.self, selector: #selector(Timer.timerCB(timer:)), userInfo: block, repeats: repeats)
+    }
+    
+    // MARK: 1.2、类方法创建定时器
+    ///  创建定时器
+    /// - Parameters:
+    ///   - timeInterval: 时间间隔
+    ///   - repeats: 是否重复执行
+    ///   - block: 执行代码的block
+    /// - Returns: 返回 Timer
+    @discardableResult
+    static func scheduledSafeTimer(timeInterval: TimeInterval, repeats: Bool, block: @escaping ((Timer) -> Void)) -> Timer {
+        if #available(iOS 10.0, *) {
+            return Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: repeats, block: block)
+        }
+        return Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(timerCB(timer:)), userInfo: block, repeats: repeats)
     }
 
-    @objc private class func timerCB(timer: Timer) {
+    // MARK: 1.3、C语言的形式创建定时器(创建后立即执行一次)
+    /// C语言的形式创建定时器
+    /// - Parameters:
+    ///   - timeInterval: 时间间隔
+    ///   - handler: 定时器的回调
+    /// - Returns: 返回 Timer
+    @discardableResult
+    static func     runThisEvery(timeInterval: TimeInterval, handler: @escaping (Timer?) -> Void) -> Timer? {
+        let fireDate = CFAbsoluteTimeGetCurrent()
+        guard let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, fireDate, timeInterval, 0, 0, handler) else {
+            return nil
+        }
+        CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, CFRunLoopMode.commonModes)
+        return timer
+    }
+}
+
+// MARK:- 私有的方法
+public extension Timer {
+    @objc fileprivate class func timerCB(timer: Timer) {
         guard let cb = timer.userInfo as? ((Timer) -> Void) else {
             timer.invalidate()
             return
         }
         cb(timer)
-    }
-
-    convenience init(safeTimerWithTimeInterval ti: TimeInterval, repeats yesOrNo: Bool, callBack cb: @escaping ((Timer) -> Void)) {
-        if #available(iOS 10.0, *) {
-            self.init(timeInterval: ti, repeats: yesOrNo, block: cb)
-            return
-        }
-        self.init(timeInterval: ti, target: Timer.self, selector: #selector(Timer.timerCB(timer:)), userInfo: cb, repeats: yesOrNo)
-    }
-    
-    /// Runs every x seconds, to cancel use: timer.invalidate()
-    static func runThisEvery(seconds: TimeInterval, handler: @escaping (Timer?) -> Void) -> Timer {
-        let fireDate = CFAbsoluteTimeGetCurrent()
-        let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, fireDate, seconds, 0, 0, handler)
-        CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, CFRunLoopMode.commonModes)
-        return timer!
-    }
-
-    /// Run function after x seconds
-    static func runThisAfterDelay(seconds: Double, after: @escaping () -> Void) {
-        runThisAfterDelay(seconds: seconds, queue: DispatchQueue.main, after: after)
-    }
-
-    /// XCRKit - dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
-    public static func runThisAfterDelay(seconds: Double, queue: DispatchQueue, after: @escaping () -> Void) {
-        let time = DispatchTime.now() + Double(Int64(seconds * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-        queue.asyncAfter(deadline: time, execute: after)
     }
 }
 
