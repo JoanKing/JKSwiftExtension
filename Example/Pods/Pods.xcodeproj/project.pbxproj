@@ -482,7 +482,6 @@
 		F4541139B83E4CE559A87E1FD2484323 /* _RXKVOObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA3DE9ADE85BE74CE36FE5646A6F365 /* _RXKVOObserver.m */; };
 		F45E8026623861352B130485E56F523F /* ironman.png in Resources */ = {isa = PBXBuildFile; fileRef = 843849A3B095EB42C07D98B877C5321E /* ironman.png */; };
 		F4886D5FCD611DF725BBB41C866216AD /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF88347DE362999C45C33226908D4A85 /* Box.swift */; };
-		F4D69251A4907A7E4132D25324E36BDD /* UIView+Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2071D3C117F2084ECE05219652FFB63B /* UIView+Features.swift */; };
 		F53DD1E9493E7C732EAD00BA77D81797 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124051CB453E8B16B4EB14C3DF49280D /* Errors.swift */; };
 		F55A3440438E721EA8C278DFA47B5311 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01EAB87B8BB010066E35D11073CC9AB /* Double+Extension.swift */; };
 		F7130FBFE7F6957526A427486BF34B2E /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF96CF841EAEB18A535688D974FD0F14 /* Sequence.swift */; };
@@ -683,7 +682,6 @@
 		1E9216BB1CB6CF2C19C6517A8055D767 /* MJRefreshStateTrailer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshStateTrailer.m; path = MJRefresh/Custom/Trailer/MJRefreshStateTrailer.m; sourceTree = "<group>"; };
 		1F7347D87D5899AF08AA572C0408A633 /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupport.swift; path = Source/ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
 		2028588D78B43C9B2AA81BAB84499495 /* Window.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Window.swift; path = RxSwift/Observables/Window.swift; sourceTree = "<group>"; };
-		2071D3C117F2084ECE05219652FFB63B /* UIView+Features.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIView+Features.swift"; sourceTree = "<group>"; };
 		20740C0D9846DED4380502740CF0CB49 /* UITextField+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		212F41961AC9CC24E92DC468A3F0B39B /* RxCollectionViewDataSourcePrefetchingProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxCollectionViewDataSourcePrefetchingProxy.swift; path = RxCocoa/iOS/Proxies/RxCollectionViewDataSourcePrefetchingProxy.swift; sourceTree = "<group>"; };
 		219353A22681C077858DA6F3FE78DE93 /* Kingfisher-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Kingfisher-Info.plist"; sourceTree = "<group>"; };
@@ -1656,6 +1654,7 @@
 		A15D9435AD0EBD74A93C70DDCAFC7985 /* UIKitExtension */ = {
 			isa = PBXGroup;
 			children = (
+				A7B4F253DA0D8F25D80E664516473C95 /* UIView+Extension.swift */,
 				50B705444AD4FE396A4F70EFE20C7021 /* CALayer+Extension.swift */,
 				ADC92DD5E7E9D4567CC136F79099C0AA /* CATextLayer+Extension.swift */,
 				08AB8CC134EEDFEE77F4518B9041E9BA /* NSAttributedString+Extension.swift */,
@@ -1678,8 +1677,6 @@
 				BAB5E606D66C34A9B951F9511C983DE9 /* UITableView+Extension.swift */,
 				20740C0D9846DED4380502740CF0CB49 /* UITextField+Extension.swift */,
 				295562D994D2BE1867764B7CFD1921DF /* UITextView+Extension.swift */,
-				A7B4F253DA0D8F25D80E664516473C95 /* UIView+Extension.swift */,
-				2071D3C117F2084ECE05219652FFB63B /* UIView+Features.swift */,
 				96B386474BF4E48793E26A7F928CF9D9 /* UIViewController+Extension.swift */,
 			);
 			name = UIKitExtension;
@@ -2622,7 +2619,6 @@
 				52761D0E1A7D51E3B81B0539AEDB1E7A /* UITextField+Extension.swift in Sources */,
 				DBFD4B43997A5C55B7B7598C9E50DDE9 /* UITextView+Extension.swift in Sources */,
 				670891BEA850A847D61304BC2EAED66D /* UIView+Extension.swift in Sources */,
-				F4D69251A4907A7E4132D25324E36BDD /* UIView+Features.swift in Sources */,
 				F0EF0F4C30614616A3DC5E8522CF9D4B /* UIViewController+Extension.swift in Sources */,
 				C5A511A65F2C3AEC7FCB57FF52125118 /* URL+Extension.swift in Sources */,
 				F9B2704BA76420FA118E64C8A0FC4D3E /* UserDefaults+Extesnion.swift in Sources */,
