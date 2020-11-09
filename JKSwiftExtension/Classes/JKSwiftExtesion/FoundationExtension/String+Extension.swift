@@ -1375,3 +1375,50 @@ public extension String {
         return "\(sum)"
     }
 }
+
+// MARK:- 十二、String -> NSMutableAttributedString
+public extension String {
+    
+    // MARK: 12.1、String 添加颜色后转 NSMutableAttributedString
+    /// String 添加颜色后转 NSMutableAttributedString
+    /// - Parameter color: 背景色
+    /// - Returns: NSMutableAttributedString
+    func color(_ color: UIColor) -> NSMutableAttributedString {
+        let attributedText = NSMutableAttributedString(string: self, attributes: [.foregroundColor: color])
+        return attributedText
+    }
+    
+    // MARK: 12.2、String 添加 font 后转 NSMutableAttributedString
+    /// String 添加 font 后转 NSMutableAttributedString
+    /// - Parameter font: 字体的大小
+    /// - Returns: NSMutableAttributedString
+    func font(_ font: CGFloat) -> NSMutableAttributedString {
+        let attributedText = NSMutableAttributedString(string: self, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: font)])
+        return attributedText
+    }
+    
+    // MARK: 12.3、String 添加 font 后转 NSMutableAttributedString
+    /// String 添加 UIFont 后转 NSMutableAttributedString
+    /// - Parameter font: UIFont
+    /// - Returns: NSMutableAttributedString
+    func font(_ font: UIFont) -> NSMutableAttributedString {
+        let attributedText = NSMutableAttributedString(string: self, attributes: [NSAttributedString.Key.font: font])
+        return attributedText
+    }
+    
+    // MARK: 12.4、String 添加 text 后转 NSMutableAttributedString
+    /// String 添加 text 后转 NSMutableAttributedString
+    /// - Returns: NSMutableAttributedString
+    func text() -> NSMutableAttributedString {
+        let attributedText = NSMutableAttributedString(string: self)
+        return attributedText
+    }
+
+    // MARK: 12.5、String 添加 删除线 后转 NSMutableAttributedString
+    /// String 添加 删除线 后转 NSMutableAttributedString
+    /// - Returns: NSMutableAttributedString
+    func strikethrough() -> NSMutableAttributedString {
+        let attributedText = NSMutableAttributedString(string: self, attributes: [.strikethroughStyle: NSUnderlineStyle.single.rawValue])
+        return attributedText
+    }
+}

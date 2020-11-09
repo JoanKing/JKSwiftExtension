@@ -26,19 +26,16 @@ public protocol NavigationControllerBackButtonDelegate {
 public extension UINavigationController {
 
     func navigationBar(_ navigationBar: UINavigationBar, shouldPop item: UINavigationItem) -> Bool {
-
         // Prevents from a synchronization issue of popping too many navigation items
         // and not enough view controllers or viceversa from unusual tapping
         if self.viewControllers.count < navigationBar.items?.count {
             return true
         }
-
         // Check if we have a view controller that wants to respond to being popped
         var shouldPop = true
         if let viewController = self.topViewController as? NavigationControllerBackButtonDelegate {
             shouldPop = viewController.viewControllerShouldPopOnBackButton()
         }
-
         if (shouldPop) {
             DispatchQueue.main.async {
                 self.popViewController(animated: true)
@@ -54,7 +51,6 @@ public extension UINavigationController {
             }
 
         }
-
         return false
     }
 }

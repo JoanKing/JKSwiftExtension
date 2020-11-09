@@ -23,6 +23,14 @@
 		847DFF282550F43C00EEE785 /* UIntExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DFF272550F43C00EEE785 /* UIntExtensionViewController.swift */; };
 		847DFF2A2550F5D400EEE785 /* CharacterExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DFF292550F5D400EEE785 /* CharacterExtensionViewController.swift */; };
 		847DFF2C2550F8C100EEE785 /* BoolExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DFF2B2550F8C100EEE785 /* BoolExtensionViewController.swift */; };
+		848028082558D5A70038748A /* CALayerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848028072558D5A70038748A /* CALayerExtensionViewController.swift */; };
+		8480280A2558E7940038748A /* UIScreenExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848028092558E7940038748A /* UIScreenExtensionViewController.swift */; };
+		8480280C255926120038748A /* CATextLayerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480280B255926120038748A /* CATextLayerExtensionViewController.swift */; };
+		8480280E255933DE0038748A /* UIControlExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480280D255933DE0038748A /* UIControlExtensionViewController.swift */; };
+		84802814255948730038748A /* NSMutableAttributedStringExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84802813255948730038748A /* NSMutableAttributedStringExtensionViewController.swift */; };
+		8480281625594C1E0038748A /* UIAlertControllerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480281525594C1E0038748A /* UIAlertControllerExtensionViewController.swift */; };
+		84802818255957560038748A /* UIApplicationExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84802817255957560038748A /* UIApplicationExtensionViewController.swift */; };
+		8480281A255963610038748A /* UISwitchExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84802819255963610038748A /* UISwitchExtensionViewController.swift */; };
 		84813774254A5EC100D9289C /* UIColorExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84813773254A5EC100D9289C /* UIColorExtensionViewController.swift */; };
 		8482AA062553EEFF00EB0A7A /* FileManagerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482AA052553EEFF00EB0A7A /* FileManagerExtensionViewController.swift */; };
 		8482AA082553F09900EB0A7A /* TimerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482AA072553F09900EB0A7A /* TimerExtensionViewController.swift */; };
@@ -68,7 +76,7 @@
 /* Begin PBXFileReference section */
 		2FEA1C54E10568E8E6A827CF /* Pods_JKSwiftExtension_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSwiftExtension_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		484863D9DD238F4FD5E44FEF /* JKSwiftExtension.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JKSwiftExtension.podspec; path = ../JKSwiftExtension.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		607FACD01AFB9204008FA782 /* JKSwiftExtension_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKSwiftExtension_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD01AFB9204008FA782 /* JKSwiftExtension扩展.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JKSwiftExtension扩展.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +96,14 @@
 		847DFF272550F43C00EEE785 /* UIntExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIntExtensionViewController.swift; sourceTree = "<group>"; };
 		847DFF292550F5D400EEE785 /* CharacterExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterExtensionViewController.swift; sourceTree = "<group>"; };
 		847DFF2B2550F8C100EEE785 /* BoolExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolExtensionViewController.swift; sourceTree = "<group>"; };
+		848028072558D5A70038748A /* CALayerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtensionViewController.swift; sourceTree = "<group>"; };
+		848028092558E7940038748A /* UIScreenExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtensionViewController.swift; sourceTree = "<group>"; };
+		8480280B255926120038748A /* CATextLayerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATextLayerExtensionViewController.swift; sourceTree = "<group>"; };
+		8480280D255933DE0038748A /* UIControlExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlExtensionViewController.swift; sourceTree = "<group>"; };
+		84802813255948730038748A /* NSMutableAttributedStringExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringExtensionViewController.swift; sourceTree = "<group>"; };
+		8480281525594C1E0038748A /* UIAlertControllerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensionViewController.swift; sourceTree = "<group>"; };
+		84802817255957560038748A /* UIApplicationExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensionViewController.swift; sourceTree = "<group>"; };
+		84802819255963610038748A /* UISwitchExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISwitchExtensionViewController.swift; sourceTree = "<group>"; };
 		84813773254A5EC100D9289C /* UIColorExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensionViewController.swift; sourceTree = "<group>"; };
 		8482AA052553EEFF00EB0A7A /* FileManagerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtensionViewController.swift; sourceTree = "<group>"; };
 		8482AA072553F09900EB0A7A /* TimerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerExtensionViewController.swift; sourceTree = "<group>"; };
@@ -172,7 +188,7 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD01AFB9204008FA782 /* JKSwiftExtension_Example.app */,
+				607FACD01AFB9204008FA782 /* JKSwiftExtension扩展.app */,
 				607FACE51AFB9204008FA782 /* JKSwiftExtension_Tests.xctest */,
 			);
 			name = Products;
@@ -360,7 +376,15 @@
 			isa = PBXGroup;
 			children = (
 				84BF16C7251D9FB6002ACE76 /* UIKitExtensionViewController.swift */,
+				84802819255963610038748A /* UISwitchExtensionViewController.swift */,
+				84802817255957560038748A /* UIApplicationExtensionViewController.swift */,
+				8480281525594C1E0038748A /* UIAlertControllerExtensionViewController.swift */,
+				84802813255948730038748A /* NSMutableAttributedStringExtensionViewController.swift */,
+				8480280D255933DE0038748A /* UIControlExtensionViewController.swift */,
+				8480280B255926120038748A /* CATextLayerExtensionViewController.swift */,
 				84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */,
+				848028072558D5A70038748A /* CALayerExtensionViewController.swift */,
+				848028092558E7940038748A /* UIScreenExtensionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -478,7 +502,7 @@
 			);
 			name = JKSwiftExtension_Example;
 			productName = JKSwiftExtension;
-			productReference = 607FACD01AFB9204008FA782 /* JKSwiftExtension_Example.app */;
+			productReference = 607FACD01AFB9204008FA782 /* JKSwiftExtension扩展.app */;
 			productType = "com.apple.product-type.application";
 		};
 		607FACE41AFB9204008FA782 /* JKSwiftExtension_Tests */ = {
@@ -651,18 +675,23 @@
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				84BF16CA251D9FD3002ACE76 /* ProtocolViewController.swift in Sources */,
 				8483A737254C11C200ACF6FD /* JKRuntimeViewController.swift in Sources */,
+				8480280E255933DE0038748A /* UIControlExtensionViewController.swift in Sources */,
+				8480281625594C1E0038748A /* UIAlertControllerExtensionViewController.swift in Sources */,
 				84BF16D4251DFDE5002ACE76 /* TestViewController.swift in Sources */,
 				8485CC7E2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift in Sources */,
 				8482AA082553F09900EB0A7A /* TimerExtensionViewController.swift in Sources */,
 				84BEA37B25500B8F00CA8A75 /* DoubleExtensionViewController.swift in Sources */,
 				8483A6CA254BC02B00ACF6FD /* BundleExtensionViewController.swift in Sources */,
 				8483A735254C119700ACF6FD /* BaseViewController.swift in Sources */,
+				84802818255957560038748A /* UIApplicationExtensionViewController.swift in Sources */,
 				847DFF282550F43C00EEE785 /* UIntExtensionViewController.swift in Sources */,
+				8480281A255963610038748A /* UISwitchExtensionViewController.swift in Sources */,
 				84BEA379254FD78E00CA8A75 /* FloatExtensionViewController.swift in Sources */,
 				8482AA062553EEFF00EB0A7A /* FileManagerExtensionViewController.swift in Sources */,
 				84BF16C6251D9F8D002ACE76 /* FoundationExtensionViewController.swift in Sources */,
 				849D58F02536ADD300CCDF0F /* StringExtensionViewController.swift in Sources */,
 				84813774254A5EC100D9289C /* UIColorExtensionViewController.swift in Sources */,
+				84802814255948730038748A /* NSMutableAttributedStringExtensionViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				84BF16D0251DDDE7002ACE76 /* Notification+Extension.swift in Sources */,
 				84BEA371254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift in Sources */,
@@ -676,13 +705,16 @@
 				8401537B2552A7B2001AB2FD /* DateFormatterExtensionViewController.swift in Sources */,
 				8482AA0A2554075E00EB0A7A /* UIDeviceExtensionViewController.swift in Sources */,
 				84058C972554FA44007F0C30 /* UIViewExtensionViewController.swift in Sources */,
+				848028082558D5A70038748A /* CALayerExtensionViewController.swift in Sources */,
 				847DFF262550F07600EEE785 /* Int64ExtensionViewController.swift in Sources */,
+				8480280A2558E7940038748A /* UIScreenExtensionViewController.swift in Sources */,
 				84BEA373254FAC6600CA8A75 /* UIFontExtensionViewController.swift in Sources */,
 				8483A739254EC47E00ACF6FD /* NSObjectExtensionViewController.swift in Sources */,
 				847DFF2C2550F8C100EEE785 /* BoolExtensionViewController.swift in Sources */,
 				8483A732254C0D6200ACF6FD /* JKPrintViewController.swift in Sources */,
 				84C4BF6125501B3600B3705F /* IntExtensionViewController.swift in Sources */,
 				849D58F42537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift in Sources */,
+				8480280C255926120038748A /* CATextLayerExtensionViewController.swift in Sources */,
 				84C4BF5F25500E5C00B3705F /* CGFloatExtensionViewController.swift in Sources */,
 				8482F3A925207A9300EEC422 /* SectorProgressViewController.swift in Sources */,
 			);
@@ -832,13 +864,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = SGVDL6B99N;
 				INFOPLIST_FILE = JKSwiftExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "JKSwiftExtension扩展";
 				SWIFT_OBJC_BRIDGING_HEADER = "JKSwiftExtension/JKSwiftExtension_Example-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -852,13 +886,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = SGVDL6B99N;
 				INFOPLIST_FILE = JKSwiftExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "JKSwiftExtension扩展";
 				SWIFT_OBJC_BRIDGING_HEADER = "JKSwiftExtension/JKSwiftExtension_Example-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;

@@ -44,8 +44,8 @@ class UIKitExtensionViewController: UIViewController {
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green
   
-        dataArray = ["UIView+Extension", "CALayer+Extension", "CATextLayer+Extension", "NSAttributedString+Extension", "UIAlertController+Extension", "UIApplication+Extension", "UIBarButtonItem+Extension", "UIBezierPath+Extension", "UIButton+Extension", "UIControl+Extension", "UIImage+Compression", "UIImage+Extension", "UIImage+Gif", "UIImage+Gradient", "UILabel+Extension", "UINavigationController+Extension", "UIScreen+Extension", "UIScrollView+Extension", "UIStackView+Extension", "UISwitch+Extension", "UITableView+Extension", "UITextField+Extension", "UITextView+Extension", "UIViewController+Extension"]
-        finishedDataArray = ["UIView+Extension"]
+        dataArray = ["UIView+Extension", "CALayer+Extension", "CATextLayer+Extension", "NSMutableAttributedString+Extension", "UIAlertController+Extension", "UIApplication+Extension", "UIBarButtonItem+Extension", "UIBezierPath+Extension", "UIButton+Extension", "UIControl+Extension", "UIImage+Compression", "UIImage+Extension", "UIImage+Gif", "UIImage+Gradient", "UILabel+Extension", "UINavigationController+Extension", "UIScreen+Extension", "UIScrollView+Extension", "UIStackView+Extension", "UISwitch+Extension", "UITableView+Extension", "UITextField+Extension", "UITextView+Extension", "UIViewController+Extension"]
+        finishedDataArray = ["UIView+Extension", "CALayer+Extension", "UIScreen+Extension", "CATextLayer+Extension", "UIControl+Extension", "NSMutableAttributedString+Extension", "UIAlertController+Extension", "UIApplication+Extension", "UISwitch+Extension"]
         initUI()
     }
     

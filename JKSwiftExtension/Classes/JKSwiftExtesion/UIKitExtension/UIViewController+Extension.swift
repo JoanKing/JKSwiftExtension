@@ -175,7 +175,6 @@ public extension UIViewController {
     }
 }
 
-
 // MARK:- 私有的方法
 extension UIViewController {
     fileprivate class final func getCurrentVCFrom(_ rootVC:UIViewController) -> UIViewController {
