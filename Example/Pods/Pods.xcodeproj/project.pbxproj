@@ -1654,7 +1654,6 @@
 		A15D9435AD0EBD74A93C70DDCAFC7985 /* UIKitExtension */ = {
 			isa = PBXGroup;
 			children = (
-				ADDD8C8573C3A510C0FE3D72E83B562D /* UIButton+Extension.swift */,
 				5D4701C475F68C765291337D1A23BD8C /* UIBezierPath+Extension.swift */,
 				353F137541A26DDFA79D745D0A24D221 /* UIImage+Compression.swift */,
 				A54B291D9B5DD6C22A4344A257858C6D /* UIImage+Extension.swift */,
@@ -1678,6 +1677,7 @@
 				2D060DC9A85DB665C4516C25087711E1 /* UIApplication+Extension.swift */,
 				B552E8D8DC060F71C832E174245581D0 /* UISwitch+Extension.swift */,
 				5BC3C14B88A0F4AE4962AA5D82AB3A17 /* UIBarButtonItem+Extension.swift */,
+				ADDD8C8573C3A510C0FE3D72E83B562D /* UIButton+Extension.swift */,
 			);
 			name = UIKitExtension;
 			path = JKSwiftExtension/Classes/JKSwiftExtesion/UIKitExtension;
