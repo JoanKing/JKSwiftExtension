@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "JKSwiftExtension_Example.app"
+               BuildableName = "JKSwiftExtension&#x6269;&#x5c55;.app"
                BlueprintName = "JKSwiftExtension_Example"
                ReferencedContainer = "container:JKSwiftExtension.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "JKSwiftExtension_Example.app"
+            BuildableName = "JKSwiftExtension&#x6269;&#x5c55;.app"
             BlueprintName = "JKSwiftExtension_Example"
             ReferencedContainer = "container:JKSwiftExtension.xcodeproj">
          </BuildableReference>
@@ -78,7 +78,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "JKSwiftExtension_Example.app"
+            BuildableName = "JKSwiftExtension&#x6269;&#x5c55;.app"
             BlueprintName = "JKSwiftExtension_Example"
             ReferencedContainer = "container:JKSwiftExtension.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "JKSwiftExtension_Example.app"
+            BuildableName = "JKSwiftExtension&#x6269;&#x5c55;.app"
             BlueprintName = "JKSwiftExtension_Example"
             ReferencedContainer = "container:JKSwiftExtension.xcodeproj">
          </BuildableReference>

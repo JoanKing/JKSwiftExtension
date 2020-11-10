@@ -9,29 +9,18 @@
 import UIKit
 import AVFoundation
 import Kingfisher
+
+/// Image - Color Process
 public extension UIImage {
     
     // MARK: 生成指定尺寸的纯色图像
     /// 生成指定尺寸的纯色图像
     /// - Parameters:
-    ///   - size: 图片尺寸
     ///   - color: 图片颜色
+    ///   - size: 图片尺寸
     /// - Returns: 返回对应的图片
-    class func createImageWithSize(_ size: CGSize = CGSize(width: 1.0, height: 1.0), color: UIColor = UIColor.white) -> UIImage {
+    class func image(color: UIColor, size: CGSize = CGSize(width: 1.0, height: 1.0)) -> UIImage? {
         let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
-        color.setFill()
-        UIRectFill(rect)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image!
-    }
-}
-
-/// Image - Color Process
-public extension UIImage {
-    class func image(color: UIColor) -> UIImage? {
-        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
         context?.setFillColor(color.cgColor)
