@@ -1654,6 +1654,7 @@
 		A15D9435AD0EBD74A93C70DDCAFC7985 /* UIKitExtension */ = {
 			isa = PBXGroup;
 			children = (
+				BAB5E606D66C34A9B951F9511C983DE9 /* UITableView+Extension.swift */,
 				5D4701C475F68C765291337D1A23BD8C /* UIBezierPath+Extension.swift */,
 				353F137541A26DDFA79D745D0A24D221 /* UIImage+Compression.swift */,
 				A54B291D9B5DD6C22A4344A257858C6D /* UIImage+Extension.swift */,
@@ -1662,7 +1663,6 @@
 				C1C3990E15C42109978410277957CDA8 /* UINavigationController+Extension.swift */,
 				2E357623B2F1FC6DD491E84C363E36DC /* UIScrollView+Extension.swift */,
 				C1CFBD2A8703F8B84D44D5E90EE27603 /* UIStackView+Extension.swift */,
-				BAB5E606D66C34A9B951F9511C983DE9 /* UITableView+Extension.swift */,
 				20740C0D9846DED4380502740CF0CB49 /* UITextField+Extension.swift */,
 				295562D994D2BE1867764B7CFD1921DF /* UITextView+Extension.swift */,
 				96B386474BF4E48793E26A7F928CF9D9 /* UIViewController+Extension.swift */,

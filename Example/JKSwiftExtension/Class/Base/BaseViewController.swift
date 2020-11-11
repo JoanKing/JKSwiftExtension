@@ -30,7 +30,9 @@ class BaseViewController: UIViewController {
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
-        // 设置行高为自动适配
+        // 设置一个默认高度
+        tableView.estimatedRowHeight = 80.0
+        // 开启自适应
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(HomeViewCell.self, forCellReuseIdentifier: BaseViewController.BaseViewControllerCellIdentifier)
         return tableView
