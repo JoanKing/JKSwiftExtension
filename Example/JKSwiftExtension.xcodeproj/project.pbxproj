@@ -19,6 +19,7 @@
 		8401537D2552A8C3001AB2FD /* URLExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8401537C2552A8C3001AB2FD /* URLExtensionViewController.swift */; };
 		8401537F2552B34A001AB2FD /* DictionaryExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8401537E2552B34A001AB2FD /* DictionaryExtensionViewController.swift */; };
 		84058C972554FA44007F0C30 /* UIViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */; };
+		8418FB97255B8642000CB0B3 /* UILabelExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418FB96255B8642000CB0B3 /* UILabelExtensionViewController.swift */; };
 		847DFF262550F07600EEE785 /* Int64ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DFF252550F07600EEE785 /* Int64ExtensionViewController.swift */; };
 		847DFF282550F43C00EEE785 /* UIntExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DFF272550F43C00EEE785 /* UIntExtensionViewController.swift */; };
 		847DFF2A2550F5D400EEE785 /* CharacterExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DFF292550F5D400EEE785 /* CharacterExtensionViewController.swift */; };
@@ -94,6 +95,7 @@
 		8401537C2552A8C3001AB2FD /* URLExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensionViewController.swift; sourceTree = "<group>"; };
 		8401537E2552B34A001AB2FD /* DictionaryExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtensionViewController.swift; sourceTree = "<group>"; };
 		84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensionViewController.swift; sourceTree = "<group>"; };
+		8418FB96255B8642000CB0B3 /* UILabelExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtensionViewController.swift; sourceTree = "<group>"; };
 		846774172511FE9900DE8B44 /* JKSwiftExtension_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JKSwiftExtension_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		847DFF252550F07600EEE785 /* Int64ExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int64ExtensionViewController.swift; sourceTree = "<group>"; };
 		847DFF272550F43C00EEE785 /* UIntExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIntExtensionViewController.swift; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				84BF16C7251D9FB6002ACE76 /* UIKitExtensionViewController.swift */,
+				8418FB96255B8642000CB0B3 /* UILabelExtensionViewController.swift */,
 				84A6FB78255A65EC00057839 /* UIButtonExtensionViewController.swift */,
 				84A6FB72255A40E400057839 /* UIBarButtonItemExtensionViewController.swift */,
 				84802819255963610038748A /* UISwitchExtensionViewController.swift */,
@@ -729,6 +732,7 @@
 				8480280C255926120038748A /* CATextLayerExtensionViewController.swift in Sources */,
 				84C4BF5F25500E5C00B3705F /* CGFloatExtensionViewController.swift in Sources */,
 				8482F3A925207A9300EEC422 /* SectorProgressViewController.swift in Sources */,
+				8418FB97255B8642000CB0B3 /* UILabelExtensionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
