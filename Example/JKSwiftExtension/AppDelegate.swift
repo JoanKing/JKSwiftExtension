@@ -13,11 +13,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    let type: String = "1"
+    
     internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = BaseNavigationViewController(rootViewController: ViewController())
+        window?.rootViewController = type == "1" ? BaseNavigationViewController(rootViewController: ViewController()) : BaseNavigationViewController(rootViewController: OneViewController())
         window?.makeKeyAndVisible()
         
         return true
