@@ -68,6 +68,7 @@
 		84C4BF5F25500E5C00B3705F /* CGFloatExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C4BF5E25500E5C00B3705F /* CGFloatExtensionViewController.swift */; };
 		84C4BF6125501B3600B3705F /* IntExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C4BF6025501B3600B3705F /* IntExtensionViewController.swift */; };
 		84CC32AD255CDBB300F489F0 /* UIScrollViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CC32AC255CDBB300F489F0 /* UIScrollViewExtensionViewController.swift */; };
+		84CC32AF255D39F000F489F0 /* UITextViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CC32AE255D39F000F489F0 /* UITextViewExtensionViewController.swift */; };
 		84D8EC88255BE445001ACECA /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8EC87255BE445001ACECA /* OneViewController.swift */; };
 		84D8EC8A255BE44F001ACECA /* TwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8EC89255BE44F001ACECA /* TwoViewController.swift */; };
 		84D8EC8C255BE458001ACECA /* ThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8EC8B255BE458001ACECA /* ThreeViewController.swift */; };
@@ -155,6 +156,7 @@
 		84C4BF5E25500E5C00B3705F /* CGFloatExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtensionViewController.swift; sourceTree = "<group>"; };
 		84C4BF6025501B3600B3705F /* IntExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensionViewController.swift; sourceTree = "<group>"; };
 		84CC32AC255CDBB300F489F0 /* UIScrollViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtensionViewController.swift; sourceTree = "<group>"; };
+		84CC32AE255D39F000F489F0 /* UITextViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtensionViewController.swift; sourceTree = "<group>"; };
 		84D8EC87255BE445001ACECA /* OneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
 		84D8EC89255BE44F001ACECA /* TwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoViewController.swift; sourceTree = "<group>"; };
 		84D8EC8B255BE458001ACECA /* ThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeViewController.swift; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				84BF16C7251D9FB6002ACE76 /* UIKitExtensionViewController.swift */,
+				84CC32AE255D39F000F489F0 /* UITextViewExtensionViewController.swift */,
 				84CC32AC255CDBB300F489F0 /* UIScrollViewExtensionViewController.swift */,
 				84D8EC93255BFA3A001ACECA /* UIViewControllerExtensionViewController.swift */,
 				8418FB9A255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift */,
@@ -770,6 +773,7 @@
 				849D58F42537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift in Sources */,
 				8480280C255926120038748A /* CATextLayerExtensionViewController.swift in Sources */,
 				84C4BF5F25500E5C00B3705F /* CGFloatExtensionViewController.swift in Sources */,
+				84CC32AF255D39F000F489F0 /* UITextViewExtensionViewController.swift in Sources */,
 				84CC32AD255CDBB300F489F0 /* UIScrollViewExtensionViewController.swift in Sources */,
 				8482F3A925207A9300EEC422 /* SectorProgressViewController.swift in Sources */,
 				8418FB97255B8642000CB0B3 /* UILabelExtensionViewController.swift in Sources */,

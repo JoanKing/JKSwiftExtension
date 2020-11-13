@@ -290,7 +290,6 @@ public extension UIImage {
         // Heyhey
         let animation = UIImage.animatedImage(with: frames,
                                               duration: Double(duration) / 1000.0)
-        
         return animation
     }
 }
