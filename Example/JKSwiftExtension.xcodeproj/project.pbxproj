@@ -47,6 +47,8 @@
 		8483A735254C119700ACF6FD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483A734254C119700ACF6FD /* BaseViewController.swift */; };
 		8483A737254C11C200ACF6FD /* JKRuntimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483A736254C11C200ACF6FD /* JKRuntimeViewController.swift */; };
 		8483A739254EC47E00ACF6FD /* NSObjectExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483A738254EC47E00ACF6FD /* NSObjectExtensionViewController.swift */; };
+		8483C4C0255E799B0034A2F7 /* UIStackViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483C4BF255E799B0034A2F7 /* UIStackViewExtensionViewController.swift */; };
+		8483C4CF255E94A30034A2F7 /* UITextFieldExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483C4CE255E94A30034A2F7 /* UITextFieldExtensionViewController.swift */; };
 		8485CC7E2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485CC7D2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift */; };
 		849D58F02536ADD300CCDF0F /* StringExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */; };
 		849D58F42537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D58F32537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift */; };
@@ -135,6 +137,8 @@
 		8483A734254C119700ACF6FD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		8483A736254C11C200ACF6FD /* JKRuntimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKRuntimeViewController.swift; sourceTree = "<group>"; };
 		8483A738254EC47E00ACF6FD /* NSObjectExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtensionViewController.swift; sourceTree = "<group>"; };
+		8483C4BF255E799B0034A2F7 /* UIStackViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensionViewController.swift; sourceTree = "<group>"; };
+		8483C4CE255E94A30034A2F7 /* UITextFieldExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensionViewController.swift; sourceTree = "<group>"; };
 		8485CC7D2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeImageFactoryViewController.swift; sourceTree = "<group>"; };
 		849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionViewController.swift; sourceTree = "<group>"; };
 		849D58F32537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDecimalNumberHandlerExtensionViewController.swift; sourceTree = "<group>"; };
@@ -407,6 +411,8 @@
 			isa = PBXGroup;
 			children = (
 				84BF16C7251D9FB6002ACE76 /* UIKitExtensionViewController.swift */,
+				8483C4CE255E94A30034A2F7 /* UITextFieldExtensionViewController.swift */,
+				8483C4BF255E799B0034A2F7 /* UIStackViewExtensionViewController.swift */,
 				84CC32AE255D39F000F489F0 /* UITextViewExtensionViewController.swift */,
 				84CC32AC255CDBB300F489F0 /* UIScrollViewExtensionViewController.swift */,
 				84D8EC93255BFA3A001ACECA /* UIViewControllerExtensionViewController.swift */,
@@ -728,6 +734,7 @@
 				8485CC7E2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift in Sources */,
 				8482AA082553F09900EB0A7A /* TimerExtensionViewController.swift in Sources */,
 				84BEA37B25500B8F00CA8A75 /* DoubleExtensionViewController.swift in Sources */,
+				8483C4C0255E799B0034A2F7 /* UIStackViewExtensionViewController.swift in Sources */,
 				8483A6CA254BC02B00ACF6FD /* BundleExtensionViewController.swift in Sources */,
 				8483A735254C119700ACF6FD /* BaseViewController.swift in Sources */,
 				84802818255957560038748A /* UIApplicationExtensionViewController.swift in Sources */,
@@ -754,6 +761,7 @@
 				84D8EC8E255BE463001ACECA /* FourViewController.swift in Sources */,
 				8401537F2552B34A001AB2FD /* DictionaryExtensionViewController.swift in Sources */,
 				84D8EC8C255BE458001ACECA /* ThreeViewController.swift in Sources */,
+				8483C4CF255E94A30034A2F7 /* UITextFieldExtensionViewController.swift in Sources */,
 				8401537D2552A8C3001AB2FD /* URLExtensionViewController.swift in Sources */,
 				847DFF2A2550F5D400EEE785 /* CharacterExtensionViewController.swift in Sources */,
 				84D8EC94255BFA3A001ACECA /* UIViewControllerExtensionViewController.swift in Sources */,

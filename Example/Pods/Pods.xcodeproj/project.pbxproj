@@ -1654,13 +1654,12 @@
 		A15D9435AD0EBD74A93C70DDCAFC7985 /* UIKitExtension */ = {
 			isa = PBXGroup;
 			children = (
+				20740C0D9846DED4380502740CF0CB49 /* UITextField+Extension.swift */,
 				5D4701C475F68C765291337D1A23BD8C /* UIBezierPath+Extension.swift */,
 				353F137541A26DDFA79D745D0A24D221 /* UIImage+Compression.swift */,
 				A54B291D9B5DD6C22A4344A257858C6D /* UIImage+Extension.swift */,
 				6579F4E7EBD85AE50F6DA668E4797EFF /* UIImage+Gif.swift */,
 				4EAD36297F4C6211BDFA2D192EA5C053 /* UIImage+Gradient.swift */,
-				C1CFBD2A8703F8B84D44D5E90EE27603 /* UIStackView+Extension.swift */,
-				20740C0D9846DED4380502740CF0CB49 /* UITextField+Extension.swift */,
 				A7B4F253DA0D8F25D80E664516473C95 /* UIView+Extension.swift */,
 				50B705444AD4FE396A4F70EFE20C7021 /* CALayer+Extension.swift */,
 				D90158F6F451609EF0161B81DA3B8E83 /* UIScreen+Extension.swift */,
@@ -1678,6 +1677,7 @@
 				96B386474BF4E48793E26A7F928CF9D9 /* UIViewController+Extension.swift */,
 				2E357623B2F1FC6DD491E84C363E36DC /* UIScrollView+Extension.swift */,
 				295562D994D2BE1867764B7CFD1921DF /* UITextView+Extension.swift */,
+				C1CFBD2A8703F8B84D44D5E90EE27603 /* UIStackView+Extension.swift */,
 			);
 			name = UIKitExtension;
 			path = JKSwiftExtension/Classes/JKSwiftExtesion/UIKitExtension;
