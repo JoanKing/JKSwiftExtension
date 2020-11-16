@@ -38,7 +38,7 @@ extension UIImageViewExtensionViewController {
     // MARK: 1.2、加载 asset 里面的图片
     @objc func test12() {
         gifImageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 100, height: 100))
-        gifImageView.loadGif(name: "pika3")
+        gifImageView.loadGif(asset: "pika3")
         gifImageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(gifImageView)
         JKAsyncs.asyncDelay(5) {
