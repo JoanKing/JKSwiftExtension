@@ -288,8 +288,8 @@ public extension UIButton {
     /// - Returns: 返回自身
     @discardableResult
     func confirmButton() -> Self {
-        let normalImage = UIImage.image(color: UIColor.hexStringColor(hexString: "#E54749"), size: CGSize(width: 10, height: 10), round: 4)?.resizableImage(withCapInsets: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
-        let disableImg = UIImage.image(color: UIColor.hexStringColor(hexString: "#E6E6E6"), size: CGSize(width: 10, height: 10), round: 4)?.resizableImage(withCapInsets: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
+        let normalImage = UIImage.image(color: UIColor.hexStringColor(hexString: "#E54749"), size: CGSize(width: 10, height: 10), corners: .allCorners, radius: 4)?.resizableImage(withCapInsets: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
+        let disableImg = UIImage.image(color: UIColor.hexStringColor(hexString: "#E6E6E6"), size: CGSize(width: 10, height: 10), corners: .allCorners, radius: 4)?.resizableImage(withCapInsets: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
         setBackgroundImage(normalImage, for: .normal)
         setBackgroundImage(disableImg, for: .disabled)
         return self

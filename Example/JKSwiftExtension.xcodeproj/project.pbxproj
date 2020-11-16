@@ -22,6 +22,10 @@
 		8418FB97255B8642000CB0B3 /* UILabelExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418FB96255B8642000CB0B3 /* UILabelExtensionViewController.swift */; };
 		8418FB99255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418FB98255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift */; };
 		8418FB9B255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418FB9A255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift */; };
+		8473AAC02562889500707877 /* UIImageViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473AABF2562889500707877 /* UIImageViewExtensionViewController.swift */; };
+		8473AADA2562985B00707877 /* pika2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8473AAD82562985A00707877 /* pika2.gif */; };
+		847D4B452560DF85000DDA3C /* UIBezierPathExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D4B442560DF84000DDA3C /* UIBezierPathExtensionViewController.swift */; };
+		847D4B9625611E50000DDA3C /* UIImageExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */; };
 		847DFF262550F07600EEE785 /* Int64ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DFF252550F07600EEE785 /* Int64ExtensionViewController.swift */; };
 		847DFF282550F43C00EEE785 /* UIntExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DFF272550F43C00EEE785 /* UIntExtensionViewController.swift */; };
 		847DFF2A2550F5D400EEE785 /* CharacterExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DFF292550F5D400EEE785 /* CharacterExtensionViewController.swift */; };
@@ -112,6 +116,10 @@
 		8418FB98255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensionViewController.swift; sourceTree = "<group>"; };
 		8418FB9A255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensionViewController.swift; sourceTree = "<group>"; };
 		846774172511FE9900DE8B44 /* JKSwiftExtension_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JKSwiftExtension_Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		8473AABF2562889500707877 /* UIImageViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensionViewController.swift; sourceTree = "<group>"; };
+		8473AAD82562985A00707877 /* pika2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pika2.gif; sourceTree = "<group>"; };
+		847D4B442560DF84000DDA3C /* UIBezierPathExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtensionViewController.swift; sourceTree = "<group>"; };
+		847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensionViewController.swift; sourceTree = "<group>"; };
 		847DFF252550F07600EEE785 /* Int64ExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int64ExtensionViewController.swift; sourceTree = "<group>"; };
 		847DFF272550F43C00EEE785 /* UIntExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIntExtensionViewController.swift; sourceTree = "<group>"; };
 		847DFF292550F5D400EEE785 /* CharacterExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterExtensionViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +255,7 @@
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8473AAD82562985A00707877 /* pika2.gif */,
 				8483A72B254BF0AD00ACF6FD /* JKBaseKit.bundle */,
 				607FACD41AFB9204008FA782 /* Info.plist */,
 				8483A72F254C0A7F00ACF6FD /* testicon.png */,
@@ -411,6 +420,9 @@
 			isa = PBXGroup;
 			children = (
 				84BF16C7251D9FB6002ACE76 /* UIKitExtensionViewController.swift */,
+				8473AABF2562889500707877 /* UIImageViewExtensionViewController.swift */,
+				847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */,
+				847D4B442560DF84000DDA3C /* UIBezierPathExtensionViewController.swift */,
 				8483C4CE255E94A30034A2F7 /* UITextFieldExtensionViewController.swift */,
 				8483C4BF255E799B0034A2F7 /* UIStackViewExtensionViewController.swift */,
 				84CC32AE255D39F000F489F0 /* UITextViewExtensionViewController.swift */,
@@ -624,6 +636,7 @@
 			files = (
 				8483A730254C0A7F00ACF6FD /* testicon.png in Resources */,
 				8483A72C254BF0AD00ACF6FD /* JKBaseKit.bundle in Resources */,
+				8473AADA2562985B00707877 /* pika2.gif in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
@@ -727,6 +740,7 @@
 				84BF16CA251D9FD3002ACE76 /* ProtocolViewController.swift in Sources */,
 				8483A737254C11C200ACF6FD /* JKRuntimeViewController.swift in Sources */,
 				84A6FB77255A655700057839 /* BaseNavigationViewController.swift in Sources */,
+				8473AAC02562889500707877 /* UIImageViewExtensionViewController.swift in Sources */,
 				8480280E255933DE0038748A /* UIControlExtensionViewController.swift in Sources */,
 				8480281625594C1E0038748A /* UIAlertControllerExtensionViewController.swift in Sources */,
 				84A6FB79255A65EC00057839 /* UIButtonExtensionViewController.swift in Sources */,
@@ -757,6 +771,7 @@
 				84BF16CC251DA012002ACE76 /* SmallToolsViewController.swift in Sources */,
 				84A8FEFF2534598A00830EAF /* ArrayExtensionViewController.swift in Sources */,
 				84A5D2D62547B48E003D289C /* DateExtensionViewController.swift in Sources */,
+				847D4B452560DF85000DDA3C /* UIBezierPathExtensionViewController.swift in Sources */,
 				84BF16C8251D9FB6002ACE76 /* UIKitExtensionViewController.swift in Sources */,
 				84D8EC8E255BE463001ACECA /* FourViewController.swift in Sources */,
 				8401537F2552B34A001AB2FD /* DictionaryExtensionViewController.swift in Sources */,
@@ -782,6 +797,7 @@
 				8480280C255926120038748A /* CATextLayerExtensionViewController.swift in Sources */,
 				84C4BF5F25500E5C00B3705F /* CGFloatExtensionViewController.swift in Sources */,
 				84CC32AF255D39F000F489F0 /* UITextViewExtensionViewController.swift in Sources */,
+				847D4B9625611E50000DDA3C /* UIImageExtensionViewController.swift in Sources */,
 				84CC32AD255CDBB300F489F0 /* UIScrollViewExtensionViewController.swift in Sources */,
 				8482F3A925207A9300EEC422 /* SectorProgressViewController.swift in Sources */,
 				8418FB97255B8642000CB0B3 /* UILabelExtensionViewController.swift in Sources */,

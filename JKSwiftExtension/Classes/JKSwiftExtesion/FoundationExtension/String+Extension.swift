@@ -68,17 +68,14 @@ public extension String {
     /// - Returns: 对应的控制器
     @discardableResult
     func toViewController() -> UIViewController? {
-        // 1.动态获取命名空间
-        let namespace = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
-        // 2.将字符串转换为类
-        // 2.1.默认情况下命名空间就是项目的名称，但是命名空间的名称是可以更改的
-        guard let Class: AnyClass = NSClassFromString(namespace + "." + self) else {
+        // 1.获取类
+        guard let Class: AnyClass = self.toClass() else {
             return nil
         }
-        // 3.通过类创建对象
-        // 3.1.将AnyClass 转化为指定的类
+        // 2.通过类创建对象
+        // 2.1、将AnyClass 转化为指定的类
         let vcClass = Class as! UIViewController.Type
-        // 4.通过class创建对象
+        // 2.2、通过class创建对象
         let vc = vcClass.init()
         return vc
     }
@@ -92,7 +89,7 @@ public extension String {
         let namespace = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
         // 2.将字符串转换为类
         // 2.1.默认情况下命名空间就是项目的名称，但是命名空间的名称是可以更改的
-        guard let Class: AnyClass = NSClassFromString(namespace + "." + self) else {
+        guard let Class: AnyClass = NSClassFromString(namespace.removeSomeStringUseSomeString(removeString: " ", replacingString: "_") + "." + self) else {
             return nil
         }
         return Class

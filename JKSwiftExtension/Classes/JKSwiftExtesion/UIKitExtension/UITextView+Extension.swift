@@ -260,7 +260,6 @@ extension UITextView {
                 UIMenuController.shared.setMenuVisible(false, animated: false)
             }
             self.selectedRange = NSRange.init(location: 0, length: 0)
-            
             return false
         }
         return super.canPerformAction(action, withSender: sender)
