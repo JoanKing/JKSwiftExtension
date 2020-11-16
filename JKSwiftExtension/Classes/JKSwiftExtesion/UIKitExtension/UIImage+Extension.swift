@@ -176,7 +176,6 @@ public extension UIImage {
         UIGraphicsEndImageContext()
         
         return image!
-        
     }
 }
 
@@ -695,7 +694,7 @@ public extension UIImage {
     }
 }
 
-// MARK:- 六、pdf 加载
+// MARK:- 六、gif 加载
 public enum DataType: String {
     case gif    = "gif"
     case png    = "png"

@@ -21,7 +21,7 @@ class UIImageExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 六、pdf 加载
+// MARK:- 六、gif 加载
 extension UIImageExtensionViewController {
     
     // MARK: 6.5、加载 asset 里面的图片
