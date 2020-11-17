@@ -337,7 +337,6 @@
 		AEE02666B107CDA2303BE09869A84AA2 /* SnapKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 293A865248552196ADCB2AC0E4C243A5 /* SnapKit-dummy.m */; };
 		AF210903B81B9DAAB935426A21D45748 /* UInt+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08B146A03F82AB86C4E597DFE48D58C /* UInt+Extension.swift */; };
 		AF846B40C387D32AAACB38A3F922A461 /* MJRefreshNormalTrailer.h in Headers */ = {isa = PBXBuildFile; fileRef = 85D049E1EC7232FA855DE58240083214 /* MJRefreshNormalTrailer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AF89CB0169BAF9F84E43BFB3E2617B04 /* GradientLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD85F2B81E4EEF53B9B4269A89F73C81 /* GradientLabelView.swift */; };
 		AFFE2E5DB605105E82E3CEAC6EAA5AEC /* Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58649935032CDEFA705198190ADD0948 /* Range.swift */; };
 		B0528F277050656E75ADE1D065FC37B8 /* KVORepresentable+CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6201174CE8C8D5AD5E06E43432F7D971 /* KVORepresentable+CoreGraphics.swift */; };
 		B117E850D07BA399D9BF7F11E075C7D8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B5FA10D47F87817118F2CAAAA11070 /* Error.swift */; };
@@ -431,7 +430,6 @@
 		DFB3A97886B6F5B2F46409CE474E1E18 /* MJRefreshFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 07D4568EBE98D1EDBE9D461D88A307ED /* MJRefreshFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E00B68D2F226C2DE6314CF1CC4896C39 /* SubscribeOn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71354344BEDCBB3484BC6FCA7D26928 /* SubscribeOn.swift */; };
 		E0913C7ACDEE2FF3F5726843D87F0FB0 /* UIApplication+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6045A1320B1BFF2D6F7C05DC56BDE /* UIApplication+Rx.swift */; };
-		E0FED61BF3F0446E3EB086EBABF6AFAF /* SectorProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A4E048FBE740E631056054BDE2DFBB /* SectorProgressView.swift */; };
 		E19AC3A9AC1A6F665A096BE7244D8BA5 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6697ED09BCFA40C8E60274D914FFA40 /* Sample.swift */; };
 		E2960331F72C889C85D4875B200AF289 /* UITableView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505D33612BF023425BE78D5AE7A25541 /* UITableView+Rx.swift */; };
 		E2F2610DE2E33D7F9899C209CAB3CD71 /* JKLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B5B1581FF346E64FE874FFDFBCFD97 /* JKLoadingView.swift */; };
@@ -446,7 +444,6 @@
 		E69A44470914BDE66C6C5E7B82C14A8B /* ConstraintPriorityTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3EABC9887B6C07684761BDB753B4D9 /* ConstraintPriorityTarget.swift */; };
 		E71C2CBDF0E79625EF1058383A2CA403 /* RxCollectionViewDataSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E76E6678AB48BAC22A054A6420A5DFA /* RxCollectionViewDataSourceType.swift */; };
 		E75C0CBCBE35310D68E7E815C957BB94 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CFBD2A8703F8B84D44D5E90EE27603 /* UIStackView+Extension.swift */; };
-		E7662B1D0092D81CF2301671C2F640C9 /* ActionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BFEBA0D21038B69E49B27359EF8772 /* ActionLabel.swift */; };
 		E86B0E0D913346ACDF5F2D69A0A98833 /* DelegateProxyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5245F2C7EFEE62C8FCB47F92D7CE246 /* DelegateProxyType.swift */; };
 		E8929D964A89B05FE63E96D12CAEB46D /* First.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE11C8FDFD6C547DDCD2F3ED8FDAD566 /* First.swift */; };
 		E94D94EF789DCBC511115EBC4F6B85C2 /* SharedSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCD889BB62A68EE201428F40C0FD4BD /* SharedSequence.swift */; };
@@ -724,7 +721,6 @@
 		37FB83C5F849D7D8B739E832BD8678CF /* Pods_JKSwiftExtension_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSwiftExtension_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38DE5F3427038CCB05292AB24C7D3997 /* MJRefreshBackStateFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackStateFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.h; sourceTree = "<group>"; };
 		394C5351BDB693CF9E8644DEEDC1308E /* FileManager+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
-		39BFEBA0D21038B69E49B27359EF8772 /* ActionLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ActionLabel.swift; sourceTree = "<group>"; };
 		3A0BD920236DE20DD427FDA8CAAFE76D /* Platform.Darwin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Platform.Darwin.swift; path = Platform/Platform.Darwin.swift; sourceTree = "<group>"; };
 		3A25F57A7300B44D50A5951ECC9B6ABA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		3A9572081DD39D65C86C2FAD41F75A1E /* Pods-JKSwiftExtension_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JKSwiftExtension_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1141,7 +1137,6 @@
 		F5760AEBB15A4D300F6096F3C93CCABB /* Date+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		F68B8F210E53C08850240A9B47F6D3FB /* Pods-JKSwiftExtension_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JKSwiftExtension_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		F72B8B5E6EADD67D67914C4B4D00FFC4 /* JKSwiftExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JKSwiftExtension.debug.xcconfig; sourceTree = "<group>"; };
-		F7A4E048FBE740E631056054BDE2DFBB /* SectorProgressView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SectorProgressView.swift; sourceTree = "<group>"; };
 		F841194381D67CBEF5BD8F4AD49C8B17 /* FDFullscreenPopGesture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FDFullscreenPopGesture.debug.xcconfig; sourceTree = "<group>"; };
 		F877061F9110A09421CB23C6AB7D3F8C /* SkipUntil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkipUntil.swift; path = RxSwift/Observables/SkipUntil.swift; sourceTree = "<group>"; };
 		F8A661F209DCADF36E24F56A5DC614B4 /* ThreadHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThreadHelper.swift; path = Sources/ThreadHelper.swift; sourceTree = "<group>"; };
@@ -1151,7 +1146,6 @@
 		FBD0B618E2471A9134CDF4FA3112E688 /* PrimitiveSequence.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PrimitiveSequence.swift; path = RxSwift/Traits/PrimitiveSequence.swift; sourceTree = "<group>"; };
 		FC9034F10EAAD39F0452240595A3008B /* Merge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Merge.swift; path = RxSwift/Observables/Merge.swift; sourceTree = "<group>"; };
 		FD4E72DBED0BEA81D79D0DABD7D68F9A /* ScheduledDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScheduledDisposable.swift; path = RxSwift/Disposables/ScheduledDisposable.swift; sourceTree = "<group>"; };
-		FD85F2B81E4EEF53B9B4269A89F73C81 /* GradientLabelView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GradientLabelView.swift; sourceTree = "<group>"; };
 		FD9852C7D2AD1BCEA9F3364D05E86437 /* SnapKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SnapKit.modulemap; sourceTree = "<group>"; };
 		FDE8F149A933DE87E19A9558D513E93C /* Kingfisher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Kingfisher.h; path = Sources/Kingfisher.h; sourceTree = "<group>"; };
 		FE8C55B0321F72445F0ADE5F8E557DC4 /* ConstraintLayoutGuideDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuideDSL.swift; path = Source/ConstraintLayoutGuideDSL.swift; sourceTree = "<group>"; };
@@ -1831,24 +1825,21 @@
 		B02936C104E67DC2A2D11ED4F88247AF /* SmallTools */ = {
 			isa = PBXGroup;
 			children = (
-				39BFEBA0D21038B69E49B27359EF8772 /* ActionLabel.swift */,
-				FD85F2B81E4EEF53B9B4269A89F73C81 /* GradientLabelView.swift */,
 				F2598D9823F2CC36E16E9AB6B3EDAF9A /* JKAsyncs.swift */,
 				CC40E3B7CE9075141E84A79D7BB0AEBD /* JKCommonTool.swift */,
 				8E0B5C3F087B0D1824ACEB174E35A121 /* JKContentSize.swift */,
 				30B5B1581FF346E64FE874FFDFBCFD97 /* JKLoadingView.swift */,
-				6C69DCFC36B7B28E22E5837B60383DCB /* JKPrint.swift */,
-				C8DBF130B0EE3D602A34C8C1F6C3FA72 /* JKRuntime.swift */,
 				E9C3C2C6238458FCBF1CBD1176C8BEDE /* JKValidateHelper.swift */,
 				899E467CD732CF8D4A65AA5A5DD0CD88 /* JKVerticalCarousel.swift */,
 				2CE1F8EEF2868F4A85AE5BFA1EFF2AB1 /* JKWaterFallLayout.swift */,
 				5964224FA0BBDD954C6BD7B32B08C0B4 /* KeyboardAccessory.swift */,
 				B964B23BCF1D9BE871ACF83396019E20 /* MaskingManager.swift */,
 				F8C14E17E01F13F6FF1DCD0AA5ACAEC7 /* MaskingManager+Extension.swift */,
-				DFF7C22F86313DE3FE9F181FBCB994B7 /* QRCodeImageFactory.swift */,
-				F7A4E048FBE740E631056054BDE2DFBB /* SectorProgressView.swift */,
 				60564AF434D2B9F9643F100FCBAC81D1 /* ToastTexView.swift */,
 				81AF328D1B229AFBCB7F171670B96482 /* WeakTimer.swift */,
+				DFF7C22F86313DE3FE9F181FBCB994B7 /* QRCodeImageFactory.swift */,
+				6C69DCFC36B7B28E22E5837B60383DCB /* JKPrint.swift */,
+				C8DBF130B0EE3D602A34C8C1F6C3FA72 /* JKRuntime.swift */,
 			);
 			name = SmallTools;
 			path = JKSwiftExtension/Classes/JKSwiftExtesion/SmallTools;
@@ -2547,7 +2538,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7662B1D0092D81CF2301671C2F640C9 /* ActionLabel.swift in Sources */,
 				5182DAF5DA80D73EAFABAEBFBF4FBD9F /* Array+Extension.swift in Sources */,
 				FDD78E6861F7FBC1FE673D7BBE6D7E09 /* Bool+Extension.swift in Sources */,
 				8800F0E7E69D34282C1819602DA087EB /* Bundle+Extension.swift in Sources */,
@@ -2560,7 +2550,6 @@
 				F55A3440438E721EA8C278DFA47B5311 /* Double+Extension.swift in Sources */,
 				6682FCB9C4B80C591237731318C65C78 /* FileManager+Extension.swift in Sources */,
 				D4D1A0D9DDCAB27F9D8379951FC476D2 /* Float+Extension.swift in Sources */,
-				AF89CB0169BAF9F84E43BFB3E2617B04 /* GradientLabelView.swift in Sources */,
 				77888865A035EFA92F3260FCAA89D8D1 /* Int+Extension.swift in Sources */,
 				B2BB13806A00F6B908101991154D1284 /* JKAsyncs.swift in Sources */,
 				A0B685670F9FB31B7C4B8B2E0F9BD3AF /* JKCommonTool.swift in Sources */,
@@ -2584,7 +2573,6 @@
 				673784209C8131FE414A07B424982C36 /* NSDecimalNumberHandler+Extension.swift in Sources */,
 				27F36DDC1024C53EC8C8D33615580AD7 /* NSObject+Extension.swift in Sources */,
 				3E749ADCE1230417672F04F81E7E4D7B /* QRCodeImageFactory.swift in Sources */,
-				E0FED61BF3F0446E3EB086EBABF6AFAF /* SectorProgressView.swift in Sources */,
 				F3BA8E95FDE72E2F2D2F5BE0EDA1FF0C /* String+Extension.swift in Sources */,
 				62A9432E7E8EDF78A536B646057B4650 /* Timer+Extension.swift in Sources */,
 				3CC3FD86057D9EC5BB81F7478212D9D4 /* ToastTexView.swift in Sources */,

@@ -8,18 +8,19 @@
 
 import UIKit
 
+// 事件闭包
 public typealias Task = () -> Void
 
+// MARK:- 延迟事件
 public struct JKAsyncs {
-    // MARK:- 异步做一些任务
-    // MARK: 异步做一些任务
+    // MARK: 1.1、异步做一些任务
     /// 异步做一些任务
     /// - Parameter task: 任务
     public static func async(_ task: @escaping Task) {
         _async(task)
     }
     
-    // MARK: 异步做任务后回到主线程做任务
+    // MARK: 1.2、异步做任务后回到主线程做任务
     /// 异步做任务后回到主线程做任务
     /// - Parameters:
     ///   - task: 异步任务
@@ -29,22 +30,21 @@ public struct JKAsyncs {
         _async(task, mainTask)
     }
     
-    // MARK:- 延迟任务
-    // MARK: 延迟执行
-    /// 延迟执行
+    // MARK: 1.3、同步延迟执行(主线程执行任务)
+    /// 同步延迟执行(主线程执行任务)
     /// - Parameter seconds: 延迟秒数
-    /// - Parameter block: 延迟的block
+    /// - Parameter block: 延迟的 block
     @discardableResult
-    public static func delay(_ seconds: Double,
-                             _ block: @escaping Task) -> DispatchWorkItem {
+    public static func syncdelay(_ seconds: Double,
+                                 _ block: @escaping Task) -> DispatchWorkItem {
         let item = DispatchWorkItem(block: block)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + seconds,
                                       execute: item)
         return item
     }
     
-    // MARK: 异步延迟
-    /// 异步延迟
+    // MARK: 1.4、异步延迟(子线程执行任务)
+    /// 异步延迟(子线程执行任务)
     /// - Parameter seconds: 延迟秒数
     /// - Parameter task: 延迟的block
     @discardableResult
@@ -53,8 +53,8 @@ public struct JKAsyncs {
         return _asyncDelay(seconds, task)
     }
     
-    // MARK: 异步延迟回到主线程
-    /// 异步延迟回到主线程
+    // MARK: 1.5、异步延迟回到主线程(子线程执行任务，然后回到主线程执行任务)
+    /// 异步延迟回到主线程(子线程执行任务，然后回到主线程执行任务)
     /// - Parameter seconds: 延迟秒数
     /// - Parameter task: 延迟的block
     /// - Parameter mainTask: 延迟的主线程block
