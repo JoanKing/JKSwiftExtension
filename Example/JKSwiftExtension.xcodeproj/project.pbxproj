@@ -85,6 +85,10 @@
 		84D9BD7D2565165D00D92461 /* MaskingManagerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BD7C2565165D00D92461 /* MaskingManagerExtensionViewController.swift */; };
 		84D9BD9725651BEB00D92461 /* KeyboardAccessoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BD9625651BEB00D92461 /* KeyboardAccessoryViewController.swift */; };
 		84D9BDA925651FA600D92461 /* WeakTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BDA825651FA600D92461 /* WeakTimerViewController.swift */; };
+		84D9BDB825652C7200D92461 /* NibLoadableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BDB725652C7200D92461 /* NibLoadableViewController.swift */; };
+		84D9BDCD25652D8C00D92461 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BDCC25652D8C00D92461 /* TestView.swift */; };
+		84D9BDD125652D9900D92461 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D9BDD025652D9900D92461 /* TestView.xib */; };
+		84D9BDD525652FE500D92461 /* JKEmitterableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BDD425652FE400D92461 /* JKEmitterableViewController.swift */; };
 		84F86FBD2564B4C400B74128 /* JKCommonToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F86FBC2564B4C400B74128 /* JKCommonToolViewController.swift */; };
 		84F86FCC2564C66E00B74128 /* JKContentSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F86FCB2564C66E00B74128 /* JKContentSizeViewController.swift */; };
 		84F86FEC2564EAF500B74128 /* JKValidateHelperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F86FEB2564EAF500B74128 /* JKValidateHelperViewController.swift */; };
@@ -187,6 +191,10 @@
 		84D9BD7C2565165D00D92461 /* MaskingManagerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskingManagerExtensionViewController.swift; sourceTree = "<group>"; };
 		84D9BD9625651BEB00D92461 /* KeyboardAccessoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAccessoryViewController.swift; sourceTree = "<group>"; };
 		84D9BDA825651FA600D92461 /* WeakTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakTimerViewController.swift; sourceTree = "<group>"; };
+		84D9BDB725652C7200D92461 /* NibLoadableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableViewController.swift; sourceTree = "<group>"; };
+		84D9BDCC25652D8C00D92461 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		84D9BDD025652D9900D92461 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
+		84D9BDD425652FE400D92461 /* JKEmitterableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKEmitterableViewController.swift; sourceTree = "<group>"; };
 		84F86FBC2564B4C400B74128 /* JKCommonToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKCommonToolViewController.swift; sourceTree = "<group>"; };
 		84F86FCB2564C66E00B74128 /* JKContentSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKContentSizeViewController.swift; sourceTree = "<group>"; };
 		84F86FEB2564EAF500B74128 /* JKValidateHelperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKValidateHelperViewController.swift; sourceTree = "<group>"; };
@@ -487,6 +495,8 @@
 			isa = PBXGroup;
 			children = (
 				84BF16C9251D9FD3002ACE76 /* ProtocolViewController.swift */,
+				84D9BDD425652FE400D92461 /* JKEmitterableViewController.swift */,
+				84D9BDB725652C7200D92461 /* NibLoadableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -501,6 +511,8 @@
 		84BF16BF251D9EB6002ACE76 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				84D9BDCC25652D8C00D92461 /* TestView.swift */,
+				84D9BDD025652D9900D92461 /* TestView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -663,6 +675,7 @@
 				8473AADA2562985B00707877 /* pika2.gif in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				84D9BDD125652D9900D92461 /* TestView.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -788,6 +801,7 @@
 				84D8EC92255BE478001ACECA /* SixViewController.swift in Sources */,
 				84802814255948730038748A /* NSMutableAttributedStringExtensionViewController.swift in Sources */,
 				8418FB9B255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift in Sources */,
+				84D9BDB825652C7200D92461 /* NibLoadableViewController.swift in Sources */,
 				84D8EC8A255BE44F001ACECA /* TwoViewController.swift in Sources */,
 				84D8EC88255BE445001ACECA /* OneViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
@@ -810,6 +824,7 @@
 				8401537B2552A7B2001AB2FD /* DateFormatterExtensionViewController.swift in Sources */,
 				84009E0A2563D8BA00C3CB08 /* JKAsyncsViewController.swift in Sources */,
 				8482AA0A2554075E00EB0A7A /* UIDeviceExtensionViewController.swift in Sources */,
+				84D9BDCD25652D8C00D92461 /* TestView.swift in Sources */,
 				84058C972554FA44007F0C30 /* UIViewExtensionViewController.swift in Sources */,
 				848028082558D5A70038748A /* CALayerExtensionViewController.swift in Sources */,
 				8418FB99255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift in Sources */,
@@ -820,6 +835,7 @@
 				84BEA373254FAC6600CA8A75 /* UIFontExtensionViewController.swift in Sources */,
 				8483A739254EC47E00ACF6FD /* NSObjectExtensionViewController.swift in Sources */,
 				84D9BDA925651FA600D92461 /* WeakTimerViewController.swift in Sources */,
+				84D9BDD525652FE500D92461 /* JKEmitterableViewController.swift in Sources */,
 				847DFF2C2550F8C100EEE785 /* BoolExtensionViewController.swift in Sources */,
 				8483A732254C0D6200ACF6FD /* JKPrintViewController.swift in Sources */,
 				84F86FCC2564C66E00B74128 /* JKContentSizeViewController.swift in Sources */,

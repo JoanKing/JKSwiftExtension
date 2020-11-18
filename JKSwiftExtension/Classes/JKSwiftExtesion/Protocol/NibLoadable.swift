@@ -11,9 +11,10 @@ import Foundation
 public protocol NibLoadable {
 }
 
-/// 继承于UIView的才可以使用该协议的扩展
+// MARK:- 一、继承于UIView的才可以使用该协议的扩展
 public extension NibLoadable where Self: UIView {
     
+    // MARK: 1.1、加载xib视图
     /// 加载xib视图
     /// - Parameter nibName: xib名字
     /// - Returns: 返回视图

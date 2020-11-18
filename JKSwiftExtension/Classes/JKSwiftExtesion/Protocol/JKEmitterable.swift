@@ -8,7 +8,8 @@
 
 import Foundation
 import UIKit
-/// 粒子发射器
+
+// MARK:- 粒子发射器
 public protocol JKEmitterable {
     
 }

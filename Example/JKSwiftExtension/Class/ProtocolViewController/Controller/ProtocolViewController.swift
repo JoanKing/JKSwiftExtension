@@ -44,7 +44,7 @@ class ProtocolViewController: UIViewController {
         self.view.backgroundColor = UIColor.green
   
         dataArray = ["JKEmitterable", "NibLoadable"]
-        finishedDataArray = [""]
+        finishedDataArray = ["JKEmitterable", "NibLoadable"]
         initUI()
     }
     
