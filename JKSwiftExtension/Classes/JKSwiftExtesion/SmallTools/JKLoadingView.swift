@@ -6,9 +6,8 @@
 //
 
 import UIKit
-
 import SnapKit
-import UIKit
+
 class JKLoadingView: UIView {
     let contentView: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 130, height: 130))

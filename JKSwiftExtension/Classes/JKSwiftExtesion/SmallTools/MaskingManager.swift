@@ -8,10 +8,11 @@
 import UIKit
 
 @objc public class MaskingManager: NSObject {
+    
     @objc public static let shareManager: MaskingManager = MaskingManager()
-    
+    /// load 的map表
     private let loadingMap: NSMapTable<UIView, NSMutableArray> = NSMapTable.weakToStrongObjects()
-    
+    /// 吐司视图
     private var toastView: UIView?
     
     private override init() {}
@@ -42,7 +43,7 @@ extension MaskingManager {
             return
         }
         if let loadingArr = loadingMap.object(forKey: aAView),
-            let loading = loadingArr.lastObject {
+           let loading = loadingArr.lastObject {
             loadingArr.add(loading)
         } else {
             let loading = JKLoadingView()
@@ -64,7 +65,7 @@ extension MaskingManager {
             return
         }
         if let loadingArr = loadingMap.object(forKey: aAView),
-            let loadingView = loadingMap.object(forKey: aAView)?.lastObject as? UIView {
+           let loadingView = loadingMap.object(forKey: aAView)?.lastObject as? UIView {
             loadingArr.removeObject(at: loadingArr.count - 1)
             if loadingArr.count == 0 {
                 loadingView.removeFromSuperview()
@@ -74,7 +75,7 @@ extension MaskingManager {
             loadingMap.removeObject(forKey: aAView)
         }
         if aAView == UIApplication.shared.keyWindow,
-            loadingMap.object(forKey: aAView)?.lastObject == nil {
+           loadingMap.object(forKey: aAView)?.lastObject == nil {
             windowLoingiShow(false)
         }
     }
@@ -124,6 +125,48 @@ extension MaskingManager {
             }
             if keyView == UIApplication.shared.keyWindow { continue }
             (loadingMap.object(forKey: keyView)?.lastObject as? UIView)?.isHidden = isShow
+        }
+    }
+}
+
+// MARK:- ToastTexView 视图
+class ToastTexView: UIView {
+    let contentView: UIView = {
+        let view = UIView(frame: CGRect.zero)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.73)
+        view.layer.cornerRadius = 6
+        return view
+    }()
+
+    let textLable: UILabel = {
+        let aLabel = UILabel(frame: CGRect.zero)
+        aLabel.textColor = UIColor.white
+        aLabel.font = UIFont.systemFont(ofSize: 13.3)
+        aLabel.textAlignment = NSTextAlignment.center
+        aLabel.text = "正在加载..."
+        aLabel.numberOfLines = 0
+        return aLabel
+    }()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configView()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    private func configView() {
+        addSubview(contentView)
+        contentView.addSubview(textLable)
+        contentView.snp.remakeConstraints { make in
+            make.centerX.equalTo(self)
+            make.centerY.equalTo(self)
+        }
+        textLable.snp.makeConstraints { make in
+            make.width.lessThanOrEqualTo(UIScreen.main.bounds.size.width - 80)
+            make.edges.equalTo(contentView).inset(UIEdgeInsets(top: 15, left: 20, bottom: 15, right: 20))
         }
     }
 }

@@ -19,12 +19,11 @@ public class JKWaterFallLayout: UICollectionViewFlowLayout {
     /// 保存 UICollectionViewLayoutAttributes 的数组
     fileprivate lazy var cellAttributes: [UICollectionViewLayoutAttributes] = [UICollectionViewLayoutAttributes]()
     // 几列，默认 2 列
-    fileprivate lazy var cols: Int = 2
+    public lazy var cols: Int = 2
     /// 高度的数组
     fileprivate lazy var totalHeights: [CGFloat] = Array(repeating: sectionInset.top, count: self.cols)
     /// 默认的起始值
     fileprivate var preCount: Int = 0
-    
 }
 
 // MARK:- 准备布局

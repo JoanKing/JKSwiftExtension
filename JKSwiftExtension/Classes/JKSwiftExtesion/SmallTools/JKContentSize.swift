@@ -7,32 +7,35 @@
 
 import UIKit
 
+// MARK:- 一、文字内容的计算
 public struct JKContentSize {
     
-    // MARK:- 返回文字的高度
-    /// 返回文字的高度
+    // MARK: 1.1、返回文字的 size
+    /// 返回文字的 size
     /// - Parameters:
     ///   - string: 文字的内容
     ///   - size: 文字的最大宽高
-    ///   - fontSize: 字体的大小
+    ///   - font: 字体的 UIFont
     /// - Returns: 返回 Size
-    public static func textStringSize(string: NSString, size: CGSize, fontSize: CGFloat) -> CGSize {
-        return string.boundingRect(with: size, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)], context: nil).size
+    @discardableResult
+    public static func textStringSize(string: String, size: CGSize, font: UIFont) -> CGSize {
+        return string.boundingRect(with: size, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil).size
     }
     
-    // MARK: 计算富文本的高度以及宽度
-    /// 计算富文本的高度以及宽度
+    // MARK: 1.2、计算富文本的 size
+    /// 计算富文本的 size
     /// - Parameters:
-    ///   - aString: 富文本字符串
+    ///   - attributedString: 富文本字符串
     ///   - width: 最大宽度
     ///   - height: 最大高度
     ///   - font: 富文本字体的大小
     /// - Returns: CGSize
-    public static func attributedStringSize(aString:NSAttributedString ,width:CGFloat, height:CGFloat, font: CGFloat) -> CGSize {
+    @discardableResult
+    public static func attributedStringSize(attributedString: NSAttributedString ,width: CGFloat, height: CGFloat, font: UIFont) -> CGSize {
         let tempLabel = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: height))
-        tempLabel.font = UIFont.systemFont(ofSize: font)
-        tempLabel.attributedText = aString;
-        tempLabel.numberOfLines = 0;
+        tempLabel.font = font
+        tempLabel.attributedText = attributedString
+        tempLabel.numberOfLines = 0
         tempLabel.sizeToFit()
         let size: CGSize = tempLabel.jk.size
         return size;

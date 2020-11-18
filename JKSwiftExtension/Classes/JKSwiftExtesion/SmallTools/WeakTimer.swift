@@ -7,15 +7,21 @@
 
 import UIKit
 
+// MARK:- 定时器 Timer 的封装
 public class WeakTimer {
     
     public enum State: Int {
         case none = 100
-        case initialization//初始化
-        case executing//执行中
-        case pause//暂停
-        case invalidate//销毁
+        // 初始化
+        case initialization
+        // 执行中
+        case executing
+        // 暂停
+        case pause
+        // 销毁
+        case invalidate
     }
+    
     // MARK: - 公开属性
     public var tolerance: TimeInterval? {
         didSet {
@@ -40,19 +46,16 @@ public class WeakTimer {
     private weak var target: NSObjectProtocol?
     private var selector: Selector?
     private var timerCallBack: ((WeakTimer) -> Void)?
-    
-    
     private var timer: DispatchSourceTimer?
     
-    // MARK: - 生命周期
     init() {}
     deinit {
         invalidate()
     }
-    // MARK: - 初始化方法
     
-    /// 初始化
-    ///
+    // MARK: - 初始化定时器方法
+    // MARK: 便利初始化器：初始化定时器
+    /// 便利初始化器：初始化定时器
     /// - Parameters:
     ///   - ti: 定时器间隔 默认 1s
     ///   - aTarget: 调用者
@@ -69,9 +72,8 @@ public class WeakTimer {
         initTimer()
     }
     
-    
-    /// 生成定时器
-    ///
+    // MARK: 类方法初始化定时器
+    /// 类方法初始化定时器
     /// - Parameters:
     ///   - ti: 定时器间隔 默认 1s
     ///   - aTarget: 调用者
@@ -91,8 +93,7 @@ public class WeakTimer {
         return timer
     }
     
-    /// 初始化
-    ///
+    // MARK: 便利初始化定时器（有队列）
     /// - Parameters:
     ///   - interval: 定时器间隔 默认 1s
     ///   - repeats: 是否重复 默认 false
@@ -106,9 +107,8 @@ public class WeakTimer {
         initTimer(queue)
     }
     
-    
-    /// 生成定时器
-    ///
+    // MARK: 类方法初始化定时器（有队列）
+    /// 类方法初始化定时器（有队列）
     /// - Parameters:
     ///   - interval: 定时器间隔 默认 1s
     ///   - repeats: 是否重复 默认 false
@@ -125,8 +125,8 @@ public class WeakTimer {
         return timer
     }
     
-    /// 初始化
-    ///
+    // MARK: 便利初始化定时器
+    /// 初始化定时器
     /// - Parameters:
     ///   - date: 启动时间
     ///   - interval: 定时器间隔 默认 1s
@@ -142,9 +142,8 @@ public class WeakTimer {
         initTimer(queue)
     }
     
-    
+    // MARK: 便利初始化定时器
     /// 初始化
-    ///
     /// - Parameters:
     ///   - date: 启动时间
     ///   - ti: 定时器间隔 默认 1S
@@ -161,8 +160,9 @@ public class WeakTimer {
         self.selector = s
         initTimer()
     }
-    // MARK: - 公开方法
     
+    // MARK: - 公开方法
+    // MARK: 启动定时器
     /// 启动定时器
     public func fire() {
         if let _ = timer, (_state == .initialization || _state == .pause) {
@@ -173,6 +173,7 @@ public class WeakTimer {
         }
     }
     
+    // MARK: 暂停定时器
     /// 暂停定时器
     public func pause() {
         if let _ = timer, _state == .executing {
@@ -181,11 +182,10 @@ public class WeakTimer {
     }
     private let pointer = UnsafeMutablePointer<UInt32>.allocate(capacity: 1)
     
-    
+    // MARK: 销毁定时器
     /// 销毁定时器
     public func invalidate() {
-        //如果它已经失效，原子操作检查。防止dispatch_sync死锁。
-        
+        // 如果它已经失效，原子操作检查。防止dispatch_sync死锁。
         if !OSAtomicTestAndSetBarrier(7, pointer) {
             if let t = timer, _state != .invalidate {
                 t.cancel()
@@ -197,20 +197,18 @@ public class WeakTimer {
         }
     }
     
+    /// 当前的定时器的状态
     public var isValid: Bool { return _state == .executing }
+    
     // MARK: - 私有方法
-    
-    
+    // MARK: 初始化定时器
     /// 初始化定时器
-    ///
     /// - Parameter queue: 执行队列
     private func initTimer(_ queue: DispatchQueue? = nil) {
-        
         timer = DispatchSource.makeTimerSource(queue: queue )
         _state = .initialization
         resetTimerProperties()
         timer?.setEventHandler(handler: {[weak self] in
-            
             self?.timerCall()
         })
         if let f = fireDate {
@@ -219,13 +217,14 @@ public class WeakTimer {
             }
         }
     }
-    func resetTimerProperties() {
+    
+    fileprivate func resetTimerProperties() {
         timer?.schedule(deadline: .now(), repeating: (isRepeats ? .milliseconds(Int(timeInterval * 1000)) : .never), leeway: .milliseconds(Int(tolerance ?? (timeInterval / 2) * 1000)))
     }
     
     /// 定时器回调
     private func timerCall() {
-        //检查定时器是否已经失效。
+        // 检查定时器是否已经失效。
         if  OSAtomicAnd32OrigBarrier(1, pointer) != 0 {
             return
         }
@@ -246,6 +245,5 @@ public class WeakTimer {
             }
         }
     }
-    
 }
 

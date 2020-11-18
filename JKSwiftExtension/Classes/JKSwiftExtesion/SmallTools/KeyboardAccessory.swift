@@ -17,17 +17,20 @@ public extension KeyboardAccessoryDelegate {
 
 public class KeyboardAccessory: UIView {
     public weak var delegate: KeyboardAccessoryDelegate?
+    public var doneBtn: UIButton = {
+        let doneBtn = UIButton(type: .system).title("完成").font(UIFont.systemFont(ofSize: 13))
+        doneBtn.addTarget(self, action: #selector(done), for: .touchUpInside)
+        return doneBtn
+    }()
     
     public init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 320, height: 36))
-        let doneBtn = UIButton(type: .system).title("完成").font(UIFont.systemFont(ofSize: 13)).addTo(self)
-        doneBtn.addTarget(self, action: #selector(done), for: .touchUpInside)
+        doneBtn.addTo(self)
         doneBtn.snp.makeConstraints { make in
             make.top.right.bottom.equalToSuperview()
             make.width.equalTo(50)
         }
         backgroundColor = .white
-        
         let line = UIView().backgroundColor(UIColor.hexStringColor(hexString: "#E6E6E6")).addTo(self)
         line.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()

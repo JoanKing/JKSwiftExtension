@@ -124,7 +124,6 @@
 		398B517C64F5E2595CA9B7D7AE409158 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E5559A26BA6D4D01FF0750E2D4AA57 /* DispatchQueue+Extensions.swift */; };
 		3AB1AC079DC49EA9F5BC8E96302EB57F /* SynchronizedUnsubscribeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D885A869E9FEF44574B7E45F86F12A1C /* SynchronizedUnsubscribeType.swift */; };
 		3AC9BC1D1B3C6DE2F9EB47B1B9AAB235 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D695FE54396A71F3C0794FB6B498DD7 /* RxSwift.framework */; };
-		3CC3FD86057D9EC5BB81F7478212D9D4 /* ToastTexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60564AF434D2B9F9643F100FCBAC81D1 /* ToastTexView.swift */; };
 		3DF06796726197AEE928AEE9C4B0510A /* RxSearchControllerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD77CE3FD6133EC11AB23BE5A044009 /* RxSearchControllerDelegateProxy.swift */; };
 		3E3D8AA29008AA764526A9B3777690E1 /* Pods-JKSwiftExtension_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D8880F8FCB25DB5DF41639F0CF2A89 /* Pods-JKSwiftExtension_Tests-dummy.m */; };
 		3E749ADCE1230417672F04F81E7E4D7B /* QRCodeImageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF7C22F86313DE3FE9F181FBCB994B7 /* QRCodeImageFactory.swift */; };
@@ -802,7 +801,6 @@
 		5EECBD0310FA5E651068F9C5E632E9E5 /* ObservableConvertibleType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObservableConvertibleType.swift; path = RxSwift/ObservableConvertibleType.swift; sourceTree = "<group>"; };
 		5F53AA29BEF249F1481A672528C8374C /* MJRefreshFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshFooter.m; path = MJRefresh/Base/MJRefreshFooter.m; sourceTree = "<group>"; };
 		5F875A5D01415D9C38B690252F1349ED /* UISwitch+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UISwitch+Rx.swift"; path = "RxCocoa/iOS/UISwitch+Rx.swift"; sourceTree = "<group>"; };
-		60564AF434D2B9F9643F100FCBAC81D1 /* ToastTexView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ToastTexView.swift; sourceTree = "<group>"; };
 		605CC7D70AC94CB2732E215DB9773DD4 /* NSObject+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSObject+Rx.swift"; path = "RxCocoa/Foundation/NSObject+Rx.swift"; sourceTree = "<group>"; };
 		607FF1455817081FA525EBD815D80073 /* ConstraintView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintView.swift; path = Source/ConstraintView.swift; sourceTree = "<group>"; };
 		609376D7DD544F3AF5CF7B1097ED45F8 /* KeyPathBinder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyPathBinder.swift; path = RxCocoa/Common/KeyPathBinder.swift; sourceTree = "<group>"; };
@@ -1825,21 +1823,20 @@
 		B02936C104E67DC2A2D11ED4F88247AF /* SmallTools */ = {
 			isa = PBXGroup;
 			children = (
+				81AF328D1B229AFBCB7F171670B96482 /* WeakTimer.swift */,
+				6C69DCFC36B7B28E22E5837B60383DCB /* JKPrint.swift */,
 				F2598D9823F2CC36E16E9AB6B3EDAF9A /* JKAsyncs.swift */,
+				C8DBF130B0EE3D602A34C8C1F6C3FA72 /* JKRuntime.swift */,
+				DFF7C22F86313DE3FE9F181FBCB994B7 /* QRCodeImageFactory.swift */,
 				CC40E3B7CE9075141E84A79D7BB0AEBD /* JKCommonTool.swift */,
 				8E0B5C3F087B0D1824ACEB174E35A121 /* JKContentSize.swift */,
 				30B5B1581FF346E64FE874FFDFBCFD97 /* JKLoadingView.swift */,
 				E9C3C2C6238458FCBF1CBD1176C8BEDE /* JKValidateHelper.swift */,
 				899E467CD732CF8D4A65AA5A5DD0CD88 /* JKVerticalCarousel.swift */,
 				2CE1F8EEF2868F4A85AE5BFA1EFF2AB1 /* JKWaterFallLayout.swift */,
-				5964224FA0BBDD954C6BD7B32B08C0B4 /* KeyboardAccessory.swift */,
-				B964B23BCF1D9BE871ACF83396019E20 /* MaskingManager.swift */,
 				F8C14E17E01F13F6FF1DCD0AA5ACAEC7 /* MaskingManager+Extension.swift */,
-				60564AF434D2B9F9643F100FCBAC81D1 /* ToastTexView.swift */,
-				81AF328D1B229AFBCB7F171670B96482 /* WeakTimer.swift */,
-				DFF7C22F86313DE3FE9F181FBCB994B7 /* QRCodeImageFactory.swift */,
-				6C69DCFC36B7B28E22E5837B60383DCB /* JKPrint.swift */,
-				C8DBF130B0EE3D602A34C8C1F6C3FA72 /* JKRuntime.swift */,
+				B964B23BCF1D9BE871ACF83396019E20 /* MaskingManager.swift */,
+				5964224FA0BBDD954C6BD7B32B08C0B4 /* KeyboardAccessory.swift */,
 			);
 			name = SmallTools;
 			path = JKSwiftExtension/Classes/JKSwiftExtesion/SmallTools;
@@ -2575,7 +2572,6 @@
 				3E749ADCE1230417672F04F81E7E4D7B /* QRCodeImageFactory.swift in Sources */,
 				F3BA8E95FDE72E2F2D2F5BE0EDA1FF0C /* String+Extension.swift in Sources */,
 				62A9432E7E8EDF78A536B646057B4650 /* Timer+Extension.swift in Sources */,
-				3CC3FD86057D9EC5BB81F7478212D9D4 /* ToastTexView.swift in Sources */,
 				107268C45C8D12357E1312E4FD0553C9 /* UIAlertController+Extension.swift in Sources */,
 				608C003C38C1A37D617A62D04DE01933 /* UIApplication+Extension.swift in Sources */,
 				D3CC6699099D83E1ED8F9701F82702AC /* UIBarButtonItem+Extension.swift in Sources */,
