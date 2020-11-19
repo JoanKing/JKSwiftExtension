@@ -20,6 +20,8 @@
 		8401537D2552A8C3001AB2FD /* URLExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8401537C2552A8C3001AB2FD /* URLExtensionViewController.swift */; };
 		8401537F2552B34A001AB2FD /* DictionaryExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8401537E2552B34A001AB2FD /* DictionaryExtensionViewController.swift */; };
 		84058C972554FA44007F0C30 /* UIViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */; };
+		840F883F256637BE009B73DA /* huaban1.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F883E256637BE009B73DA /* huaban1.png */; };
+		840F884325663B24009B73DA /* girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F884225663B24009B73DA /* girl.png */; };
 		8418FB97255B8642000CB0B3 /* UILabelExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418FB96255B8642000CB0B3 /* UILabelExtensionViewController.swift */; };
 		8418FB99255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418FB98255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift */; };
 		8418FB9B255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418FB9A255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift */; };
@@ -125,6 +127,8 @@
 		8401537C2552A8C3001AB2FD /* URLExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensionViewController.swift; sourceTree = "<group>"; };
 		8401537E2552B34A001AB2FD /* DictionaryExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtensionViewController.swift; sourceTree = "<group>"; };
 		84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensionViewController.swift; sourceTree = "<group>"; };
+		840F883E256637BE009B73DA /* huaban1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = huaban1.png; sourceTree = "<group>"; };
+		840F884225663B24009B73DA /* girl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = girl.png; sourceTree = "<group>"; };
 		8418FB96255B8642000CB0B3 /* UILabelExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtensionViewController.swift; sourceTree = "<group>"; };
 		8418FB98255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensionViewController.swift; sourceTree = "<group>"; };
 		8418FB9A255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensionViewController.swift; sourceTree = "<group>"; };
@@ -279,7 +283,9 @@
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				840F884225663B24009B73DA /* girl.png */,
 				8473AAD82562985A00707877 /* pika2.gif */,
+				840F883E256637BE009B73DA /* huaban1.png */,
 				8483A72B254BF0AD00ACF6FD /* JKBaseKit.bundle */,
 				607FACD41AFB9204008FA782 /* Info.plist */,
 				8483A72F254C0A7F00ACF6FD /* testicon.png */,
@@ -672,10 +678,12 @@
 			files = (
 				8483A730254C0A7F00ACF6FD /* testicon.png in Resources */,
 				8483A72C254BF0AD00ACF6FD /* JKBaseKit.bundle in Resources */,
+				840F884325663B24009B73DA /* girl.png in Resources */,
 				8473AADA2562985B00707877 /* pika2.gif in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				84D9BDD125652D9900D92461 /* TestView.xib in Resources */,
+				840F883F256637BE009B73DA /* huaban1.png in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
