@@ -25,6 +25,16 @@
 		8418FB97255B8642000CB0B3 /* UILabelExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418FB96255B8642000CB0B3 /* UILabelExtensionViewController.swift */; };
 		8418FB99255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418FB98255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift */; };
 		8418FB9B255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418FB9A255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift */; };
+		844A634E25664F9B000059EC /* FiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A634625664F9A000059EC /* FiveViewController.swift */; };
+		844A634F25664F9B000059EC /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A634725664F9B000059EC /* Notification+Extension.swift */; };
+		844A635025664F9B000059EC /* TwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A634825664F9B000059EC /* TwoViewController.swift */; };
+		844A635125664F9B000059EC /* FourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A634925664F9B000059EC /* FourViewController.swift */; };
+		844A635225664F9B000059EC /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A634A25664F9B000059EC /* TestViewController.swift */; };
+		844A635325664F9B000059EC /* SixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A634B25664F9B000059EC /* SixViewController.swift */; };
+		844A635425664F9B000059EC /* ThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A634C25664F9B000059EC /* ThreeViewController.swift */; };
+		844A635525664F9B000059EC /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A634D25664F9B000059EC /* OneViewController.swift */; };
+		844A635925664FE7000059EC /* JKTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A635825664FE7000059EC /* JKTouchView.swift */; };
+		844A635D25665328000059EC /* TouchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A635C25665328000059EC /* TouchViewController.swift */; };
 		8473AAC02562889500707877 /* UIImageViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473AABF2562889500707877 /* UIImageViewExtensionViewController.swift */; };
 		8473AADA2562985B00707877 /* pika2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8473AAD82562985A00707877 /* pika2.gif */; };
 		847D4B452560DF85000DDA3C /* UIBezierPathExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D4B442560DF84000DDA3C /* UIBezierPathExtensionViewController.swift */; };
@@ -71,18 +81,10 @@
 		84BF16C8251D9FB6002ACE76 /* UIKitExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF16C7251D9FB6002ACE76 /* UIKitExtensionViewController.swift */; };
 		84BF16CA251D9FD3002ACE76 /* ProtocolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF16C9251D9FD3002ACE76 /* ProtocolViewController.swift */; };
 		84BF16CC251DA012002ACE76 /* SmallToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF16CB251DA012002ACE76 /* SmallToolsViewController.swift */; };
-		84BF16D0251DDDE7002ACE76 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF16CF251DDDE7002ACE76 /* Notification+Extension.swift */; };
-		84BF16D4251DFDE5002ACE76 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF16D3251DFDE5002ACE76 /* TestViewController.swift */; };
 		84C4BF5F25500E5C00B3705F /* CGFloatExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C4BF5E25500E5C00B3705F /* CGFloatExtensionViewController.swift */; };
 		84C4BF6125501B3600B3705F /* IntExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C4BF6025501B3600B3705F /* IntExtensionViewController.swift */; };
 		84CC32AD255CDBB300F489F0 /* UIScrollViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CC32AC255CDBB300F489F0 /* UIScrollViewExtensionViewController.swift */; };
 		84CC32AF255D39F000F489F0 /* UITextViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CC32AE255D39F000F489F0 /* UITextViewExtensionViewController.swift */; };
-		84D8EC88255BE445001ACECA /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8EC87255BE445001ACECA /* OneViewController.swift */; };
-		84D8EC8A255BE44F001ACECA /* TwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8EC89255BE44F001ACECA /* TwoViewController.swift */; };
-		84D8EC8C255BE458001ACECA /* ThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8EC8B255BE458001ACECA /* ThreeViewController.swift */; };
-		84D8EC8E255BE463001ACECA /* FourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8EC8D255BE463001ACECA /* FourViewController.swift */; };
-		84D8EC90255BE46D001ACECA /* FiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8EC8F255BE46D001ACECA /* FiveViewController.swift */; };
-		84D8EC92255BE478001ACECA /* SixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8EC91255BE478001ACECA /* SixViewController.swift */; };
 		84D8EC94255BFA3A001ACECA /* UIViewControllerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8EC93255BFA3A001ACECA /* UIViewControllerExtensionViewController.swift */; };
 		84D9BD7D2565165D00D92461 /* MaskingManagerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BD7C2565165D00D92461 /* MaskingManagerExtensionViewController.swift */; };
 		84D9BD9725651BEB00D92461 /* KeyboardAccessoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BD9625651BEB00D92461 /* KeyboardAccessoryViewController.swift */; };
@@ -132,6 +134,16 @@
 		8418FB96255B8642000CB0B3 /* UILabelExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtensionViewController.swift; sourceTree = "<group>"; };
 		8418FB98255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensionViewController.swift; sourceTree = "<group>"; };
 		8418FB9A255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensionViewController.swift; sourceTree = "<group>"; };
+		844A634625664F9A000059EC /* FiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiveViewController.swift; sourceTree = "<group>"; };
+		844A634725664F9B000059EC /* Notification+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
+		844A634825664F9B000059EC /* TwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoViewController.swift; sourceTree = "<group>"; };
+		844A634925664F9B000059EC /* FourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourViewController.swift; sourceTree = "<group>"; };
+		844A634A25664F9B000059EC /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		844A634B25664F9B000059EC /* SixViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SixViewController.swift; sourceTree = "<group>"; };
+		844A634C25664F9B000059EC /* ThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeViewController.swift; sourceTree = "<group>"; };
+		844A634D25664F9B000059EC /* OneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
+		844A635825664FE7000059EC /* JKTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKTouchView.swift; sourceTree = "<group>"; };
+		844A635C25665328000059EC /* TouchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchViewController.swift; sourceTree = "<group>"; };
 		846774172511FE9900DE8B44 /* JKSwiftExtension_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JKSwiftExtension_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		8473AABF2562889500707877 /* UIImageViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensionViewController.swift; sourceTree = "<group>"; };
 		8473AAD82562985A00707877 /* pika2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pika2.gif; sourceTree = "<group>"; };
@@ -179,18 +191,10 @@
 		84BF16C7251D9FB6002ACE76 /* UIKitExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtensionViewController.swift; sourceTree = "<group>"; };
 		84BF16C9251D9FD3002ACE76 /* ProtocolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolViewController.swift; sourceTree = "<group>"; };
 		84BF16CB251DA012002ACE76 /* SmallToolsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallToolsViewController.swift; sourceTree = "<group>"; };
-		84BF16CF251DDDE7002ACE76 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
-		84BF16D3251DFDE5002ACE76 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		84C4BF5E25500E5C00B3705F /* CGFloatExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtensionViewController.swift; sourceTree = "<group>"; };
 		84C4BF6025501B3600B3705F /* IntExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensionViewController.swift; sourceTree = "<group>"; };
 		84CC32AC255CDBB300F489F0 /* UIScrollViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtensionViewController.swift; sourceTree = "<group>"; };
 		84CC32AE255D39F000F489F0 /* UITextViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtensionViewController.swift; sourceTree = "<group>"; };
-		84D8EC87255BE445001ACECA /* OneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
-		84D8EC89255BE44F001ACECA /* TwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoViewController.swift; sourceTree = "<group>"; };
-		84D8EC8B255BE458001ACECA /* ThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeViewController.swift; sourceTree = "<group>"; };
-		84D8EC8D255BE463001ACECA /* FourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourViewController.swift; sourceTree = "<group>"; };
-		84D8EC8F255BE46D001ACECA /* FiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveViewController.swift; sourceTree = "<group>"; };
-		84D8EC91255BE478001ACECA /* SixViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixViewController.swift; sourceTree = "<group>"; };
 		84D8EC93255BFA3A001ACECA /* UIViewControllerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensionViewController.swift; sourceTree = "<group>"; };
 		84D9BD7C2565165D00D92461 /* MaskingManagerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskingManagerExtensionViewController.swift; sourceTree = "<group>"; };
 		84D9BD9625651BEB00D92461 /* KeyboardAccessoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAccessoryViewController.swift; sourceTree = "<group>"; };
@@ -322,6 +326,44 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		844A634225664F4D000059EC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				844A634625664F9A000059EC /* FiveViewController.swift */,
+				844A634925664F9B000059EC /* FourViewController.swift */,
+				844A634725664F9B000059EC /* Notification+Extension.swift */,
+				844A634D25664F9B000059EC /* OneViewController.swift */,
+				844A634B25664F9B000059EC /* SixViewController.swift */,
+				844A634A25664F9B000059EC /* TestViewController.swift */,
+				844A634C25664F9B000059EC /* ThreeViewController.swift */,
+				844A634825664F9B000059EC /* TwoViewController.swift */,
+				844A635C25665328000059EC /* TouchViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		844A634325664F4D000059EC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		844A634425664F4D000059EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				844A635825664FE7000059EC /* JKTouchView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		844A634525664F4D000059EC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8483A733254C118200ACF6FD /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +492,7 @@
 			isa = PBXGroup;
 			children = (
 				84BF16C7251D9FB6002ACE76 /* UIKitExtensionViewController.swift */,
+				84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */,
 				8473AABF2562889500707877 /* UIImageViewExtensionViewController.swift */,
 				847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */,
 				847D4B442560DF84000DDA3C /* UIBezierPathExtensionViewController.swift */,
@@ -469,7 +512,6 @@
 				84802813255948730038748A /* NSMutableAttributedStringExtensionViewController.swift */,
 				8480280D255933DE0038748A /* UIControlExtensionViewController.swift */,
 				8480280B255926120038748A /* CATextLayerExtensionViewController.swift */,
-				84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */,
 				848028072558D5A70038748A /* CALayerExtensionViewController.swift */,
 				848028092558E7940038748A /* UIScreenExtensionViewController.swift */,
 			);
@@ -567,14 +609,10 @@
 		84BF16D5251DFE5D002ACE76 /* TestFile */ = {
 			isa = PBXGroup;
 			children = (
-				84BF16CF251DDDE7002ACE76 /* Notification+Extension.swift */,
-				84BF16D3251DFDE5002ACE76 /* TestViewController.swift */,
-				84D8EC87255BE445001ACECA /* OneViewController.swift */,
-				84D8EC89255BE44F001ACECA /* TwoViewController.swift */,
-				84D8EC8B255BE458001ACECA /* ThreeViewController.swift */,
-				84D8EC8D255BE463001ACECA /* FourViewController.swift */,
-				84D8EC8F255BE46D001ACECA /* FiveViewController.swift */,
-				84D8EC91255BE478001ACECA /* SixViewController.swift */,
+				844A634225664F4D000059EC /* Controller */,
+				844A634525664F4D000059EC /* Model */,
+				844A634425664F4D000059EC /* View */,
+				844A634325664F4D000059EC /* ViewModel */,
 			);
 			path = TestFile;
 			sourceTree = "<group>";
@@ -782,6 +820,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				844A634E25664F9B000059EC /* FiveViewController.swift in Sources */,
+				844A635225664F9B000059EC /* TestViewController.swift in Sources */,
 				84BF16CA251D9FD3002ACE76 /* ProtocolViewController.swift in Sources */,
 				8483A737254C11C200ACF6FD /* JKRuntimeViewController.swift in Sources */,
 				84A6FB77255A655700057839 /* BaseNavigationViewController.swift in Sources */,
@@ -790,7 +830,6 @@
 				8480280E255933DE0038748A /* UIControlExtensionViewController.swift in Sources */,
 				8480281625594C1E0038748A /* UIAlertControllerExtensionViewController.swift in Sources */,
 				84A6FB79255A65EC00057839 /* UIButtonExtensionViewController.swift in Sources */,
-				84BF16D4251DFDE5002ACE76 /* TestViewController.swift in Sources */,
 				8485CC7E2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift in Sources */,
 				8482AA082553F09900EB0A7A /* TimerExtensionViewController.swift in Sources */,
 				84D9BD9725651BEB00D92461 /* KeyboardAccessoryViewController.swift in Sources */,
@@ -799,6 +838,8 @@
 				8483A6CA254BC02B00ACF6FD /* BundleExtensionViewController.swift in Sources */,
 				8483A735254C119700ACF6FD /* BaseViewController.swift in Sources */,
 				84802818255957560038748A /* UIApplicationExtensionViewController.swift in Sources */,
+				844A634F25664F9B000059EC /* Notification+Extension.swift in Sources */,
+				844A635D25665328000059EC /* TouchViewController.swift in Sources */,
 				847DFF282550F43C00EEE785 /* UIntExtensionViewController.swift in Sources */,
 				8480281A255963610038748A /* UISwitchExtensionViewController.swift in Sources */,
 				84BEA379254FD78E00CA8A75 /* FloatExtensionViewController.swift in Sources */,
@@ -806,24 +847,22 @@
 				84BF16C6251D9F8D002ACE76 /* FoundationExtensionViewController.swift in Sources */,
 				849D58F02536ADD300CCDF0F /* StringExtensionViewController.swift in Sources */,
 				84813774254A5EC100D9289C /* UIColorExtensionViewController.swift in Sources */,
-				84D8EC92255BE478001ACECA /* SixViewController.swift in Sources */,
 				84802814255948730038748A /* NSMutableAttributedStringExtensionViewController.swift in Sources */,
 				8418FB9B255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift in Sources */,
 				84D9BDB825652C7200D92461 /* NibLoadableViewController.swift in Sources */,
-				84D8EC8A255BE44F001ACECA /* TwoViewController.swift in Sources */,
-				84D8EC88255BE445001ACECA /* OneViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				84BF16D0251DDDE7002ACE76 /* Notification+Extension.swift in Sources */,
+				844A635325664F9B000059EC /* SixViewController.swift in Sources */,
 				84BEA371254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift in Sources */,
-				84D8EC90255BE46D001ACECA /* FiveViewController.swift in Sources */,
 				84BF16CC251DA012002ACE76 /* SmallToolsViewController.swift in Sources */,
+				844A635025664F9B000059EC /* TwoViewController.swift in Sources */,
+				844A635525664F9B000059EC /* OneViewController.swift in Sources */,
 				84A8FEFF2534598A00830EAF /* ArrayExtensionViewController.swift in Sources */,
 				84A5D2D62547B48E003D289C /* DateExtensionViewController.swift in Sources */,
 				847D4B452560DF85000DDA3C /* UIBezierPathExtensionViewController.swift in Sources */,
 				84BF16C8251D9FB6002ACE76 /* UIKitExtensionViewController.swift in Sources */,
-				84D8EC8E255BE463001ACECA /* FourViewController.swift in Sources */,
+				844A635425664F9B000059EC /* ThreeViewController.swift in Sources */,
 				8401537F2552B34A001AB2FD /* DictionaryExtensionViewController.swift in Sources */,
-				84D8EC8C255BE458001ACECA /* ThreeViewController.swift in Sources */,
+				844A635925664FE7000059EC /* JKTouchView.swift in Sources */,
 				8483C4CF255E94A30034A2F7 /* UITextFieldExtensionViewController.swift in Sources */,
 				8401537D2552A8C3001AB2FD /* URLExtensionViewController.swift in Sources */,
 				847DFF2A2550F5D400EEE785 /* CharacterExtensionViewController.swift in Sources */,
@@ -848,6 +887,7 @@
 				8483A732254C0D6200ACF6FD /* JKPrintViewController.swift in Sources */,
 				84F86FCC2564C66E00B74128 /* JKContentSizeViewController.swift in Sources */,
 				84F870012564F91600B74128 /* JKWaterFallLayoutViewController.swift in Sources */,
+				844A635125664F9B000059EC /* FourViewController.swift in Sources */,
 				84C4BF6125501B3600B3705F /* IntExtensionViewController.swift in Sources */,
 				849D58F42537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift in Sources */,
 				8480280C255926120038748A /* CATextLayerExtensionViewController.swift in Sources */,

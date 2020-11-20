@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         self.title = "JKSwiftExtension"
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green
-        dataArray = ["FoundationExtension", "UIKitExtension", "Protocol", "SmallTools"]
+        dataArray = ["FoundationExtension", "UIKitExtension", "Protocol", "SmallTools", "TestFile(自己测试用的)"]
         initUI()
     }
     
@@ -106,7 +106,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             vc.title = cellName
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
-            
+            self.navigationController?.pushViewController(TouchViewController(), animated: true)
         }
     }
 }
