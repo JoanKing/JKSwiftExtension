@@ -106,7 +106,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             vc.title = cellName
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
-            self.navigationController?.pushViewController(TouchViewController(), animated: true)
+            self.navigationController?.pushViewController(TestFileViewController(), animated: true)
         }
     }
 }
