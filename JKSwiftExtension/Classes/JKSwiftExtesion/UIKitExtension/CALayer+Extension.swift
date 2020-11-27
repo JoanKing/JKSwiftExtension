@@ -199,6 +199,7 @@ public extension CALayer {
     /// - Parameters:
     ///   - moveValue: 移动到的X值
     ///   - duration:  动画持续的时间
+    ///   - delay: 几秒后执行
     ///   - removedOnCompletion: 运动后的位置保持不变（layer的最后位置是toValue）
     ///   - option: 动画的时间节奏控制 方式
     func animationMoveX(moveValue: Any?,
@@ -215,6 +216,7 @@ public extension CALayer {
     /// - Parameters:
     ///   - moveValue: 移动到的Y值
     ///   - duration:  动画持续的时间
+    ///   - delay: 几秒后执行
     ///   - removedOnCompletion: 运动后的位置保持不变（layer的最后位置是toValue）
     ///   - option: 动画的时间节奏控制 方式
     func animationMoveY(moveValue: Any?,
@@ -231,6 +233,7 @@ public extension CALayer {
     /// - Parameters:
     ///   - cornerRadius: 圆角大小
     ///   - duration:  动画持续的时间
+    ///   - delay: 几秒后执行
     ///   - removedOnCompletion: 运动后的位置保持不变（layer的最后位置是toValue）
     ///   - option: 动画的时间节奏控制 方式
     func animationCornerRadius(cornerRadius: Any?,
@@ -247,6 +250,7 @@ public extension CALayer {
     /// - Parameters:
     ///   - scaleValue: 放大的倍数
     ///   - duration:  动画持续的时间
+    ///   - delay: 几秒后执行
     ///   - removedOnCompletion: 运动后的位置保持不变（layer的最后位置是toValue）
     ///   - option: 动画的时间节奏控制 方式
     func animationScale(scaleValue: Any?,
@@ -263,6 +267,7 @@ public extension CALayer {
     /// - Parameters:
     ///   - rotation: 旋转的角度
     ///   - duration:  动画持续的时间
+    ///   - delay: 几秒后执行
     ///   - removedOnCompletion: 运动后的位置保持不变（layer的最后位置是toValue）
     ///   - option: 动画的时间节奏控制 方式
     func animationRotation(rotation: Any?,
@@ -280,6 +285,7 @@ public extension CALayer {
     ///   - keyPath: 动画的类型
     ///   - moveValue: 移动到的位置
     ///   - duration:  动画持续的时间
+    ///   - delay: 几秒后执行
     ///   - repeatNumber: 重复的次数
     ///   - removedOnCompletion: 运动后的位置保持不变（layer的最后位置是toValue）
     ///   - option: 动画的时间节奏控制 方式
@@ -329,6 +335,7 @@ public extension CALayer {
     ///   - values: CGPoint 点
     ///   - keyTimes: 设置关键帧对应的时间点，范围：0-1。如果没有设置该属性，则每一帧的时间平分。
     ///   - duration: 动画持续的时间
+    ///   - delay: 几秒后执行
     ///   - repeatNumber: 重复的次数
     ///   - removedOnCompletion: 运动后的位置保持不变（layer的最后位置是toValue）
     ///   - option: 动画的时间节奏控制 方式
@@ -348,6 +355,7 @@ public extension CALayer {
     ///   - values: CGPoint 点
     ///   - keyTimes: 设置关键帧对应的时间点，范围：0-1。如果没有设置该属性，则每一帧的时间平分。
     ///   - duration: 动画持续的时间
+    ///   - delay: 几秒后执行
     ///   - repeatNumber: 重复的次数
     ///   - removedOnCompletion: 运动后的位置保持不变（layer的最后位置是toValue）
     ///   - option: 动画的时间节奏控制 方式
@@ -366,6 +374,7 @@ public extension CALayer {
     /// - Parameters:
     ///   - path: CGPath 路径
     ///   - duration: 动画时长
+    ///   - delay: 几秒后执行
     ///   - repeatNumber: 重复次数
     ///   - removedOnCompletion: 运动后的位置保持不变（layer的最后位置是toValue）
     ///   - option: 动画的时间节奏控制 方式
@@ -385,6 +394,7 @@ public extension CALayer {
     ///   - values: 关键帧数组对象，里面每一个元素即为一个关键帧，动画会在对应的时间段内，依次执行数组中每一个关键帧的动画
     ///   - keyTimes: 设置关键帧对应的时间点，范围：0-1。如果没有设置该属性，则每一帧的时间平分。
     ///   - duration: 动画持续的时间
+    ///   - delay: 几秒后执行
     ///   - repeatNumber: 重复的次数
     ///   - removedOnCompletion: 运动后的位置保持不变（layer的最后位置是toValue）
     ///   - option: 动画的时间节奏控制 方式
@@ -436,6 +446,7 @@ public extension CALayer {
     ///   - type: 过渡动画的类型：
     ///   - subtype: 过渡动画的方向
     ///   - duration: 动画的时间
+    ///   - delay: 几秒后执行
     func addTransition(type: CATransitionType,
                        subtype: CATransitionSubtype?,
                        duration: CFTimeInterval = 2.0,
@@ -475,8 +486,10 @@ public extension CALayer {
 public extension CALayer {
     
     // MARK: 5.1、弹簧动画：Bounds 动画
-    /// 弹簧动画
+    /// 弹簧动画：Bounds 动画
     /// - Parameters:
+    ///   - toValue: 目标 CGRect
+    ///   - delay: 几秒后执行
     ///   - mass: 质量（影响弹簧的惯性，质量越大，弹簧惯性越大，运动的幅度越大）
     ///   - stiffness: 弹性系数（弹性系数越大，弹簧的运动越快）
     ///   - damping: 阻尼系数（阻尼系数越大，弹簧的停止越快）
@@ -500,6 +513,8 @@ public extension CALayer {
     ///  弹簧的基类动画
     /// - Parameters:
     ///   - path: 动画路径对象，可以指定一个路径，在执行动画时路径会沿着路径移动
+    ///   - toValue: 目标值
+    ///   - delay: 几秒后执行
     ///   - mass: 质量（影响弹簧的惯性，质量越大，弹簧惯性越大，运动的幅度越大）
     ///   - stiffness: 弹性系数（弹性系数越大，弹簧的运动越快）
     ///   - damping: 阻尼系数（阻尼系数越大，弹簧的停止越快）
@@ -550,6 +565,7 @@ public extension CALayer {
     /// - Parameters:
     ///   - animations: 动画组
     ///   - duration: 动画时长
+    ///   - delay: 几秒后执行
     ///   - repeatNumber: 重复次数
     ///   - removedOnCompletion: 运动后的位置保持不变（layer的最后位置是toValue）
     ///   - option: 动画的时间节奏控制 方式
