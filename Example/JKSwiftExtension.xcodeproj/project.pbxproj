@@ -442,6 +442,7 @@
 		84BF16B3251D9EAB002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */,
 				84BEA370254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift */,
 				8482AA092554075E00EB0A7A /* UIDeviceExtensionViewController.swift */,
 				8482AA072553F09900EB0A7A /* TimerExtensionViewController.swift */,
@@ -460,7 +461,6 @@
 				84BEA372254FAC6600CA8A75 /* UIFontExtensionViewController.swift */,
 				849D58F32537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift */,
 				8483A738254EC47E00ACF6FD /* NSObjectExtensionViewController.swift */,
-				849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */,
 				84A5D2D52547B48E003D289C /* DateExtensionViewController.swift */,
 				8483A6C9254BC02B00ACF6FD /* BundleExtensionViewController.swift */,
 				84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */,

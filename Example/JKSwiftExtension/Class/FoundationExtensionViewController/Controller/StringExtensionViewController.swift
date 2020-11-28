@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CommonCrypto
 
 class StringExtensionViewController: UIViewController {
     
@@ -16,8 +17,8 @@ class StringExtensionViewController: UIViewController {
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green
         
-        headDataArray = ["零、字符串基本的扩展","一、沙盒路径的获取", "二、iOS CharacterSet（字符集）", "三、字符串的转换", "四、字符串UI的处理", "五、字符串有关数字方面的扩展", "六、苹果针对浮点类型计算精度问题提供出来的计算类", "七、字符串包含表情的处理", "八、字符串的一些正则校验", "九、字符串截取的操作", "十、字符串编码的处理", "十一、进制之间的转换", "十二、String -> NSMutableAttributedString"]
-        dataArray = [["字符串的长度", "判断是否包含某个子串", "判断是否包含某个子串 -- 忽略大小写", "字符串转 Base64", "将16进制字符串转为Int", "判断是不是九宫格键盘", "字符串转 UIViewController", "字符串转 AnyClass", "字符串转数组", "JSON 字符串 -> Dictionary", "JSON 字符串 -> Array"], ["获取Home的完整路径名", "获取Documnets的完整路径名", "获取Library的完整路径名", "获取/Library/Cache的完整路径名", "获取Library/Preferences的完整路径名", "获取Tmp的完整路径名"],["去除字符串前后的 空格", "去除字符串前后的 换行", "去除字符串前后的 换行和换行", "去掉所有 空格", "去掉所有 换行", "去掉所有空格 和 换行", "是否是 0-9的数字，也不包含小数点", "url进行编码", "某个字符使用某个字符替换掉", "使用正则表达式替换某些子串", "删除指定的字符"], ["字符串 转 CGFloat", "字符串转bool", "字符串转 Int", "字符串转 Double", "字符串转 Float", "字符串转 Bool", "字符串转 NSString", "字符串转 Int64", "字符串转 NSNumber"], ["对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)", "对字符串(多行)指定字体及Size，获取 (高度)", "对字符串(多行)指定字体及Size，获取 (宽度)", "对字符串(单行)指定字体，获取 (Size)", "对字符串(单行)指定字体，获取 (width)", "对字符串(单行)指定字体，获取 (Height)", "字符串通过 label 根据高度&字体—>Size", "字符串通过 label 根据高度&字体—>Width", "字符串通过 label 根据宽度&字体—>height", "字符串根据宽度 & 字体&行间距->Size", "字符串根据宽度 & 字体 & 行间距->width", "字符串根据宽度&字体&行间距->height"], ["将金额字符串转化为带逗号的金额 按照千分位划分，如 1234567 => 1,234,567", "字符串差不多精确转换成Double——之所以差不多，是因为有精度损失", "去掉小数点后多余的 0", "将数字的字符串处理成  几位 位小数的情况"], ["+", "-", "*", "/"], ["检查字符串是否包含 Emoji 表情", "去除字符串中的Emoji表情"], ["判断是否全是空白,包括空白字符和换行符号，长度为0返回true", "判断是否全十进制数字，长度为0返回false", "判断是否是整数", "判断是否是Float,此处Float是包含Int的，即Int是特殊的Float", "判断是否全是字母，长度为0返回false", "判断是否是中文, 这里的中文不包括数字及标点符号", "是否是有效昵称，即允许“中文”、“英文”、“数字”", "判断是否是有效的手机号码", "判断是否是有效的电子邮件地址", "判断是否有效的身份证号码，不是太严格", "严格判断是否有效的身份证号码,检验了省份，生日，校验位，不过没检查市县的编码", "校验字符串位置是否合理，并返回String.Index"], ["截取字符串从开始到 index", "截取字符串从index到结束", "获取指定位置和长度的字符串", "切割字符串(区间范围 前闭后开)", "用整数返回子字符串开始的位置"], [""], ["二进制 -> 八进制", "二进制 -> 十进制", "二进制 -> 十六进制", "八进制 -> 二进制", "八进制 -> 十进制", "八进制 -> 十六进制", "十进制 -> 二进制", "十进制 -> 八进制", "十进制 -> 十六进制", "十六进制 -> 二进制", "十六进制 -> 八进制", "十六进制 -> 十进制"], ["String 添加颜色后转 NSMutableAttributedString", "String 添加 font 后转 NSMutableAttributedString", "String 添加 font 后转 NSMutableAttributedString", "String 添加 text 后转 NSMutableAttributedString", "String 添加 删除线 后转 NSMutableAttributedString"]]
+        headDataArray = ["零、字符串基本的扩展","一、沙盒路径的获取", "二、iOS CharacterSet（字符集）", "三、字符串的转换", "四、字符串UI的处理", "五、字符串有关数字方面的扩展", "六、苹果针对浮点类型计算精度问题提供出来的计算类", "七、字符串包含表情的处理", "八、字符串的一些正则校验", "九、字符串截取的操作", "十、字符串编码的处理", "十一、进制之间的转换", "十二、String -> NSMutableAttributedString", "十三、MD5 加密 和 Base64 编解码", "十四、AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密", "十五、SHA1, SHA224, SHA256, SHA384, SHA512"]
+        dataArray = [["字符串的长度", "判断是否包含某个子串", "判断是否包含某个子串 -- 忽略大小写", "字符串 Base64 编码", "字符串 Base64 解码", "将16进制字符串转为Int", "判断是不是九宫格键盘", "字符串转 UIViewController", "字符串转 AnyClass", "字符串转数组", "JSON 字符串 -> Dictionary", "JSON 字符串 -> Array"], ["获取Home的完整路径名", "获取Documnets的完整路径名", "获取Library的完整路径名", "获取/Library/Cache的完整路径名", "获取Library/Preferences的完整路径名", "获取Tmp的完整路径名"],["去除字符串前后的 空格", "去除字符串前后的 换行", "去除字符串前后的 换行和换行", "去掉所有 空格", "去掉所有 换行", "去掉所有空格 和 换行", "是否是 0-9的数字，也不包含小数点", "url进行编码", "某个字符使用某个字符替换掉", "使用正则表达式替换某些子串", "删除指定的字符"], ["字符串 转 CGFloat", "字符串转bool", "字符串转 Int", "字符串转 Double", "字符串转 Float", "字符串转 Bool", "字符串转 NSString", "字符串转 Int64", "字符串转 NSNumber"], ["对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)", "对字符串(多行)指定字体及Size，获取 (高度)", "对字符串(多行)指定字体及Size，获取 (宽度)", "对字符串(单行)指定字体，获取 (Size)", "对字符串(单行)指定字体，获取 (width)", "对字符串(单行)指定字体，获取 (Height)", "字符串通过 label 根据高度&字体—>Size", "字符串通过 label 根据高度&字体—>Width", "字符串通过 label 根据宽度&字体—>height", "字符串根据宽度 & 字体&行间距->Size", "字符串根据宽度 & 字体 & 行间距->width", "字符串根据宽度&字体&行间距->height"], ["将金额字符串转化为带逗号的金额 按照千分位划分，如 1234567 => 1,234,567", "字符串差不多精确转换成Double——之所以差不多，是因为有精度损失", "去掉小数点后多余的 0", "将数字的字符串处理成  几位 位小数的情况"], ["+", "-", "*", "/"], ["检查字符串是否包含 Emoji 表情", "去除字符串中的Emoji表情"], ["判断是否全是空白,包括空白字符和换行符号，长度为0返回true", "判断是否全十进制数字，长度为0返回false", "判断是否是整数", "判断是否是Float,此处Float是包含Int的，即Int是特殊的Float", "判断是否全是字母，长度为0返回false", "判断是否是中文, 这里的中文不包括数字及标点符号", "是否是有效昵称，即允许“中文”、“英文”、“数字”", "判断是否是有效的手机号码", "判断是否是有效的电子邮件地址", "判断是否有效的身份证号码，不是太严格", "严格判断是否有效的身份证号码,检验了省份，生日，校验位，不过没检查市县的编码", "校验字符串位置是否合理，并返回String.Index"], ["截取字符串从开始到 index", "截取字符串从index到结束", "获取指定位置和长度的字符串", "切割字符串(区间范围 前闭后开)", "用整数返回子字符串开始的位置", "获取某个位置的字符串"], [""], ["二进制 -> 八进制", "二进制 -> 十进制", "二进制 -> 十六进制", "八进制 -> 二进制", "八进制 -> 十进制", "八进制 -> 十六进制", "十进制 -> 二进制", "十进制 -> 八进制", "十进制 -> 十六进制", "十六进制 -> 二进制", "十六进制 -> 八进制", "十六进制 -> 十进制"], ["String 添加颜色后转 NSMutableAttributedString", "String 添加 font 后转 NSMutableAttributedString", "String 添加 font 后转 NSMutableAttributedString", "String 添加 text 后转 NSMutableAttributedString", "String 添加 删除线 后转 NSMutableAttributedString"], ["MD5加密 默认是32位小写加密", "Base64 编解码"], ["字符串 AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密"], ["SHA1, SHA224, SHA256, SHA384, SHA512 加密"]]
         initUI()
     }
     
@@ -55,6 +56,59 @@ class StringExtensionViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+}
+
+// MARK:- 十五、SHA1, SHA224, SHA256, SHA384, SHA512
+extension StringExtensionViewController {
+    
+    // MARK: 15.1、SHA1, SHA224, SHA256, SHA384, SHA512 加密
+    @objc func test150() {
+        let str = "我是一只小小鸟"
+        let key = "123456"
+        let newString = str.shaCrypt(cryptType: .SHA1, key: key, lower: true) ?? "加密失败"
+        print("原始字符串：\(str)")
+        print("key：\(key)")
+        print("加密后的字符串：\(newString)")
+    }
+}
+// MARK:- 十四、AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
+extension StringExtensionViewController {
+    
+    // MARK: 14.1、字符串 AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
+    @objc func test140() {
+        let str = "welcome to hangge.com"
+        let key = "123456"
+        let newString = str.scaCrypt(cryptType: .DES, key: key, encode: true) ?? "加密失败"
+        print("原始字符串：\(str)")
+        print("key：\(key)")
+        print("加密后的字符串：\(newString.scaCrypt(cryptType: .DES, key: key, encode: false) ?? "加密失败")")
+    }
+    
+}
+// MARK:- 十三、MD5 加密 和 Base64 编解码
+extension StringExtensionViewController {
+    
+    // MARK: 13.2、Base64 编解码
+    @objc func test131() {
+        let oldString = "123456"
+        let newString = oldString.base64String(encode: true) ?? "转码失败"
+        let newString2 = newString.base64String(encode: false) ?? "解码失败"
+        JKPrint("原始字符串：\(oldString)", "\(oldString) 编码后的字符串：\(newString)", "\(newString) 解码后为：\(newString2)", "最后：\(oldString.base64Encode!)")
+    }
+    
+    // MARK: 13.1、MD5加密 默认是32位小写加密
+    @objc func test130() {
+        print("32 位小写：\("123456".md5Encrypt())")
+        print("32 位大写：\("123456".md5Encrypt(.uppercase32))")
+        print("16 位小写：\("123456".md5Encrypt(.lowercase16))")
+        print("16 位大写：\("123456".md5Encrypt(.uppercase16))")
+        /*
+        32 位小写：e10adc3949ba59abbe56e057f20f883e
+        32 位大写：E10ADC3949BA59ABBE56E057F20F883E
+        16 位小写：49ba59abbe56e057
+        16 位大写：49BA59ABBE56E057
+        */
     }
 }
 
@@ -214,6 +268,42 @@ extension StringExtensionViewController {
     // MARK:- 10.1、
     ///
     @objc func test100() {
+        
+    }
+}
+
+// MARK:- 零、字符串基本的扩展
+extension StringExtensionViewController {
+    // MARK:
+    @objc func test00() {
+        
+    }
+    
+    // MARK:
+    @objc func test01() {
+        
+    }
+    
+    // MARK:
+    @objc func test02() {
+        
+    }
+    
+    // MARK: 字符串 Base64 编码
+    @objc func test03() {
+        let oldString = "123456"
+        JKPrint("字符串 Base64 编码", "\(oldString) 编码后的字符串：\(oldString.base64Encode ?? "编码失败")")
+    }
+    
+    // MARK: 字符串 Base64 解码
+    @objc func test04() {
+        let oldString = "123456"
+        let newString = oldString.base64Encode ?? "编码失败"
+        JKPrint("字符串 Base64 编码", "\(oldString) 编码后的字符串：\(newString)", "\(newString) 解码后为：\(newString.base64Decode ?? "解码失败")")
+    }
+    
+    // MARK:
+    @objc func test05() {
         
     }
 }
@@ -955,11 +1045,19 @@ extension StringExtensionViewController {
         JKPrint("切割字符串(区间范围 前闭后开)", "\(testString1) 截取字符串 2..<4 后为：\(testString1.slice(2..<4))")
     }
     
-    // MARK:- 9.5、用整数返回子字符串开始的位置
+    // MARK: 9.5、用整数返回子字符串开始的位置
     ///  截取字符串从index到结束
     @objc func test94() {
         let testString1 = "0123456789"
         JKPrint("用整数返回子字符串开始的位置", "\(testString1) 中字符串 position 开始的位置是：\(testString1.position(of: "012"))")
+    }
+    
+    // MARK: 9.6、获取某个位置的字符串
+    @objc func test95() {
+        let testString1 = "0123456789"
+        let index: Int = 5
+        
+        JKPrint("获取某个位置的字符串", "\(testString1) 中字符串位置为：\(index) 的字符是：\(testString1.indexString(index: index))")
     }
     
 }

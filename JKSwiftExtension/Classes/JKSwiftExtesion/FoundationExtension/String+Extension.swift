@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CommonCrypto
 
 // MARK:- 0：字符串基本的扩展
 public extension String {
@@ -33,24 +34,31 @@ public extension String {
     func containsIgnoringCase(find: String) -> Bool {
         return self.range(of: find, options: .caseInsensitive) != nil
     }
-    
-    // MARK: 0.4、字符串转 Base64
-    /// 字符串转 Base64
-    var base64: String? {
-        guard let plainData = (self as NSString).data(using: String.Encoding.utf8.rawValue) else {
+     
+    // MARK: 0.4、字符串 Base64 编码
+    /// 字符串 Base64 编码
+    var base64Encode: String? {
+        guard let codingData = self.data(using: .utf8) else {
             return nil
         }
-        let base64String = plainData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-        return base64String
+        return codingData.base64EncodedString()
+    }
+    // MARK: 0.5、字符串 Base64 解码
+    /// 字符串 Base64 编码
+    var base64Decode: String? {
+        guard let decryptionData = Data(base64Encoded: self, options: .ignoreUnknownCharacters) else {
+            return nil
+        }
+        return String.init(data: decryptionData, encoding: .utf8)
     }
     
-    // MARK: 0.5、将16进制字符串转为Int
+    // MARK: 0.6、将16进制字符串转为Int
     /// 将16进制字符串转为Int
     var hexInt: Int {
         return Int(self, radix: 16) ?? 0
     }
     
-    // MARK: 0.6、判断是不是九宫格键盘
+    // MARK: 0.7、判断是不是九宫格键盘
     /// 判断是不是九宫格键盘
     func isNineKeyBoard() -> Bool {
         let other : NSString = "➋➌➍➎➏➐➑➒"
@@ -63,7 +71,7 @@ public extension String {
         return true
     }
     
-    // MARK: 0.7、字符串转 UIViewController
+    // MARK: 0.8、字符串转 UIViewController
     /// 字符串转 UIViewController
     /// - Returns: 对应的控制器
     @discardableResult
@@ -80,7 +88,7 @@ public extension String {
         return vc
     }
     
-    // MARK: 0.8、字符串转 AnyClass
+    // MARK: 0.9、字符串转 AnyClass
     /// 字符串转 AnyClass
     /// - Returns: 对应的 Class
     @discardableResult
@@ -95,7 +103,7 @@ public extension String {
         return Class
     }
     
-    // MARK: 0.9、字符串转数组
+    // MARK: 0.10、字符串转数组
     /// 字符串转数组
     /// - Returns: 转化后的数组
     func toArray() -> Array<Any> {
@@ -103,7 +111,7 @@ public extension String {
         return a
     }
     
-    // MARK: 0.10、JSON 字符串 ->  Dictionary
+    // MARK: 0.11、JSON 字符串 ->  Dictionary
     /// JSON 字符串 ->  Dictionary
     /// - Returns: Dictionary
     func jsonStringToDictionary() -> Dictionary<String, Any>? {
@@ -116,7 +124,7 @@ public extension String {
         return nil
     }
     
-    // MARK: 0.11、JSON 字符串 -> Array
+    // MARK: 0.12、JSON 字符串 -> Array
     /// JSON 字符串 ->  Array
     /// - Returns: Array
     func jsonStringToArray() -> Array<Any>? {
@@ -661,7 +669,7 @@ public extension String {
         return NSDecimalNumber(decimal: decimal).doubleValue
     }
     
-    // MARK:- 5.3、去掉小数点后多余的0
+    // MARK: 5.3、去掉小数点后多余的0
     /// 去掉小数点后多余的0
     /// - Returns: 返回小数点后没有 0 的金额
     func cutLastZeroAfterDot() -> String {
@@ -1121,7 +1129,6 @@ extension String {
     
     // MARK: 9.4、切割字符串(区间范围 前闭后开)
     /**
-     https://blog.csdn.net/wang631106979/article/details/54098910
      CountableClosedRange：可数的闭区间，如 0...2
      CountableRange：可数的开区间，如 0..<2
      ClosedRange：不可数的闭区间，如 0.1...2.1
@@ -1159,6 +1166,11 @@ extension String {
         }
         return pos
     }
+    
+    // MARK: 9.6、获取某个位置的字符串
+    public func indexString(index: Int) -> String  {
+        return slice((index..<index + 1))
+    }
 }
 
 // MARK:- 十、字符串编码的处理
@@ -1168,7 +1180,7 @@ extension String {
     /// url编码 默认urlQueryAllowed
     public func urlEncoding(characters: CharacterSet = .urlQueryAllowed) -> String {
         let encodeUrlString = self.addingPercentEncoding(withAllowedCharacters:
-            characters)
+                                                            characters)
         return encodeUrlString ?? ""
     }
     
@@ -1182,7 +1194,7 @@ extension String {
         var allowedCharacterSet = CharacterSet.urlQueryAllowed
         allowedCharacterSet.remove(charactersIn: "\(generalDelimitersToEncode)\(subDelimitersToEncode)")
         let encodeUrlString = self.addingPercentEncoding(withAllowedCharacters:
-            allowedCharacterSet)
+                                                            allowedCharacterSet)
         return encodeUrlString ?? ""
     }
     
@@ -1195,7 +1207,7 @@ extension String {
         var allowedCharacterSet = CharacterSet.urlQueryAllowed
         allowedCharacterSet.remove(charactersIn: "\(generalDelimitersToEncode)\(subDelimitersToEncode)")
         let encodeUrlString = self.addingPercentEncoding(withAllowedCharacters:
-            allowedCharacterSet)
+                                                            allowedCharacterSet)
         return encodeUrlString ?? ""
     }
 }
@@ -1410,12 +1422,257 @@ public extension String {
         let attributedText = NSMutableAttributedString(string: self)
         return attributedText
     }
-
+    
     // MARK: 12.5、String 添加 删除线 后转 NSMutableAttributedString
     /// String 添加 删除线 后转 NSMutableAttributedString
     /// - Returns: NSMutableAttributedString
     func strikethrough() -> NSMutableAttributedString {
         let attributedText = NSMutableAttributedString(string: self, attributes: [.strikethroughStyle: NSUnderlineStyle.single.rawValue])
         return attributedText
+    }
+}
+
+// MARK:- 十三、MD5 加密 和 Base64 编解码
+/**
+ 单向散列函数，又被称为消息摘要函数（message digest function），哈希函数
+ 输出的散列值，也被称为消息摘要（message digest）、指纹（fingerprint）
+
+ 常见的几种单向散列函数
+ MD4、MD5
+ 产生128bit的散列值，MD就是Message Digest的缩写，目前已经不安全
+ Mac终端上默认可以使用md5命令
+ SHA-1
+ 产生160bit的散列值，目前已经不安全
+ SHA-2
+ SHA-256、SHA-384、SHA-512，散列值长度分别是256bit、384bit、512bit
+ SHA-3 全新标准
+ */
+public extension String {
+    
+    /// MD5 加密类型
+    enum MD5EncryptType {
+        /// 32 位小写
+        case lowercase32
+        /// 32 位大写
+        case uppercase32
+        /// 16 位小写
+        case lowercase16
+        /// 16 位大写
+        case uppercase16
+    }
+    
+    // MARK: 13.1、MD5加密 默认是32位小写加密
+    /// MD5加密 默认是32位小写加密
+    /// - Parameter md5Type: 加密类型
+    /// - Returns: MD5加密后的字符串
+    func md5Encrypt(_ md5Type: MD5EncryptType = .lowercase32) -> String {
+        guard self.count > 0 else {
+            JKPrint("⚠️⚠️⚠️md5加密无效的字符串⚠️⚠️⚠️")
+            return ""
+        }
+        // 1.把待加密的字符串转成char类型数据 因为MD5加密是C语言加密
+        let cCharArray = self.cString(using: .utf8)
+        // 2.创建一个字符串数组接受MD5的值
+        var uint8Array = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
+        // 3.计算MD5的值
+        /*
+         第一个参数:要加密的字符串
+         第二个参数: 获取要加密字符串的长度
+         第三个参数: 接收结果的数组
+         */
+        CC_MD5(cCharArray, CC_LONG(cCharArray!.count - 1), &uint8Array)
+        
+        switch md5Type {
+        // 32位小写
+        case .lowercase32:
+            return uint8Array.reduce("") { $0 + String(format: "%02x", $1)}
+        // 32位大写
+        case .uppercase32:
+            return uint8Array.reduce("") { $0 + String(format: "%02X", $1)}
+        // 16位小写
+        case .lowercase16:
+            let tempStr = uint8Array.reduce("") { $0 + String(format: "%02x", $1)}
+            return tempStr.slice(8..<24)
+        // 16位大写
+        case .uppercase16:
+            let tempStr = uint8Array.reduce("") { $0 + String(format: "%02X", $1)}
+            return tempStr.slice(8..<24)
+        }
+    }
+
+    // MARK: 13.2、Base64 编解码
+    /// Base64 编解码
+    /// - Parameter encode: true:编码 false:解码
+    /// - Returns: 编解码结果
+    func base64String(encode: Bool) -> String? {
+        guard encode else {
+            // 1.解码
+            guard let decryptionData = Data(base64Encoded: self, options: .ignoreUnknownCharacters) else {
+                return nil
+            }
+            return String.init(data: decryptionData, encoding: .utf8)
+        }
+        
+        // 2.编码
+        guard let codingData = self.data(using: .utf8) else {
+            return nil
+        }
+        return codingData.base64EncodedString()
+    }
+}
+
+// MARK:- 十四、AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
+/**
+ iOS中填充规则PKCS7,加解密模式ECB(无补码,CCCrypt函数中对应的nil),字符集UTF8,输出base64(可以自己改hex)
+ */
+// MARK: 加密模式
+public enum DDYSCAType {
+    case AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish
+    var infoTuple: (algorithm: CCAlgorithm, digLength: Int, keyLength: Int) {
+    switch self {
+        case .AES:
+            return (CCAlgorithm(kCCAlgorithmAES), Int(kCCKeySizeAES128), Int(kCCKeySizeAES128))
+        case .AES128:
+            return (CCAlgorithm(kCCAlgorithmAES128), Int(kCCBlockSizeAES128), Int(kCCKeySizeAES256))
+        case .DES:
+            return (CCAlgorithm(kCCAlgorithmDES), Int(kCCBlockSizeDES), Int(kCCKeySizeDES))
+        case .DES3:
+            return (CCAlgorithm(kCCAlgorithm3DES), Int(kCCBlockSize3DES), Int(kCCKeySize3DES))
+        case .CAST:
+            return (CCAlgorithm(kCCAlgorithmCAST), Int(kCCBlockSizeCAST), Int(kCCKeySizeMaxCAST))
+        case .RC2:
+            return (CCAlgorithm(kCCAlgorithmRC2), Int(kCCBlockSizeRC2), Int(kCCKeySizeMaxRC2))
+        case .RC4:
+            return (CCAlgorithm(kCCAlgorithmRC4), Int(kCCBlockSizeRC2), Int(kCCKeySizeMaxRC4))
+        case .Blowfish:return (CCAlgorithm(kCCAlgorithmBlowfish), Int(kCCBlockSizeBlowfish), Int(kCCKeySizeMaxBlowfish))
+        }
+    }
+}
+
+public extension String {
+    
+    // MARK: 14.1、字符串 AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
+    /// 字符串 AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
+    /// - Parameters:
+    ///   - cryptType: 加密类型
+    ///   - key: 加密的key
+    ///   - encode: 是编码还是解码
+    /// - Returns: 编码或者解码后的字符串
+    func scaCrypt(cryptType: DDYSCAType, key: String?, encode: Bool) -> String? {
+
+        let strData = encode ? self.data(using: .utf8) : Data(base64Encoded: self)
+        // 创建数据编码后的指针
+        let dataPointer = UnsafeRawPointer((strData! as NSData).bytes)
+        // 获取转码后数据的长度
+        let dataLength = size_t(strData!.count)
+        
+        // 2、后台对应的加密key
+        // 将加密或解密的密钥转化为Data数据
+        guard let keyData = key?.data(using: .utf8) else {
+            return nil
+        }
+        // 创建密钥的指针
+        let keyPointer = UnsafeRawPointer((keyData as NSData).bytes)
+        // 设置密钥的长度
+        let keyLength = cryptType.infoTuple.keyLength
+        /// 3、后台对应的加密 IV，这个是跟后台商量的iv偏移量
+        let encryptIV = "1"
+        let encryptIVData = encryptIV.data(using: .utf8)!
+        let encryptIVDataBytes = UnsafeRawPointer((encryptIVData as NSData).bytes)
+        // 创建加密或解密后的数据对象
+        let cryptData = NSMutableData(length: Int(dataLength) + cryptType.infoTuple.digLength)
+        // 获取返回数据(cryptData)的指针
+        let cryptPointer = UnsafeMutableRawPointer(mutating: cryptData!.mutableBytes)
+        // 获取接收数据的长度
+        let cryptDataLength = size_t(cryptData!.length)
+        // 加密或则解密后的数据长度
+        var cryptBytesLength:size_t = 0
+        // 是解密或者加密操作(CCOperation 是32位的)
+        let operation = encode ? CCOperation(kCCEncrypt) : CCOperation(kCCDecrypt)
+        // 算法类型
+        let algoritm: CCAlgorithm = CCAlgorithm(cryptType.infoTuple.algorithm)
+        // 设置密码的填充规则（ PKCS7 & ECB 两种填充规则）
+        let options: CCOptions = UInt32(kCCOptionPKCS7Padding) | UInt32(kCCOptionECBMode)
+        // 执行算法处理
+        let cryptStatus = CCCrypt(operation, algoritm, options, keyPointer, keyLength, encryptIVDataBytes, dataPointer, dataLength, cryptPointer, cryptDataLength, &cryptBytesLength)
+        // 结果字符串初始化
+        var resultString: String?
+        // 通过返回状态判断加密或者解密是否成功
+        if CCStatus(cryptStatus) == CCStatus(kCCSuccess) {
+            cryptData!.length = cryptBytesLength
+            if encode {
+                resultString = cryptData!.base64EncodedString(options: .lineLength64Characters)
+            } else {
+                resultString = NSString(data:cryptData! as Data ,encoding:String.Encoding.utf8.rawValue) as String?
+            }
+        }
+        return resultString
+    }
+}
+
+// MARK:- 十五、SHA1, SHA224, SHA256, SHA384, SHA512
+/**
+ - 安全哈希算法（Secure Hash Algorithm）主要适用于数字签名标准（Digital Signature Standard DSS）里面定义的数字签名算法（Digital Signature Algorithm DSA）。对于长度小于2^64位的消息，SHA1会产生一个160位的消息摘要。当接收到消息的时候，这个消息摘要可以用来验证数据的完整性。在传输的过程中，数据很可能会发生变化，那么这时候就会产生不同的消息摘要。当让除了SHA1还有SHA256以及SHA512等。
+ - SHA1有如下特性：不可以从消息摘要中复原信息；两个不同的消息不会产生同样的消息摘要
+ - SHA1 SHA256 SHA512 这4种本质都是摘要函数，不通在于长度 SHA1是160位，SHA256是256位，SHA512是512位
+ */
+// MARK: 加密类型
+public enum DDYSHAType {
+   case SHA1, SHA224, SHA256, SHA384, SHA512
+    var infoTuple: (algorithm: CCHmacAlgorithm, length: Int) {
+        switch self {
+        case .SHA1:
+            return (algorithm: CCHmacAlgorithm(kCCHmacAlgSHA1), length: Int(CC_SHA1_DIGEST_LENGTH))
+        case .SHA224:
+            return (algorithm: CCHmacAlgorithm(kCCHmacAlgSHA224), length: Int(CC_SHA224_DIGEST_LENGTH))
+        case .SHA256:
+            return (algorithm: CCHmacAlgorithm(kCCHmacAlgSHA256), length: Int(CC_SHA256_DIGEST_LENGTH))
+        case .SHA384:
+            return (algorithm: CCHmacAlgorithm(kCCHmacAlgSHA384), length: Int(CC_SHA384_DIGEST_LENGTH))
+        case .SHA512:
+            return (algorithm: CCHmacAlgorithm(kCCHmacAlgSHA512), length: Int(CC_SHA512_DIGEST_LENGTH))
+        }
+    }
+}
+
+public extension String {
+    
+    // MARK: 15.1、SHA1, SHA224, SHA256, SHA384, SHA512 加密
+    /// SHA1, SHA224, SHA256, SHA384, SHA512 加密
+    /// - Parameters:
+    ///   - cryptType: 加密类型，默认是 SHA1 加密
+    ///   - key: 加密的key
+    ///   - lower: 大写还是小写，默认小写
+    /// - Returns: 解密以后的字符串
+    func shaCrypt(cryptType: DDYSHAType = .SHA1, key: String?, lower: Bool = true) -> String? {
+        guard let cStr = self.cString(using: String.Encoding.utf8) else {
+            return nil
+        }
+        let strLen  = strlen(cStr)
+        let digLen = cryptType.infoTuple.length
+        let buffer = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: digLen)
+        let hash = NSMutableString()
+
+        if let cKey = key?.cString(using: String.Encoding.utf8), key != "" {
+            let keyLen = Int(key!.lengthOfBytes(using: String.Encoding.utf8))
+            CCHmac(cryptType.infoTuple.algorithm, cKey, keyLen, cStr, strLen, buffer)
+        } else {
+            switch cryptType {
+            case .SHA1:     CC_SHA1(cStr,   (CC_LONG)(strlen(cStr)), buffer)
+            case .SHA224:   CC_SHA224(cStr, (CC_LONG)(strlen(cStr)), buffer)
+            case .SHA256:   CC_SHA256(cStr, (CC_LONG)(strlen(cStr)), buffer)
+            case .SHA384:   CC_SHA384(cStr, (CC_LONG)(strlen(cStr)), buffer)
+            case .SHA512:   CC_SHA512(cStr, (CC_LONG)(strlen(cStr)), buffer)
+            }
+        }
+        for i in 0..<digLen {
+            if lower {
+                hash.appendFormat("%02x", buffer[i])
+            } else {
+                hash.appendFormat("%02X", buffer[i])
+            }
+        }
+        free(buffer)
+        return hash as String
     }
 }

@@ -89,3 +89,9 @@ public extension NSMutableAttributedString {
         return self
     }
 }
+
+// MARK:- 二、其他的扩展
+public extension NSMutableAttributedString {
+
+}
+ 
