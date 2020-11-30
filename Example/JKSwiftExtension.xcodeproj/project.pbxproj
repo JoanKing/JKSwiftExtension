@@ -39,6 +39,7 @@
 		8473AADA2562985B00707877 /* pika2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8473AAD82562985A00707877 /* pika2.gif */; };
 		847D4B452560DF85000DDA3C /* UIBezierPathExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D4B442560DF84000DDA3C /* UIBezierPathExtensionViewController.swift */; };
 		847D4B9625611E50000DDA3C /* UIImageExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */; };
+		847DE9552573F0B60080EEC0 /* testFile.text in Resources */ = {isa = PBXBuildFile; fileRef = 847DE9542573F0B60080EEC0 /* testFile.text */; };
 		847DFF262550F07600EEE785 /* Int64ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DFF252550F07600EEE785 /* Int64ExtensionViewController.swift */; };
 		847DFF282550F43C00EEE785 /* UIntExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DFF272550F43C00EEE785 /* UIntExtensionViewController.swift */; };
 		847DFF2A2550F5D400EEE785 /* CharacterExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DFF292550F5D400EEE785 /* CharacterExtensionViewController.swift */; };
@@ -150,6 +151,7 @@
 		8473AAD82562985A00707877 /* pika2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pika2.gif; sourceTree = "<group>"; };
 		847D4B442560DF84000DDA3C /* UIBezierPathExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtensionViewController.swift; sourceTree = "<group>"; };
 		847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensionViewController.swift; sourceTree = "<group>"; };
+		847DE9542573F0B60080EEC0 /* testFile.text */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = testFile.text; sourceTree = "<group>"; };
 		847DFF252550F07600EEE785 /* Int64ExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int64ExtensionViewController.swift; sourceTree = "<group>"; };
 		847DFF272550F43C00EEE785 /* UIntExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIntExtensionViewController.swift; sourceTree = "<group>"; };
 		847DFF292550F5D400EEE785 /* CharacterExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterExtensionViewController.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				847DE9542573F0B60080EEC0 /* testFile.text */,
 				840F884225663B24009B73DA /* girl.png */,
 				8473AAD82562985A00707877 /* pika2.gif */,
 				840F883E256637BE009B73DA /* huaban1.png */,
@@ -442,11 +445,11 @@
 		84BF16B3251D9EAB002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8482AA052553EEFF00EB0A7A /* FileManagerExtensionViewController.swift */,
 				849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */,
 				84BEA370254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift */,
 				8482AA092554075E00EB0A7A /* UIDeviceExtensionViewController.swift */,
 				8482AA072553F09900EB0A7A /* TimerExtensionViewController.swift */,
-				8482AA052553EEFF00EB0A7A /* FileManagerExtensionViewController.swift */,
 				8401537E2552B34A001AB2FD /* DictionaryExtensionViewController.swift */,
 				8401537C2552A8C3001AB2FD /* URLExtensionViewController.swift */,
 				8401537A2552A7B2001AB2FD /* DateFormatterExtensionViewController.swift */,
@@ -717,6 +720,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847DE9552573F0B60080EEC0 /* testFile.text in Resources */,
 				8483A730254C0A7F00ACF6FD /* testicon.png in Resources */,
 				8483A72C254BF0AD00ACF6FD /* JKBaseKit.bundle in Resources */,
 				840F884325663B24009B73DA /* girl.png in Resources */,

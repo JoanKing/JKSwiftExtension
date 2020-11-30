@@ -135,6 +135,12 @@ public var kTabbatBottom: CGFloat { return isIPhoneX ? 34 : 0 }
 /// 缩放比
 public let kPixel = 1.0 / UIScreen.main.scale
 
+// MARK: - 屏幕16:9比例系数下的宽高
+// 宽
+public let kScreenW16_9: CGFloat = kScreenW * 9.0 / 16.0
+// 高
+public let kScreenH16_9: CGFloat = kScreenH * 16.0 / 9.0
+
 // MARK:- 三、UIView 有关 Frame 的扩展
 extension UIView: JKPOPCompatible {}
 public extension JKPOP where Base : UIView {
