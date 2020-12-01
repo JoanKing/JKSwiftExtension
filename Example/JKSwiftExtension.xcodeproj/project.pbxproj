@@ -467,7 +467,6 @@
 				84A5D2D52547B48E003D289C /* DateExtensionViewController.swift */,
 				8483A6C9254BC02B00ACF6FD /* BundleExtensionViewController.swift */,
 				84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */,
-				84813773254A5EC100D9289C /* UIColorExtensionViewController.swift */,
 				84BF16C5251D9F8D002ACE76 /* FoundationExtensionViewController.swift */,
 			);
 			path = Controller;
@@ -498,6 +497,7 @@
 			isa = PBXGroup;
 			children = (
 				84BF16C7251D9FB6002ACE76 /* UIKitExtensionViewController.swift */,
+				84813773254A5EC100D9289C /* UIColorExtensionViewController.swift */,
 				848028072558D5A70038748A /* CALayerExtensionViewController.swift */,
 				84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */,
 				8473AABF2562889500707877 /* UIImageViewExtensionViewController.swift */,
