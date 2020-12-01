@@ -10,16 +10,16 @@ import Foundation
 import UIKit
 import CommonCrypto
 
-// MARK:- 0：字符串基本的扩展
+// MARK:- 一：字符串基本的扩展
 public extension String {
     
-    // MARK: 0.1、字符串的长度
+    // MARK: 1.1、字符串的长度
     /// 字符串的长度
     var length: Int {
         return self.count
     }
     
-    // MARK: 0.2、判断是否包含某个子串
+    // MARK: 1.2、判断是否包含某个子串
     /// 判断是否包含某个子串
     /// - Parameter find: 子串
     /// - Returns: Bool
@@ -27,7 +27,7 @@ public extension String {
         return self.range(of: find) != nil
     }
     
-    // MARK: 0.3、判断是否包含某个子串 -- 忽略大小写
+    // MARK: 1.3、判断是否包含某个子串 -- 忽略大小写
     ///  判断是否包含某个子串 -- 忽略大小写
     /// - Parameter find: 子串
     /// - Returns: Bool
@@ -35,7 +35,7 @@ public extension String {
         return self.range(of: find, options: .caseInsensitive) != nil
     }
      
-    // MARK: 0.4、字符串 Base64 编码
+    // MARK: 1.4、字符串 Base64 编码
     /// 字符串 Base64 编码
     var base64Encode: String? {
         guard let codingData = self.data(using: .utf8) else {
@@ -43,7 +43,7 @@ public extension String {
         }
         return codingData.base64EncodedString()
     }
-    // MARK: 0.5、字符串 Base64 解码
+    // MARK: 1.5、字符串 Base64 解码
     /// 字符串 Base64 编码
     var base64Decode: String? {
         guard let decryptionData = Data(base64Encoded: self, options: .ignoreUnknownCharacters) else {
@@ -52,13 +52,13 @@ public extension String {
         return String.init(data: decryptionData, encoding: .utf8)
     }
     
-    // MARK: 0.6、将16进制字符串转为Int
+    // MARK: 1.6、将16进制字符串转为Int
     /// 将16进制字符串转为Int
     var hexInt: Int {
         return Int(self, radix: 16) ?? 0
     }
     
-    // MARK: 0.7、判断是不是九宫格键盘
+    // MARK: 1.7、判断是不是九宫格键盘
     /// 判断是不是九宫格键盘
     func isNineKeyBoard() -> Bool {
         let other : NSString = "➋➌➍➎➏➐➑➒"
@@ -71,7 +71,7 @@ public extension String {
         return true
     }
     
-    // MARK: 0.8、字符串转 UIViewController
+    // MARK: 1.8、字符串转 UIViewController
     /// 字符串转 UIViewController
     /// - Returns: 对应的控制器
     @discardableResult
@@ -88,7 +88,7 @@ public extension String {
         return vc
     }
     
-    // MARK: 0.9、字符串转 AnyClass
+    // MARK: 1.9、字符串转 AnyClass
     /// 字符串转 AnyClass
     /// - Returns: 对应的 Class
     @discardableResult
@@ -103,7 +103,7 @@ public extension String {
         return Class
     }
     
-    // MARK: 0.10、字符串转数组
+    // MARK: 1.10、字符串转数组
     /// 字符串转数组
     /// - Returns: 转化后的数组
     func toArray() -> Array<Any> {
@@ -111,7 +111,7 @@ public extension String {
         return a
     }
     
-    // MARK: 0.11、JSON 字符串 ->  Dictionary
+    // MARK: 1.11、JSON 字符串 ->  Dictionary
     /// JSON 字符串 ->  Dictionary
     /// - Returns: Dictionary
     func jsonStringToDictionary() -> Dictionary<String, Any>? {
@@ -124,7 +124,7 @@ public extension String {
         return nil
     }
     
-    // MARK: 0.12、JSON 字符串 -> Array
+    // MARK: 1.12、JSON 字符串 -> Array
     /// JSON 字符串 ->  Array
     /// - Returns: Array
     func jsonStringToArray() -> Array<Any>? {
@@ -136,9 +136,41 @@ public extension String {
         }
         return nil
     }
+    
+    // MARK: 1.13、转成拼音
+    /// 转成拼音
+    /// - Parameter isLatin: true：带声调，false：不带声调，默认 false
+    /// - Returns: 拼音
+    func toPinyin(_ isTone: Bool = false) -> String {
+        let mutableString = NSMutableString(string: self)
+        CFStringTransform(mutableString, nil, kCFStringTransformToLatin, false)
+        if !isTone {
+            // 不带声调
+            CFStringTransform(mutableString, nil, kCFStringTransformStripDiacritics, false)
+        }
+        return mutableString as String
+    }
+    
+    // MARK: 1.14、提取首字母, "爱国" --> AG
+    /// 提取首字母, "爱国" --> AG
+    /// - Parameter isUpper:  true：大写首字母，false: 小写首字母，默认 true
+    /// - Returns: 字符串的首字母
+    func pinyinInitials(_ isUpper: Bool = true) -> String {
+        let pinyin = toPinyin(false).components(separatedBy: " ")
+        let initials = pinyin.compactMap { String(format: "%c", $0.cString(using:.utf8)![0]) }
+        return isUpper ? initials.joined().uppercased() : initials.joined()
+    }
+    
+    // MARK: 1.15、字符串根据某个字符进行分隔成数组
+    /// 字符串根据某个字符进行分隔成数组
+    /// - Parameter char: 字符
+    /// - Returns: 分隔后的数组
+    func separatedByString(char: String) -> Array<Any> {
+       return components(separatedBy: char)
+    }
 }
 
-// MARK:- 1、沙盒路径的获取
+// MARK:- 二、沙盒路径的获取
 /*
  - 1、Home(应用程序包)目录
  - 整个应用程序各文档所在的目录,包含了所有的资源文件和可执行文件
@@ -165,7 +197,7 @@ public extension String {
  - 保存应用运行时所需要的临时数据，使用完毕后再将相应的文件从该目录删除。应用没有运行，系统也可能会清除该目录下的文件，iTunes不会同步备份该目录
  */
 public extension String {
-    // MARK: 1.1、获取Home的完整路径名
+    // MARK: 2.1、获取Home的完整路径名
     /// 获取Home的完整路径名
     /// - Returns: Home的完整路径名
     static func homeDirectory() -> String {
@@ -174,7 +206,7 @@ public extension String {
         return homeDirectory
     }
     
-    // MARK: 1.2、获取Documnets的完整路径名
+    // MARK: 2.2、获取Documnets的完整路径名
     /// 获取Documnets的完整路径名
     /// - Returns: Documnets的完整路径名
     static func DocumnetsDirectory() -> String {
@@ -188,7 +220,7 @@ public extension String {
         return ducumentPath
     }
     
-    // MARK: 1.3、获取Library的完整路径名
+    // MARK: 2.3、获取Library的完整路径名
     /**
      这个目录下有两个子目录：Caches 和 Preferences
      Library/Preferences目录，包含应用程序的偏好设置文件。不应该直接创建偏好设置文件，而是应该使用NSUserDefaults类来取得和设置应用程序的偏好。
@@ -207,7 +239,7 @@ public extension String {
         return libraryPath
     }
     
-    // MARK: 1.4、获取/Library/Caches的完整路径名
+    // MARK: 2.4、获取/Library/Caches的完整路径名
     /// 获取/Library/Caches的完整路径名
     /// - Returns: /Library/Caches的完整路径名
     static func CachesDirectory() -> String {
@@ -216,7 +248,7 @@ public extension String {
         return cachesPath
     }
     
-    // MARK: 1.5、获取Library/Preferences的完整路径名
+    // MARK: 2.5、获取Library/Preferences的完整路径名
     /// 获取Library/Preferences的完整路径名
     /// - Returns: Library/Preferences的完整路径名
     static func PreferencesDirectory() -> String {
@@ -225,7 +257,7 @@ public extension String {
         return preferencesPath
     }
     
-    // MARK: 1.6、获取Tmp的完整路径名
+    // MARK: 2.6、获取Tmp的完整路径名
     /// 获取Tmp的完整路径名，用于存放临时文件，保存应用程序再次启动过程中不需要的信息，重启后清空。
     /// - Returns: Tmp的完整路径名
     static func TmpDirectory() -> String {
@@ -237,7 +269,7 @@ public extension String {
     }
 }
 
-// MARK:- 二、iOS CharacterSet（字符集）
+// MARK:- 三、iOS CharacterSet（字符集）
 /**
  CharacterSet是在Foundation框架下的一个结构体，用于搜索操作的一组Unicode字符值。官方的API地址：https://developer.apple.com/documentation/foundation/characterset
  概述
@@ -274,21 +306,21 @@ public extension String {
  */
 public extension String {
     
-    // MARK: 2.1、去除字符串前后的 空格
+    // MARK: 3.1、去除字符串前后的 空格
     /// 去除字符串前后的换行和换行
     var removeBeginEndAllSapcefeed: String {
         let resultString = self.trimmingCharacters(in: CharacterSet.whitespaces)
         return resultString
     }
     
-    // MARK: 2.2、去除字符串前后的 换行
+    // MARK: 3.2、去除字符串前后的 换行
     /// 去除字符串前后的 换行
     var removeBeginEndAllLinefeed: String {
         let resultString = self.trimmingCharacters(in: CharacterSet.newlines)
         return resultString
     }
     
-    // MARK: 2.3、去除字符串前后的 换行和空格
+    // MARK: 3.3、去除字符串前后的 换行和空格
     /// 去除字符串前后的 换行和空格
     var removeBeginEndAllSapceAndLinefeed: String {
         var resultString = self.trimmingCharacters(in: CharacterSet.whitespaces)
@@ -296,19 +328,19 @@ public extension String {
         return resultString
     }
     
-    // MARK: 2.4、去掉所有空格
+    // MARK: 3.4、去掉所有空格
     /// 去掉所有空格
     var removeAllSapce: String {
         return replacingOccurrences(of: " ", with: "", options: .literal, range: nil)
     }
     
-    // MARK: 2.5、去掉所有换行
+    // MARK: 3.5、去掉所有换行
     /// 去掉所有换行
     var removeAllLinefeed: String {
         return replacingOccurrences(of: "\n", with: "", options: .literal, range: nil)
     }
     
-    // MARK: 2.6、去掉所有空格 和 换行
+    // MARK: 3.6、去掉所有空格 和 换行
     /// 去掉所有的空格 和 换行
     var removeAllLineAndSapcefeed: String {
         // 去除所有的空格
@@ -318,7 +350,7 @@ public extension String {
         return resultString
     }
     
-    // MARK: 2.7、是否是 0-9 的数字，也不包含小数点
+    // MARK: 3.7、是否是 0-9 的数字，也不包含小数点
     /// 是否是 0-9 的数字，也不包含小数点
     /// - Returns: 结果
     func isValidNumber() -> Bool {
@@ -330,14 +362,14 @@ public extension String {
         return true
     }
     
-    // MARK: 2.8、url进行编码
+    // MARK: 3.8、url进行编码
     /// url 进行编码
     /// - Returns: 返回对应的URL
     func urlValidate() -> URL {
         return URL(string: self.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed) ?? "")!
     }
     
-    // MARK: 2.9、某个字符使用某个字符替换掉
+    // MARK: 3.9、某个字符使用某个字符替换掉
     /// 某个字符使用某个字符替换掉
     /// - Parameters:
     ///   - removeString: 原始字符
@@ -347,7 +379,7 @@ public extension String {
         return replacingOccurrences(of: removeString, with: replacingString)
     }
     
-    // MARK: 2.10、使用正则表达式替换某些子串
+    // MARK: 3.10、使用正则表达式替换某些子串
     /// 使用正则表达式替换
     /// - Parameters:
     ///   - pattern: 正则
@@ -362,7 +394,7 @@ public extension String {
                                               withTemplate: with)
     }
     
-    // MARK: 2.11、删除指定的字符
+    // MARK: 3.11、删除指定的字符
     /// 删除指定的字符
     /// - Parameter characterString: 指定的字符
     /// - Returns: 返回删除后的字符
@@ -372,10 +404,10 @@ public extension String {
     }
 }
 
-// MARK:- 三、字符串的转换
+// MARK:- 四、字符串的转换
 public extension String {
     
-    // MARK: 3.1、字符串 转 CGFloat
+    // MARK: 4.1、字符串 转 CGFloat
     /// 字符串 转 Float
     /// - Returns: CGFloat
     func toCGFloat() -> CGFloat? {
@@ -385,7 +417,7 @@ public extension String {
         return nil
     }
     
-    // MARK: 3.2、字符串转 bool
+    // MARK: 4.2、字符串转 bool
     /// 字符串转 bool
     var bool: Bool? {
         switch self.lowercased() {
@@ -398,7 +430,7 @@ public extension String {
         }
     }
     
-    // MARK: 3.3、字符串转 Int
+    // MARK: 4.3、字符串转 Int
     /// 字符串转 Int
     /// - Returns: Int
     func toInt() -> Int? {
@@ -409,7 +441,7 @@ public extension String {
         }
     }
     
-    // MARK: 3.4、字符串转 Double
+    // MARK: 4.4、字符串转 Double
     /// 字符串转 Double
     /// - Returns: Double
     func toDouble() -> Double? {
@@ -420,7 +452,7 @@ public extension String {
         }
     }
     
-    // MARK: 3.5、字符串转 Float
+    // MARK: 4.5、字符串转 Float
     /// 字符串转 Float
     /// - Returns: Float
     func toFloat() -> Float? {
@@ -431,7 +463,7 @@ public extension String {
         }
     }
     
-    // MARK: 3.6、字符串转 Bool
+    // MARK: 4.6、字符串转 Bool
     /// 字符串转 Bool
     /// - Returns: Bool
     func toBool() -> Bool? {
@@ -442,29 +474,29 @@ public extension String {
         return nil
     }
     
-    // MARK: 3.7、字符串转 NSString
+    // MARK: 4.7、字符串转 NSString
     /// 字符串转 NSString
     var toNSString: NSString {
         return self as NSString
     }
     
-    // MARK: 3.8、字符串转 Int64
+    // MARK: 4.8、字符串转 Int64
     /// 字符串转 Int64
     var toInt64Value: Int64 {
         return Int64(self) ?? 0
     }
     
-    // MARK: 3.9、字符串转 NSNumber
+    // MARK: 4.9、字符串转 NSNumber
     /// 字符串转 NSNumber
     var toNumber: NSNumber? {
         return self.toDouble()?.number
     }
 }
 
-// MARK:- 四、字符串UI的处理
+// MARK:- 五、字符串UI的处理
 extension String {
     
-    // MARK: 4.1、对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)
+    // MARK: 5.1、对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)
     /// 对字符串(多行)指定出字体大小和最大的 Size，获取展示的 Size
     /// - Parameters:
     ///   - font: 字体大小
@@ -484,7 +516,7 @@ extension String {
         return rect.size
     }
     
-    // MARK: 4.2、对字符串(多行)指定字体及Size，获取 (高度)
+    // MARK: 5.2、对字符串(多行)指定字体及Size，获取 (高度)
     /// 对字符串指定字体及Size，获取 (高度)
     /// - Parameters:
     ///   - font: 字体的大小
@@ -494,7 +526,7 @@ extension String {
         return rectSize(font: font, size: size).height
     }
     
-    // MARK: 4.3、对字符串(多行)指定字体及Size，获取 (宽度)
+    // MARK: 5.3、对字符串(多行)指定字体及Size，获取 (宽度)
     /// 对字符串指定字体及Size，获取 (宽度)
     /// - Parameters:
     ///   - font: 字体的大小
@@ -504,7 +536,7 @@ extension String {
         return rectSize(font: font, size: size).width
     }
     
-    // MARK: 4.4、对字符串(单行)指定字体，获取 (Size)
+    // MARK: 5.4、对字符串(单行)指定字体，获取 (Size)
     /// 对字符串(单行)指定字体，获取 (Size)
     /// - Parameter font: 字体的大小
     /// - Returns: 返回单行字符串的 size
@@ -513,7 +545,7 @@ extension String {
         return self.size(withAttributes: attrs as [NSAttributedString.Key: Any])
     }
     
-    // MARK: 4.5、对字符串(单行)指定字体，获取 (width)
+    // MARK: 5.5、对字符串(单行)指定字体，获取 (width)
     /// 对字符串(单行)指定字体，获取 (width)
     /// - Parameter font: 字体的大小
     /// - Returns: 返回单行字符串的 width
@@ -522,7 +554,7 @@ extension String {
         return self.size(withAttributes: attrs as [NSAttributedString.Key: Any]).width
     }
     
-    // MARK: 4.6、对字符串(单行)指定字体，获取 (Height)
+    // MARK: 5.6、对字符串(单行)指定字体，获取 (Height)
     /// 对字符串(单行)指定字体，获取 (height)
     /// - Parameter font: 字体的大小
     /// - Returns: 返回单行字符串的 height
@@ -531,7 +563,7 @@ extension String {
         return self.size(withAttributes: attrs as [NSAttributedString.Key: Any]).height
     }
     
-    // MARK: 4.7、字符串通过 label 根据高度&字体 —> Size
+    // MARK: 5.7、字符串通过 label 根据高度&字体 —> Size
     /// 字符串通过 label 根据高度&字体 ——> Size
     /// - Parameters:
     ///   - height: 字符串最大的高度
@@ -544,7 +576,7 @@ extension String {
         return label.sizeThatFits(rect.size)
     }
     
-    // MARK: 4.8、字符串通过 label 根据高度&字体 —> Width
+    // MARK: 5.8、字符串通过 label 根据高度&字体 —> Width
     /// 字符串通过 label 根据高度&字体 ——> Width
     /// - Parameters:
     ///   - height: 字符串最大高度
@@ -557,7 +589,7 @@ extension String {
         return label.sizeThatFits(rect.size).width
     }
     
-    // MARK: 4.9、字符串通过 label 根据宽度&字体 —> height
+    // MARK: 5.9、字符串通过 label 根据宽度&字体 —> height
     /// 字符串通过 label 根据宽度&字体 ——> height
     /// - Parameters:
     ///   - width: 字符串最大宽度
@@ -570,7 +602,7 @@ extension String {
         return label.sizeThatFits(rect.size).height
     }
     
-    // MARK: 4.10、字符串根据宽度 & 字体 & 行间距 —> Size
+    // MARK: 5.10、字符串根据宽度 & 字体 & 行间距 —> Size
     /// 字符串根据宽度 & 字体 & 行间距 ——> Size
     /// - Parameters:
     ///   - width: 字符串最大的宽度
@@ -590,7 +622,7 @@ extension String {
         return label.sizeThatFits(rect.size)
     }
     
-    // MARK: 4.11、字符串根据宽度 & 字体 & 行间距 —> width
+    // MARK: 5.11、字符串根据宽度 & 字体 & 行间距 —> width
     /// 字符串根据宽度 & 字体 & 行间距 ——> width
     /// - Parameters:
     ///   - width: 字符串最大的宽度
@@ -610,7 +642,7 @@ extension String {
         return label.sizeThatFits(rect.size).width
     }
     
-    // MARK: 4.12、字符串根据宽度 & 字体 & 行间距 —> height
+    // MARK: 5.12、字符串根据宽度 & 字体 & 行间距 —> height
     /// 字符串根据宽度 & 字体 & 行间距 ——> height
     /// - Parameters:
     ///   - width: 字符串最大的宽度
@@ -631,15 +663,14 @@ extension String {
     }
 }
 
-
-// MARK:- 五、字符串有关数字方面的扩展
+// MARK:- 六、字符串有关数字方面的扩展
 public enum StringCutType {
     case normal, auto
 }
 
 public extension String {
     
-    // MARK: 5.1、将金额字符串转化为带逗号的金额 按照千分位划分，如  "1234567" => 1,234,567   1234567.56 => 1,234,567.56
+    // MARK: 6.1、将金额字符串转化为带逗号的金额 按照千分位划分，如  "1234567" => 1,234,567   1234567.56 => 1,234,567.56
     /// 将金额字符串转化为带逗号的金额 按照千分位划分，如  "1234567" => 1,234,567   1234567.56 => 1,234,567.56
     /// - Returns: 千分位的字符串
     func toThousands() -> String? {
@@ -661,7 +692,7 @@ public extension String {
         return result
     }
     
-    // MARK: 5.2、字符串差不多精确转换成Double——之所以差不多，是因为有精度损失
+    // MARK: 6.2、字符串差不多精确转换成Double——之所以差不多，是因为有精度损失
     /// - Important: 字符串差不多精确转换成Double——之所以差不多，是因为有精度损失
     func accuraterDouble() -> Double? {
         guard let decimal = Decimal(string: self) else { return nil }
@@ -669,7 +700,7 @@ public extension String {
         return NSDecimalNumber(decimal: decimal).doubleValue
     }
     
-    // MARK: 5.3、去掉小数点后多余的0
+    // MARK: 6.3、去掉小数点后多余的0
     /// 去掉小数点后多余的0
     /// - Returns: 返回小数点后没有 0 的金额
     func cutLastZeroAfterDot() -> String {
@@ -693,7 +724,7 @@ public extension String {
         }
     }
     
-    // MARK: 5.4、将数字的字符串处理成  几位 位小数的情况
+    // MARK: 6.4、将数字的字符串处理成  几位 位小数的情况
     /// 将数字的字符串处理成  几位 位小数的情况
     /// - Parameters:
     ///   - numberDecimal: 保留几位小数
@@ -731,7 +762,7 @@ public extension String {
     }
 }
 
-// MARK:- 六、苹果针对浮点类型计算精度问题提供出来的计算类
+// MARK:- 七、苹果针对浮点类型计算精度问题提供出来的计算类
 /// NSDecimalNumberHandler 苹果针对浮点类型计算精度问题提供出来的计算类
 /**
  初始化方法
@@ -751,7 +782,7 @@ public extension String {
  }
  */
 extension String {
-    // MARK: 6.1、＋
+    // MARK: 7.1、＋
     /// ＋
     /// - Parameter strNumber: strNumber description
     /// - Returns: description
@@ -768,7 +799,7 @@ extension String {
         return final.stringValue
     }
     
-    // MARK: 6.2、－
+    // MARK: 7.2、－
     /// －
     /// - Parameter strNumber: strNumber description
     /// - Returns: description
@@ -785,7 +816,7 @@ extension String {
         return final.stringValue
     }
     
-    // MARK: 6.3、*
+    // MARK: 7.3、*
     /// ✖️
     /// - Parameter strNumber: strNumber description
     /// - Returns: description
@@ -802,7 +833,7 @@ extension String {
         return final.stringValue
     }
     
-    // MARK: 6.4、/
+    // MARK: 7.4、/
     /// ➗
     /// - Parameter strNumber: strNumber description
     /// - Returns: description
@@ -823,10 +854,10 @@ extension String {
     }
 }
 
-// MARK:- 七、字符串包含表情的处理
+// MARK:- 八、字符串包含表情的处理
 extension String {
     
-    // MARK: 7.1.1、检查字符串是否包含 Emoji 表情
+    // MARK: 8.1、检查字符串是否包含 Emoji 表情
     /// 检查字符串是否包含 Emoji 表情
     /// - Returns: bool
     public func containsEmoji() -> Bool {
@@ -846,7 +877,7 @@ extension String {
         return false
     }
     
-    // MARK: 7.1.2、检查字符串是否包含 Emoji 表情
+    // MARK: 8.2、检查字符串是否包含 Emoji 表情
     /// 检查字符串是否包含 Emoji 表情
     /// - Returns: bool
     public func includesEmoji() -> Bool {
@@ -859,7 +890,7 @@ extension String {
         return false
     }
     
-    // MARK: 7.2、去除字符串中的Emoji表情
+    // MARK: 8.3、去除字符串中的Emoji表情
     /// 去除字符串中的Emoji表情
     /// - Parameter text: 字符串
     /// - Returns: 去除Emoji表情后的字符串
@@ -877,16 +908,16 @@ extension String {
     }
 }
 
-// MARK:- 八、字符串的一些正则校验
+// MARK:- 九、字符串的一些正则校验
 extension String {
     
-    // MARK: 8.1、判断是否全是空白,包括空白字符和换行符号，长度为0返回true
+    // MARK: 9.1、判断是否全是空白,包括空白字符和换行符号，长度为0返回true
     /// 判断是否全是空白,包括空白字符和换行符号，长度为0返回true
     public var isBlank: Bool {
         return trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines) == ""
     }
     
-    // MARK: 8.2、判断是否全十进制数字，长度为0返回false
+    // MARK: 9.2、判断是否全十进制数字，长度为0返回false
     /// 判断是否全十进制数字，长度为0返回false
     public var isDecimalDigits: Bool {
         if isEmpty {
@@ -896,7 +927,7 @@ extension String {
         return trimmingCharacters(in: NSCharacterSet.decimalDigits) == ""
     }
     
-    // MARK: 8.3、判断是否是整数
+    // MARK: 9.3、判断是否是整数
     /// 判断是否是整数
     public var isPureInt: Bool {
         let scan: Scanner = Scanner(string: self)
@@ -904,7 +935,7 @@ extension String {
         return scan.scanInt(&n) && scan.isAtEnd
     }
     
-    // MARK: 8.4、判断是否是Float,此处Float是包含Int的，即Int是特殊的Float
+    // MARK: 9.4、判断是否是Float,此处Float是包含Int的，即Int是特殊的Float
     /// 判断是否是Float，此处Float是包含Int的，即Int是特殊的Float
     public var isPureFloat: Bool {
         let scan: Scanner = Scanner(string: self)
@@ -912,7 +943,7 @@ extension String {
         return scan.scanFloat(&n) && scan.isAtEnd
     }
     
-    // MARK: 8.5、判断是否全是字母，长度为0返回false
+    // MARK: 9.5、判断是否全是字母，长度为0返回false
     /// 判断是否全是字母，长度为0返回false
     public var isLetters: Bool {
         if isEmpty {
@@ -921,7 +952,7 @@ extension String {
         return trimmingCharacters(in: NSCharacterSet.letters) == ""
     }
     
-    // MARK: 8.6、判断是否是中文, 这里的中文不包括数字及标点符号
+    // MARK: 9.6、判断是否是中文, 这里的中文不包括数字及标点符号
     /// 判断是否是中文, 这里的中文不包括数字及标点符号
     public var isChinese: Bool {
         let mobileRgex = "(^[\u{4e00}-\u{9fef}]+$)"
@@ -929,7 +960,7 @@ extension String {
         return checker.evaluate(with: self)
     }
     
-    // MARK: 8.7、是否是有效昵称，即允许“中文”、“英文”、“数字”
+    // MARK: 9.7、是否是有效昵称，即允许“中文”、“英文”、“数字”
     /// 是否是有效昵称，即允许“中文”、“英文”、“数字”
     public var isValidNickName: Bool {
         let rgex = "(^[\u{4e00}-\u{9faf}_a-zA-Z0-9]+$)"
@@ -937,7 +968,7 @@ extension String {
         return checker.evaluate(with: self)
     }
     
-    // MARK: 8.8、判断是否是有效的手机号码
+    // MARK: 9.8、判断是否是有效的手机号码
     /// 判断是否是有效的手机号码
     public var isValidMobile: Bool {
         let mobileRgex = "^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199)\\d{8}$"
@@ -945,7 +976,7 @@ extension String {
         return checker.evaluate(with: self)
     }
     
-    // MARK: 8.9、判断是否是有效的电子邮件地址
+    // MARK: 9.9、判断是否是有效的电子邮件地址
     /// 判断是否是有效的电子邮件地址
     public var isValidEmail: Bool {
         let mobileRgex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
@@ -953,7 +984,7 @@ extension String {
         return checker.evaluate(with: self)
     }
     
-    // MARK: 8.10、判断是否有效的身份证号码，不是太严格
+    // MARK: 9.10、判断是否有效的身份证号码，不是太严格
     /// 判断是否有效的身份证号码，不是太严格
     public var isValidIDCardNumber: Bool {
         let mobileRgex = "^(\\d{15})|((\\d{17})(\\d|[X]))$"
@@ -961,7 +992,7 @@ extension String {
         return checker.evaluate(with: self)
     }
     
-    // MARK: 8.11、严格判断是否有效的身份证号码,检验了省份，生日，校验位，不过没检查市县的编码
+    // MARK: 9.11、严格判断是否有效的身份证号码,检验了省份，生日，校验位，不过没检查市县的编码
     /// 严格判断是否有效的身份证号码,检验了省份，生日，校验位，不过没检查市县的编码
     public var isValidIDCardNumStrict: Bool {
         let str = trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
@@ -1042,7 +1073,7 @@ extension String {
         }
     }
     
-    // MARK: 8.12、校验字符串位置是否合理，并返回String.Index
+    // MARK: 9.12、校验字符串位置是否合理，并返回String.Index
     /// 校验字符串位置是否合理，并返回String.Index
     /// - Parameter original: 位置
     /// - Returns: String.Index
@@ -1057,7 +1088,7 @@ extension String {
         }
     }
     
-    // MARK: 8.13、隐藏手机号中间的几位
+    // MARK: 9.13、隐藏手机号中间的几位
     /// 隐藏手机号中间的几位
     /// - Parameter combine: 隐藏的字符串(替换的类型)
     /// - Returns: 返回隐藏的手机号
@@ -1089,10 +1120,10 @@ extension String {
     }
 }
 
-// MARK:- 九、字符串截取的操作
+// MARK:- 十、字符串截取的操作
 extension String {
     
-    // MARK: 9.1、截取字符串从开始到 index
+    // MARK: 10.1、截取字符串从开始到 index
     /// 截取字符串从开始到 index
     /// - Parameter index: 截取到的位置
     /// - Returns: 截取后的字符串
@@ -1101,7 +1132,7 @@ extension String {
         return String(self[startIndex ..< end_Index])
     }
     
-    // MARK: 9.2、截取字符串从index到结束
+    // MARK: 10.2、截取字符串从index到结束
     /// 截取字符串从index到结束
     /// - Parameter index: 截取结束的位置
     /// - Returns: 截取后的字符串
@@ -1110,7 +1141,7 @@ extension String {
         return String(self[start_index ..< endIndex])
     }
     
-    // MARK: 9.3、获取指定位置和长度的字符串
+    // MARK: 10.3、获取指定位置和长度的字符串
     /// 获取指定位置和大小的字符串
     /// - Parameters:
     ///   - start: 开始位置
@@ -1127,7 +1158,7 @@ extension String {
         return String(self[range]) // .substring(with:range)
     }
     
-    // MARK: 9.4、切割字符串(区间范围 前闭后开)
+    // MARK: 10.4、切割字符串(区间范围 前闭后开)
     /**
      CountableClosedRange：可数的闭区间，如 0...2
      CountableRange：可数的开区间，如 0..<2
@@ -1150,7 +1181,7 @@ extension String {
         return String(self[startIndex ..< endIndex])
     }
     
-    // MARK: 9.5、用整数返回子字符串开始的位置
+    // MARK: 10.5、用整数返回子字符串开始的位置
     /// 用整数返回子字符串开始的位置
     /// - Parameter sub: 字符串
     /// - Returns: 返回字符串的位置
@@ -1167,16 +1198,16 @@ extension String {
         return pos
     }
     
-    // MARK: 9.6、获取某个位置的字符串
+    // MARK: 10.6、获取某个位置的字符串
     public func indexString(index: Int) -> String  {
         return slice((index..<index + 1))
     }
 }
 
-// MARK:- 十、字符串编码的处理
+// MARK:- 十一、字符串编码的处理
 extension String {
     
-    // MARK: 10.1、特殊字符编码处理urlEncoded
+    // MARK: 11.1、特殊字符编码处理urlEncoded
     /// url编码 默认urlQueryAllowed
     public func urlEncoding(characters: CharacterSet = .urlQueryAllowed) -> String {
         let encodeUrlString = self.addingPercentEncoding(withAllowedCharacters:
@@ -1184,7 +1215,7 @@ extension String {
         return encodeUrlString ?? ""
     }
     
-    // MARK:- 10.2、url编码 Alamofire AFNetworking 处理方式 推荐使用
+    // MARK: 11.2、url编码 Alamofire AFNetworking 处理方式 推荐使用
     /// url编码 Alamofire AFNetworking 处理方式 推荐使用
     public var urlEncoded: String {
         // does not include "?" or "/" due to RFC 3986 - Section 3.4
@@ -1198,7 +1229,7 @@ extension String {
         return encodeUrlString ?? ""
     }
     
-    // MARK: 10.3、url编码 会对所有特殊字符做编码  特殊情况下使用
+    // MARK: 11.3、url编码 会对所有特殊字符做编码  特殊情况下使用
     /// url编码 会对所有特殊字符做编码  特殊情况下使用
     public var urlAllEncoded: String {
         let generalDelimitersToEncode = ":#[]@" // does not include "?" or "/" due to RFC 3986 - Section 3.4
@@ -1212,7 +1243,7 @@ extension String {
     }
 }
 
-// MARK:- 十一、进制之间的转换
+// MARK:- 十二、进制之间的转换
 /*
  Binary：      二进制
  Octal：       八进制
@@ -1221,7 +1252,7 @@ extension String {
  */
 public extension String {
     
-    // MARK: 11.1、二进制 -> 八进制
+    // MARK: 12.1、二进制 -> 八进制
     /// 二进制 ->转 八进制
     /// - Returns: 八进制
     func binaryToOctal() -> String {
@@ -1233,7 +1264,7 @@ public extension String {
         return decimal.decimalToOctal()
     }
     
-    // MARK: 11.2、二进制 -> 十进制
+    // MARK: 12.2、二进制 -> 十进制
     /// 二进制 -> 十进制
     /// - Returns: 十进制
     func binaryTodecimal() -> String {
@@ -1247,7 +1278,7 @@ public extension String {
         return "\(sum)"
     }
     
-    // MARK: 11.3、二进制 转 十六进制
+    // MARK: 12.3、二进制 转 十六进制
     /// 二进制  ->  十六进制
     /// - Returns: 十六进制
     func binaryToHexadecimal() -> String {
@@ -1259,7 +1290,7 @@ public extension String {
         return decimal.decimalToHexadecimal()
     }
     
-    // MARK: 11.4、八进制 -> 二进制
+    // MARK: 12.4、八进制 -> 二进制
     /// 八进制 -> 二进制
     /// - Returns: 二进制
     func octalTobinary() -> String {
@@ -1271,7 +1302,7 @@ public extension String {
         return decimal.decimalToBinary()
     }
     
-    // MARK: 11.5、八进制 -> 十进制
+    // MARK: 12.5、八进制 -> 十进制
     /// 八进制 -> 十进制
     /// - Returns: 十进制
     func octalTodecimal() -> String {
@@ -1285,7 +1316,7 @@ public extension String {
         return "\(sum)"
     }
     
-    // MARK: 11.6、八进制 -> 十六进制
+    // MARK: 12.6、八进制 -> 十六进制
     /// 八进制 -> 十六进制
     /// - Returns: 十六进制
     func octalToHexadecimal() -> String {
@@ -1297,7 +1328,7 @@ public extension String {
         return decimal.decimalToHexadecimal()
     }
     
-    // MARK: 11.7、十进制 -> 二进制
+    // MARK: 12.7、十进制 -> 二进制
     /// 十进制 -> 二进制
     /// - Returns: 二进制
     func decimalToBinary() -> String {
@@ -1312,7 +1343,7 @@ public extension String {
         return str
     }
     
-    // MARK: 11.8、十进制 -> 八进制
+    // MARK: 12.8、十进制 -> 八进制
     /// 十进制 -> 八进制
     /// - Returns: 八进制
     func decimalToOctal() -> String {
@@ -1333,7 +1364,7 @@ public extension String {
         return String(format: "%0O", decimal)
     }
     
-    // MARK: 11.9、十进制 -> 十六进制
+    // MARK: 12.9、十进制 -> 十六进制
     /// 十进制 -> 十六进制
     /// - Returns: 十六进制
     func decimalToHexadecimal() -> String {
@@ -1343,7 +1374,7 @@ public extension String {
         return String(format: "%0X", decimal)
     }
     
-    // MARK: 11.10、十六进制 -> 二进制
+    // MARK: 12.10、十六进制 -> 二进制
     /// 十六进制  -> 二进制
     /// - Returns: 二进制
     func hexadecimalToBinary() -> String {
@@ -1355,7 +1386,7 @@ public extension String {
         return decimal.decimalToBinary()
     }
     
-    // MARK: 11.11、十六进制 -> 八进制
+    // MARK: 12.11、十六进制 -> 八进制
     /// 十六进制  -> 八进制
     /// - Returns: 八进制
     func hexadecimalToOctal() -> String {
@@ -1367,7 +1398,7 @@ public extension String {
         return decimal.decimalToOctal()
     }
     
-    // MARK: 11.12、十六进制 -> 十进制
+    // MARK: 12.12、十六进制 -> 十进制
     /// 十六进制  -> 十进制
     /// - Returns: 十进制
     func hexadecimalToDecimal() -> String {
@@ -1385,10 +1416,10 @@ public extension String {
     }
 }
 
-// MARK:- 十二、String -> NSMutableAttributedString
+// MARK:- 十三、String -> NSMutableAttributedString
 public extension String {
     
-    // MARK: 12.1、String 添加颜色后转 NSMutableAttributedString
+    // MARK: 13.1、String 添加颜色后转 NSMutableAttributedString
     /// String 添加颜色后转 NSMutableAttributedString
     /// - Parameter color: 背景色
     /// - Returns: NSMutableAttributedString
@@ -1397,7 +1428,7 @@ public extension String {
         return attributedText
     }
     
-    // MARK: 12.2、String 添加 font 后转 NSMutableAttributedString
+    // MARK: 13.2、String 添加 font 后转 NSMutableAttributedString
     /// String 添加 font 后转 NSMutableAttributedString
     /// - Parameter font: 字体的大小
     /// - Returns: NSMutableAttributedString
@@ -1406,7 +1437,7 @@ public extension String {
         return attributedText
     }
     
-    // MARK: 12.3、String 添加 font 后转 NSMutableAttributedString
+    // MARK: 13.3、String 添加 font 后转 NSMutableAttributedString
     /// String 添加 UIFont 后转 NSMutableAttributedString
     /// - Parameter font: UIFont
     /// - Returns: NSMutableAttributedString
@@ -1415,7 +1446,7 @@ public extension String {
         return attributedText
     }
     
-    // MARK: 12.4、String 添加 text 后转 NSMutableAttributedString
+    // MARK: 13.4、String 添加 text 后转 NSMutableAttributedString
     /// String 添加 text 后转 NSMutableAttributedString
     /// - Returns: NSMutableAttributedString
     func text() -> NSMutableAttributedString {
@@ -1423,7 +1454,7 @@ public extension String {
         return attributedText
     }
     
-    // MARK: 12.5、String 添加 删除线 后转 NSMutableAttributedString
+    // MARK: 13.5、String 添加 删除线 后转 NSMutableAttributedString
     /// String 添加 删除线 后转 NSMutableAttributedString
     /// - Returns: NSMutableAttributedString
     func strikethrough() -> NSMutableAttributedString {
@@ -1432,7 +1463,7 @@ public extension String {
     }
 }
 
-// MARK:- 十三、MD5 加密 和 Base64 编解码
+// MARK:- 十四、MD5 加密 和 Base64 编解码
 /**
  单向散列函数，又被称为消息摘要函数（message digest function），哈希函数
  输出的散列值，也被称为消息摘要（message digest）、指纹（fingerprint）
@@ -1461,7 +1492,7 @@ public extension String {
         case uppercase16
     }
     
-    // MARK: 13.1、MD5加密 默认是32位小写加密
+    // MARK: 14.1、MD5加密 默认是32位小写加密
     /// MD5加密 默认是32位小写加密
     /// - Parameter md5Type: 加密类型
     /// - Returns: MD5加密后的字符串
@@ -1500,7 +1531,7 @@ public extension String {
         }
     }
 
-    // MARK: 13.2、Base64 编解码
+    // MARK: 14.2、Base64 编解码
     /// Base64 编解码
     /// - Parameter encode: true:编码 false:解码
     /// - Returns: 编解码结果
@@ -1510,7 +1541,7 @@ public extension String {
             guard let decryptionData = Data(base64Encoded: self, options: .ignoreUnknownCharacters) else {
                 return nil
             }
-            return String.init(data: decryptionData, encoding: .utf8)
+            return String(data: decryptionData, encoding: .utf8)
         }
         
         // 2.编码
@@ -1521,7 +1552,7 @@ public extension String {
     }
 }
 
-// MARK:- 十四、AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
+// MARK:- 十五、AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
 /**
  iOS中填充规则PKCS7,加解密模式ECB(无补码,CCCrypt函数中对应的nil),字符集UTF8,输出base64(可以自己改hex)
  */
@@ -1551,7 +1582,7 @@ public enum DDYSCAType {
 
 public extension String {
     
-    // MARK: 14.1、字符串 AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
+    // MARK: 15.1、字符串 AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
     /// 字符串 AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
     /// - Parameters:
     ///   - cryptType: 加密类型
@@ -1610,7 +1641,7 @@ public extension String {
     }
 }
 
-// MARK:- 十五、SHA1, SHA224, SHA256, SHA384, SHA512
+// MARK:- 十六、SHA1, SHA224, SHA256, SHA384, SHA512
 /**
  - 安全哈希算法（Secure Hash Algorithm）主要适用于数字签名标准（Digital Signature Standard DSS）里面定义的数字签名算法（Digital Signature Algorithm DSA）。对于长度小于2^64位的消息，SHA1会产生一个160位的消息摘要。当接收到消息的时候，这个消息摘要可以用来验证数据的完整性。在传输的过程中，数据很可能会发生变化，那么这时候就会产生不同的消息摘要。当让除了SHA1还有SHA256以及SHA512等。
  - SHA1有如下特性：不可以从消息摘要中复原信息；两个不同的消息不会产生同样的消息摘要
@@ -1637,7 +1668,7 @@ public enum DDYSHAType {
 
 public extension String {
     
-    // MARK: 15.1、SHA1, SHA224, SHA256, SHA384, SHA512 加密
+    // MARK: 16.1、SHA1, SHA224, SHA256, SHA384, SHA512 加密
     /// SHA1, SHA224, SHA256, SHA384, SHA512 加密
     /// - Parameters:
     ///   - cryptType: 加密类型，默认是 SHA1 加密

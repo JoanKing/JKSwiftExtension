@@ -18,6 +18,8 @@ class FileManagerExtensionViewController: BaseViewController {
         
         print("根目录的路径：\(FileManager.homeDirectory())")
     }
+    
+    
 }
 
 // MARK:- 二、文件以及文件夹的操作 扩展
