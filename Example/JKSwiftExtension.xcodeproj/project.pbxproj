@@ -75,6 +75,7 @@
 		84A6FB77255A655700057839 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6FB76255A655700057839 /* BaseNavigationViewController.swift */; };
 		84A6FB79255A65EC00057839 /* UIButtonExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6FB78255A65EC00057839 /* UIButtonExtensionViewController.swift */; };
 		84A8FEFF2534598A00830EAF /* ArrayExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */; };
+		84B4440A2575E8AD00D3DD1D /* DataExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B444092575E8AD00D3DD1D /* DataExtensionViewController.swift */; };
 		84BEA371254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BEA370254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift */; };
 		84BEA373254FAC6600CA8A75 /* UIFontExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BEA372254FAC6600CA8A75 /* UIFontExtensionViewController.swift */; };
 		84BEA379254FD78E00CA8A75 /* FloatExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BEA378254FD78E00CA8A75 /* FloatExtensionViewController.swift */; };
@@ -187,6 +188,7 @@
 		84A6FB76255A655700057839 /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
 		84A6FB78255A65EC00057839 /* UIButtonExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensionViewController.swift; sourceTree = "<group>"; };
 		84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensionViewController.swift; sourceTree = "<group>"; };
+		84B444092575E8AD00D3DD1D /* DataExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensionViewController.swift; sourceTree = "<group>"; };
 		84BEA370254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensionViewController.swift; sourceTree = "<group>"; };
 		84BEA372254FAC6600CA8A75 /* UIFontExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensionViewController.swift; sourceTree = "<group>"; };
 		84BEA378254FD78E00CA8A75 /* FloatExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatExtensionViewController.swift; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 			children = (
 				8482AA052553EEFF00EB0A7A /* FileManagerExtensionViewController.swift */,
 				849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */,
+				84B444092575E8AD00D3DD1D /* DataExtensionViewController.swift */,
 				84BEA370254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift */,
 				8482AA092554075E00EB0A7A /* UIDeviceExtensionViewController.swift */,
 				8482AA072553F09900EB0A7A /* TimerExtensionViewController.swift */,
@@ -467,7 +470,6 @@
 				84A5D2D52547B48E003D289C /* DateExtensionViewController.swift */,
 				8483A6C9254BC02B00ACF6FD /* BundleExtensionViewController.swift */,
 				84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */,
-				84813773254A5EC100D9289C /* UIColorExtensionViewController.swift */,
 				84BF16C5251D9F8D002ACE76 /* FoundationExtensionViewController.swift */,
 			);
 			path = Controller;
@@ -498,6 +500,7 @@
 			isa = PBXGroup;
 			children = (
 				84BF16C7251D9FB6002ACE76 /* UIKitExtensionViewController.swift */,
+				84813773254A5EC100D9289C /* UIColorExtensionViewController.swift */,
 				848028072558D5A70038748A /* CALayerExtensionViewController.swift */,
 				84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */,
 				8473AABF2562889500707877 /* UIImageViewExtensionViewController.swift */,
@@ -880,6 +883,7 @@
 				8482AA0A2554075E00EB0A7A /* UIDeviceExtensionViewController.swift in Sources */,
 				84D9BDCD25652D8C00D92461 /* TestView.swift in Sources */,
 				84058C972554FA44007F0C30 /* UIViewExtensionViewController.swift in Sources */,
+				84B4440A2575E8AD00D3DD1D /* DataExtensionViewController.swift in Sources */,
 				848028082558D5A70038748A /* CALayerExtensionViewController.swift in Sources */,
 				8418FB99255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift in Sources */,
 				847DFF262550F07600EEE785 /* Int64ExtensionViewController.swift in Sources */,

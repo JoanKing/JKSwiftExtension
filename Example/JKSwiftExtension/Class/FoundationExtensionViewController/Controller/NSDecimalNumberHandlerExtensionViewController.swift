@@ -25,7 +25,7 @@ extension NSDecimalNumberHandlerExtensionViewController {
     // MARK: 1.1、向下取整取倍数
     @objc func test11() {
         
-        print("结果：\(NSDecimalNumberHandler.getFloorValue(value1: 47.05, value2: 0.05))")
+        print("结果：\(NSDecimalNumberHandler.getFloorValue(value1: 2.911111, value2: 0.5))")
         
     }
 }

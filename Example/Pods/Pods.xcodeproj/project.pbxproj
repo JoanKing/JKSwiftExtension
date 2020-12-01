@@ -214,7 +214,6 @@
 		671650B5306AC075C470A221F076DED0 /* MJRefreshBackNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = F41B35F84D7478F29714538295AB57DF /* MJRefreshBackNormalFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		673784209C8131FE414A07B424982C36 /* NSDecimalNumberHandler+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ED9F75F14A8E0E19DF02822DB272D0 /* NSDecimalNumberHandler+Extension.swift */; };
 		6797FA90BF2145F3575358E2BF49B4F5 /* UIButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E5163DB6C8647D954CE366A8FB3645 /* UIButton+Rx.swift */; };
-		684D465E3C5D4CCB6978D5DF08C694E1 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5C2264B016FE9490881CC4FE719432 /* UIColor+Extension.swift */; };
 		68A9C5850AF89F7E3B8AFEEAE2A97BB2 /* UITextField+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6635ED1295ADCBEAA61707E0C9CF74 /* UITextField+Rx.swift */; };
 		6ACA7D045FAC74454C7851F7B8685785 /* Using.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041AAA6A21B40B806E3D877209EE9B4 /* Using.swift */; };
 		6B15CB962DD6909799721040AC731E63 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = A92DD7F569DC24D0C7720B4709C7B1EF /* MJRefreshAutoFooter.m */; };
@@ -272,6 +271,7 @@
 		847DFF242550EEBE00EEE785 /* Int64+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DFF232550EEBE00EEE785 /* Int64+Extension.swift */; };
 		84802812255948400038748A /* NSMutableAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84802811255948400038748A /* NSMutableAttributedString+Extension.swift */; };
 		849E1BC8DFCE33F1972D7FE369D304EC /* ObservableConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EECBD0310FA5E651068F9C5E632E9E5 /* ObservableConvertibleType.swift */; };
+		84B443F02575D6C200D3DD1D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B443EF2575D6C200D3DD1D /* UIColor+Extension.swift */; };
 		85557BB8ADEDB23D463325DE651CF458 /* UIPickerView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = C781EAC70814F3B689611B1B92DD6215 /* UIPickerView+Rx.swift */; };
 		863F2CD26AEB125B7F2A312DDA45F4BA /* InvocableScheduledItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855E0D15BF0175BC156C0A105C35F58F /* InvocableScheduledItem.swift */; };
 		86FB0771E04ED3CCAF7DB95BA8B3D910 /* SectionedViewDataSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D05C073C5E46FE1D3C030EB8AF6FC95 /* SectionedViewDataSourceType.swift */; };
@@ -877,6 +877,7 @@
 		847DFF232550EEBE00EEE785 /* Int64+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+Extension.swift"; sourceTree = "<group>"; };
 		84802811255948400038748A /* NSMutableAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extension.swift"; sourceTree = "<group>"; };
 		84A40981B54ED05CF4BAEB4616A3D550 /* RxTableViewDataSourcePrefetchingProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxTableViewDataSourcePrefetchingProxy.swift; path = RxCocoa/iOS/Proxies/RxTableViewDataSourcePrefetchingProxy.swift; sourceTree = "<group>"; };
+		84B443EF2575D6C200D3DD1D /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		84D8BE5A7AC7AAB30E2037B9199539C2 /* Do.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Do.swift; path = RxSwift/Observables/Do.swift; sourceTree = "<group>"; };
 		855E0D15BF0175BC156C0A105C35F58F /* InvocableScheduledItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InvocableScheduledItem.swift; path = RxSwift/Schedulers/Internal/InvocableScheduledItem.swift; sourceTree = "<group>"; };
 		856373923C33D6F51ABF659584854785 /* TakeLast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TakeLast.swift; path = RxSwift/Observables/TakeLast.swift; sourceTree = "<group>"; };
@@ -927,7 +928,6 @@
 		9B30495D6280676E68F21B472706C749 /* TailRecursiveSink.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TailRecursiveSink.swift; path = RxSwift/Observers/TailRecursiveSink.swift; sourceTree = "<group>"; };
 		9B79799BAE11394F270F31695EF4F24B /* ObserveOn.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObserveOn.swift; path = RxSwift/Observables/ObserveOn.swift; sourceTree = "<group>"; };
 		9BD2A4FD45C40776DAB0A2DB857A428C /* ConstraintInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsets.swift; path = Source/ConstraintInsets.swift; sourceTree = "<group>"; };
-		9C5C2264B016FE9490881CC4FE719432 /* UIColor+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		9CE1D763799AC7AE7676802747BE673A /* ImmediateSchedulerType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImmediateSchedulerType.swift; path = RxSwift/ImmediateSchedulerType.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E1CC02AEC63CEC537505A3BE7BE0474 /* RxSwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RxSwift-Info.plist"; sourceTree = "<group>"; };
@@ -1484,7 +1484,6 @@
 				05408D0F6F4685DEEF00988D0A8C6E66 /* NSObject+Extension.swift */,
 				5848C4C7C81DF8BFC08AE08B511F8636 /* String+Extension.swift */,
 				BD7136721192120767C5285949DE7972 /* Timer+Extension.swift */,
-				9C5C2264B016FE9490881CC4FE719432 /* UIColor+Extension.swift */,
 				DFF00A9E6C48EBD1454572E585C31801 /* UIDevice+Extension.swift */,
 				3F6E0D108943E3CE5E8E18122F4ED47C /* UIFont+Extension.swift */,
 				3D5DAE5965119AFEDAB4A408AF60746E /* Bool+Extension.swift */,
@@ -1645,6 +1644,7 @@
 		A15D9435AD0EBD74A93C70DDCAFC7985 /* UIKitExtension */ = {
 			isa = PBXGroup;
 			children = (
+				84B443EF2575D6C200D3DD1D /* UIColor+Extension.swift */,
 				ADDD8C8573C3A510C0FE3D72E83B562D /* UIButton+Extension.swift */,
 				5BC3C14B88A0F4AE4962AA5D82AB3A17 /* UIBarButtonItem+Extension.swift */,
 				BAB5E606D66C34A9B951F9511C983DE9 /* UITableView+Extension.swift */,
@@ -2580,7 +2580,6 @@
 				D3CC6699099D83E1ED8F9701F82702AC /* UIBarButtonItem+Extension.swift in Sources */,
 				825211A60409D7557A1A40C7A4D2A0AF /* UIBezierPath+Extension.swift in Sources */,
 				499CBE6342B54652CA7746A3C2917328 /* UIButton+Extension.swift in Sources */,
-				684D465E3C5D4CCB6978D5DF08C694E1 /* UIColor+Extension.swift in Sources */,
 				A0591F1754E3C1139F72BA0F9178626C /* UIControl+Extension.swift in Sources */,
 				8225039ADD52A11C4B16B3A027CACD42 /* UIDevice+Extension.swift in Sources */,
 				219F0E8276660A56137B300B73E3DE04 /* UIFont+Extension.swift in Sources */,
@@ -2588,6 +2587,7 @@
 				39601E032EF0F4F2C4F6FB40761CF8B6 /* UILabel+Extension.swift in Sources */,
 				847DFF242550EEBE00EEE785 /* Int64+Extension.swift in Sources */,
 				C8A90BFB9F7DE54594E0C6F0963D5E5D /* UINavigationController+Extension.swift in Sources */,
+				84B443F02575D6C200D3DD1D /* UIColor+Extension.swift in Sources */,
 				840153792552A730001AB2FD /* DateFormatter+Extension.swift in Sources */,
 				AF210903B81B9DAAB935426A21D45748 /* UInt+Extension.swift in Sources */,
 				262112B6F719E2741B566028B4E6F6F1 /* UIScreen+Extension.swift in Sources */,
