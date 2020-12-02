@@ -35,6 +35,15 @@ import Foundation
  - 保存应用运行时所需要的临时数据，使用完毕后再将相应的文件从该目录删除。应用没有运行，系统也可能会清除该目录下的文件，iTunes不会同步备份该目录
  */
 
+public enum BasePath {
+    case Directory
+    case Documnets
+    case Library
+    case Caches
+    case Preferences
+    case Tmp
+}
+
 public extension FileManager {
     // MARK: 1.1、获取Home的完整路径名
     /// 获取Home的完整路径名
