@@ -16,11 +16,264 @@ class UIImageExtensionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headDataArray = ["一、基本的扩展", "二、UIColor 生成的图片 和 生成渐变色图片", "三、图片的拉伸和缩放", "四、UIImage 压缩相关", "五、二维码的处理", "六、pdf 加载"]
-        dataArray = [["设置图片的圆角", "设置圆形图片", "获取视频的第一帧", "layer 转 image", "设置图片透明度", "裁剪给定区域"], ["生成指定尺寸的纯色图像", "生成指定尺寸和圆角的纯色图像", "生成渐变色的图片 [\"#B0E0E6\", \"#00CED1\", \"#2E8B57\"]", "生成渐变色的图片 [UIColor, UIColor, UIColor]", "生成带圆角渐变色的图片 [UIColor, UIColor, UIColor]"], ["获取固定大小的 image", "按宽高比系数：等比缩放", "按指定尺寸等比缩放", "图片中间 1*1 拉伸——如气泡一般", "调整图像方向 避免图像有旋转"], ["压缩图片", "异步图片压缩", "压缩图片质量", "ImageIO 方式调整图片大小 性能很好", "CoreGraphics 方式调整图片大小 性能很好"], ["生成二维码图片"], ["验证资源的格式，返回资源格式（png/gif/jpeg...）", "加载 data 数据的 gif 图片", "加载网络 url 的 gif 图片", "加载本地的gif图片", "加载 asset 里面的图片"]]
+        headDataArray = ["一、基本的扩展", "二、UIColor 生成的图片 和 生成渐变色图片", "三、图片的拉伸和缩放", "四、UIImage 压缩相关", "五、二维码的处理", "六、pdf 加载", "七、图片旋转的一些操作"]
+        dataArray = [["设置图片的圆角", "设置圆形图片", "获取视频的第一帧", "layer 转 image", "设置图片透明度", "裁剪给定区域"], ["生成指定尺寸的纯色图像", "生成指定尺寸和圆角的纯色图像", "生成渐变色的图片 [\"#B0E0E6\", \"#00CED1\", \"#2E8B57\"]", "生成渐变色的图片 [UIColor, UIColor, UIColor]", "生成带圆角渐变色的图片 [UIColor, UIColor, UIColor]"], ["获取固定大小的 image", "按宽高比系数：等比缩放", "按指定尺寸等比缩放", "图片中间 1*1 拉伸——如气泡一般", "调整图像方向 避免图像有旋转"], ["压缩图片", "异步图片压缩", "压缩图片质量", "ImageIO 方式调整图片大小 性能很好", "CoreGraphics 方式调整图片大小 性能很好"], ["生成二维码图片"], ["验证资源的格式，返回资源格式（png/gif/jpeg...）", "加载 data 数据的 gif 图片", "加载网络 url 的 gif 图片", "加载本地的gif图片", "加载 asset 里面的图片"], ["图片旋转 (角度)", "图片旋转 (弧度)", "水平翻转", "垂直翻转", "向下翻转", "向左翻转", "镜像向左翻转", "向右翻转", "镜像向右翻转", "图片平铺区域"]]
     }
 }
 
+// MARK:- 七、图片旋转的一些操作
+extension UIImageExtensionViewController {
+    
+    // MARK: 7.10、图片平铺区域
+    @objc func test710() {
+        JKPrint("图片平铺")
+        let image1 = UIImage(named: "testicon")
+        var imageView1 = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
+        imageView1.image = image1
+        imageView1.contentMode = .scaleAspectFit
+        imageView1.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView1)
+        
+        guard let image2 = UIImage(named: "testicon")?.imageTile(size: CGSize(width: 100, height: 100)) else {
+            return
+        }
+        var imageView2 = UIImageView(frame: CGRect(x: 0, y: imageView1.jk.bottom + 30, width: 200, height: 200))
+        imageView2.image = image2
+        imageView2.contentMode = .scaleAspectFit
+        imageView2.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView2)
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            imageView1.removeFromSuperview()
+            imageView2.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 7.9、镜像向右翻转
+    @objc func test79() {
+        JKPrint("镜像向右翻转")
+        let image1 = UIImage(named: "testicon")
+        var imageView1 = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
+        imageView1.image = image1
+        imageView1.contentMode = .scaleAspectFit
+        imageView1.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView1)
+        
+        guard let image2 = UIImage(named: "testicon")?.flipRightMirrored() else {
+            return
+        }
+        var imageView2 = UIImageView(frame: CGRect(x: 0, y: imageView1.jk.bottom + 30, width: 200, height: 200))
+        imageView2.image = image2
+        imageView2.contentMode = .scaleAspectFit
+        imageView2.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView2)
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            imageView1.removeFromSuperview()
+            imageView2.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 7.8、向右翻转
+    @objc func test78() {
+        JKPrint("向右翻转")
+        let image1 = UIImage(named: "testicon")
+        var imageView1 = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
+        imageView1.image = image1
+        imageView1.contentMode = .scaleAspectFit
+        imageView1.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView1)
+        
+        guard let image2 = UIImage(named: "testicon")?.flipRight() else {
+            return
+        }
+        var imageView2 = UIImageView(frame: CGRect(x: 0, y: imageView1.jk.bottom + 30, width: 200, height: 200))
+        imageView2.image = image2
+        imageView2.contentMode = .scaleAspectFit
+        imageView2.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView2)
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            imageView1.removeFromSuperview()
+            imageView2.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 7.7、镜像向左翻转
+    @objc func test77() {
+        JKPrint("镜像向左翻转")
+        let image1 = UIImage(named: "testicon")
+        var imageView1 = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
+        imageView1.image = image1
+        imageView1.contentMode = .scaleAspectFit
+        imageView1.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView1)
+        
+        guard let image2 = UIImage(named: "testicon")?.flipLeftMirrored() else {
+            return
+        }
+        var imageView2 = UIImageView(frame: CGRect(x: 0, y: imageView1.jk.bottom + 30, width: 200, height: 200))
+        imageView2.image = image2
+        imageView2.contentMode = .scaleAspectFit
+        imageView2.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView2)
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            imageView1.removeFromSuperview()
+            imageView2.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 7.6、向左翻转
+    @objc func test76() {
+        JKPrint("向左翻转")
+        let image1 = UIImage(named: "testicon")
+        var imageView1 = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
+        imageView1.image = image1
+        imageView1.contentMode = .scaleAspectFit
+        imageView1.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView1)
+        
+        guard let image2 = UIImage(named: "testicon")?.flipLeft() else {
+            return
+        }
+        var imageView2 = UIImageView(frame: CGRect(x: 0, y: imageView1.jk.bottom + 30, width: 200, height: 200))
+        imageView2.image = image2
+        imageView2.contentMode = .scaleAspectFit
+        imageView2.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView2)
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            imageView1.removeFromSuperview()
+            imageView2.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 7.5、向下翻转
+    @objc func test75() {
+        JKPrint("向下翻转")
+        let image1 = UIImage(named: "testicon")
+        var imageView1 = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
+        imageView1.image = image1
+        imageView1.contentMode = .scaleAspectFit
+        imageView1.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView1)
+        
+        guard let image2 = UIImage(named: "testicon")?.flipDown() else {
+            return
+        }
+        var imageView2 = UIImageView(frame: CGRect(x: 0, y: imageView1.jk.bottom + 30, width: 200, height: 200))
+        imageView2.image = image2
+        imageView2.contentMode = .scaleAspectFit
+        imageView2.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView2)
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            imageView1.removeFromSuperview()
+            imageView2.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 7.4、垂直翻转
+    @objc func test74() {
+        JKPrint("垂直翻转")
+        let image1 = UIImage(named: "testicon")
+        var imageView1 = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
+        imageView1.image = image1
+        imageView1.contentMode = .scaleAspectFit
+        imageView1.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView1)
+        
+        guard let image2 = UIImage(named: "testicon")?.flipVertical() else {
+            return
+        }
+        var imageView2 = UIImageView(frame: CGRect(x: 0, y: imageView1.jk.bottom + 30, width: 200, height: 200))
+        imageView2.image = image2
+        imageView2.contentMode = .scaleAspectFit
+        imageView2.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView2)
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            imageView1.removeFromSuperview()
+            imageView2.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 7.3、水平翻转
+    @objc func test73() {
+        JKPrint("水平翻转")
+        let image1 = UIImage(named: "testicon")
+        var imageView1 = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
+        imageView1.image = image1
+        imageView1.contentMode = .scaleAspectFit
+        imageView1.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView1)
+        
+        guard let image2 = UIImage(named: "testicon")?.flipHorizontal() else {
+            return
+        }
+        var imageView2 = UIImageView(frame: CGRect(x: 0, y: imageView1.jk.bottom + 30, width: 200, height: 200))
+        imageView2.image = image2
+        imageView2.contentMode = .scaleAspectFit
+        imageView2.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView2)
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            imageView1.removeFromSuperview()
+            imageView2.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 7.2、图片旋转 (弧度)
+    @objc func test72() {
+        JKPrint("图片旋转 (角度)")
+        let image1 = UIImage(named: "testicon")
+        var imageView1 = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
+        imageView1.image = image1
+        imageView1.contentMode = .scaleAspectFit
+        imageView1.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView1)
+        
+        guard let image2 = UIImage(named: "testicon")?.imageRotated(radians: CGFloat(Double.pi)) else {
+            return
+        }
+        var imageView2 = UIImageView(frame: CGRect(x: 0, y: imageView1.jk.bottom + 30, width: 200, height: 200))
+        imageView2.image = image2
+        imageView2.contentMode = .scaleAspectFit
+        imageView2.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView2)
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            imageView1.removeFromSuperview()
+            imageView2.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 7.1、图片旋转 (角度)
+    @objc func test71() {
+        JKPrint("图片旋转 (角度)")
+        let image1 = UIImage(named: "testicon")
+        var imageView1 = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
+        imageView1.image = image1
+        imageView1.contentMode = .scaleAspectFit
+        imageView1.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView1)
+        
+        guard let image2 = UIImage(named: "testicon")?.imageRotated(degree: 90) else {
+            return
+        }
+        var imageView2 = UIImageView(frame: CGRect(x: 0, y: imageView1.jk.bottom + 30, width: 200, height: 200))
+        imageView2.image = image2
+        imageView2.contentMode = .scaleAspectFit
+        imageView2.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView2)
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            imageView1.removeFromSuperview()
+            imageView2.removeFromSuperview()
+        }
+    }
+}
 // MARK:- 六、gif 加载
 extension UIImageExtensionViewController {
     

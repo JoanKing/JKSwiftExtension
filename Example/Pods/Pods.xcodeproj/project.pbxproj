@@ -271,6 +271,7 @@
 		847DFF242550EEBE00EEE785 /* Int64+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DFF232550EEBE00EEE785 /* Int64+Extension.swift */; };
 		84802812255948400038748A /* NSMutableAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84802811255948400038748A /* NSMutableAttributedString+Extension.swift */; };
 		849E1BC8DFCE33F1972D7FE369D304EC /* ObservableConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EECBD0310FA5E651068F9C5E632E9E5 /* ObservableConvertibleType.swift */; };
+		84B2940425774617009E7760 /* UINavigationBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2940325774617009E7760 /* UINavigationBar+Extension.swift */; };
 		84B443F02575D6C200D3DD1D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B443EF2575D6C200D3DD1D /* UIColor+Extension.swift */; };
 		85557BB8ADEDB23D463325DE651CF458 /* UIPickerView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = C781EAC70814F3B689611B1B92DD6215 /* UIPickerView+Rx.swift */; };
 		863F2CD26AEB125B7F2A312DDA45F4BA /* InvocableScheduledItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855E0D15BF0175BC156C0A105C35F58F /* InvocableScheduledItem.swift */; };
@@ -877,6 +878,7 @@
 		847DFF232550EEBE00EEE785 /* Int64+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+Extension.swift"; sourceTree = "<group>"; };
 		84802811255948400038748A /* NSMutableAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extension.swift"; sourceTree = "<group>"; };
 		84A40981B54ED05CF4BAEB4616A3D550 /* RxTableViewDataSourcePrefetchingProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxTableViewDataSourcePrefetchingProxy.swift; path = RxCocoa/iOS/Proxies/RxTableViewDataSourcePrefetchingProxy.swift; sourceTree = "<group>"; };
+		84B2940325774617009E7760 /* UINavigationBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Extension.swift"; sourceTree = "<group>"; };
 		84B443EF2575D6C200D3DD1D /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		84D8BE5A7AC7AAB30E2037B9199539C2 /* Do.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Do.swift; path = RxSwift/Observables/Do.swift; sourceTree = "<group>"; };
 		855E0D15BF0175BC156C0A105C35F58F /* InvocableScheduledItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InvocableScheduledItem.swift; path = RxSwift/Schedulers/Internal/InvocableScheduledItem.swift; sourceTree = "<group>"; };
@@ -1534,6 +1536,13 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		84B2941525776A12009E7760 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		858A1D7894D71B36B53B195890EB357A /* MJRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -1645,6 +1654,7 @@
 			isa = PBXGroup;
 			children = (
 				84B443EF2575D6C200D3DD1D /* UIColor+Extension.swift */,
+				84B2940325774617009E7760 /* UINavigationBar+Extension.swift */,
 				ADDD8C8573C3A510C0FE3D72E83B562D /* UIButton+Extension.swift */,
 				5BC3C14B88A0F4AE4962AA5D82AB3A17 /* UIBarButtonItem+Extension.swift */,
 				BAB5E606D66C34A9B951F9511C983DE9 /* UITableView+Extension.swift */,
@@ -1654,6 +1664,7 @@
 				295562D994D2BE1867764B7CFD1921DF /* UITextView+Extension.swift */,
 				C1CFBD2A8703F8B84D44D5E90EE27603 /* UIStackView+Extension.swift */,
 				A54B291D9B5DD6C22A4344A257858C6D /* UIImage+Extension.swift */,
+				84B2941525776A12009E7760 /* New Group */,
 				8473AAA72562883300707877 /* UIImageView+Extension.swift */,
 				A7B4F253DA0D8F25D80E664516473C95 /* UIView+Extension.swift */,
 				50B705444AD4FE396A4F70EFE20C7021 /* CALayer+Extension.swift */,
@@ -2573,6 +2584,7 @@
 				673784209C8131FE414A07B424982C36 /* NSDecimalNumberHandler+Extension.swift in Sources */,
 				27F36DDC1024C53EC8C8D33615580AD7 /* NSObject+Extension.swift in Sources */,
 				3E749ADCE1230417672F04F81E7E4D7B /* QRCodeImageFactory.swift in Sources */,
+				84B2940425774617009E7760 /* UINavigationBar+Extension.swift in Sources */,
 				F3BA8E95FDE72E2F2D2F5BE0EDA1FF0C /* String+Extension.swift in Sources */,
 				62A9432E7E8EDF78A536B646057B4650 /* Timer+Extension.swift in Sources */,
 				107268C45C8D12357E1312E4FD0553C9 /* UIAlertController+Extension.swift in Sources */,

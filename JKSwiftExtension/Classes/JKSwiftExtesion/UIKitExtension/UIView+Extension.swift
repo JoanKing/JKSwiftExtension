@@ -243,7 +243,7 @@ public extension JKPOP where Base : UIView {
         set(newValue) {
             var tempCenter: CGPoint = base.center
             tempCenter = newValue
-            base.center = tempCenter;
+            base.center = tempCenter
         }
     }
     
@@ -292,6 +292,19 @@ public extension JKPOP where Base : UIView {
         }
         set(newValue) {
             base.frame.origin.x = newValue - base.frame.size.width
+        }
+    }
+    
+    // MARK: 3.13、origin 点
+    /// origin 点
+    var origin: CGPoint {
+        get {
+            return base.frame.origin
+        }
+        set(newValue) {
+            var tempOrigin: CGPoint = base.frame.origin
+            tempOrigin = newValue
+            base.frame.origin = tempOrigin
         }
     }
 }
@@ -647,10 +660,10 @@ public extension UIView {
     }
 }
 
-// MARK:- 其他的方法
+// MARK:- 七、其他的方法
 public extension UIView {
     
-    // MARK: 获取当前view的viewcontroller
+    // MARK: 7.1、获取当前view的viewcontroller
     /// 获取当前view的viewcontroller
     var currentVC: UIViewController? {
         var parentResponder: UIResponder? = self
@@ -663,7 +676,7 @@ public extension UIView {
         return nil
     }
     
-    // MARK: 添加水印
+    // MARK: 7.2、添加水印
     /// 添加水印
     /// - Parameters:
     ///   - markText: 水印文字
@@ -693,6 +706,31 @@ public extension UIView {
             }
         }
     }
+    
+    // MARK: 7.3、移除所有的子视图
+    /// 移除所有的子视图
+    func removeAllSubViews() {
+        for subView in self.subviews {
+            subView.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 7.4、将 View 转换成图片
+    /// 将 View 转换成图片
+    /// - Returns: 图片
+    func toImage() -> UIImage? {
+        let scale = UIScreen.main.scale
+        UIGraphicsBeginImageContextWithOptions(self.frame.size, false, scale)
+        guard let context = UIGraphicsGetCurrentContext() else {
+            UIGraphicsEndImageContext()
+            return nil
+        }
+        self.layer.render(in: context)
+        let viewImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return viewImage
+    }
+
 }
 
 // MARK:- private method

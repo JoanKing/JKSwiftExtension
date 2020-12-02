@@ -27,7 +27,7 @@ public extension UIImage {
         UIGraphicsBeginImageContextWithOptions(weakSize, false, UIScreen.main.scale)
         guard let contentRef: CGContext = UIGraphicsGetCurrentContext() else {
             // 关闭上下文
-            UIGraphicsEndImageContext();
+            UIGraphicsEndImageContext()
             return nil
         }
         // 绘制路线
@@ -41,11 +41,11 @@ public extension UIImage {
         contentRef.drawPath(using: .fillStroke)
         guard let output = UIGraphicsGetImageFromCurrentImageContext() else {
             // 关闭上下文
-            UIGraphicsEndImageContext();
+            UIGraphicsEndImageContext()
             return nil
         }
         // 关闭上下文
-        UIGraphicsEndImageContext();
+        UIGraphicsEndImageContext()
         return output
     }
     
@@ -338,7 +338,7 @@ public extension UIImage {
         self.draw(in: CGRect(x: 0, y: 0, width: scaledW, height: scaledH))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return newImage;
+        return newImage
     }
     
     // MARK: 3.3、按指定尺寸等比缩放
@@ -357,26 +357,26 @@ public extension UIImage {
         } else {
             radio = verticalRadio < horizontalRadio ? verticalRadio : horizontalRadio
         }
-        w = w * radio;
-        h = h * radio;
-        let xPos = (size.width - w) / 2;
-        let yPos = (size.height - h) / 2;
-        UIGraphicsBeginImageContext(size);
+        w = w * radio
+        h = h * radio
+        let xPos = (size.width - w) / 2
+        let yPos = (size.height - h) / 2
+        UIGraphicsBeginImageContext(size)
         draw(in: CGRect(x: xPos, y: yPos, width: w, height: h))
-        let scaledImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        return scaledImage;
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return scaledImage
     }
     
     // MARK: 3.4、图片中间 1*1 拉伸——如气泡一般
     /// 图片中间1*1拉伸——如气泡一般
     /// - Returns: 拉伸后的图片
     func strechAsBubble() -> UIImage {
-        let top = self.size.height * 0.5;
-        let left = self.size.width * 0.5;
-        let bottom = self.size.height * 0.5;
-        let right = self.size.width * 0.5;
-        let edgeInsets = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right);
+        let top = self.size.height * 0.5
+        let left = self.size.width * 0.5
+        let bottom = self.size.height * 0.5
+        let right = self.size.width * 0.5
+        let edgeInsets = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
         // 拉伸
         return self.resizableImage(withCapInsets: edgeInsets, resizingMode: .stretch)
     }
@@ -843,7 +843,6 @@ public extension UIImage {
         var rest: Int
         while true {
             rest = lhs! % rhs!
-            
             if rest == 0 {
                 return rhs!
             } else {
@@ -857,13 +856,10 @@ public extension UIImage {
         if array.isEmpty {
             return 1
         }
-        
         var gcd = array[0]
-        
         for val in array {
             gcd = UIImage.gcdForPair(val, gcd)
         }
-        
         return gcd
     }
     
@@ -911,3 +907,190 @@ public extension UIImage {
     }
 }
 
+// MARK:- 七、图片旋转的一些操作
+public extension UIImage {
+    
+    // MARK: 7.1、图片旋转 (角度)
+    /// 图片旋转 (角度)
+    /// - Parameter degree: 角度 0 -- 360
+    /// - Returns: 旋转后的图片
+    func imageRotated(degree: CGFloat) -> UIImage? {
+        let radians = Double(degree) / 180 * Double.pi
+        return imageRotated(radians: CGFloat(radians))
+    }
+    
+    // MARK: 7.2、图片旋转 (弧度)
+    /// 图片旋转 (弧度)
+    /// - Parameter radians: 弧度 0 -- 2π
+    /// - Returns: 旋转后的图片
+    func imageRotated(radians: CGFloat) -> UIImage? {
+        guard let weakCGImage = self.cgImage else {
+            return nil
+        }
+        let rotateViewBox = UIView(frame: CGRect(origin: CGPoint.zero, size: self.size))
+        let transform: CGAffineTransform = CGAffineTransform(rotationAngle: radians)
+        rotateViewBox.transform = transform
+        UIGraphicsBeginImageContext(rotateViewBox.frame.size)
+        guard let context = UIGraphicsGetCurrentContext() else {
+            UIGraphicsEndImageContext()
+            return nil
+        }
+        context.translateBy(x: rotateViewBox.frame.width / 2, y: rotateViewBox.frame.height / 2)
+        context.rotate(by: radians)
+        context.scaleBy(x: 1, y: -1)
+        let rect = CGRect(x: -self.size.width / 2, y: -self.size.height / 2, width: self.size.width, height: self.size.height)
+        context.draw(weakCGImage, in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+    
+    // MARK: 7.3、水平翻转
+    /// 水平翻转
+    /// - Returns: 返回水平翻转的图片
+    func flipHorizontal() -> UIImage? {
+        return self.rotate(orientation: .upMirrored)
+    }
+    
+    // MARK: 7.4、垂直翻转
+    /// 垂直翻转
+    /// - Returns: 返回垂直翻转的图片
+    func flipVertical() -> UIImage? {
+        return self.rotate(orientation: .downMirrored)
+    }
+
+    // MARK: 7.5、向下翻转
+    /// 向下翻转
+    /// - Returns: 向下翻转后的图片
+    func flipDown() -> UIImage? {
+        return self.rotate(orientation: .down)
+    }
+
+    // MARK: 7.6、向左翻转
+    /// 向左翻转
+    /// - Returns: 向左翻转后的图片
+    func flipLeft() -> UIImage? {
+        return self.rotate(orientation: .left)
+    }
+
+    // MARK: 7.7、镜像向左翻转
+    /// 镜像向左翻转
+    /// - Returns: 镜像向左翻转后的图片
+    func flipLeftMirrored() -> UIImage? {
+        return self.rotate(orientation: .leftMirrored)
+    }
+    
+    // MARK: 7.8、向右翻转
+    /// 向右翻转
+    /// - Returns: 向右翻转后的图片
+    func flipRight() -> UIImage? {
+        return self.rotate(orientation: .right)
+    }
+    
+    // MARK: 7.9、镜像向右翻转
+    /// 镜像向右翻转
+    /// - Returns: 镜像向右翻转后的图片
+    func flipRightMirrored() -> UIImage? {
+        return self.rotate(orientation: .rightMirrored)
+    }
+    
+    // MARK: 7.10、图片平铺区域
+    /// 图片平铺区域
+    /// - Parameter size: 平铺区域的大小
+    /// - Returns: 平铺后的图片
+    func imageTile(size: CGSize) -> UIImage? {
+        let tempView = UIView(frame: CGRect(origin: CGPoint.zero, size: size))
+        tempView.backgroundColor = UIColor(patternImage: self)
+        UIGraphicsBeginImageContext(size)
+        guard let context = UIGraphicsGetCurrentContext() else {
+            UIGraphicsEndImageContext()
+            return nil
+        }
+        tempView.layer.render(in: context)
+        let bgImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return bgImage
+    }
+    
+    // MARK: 图片翻转(base)
+    /// 图片翻转(base)
+    /// - Parameter orientation: 翻转类型
+    /// - Returns: 翻转后的图片
+    private func rotate(orientation: UIImage.Orientation) -> UIImage? {
+        guard let imageRef = self.cgImage else {
+            return nil
+        }
+        let rect = CGRect(x: 0, y: 0, width: imageRef.width, height: imageRef.height)
+        var bounds = rect
+        var transform: CGAffineTransform = CGAffineTransform.identity
+        
+        switch orientation {
+        case .up:
+            return self
+        case .upMirrored:
+            // 图片左平移width个像素
+            transform = CGAffineTransform(translationX: rect.size.width, y: 0)
+            // 缩放
+            transform = transform.scaledBy(x: -1, y: 1)
+        case .down:
+            transform = CGAffineTransform(translationX: rect.size.width, y: rect.size.height)
+            transform = transform.rotated(by: CGFloat(Double.pi))
+        case .downMirrored:
+            transform = CGAffineTransform(translationX: 0, y: rect.size.height)
+            transform = transform.scaledBy(x: 1, y: -1)
+        case .left:
+            swapWidthAndHeight(rect: &bounds)
+            transform = CGAffineTransform(translationX:0 , y: rect.size.width)
+            transform = transform.rotated(by: CGFloat(Double.pi * 1.5))
+        case .leftMirrored:
+            swapWidthAndHeight(rect: &bounds)
+            transform = CGAffineTransform(translationX:rect.size.height , y: rect.size.width)
+            transform = transform.scaledBy(x: -1, y: 1)
+            transform = transform.rotated(by: CGFloat(Double.pi * 1.5))
+        case .right:
+            swapWidthAndHeight(rect: &bounds)
+            transform = CGAffineTransform(translationX:rect.size.height , y: 0)
+            transform = transform.rotated(by: CGFloat(Double.pi / 2))
+        case .rightMirrored:
+            swapWidthAndHeight(rect: &bounds)
+            transform = transform.scaledBy(x: -1, y: 1)
+            transform = transform.rotated(by: CGFloat(Double.pi / 2))
+        default:
+            return nil
+        }
+        
+        UIGraphicsBeginImageContext(bounds.size)
+        guard let context = UIGraphicsGetCurrentContext() else {
+            UIGraphicsEndImageContext()
+            return nil
+        }
+        //图片绘制时进行图片修正
+        switch orientation {
+        case .left:
+            fallthrough
+        case .leftMirrored:
+            fallthrough
+        case .right:
+            fallthrough
+        case .rightMirrored:
+            context.scaleBy(x: -1.0, y: 1.0)
+            context.translateBy(x: -bounds.size.width, y: 0.0)
+        default:
+            context.scaleBy(x: 1.0, y: -1.0)
+            context.translateBy(x: 0.0, y: -rect.size.height)
+        }
+        context.concatenate(transform)
+        context.draw(imageRef, in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+
+    /// 交换宽高
+    /// - Parameter rect: image 的 frame
+    private func swapWidthAndHeight(rect: inout CGRect) {
+        let swap = rect.size.width
+        rect.size.width = rect.size.height
+        rect.size.height = swap
+    }
+}

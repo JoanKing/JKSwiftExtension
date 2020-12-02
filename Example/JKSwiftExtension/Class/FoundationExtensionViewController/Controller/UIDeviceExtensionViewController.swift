@@ -13,11 +13,29 @@ class UIDeviceExtensionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headDataArray = ["一、基本的扩展"]
-        dataArray = [["设备的名字", "获取设备类型", "判断是否为 iPad", "判断是否是 pad", "判断是否为 iphone", "判断是否是 iphone5", "判断是否是 iphone6", "是不是 x 系列", "是不是 xs系列"]]
+        headDataArray = ["一、基本的扩展", "二、设备的基本信息"]
+        dataArray = [["设备的名字", "获取设备类型", "判断是否为 iPad", "判断是否是 pad", "判断是否为 iphone", "判断是否是 iphone5", "判断是否是 iphone6", "是不是 x 系列", "是不是 xs系列"], ["当前设备的系统版本", "当前系统的名称", "当前设备的名称"]]
     }
 }
 
+// MARK:- 二、设备的基本信息
+extension UIDeviceExtensionViewController {
+    
+    // MARK: 2.3、当前设备的名称
+    @objc func test23() {
+        JKPrint("当前设备的名称", "\(UIDevice.currentDeviceName)")
+    }
+    
+    // MARK: 2.2、当前系统的名称
+    @objc func test22() {
+        JKPrint("当前系统的名称", "\(UIDevice.currentSystemName)")
+    }
+    
+    // MARK: 2.1、当前设备的系统版本
+    @objc func test21() {
+        JKPrint("当前设备的系统版本", "\(UIDevice.currentSystemVersion)")
+    }
+}
 // MARK:- 一、基本的扩展
 extension UIDeviceExtensionViewController {
     

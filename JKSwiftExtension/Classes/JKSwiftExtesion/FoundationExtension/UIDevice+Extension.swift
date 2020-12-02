@@ -191,19 +191,33 @@ public extension UIDevice {
     }
 }
 
-extension UIDevice {
+// MARK:- 二、设备的基本信息
+public extension UIDevice {
+    
+    // MARK: 2.1、当前设备的系统版本
     /// 当前设备的系统版本
-    class var currentSystemVersion : String {
+    static var currentSystemVersion : String {
         get {
             return UIDevice.current.systemVersion
         }
     }
     
+    // MARK: 2.2、当前系统的名称
     /// 当前系统的名称
-    class var currentSystemName : String {
+    static var currentSystemName : String {
         get {
             return UIDevice.current.systemName
         }
     }
+    
+    // MARK: 2.3、当前设备的名称
+    /// 当前设备的名称
+    static var currentDeviceName : String {
+        get {
+            return UIDevice.current.name
+        }
+    }
+    
+    
 }
 

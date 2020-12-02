@@ -38,7 +38,7 @@ public extension UIApplication {
     static var appBundleIdentifier: String {
         return Bundle.main.bundleIdentifier ?? ""
     }
-    
+
     // MARK: 1.5、获取屏幕的方向
     /// 获取屏幕的方向
     static var screenOrientation: UIInterfaceOrientation {

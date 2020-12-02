@@ -75,6 +75,7 @@
 		84A6FB77255A655700057839 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6FB76255A655700057839 /* BaseNavigationViewController.swift */; };
 		84A6FB79255A65EC00057839 /* UIButtonExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6FB78255A65EC00057839 /* UIButtonExtensionViewController.swift */; };
 		84A8FEFF2534598A00830EAF /* ArrayExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */; };
+		84B29411257747EF009E7760 /* UINavigationBarExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B29410257747EF009E7760 /* UINavigationBarExtensionViewController.swift */; };
 		84B4440A2575E8AD00D3DD1D /* DataExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B444092575E8AD00D3DD1D /* DataExtensionViewController.swift */; };
 		84BEA371254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BEA370254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift */; };
 		84BEA373254FAC6600CA8A75 /* UIFontExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BEA372254FAC6600CA8A75 /* UIFontExtensionViewController.swift */; };
@@ -188,6 +189,7 @@
 		84A6FB76255A655700057839 /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
 		84A6FB78255A65EC00057839 /* UIButtonExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensionViewController.swift; sourceTree = "<group>"; };
 		84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensionViewController.swift; sourceTree = "<group>"; };
+		84B29410257747EF009E7760 /* UINavigationBarExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarExtensionViewController.swift; sourceTree = "<group>"; };
 		84B444092575E8AD00D3DD1D /* DataExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensionViewController.swift; sourceTree = "<group>"; };
 		84BEA370254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensionViewController.swift; sourceTree = "<group>"; };
 		84BEA372254FAC6600CA8A75 /* UIFontExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensionViewController.swift; sourceTree = "<group>"; };
@@ -500,6 +502,7 @@
 			isa = PBXGroup;
 			children = (
 				84BF16C7251D9FB6002ACE76 /* UIKitExtensionViewController.swift */,
+				84B29410257747EF009E7760 /* UINavigationBarExtensionViewController.swift */,
 				84813773254A5EC100D9289C /* UIColorExtensionViewController.swift */,
 				848028072558D5A70038748A /* CALayerExtensionViewController.swift */,
 				84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */,
@@ -829,6 +832,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B29411257747EF009E7760 /* UINavigationBarExtensionViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				844A634E25664F9B000059EC /* FiveViewController.swift in Sources */,
 				844A635225664F9B000059EC /* TestViewController.swift in Sources */,
@@ -1056,12 +1060,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = SGVDL6B99N;
 				INFOPLIST_FILE = JKSwiftExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 3;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "JKSwiftExtension扩展";
@@ -1078,12 +1082,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = SGVDL6B99N;
 				INFOPLIST_FILE = JKSwiftExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 3;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "JKSwiftExtension扩展";
