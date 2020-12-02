@@ -48,12 +48,12 @@ public extension NSDecimalNumberHandler {
     ///   - value1: 除数
     ///   - value2: 被除数
     /// - Returns: 值
-    static func getFloorIntValue(value1: Double, value2: Double) -> Int {
+    static func getFloorIntValue(value1: Float, value2: Float) -> Int {
         return decimalNumberHandlerValue(type: .dividing, value1: value1, value2: value2, roundingMode: .down, scale: 0, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false).intValue
     }
     
     // MARK: 1.2、一个数字能否整除另外一个数字
-    static func isDivisible(value1: Double, value2: Double) -> Bool {
+    static func isDivisible(value1: Float, value2: Float) -> Bool {
         let value = decimalNumberHandlerValue(type: .dividing, value1: value1, value2: value2, roundingMode: .down, scale: 3, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false).floatValue
         let valueArray = "\(value)".separatedByString(char: ".")
         guard valueArray.count > 1, let decimalValue = valueArray[1] as? String, decimalValue.count == 1, decimalValue == "0" else {
@@ -78,7 +78,7 @@ public extension NSDecimalNumberHandler {
     ///   - underflow: 下溢错误处理
     ///   - divideByZero: 除以0的错误处理
     /// - Returns: NSDecimalNumber
-    static func decimalNumberHandlerValue(type: DecimalNumberHandlerType ,value1: Double, value2: Double, roundingMode: NSDecimalNumber.RoundingMode, scale: Int16, raiseOnExactness exact: Bool, raiseOnOverflow overflow: Bool, raiseOnUnderflow underflow: Bool, raiseOnDivideByZero divideByZero: Bool) -> NSDecimalNumber {
+    static func decimalNumberHandlerValue(type: DecimalNumberHandlerType ,value1: Any, value2: Any, roundingMode: NSDecimalNumber.RoundingMode, scale: Int16, raiseOnExactness exact: Bool, raiseOnOverflow overflow: Bool, raiseOnUnderflow underflow: Bool, raiseOnDivideByZero divideByZero: Bool) -> NSDecimalNumber {
 
         let amountHandler = NSDecimalNumberHandler(roundingMode: roundingMode, scale: scale, raiseOnExactness: exact, raiseOnOverflow: overflow, raiseOnUnderflow: underflow, raiseOnDivideByZero: divideByZero)
         let oneNumber = NSDecimalNumber(string: "\(value1)")
