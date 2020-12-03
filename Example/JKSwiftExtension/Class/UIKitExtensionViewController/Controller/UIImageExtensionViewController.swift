@@ -496,7 +496,7 @@ extension UIImageExtensionViewController {
     @objc func test34() {
         JKPrint("图片中间 1*1 拉伸——如气泡一般")
         let image = UIImage(named: "sender")!.strechAsBubble()
-        var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 250, height: 300))
+        var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 250, height: 500))
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true

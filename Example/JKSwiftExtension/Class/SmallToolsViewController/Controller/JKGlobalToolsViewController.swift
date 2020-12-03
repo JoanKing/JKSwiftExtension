@@ -14,7 +14,7 @@ class JKGlobalToolsViewController: BaseViewController {
         super.viewDidLoad()
     
         headDataArray = ["一、基本的工具"]
-        dataArray = [["拨打电话", "App更新", "从 storyboard 中唤醒 viewcontroller"]]
+        dataArray = [["拨打电话", "App更新", "从 storyboard 中唤醒 viewcontroller", "传进某个版本号 个 当前app版本号作对比"]]
     }
     
     override func didReceiveMemoryWarning() {
@@ -24,6 +24,15 @@ class JKGlobalToolsViewController: BaseViewController {
 
 // MARK:- 一、基本的工具
 extension JKGlobalToolsViewController {
+    // MARK: 1.4、传进某个版本号 个 当前app版本号作对比
+    @objc func test14() {
+        
+        let version1 = "0.0.1"
+        let version2 = "1.0.0"
+        let version3 = "1.2.1"
+        JKPrint("传进某个版本号 个 当前app版本号作对比", "新的版本号：\(version1) 是否大于当前版本：\(UIApplication.appVersion) 结果：\(JKGlobalTools.compareVersion(version: version1))", "新的版本号：\(version2) 是否大于当前版本：\(UIApplication.appVersion) 结果：\(JKGlobalTools.compareVersion(version: version2))", "新的版本号：\(version3) 是否大于当前版本：\(UIApplication.appVersion) 结果：\(JKGlobalTools.compareVersion(version: version3))")
+        
+    }
     
     // MARK: 1.3、从 storyboard 中唤醒 viewcontroller
     @objc func test13() {

@@ -15,7 +15,6 @@ public struct JKGlobalTools {
     /// 拨打电话的才处理
     /// - Parameter phoneNumber: 电话号码
     public static func callPhone(phoneNumber: String, complete: @escaping ((Bool) -> Void)) {
-    
         // 注意: 跳转之前, 可以使用 canOpenURL: 判断是否可以跳转
         guard let phoneNumberEncoding = ("tel://" + phoneNumber).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed), let url = URL(string: phoneNumberEncoding), UIApplication.shared.canOpenURL(url) else {
             // 不能跳转就不要往下执行了
@@ -46,7 +45,7 @@ public struct JKGlobalTools {
         }
     }
     
-    // MARK: 2、应用跳转
+    // MARK: 1.2、应用跳转
     /// 应用跳转
     /// - Parameters:
     ///   - vc: 跳转时所在控制器
@@ -77,5 +76,60 @@ public struct JKGlobalTools {
         let sBundle = bundle ?? Bundle.main
         let story = UIStoryboard(name: fromStoryboard, bundle: sBundle)
         return story.instantiateViewController(withIdentifier: storyboardID)
+    }
+    
+    // MARK: 1.3、传进某个版本号 个 当前app版本号作对比，注意：版本号必须是三位的，比如：1.1.1、1.23.45、23.4.6
+    /// 传进某个版本号 个 当前app版本号作对比
+    /// - Parameter version: 传进来的版本号码
+    /// - Returns: 返回对比加过，true：比当前的版本大，false：比当前的版本小
+    public static func compareVersion(version: String) -> Bool {
+        
+        // 1、传进来的版本号获取 三位Int值
+        let newVersionResult = appVersion(version: version)
+        guard newVersionResult.isSuccess else {
+            return false
+        }
+        
+        // 2、当前版本的版本号获取 三位Int值
+        let currentVersion = UIApplication.appVersion
+        let currentVersionResult = appVersion(version: currentVersion)
+        guard currentVersionResult.isSuccess else {
+            return false
+        }
+        
+        if newVersionResult.versions[0] > currentVersionResult.versions[0] {
+            return true
+        } else if newVersionResult.versions[0] == currentVersionResult.versions[0] {
+            if newVersionResult.versions[1] > currentVersionResult.versions[1] {
+                return true
+            } else if newVersionResult.versions[1] > currentVersionResult.versions[1] {
+                if newVersionResult.versions[3] > currentVersionResult.versions[3] {
+                    return true
+                } else if newVersionResult.versions[3] > currentVersionResult.versions[3] {
+                    return false
+                } else {
+                    return false
+                }
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
+    }
+    
+    // MARK: 版本号 version 分隔三个 Int 值
+    /// 分隔版本号
+    /// - Parameter version: 版本号
+    /// - Returns: 结果 和 版本号数组
+    private static func appVersion(version: String) -> (isSuccess: Bool, versions: [Int]) {
+        let versionArray = version.separatedByString(char: ".")
+        guard versionArray.count == 3, let versionString1 = versionArray[0] as? String, let versionString2 = versionArray[1] as? String, let versionString3 = versionArray[2] as? String else {
+            return (false, [])
+        }
+        guard let versionValue1 = versionString1.toInt(), let versionValue2 = versionString2.toInt(), let versionValue3 = versionString3.toInt() else {
+            return (false, [])
+        }
+        return (true, [versionValue1, versionValue2, versionValue3])
     }
 }
