@@ -14,7 +14,7 @@ class UIViewExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、UIView 有关 Frame 的扩展", "二、继承于 UIView 视图的 平面、3D 旋转 以及 缩放", "三、关于UIView的 圆角 和 阴影的设置", "四、自定义链式编程", "其他的方法"]
-        dataArray = [["x 的位置", "y 的位置", "height: 视图的高度", "width: 视图的宽度", "size: 视图的zize", "centerX: 视图的X中间位置", "centerX: 视图的Y中间位置", "center: 视图的中间位置", "top 上端横坐标(y)", "left 左端横坐标(x)", "bottom 底端纵坐标 (y + height)", "right 底端纵坐标 (x + width)"], ["平面旋转", "沿 X 轴方向旋转多少度(3D旋转)", "沿 Y 轴方向旋转多少度(3D旋转)", "沿 Z 轴方向旋转多少度(3D旋转)", "沿 X、Y、Z 轴方向同时旋转多少度(3D旋转)", "设置 x,y 缩放"], ["设置圆角", "添加阴影", "添加阴影和圆角并存", "添加边框", "添加顶部的边框", "添加顶部的 内边框", "添加底部的 边框", "添加左边的 边框", "添加右边的 边框", "画圆环"], ["设置tag值", "设置圆角", "图片的模式", "设置背景色", "设置十六进制颜色", "设置 frame", "被添加到某个视图上", "设置是否支持触摸", "设置是否隐藏", "设置透明度", "设置tintColor", "链式编程的综合使用"], ["获取当前view的viewcontroller", "添加水印", "移除所有的子视图", "将 View 转换成图片"]]
+        dataArray = [["x 的位置", "y 的位置", "height: 视图的高度", "width: 视图的宽度", "size: 视图的zize", "centerX: 视图的X中间位置", "centerX: 视图的Y中间位置", "center: 视图的中间位置", "top 上端横坐标(y)", "left 左端横坐标(x)", "bottom 底端纵坐标 (y + height)", "right 底端纵坐标 (x + width)"], ["平面旋转", "沿 X 轴方向旋转多少度(3D旋转)", "沿 Y 轴方向旋转多少度(3D旋转)", "沿 Z 轴方向旋转多少度(3D旋转)", "沿 X、Y、Z 轴方向同时旋转多少度(3D旋转)", "设置 x,y 缩放"], ["设置圆角", "添加阴影", "添加阴影和圆角并存", "添加边框", "添加顶部的边框", "添加顶部的 内边框", "添加底部的 边框", "添加左边的 边框", "添加右边的 边框", "画圆环"], ["设置tag值", "设置圆角", "图片的模式", "设置背景色", "设置十六进制颜色", "设置 frame", "被添加到某个视图上", "设置是否支持触摸", "设置是否隐藏", "设置透明度", "设置tintColor", "链式编程的综合使用"], ["获取当前view的viewcontroller", "添加水印", "移除所有的子视图", "将 View 转换成图片", "添加点击事件"]]
     }
 }
 
@@ -106,6 +106,26 @@ extension UIViewExtensionViewController {
                 gifImageView.removeFromSuperview()
             }
         }
+    }
+
+    // MARK: 5.5、添加点击事件
+    @objc func test55() {
+        let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
+        testView.backgroundColor = .randomColor
+        testView.center.x = self.view.center.x
+        testView.clipsToBounds = true
+        testView.addTapGestureRecognizerAction(self, #selector(click))
+        self.view.addSubview(testView)
+        
+        JKAsyncs.asyncDelay(5) {
+        } _: {
+            testView.removeFromSuperview()
+        }
+    }
+    
+    // 测试
+    @objc func click() {
+        JKPrint("测试---添加点击事件")
     }
 }
 

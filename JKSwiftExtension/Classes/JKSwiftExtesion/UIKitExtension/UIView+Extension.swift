@@ -730,6 +730,16 @@ public extension UIView {
         UIGraphicsEndImageContext()
         return viewImage
     }
+    
+    // MARK: 7.5、添加点击事件
+    /// 添加点击事件
+    /// - Parameters:
+    ///   - target: 监听对象
+    ///   - selector: 方法
+    func addTapGestureRecognizerAction(_ target : Any ,_ selector : Selector) {
+        self.isUserInteractionEnabled = true
+        self.addGestureRecognizer(UITapGestureRecognizer(target: target, action: selector))
+    }
 
 }
 
