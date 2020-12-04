@@ -16,8 +16,9 @@ public struct JKAsyncs {
     // MARK: 1.1、异步做一些任务
     /// 异步做一些任务
     /// - Parameter task: 任务
-    public static func async(_ task: @escaping Task) {
-        _async(task)
+    @discardableResult
+    public static func async(_ task: @escaping Task) -> DispatchWorkItem {
+        return _asyncDelay(0, task)
     }
     
     // MARK: 1.2、异步做任务后回到主线程做任务
@@ -25,25 +26,13 @@ public struct JKAsyncs {
     /// - Parameters:
     ///   - task: 异步任务
     ///   - mainTask: 主线程任务
-    public static func async(_ task: @escaping Task,
-                             _ mainTask: @escaping Task) {
-        _async(task, mainTask)
-    }
-    
-    // MARK: 1.3、同步延迟执行(主线程执行任务)
-    /// 同步延迟执行(主线程执行任务)
-    /// - Parameter seconds: 延迟秒数
-    /// - Parameter block: 延迟的 block
     @discardableResult
-    public static func syncdelay(_ seconds: Double,
-                                 _ block: @escaping Task) -> DispatchWorkItem {
-        let item = DispatchWorkItem(block: block)
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + seconds,
-                                      execute: item)
-        return item
+    public static func async(_ task: @escaping Task,
+                             _ mainTask: @escaping Task) -> DispatchWorkItem{
+        return _asyncDelay(0, task, mainTask)
     }
     
-    // MARK: 1.4、异步延迟(子线程执行任务)
+    // MARK: 1.3、异步延迟(子线程执行任务)
     /// 异步延迟(子线程执行任务)
     /// - Parameter seconds: 延迟秒数
     /// - Parameter task: 延迟的block
@@ -53,7 +42,7 @@ public struct JKAsyncs {
         return _asyncDelay(seconds, task)
     }
     
-    // MARK: 1.5、异步延迟回到主线程(子线程执行任务，然后回到主线程执行任务)
+    // MARK: 1.4、异步延迟回到主线程(子线程执行任务，然后回到主线程执行任务)
     /// 异步延迟回到主线程(子线程执行任务，然后回到主线程执行任务)
     /// - Parameter seconds: 延迟秒数
     /// - Parameter task: 延迟的block
@@ -68,19 +57,6 @@ public struct JKAsyncs {
 
 // MARK:- 私有的方法
 extension JKAsyncs {
-    
-    /// 异步任务
-    /// - Parameters:
-    ///   - task: 任务
-    ///   - mainTask: 任务
-    fileprivate static func _async(_ task: @escaping Task,
-                                   _ mainTask: Task? = nil) {
-        let item = DispatchWorkItem(block: task)
-        DispatchQueue.global().async(execute: item)
-        if let main = mainTask {
-            item.notify(queue: DispatchQueue.main, execute: main)
-        }
-    }
     
     /// 延迟任务
     /// - Parameters:

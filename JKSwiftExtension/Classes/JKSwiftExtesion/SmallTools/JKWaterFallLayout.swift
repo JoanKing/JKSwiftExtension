@@ -13,9 +13,8 @@ public protocol JKWaterFallLayoutDataSoure: class {
 }
 
 public class JKWaterFallLayout: UICollectionViewFlowLayout {
-    
+    /// 数据源
     public weak var dataSource: JKWaterFallLayoutDataSoure?
-    
     /// 保存 UICollectionViewLayoutAttributes 的数组
     fileprivate lazy var cellAttributes: [UICollectionViewLayoutAttributes] = [UICollectionViewLayoutAttributes]()
     // 几列，默认 2 列
@@ -49,14 +48,12 @@ public extension JKWaterFallLayout {
             guard let cellH: CGFloat = self.dataSource?.waterfall(self, item: i) else {
                 fatalError("请实现对应的数据源的方法，并且返回cell的高度")
             }
-            
             // 3.设置attr的frame
             let minH = totalHeights.min()!
             let minIndex = totalHeights.firstIndex(of: minH)!
             
             let cellX: CGFloat = sectionInset.left + (minimumInteritemSpacing + cellW) * CGFloat(minIndex)
             let cellY: CGFloat = minH
-            
             
             attr.frame = CGRect(x: cellX, y: cellY, width: cellW, height: cellH)
             // 4.保存attr
@@ -69,7 +66,7 @@ public extension JKWaterFallLayout {
     }
 }
 
-// MARK:- 返回准备好的所有布局
+// MARK:- 返回准备好的所vVVVVVVVVVVvvvvvvvvvvvv有布局
 public extension JKWaterFallLayout {
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         return cellAttributes

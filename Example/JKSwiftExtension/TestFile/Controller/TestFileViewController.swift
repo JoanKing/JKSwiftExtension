@@ -24,3 +24,11 @@ class TestFileViewController: UIViewController {
     }
     
 }
+
+class JKName: NSObject {
+    let name: String = ""
+
+    override init() {
+        
+    }
+}
