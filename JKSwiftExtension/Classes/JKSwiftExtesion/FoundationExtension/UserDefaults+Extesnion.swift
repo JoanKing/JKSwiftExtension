@@ -37,3 +37,40 @@ public extension UserDefaults {
         return result
     }
 }
+
+// MARK:- 二、模型持久化
+public extension UserDefaults {
+    
+    // MARK: 2.1、存储模型
+    /// 存储模型
+    /// - Parameters:
+    ///   - object: 模型
+    ///   - key: 对应的key
+    static func setItem<T: Decodable & Encodable>(_ object: T, forKey key: String) {
+        let encoder = JSONEncoder()
+        guard let encoded = try? encoder.encode(object) else {
+            return
+        }
+        Self.standard.set(encoded, forKey: key)
+        Self.standard.synchronize()
+    }
+    
+    // MARK: 2.2、取出模型
+    /// 取出模型
+    /// - Parameters:
+    ///   - type: 当时存储的类型
+    ///   - key: 对应的key
+    /// - Returns: 对应类型的模型
+    static func getItem<T: Decodable & Encodable>(_ type: T.Type, forKey key: String) -> T? {
+        
+        guard let data = Self.standard.data(forKey: key) else {
+            return nil
+        }
+        let decoder = JSONDecoder()
+        guard let object = try? decoder.decode(type, from: data) else {
+            JKPrint("Couldnt find key")
+            return nil
+        }
+        return object
+    }
+}

@@ -436,40 +436,30 @@ public extension FileManager {
     /// - Parameter folderPath: 建搜索的lujing
     /// - Returns: 指定目录路径下的文件、子目录及符号链接的列表
     static func shallowSearchAllFiles(folderPath: String) -> Array<String>? {
-        do {
-            let contentsOfDirectoryArray = try fileManager.contentsOfDirectory(atPath: folderPath)
-            return contentsOfDirectoryArray
-        } catch _ {
+        guard let contentsOfDirectoryArray = try? fileManager.contentsOfDirectory(atPath: folderPath) else {
             return nil
         }
+        return contentsOfDirectoryArray
     }
     
     // MARK: 2.17、深度遍历，会递归遍历子文件夹（包括符号链接，所以要求性能的话用enumeratorAtPath）
     /**深度遍历，会递归遍历子文件夹（包括符号链接，所以要求性能的话用enumeratorAtPath）*/
     static func getAllFileNames(folderPath: String) -> Array<String>? {
         // 查看文件夹是否存在，如果存在就直接读取，不存在就直接反空
-        if (judgeFileOrFolderExists(filePath: folderPath)) {
-            guard let subPaths = fileManager.subpaths(atPath: folderPath) else {
-                return nil
-            }
-            return subPaths
-        } else {
+        guard judgeFileOrFolderExists(filePath: folderPath), let subPaths = fileManager.subpaths(atPath: folderPath) else {
             return nil
         }
+        return subPaths
     }
     
     // MARK: 2.18、深度遍历，会递归遍历子文件夹（但不会递归符号链接）
     /** 对指定路径深度遍历，会递归遍历子文件夹（但不会递归符号链接））*/
     static func deepSearchAllFiles(folderPath: String) -> Array<Any>? {
         // 查看文件夹是否存在，如果存在就直接读取，不存在就直接反空
-        if (judgeFileOrFolderExists(filePath: folderPath)) {
-            guard let contentsOfPathArray = fileManager.enumerator(atPath: folderPath) else {
-                return nil
-            }
-            return contentsOfPathArray.allObjects
-        }else{
+        guard judgeFileOrFolderExists(filePath: folderPath), let contentsOfPathArray = fileManager.enumerator(atPath: folderPath) else {
             return nil
         }
+        return contentsOfPathArray.allObjects
     }
     
     // MARK: 2.19、计算单个 (文件夹/文件) 的大小，单位为字节(bytes) （没有进行转换的）
@@ -482,15 +472,10 @@ public extension FileManager {
             return 0
         }
         // 2、读取文件大小
-        do {
-            let fileAttributes = try fileManager.attributesOfItem(atPath: filePath)
-            guard let fileSizeValue = fileAttributes[FileAttributeKey.size] as? UInt64 else {
-                return 0
-            }
-            return fileSizeValue
-        } catch {
+        guard let fileAttributes = try? fileManager.attributesOfItem(atPath: filePath), let fileSizeValue = fileAttributes[FileAttributeKey.size] as? UInt64 else {
             return 0
         }
+        return fileSizeValue
     }
     
     //MARK: 2.20、计算 (文件夹/文件) 的大小（转换过的）

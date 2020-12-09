@@ -98,6 +98,7 @@
 		84D9BDCD25652D8C00D92461 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BDCC25652D8C00D92461 /* TestView.swift */; };
 		84D9BDD125652D9900D92461 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D9BDD025652D9900D92461 /* TestView.xib */; };
 		84D9BDD525652FE500D92461 /* JKEmitterableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BDD425652FE400D92461 /* JKEmitterableViewController.swift */; };
+		84EE8174257F8EFF00DDC56B /* Persons.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84EE8173257F8EFF00DDC56B /* Persons.plist */; };
 		84F86FBD2564B4C400B74128 /* JKCommonToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F86FBC2564B4C400B74128 /* JKCommonToolViewController.swift */; };
 		84F86FCC2564C66E00B74128 /* JKContentSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F86FCB2564C66E00B74128 /* JKContentSizeViewController.swift */; };
 		84F86FEC2564EAF500B74128 /* JKValidateHelperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F86FEB2564EAF500B74128 /* JKValidateHelperViewController.swift */; };
@@ -213,6 +214,7 @@
 		84D9BDCC25652D8C00D92461 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		84D9BDD025652D9900D92461 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
 		84D9BDD425652FE400D92461 /* JKEmitterableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKEmitterableViewController.swift; sourceTree = "<group>"; };
+		84EE8173257F8EFF00DDC56B /* Persons.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Persons.plist; sourceTree = "<group>"; };
 		84F86FBC2564B4C400B74128 /* JKCommonToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKCommonToolViewController.swift; sourceTree = "<group>"; };
 		84F86FCB2564C66E00B74128 /* JKContentSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKContentSizeViewController.swift; sourceTree = "<group>"; };
 		84F86FEB2564EAF500B74128 /* JKValidateHelperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKValidateHelperViewController.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 				8483A72B254BF0AD00ACF6FD /* JKBaseKit.bundle */,
 				607FACD41AFB9204008FA782 /* Info.plist */,
 				8483A72F254C0A7F00ACF6FD /* testicon.png */,
+				84EE8173257F8EFF00DDC56B /* Persons.plist */,
 				846774172511FE9900DE8B44 /* JKSwiftExtension_Example-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
@@ -738,6 +741,7 @@
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				84D9BDD125652D9900D92461 /* TestView.xib in Resources */,
+				84EE8174257F8EFF00DDC56B /* Persons.plist in Resources */,
 				840F883F256637BE009B73DA /* huaban1.png in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);

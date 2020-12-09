@@ -78,7 +78,7 @@ extension UIColorExtensionViewController {
         JKPrint("UIColor 转十六进制颜色的字符串", "原始颜色：纯蓝：#3CB371 -> 60,179,113 透明度：\(alpha1)", "color 转化为 十六进制字符串为：\(hesString1)", "最后的两位是：\(hesString1.sub(from: hesString1.count - 2)) 透明度是：\(newAlpha1)", "", "color 转化为 十六进制字符串为：\(hesString2)", "最后的两位是：\(hesString2.sub(from: hesString2.count - 2)) 透明度是：\(newAlpha2)")
     }
     
-    // MARK: 4.1、随机色
+    // MARK: 4.2、随机色
     @objc func test31() {
         self.navigationController?.navigationBar.barTintColor = UIColor.randomColor
     }
