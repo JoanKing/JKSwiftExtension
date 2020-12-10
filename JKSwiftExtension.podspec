@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JKSwiftExtension'
-  s.version          = '0.7.5'
+  s.version          = '0.7.6'
   s.summary          = 'Swift版本的一个扩展'
   s.description      = '这是Swift版本扩展的一个详细的使用，可以参考里面的用法'
 

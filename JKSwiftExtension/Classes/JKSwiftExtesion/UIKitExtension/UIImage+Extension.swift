@@ -177,6 +177,53 @@ public extension UIImage {
         
         return image!
     }
+    
+    // MARK: 1.8、文字图片占位符
+    /// 文字图片占位符
+    /// - Parameters:
+    ///   - text: 图片上的文字
+    ///   - size: 图片的大小
+    ///   - backgroundColor: 图片背景色
+    ///   - textColor: 文字颜色
+    ///   - isCircle: 是否要圆角
+    ///   - isFirstChar: 是否展示第一个字符
+    /// - Returns: 返回图片
+    static func textImage(_ text: String, fontSize: CGFloat = 16, size: (CGFloat, CGFloat), backgroundColor: UIColor = UIColor.orange, textColor: UIColor = UIColor.white, isCircle: Bool = true, isFirstChar: Bool = false) -> UIImage? {
+        // 过滤空内容
+        if text.isEmpty { return nil }
+        // 取第一个字符(测试了,太长了的话,效果并不好)
+        let letter = isFirstChar ? (text as NSString).substring(to: 1) : text
+        let sise = CGSize(width: size.0, height: size.1)
+        let rect = CGRect(origin: CGPoint.zero, size: sise)
+        
+        let textsize = text.rectSize(font: UIFont.systemFont(ofSize: fontSize), size: CGSize(width: kScreenW, height: CGFloat(MAXFLOAT)))
+        
+        // 开启上下文
+        UIGraphicsBeginImageContext(sise)
+        // 拿到上下文
+        guard let ctx = UIGraphicsGetCurrentContext() else { return nil }
+        // 取较小的边
+        let minSide = min(size.0, size.1)
+        // 是否圆角裁剪
+        if isCircle {
+            UIBezierPath(roundedRect: rect, cornerRadius: minSide * 0.5).addClip()
+        }
+        // 设置填充颜色
+        ctx.setFillColor(backgroundColor.cgColor)
+        // 填充绘制
+        ctx.fill(rect)
+        let attr = [NSAttributedString.Key.foregroundColor : textColor, NSAttributedString.Key.font : UIFont.systemFont(ofSize: fontSize)]
+        // 写入文字
+        // 文字写入的起点
+        let pointX: CGFloat = textsize.width > minSide ? 0 : (minSide - textsize.width) / 2.0
+        let pointY: CGFloat = (minSide - fontSize - 4) / 2.0
+        (letter as NSString).draw(at: CGPoint(x: pointX, y: pointY), withAttributes: attr)
+        // 得到图片
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        // 关闭上下文
+        UIGraphicsEndImageContext()
+        return image
+    }
 }
 
 // MARK:- 二、UIColor 生成的图片 和 生成渐变色图片
