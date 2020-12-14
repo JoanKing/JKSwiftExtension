@@ -41,6 +41,8 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor.green
         dataArray = ["FoundationExtension", "UIKitExtension", "Protocol", "SmallTools", "TestFile(自己测试用的)"]
         initUI()
+        
+        
     }
     
     /// 创建控件

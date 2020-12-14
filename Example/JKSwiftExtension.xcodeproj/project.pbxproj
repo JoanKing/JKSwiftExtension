@@ -1076,7 +1076,7 @@
 				INFOPLIST_FILE = JKSwiftExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cocoapods.JKSwiftExtension;
 				PRODUCT_NAME = "JKSwiftExtension扩展";
@@ -1101,7 +1101,7 @@
 				INFOPLIST_FILE = JKSwiftExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cocoapods.JKSwiftExtension;
 				PRODUCT_NAME = "JKSwiftExtension扩展";
