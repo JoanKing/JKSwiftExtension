@@ -48,28 +48,34 @@ public extension NSDecimalNumberHandler {
     ///   - value1: 除数
     ///   - value2: 被除数
     /// - Returns: 值
-    static func getFloorIntValue(value1: Decimal, value2: Decimal) -> Int {
-        return decimalNumberHandlerValue(type: .dividing, value1: value1, value2: value2, roundingMode: .down, scale: 0, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false).intValue
-    }
-    
-    // MARK: 1.1、向下取整取倍数
-    /// 向下取整取倍数
-    /// - Parameters:
-    ///   - value1: 除数
-    ///   - value2: 被除数
-    /// - Returns: 值
-    static func getFloorIntValue1(value1: Float, value2: Float) -> Int {
+    static func getFloorIntValue(value1: Any, value2: Any) -> Int {
         return decimalNumberHandlerValue(type: .dividing, value1: value1, value2: value2, roundingMode: .down, scale: 0, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false).intValue
     }
     
     // MARK: 1.2、一个数字能否整除另外一个数字
-    static func isDivisible(value1: Decimal, value2: Decimal) -> Bool {
-        let value = decimalNumberHandlerValue(type: .dividing, value1: value1, value2: value2, roundingMode: .down, scale: 3, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false).floatValue
-        let valueArray = "\(value)".separatedByString(char: ".")
+    static func isDivisible(value1: Any, value2: Any) -> Bool {
+        let value = decimalNumberHandlerValue(type: .dividing, value1: value1, value2: value2, roundingMode: .down, scale: 3, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false).stringValue
+        let valueArray = value.separatedByString(char: ".")
+        // 没有小数代表是整除
+        guard valueArray.count > 1 else {
+            return true
+        }
+        // 有小数的情况
         guard valueArray.count > 1, let decimalValue = valueArray[1] as? String, decimalValue.count == 1, decimalValue == "0" else {
             return false
         }
         return true
+    }
+    
+    // MARK:1.3、两个数字之间的计算
+    /// 两个数字之间的计算
+    /// - Parameters:
+    ///   - type: 计算的类型
+    ///   - value1: 值
+    ///   - value2: 值
+    /// - Returns: 计算结果
+    static func calculation(type: DecimalNumberHandlerType, value1: Any, value2: Any) -> NSDecimalNumber {
+        return decimalNumberHandlerValue(type: type, value1: value1, value2: value2, roundingMode: .down, scale: 10, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false)
     }
 }
 

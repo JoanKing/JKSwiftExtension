@@ -32,7 +32,7 @@ extension Float {
     
     // MARK: 1.6、转 NSNumber
     /// 转 NSNumber
-    public var number: NSNumber { return NSNumber.init(value: self) }
+    public var number: NSNumber { return NSNumber(value: self) }
     
     // MARK: 1.7、转 Float
     /// 转 Float
