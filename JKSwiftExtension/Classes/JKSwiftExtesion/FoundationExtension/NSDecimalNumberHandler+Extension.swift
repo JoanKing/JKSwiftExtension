@@ -75,7 +75,7 @@ public extension NSDecimalNumberHandler {
     ///   - value2: 值
     /// - Returns: 计算结果
     static func calculation(type: DecimalNumberHandlerType, value1: Any, value2: Any) -> NSDecimalNumber {
-        return decimalNumberHandlerValue(type: type, value1: value1, value2: value2, roundingMode: .down, scale: 10, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false)
+        return decimalNumberHandlerValue(type: type, value1: value1, value2: value2, roundingMode: .down, scale: 30, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false)
     }
 }
 

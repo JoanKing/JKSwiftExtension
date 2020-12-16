@@ -13,8 +13,24 @@ class UIViewControllerExtensionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headDataArray = ["一、基本的扩展"]
-        dataArray = [["pop回上一个界面", "获取push进来的 VC", "获取顶部控制器"]]
+        headDataArray = ["一、基本的扩展", "二、Storyboard 的 VC 交互"]
+        dataArray = [["pop回上一个界面", "获取push进来的 VC", "获取顶部控制器"], ["push跳转Storyboard(首个初始化的控制器)", "push跳转到Storyboard中指定UIViewController"]]
+    }
+}
+
+// MARK:- 二、Storyboard 的 VC 交互
+extension UIViewControllerExtensionViewController {
+    
+    // MARK: 2.2、push跳转到Storyboard中指定UIViewController
+    @objc func test22() {
+        self.pushStoryboard("MyStoryboard", identifier: "456") { (vc) in
+        }
+    }
+    
+    // MARK: 2.1、push跳转Storyboard(首个初始化的控制器)
+    @objc func test21() {
+        self.pushStoryboard("MyStoryboard2") { (vc) in
+        }
     }
 }
 

@@ -23,7 +23,7 @@ extension DoubleExtensionViewController {
     
     // MARK: 2.1、浮点数四舍五入
     @objc func test21() {
-        let money: Double = 56789.654
+        let money: Double = 56789.65499999
         let price = money.roundTo(places: 3)
         JKPrint("浮点数四舍五入", "\(money) 浮点数四舍五入 后为：\(price)")
     }

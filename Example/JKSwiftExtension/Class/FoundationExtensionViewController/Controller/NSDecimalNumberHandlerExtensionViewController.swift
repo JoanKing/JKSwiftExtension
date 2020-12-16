@@ -14,16 +14,24 @@ class NSDecimalNumberHandlerExtensionViewController: BaseViewController {
         super.viewDidLoad()
 
         headDataArray = ["一、基本的扩展"]
-        dataArray = [["向下取整取倍数", "一个数字能否整除另外一个数字", "两个数字之间的计算"]]
+        dataArray = [["向下取整取倍数", "一个数字能否整除另外一个数字", "两个数字之间的计算", "测试"]]
     }
 }
 
 // MARK:- 一、基本的扩展
 extension NSDecimalNumberHandlerExtensionViewController {
     
+    @objc func test14() {
+        let value11 = 4.441
+        let value12 = 2.22
+        let result = value11.truncatingRemainder(dividingBy: value12)
+
+        JKPrint("result：\(result)")
+    }
+    
     // MARK: 1.3、两个数字之间的计算
     @objc func test13() {
-        let value1: Double = 12.9999999
+        let value1: Double = 12.9999999999
         let value2: Double = 0.01
         let result = NSDecimalNumberHandler.calculation(type: .subtracting, value1: value1, value2: value2)
         let stringValue = result.stringValue

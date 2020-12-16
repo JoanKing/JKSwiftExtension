@@ -104,6 +104,10 @@
 		84F86FEC2564EAF500B74128 /* JKValidateHelperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F86FEB2564EAF500B74128 /* JKValidateHelperViewController.swift */; };
 		84F86FFD2564F22700B74128 /* JKVerticalCarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F86FFC2564F22700B74128 /* JKVerticalCarouselViewController.swift */; };
 		84F870012564F91600B74128 /* JKWaterFallLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F870002564F91600B74128 /* JKWaterFallLayoutViewController.swift */; };
+		84F9375A2589D4B500A35E77 /* MyStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F937592589D4B500A35E77 /* MyStoryboard.storyboard */; };
+		84F9375E2589D52F00A35E77 /* StoryboardTest1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F9375D2589D52F00A35E77 /* StoryboardTest1ViewController.swift */; };
+		84F937622589E82100A35E77 /* MyStoryboard2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F937612589E82100A35E77 /* MyStoryboard2.storyboard */; };
+		84F937A0258A081700A35E77 /* UICollectionViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F9379F258A081700A35E77 /* UICollectionViewExtensionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -220,6 +224,10 @@
 		84F86FEB2564EAF500B74128 /* JKValidateHelperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKValidateHelperViewController.swift; sourceTree = "<group>"; };
 		84F86FFC2564F22700B74128 /* JKVerticalCarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKVerticalCarouselViewController.swift; sourceTree = "<group>"; };
 		84F870002564F91600B74128 /* JKWaterFallLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKWaterFallLayoutViewController.swift; sourceTree = "<group>"; };
+		84F937592589D4B500A35E77 /* MyStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyStoryboard.storyboard; sourceTree = "<group>"; };
+		84F9375D2589D52F00A35E77 /* StoryboardTest1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardTest1ViewController.swift; sourceTree = "<group>"; };
+		84F937612589E82100A35E77 /* MyStoryboard2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyStoryboard2.storyboard; sourceTree = "<group>"; };
+		84F9379F258A081700A35E77 /* UICollectionViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensionViewController.swift; sourceTree = "<group>"; };
 		88DDA121456371E8DD11E3A3 /* Pods-JKSwiftExtension_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSwiftExtension_Tests.release.xcconfig"; path = "Target Support Files/Pods-JKSwiftExtension_Tests/Pods-JKSwiftExtension_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9813482D301100D63B15615B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		BB14143CC4D03081EA63A0FB /* Pods-JKSwiftExtension_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSwiftExtension_Tests.debug.xcconfig"; path = "Target Support Files/Pods-JKSwiftExtension_Tests/Pods-JKSwiftExtension_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -308,6 +316,7 @@
 				8483A72F254C0A7F00ACF6FD /* testicon.png */,
 				84EE8173257F8EFF00DDC56B /* Persons.plist */,
 				846774172511FE9900DE8B44 /* JKSwiftExtension_Example-Bridging-Header.h */,
+				84F937582589D49200A35E77 /* StoryboardTest */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -507,6 +516,7 @@
 			isa = PBXGroup;
 			children = (
 				84BF16C7251D9FB6002ACE76 /* UIKitExtensionViewController.swift */,
+				84F9379F258A081700A35E77 /* UICollectionViewExtensionViewController.swift */,
 				84B29410257747EF009E7760 /* UINavigationBarExtensionViewController.swift */,
 				84813773254A5EC100D9289C /* UIColorExtensionViewController.swift */,
 				848028072558D5A70038748A /* CALayerExtensionViewController.swift */,
@@ -635,6 +645,16 @@
 			path = TestFile;
 			sourceTree = "<group>";
 		};
+		84F937582589D49200A35E77 /* StoryboardTest */ = {
+			isa = PBXGroup;
+			children = (
+				84F937592589D4B500A35E77 /* MyStoryboard.storyboard */,
+				84F937612589E82100A35E77 /* MyStoryboard2.storyboard */,
+				84F9375D2589D52F00A35E77 /* StoryboardTest1ViewController.swift */,
+			);
+			path = StoryboardTest;
+			sourceTree = "<group>";
+		};
 		B8274FB6B834330C0882AAED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -734,12 +754,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				847DE9552573F0B60080EEC0 /* testFile.text in Resources */,
+				84F9375A2589D4B500A35E77 /* MyStoryboard.storyboard in Resources */,
 				8483A730254C0A7F00ACF6FD /* testicon.png in Resources */,
 				8483A72C254BF0AD00ACF6FD /* JKBaseKit.bundle in Resources */,
 				840F884325663B24009B73DA /* girl.png in Resources */,
 				8473AADA2562985B00707877 /* pika2.gif in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				84F937622589E82100A35E77 /* MyStoryboard2.storyboard in Resources */,
 				84D9BDD125652D9900D92461 /* TestView.xib in Resources */,
 				84EE8174257F8EFF00DDC56B /* Persons.plist in Resources */,
 				840F883F256637BE009B73DA /* huaban1.png in Resources */,
@@ -878,6 +900,7 @@
 				84BEA371254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift in Sources */,
 				84BF16CC251DA012002ACE76 /* SmallToolsViewController.swift in Sources */,
 				844A635025664F9B000059EC /* TwoViewController.swift in Sources */,
+				84F9375E2589D52F00A35E77 /* StoryboardTest1ViewController.swift in Sources */,
 				844A635525664F9B000059EC /* OneViewController.swift in Sources */,
 				84A8FEFF2534598A00830EAF /* ArrayExtensionViewController.swift in Sources */,
 				84A5D2D62547B48E003D289C /* DateExtensionViewController.swift in Sources */,
@@ -908,6 +931,7 @@
 				84D9BDA925651FA600D92461 /* WeakTimerViewController.swift in Sources */,
 				84D9BDD525652FE500D92461 /* JKEmitterableViewController.swift in Sources */,
 				847DFF2C2550F8C100EEE785 /* BoolExtensionViewController.swift in Sources */,
+				84F937A0258A081700A35E77 /* UICollectionViewExtensionViewController.swift in Sources */,
 				8483A732254C0D6200ACF6FD /* JKPrintViewController.swift in Sources */,
 				84F86FCC2564C66E00B74128 /* JKContentSizeViewController.swift in Sources */,
 				84F870012564F91600B74128 /* JKWaterFallLayoutViewController.swift in Sources */,
