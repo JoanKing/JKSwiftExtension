@@ -194,7 +194,7 @@ extension FileManagerExtensionViewController {
     
     // MARK: 2.1、创建文件夹(蓝色的，文件夹和文件是不一样的)
     @objc func test21() {
-        let path = FileManager.LibraryDirectory() + "/哈哈/嘿嘿"
+        let path = FileManager.LibraryDirectory() + "/哈哈"
         FileManager.createFolder(folderPath: path)
         JKPrint("根据传件来的路径创建文件夹 创建文件目录(蓝色的，文件夹和文件是不一样的)", "获取文件夹的完整路径名:\(path)")
     }

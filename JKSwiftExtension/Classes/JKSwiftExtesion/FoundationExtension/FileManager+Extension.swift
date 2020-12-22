@@ -144,7 +144,7 @@ public extension FileManager {
     /// - Returns: 返回创建的 创建文件夹路径
     @discardableResult
     static func createFolder(folderPath: String) -> (isSuccess: Bool, error: String) {
-        if !judgeFileOrFolderExists(filePath: folderPath) {
+        if judgeFileOrFolderExists(filePath: folderPath) {
             return (true, "")
         }
         // 不存在的路径才会创建
@@ -380,7 +380,7 @@ public extension FileManager {
     }
     
     // MARK: 2.10、判断 (文件夹/文件) 是否存在
-    /** 判断文件或文件夹是否存在*/
+    /// 判断文件或文件夹是否存在
     static func judgeFileOrFolderExists(filePath: String) -> Bool {
         let exist = fileManager.fileExists(atPath: filePath)
         // 查看文件夹是否存在，如果存在就直接读取，不存在就直接反空

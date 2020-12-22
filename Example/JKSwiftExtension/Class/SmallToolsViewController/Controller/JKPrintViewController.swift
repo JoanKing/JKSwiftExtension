@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JKPrintViewController: BaseViewController {
+class JKPrintViewController: BaseViewController, UIDocumentInteractionControllerDelegate {
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,5 +34,14 @@ extension JKPrintViewController {
     // MARK: 1.2、打印多个内
     @objc func test12() {
         JKPrint("第 1 个内容", "第 2 个内容")
+    }
+    
+    // MARK: 1.3、发送文件
+    @objc func test13() {
+        let cachePath = FileManager.CachesDirectory()
+        let logURL = cachePath + "/log.txt"
+        let documentController = UIDocumentInteractionController(url: URL(string: logURL)!)
+        documentController.delegate = self
+        documentController.presentOpenInMenu(from: CGRect.zero, in: self.view, animated: true)
     }
 }

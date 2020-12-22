@@ -90,6 +90,7 @@
 		84C4BF6125501B3600B3705F /* IntExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C4BF6025501B3600B3705F /* IntExtensionViewController.swift */; };
 		84CC32AD255CDBB300F489F0 /* UIScrollViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CC32AC255CDBB300F489F0 /* UIScrollViewExtensionViewController.swift */; };
 		84CC32AF255D39F000F489F0 /* UITextViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CC32AE255D39F000F489F0 /* UITextViewExtensionViewController.swift */; };
+		84CEDD64258B62EE00D22735 /* UITableViewCellExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEDD63258B62EE00D22735 /* UITableViewCellExtensionViewController.swift */; };
 		84D8EC94255BFA3A001ACECA /* UIViewControllerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8EC93255BFA3A001ACECA /* UIViewControllerExtensionViewController.swift */; };
 		84D9BD7D2565165D00D92461 /* MaskingManagerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BD7C2565165D00D92461 /* MaskingManagerExtensionViewController.swift */; };
 		84D9BD9725651BEB00D92461 /* KeyboardAccessoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BD9625651BEB00D92461 /* KeyboardAccessoryViewController.swift */; };
@@ -210,6 +211,7 @@
 		84C4BF6025501B3600B3705F /* IntExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensionViewController.swift; sourceTree = "<group>"; };
 		84CC32AC255CDBB300F489F0 /* UIScrollViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtensionViewController.swift; sourceTree = "<group>"; };
 		84CC32AE255D39F000F489F0 /* UITextViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtensionViewController.swift; sourceTree = "<group>"; };
+		84CEDD63258B62EE00D22735 /* UITableViewCellExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtensionViewController.swift; sourceTree = "<group>"; };
 		84D8EC93255BFA3A001ACECA /* UIViewControllerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensionViewController.swift; sourceTree = "<group>"; };
 		84D9BD7C2565165D00D92461 /* MaskingManagerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskingManagerExtensionViewController.swift; sourceTree = "<group>"; };
 		84D9BD9625651BEB00D92461 /* KeyboardAccessoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAccessoryViewController.swift; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 			isa = PBXGroup;
 			children = (
 				84BF16C7251D9FB6002ACE76 /* UIKitExtensionViewController.swift */,
+				84CEDD63258B62EE00D22735 /* UITableViewCellExtensionViewController.swift */,
 				84F9379F258A081700A35E77 /* UICollectionViewExtensionViewController.swift */,
 				84B29410257747EF009E7760 /* UINavigationBarExtensionViewController.swift */,
 				84813773254A5EC100D9289C /* UIColorExtensionViewController.swift */,
@@ -717,7 +720,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = SGVDL6B99N;
+						DevelopmentTeam = XXHJUP7YMQ;
 						LastSwiftMigration = 1160;
 						ProvisioningStyle = Automatic;
 					};
@@ -920,6 +923,7 @@
 				84D9BDCD25652D8C00D92461 /* TestView.swift in Sources */,
 				84058C972554FA44007F0C30 /* UIViewExtensionViewController.swift in Sources */,
 				84B4440A2575E8AD00D3DD1D /* DataExtensionViewController.swift in Sources */,
+				84CEDD64258B62EE00D22735 /* UITableViewCellExtensionViewController.swift in Sources */,
 				848028082558D5A70038748A /* CALayerExtensionViewController.swift in Sources */,
 				8418FB99255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift in Sources */,
 				847DFF262550F07600EEE785 /* Int64ExtensionViewController.swift in Sources */,
@@ -1096,7 +1100,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SGVDL6B99N;
+				DEVELOPMENT_TEAM = XXHJUP7YMQ;
 				INFOPLIST_FILE = JKSwiftExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1121,7 +1125,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SGVDL6B99N;
+				DEVELOPMENT_TEAM = XXHJUP7YMQ;
 				INFOPLIST_FILE = JKSwiftExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

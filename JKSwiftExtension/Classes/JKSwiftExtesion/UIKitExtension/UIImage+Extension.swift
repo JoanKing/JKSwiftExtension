@@ -224,6 +224,25 @@ public extension UIImage {
         UIGraphicsEndImageContext()
         return image
     }
+    
+    // MARK: 1.9、更改图片颜色
+    /// 更改图片颜色
+    /// - Parameter color: 图片颜色
+    /// - Returns: 返回更改后的图片颜色
+    func imageWithColor(color : UIColor) -> UIImage? {
+        defer {
+            UIGraphicsEndImageContext()
+        }
+        UIGraphicsBeginImageContext(self.size)
+        color.setFill()
+        let bounds = CGRect.init(x: 0, y: 0, width: self.size.width, height: self.size.height)
+        UIRectFill(bounds)
+        self.draw(in: bounds, blendMode: CGBlendMode.destinationIn, alpha: 1.0)
+        guard let tintedImage = UIGraphicsGetImageFromCurrentImageContext() else {
+            return nil
+        }
+        return tintedImage
+    }
 }
 
 // MARK:- 二、UIColor 生成的图片 和 生成渐变色图片
