@@ -22,5 +22,11 @@ public extension URL {
         }
         return parameters
     }
+    
+    // MARK: 1.2、属性说明
+    /// 属性说明
+    func propertyDescription() {
+        JKPrint("完整的url字符串 absoluteString：\(absoluteString)", "协议 scheme：\(scheme ?? "")", "相对路径 relativePath：\(relativePath)", "端口 port：\(port ?? 0)", "路径 path：\(path)", "pathComponents：\(pathComponents)", "参数 query：\(query ?? "")", "域名 host：\(host ?? "")")
+    }
 }
 

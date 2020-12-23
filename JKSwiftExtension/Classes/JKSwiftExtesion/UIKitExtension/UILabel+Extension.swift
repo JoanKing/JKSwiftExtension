@@ -1,9 +1,8 @@
 //
 //  UILabel+Extension.swift
-//  XCar
+//  JKSwiftExtension
 //
-//  Created by 王冲 on 2020/1/14.
-//  Copyright © 2020 塞纳德（北京）信息技术有限公司. All rights reserved.
+//  Created by IronMan on 2020/9/24.
 //
 
 import UIKit

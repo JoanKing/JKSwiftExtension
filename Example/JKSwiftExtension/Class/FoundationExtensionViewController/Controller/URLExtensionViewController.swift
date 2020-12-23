@@ -14,13 +14,22 @@ class URLExtensionViewController: BaseViewController {
         super.viewDidLoad()
 
         headDataArray = ["一、基本的扩展"]
-        dataArray = [["提取链接中的参数以字典像是显示"]]
+        dataArray = [["提取链接中的参数以字典像是显示", "属性说明"]]
     }
 
 }
 
 // MARK:- 一、基本的扩展
 extension URLExtensionViewController {
+    
+    // MARK: 1.2、属性说明
+    @objc func test12() {
+        
+        guard let url = URL(string: "https://www.jianshu.com?a=1&b=2") else {
+            return
+        }
+        url.propertyDescription()
+    }
     
     // MARK: 1.1、提取链接中的参数以字典像是显示
     @objc func test11() {   
