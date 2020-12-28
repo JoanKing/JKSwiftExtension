@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 import CoreFoundation
-
+extension UIView: JKPOPCompatible {}
 // MARK:- 一、机型的判断
 /*
  iphone硬件型号
@@ -142,7 +142,6 @@ public let kScreenW16_9: CGFloat = kScreenW * 9.0 / 16.0
 public let kScreenH16_9: CGFloat = kScreenH * 16.0 / 9.0
 
 // MARK:- 三、UIView 有关 Frame 的扩展
-extension UIView: JKPOPCompatible {}
 public extension JKPOP where Base : UIView {
     // MARK: 3.1、x 的位置
     /// x 的位置
@@ -683,12 +682,12 @@ public extension UIView {
     ///   - textColor: 水印文字颜色
     ///   - font: 水印文字大小
     func addWater(markText: String, textColor: UIColor = UIColor.black, font: UIFont = UIFont.systemFont(ofSize: 12)) {
-        let waterMark: NSString = markText.toNSString
+        let waterMark: NSString = markText.jk.toNSString
         let textSize: CGSize = waterMark.size(withAttributes: [NSAttributedString.Key.font : font])
         // 多少行
         let line: NSInteger = NSInteger(self.jk.height * 3.5 / 80)
         // 多少列：自己的宽度/(每个水印的宽度+间隔)
-        let row: NSInteger = NSInteger(self.jk.width / markText.rectWidth(font: font, size: CGSize(width: self.jk.width, height: CGFloat(MAXFLOAT))))
+        let row: NSInteger = NSInteger(self.jk.width / markText.jk.rectWidth(font: font, size: CGSize(width: self.jk.width, height: CGFloat(MAXFLOAT))))
         for i in 0..<line {
             for j in 0..<row {
                 let textLayer: CATextLayer = CATextLayer()

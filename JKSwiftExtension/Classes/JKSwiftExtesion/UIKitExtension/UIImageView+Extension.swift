@@ -15,7 +15,7 @@ public extension UIImageView {
     /// - Parameter name: 图片的名字
     func loadGif(name: String) {
         DispatchQueue.global().async {
-            let image = UIImage.gif(name: name)
+            let image = UIImage.jk.gif(name: name)
             DispatchQueue.main.async {
                 self.image = image
             }
@@ -28,7 +28,7 @@ public extension UIImageView {
     @available(iOS 9.0, *)
     func loadGif(asset: String) {
         DispatchQueue.global().async {
-            let image = UIImage.gif(asset: asset)
+            let image = UIImage.jk.gif(asset: asset)
             DispatchQueue.main.async {
                 self.image = image
             }
@@ -41,7 +41,7 @@ public extension UIImageView {
     @available(iOS 9.0, *)
     func loadGif(url: String) {
         DispatchQueue.global().async {
-            let image = UIImage.gif(url: url)
+            let image = UIImage.jk.gif(url: url)
             DispatchQueue.main.async {
                 self.image = image
             }

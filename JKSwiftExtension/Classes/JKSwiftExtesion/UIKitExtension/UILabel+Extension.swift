@@ -147,7 +147,7 @@ public extension UILabel {
         var lineArr = [String]()
         for line in lines {
             let lineRange = CTLineGetStringRange(line as! CTLine)
-            let lineString = t.sub(start: lineRange.location, length: lineRange.length)
+            let lineString = t.jk.sub(start: lineRange.location, length: lineRange.length)
             lineArr.append(lineString as String)
         }
         return (lineArr.count, lineArr)

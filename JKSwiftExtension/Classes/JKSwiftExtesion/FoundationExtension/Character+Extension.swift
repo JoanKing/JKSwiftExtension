@@ -25,6 +25,6 @@ public extension Character {
     // MARK: 2.1、判断是不是 Emoji 表情
     /// 判断是不是 Emoj 表情
     var isEmoji: Bool {
-        return String(self).includesEmoji()
+        return String(self).jk.includesEmoji()
     }
 }

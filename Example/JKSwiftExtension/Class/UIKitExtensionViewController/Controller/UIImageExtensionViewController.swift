@@ -17,7 +17,7 @@ class UIImageExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、基本的扩展", "二、UIColor 生成的图片 和 生成渐变色图片", "三、图片的拉伸和缩放", "四、UIImage 压缩相关", "五、二维码的处理", "六、pdf 加载", "七、图片旋转的一些操作"]
-        dataArray = [["设置图片的圆角", "设置圆形图片", "获取视频的第一帧", "layer 转 image", "设置图片透明度", "裁剪给定区域", "给图片添加文字水印", "文字图片占位符", "更改图片颜色"], ["生成指定尺寸的纯色图像", "生成指定尺寸和圆角的纯色图像", "生成渐变色的图片 [\"#B0E0E6\", \"#00CED1\", \"#2E8B57\"]", "生成渐变色的图片 [UIColor, UIColor, UIColor]", "生成带圆角渐变色的图片 [UIColor, UIColor, UIColor]"], ["获取固定大小的 image", "按宽高比系数：等比缩放", "按指定尺寸等比缩放", "图片中间 1*1 拉伸——如气泡一般", "调整图像方向 避免图像有旋转"], ["压缩图片", "异步图片压缩", "压缩图片质量", "ImageIO 方式调整图片大小 性能很好", "CoreGraphics 方式调整图片大小 性能很好"], ["生成二维码图片"], ["验证资源的格式，返回资源格式（png/gif/jpeg...）", "加载 data 数据的 gif 图片", "加载网络 url 的 gif 图片", "加载本地的gif图片", "加载 asset 里面的图片"], ["图片旋转 (角度)", "图片旋转 (弧度)", "水平翻转", "垂直翻转", "向下翻转", "向左翻转", "镜像向左翻转", "向右翻转", "镜像向右翻转", "图片平铺区域"]]
+        dataArray = [["设置图片的圆角", "设置圆形图片", "获取视频的第一帧", "layer 转 image", "设置图片透明度", "裁剪给定区域", "给图片添加文字水印", "添加图片水印", "文字图片占位符", "更改图片颜色"], ["生成指定尺寸的纯色图像", "生成指定尺寸和圆角的纯色图像", "生成渐变色的图片 [\"#B0E0E6\", \"#00CED1\", \"#2E8B57\"]", "生成渐变色的图片 [UIColor, UIColor, UIColor]", "生成带圆角渐变色的图片 [UIColor, UIColor, UIColor]"], ["获取固定大小的 image", "按宽高比系数：等比缩放", "按指定尺寸等比缩放", "图片中间 1*1 拉伸——如气泡一般", "调整图像方向 避免图像有旋转"], ["压缩图片", "异步图片压缩", "压缩图片质量", "ImageIO 方式调整图片大小 性能很好", "CoreGraphics 方式调整图片大小 性能很好"], ["生成二维码图片"], ["验证资源的格式，返回资源格式（png/gif/jpeg...）", "加载 data 数据的 gif 图片", "加载网络 url 的 gif 图片", "加载本地的gif图片", "加载 asset 里面的图片"], ["图片旋转 (角度)", "图片旋转 (弧度)", "水平翻转", "垂直翻转", "向下翻转", "向左翻转", "镜像向左翻转", "向右翻转", "镜像向右翻转", "图片平铺区域"]]
     }
 }
 
@@ -34,7 +34,7 @@ extension UIImageExtensionViewController {
         imageView1.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView1)
         
-        guard let image2 = UIImage(named: "testicon")?.imageTile(size: CGSize(width: 100, height: 100)) else {
+        guard let image2 = UIImage(named: "testicon")?.jk.imageTile(size: CGSize(width: 100, height: 100)) else {
             return
         }
         var imageView2 = UIImageView(frame: CGRect(x: 0, y: imageView1.jk.bottom + 30, width: 200, height: 200))
@@ -59,7 +59,7 @@ extension UIImageExtensionViewController {
         imageView1.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView1)
         
-        guard let image2 = UIImage(named: "testicon")?.flipRightMirrored() else {
+        guard let image2 = UIImage(named: "testicon")?.jk.flipRightMirrored() else {
             return
         }
         var imageView2 = UIImageView(frame: CGRect(x: 0, y: imageView1.jk.bottom + 30, width: 200, height: 200))
@@ -84,7 +84,7 @@ extension UIImageExtensionViewController {
         imageView1.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView1)
         
-        guard let image2 = UIImage(named: "testicon")?.flipRight() else {
+        guard let image2 = UIImage(named: "testicon")?.jk.flipRight() else {
             return
         }
         var imageView2 = UIImageView(frame: CGRect(x: 0, y: imageView1.jk.bottom + 30, width: 200, height: 200))
@@ -109,7 +109,7 @@ extension UIImageExtensionViewController {
         imageView1.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView1)
         
-        guard let image2 = UIImage(named: "testicon")?.flipLeftMirrored() else {
+        guard let image2 = UIImage(named: "testicon")?.jk.flipLeftMirrored() else {
             return
         }
         var imageView2 = UIImageView(frame: CGRect(x: 0, y: imageView1.jk.bottom + 30, width: 200, height: 200))
@@ -134,7 +134,7 @@ extension UIImageExtensionViewController {
         imageView1.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView1)
         
-        guard let image2 = UIImage(named: "testicon")?.flipLeft() else {
+        guard let image2 = UIImage(named: "testicon")?.jk.flipLeft() else {
             return
         }
         var imageView2 = UIImageView(frame: CGRect(x: 0, y: imageView1.jk.bottom + 30, width: 200, height: 200))
@@ -159,7 +159,7 @@ extension UIImageExtensionViewController {
         imageView1.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView1)
         
-        guard let image2 = UIImage(named: "testicon")?.flipDown() else {
+        guard let image2 = UIImage(named: "testicon")?.jk.flipDown() else {
             return
         }
         var imageView2 = UIImageView(frame: CGRect(x: 0, y: imageView1.jk.bottom + 30, width: 200, height: 200))
@@ -184,7 +184,7 @@ extension UIImageExtensionViewController {
         imageView1.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView1)
         
-        guard let image2 = UIImage(named: "testicon")?.flipVertical() else {
+        guard let image2 = UIImage(named: "testicon")?.jk.flipVertical() else {
             return
         }
         var imageView2 = UIImageView(frame: CGRect(x: 0, y: imageView1.jk.bottom + 30, width: 200, height: 200))
@@ -209,7 +209,7 @@ extension UIImageExtensionViewController {
         imageView1.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView1)
         
-        guard let image2 = UIImage(named: "testicon")?.flipHorizontal() else {
+        guard let image2 = UIImage(named: "testicon")?.jk.flipHorizontal() else {
             return
         }
         var imageView2 = UIImageView(frame: CGRect(x: 0, y: imageView1.jk.bottom + 30, width: 200, height: 200))
@@ -234,7 +234,7 @@ extension UIImageExtensionViewController {
         imageView1.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView1)
         
-        guard let image2 = UIImage(named: "testicon")?.imageRotated(radians: CGFloat(Double.pi)) else {
+        guard let image2 = UIImage(named: "testicon")?.jk.imageRotated(radians: CGFloat(Double.pi)) else {
             return
         }
         var imageView2 = UIImageView(frame: CGRect(x: 0, y: imageView1.jk.bottom + 30, width: 200, height: 200))
@@ -259,7 +259,7 @@ extension UIImageExtensionViewController {
         imageView1.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView1)
         
-        guard let image2 = UIImage(named: "testicon")?.imageRotated(degree: 90) else {
+        guard let image2 = UIImage(named: "testicon")?.jk.imageRotated(degree: 90) else {
             return
         }
         var imageView2 = UIImageView(frame: CGRect(x: 0, y: imageView1.jk.bottom + 30, width: 200, height: 200))
@@ -279,7 +279,7 @@ extension UIImageExtensionViewController {
     
     // MARK: 6.5、加载 asset 里面的图片
     @objc func test65() {
-        guard let image = UIImage.gif(asset: "pika3") else {
+        guard let image = UIImage.jk.gif(asset: "pika3") else {
             return
         }
         gifImageView = UIImageView(frame: CGRect(x: 0, y: 150, width: image.size.width, height: image.size.height))
@@ -295,7 +295,7 @@ extension UIImageExtensionViewController {
     
     // MARK: 6.4、加载本地的gif图片
     @objc func test64() {
-        guard let image = UIImage.gif(name: "pika2") else {
+        guard let image = UIImage.jk.gif(name: "pika2") else {
             return
         }
         gifImageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
@@ -311,7 +311,7 @@ extension UIImageExtensionViewController {
     
     // MARK: 6.3、加载网络 url 的 gif 图片
     @objc func test63() {
-        guard let image = UIImage.gif(url: "http://pic19.nipic.com/20120222/8072717_124734762000_2.gif") else {
+        guard let image = UIImage.jk.gif(url: "http://pic19.nipic.com/20120222/8072717_124734762000_2.gif") else {
             return
         }
         gifImageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
@@ -335,7 +335,7 @@ extension UIImageExtensionViewController {
         guard let imageData = try? Data(contentsOf: URL(fileURLWithPath: path)) else {
             return
         }
-        guard let image = UIImage.gif(data: imageData) else {
+        guard let image = UIImage.jk.gif(data: imageData) else {
             return
         }
         
@@ -359,7 +359,7 @@ extension UIImageExtensionViewController {
         guard let imageData = try? Data(contentsOf: URL(fileURLWithPath: path)) else {
             return
         }
-        JKPrint("验证资源的格式，返回资源格式（png/gif/jpeg...）", "格式是：\(UIImage.checkImageDataType(data: imageData))")
+        JKPrint("验证资源的格式，返回资源格式（png/gif/jpeg...）", "格式是：\(UIImage.jk.checkImageDataType(data: imageData))")
     }
 }
 
@@ -368,7 +368,7 @@ extension UIImageExtensionViewController {
     
     // MARK: 5.1、生成二维码图片
     @objc func test51() {
-        let image = UIImage.QRImage(with: "https://www.jianshu.com/u/8fed18ed70c9", size: CGSize(width: 100, height: 100), isLogo: true, logoSize: CGSize(width: 30, height: 30), logoImage: UIImage(named: "ironman"), logoRoundCorner: 4)
+        let image = UIImage.jk.QRImage(with: "https://www.jianshu.com/u/8fed18ed70c9", size: CGSize(width: 100, height: 100), isLogo: true, logoSize: CGSize(width: 30, height: 30), logoImage: UIImage(named: "ironman"), logoRoundCorner: 4)
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
         imageView.image = image
         imageView.jk.centerX = self.view.jk.centerX
@@ -385,7 +385,7 @@ extension UIImageExtensionViewController {
     
     // MARK: 4.5、CoreGraphics 方式调整图片大小 性能很好
     @objc func test45() {
-        guard let image = UIImage(named: "testicon")!.resizeCG(resizeSize: CGSize(width: 200, height: 300)) else {
+        guard let image = UIImage(named: "testicon")!.jk.resizeCG(resizeSize: CGSize(width: 200, height: 300)) else {
             return
         }
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 300))
@@ -402,7 +402,7 @@ extension UIImageExtensionViewController {
     
     // MARK: 4.4、ImageIO 方式调整图片大小 性能很好
     @objc func test44() {
-        guard let image = UIImage(named: "testicon")!.resizeIO(resizeSize: CGSize(width: 200, height: 400)) else {
+        guard let image = UIImage(named: "testicon")!.jk.resizeIO(resizeSize: CGSize(width: 200, height: 400)) else {
             return
         }
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 300, height: 400))
@@ -420,7 +420,7 @@ extension UIImageExtensionViewController {
     // MARK: 4.3、压缩图片质量
     @objc func test43() {
     
-        guard let imageData = UIImage(named: "testicon")!.compressDataSize(maxSize: 500) else {
+        guard let imageData = UIImage(named: "testicon")!.jk.compressDataSize(maxSize: 500) else {
             return
         }
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 250, height: 300))
@@ -442,7 +442,7 @@ extension UIImageExtensionViewController {
         imageView.clipsToBounds = true
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
-        UIImage(named: "testicon")!.asyncCompress(mode: .high, queue: DispatchQueue.global(), complete: { (data, size) in
+        UIImage(named: "testicon")!.jk.asyncCompress(mode: .high, queue: DispatchQueue.global(), complete: { (data, size) in
             guard let weakData = data else {
                 return
             }
@@ -457,7 +457,7 @@ extension UIImageExtensionViewController {
     // MARK: 4.1、压缩图片
     @objc func test41() {
         
-        guard let imageData = UIImage(named: "testicon")!.compress(mode: .high) else {
+        guard let imageData = UIImage(named: "testicon")!.jk.compress(mode: .high) else {
             return
         }
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 250, height: 300))
@@ -479,7 +479,7 @@ extension UIImageExtensionViewController {
     // MARK: 3.5、调整图像方向 避免图像有旋转
     @objc func test35() {
         JKPrint("调整图像方向 避免图像有旋转")
-        let image = UIImage(named: "testicon")!.fixOrientation()
+        let image = UIImage(named: "testicon")!.jk.fixOrientation()
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 250, height: 300))
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
@@ -495,7 +495,7 @@ extension UIImageExtensionViewController {
     // MARK: 3.4、图片中间 1*1 拉伸——如气泡一般
     @objc func test34() {
         JKPrint("图片中间 1*1 拉伸——如气泡一般")
-        let image = UIImage(named: "sender")!.strechAsBubble()
+        let image = UIImage(named: "sender")!.jk.strechAsBubble()
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 250, height: 500))
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
@@ -511,7 +511,7 @@ extension UIImageExtensionViewController {
     // MARK: 3.3、按指定尺寸等比缩放
     @objc func test33() {
         JKPrint("按指定尺寸等比缩放")
-        guard let image = UIImage(named: "testicon")?.scaleTo(size: CGSize(width: 200, height: 300)) else {
+        guard let image = UIImage(named: "testicon")?.jk.scaleTo(size: CGSize(width: 200, height: 300)) else {
             return
         }
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 300))
@@ -529,7 +529,7 @@ extension UIImageExtensionViewController {
     // MARK: 3.2、按宽高比系数：等比缩放
     @objc func test32() {
         JKPrint("按宽高比系数：等比缩放")
-        guard let image = UIImage(named: "testicon")?.scaleTo(scale: 2) else {
+        guard let image = UIImage(named: "testicon")?.jk.scaleTo(scale: 2) else {
             return
         }
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 300))
@@ -547,7 +547,7 @@ extension UIImageExtensionViewController {
     // MARK: 3.1、获取固定大小的 image
     @objc func test31() {
         JKPrint("获取固定大小的 image")
-        guard let image = UIImage(named: "testicon")?.solidTo(size: CGSize(width: 200, height: 300)) else {
+        guard let image = UIImage(named: "testicon")?.jk.solidTo(size: CGSize(width: 200, height: 300)) else {
             return
         }
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 300))
@@ -569,7 +569,7 @@ extension UIImageExtensionViewController {
     // MARK: 2.5、生成带圆角渐变色的图片 [UIColor, UIColor, UIColor]
     @objc func test25() {
         JKPrint("生成带圆角渐变色的图片 [UIColor, UIColor, UIColor]")
-        guard let image = UIImage.gradient([.red, .brown, .yellow], size: CGSize(width: 200, height: 100), radius: 10, locations: nil, direction: .vertical) else {
+        guard let image = UIImage.jk.gradient([.red, .brown, .yellow], size: CGSize(width: 200, height: 100), radius: 10, locations: nil, direction: .vertical) else {
             return
         }
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 100))
@@ -586,7 +586,7 @@ extension UIImageExtensionViewController {
     // MARK: 2.4、生成渐变色的图片 [UIColor, UIColor, UIColor]
     @objc func test24() {
         JKPrint("生成渐变色的图片 [UIColor, UIColor, UIColor]")
-        guard let image = UIImage.gradient([.red, .brown, .yellow], size: CGSize(width: 200, height: 100), locations: nil, direction: .vertical) else {
+        guard let image = UIImage.jk.gradient([.red, .brown, .yellow], size: CGSize(width: 200, height: 100), locations: nil, direction: .vertical) else {
             return
         }
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 100))
@@ -603,7 +603,7 @@ extension UIImageExtensionViewController {
     // MARK: 2.3、生成渐变色的图片 ["#B0E0E6", "#00CED1", "#2E8B57"]
     @objc func test23() {
         JKPrint("生成渐变色的图片 [\"#B0E0E6\", \"#00CED1\", \"#2E8B57\"]")
-        guard let image = UIImage.gradient(["#B0E0E6", "#00CED1", "#2E8B57"], size: CGSize(width: 200, height: 100), locations: nil, direction: .horizontal) else {
+        guard let image = UIImage.jk.gradient(["#B0E0E6", "#00CED1", "#2E8B57"], size: CGSize(width: 200, height: 100), locations: nil, direction: .horizontal) else {
             return
         }
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 100))
@@ -620,7 +620,7 @@ extension UIImageExtensionViewController {
     // MARK: 2.2、生成指定尺寸和圆角的纯色图像
     @objc func test22() {
         JKPrint("生成指定尺寸和圆角的纯色图像")
-        guard let image = UIImage.image(color: .brown, size: CGSize(width: 100, height: 200), corners: .allCorners, radius: 10) else {
+        guard let image = UIImage.jk.image(color: .brown, size: CGSize(width: 100, height: 200), corners: .allCorners, radius: 10) else {
             return
         }
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 100, height: 200))
@@ -637,7 +637,7 @@ extension UIImageExtensionViewController {
     // MARK: 2.1、生成指定尺寸的纯色图像
     @objc func test21() {
         JKPrint("生成指定尺寸的纯色图像")
-        guard let image = UIImage.image(color: .yellow, size: CGSize(width: 2, height: 2)) else {
+        guard let image = UIImage.jk.image(color: .yellow, size: CGSize(width: 2, height: 2)) else {
             return
         }
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 100, height: 200))
@@ -654,8 +654,8 @@ extension UIImageExtensionViewController {
 
 // MARK:- 一、基本的扩展
 extension UIImageExtensionViewController {
-    // MARK: 1.9、更改图片颜色
-    @objc func test19() {
+    // MARK: 1.10、更改图片颜色
+    @objc func test110() {
         guard let image = UIImage(named: "testicon") else {
             return
         }
@@ -666,7 +666,7 @@ extension UIImageExtensionViewController {
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
         } _: {
-            imageView.image = image.imageWithColor(color: .brown)
+            imageView.image = image.jk.imageWithColor(color: .brown)
             JKAsyncs.asyncDelay(3) {
             } _: {
                 imageView.removeFromSuperview()
@@ -674,13 +674,29 @@ extension UIImageExtensionViewController {
         }
     }
     
-    // MARK: 1.8、文字图片占位符
-    @objc func test18() {
-        guard let image = UIImage.textImage("正式", size: (100, 100), backgroundColor: .brown, textColor: .white, isCircle: false) else {
+    // MARK: 1.9、文字图片占位符
+    @objc func test19() {
+        guard let image = UIImage.jk.textImage("正式", size: (100, 100), backgroundColor: .brown, textColor: .white, isCircle: false) else {
             return
         }
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 100, height: 100))
         imageView.image = image
+        imageView.contentMode = .scaleAspectFill
+        imageView.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView)
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            imageView.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 1.8添加图片水印
+    @objc func test18() {
+        guard let image = UIImage(named: "testicon") else {
+            return
+        }
+        var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 150, height: 200))
+        imageView.image = image.jk.addImageWatermark(rect: CGRect(x: 25, y: 25, width: 50, height: 50), image: UIImage(named: "good5")!)
         imageView.contentMode = .scaleAspectFill
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
@@ -696,7 +712,7 @@ extension UIImageExtensionViewController {
             return
         }
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 150, height: 200))
-        imageView.image = image.drawTextInImage(drawTextframe: CGRect(x: 25, y: 100, width: 150, height: 50), drawText: "我是水印", withAttributes: [NSAttributedString.Key.foregroundColor : UIColor.red, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 26)])
+        imageView.image = image.jk.drawTextInImage(drawTextframe: CGRect(x: 25, y: 100, width: 150, height: 50), drawText: "我是水印", withAttributes: [NSAttributedString.Key.foregroundColor : UIColor.red, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 26)])
         imageView.contentMode = .scaleAspectFill
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
@@ -709,7 +725,7 @@ extension UIImageExtensionViewController {
     // MARK: 1.6、裁剪给定区域
     @objc func test16() {
         // 这里获取的是 四分之一 的区域
-        guard let image = UIImage(named: "testicon"), let newImage = image.cropWithCropRect(CGRect(x: 0, y: 0, width: image.size.width / 2.0, height: image.size.height / 2.0)) else {
+        guard let image = UIImage(named: "testicon"), let newImage = image.jk.cropWithCropRect(CGRect(x: 0, y: 0, width: image.size.width / 2.0, height: image.size.height / 2.0)) else {
             return
         }
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 100, height: 200))
@@ -725,7 +741,7 @@ extension UIImageExtensionViewController {
     
     // MARK: 1.5、设置图片透明度
     @objc func test15() {
-        let image = UIImage(named: "testicon")?.imageByApplayingAlpha(0.5)
+        let image = UIImage(named: "testicon")?.jk.imageByApplayingAlpha(0.5)
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 100, height: 200))
         imageView.image = image
         imageView.contentMode = .scaleAspectFill
@@ -744,7 +760,7 @@ extension UIImageExtensionViewController {
         layer.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         layer.backgroundColor = UIColor.randomColor.cgColor
         
-        guard let image = UIImage.image(from: layer) else {
+        guard let image = UIImage.jk.image(from: layer) else {
             return
         }
         
@@ -766,7 +782,7 @@ extension UIImageExtensionViewController {
         imageView.contentMode = .scaleAspectFill
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
-        UIImage.getVideoFirstImage(videoUrl: "http://gslb.miaopai.com/stream/1UKfVpOmazRYEb4fVejwhgpX~3uIxmHBV~8VCQ__.mp4") { (image) in
+        UIImage.jk.getVideoFirstImage(videoUrl: "http://gslb.miaopai.com/stream/1UKfVpOmazRYEb4fVejwhgpX~3uIxmHBV~8VCQ__.mp4") { (image) in
             JKPrint("获取到了视频的第第一帧")
             imageView.image = image
             JKAsyncs.asyncDelay(3) {
@@ -779,7 +795,7 @@ extension UIImageExtensionViewController {
     // MARK: 1.2、设置圆形图片
     @objc func test12() {
         JKPrint("设置圆形图片")
-        guard let image = UIImage(named: "ironman")?.isCircleImage() else {
+        guard let image = UIImage(named: "ironman")?.jk.isCircleImage() else {
             return
         }
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 100, height: 200))
@@ -796,7 +812,7 @@ extension UIImageExtensionViewController {
     // MARK: 1.1、设置图片的圆角
     @objc func test11() {
         JKPrint("设置图片的圆角")
-        guard let image = UIImage(named: "testicon")?.isRoundCorner(radius: 16, byRoundingCorners: .allCorners, imageSize: CGSize(width: 200, height: 300)) else {
+        guard let image = UIImage(named: "testicon")?.jk.isRoundCorner(radius: 16, byRoundingCorners: .allCorners, imageSize: CGSize(width: 200, height: 300)) else {
             return
         }
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 100, height: 200))

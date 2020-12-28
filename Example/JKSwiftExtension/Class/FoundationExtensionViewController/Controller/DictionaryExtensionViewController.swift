@@ -46,7 +46,7 @@ extension DictionaryExtensionViewController {
     // MARK: 1.3、JSON字符串 -> 字典
     @objc func test13() {
        let dictionary = ["a": "1", "b": "2"]
-        guard let json = dictionary.toJSON(), let newDictionary = json.jsonStringToDictionary() else {
+        guard let json = dictionary.toJSON(), let newDictionary = json.jk.jsonStringToDictionary() else {
             return
         }
         JKPrint("JSON字符串 -> 字典", "JSON字符串：\(json) 转为字典为：\(newDictionary)")

@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK:- 一、基本的扩展
-extension  UITableViewCell  {
+extension UITableViewCell  {
     
     // MARK: 返回cell所在的UITableView
     /// 返回cell所在的UITableView

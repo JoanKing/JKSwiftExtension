@@ -93,8 +93,8 @@ extension ProtocolViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let cellName = dataArray[indexPath.row] as! String
-        let vcName = cellName.removeSomeStringUseSomeString(removeString: "+") + "ViewController"
-        guard let vc = vcName.toViewController() else {
+        let vcName = cellName.jk.removeSomeStringUseSomeString(removeString: "+") + "ViewController"
+        guard let vc = vcName.jk.toViewController() else {
             return
         }
         vc.title = cellName

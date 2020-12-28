@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Foundation
 public struct JKPOP<Base> {
     let base: Base
     init(_ base: Base) {

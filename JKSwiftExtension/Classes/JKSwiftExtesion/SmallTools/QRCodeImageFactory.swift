@@ -32,7 +32,7 @@ public struct QRCodeImageFactory {
         }
   
         var newLogo: UIImage = logo
-        if let newLogoRoundCorner = logoRoundCorner, let roundCornerLogo = logo.isRoundCorner(radius: newLogoRoundCorner, byRoundingCorners: .allCorners, imageSize: logoSize) {
+        if let newLogoRoundCorner = logoRoundCorner, let roundCornerLogo = logo.jk.isRoundCorner(radius: newLogoRoundCorner, byRoundingCorners: .allCorners, imageSize: logoSize) {
             newLogo = roundCornerLogo
         }
         let logoFrame = CGRect.init(origin: CGPoint.init(x:  (size.width - logoSize.width) / 2 , y: (size.height - logoSize.height) / 2), size: logoSize)

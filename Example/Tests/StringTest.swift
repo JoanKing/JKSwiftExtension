@@ -28,7 +28,7 @@ class StringTest: XCTestCase {
     func test2() {
         let studentsName = "我是一只小小鸟A"
         // 判断是不是 nil
-        XCTAssertTrue(studentsName.containsIgnoringCase(find: "a"), "包含字符串")
+        XCTAssertTrue(studentsName.jk.containsIgnoringCase(find: "a"), "包含字符串")
     }
     
     func test1() {

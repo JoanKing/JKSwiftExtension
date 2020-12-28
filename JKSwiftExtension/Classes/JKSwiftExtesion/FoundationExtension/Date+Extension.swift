@@ -125,7 +125,7 @@ public extension Date {
             return Date()
             #endif
         }
-        guard let timestampDouble = timestamp.toDouble() else {
+        guard let timestampDouble = timestamp.jk.toDouble() else {
             #if DEBUG
             fatalError("时间戳位有问题")
             #else

@@ -123,11 +123,11 @@ public struct JKGlobalTools {
     /// - Parameter version: 版本号
     /// - Returns: 结果 和 版本号数组
     private static func appVersion(version: String) -> (isSuccess: Bool, versions: [Int]) {
-        let versionArray = version.separatedByString(char: ".")
+        let versionArray = version.jk.separatedByString(char: ".")
         guard versionArray.count == 3, let versionString1 = versionArray[0] as? String, let versionString2 = versionArray[1] as? String, let versionString3 = versionArray[2] as? String else {
             return (false, [])
         }
-        guard let versionValue1 = versionString1.toInt(), let versionValue2 = versionString2.toInt(), let versionValue3 = versionString3.toInt() else {
+        guard let versionValue1 = versionString1.jk.toInt(), let versionValue2 = versionString2.jk.toInt(), let versionValue3 = versionString3.jk.toInt() else {
             return (false, [])
         }
         return (true, [versionValue1, versionValue2, versionValue3])

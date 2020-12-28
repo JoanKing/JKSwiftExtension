@@ -72,17 +72,17 @@ extension ArrayExtensionViewController {
     
     // MARK: 4.1、删除数组中遵守NSObjectProtocol协议的元素，是否删除重复的元素
     @objc func test41() {
-        var testArray = ["1".toNSString, "2".toNSString, "3".toNSString, "2".toNSString]
+        var testArray = ["1".jk.toNSString, "2".jk.toNSString, "3".jk.toNSString, "2".jk.toNSString]
         let oldArray = testArray
-        let element = "2".toNSString
+        let element = "2".jk.toNSString
         let newArray = testArray.remove(object: element, isRepeat: false)
         JKPrint("删除数组中遵守NSObjectProtocol协议的元素，是否删除重复的元素)", "原数组为：\(oldArray) 删除其中的值：\(element) 后数组为：\(newArray)")
     }
     
     // MARK: 4.2、删除一个遵守NSObjectProtocol的数组中的元素，支持重复删除
     @objc func test42() {
-        var testArray = ["1".toNSString, "2".toNSString, "3".toNSString, "2".toNSString]
-        let removeArray = ["2".toNSString, "3".toNSString]
+        var testArray = ["1".jk.toNSString, "2".jk.toNSString, "3".jk.toNSString, "2".jk.toNSString]
+        let removeArray = ["2".jk.toNSString, "3".jk.toNSString]
         let oldArray = testArray
         let newArray = testArray.removeArray(objects: removeArray, isRepeat: true)
         JKPrint("删除一个遵守NSObjectProtocol的数组中的元素，支持重复删除", "原数组为：\(oldArray) 删除的数组是：\(removeArray) 后数组为：\(newArray)")
@@ -186,7 +186,7 @@ extension ArrayExtensionViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let str = headDataArray[section] as! String
-        let size = str.rectSize(font: UIFont.systemFont(ofSize: 18), size: CGSize(width: kScreenW - 20, height: CGFloat(MAXFLOAT)))
+        let size = str.jk.rectSize(font: UIFont.systemFont(ofSize: 18), size: CGSize(width: kScreenW - 20, height: CGFloat(MAXFLOAT)))
         
         let sectionView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height:size.height + 20))
         let label = UILabel(frame: CGRect(x: 10, y: 10, width: kScreenW - 20, height: size.height))
@@ -200,7 +200,7 @@ extension ArrayExtensionViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let str = headDataArray[section] as! String
-        let size = str.rectSize(font: UIFont.systemFont(ofSize: 18), size: CGSize(width: kScreenW - 20, height: CGFloat(MAXFLOAT)))
+        let size = str.jk.rectSize(font: UIFont.systemFont(ofSize: 18), size: CGSize(width: kScreenW - 20, height: CGFloat(MAXFLOAT)))
         return size.height + 20
     }
     

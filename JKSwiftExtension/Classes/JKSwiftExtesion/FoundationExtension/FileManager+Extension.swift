@@ -297,12 +297,12 @@ public extension FileManager {
             guard let readString = String(data: data, encoding: String.Encoding.utf8) else {
                 return (false, nil, "读取内容失败")
             }
-            return (true, readString.jsonStringToArray(), "")
+            return (true, readString.jk.jsonStringToArray(), "")
         case .DictionaryType:
             guard let readString = String(data: data, encoding: String.Encoding.utf8) else {
                 return (false, nil, "读取内容失败")
             }
-            return (true, readString.jsonStringToDictionary(), "")
+            return (true, readString.jk.jsonStringToDictionary(), "")
         }
     }
     

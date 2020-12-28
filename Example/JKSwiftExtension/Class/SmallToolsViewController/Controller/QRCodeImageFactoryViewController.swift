@@ -63,7 +63,7 @@ class QRCodeImageFactoryViewController: UIViewController {
         let image = QRCodeImageFactory.qrCodeImage(content: "https://www.jianshu.com/u/8fed18ed70c9", size: CGSize(width: 100, height: 100), logo: UIImage(named: "ironman"), logoSize: CGSize(width: 30, height: 30), logoRoundCorner: 4)
         qrImageView.image = image
         qrImage = image
-        let image3 = UIImage.QRImage(with: "坏蛋", size: CGSize(width: 100, height: 100), isLogo: true, logoSize: CGSize(width: 30, height: 30), logoImage: UIImage(named: "yy"), logoRoundCorner: 4)
+        let image3 = UIImage.jk.QRImage(with: "坏蛋", size: CGSize(width: 100, height: 100), isLogo: true, logoSize: CGSize(width: 30, height: 30), logoImage: UIImage(named: "yy"), logoRoundCorner: 4)
         qrImageView2.image = image3
     }
     

@@ -154,7 +154,7 @@ public extension UIColor {
         guard self.getRed(&red, green: &green, blue: &blue, alpha: &alpha) else {
             return (nil, nil, nil, nil)
         }
-        return ("\(Int(red * multiplier))".toCGFloat(), "\(Int(green * multiplier))".toCGFloat(), "\(Int(blue * multiplier))".toCGFloat(), alpha)
+        return ("\(Int(red * multiplier))".jk.toCGFloat(), "\(Int(green * multiplier))".jk.toCGFloat(), "\(Int(blue * multiplier))".jk.toCGFloat(), alpha)
     }
 }
 

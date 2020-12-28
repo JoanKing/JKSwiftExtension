@@ -55,7 +55,7 @@ public extension NSDecimalNumberHandler {
     // MARK: 1.2、一个数字能否整除另外一个数字
     static func isDivisible(value1: Any, value2: Any) -> Bool {
         let value = decimalNumberHandlerValue(type: .dividing, value1: value1, value2: value2, roundingMode: .down, scale: 3, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false).stringValue
-        let valueArray = value.separatedByString(char: ".")
+        let valueArray = value.jk.separatedByString(char: ".")
         // 没有小数代表是整除
         guard valueArray.count > 1 else {
             return true

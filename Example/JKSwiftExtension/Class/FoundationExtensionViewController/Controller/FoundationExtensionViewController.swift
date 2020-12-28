@@ -45,7 +45,7 @@ class FoundationExtensionViewController: UIViewController {
         self.view.backgroundColor = UIColor.green
   
         dataArray = ["Array+Extension", "Bundle+Extension", "UserDefaults+Extension", "Date+Extension", "NSObject+Extension", "String+Extension", "UIDevice+Extension", "UIFont+Extension", "Timer+Extension", "Int+Extension", "Double+Extension", "UInt+Extension", "Int64+Extension", "Float+Extension", "Data+Extension", "Bool+Extension", "CGFloat+Extension", "Character+Extension", "DateFormatter+Extension", "Dictionary+Extension", "FileManager+Extension", "URL+Extension", "NSDecimalNumberHandler+Extension"]
-        finishedDataArray = ["String+Extension", "Date+Extension", "Array+Extension", "Bundle+Extension", "NSObject+Extension", "UserDefaults+Extension", "UIFont+Extension", "Float+Extension", "Double+Extension", "CGFloat+Extension", "Int+Extension", "Int64+Extension", "UInt+Extension", "Character+Extension", "Bool+Extension", "DateFormatter+Extension", "Dictionary+Extension", "URL+Extension", "NSDecimalNumberHandler+Extension", "FileManager+Extension", "Timer+Extension", "UIDevice+Extension", "Data+Extension"]
+        finishedDataArray = ["String+Extension"]
         initUI()
     }
     
@@ -94,8 +94,8 @@ extension FoundationExtensionViewController: UITableViewDelegate, UITableViewDat
         tableView.deselectRow(at: indexPath, animated: true)
         
         let cellName = dataArray[indexPath.row] as! String
-        let vcName = cellName.removeSomeStringUseSomeString(removeString: "+") + "ViewController"
-        guard let vc = vcName.toViewController() else {
+        let vcName = cellName.jk.removeSomeStringUseSomeString(removeString: "+") + "ViewController"
+        guard let vc = vcName.jk.toViewController() else {
             return
         }
         vc.title = cellName

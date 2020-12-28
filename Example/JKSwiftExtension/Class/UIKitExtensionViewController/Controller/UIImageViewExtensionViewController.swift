@@ -37,7 +37,7 @@ extension UIImageViewExtensionViewController {
     
     // MARK: 1.2、加载 asset 里面的图片
     @objc func test12() {
-        guard let image = UIImage.gif(asset: "pika3") else {
+        guard let image = UIImage.jk.gif(asset: "pika3") else {
             return
         }
         gifImageView = UIImageView(frame: CGRect(x: 0, y: 150, width: image.size.width, height: image.size.height))

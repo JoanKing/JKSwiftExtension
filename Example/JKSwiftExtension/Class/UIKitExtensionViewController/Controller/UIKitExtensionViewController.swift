@@ -45,7 +45,7 @@ class UIKitExtensionViewController: UIViewController {
         self.view.backgroundColor = UIColor.green
   
         dataArray = ["UIView+Extension", "UITableViewCell+Extension", "UICollectionView+Extension", "UINavigationBar+Extension", "CALayer+Extension", "CATextLayer+Extension", "NSMutableAttributedString+Extension", "UIAlertController+Extension", "UIApplication+Extension", "UIBarButtonItem+Extension", "UIBezierPath+Extension", "UIButton+Extension", "UIControl+Extension", "UIImage+Extension", "UIImageView+Extension", "UILabel+Extension", "UINavigationController+Extension", "UIColor+Extension", "UIScreen+Extension", "UIScrollView+Extension", "UIStackView+Extension", "UISwitch+Extension", "UITableView+Extension", "UITextField+Extension", "UITextView+Extension", "UIViewController+Extension"]
-        finishedDataArray = ["UIView+Extension", "UITableViewCell+Extension", "UICollectionView+Extension", "UINavigationBar+Extension", "CALayer+Extension", "UIScreen+Extension", "CATextLayer+Extension", "UIControl+Extension", "NSMutableAttributedString+Extension", "UIAlertController+Extension", "UIApplication+Extension", "UISwitch+Extension", "UIBarButtonItem+Extension", "UIButton+Extension", "UILabel+Extension", "UITableView+Extension", "UINavigationController+Extension", "UIViewController+Extension", "UIScrollView+Extension", "UITextView+Extension", "UIStackView+Extension", "UITextField+Extension", "UIBezierPath+Extension", "UIColor+Extension", "UIImage+Extension", "UIImageView+Extension"]
+        finishedDataArray = ["UITableView+Extension", "UIImage+Extension"]
         initUI()
     }
     
@@ -94,8 +94,8 @@ extension UIKitExtensionViewController: UITableViewDelegate, UITableViewDataSour
         tableView.deselectRow(at: indexPath, animated: true)
         
         let cellName = dataArray[indexPath.row] as! String
-        let vcName = cellName.removeSomeStringUseSomeString(removeString: "+") + "ViewController"
-        guard let vc = vcName.toViewController() else {
+        let vcName = cellName.jk.removeSomeStringUseSomeString(removeString: "+") + "ViewController"
+        guard let vc = vcName.jk.toViewController() else {
             return
         }
         vc.title = cellName

@@ -9,15 +9,15 @@
 import UIKit
 
 // MARK:- 一、基本的扩展
-public extension UITableView {
+public extension JKPOP where Base : UITableView {
 
     // MARK: 1.1、tableView 在 iOS 11 上的适配
     /// tableView 在 iOS 11 上的适配
     func tableViewNeverAdjustContentInset() {
         if #available(iOS 11, *) {
-            self.estimatedSectionFooterHeight = 0
-            self.estimatedSectionHeaderHeight = 0
-            self.contentInsetAdjustmentBehavior = .never
+            self.base.estimatedSectionFooterHeight = 0
+            self.base.estimatedSectionHeaderHeight = 0
+            self.base.contentInsetAdjustmentBehavior = .never
         }
     }
     
@@ -25,23 +25,23 @@ public extension UITableView {
     /// 是否滚动到顶部
     /// - Parameter animated: 是否要动画
     func scrollToTop(animated: Bool) {
-        setContentOffset(CGPoint(x: 0, y: 0), animated: animated)
+        base.setContentOffset(CGPoint(x: 0, y: 0), animated: animated)
     }
     
     // MARK: 1.3、是否滚动到底部
     /// 是否滚动到底部
     /// - Parameter animated: 是否要动画
     func scrollToBottom(animated: Bool) {
-        let y = contentSize.height - frame.size.height
+        let y = base.contentSize.height - base.frame.size.height
         if y < 0 { return }
-        setContentOffset(CGPoint(x: 0, y: y), animated: animated)
+        base.setContentOffset(CGPoint(x: 0, y: y), animated: animated)
     }
     
     // MARK: 1.4、滚动到什么位置（CGPoint）
     /// 是否滚动到底部
     /// - Parameter animated: 是否要动画
     func scrollToOffset(offsetX: CGFloat = 0, offsetY: CGFloat = 0, animated: Bool) {
-        setContentOffset(CGPoint(x: offsetX, y: offsetY), animated: animated)
+        base.setContentOffset(CGPoint(x: offsetX, y: offsetY), animated: animated)
     }
 }
 

@@ -221,7 +221,7 @@ public extension UIButton {
     /// - Returns: 返回自身
     @discardableResult
     func image(_ color: UIColor, _ size: CGSize = CGSize(width: 20.0, height: 20.0), _ state: UIControl.State = .normal) -> Self {
-        let image = UIImage.image(color: color, size: size)
+        let image = UIImage.jk.image(color: color, size: size)
         setImage(image, for: state)
         return self
     }
@@ -278,7 +278,7 @@ public extension UIButton {
     /// - Returns: 返回自身
     @discardableResult
     func bgImage(_ color: UIColor, _ state: UIControl.State = .normal) -> Self {
-        let image = UIImage.image(color: color)
+        let image = UIImage.jk.image(color: color)
         setBackgroundImage(image, for: state)
         return self
     }
@@ -288,8 +288,8 @@ public extension UIButton {
     /// - Returns: 返回自身
     @discardableResult
     func confirmButton() -> Self {
-        let normalImage = UIImage.image(color: UIColor.hexStringColor(hexString: "#E54749"), size: CGSize(width: 10, height: 10), corners: .allCorners, radius: 4)?.resizableImage(withCapInsets: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
-        let disableImg = UIImage.image(color: UIColor.hexStringColor(hexString: "#E6E6E6"), size: CGSize(width: 10, height: 10), corners: .allCorners, radius: 4)?.resizableImage(withCapInsets: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
+        let normalImage = UIImage.jk.image(color: UIColor.hexStringColor(hexString: "#E54749"), size: CGSize(width: 10, height: 10), corners: .allCorners, radius: 4)?.resizableImage(withCapInsets: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
+        let disableImg = UIImage.jk.image(color: UIColor.hexStringColor(hexString: "#E6E6E6"), size: CGSize(width: 10, height: 10), corners: .allCorners, radius: 4)?.resizableImage(withCapInsets: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
         setBackgroundImage(normalImage, for: .normal)
         setBackgroundImage(disableImg, for: .disabled)
         return self
