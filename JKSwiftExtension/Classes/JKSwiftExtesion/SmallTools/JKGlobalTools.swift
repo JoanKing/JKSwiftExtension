@@ -7,7 +7,7 @@
 
 import UIKit
 import StoreKit
-
+import SystemConfiguration.CaptiveNetwork
 // MARK:- 一、基本的工具
 public struct JKGlobalTools {
     
@@ -21,28 +21,7 @@ public struct JKGlobalTools {
             complete(false)
             return
         }
-        // iOS 10.0 以前
-        guard #available(iOS 10.0, *)  else {
-            let success = UIApplication.shared.openURL(url)
-            if (success) {
-                JKPrint("10以前可以跳转")
-                complete(true)
-            } else {
-                JKPrint("10以前不能完成跳转")
-                complete(false)
-            }
-            return
-        }
-        // iOS 10.0 以后
-        UIApplication.shared.open(url, options: [:]) { (success) in
-            if (success) {
-                JKPrint("10以后可以跳转url")
-                complete(true)
-            } else {
-                JKPrint("10以后不能完成跳转")
-                complete(false)
-            }
-        }
+        openUrl(url: url, complete: complete)
     }
     
     // MARK: 1.2、应用跳转
@@ -78,7 +57,7 @@ public struct JKGlobalTools {
         return story.instantiateViewController(withIdentifier: storyboardID)
     }
     
-    // MARK: 1.3、传进某个版本号 个 当前app版本号作对比，注意：版本号必须是三位的，比如：1.1.1、1.23.45、23.4.6
+    // MARK: 1.4、传进某个版本号 和 当前app版本号作对比，注意：版本号必须是三位的，比如：1.1.1、1.23.45、23.4.6
     /// 传进某个版本号 个 当前app版本号作对比
     /// - Parameter version: 传进来的版本号码
     /// - Returns: 返回对比加过，true：比当前的版本大，false：比当前的版本小
@@ -118,11 +97,124 @@ public struct JKGlobalTools {
         }
     }
     
+    // MARK: 1.5、获取本机IP
+    /// 获取本机IP
+    public static func getIPAddress() -> String? {
+        var addresses = [String]()
+        var ifaddr : UnsafeMutablePointer<ifaddrs>? = nil
+        if getifaddrs(&ifaddr) == 0 {
+            var ptr = ifaddr
+            while (ptr != nil) {
+                let flags = Int32(ptr!.pointee.ifa_flags)
+                var addr = ptr!.pointee.ifa_addr.pointee
+                if (flags & (IFF_UP | IFF_RUNNING | IFF_LOOPBACK)) == (IFF_UP | IFF_RUNNING) {
+                    if addr.sa_family == UInt8(AF_INET) || addr.sa_family == UInt8(AF_INET6) {
+                        var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
+                        if (getnameinfo(&addr, socklen_t(addr.sa_len), &hostname, socklen_t(hostname.count), nil, socklen_t(0), NI_NUMERICHOST) == 0) {
+                            if let address = String(validatingUTF8:hostname) {
+                                addresses.append(address)
+                            }
+                        }
+                    }
+                }
+                ptr = ptr!.pointee.ifa_next
+            }
+            freeifaddrs(ifaddr)
+        }
+        return addresses.first
+    }
+    
+    // MARK: 1.6、前往App Store进行评价
+    /// 前往App Store进行评价
+    /// - Parameter appid: App的 ID，在app创建的时候生成的
+    public static func evaluationInAppStore(appid: String) {
+        let urlString = "https://itunes.apple.com/cn/app/id" + appid + "?mt=12"
+        guard let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) else {
+            // 不能跳转就不要往下执行了
+            return
+        }
+        openUrl(url: url) { (result) in
+        }
+    }
+    
+    private static func openUrl(url: URL, complete: @escaping ((Bool) -> Void)) {
+        // iOS 10.0 以前
+        guard #available(iOS 10.0, *)  else {
+            let success = UIApplication.shared.openURL(url)
+            if (success) {
+                JKPrint("10以前可以跳转")
+                complete(true)
+            } else {
+                JKPrint("10以前不能完成跳转")
+                complete(false)
+            }
+            return
+        }
+        // iOS 10.0 以后
+        UIApplication.shared.open(url, options: [:]) { (success) in
+            if (success) {
+                JKPrint("10以后可以跳转url")
+                complete(true)
+            } else {
+                JKPrint("10以后不能完成跳转")
+                complete(false)
+            }
+        }
+    }
+    
+    // MARK: 1.7、获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information
+    /// 获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information
+    public static func getWiFiIP() -> String? {
+        var address: String?
+        // get list of all interfaces on the local machine
+        var ifaddr: UnsafeMutablePointer<ifaddrs>? = nil
+        guard getifaddrs(&ifaddr) == 0,
+              let firstAddr = ifaddr else { return nil }
+        for ifptr in sequence(first: firstAddr, next: { $0.pointee.ifa_next }) {
+            let interface = ifptr.pointee
+            // Check for IPV4 or IPV6 interface
+            let addrFamily = interface.ifa_addr.pointee.sa_family
+            if addrFamily == UInt8(AF_INET) || addrFamily == UInt8(AF_INET6) {
+                // Check interface name
+                let name = String(cString: interface.ifa_name)
+                if name == "en0" {
+                    // Convert interface address to a human readable string
+                    var addr = interface.ifa_addr.pointee
+                    var hostName = [CChar](repeating: 0, count: Int(NI_MAXHOST))
+                    getnameinfo(&addr, socklen_t(interface.ifa_addr.pointee.sa_len), &hostName, socklen_t(hostName.count), nil, socklen_t(0), NI_NUMERICHOST)
+                    address = String(cString: hostName)
+                }
+            }
+        }
+        freeifaddrs(ifaddr)
+        return address
+    }
+    
+    // MARK: 1.8、获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information
+    /// 获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information
+    public static func getWifiNameWithMac() -> (wifiName: String?, macIP: String?) {
+        guard let interfaces: NSArray = CNCopySupportedInterfaces() else {
+            return (nil, nil)
+        }
+        var ssid: String?
+        var mac: String?
+        for sub in interfaces {
+            if let dict = CFBridgingRetain(CNCopyCurrentNetworkInfo(sub as! CFString)) {
+                ssid = dict["SSID"] as? String
+                mac = dict["BSSID"] as? String
+            }
+        }
+        return (ssid, mac)
+    }
+}
+
+
+private extension JKGlobalTools {
     // MARK: 版本号 version 分隔三个 Int 值
     /// 分隔版本号
     /// - Parameter version: 版本号
     /// - Returns: 结果 和 版本号数组
-    private static func appVersion(version: String) -> (isSuccess: Bool, versions: [Int]) {
+    static func appVersion(version: String) -> (isSuccess: Bool, versions: [Int]) {
         let versionArray = version.jk.separatedByString(char: ".")
         guard versionArray.count == 3, let versionString1 = versionArray[0] as? String, let versionString2 = versionArray[1] as? String, let versionString3 = versionArray[2] as? String else {
             return (false, [])
@@ -131,5 +223,9 @@ public struct JKGlobalTools {
             return (false, [])
         }
         return (true, [versionValue1, versionValue2, versionValue3])
+    }
+    
+    func openUrl(complete: @escaping ((Bool) -> Void)) {
+        
     }
 }

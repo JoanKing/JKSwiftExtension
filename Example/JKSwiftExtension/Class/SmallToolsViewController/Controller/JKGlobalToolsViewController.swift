@@ -14,7 +14,7 @@ class JKGlobalToolsViewController: BaseViewController {
         super.viewDidLoad()
     
         headDataArray = ["一、基本的工具"]
-        dataArray = [["拨打电话", "App更新", "从 storyboard 中唤醒 viewcontroller", "传进某个版本号 个 当前app版本号作对比"]]
+        dataArray = [["拨打电话", "App更新", "从 storyboard 中唤醒 viewcontroller", "传进某个版本号 个 当前app版本号作对比", "获取本机IP", "前往App Store进行评价", "获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information", "获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information"]]
     }
     
     override func didReceiveMemoryWarning() {
@@ -24,6 +24,29 @@ class JKGlobalToolsViewController: BaseViewController {
 
 // MARK:- 一、基本的工具
 extension JKGlobalToolsViewController {
+    
+    // MARK: 1.8、获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information
+    @objc func test18() {
+        JKPrint("获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information", "连接wifi的名字：\(JKGlobalTools.getWifiNameWithMac().wifiName ?? "没有获取到")", "连接wifi的mac地址：\(JKGlobalTools.getWifiNameWithMac().macIP ?? "没有获取到")")
+    }
+    
+    // MARK: 1.7、获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information
+    @objc func test17() {
+        JKPrint("获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information", "连接wifi的ip地址：\(JKGlobalTools.getWiFiIP() ?? "没有获取到")")
+    }
+    
+    // MARK: 1.6、前往App Store进行评价
+    @objc func test16() {
+        JKPrint("前往App Store进行评价")
+        // 抖音：1142110895
+        JKGlobalTools.evaluationInAppStore(appid: "1142110895")
+    }
+    
+    // MARK: 1.5、获取本机IP
+    @objc func test15() {
+        JKPrint("获取本机IP：\(JKGlobalTools.getIPAddress() ?? "没有获取到本机IP")")
+    }
+    
     // MARK: 1.4、传进某个版本号 个 当前app版本号作对比
     @objc func test14() {
         

@@ -226,10 +226,9 @@ extension UITextFieldExtensionViewController {
         textFiled.placeholder = "我是占位符"
         textFiled.jk.setPlaceholderAttribute(font: UIFont.systemFont(ofSize: 16), color: UIColor.randomColor)
         self.view.addSubview(textFiled)
-        JKAsyncs.asyncDelay(5) {
+        JKAsyncs.asyncDelay(1000) {
         } _: {
             textFiled.removeFromSuperview()
         }
     }
 }
-

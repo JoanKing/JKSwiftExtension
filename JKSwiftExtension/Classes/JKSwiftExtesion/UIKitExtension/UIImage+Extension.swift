@@ -261,6 +261,20 @@ public extension JKPOP where Base: UIImage {
     }
 }
 
+public extension UIImage {
+    /// 保存图片到相册
+    final func saveImageToPhotoAlbum() {
+        UIImageWriteToSavedPhotosAlbum(self, self, #selector(saveImage(image:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    @objc final private func saveImage(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: AnyObject) {
+        if error != nil{
+            JKPrint("保存失败")
+        }else{
+            JKPrint("保存成功")
+        }
+    }
+}
+
 // MARK:- 二、UIColor 生成的图片 和 生成渐变色图片
 public extension JKPOP where Base : UIImage {
     
