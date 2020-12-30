@@ -24,7 +24,7 @@ extension UIFontExtensionViewController {
     
     // MARK: 1.1、6号字体
     @objc func test11() {
-        var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.width - 60, height: 50))
+        var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
         label.backgroundColor = .green
         label.textColor = .brown
         label.text = "我是一只小小鸟"

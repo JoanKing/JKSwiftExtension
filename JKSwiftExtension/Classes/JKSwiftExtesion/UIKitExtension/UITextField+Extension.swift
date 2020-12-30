@@ -8,16 +8,16 @@
 import UIKit
 
 // MARK:- 一、基本的扩展
-public extension UITextField {
+public extension JKPOP where Base : UITextField {
     
     // MARK: 1.1、添加左边的内边距
     /// 添加左边的内边距
     /// - Parameter padding: 边距
     func addLeftTextPadding(_ padding: CGFloat) {
         let leftView = UIView()
-        leftView.frame = CGRect(x: 0, y: 0, width: padding, height: frame.height)
-        self.leftView = leftView
-        self.leftViewMode = UITextField.ViewMode.always
+        leftView.frame = CGRect(x: 0, y: 0, width: padding, height: base.frame.height)
+        self.base.leftView = leftView
+        self.base.leftViewMode = UITextField.ViewMode.always
     }
     
     // MARK: 1.2、添加左边的图片
@@ -34,8 +34,8 @@ public extension UITextField {
         imgageView.frame = CGRect(x: leftViewFrame.width - 8 - imageSize.width, y: (leftViewFrame.height - imageSize.height) / 2, width: imageSize.width, height: imageSize.height)
         imgageView.image = image
         leftView.addSubview(imgageView)
-        self.leftView = leftView
-        self.leftViewMode = UITextField.ViewMode.always
+        self.base.leftView = leftView
+        self.base.leftViewMode = UITextField.ViewMode.always
     }
     
     /// 判断的方式
@@ -52,45 +52,23 @@ public extension UITextField {
         case lessThanOrEqualTo
     }
     
-    // MARK: 1.3、验证UITextField中字符长度
-    /// 验证UITextField中字符长度
-    /// - Parameters:
-    ///   - count: 字符数量
-    ///   - option: 所需条件
-    /// - Returns: 返回结果
-    @discardableResult
-    func validateLength(ofCount count: Int, option: UITextField.textFieldValidationOptions) -> Bool {
-        switch option {
-        case .equalTo:
-            return self.text!.count == count
-        case .greaterThan:
-            return self.text!.count > count
-        case .greaterThanOrEqualTo:
-            return self.text!.count >= count
-        case .lessThan:
-            return self.text!.count < count
-        case .lessThanOrEqualTo:
-            return self.text!.count <= count
-        }
-    }
-    
-    // MARK: 1.4、是否都是数字
+    // MARK: 1.3、是否都是数字
     /// 是否都是数字
     /// - Returns: 返回结果
     func validateDigits() -> Bool {
         let digitsRegEx = "[0-9]*"
         let digitsTest = NSPredicate(format: "SELF MATCHES %@", digitsRegEx)
-        return digitsTest.evaluate(with: self.text)
+        return digitsTest.evaluate(with: self.base.text)
     }
     
-    // MARK: 1.5、设置富文本的占位符
+    // MARK: 1.4、设置富文本的占位符
     /// 设置富文本的占位符
     /// - Parameters:
     ///   - font: 字体的大小
     ///   - color: 字体的颜色
     func setPlaceholderAttribute(font: UIFont, color: UIColor = .black) {
-        let arrStr = NSMutableAttributedString(string: self.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: color, NSAttributedString.Key.font: font])
-        self.attributedPlaceholder = arrStr
+        let arrStr = NSMutableAttributedString(string: self.base.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: color, NSAttributedString.Key.font: font])
+        self.base.attributedPlaceholder = arrStr
     }
 }
 

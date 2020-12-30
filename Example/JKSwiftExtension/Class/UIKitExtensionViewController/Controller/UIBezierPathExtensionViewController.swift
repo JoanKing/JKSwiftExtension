@@ -26,7 +26,7 @@ extension UIBezierPathExtensionViewController {
         JKPrint("根据圆上任意三个点添加圆弧")
         
         let bezierPath = UIBezierPath()
-        bezierPath.addArc(startPoint: CGPoint(x: 200, y: 150), centerPoint: CGPoint(x: 300, y: 250), endPoint: CGPoint(x: 200, y: 350), clockwise: true)
+        bezierPath.jk.addArc(startPoint: CGPoint(x: 200, y: 150), centerPoint: CGPoint(x: 300, y: 250), endPoint: CGPoint(x: 200, y: 350), clockwise: true)
         
         let shapeLayer = CAShapeLayer()
         // 存入UIBezierPath的路径
@@ -61,7 +61,7 @@ extension UIBezierPathExtensionViewController {
     @objc func test12() {
         JKPrint("CGPoint(x: 200, y: 350)")
         let bezierPath = UIBezierPath()
-        bezierPath.addArc(arcCenter: CGPoint(x: 200, y: 250), startPoint: CGPoint(x: 200, y: 150), endPoint: CGPoint(x: 200, y: 350), clockwise: false)
+        bezierPath.jk.addArc(arcCenter: CGPoint(x: 200, y: 250), startPoint: CGPoint(x: 200, y: 150), endPoint: CGPoint(x: 200, y: 350), clockwise: false)
         
         let shapeLayer = CAShapeLayer()
         // 存入UIBezierPath的路径

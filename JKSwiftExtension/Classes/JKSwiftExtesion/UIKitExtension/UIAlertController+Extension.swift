@@ -57,7 +57,7 @@ public extension UIAlertController {
     /// - Parameters:
     ///   - vc: 控制器
     ///   - deadline: 多长时间自动返回
-    func show(_ vc: UIViewController? = UIViewController.top(), dismiss deadline: TimeInterval? = nil) {
+    func show(_ vc: UIViewController? = UIViewController.jk.topViewController(), dismiss deadline: TimeInterval? = nil) {
         guard let inVC = vc else {
             return
         }

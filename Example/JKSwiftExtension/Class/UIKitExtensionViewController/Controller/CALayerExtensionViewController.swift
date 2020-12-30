@@ -56,7 +56,7 @@ extension CALayerExtensionViewController {
         
         JKAsyncs.asyncDelay(1) {
         } _: {
-            imageView.layer.baseAnimationGroup(animations: [posAni, opcAni, bodAni], duration: 3, repeatNumber: 1, removedOnCompletion: false, option: .default)
+            imageView.layer.jk.baseAnimationGroup(animations: [posAni, opcAni, bodAni], duration: 3, repeatNumber: 1, removedOnCompletion: false, option: .default)
             JKAsyncs.asyncDelay(4) {
             } _: {
                 testView.removeFromSuperview()
@@ -79,7 +79,7 @@ extension CALayerExtensionViewController {
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(1) {
         } _: {
-            imageView.layer.addSpringAnimationBounds(toValue: CGRect(x: 0, y: 150, width: 100, height: 100))
+            imageView.layer.jk.addSpringAnimationBounds(toValue: CGRect(x: 0, y: 150, width: 100, height: 100))
             JKAsyncs.asyncDelay(6) {
             } _: {
                 imageView.removeFromSuperview()
@@ -102,7 +102,7 @@ extension CALayerExtensionViewController {
         JKAsyncs.asyncDelay(2) {
         } _: {
             imageView.image = UIImage(named: "testicon")
-            imageView.layer.addTransition(type: .moveIn, subtype: .fromLeft, duration: 1.5)
+            imageView.layer.jk.addTransition(type: .moveIn, subtype: .fromLeft, duration: 1.5)
             JKAsyncs.asyncDelay(2) {
             } _: {
                 imageView.removeFromSuperview()
@@ -129,7 +129,7 @@ extension CALayerExtensionViewController {
         
         let path = UIBezierPath(ovalIn: CGRect(x: 100, y: 200, width: 200, height: 200)).cgPath
         
-        testLayer.addKeyframeAnimationPositionBezierPath(path: path, duration: 5, delay: 2, repeatNumber: 2, removedOnCompletion: false, option: .default)
+        testLayer.jk.addKeyframeAnimationPositionBezierPath(path: path, duration: 5, delay: 2, repeatNumber: 2, removedOnCompletion: false, option: .default)
         
         JKAsyncs.asyncDelay(15) {
             
@@ -147,7 +147,7 @@ extension CALayerExtensionViewController {
         testLayer.backgroundColor = UIColor.green.cgColor
         self.view.layer.addSublayer(testLayer)
         
-        testLayer.addKeyframeAnimationRotation(keyTimes: nil)
+        testLayer.jk.addKeyframeAnimationRotation(keyTimes: nil)
         
         JKAsyncs.asyncDelay(3) {
             
@@ -188,7 +188,7 @@ extension CALayerExtensionViewController {
         let duration = 8
         let repeatNumber: Float = 2
         
-        testLayer.addKeyframeAnimationPosition(values: [testView1.jk.center, testView2.jk.center,  testView4.jk.center, testView3.jk.center, testView1.jk.center], keyTimes: nil, duration: TimeInterval(duration), repeatNumber: repeatNumber, removedOnCompletion: false, option: .default)
+        testLayer.jk.addKeyframeAnimationPosition(values: [testView1.jk.center, testView2.jk.center,  testView4.jk.center, testView3.jk.center, testView1.jk.center], keyTimes: nil, duration: TimeInterval(duration), repeatNumber: repeatNumber, removedOnCompletion: false, option: .default)
         
         JKAsyncs.asyncDelay(Double(duration) * Double(repeatNumber) + 2) {
             
@@ -219,7 +219,7 @@ extension CALayerExtensionViewController {
         testLayer.backgroundColor = UIColor.green.cgColor
         self.view.layer.addSublayer(testLayer)
         
-        testLayer.animationRotation(rotation: Double.pi)
+        testLayer.jk.animationRotation(rotation: Double.pi)
         
         JKAsyncs.asyncDelay(3) {
             
@@ -243,7 +243,7 @@ extension CALayerExtensionViewController {
         self.view.layer.addSublayer(testLayer)
         
         
-        testLayer.animationScale(scaleValue: 2)
+        testLayer.jk.animationScale(scaleValue: 2)
         
         JKAsyncs.asyncDelay(3) {
             
@@ -267,7 +267,7 @@ extension CALayerExtensionViewController {
         self.view.layer.addSublayer(testLayer)
         
         
-        testLayer.animationCornerRadius(cornerRadius: 50)
+        testLayer.jk.animationCornerRadius(cornerRadius: 50)
         
         JKAsyncs.asyncDelay(3) {
             
@@ -298,7 +298,7 @@ extension CALayerExtensionViewController {
         testLayer.corner(12)
         self.view.layer.addSublayer(testLayer)
         
-        testLayer.animationMoveY(moveValue: 100)
+        testLayer.jk.animationMoveY(moveValue: 100)
         
         JKAsyncs.asyncDelay(3) {
             
@@ -330,7 +330,7 @@ extension CALayerExtensionViewController {
         testLayer.corner(12)
         self.view.layer.addSublayer(testLayer)
         
-        testLayer.animationMoveX(moveValue: 100)
+        testLayer.jk.animationMoveX(moveValue: 100)
         
         JKAsyncs.asyncDelay(3) {
             
@@ -361,7 +361,7 @@ extension CALayerExtensionViewController {
         testLayer.backgroundColor = UIColor.green.cgColor
         testLayer.corner(12)
         self.view.layer.addSublayer(testLayer)
-        testLayer.animationMovePoint(to: CGPoint(x: 100, y: 100), duration: 5, delay: 1, repeatNumber: 1, removedOnCompletion: false, option: .default)
+        testLayer.jk.animationMovePoint(to: CGPoint(x: 100, y: 100), duration: 5, delay: 1, repeatNumber: 1, removedOnCompletion: false, option: .default)
         JKAsyncs.asyncDelay(6) {
             
         } _: {

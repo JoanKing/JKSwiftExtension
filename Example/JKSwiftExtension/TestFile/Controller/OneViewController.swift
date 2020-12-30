@@ -20,9 +20,6 @@ class OneViewController: BaseViewController {
         self.view.backgroundColor = UIColor.randomColor
         
         fd_prefersNavigationBarHidden = true
-        self.title = "JKSwiftExtension"
-        self.edgesForExtendedLayout = []
-        self.view.backgroundColor = UIColor.green
         
         let mainPath10 = UIBezierPath()
         mainPath10.move(to: CGPoint(x: 50, y: 50))

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+extension CALayer: JKPOPCompatible {}
 // MARK:- 一、自定义链式编程
 public extension CALayer {
     
@@ -174,7 +174,7 @@ public extension CALayer {
 }
 
 // MARK:- 二、有关 CABasicAnimation 动画的扩展
-public extension CALayer {
+public extension JKPOP where Base: CALayer {
     
     // MARK: 2.1、移动到另外一个 点(point)
     /// 从一个 点(point) 移动到另外一个 点(poi
@@ -191,7 +191,7 @@ public extension CALayer {
                             repeatNumber: Float = 1,
                             removedOnCompletion: Bool = false,
                             option: CAMediaTimingFunctionName = .default) {
-        baseBasicAnimation(keyPath: "position", startValue: position, endValue: endPoint, duration: duration, delay: delay, repeatNumber: repeatNumber, removedOnCompletion: removedOnCompletion, option: option)
+        baseBasicAnimation(keyPath: "position", startValue: base.position, endValue: endPoint, duration: duration, delay: delay, repeatNumber: repeatNumber, removedOnCompletion: removedOnCompletion, option: option)
     }
     
     // MARK: 2.2、移动X
@@ -208,7 +208,7 @@ public extension CALayer {
                         repeatNumber: Float = 1,
                         removedOnCompletion: Bool = false,
                         option: CAMediaTimingFunctionName = .default) {
-        baseBasicAnimation(keyPath: "transform.translation.x", startValue: position, endValue: moveValue, duration: duration, delay: delay, repeatNumber: repeatNumber, removedOnCompletion: removedOnCompletion, option: option)
+        baseBasicAnimation(keyPath: "transform.translation.x", startValue: base.position, endValue: moveValue, duration: duration, delay: delay, repeatNumber: repeatNumber, removedOnCompletion: removedOnCompletion, option: option)
     }
     
     // MARK: 2.3、移动Y
@@ -225,7 +225,7 @@ public extension CALayer {
                         repeatNumber: Float = 1,
                         removedOnCompletion: Bool = false,
                         option: CAMediaTimingFunctionName = .default) {
-        baseBasicAnimation(keyPath: "transform.translation.y", startValue: position, endValue: moveValue, duration: duration, delay: delay, repeatNumber: repeatNumber, removedOnCompletion: removedOnCompletion, option: option)
+        baseBasicAnimation(keyPath: "transform.translation.y", startValue: base.position, endValue: moveValue, duration: duration, delay: delay, repeatNumber: repeatNumber, removedOnCompletion: removedOnCompletion, option: option)
     }
     
     // MARK: 2.4、圆角动画
@@ -242,7 +242,7 @@ public extension CALayer {
                                repeatNumber: Float = 1,
                                removedOnCompletion: Bool = false,
                                option: CAMediaTimingFunctionName = .default) {
-        baseBasicAnimation(keyPath: "cornerRadius", startValue: position, endValue: cornerRadius, duration: duration, delay: delay, repeatNumber: repeatNumber, removedOnCompletion: removedOnCompletion, option: option)
+        baseBasicAnimation(keyPath: "cornerRadius", startValue: base.position, endValue: cornerRadius, duration: duration, delay: delay, repeatNumber: repeatNumber, removedOnCompletion: removedOnCompletion, option: option)
     }
     
     // MARK: 2.5、缩放动画
@@ -322,12 +322,12 @@ public extension CALayer {
          default: 慢进慢出
          */
         translatonAnimation.timingFunction = CAMediaTimingFunction(name: option)
-        add(translatonAnimation, forKey: nil)
+        base.add(translatonAnimation, forKey: nil)
     }
 }
 
 // MARK:- 三、有关 CAKeyframeAnimation 动画的扩展
-public extension CALayer {
+public extension JKPOP where Base: CALayer {
     
     // MARK: 3.1、设置values使其沿 position 运动 (这里移动是以 视图的 锚点移动的，默认是视图的 中心点)
     /// 设置values使其沿 position 运动 (这里移动是以 视图的 锚点移动的，默认是视图的 中心点)
@@ -430,7 +430,7 @@ public extension CALayer {
         // keyframeAnimation.rotationMode = .rotateAuto
         //  动画的时间节奏控制 方式
         keyframeAnimation.timingFunction = CAMediaTimingFunction(name: option)
-        add(keyframeAnimation, forKey: nil)
+        base.add(keyframeAnimation, forKey: nil)
     }
 }
 
@@ -438,7 +438,7 @@ public extension CALayer {
 /**
  转场动画，比UIVIew转场动画具有更多的动画效果，比如Nav的默认Push视图的效果就是通过CATransition的kCATransitionPush类型来实现。
  */
-public extension CALayer {
+public extension JKPOP where Base: CALayer {
     
     // MARK: 4.1、转场动画的使用
     /// 转场动画的使用
@@ -472,7 +472,7 @@ public extension CALayer {
          */
         transition.subtype = .fromLeft
         transition.duration = 1
-        add(transition, forKey: nil)
+        base.add(transition, forKey: nil)
     }
 }
 
@@ -483,7 +483,7 @@ public extension CALayer {
  1.CASpringAnimation 可以设置更多影响弹簧动画效果的属性，可以实现更复杂的弹簧动画效果，且可以和其他动画组合。
  2.UIView的SpringAnimation实际上就是通过CASpringAnimation来实现。
  */
-public extension CALayer {
+public extension JKPOP where Base: CALayer {
     
     // MARK: 5.1、弹簧动画：Bounds 动画
     /// 弹簧动画：Bounds 动画
@@ -550,7 +550,7 @@ public extension CALayer {
         springAnimation.fillMode = CAMediaTimingFillMode.forwards
         // 动画的时间节奏控制 方式
         springAnimation.timingFunction = CAMediaTimingFunction(name: option)
-        add(springAnimation, forKey: nil)
+        base.add(springAnimation, forKey: nil)
     }
 }
 
@@ -558,7 +558,7 @@ public extension CALayer {
 /**
  使用Group可以将多个动画合并一起加入到层中，Group中所有动画并发执行，可以方便地实现需要多种类型动画的场景
  */
-public extension CALayer {
+public extension JKPOP where Base: CALayer {
     
     // MARK: CAAnimationGroup 的基类动画
     /// CAAnimationGroup 的基类动画
@@ -584,6 +584,6 @@ public extension CALayer {
         animationGroup.isRemovedOnCompletion = removedOnCompletion
         // 动画的时间节奏控制 方式
         animationGroup.timingFunction = CAMediaTimingFunction(name: option)
-        add(animationGroup, forKey: nil)
+        base.add(animationGroup, forKey: nil)
     }
 }

@@ -6,9 +6,8 @@
 //
 
 import Foundation
-
 // MARK:- 一、基本的扩展
-public extension UINavigationController {
+public extension JKPOP where Base: UINavigationController {
     
     // MARK: 1.1、pop返回后再push进某个控制器
     /// pop返回后再push进某个控制器
@@ -16,13 +15,13 @@ public extension UINavigationController {
     ///   - vc: 某个控制器
     ///   - animated: 是否要动画
     func popCurrentAndPush(vc: UIViewController, animated: Bool) {
-        var vcs = viewControllers
+        var vcs = base.viewControllers
         guard vcs.count >= 1  else {
             return
         }
         vcs.removeLast()
         vcs.append(vc)
-        setViewControllers(vcs, animated: animated)
+        base.setViewControllers(vcs, animated: animated)
     }
     
     // MARK: 1.2、往前返回(Pop)几个控制器
@@ -35,15 +34,15 @@ public extension UINavigationController {
             JKPrint("can't pop count less 1")
             return
         }
-        let vcsCount = viewControllers.count
+        let vcsCount = base.viewControllers.count
         if count >= vcsCount {
             JKPrint("count: \(count), must less than viewControllers count: \(vcsCount); will pop to root now!")
-            popToRootViewController(animated: animated)
+            base.popToRootViewController(animated: animated)
             return
         }
         
-        let vc = viewControllers[vcsCount - count - 1]
-        popToViewController(vc, animated: animated)
+        let vc = base.viewControllers[vcsCount - count - 1]
+        base.popToViewController(vc, animated: animated)
     }
     
     // MARK: 1.3、往前返回(Pop)几个控制器 后 push进某个控制器
@@ -58,18 +57,18 @@ public extension UINavigationController {
             return
         }
         
-        let vcsCount = viewControllers.count
+        let vcsCount = base.viewControllers.count
         if count >= vcsCount {
             JKPrint("count: \(count), must less than viewControllers count: \(vcsCount); will pop to root now!")
-            if let first = viewControllers.first {
-                setViewControllers([first, vc], animated: animated)
+            if let first = base.viewControllers.first {
+                base.setViewControllers([first, vc], animated: animated)
             }
             return
         }
         
-        var vcs = viewControllers[0...(vcsCount - count - 1)]
+        var vcs = base.viewControllers[0...(vcsCount - count - 1)]
         vcs.append(vc)
-        setViewControllers(Array(vcs), animated: animated)
+        base.setViewControllers(Array(vcs), animated: animated)
     }
     
     // MARK: 1.4、pop 到某个vc，以传入的vc类型为准，从栈顶逐个便利，直到找到这个vc，如果遍历完成后没找到，则返回false
@@ -80,9 +79,9 @@ public extension UINavigationController {
     /// - Returns: 成功找到vc并pop 返回true  否则 false
     @discardableResult
     func popToViewController(as aClass: AnyClass, animated: Bool) -> Bool {
-        for vc in viewControllers.reversed() {
+        for vc in base.viewControllers.reversed() {
             if vc.isMember(of: aClass) {
-                popToViewController(vc, animated: animated)
+                base.popToViewController(vc, animated: animated)
                 return true
             }
         }

@@ -35,7 +35,7 @@ extension UIScrollViewExtensionViewController {
     @objc func test21() {
         let scrollView = UIScrollView(frame: CGRect(x: 100, y: 100, width: 150, height: 200))
         scrollView.backgroundColor = .randomColor
-        scrollView.neverAdjustContentInset()
+        scrollView.jk.neverAdjustContentInset()
         scrollView.isDirectionalLockEnabled = true
         scrollView.contentSize = CGSize(width: 180, height: 280)
         self.view.addSubview(scrollView)
@@ -61,7 +61,7 @@ extension UIScrollViewExtensionViewController {
     @objc func test22() {
         let scrollView = UIScrollView(frame: CGRect(x: 100, y: 100, width: 150, height: 200))
         scrollView.backgroundColor = .randomColor
-        scrollView.neverAdjustContentInset()
+        scrollView.jk.neverAdjustContentInset()
         scrollView.contentSize = CGSize(width: 180, height: 280)
         self.view.addSubview(scrollView)
         
@@ -86,7 +86,7 @@ extension UIScrollViewExtensionViewController {
     @objc func test23() {
         let scrollView = UIScrollView(frame: CGRect(x: 50, y: 100, width: 250, height: 200))
         scrollView.backgroundColor = .randomColor
-        scrollView.neverAdjustContentInset()
+        scrollView.jk.neverAdjustContentInset()
         self.view.addSubview(scrollView)
         
         let testLabel1 = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 20))
@@ -107,7 +107,7 @@ extension UIScrollViewExtensionViewController {
     @objc func test24() {
         let scrollView = UIScrollView(frame: CGRect(x: 50, y: 100, width: 250, height: 200))
         scrollView.backgroundColor = .randomColor
-        scrollView.neverAdjustContentInset()
+        scrollView.jk.neverAdjustContentInset()
         self.view.addSubview(scrollView)
         
         let testLabel1 = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 20))
@@ -128,7 +128,7 @@ extension UIScrollViewExtensionViewController {
     @objc func test25() {
         let scrollView = UIScrollView(frame: CGRect(x: 50, y: 100, width: 250, height: 200))
         scrollView.backgroundColor = .randomColor
-        scrollView.neverAdjustContentInset()
+        scrollView.jk.neverAdjustContentInset()
         self.view.addSubview(scrollView)
         
         let testLabel1 = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 20))
@@ -155,7 +155,7 @@ extension UIScrollViewExtensionViewController {
     @objc func test26() {
         let scrollView = UIScrollView(frame: CGRect(x: 50, y: 100, width: 250, height: 200))
         scrollView.backgroundColor = .randomColor
-        scrollView.neverAdjustContentInset()
+        scrollView.jk.neverAdjustContentInset()
         self.view.addSubview(scrollView)
         
         let testLabel1 = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 20))
@@ -182,7 +182,7 @@ extension UIScrollViewExtensionViewController {
     @objc func test27() {
         let testScrollView = UIScrollView(frame: CGRect(x: 50, y: 100, width: 250, height: 200)).delegate(self)
         testScrollView.backgroundColor = .randomColor
-        testScrollView.neverAdjustContentInset()
+        testScrollView.jk.neverAdjustContentInset()
         testScrollView.contentSize(width: 0, height: 300)
         self.view.addSubview(testScrollView)
         
@@ -202,7 +202,7 @@ extension UIScrollViewExtensionViewController {
     @objc func test28() {
         let testScrollView = UIScrollView(frame: CGRect(x: 50, y: 100, width: 250, height: 200)).delegate(self).bounces(false)
         testScrollView.backgroundColor = .randomColor
-        testScrollView.neverAdjustContentInset()
+        testScrollView.jk.neverAdjustContentInset()
         testScrollView.contentSize(width: 0, height: 300)
         self.view.addSubview(testScrollView)
         
@@ -222,7 +222,7 @@ extension UIScrollViewExtensionViewController {
     @objc func test29() {
         let testScrollView = UIScrollView(frame: CGRect(x: 50, y: 100, width: 250, height: 200)).delegate(self).bounces(true).alwaysBounceVertical(true)
         testScrollView.backgroundColor = .randomColor
-        testScrollView.neverAdjustContentInset()
+        testScrollView.jk.neverAdjustContentInset()
         self.view.addSubview(testScrollView)
         
         let testLabel1 = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 20))
@@ -241,7 +241,7 @@ extension UIScrollViewExtensionViewController {
     @objc func test210() {
         let testScrollView = UIScrollView(frame: CGRect(x: 50, y: 100, width: 250, height: 200)).delegate(self).bounces(true).alwaysBounceHorizontal(true)
         testScrollView.backgroundColor = .randomColor
-        testScrollView.neverAdjustContentInset()
+        testScrollView.jk.neverAdjustContentInset()
         self.view.addSubview(testScrollView)
         
         let testLabel1 = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 20))
@@ -260,7 +260,7 @@ extension UIScrollViewExtensionViewController {
     @objc func test211() {
         let testScrollView = UIScrollView(frame: CGRect(x: 50, y: 100, width: 250, height: 200)).delegate(self).bounces(true).isPagingEnabled(true).contentSize(width: 500, height: 0)
         testScrollView.backgroundColor = .randomColor
-        testScrollView.neverAdjustContentInset()
+        testScrollView.jk.neverAdjustContentInset()
         self.view.addSubview(testScrollView)
         
         let testLabel1 = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 20))
@@ -279,7 +279,7 @@ extension UIScrollViewExtensionViewController {
     @objc func test212() {
         let scrollView = UIScrollView(frame: CGRect(x: 50, y: 100, width: 250, height: 200)).showsHorizontalScrollIndicator(false)
         scrollView.backgroundColor = .randomColor
-        scrollView.neverAdjustContentInset()
+        scrollView.jk.neverAdjustContentInset()
         scrollView.isDirectionalLockEnabled = true
         scrollView.contentSize = CGSize(width: 350, height: 280)
         self.view.addSubview(scrollView)
@@ -299,7 +299,7 @@ extension UIScrollViewExtensionViewController {
     @objc func test213() {
         let scrollView = UIScrollView(frame: CGRect(x: 50, y: 100, width: 250, height: 200)).showsVerticalScrollIndicator(false)
         scrollView.backgroundColor = .randomColor
-        scrollView.neverAdjustContentInset()
+        scrollView.jk.neverAdjustContentInset()
         scrollView.isDirectionalLockEnabled = true
         scrollView.contentSize = CGSize(width: 350, height: 280)
         self.view.addSubview(scrollView)
@@ -319,7 +319,7 @@ extension UIScrollViewExtensionViewController {
     @objc func test214() {
         let scrollView = UIScrollView(frame: CGRect(x: 50, y: 100, width: 250, height: 200)).setContentOffset(20, 10)
         scrollView.backgroundColor = .randomColor
-        scrollView.neverAdjustContentInset()
+        scrollView.jk.neverAdjustContentInset()
         scrollView.isDirectionalLockEnabled = true
         scrollView.contentSize = CGSize(width: 350, height: 280)
         self.view.addSubview(scrollView)
@@ -339,7 +339,7 @@ extension UIScrollViewExtensionViewController {
     @objc func test215() {
         let scrollView = UIScrollView(frame: CGRect(x: 50, y: 100, width: 250, height: 200)).setContentOffsetX(20)
         scrollView.backgroundColor = .randomColor
-        scrollView.neverAdjustContentInset()
+        scrollView.jk.neverAdjustContentInset()
         scrollView.isDirectionalLockEnabled = true
         scrollView.contentSize = CGSize(width: 350, height: 280)
         self.view.addSubview(scrollView)
@@ -359,7 +359,7 @@ extension UIScrollViewExtensionViewController {
     @objc func test216() {
         let scrollView = UIScrollView(frame: CGRect(x: 50, y: 100, width: 250, height: 200)).setContentOffsetY(10)
         scrollView.backgroundColor = .randomColor
-        scrollView.neverAdjustContentInset()
+        scrollView.jk.neverAdjustContentInset()
         scrollView.isDirectionalLockEnabled = true
         scrollView.contentSize = CGSize(width: 350, height: 280)
         self.view.addSubview(scrollView)
@@ -379,7 +379,7 @@ extension UIScrollViewExtensionViewController {
     @objc func test217() {
         let scrollView = UIScrollView(frame: CGRect(x: 50, y: 100, width: 250, height: 200)).scrollIndicatorInsets(UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0))
         scrollView.backgroundColor = .randomColor
-        scrollView.neverAdjustContentInset()
+        scrollView.jk.neverAdjustContentInset()
         scrollView.isDirectionalLockEnabled = true
         scrollView.contentSize = CGSize(width: 350, height: 280)
         self.view.addSubview(scrollView)
@@ -399,7 +399,7 @@ extension UIScrollViewExtensionViewController {
     @objc func test218() {
         let scrollView = UIScrollView(frame: CGRect(x: 50, y: 100, width: 250, height: 200)).isScrollEnabled(false)
         scrollView.backgroundColor = .randomColor
-        scrollView.neverAdjustContentInset()
+        scrollView.jk.neverAdjustContentInset()
         scrollView.isDirectionalLockEnabled = true
         scrollView.contentSize = CGSize(width: 350, height: 280)
         self.view.addSubview(scrollView)
@@ -419,7 +419,7 @@ extension UIScrollViewExtensionViewController {
     @objc func test219() {
         let scrollView = UIScrollView(frame: CGRect(x: 50, y: 100, width: 250, height: 200)).indicatorStyle(.black)
         scrollView.backgroundColor = .randomColor
-        scrollView.neverAdjustContentInset()
+        scrollView.jk.neverAdjustContentInset()
         scrollView.isDirectionalLockEnabled = true
         scrollView.contentSize = CGSize(width: 350, height: 280)
         self.view.addSubview(scrollView)
@@ -439,7 +439,7 @@ extension UIScrollViewExtensionViewController {
     @objc func test220() {
         let scrollView = UIScrollView(frame: CGRect(x: 50, y: 100, width: 250, height: 200)).indicatorStyle(.black).decelerationRate(.fast)
         scrollView.backgroundColor = .randomColor
-        scrollView.neverAdjustContentInset()
+        scrollView.jk.neverAdjustContentInset()
         scrollView.isDirectionalLockEnabled = true
         scrollView.contentSize = CGSize(width: 350, height: 280)
         self.view.addSubview(scrollView)
@@ -459,7 +459,7 @@ extension UIScrollViewExtensionViewController {
     @objc func test221() {
         let scrollView = UIScrollView(frame: CGRect(x: 50, y: 100, width: 250, height: 200)).isDirectionalLockEnabled(true)
         scrollView.backgroundColor = .randomColor
-        scrollView.neverAdjustContentInset()
+        scrollView.jk.neverAdjustContentInset()
         scrollView.isDirectionalLockEnabled = true
         scrollView.contentSize = CGSize(width: 350, height: 280)
         self.view.addSubview(scrollView)
@@ -485,20 +485,25 @@ extension UIScrollViewExtensionViewController {
     @objc func test11() {
         let scrollView = UIScrollView(frame: CGRect(x: 100, y: 100, width: 100, height: 200))
         scrollView.backgroundColor = .randomColor
-        scrollView.neverAdjustContentInset()
+        scrollView.jk.neverAdjustContentInset()
         scrollView.contentSize = CGSize(width: 100, height: 280)
         self.view.addSubview(scrollView)
         
         let testView = UIView(frame: CGRect(x: 0, y: 260, width: 100, height: 20))
         testView.backgroundColor = .brown
         scrollView.addSubview(testView)
+        
+        JKAsyncs.asyncDelay(2) {
+        } _: {
+            scrollView.removeFromSuperview()
+        }
     }
     
     // MARK: 1.2、设置滚动到：上左下右
     @objc func test12() {
         let scrollView = UIScrollView(frame: CGRect(x: 100, y: 100, width: 100, height: 200))
         scrollView.backgroundColor = .randomColor
-        scrollView.neverAdjustContentInset()
+        scrollView.jk.neverAdjustContentInset()
         scrollView.contentSize = CGSize(width: 180, height: 280)
         self.view.addSubview(scrollView)
         
@@ -524,16 +529,16 @@ extension UIScrollViewExtensionViewController {
         
         JKAsyncs.asyncDelay(2, {
         }) {
-            scrollView.scroll(edege: .bottom)
+            scrollView.jk.scroll(edege: .bottom)
             JKAsyncs.asyncDelay(2, {
             }) {
-                scrollView.scroll(edege: .right)
+                scrollView.jk.scroll(edege: .right)
                 JKAsyncs.asyncDelay(2, {
                 }) {
-                    scrollView.scroll(edege: .left)
+                    scrollView.jk.scroll(edege: .left)
                     JKAsyncs.asyncDelay(2, {
                     }) {
-                        scrollView.scroll(edege: .top)
+                        scrollView.jk.scroll(edege: .top)
                         JKAsyncs.asyncDelay(2, {
                         }) {
                             scrollView.removeFromSuperview()

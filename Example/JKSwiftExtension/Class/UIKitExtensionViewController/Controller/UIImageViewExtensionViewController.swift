@@ -25,7 +25,7 @@ extension UIImageViewExtensionViewController {
     // MARK: 1.3、加载网络 url 的 gif 图片
     @objc func test13() {
         gifImageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 100, height: 100))
-        gifImageView.loadGif(url: "http://pic19.nipic.com/20120222/8072717_124734762000_2.gif")
+        gifImageView.jk.loadGif(url: "http://pic19.nipic.com/20120222/8072717_124734762000_2.gif")
         gifImageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(gifImageView)
         JKAsyncs.asyncDelay(5) {
@@ -41,7 +41,7 @@ extension UIImageViewExtensionViewController {
             return
         }
         gifImageView = UIImageView(frame: CGRect(x: 0, y: 150, width: image.size.width, height: image.size.height))
-        gifImageView.loadGif(asset: "pika3")
+        gifImageView.jk.loadGif(asset: "pika3")
         gifImageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(gifImageView)
         JKAsyncs.asyncDelay(5) {
@@ -55,7 +55,7 @@ extension UIImageViewExtensionViewController {
     @objc func test11() {
       
         gifImageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 100, height: 100))
-        gifImageView.loadGif(name: "pika2")
+        gifImageView.jk.loadGif(name: "pika2")
         gifImageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(gifImageView)
         JKAsyncs.asyncDelay(5) {

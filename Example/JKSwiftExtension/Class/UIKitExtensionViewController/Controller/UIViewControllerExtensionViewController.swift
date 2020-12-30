@@ -23,13 +23,13 @@ extension UIViewControllerExtensionViewController {
     
     // MARK: 2.2、push跳转到Storyboard中指定UIViewController
     @objc func test22() {
-        self.pushStoryboard("MyStoryboard", identifier: "456") { (vc) in
+        self.jk.pushStoryboard("MyStoryboard", identifier: "456") { (vc) in
         }
     }
     
     // MARK: 2.1、push跳转Storyboard(首个初始化的控制器)
     @objc func test21() {
-        self.pushStoryboard("MyStoryboard2") { (vc) in
+        self.jk.pushStoryboard("MyStoryboard2") { (vc) in
         }
     }
 }
@@ -39,12 +39,12 @@ extension UIViewControllerExtensionViewController {
     
     // MARK: 1.1、pop回上一个界面
     @objc func test11() {
-        JKPrint("pop回上一个界面", "\(popToPreviousVC())")
+        JKPrint("pop回上一个界面", "\(jk.popToPreviousVC())")
     }
     
     // MARK: 1.2、获取push进来的 VC
     @objc func test12() {
-        guard let vc = getPreviousNavVC() else {
+        guard let vc = jk.getPreviousNavVC() else {
             return
         }
         JKPrint("pop回上一个界面", "\(vc.className)")
@@ -52,7 +52,7 @@ extension UIViewControllerExtensionViewController {
     
     // MARK: 1.3、获取顶部控制器
     @objc func test13() {
-        guard let vc = top() else {
+        guard let vc = jk.topViewController() else {
             return
         }
         JKPrint("获取顶部控制器", "\(vc.className)")

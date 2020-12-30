@@ -19,7 +19,7 @@ class SixViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.navigationController?.popToViewController(as: TwoViewController.self, animated: true)
+        self.navigationController?.jk.popToViewController(as: TwoViewController.self, animated: true)
     }
 
 }

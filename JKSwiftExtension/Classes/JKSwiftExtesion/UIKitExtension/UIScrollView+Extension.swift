@@ -16,13 +16,13 @@ public enum Edge {
 }
 
 // MARK:- 一、基本的扩展
-public extension UIScrollView {
+public extension JKPOP where Base: UIScrollView {
     
     // MARK: 1.1、适配iOS 11
     /// 适配iOS 11
-    @objc func neverAdjustContentInset() {
-        if #available(iOS 11.0, *), responds(to: #selector(setter: contentInsetAdjustmentBehavior)) {
-            self.contentInsetAdjustmentBehavior = .never
+    func neverAdjustContentInset() {
+        if #available(iOS 11.0, *), base.responds(to: #selector(setter: base.contentInsetAdjustmentBehavior)) {
+            self.base.contentInsetAdjustmentBehavior = .never
         }
     }
     
@@ -32,18 +32,18 @@ public extension UIScrollView {
     ///   - edege: 滚动的位置
     ///   - animated: 是否要动画
     func scroll(edege: Edge, animated: Bool = true) {
-        var offset = self.contentOffset
+        var offset = self.base.contentOffset
         switch edege {
         case .top:
-            offset.y =  -self.contentInset.top
+            offset.y =  -self.base.contentInset.top
         case .left:
-            offset.x = -self.contentInset.left
+            offset.x = -self.base.contentInset.left
         case .bottom:
-            offset.y = self.contentSize.height - self.bounds.size.height + self.contentInset.bottom
+            offset.y = self.base.contentSize.height - self.base.bounds.size.height + self.base.contentInset.bottom
         case .right:
-            offset.x = self.contentSize.width - self.bounds.size.width + self.contentInset.right
+            offset.x = self.base.contentSize.width - self.base.bounds.size.width + self.base.contentInset.right
         }
-        self.setContentOffset(offset, animated: animated)
+        self.base.setContentOffset(offset, animated: animated)
     }
 }
 

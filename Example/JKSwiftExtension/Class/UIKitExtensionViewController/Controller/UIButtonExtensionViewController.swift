@@ -77,7 +77,7 @@ extension UIButtonExtensionViewController {
     
     // MARK: 3.1、图片在左
     @objc func test31() {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).image(.brown).title("哈哈").setImageTitleLayout(.imgLeft, spacing: 6)
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).image(.brown).title("哈哈").jk.setImageTitleLayout(.imgLeft, spacing: 6)
         button.backgroundColor = .randomColor
         button.center = self.view.center
         self.view.addSubview(button)
@@ -89,7 +89,7 @@ extension UIButtonExtensionViewController {
     
     // MARK: 3.2、图片在右
     @objc func test32() {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).image(.brown).title("哈哈").setImageTitleLayout(.imgRight, spacing: 6)
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).image(.brown).title("哈哈").jk.setImageTitleLayout(.imgRight, spacing: 6)
         button.backgroundColor = .randomColor
         button.center = self.view.center
         self.view.addSubview(button)
@@ -101,7 +101,7 @@ extension UIButtonExtensionViewController {
     
     // MARK: 3.3、图片在上
     @objc func test33() {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).image(.brown).title("哈哈").setImageTitleLayout(.imgBottom, spacing: 6)
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).image(.brown).title("哈哈").jk.setImageTitleLayout(.imgTop, spacing: 6)
         button.backgroundColor = .randomColor
         button.center = self.view.center
         self.view.addSubview(button)
@@ -113,7 +113,7 @@ extension UIButtonExtensionViewController {
     
     // MARK: 3.4、图片在下
     @objc func test34() {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).font(6).image(.brown, CGSize(width: 20, height: 20), .normal).title("哈哈").setImageTitleLayout(.imgBottom, spacing: 6)
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).font(6).image(.brown, CGSize(width: 20, height: 20), .normal).title("哈哈").jk.setImageTitleLayout(.imgBottom, spacing: 6)
         button.backgroundColor = .randomColor
         button.center = self.view.center
         self.view.addSubview(button)
@@ -310,7 +310,7 @@ extension UIButtonExtensionViewController {
 extension UIButtonExtensionViewController {
     // MARK: 1.1、创建一个带颜色的 Button
     @objc func test11() {
-        let button = UIButton.small(type: .red, height: 200)
+        let button = UIButton.jk.small(type: .red, height: 200)
         button.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         button.center = self.view.center
         self.view.addSubview(button)
@@ -322,7 +322,7 @@ extension UIButtonExtensionViewController {
     
     // MARK: 1.2、创建一个常规的 Button
     @objc func test12() {
-        let button = UIButton.normal()
+        let button = UIButton.jk.normal()
         button.frame = CGRect(x: 0, y: 0, width: 100, height: 50)
         button.center = self.view.center
         self.view.addSubview(button)

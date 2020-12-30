@@ -403,7 +403,7 @@ extension JKPOP where Base : UIView {
 }
 
 // MARK:- 五、关于UIView的 圆角、阴影、边框 的设置
-public extension UIView {
+public extension JKPOP where Base : UIView {
     
     // MARK: 5.1、添加圆角
     /// 添加圆角
@@ -411,11 +411,11 @@ public extension UIView {
     ///   - conrners: 具体哪个圆角
     ///   - radius: 圆角的大小
     func addCorner(conrners: UIRectCorner , radius: CGFloat) {
-        let maskPath = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: conrners, cornerRadii: CGSize(width: radius, height: radius))
+        let maskPath = UIBezierPath(roundedRect: self.base.bounds, byRoundingCorners: conrners, cornerRadii: CGSize(width: radius, height: radius))
         let maskLayer = CAShapeLayer()
-        maskLayer.frame = self.bounds
+        maskLayer.frame = self.base.bounds
         maskLayer.path = maskPath.cgPath
-        self.layer.mask = maskLayer
+        self.base.layer.mask = maskLayer
     }
     
     // MARK: 5.2、给继承于view的类添加阴影
@@ -427,13 +427,13 @@ public extension UIView {
     ///   - shadowRadius: 阴影半径，默认 3
     func addShadow(shadowColor: UIColor, shadowOffset: CGSize, shadowOpacity: Float, shadowRadius: CGFloat = 3) {
         // 设置阴影颜色
-        layer.shadowColor = shadowColor.cgColor
+        base.layer.shadowColor = shadowColor.cgColor
         // 设置透明度
-        layer.shadowOpacity = shadowOpacity
+        base.layer.shadowOpacity = shadowOpacity
         // 设置阴影半径
-        layer.shadowRadius = shadowRadius
+        base.layer.shadowRadius = shadowRadius
         // 设置阴影偏移量
-        layer.shadowOffset = shadowOffset
+        base.layer.shadowOffset = shadowOffset
     }
     
     // MARK: 5.3、添加阴影和圆角并存
@@ -447,14 +447,14 @@ public extension UIView {
     ///   - shadowRadius: 阴影半径，默认 3
     func addCornerAndShadow(superview: UIView, conrners: UIRectCorner , radius: CGFloat = 3, shadowColor: UIColor, shadowOffset: CGSize, shadowOpacity: Float, shadowRadius: CGFloat = 3) {
         
-        let maskPath = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: conrners, cornerRadii: CGSize(width: radius, height: radius))
+        let maskPath = UIBezierPath(roundedRect: self.base.bounds, byRoundingCorners: conrners, cornerRadii: CGSize(width: radius, height: radius))
         let maskLayer = CAShapeLayer()
-        maskLayer.frame = self.bounds
+        maskLayer.frame = self.base.bounds
         maskLayer.path = maskPath.cgPath
-        self.layer.mask = maskLayer
+        self.base.layer.mask = maskLayer
         
         let subLayer = CALayer()
-        let fixframe = self.frame
+        let fixframe = self.base.frame
         subLayer.frame = fixframe
         subLayer.cornerRadius = shadowRadius
         subLayer.backgroundColor = shadowColor.cgColor
@@ -467,7 +467,7 @@ public extension UIView {
         subLayer.shadowOpacity = shadowOpacity
         // 阴影半径，默认3
         subLayer.shadowRadius = shadowRadius
-        superview.layer.insertSublayer(subLayer, below: self.layer)
+        superview.layer.insertSublayer(subLayer, below: self.base.layer)
     }
     
     // MARK: 5.4、添加边框
@@ -476,9 +476,9 @@ public extension UIView {
     ///   - width: 边框宽度
     ///   - color: 边框颜色
     func addBorder(borderWidth: CGFloat, borderColor: UIColor) {
-        layer.borderWidth = borderWidth
-        layer.borderColor = borderColor.cgColor
-        layer.masksToBounds = true
+        base.layer.borderWidth = borderWidth
+        base.layer.borderColor = borderColor.cgColor
+        base.layer.masksToBounds = true
     }
     
     // MARK: 5.5、添加顶部的 边框
@@ -487,7 +487,7 @@ public extension UIView {
     ///   - borderWidth: 边框宽度
     ///   - borderColor: 边框颜色
     func addBorderTop(borderWidth: CGFloat, borderColor: UIColor) {
-        addBorderUtility(x: 0, y: 0, width: frame.width, height: borderWidth, color: borderColor)
+        base.addBorderUtility(x: 0, y: 0, width: base.frame.width, height: borderWidth, color: borderColor)
     }
     
     // MARK: 5.6、添加顶部的 内边框
@@ -497,7 +497,7 @@ public extension UIView {
     ///   - borderColor: 边框颜色
     ///   - padding: 边框距离边上的距离
     func addBorderTopWithPadding(borderWidth: CGFloat, borderColor: UIColor, padding: CGFloat) {
-        addBorderUtility(x: padding, y: 0, width: frame.width - padding*2, height: borderWidth, color: borderColor)
+        base.addBorderUtility(x: padding, y: 0, width: base.frame.width - padding * 2, height: borderWidth, color: borderColor)
     }
     
     // MARK: 5.7、添加底部的 边框
@@ -506,7 +506,7 @@ public extension UIView {
     ///   - borderWidth: 边框宽度
     ///   - borderColor: 边框颜色
     func addBorderBottom(borderWidth: CGFloat, borderColor: UIColor) {
-        addBorderUtility(x: 0, y: frame.height - borderWidth, width: frame.width, height: borderWidth, color: borderColor)
+        base.addBorderUtility(x: 0, y: base.frame.height - borderWidth, width: base.frame.width, height: borderWidth, color: borderColor)
     }
     
     // MARK: 5.8、添加左边的 边框
@@ -515,7 +515,7 @@ public extension UIView {
     ///   - borderWidth: 边框宽度
     ///   - borderColor: 边框颜色
     func addBorderLeft(borderWidth: CGFloat, borderColor: UIColor) {
-        addBorderUtility(x: 0, y: 0, width: borderWidth, height: frame.height, color: borderColor)
+        base.addBorderUtility(x: 0, y: 0, width: borderWidth, height: base.frame.height, color: borderColor)
     }
     
     // MARK: 5.9、添加右边的 边框
@@ -524,7 +524,7 @@ public extension UIView {
     ///   - borderWidth: 边框宽度
     ///   - borderColor: 边框颜色
     func addBorderRight(borderWidth: CGFloat, borderColor: UIColor) {
-        addBorderUtility(x: frame.width - borderWidth, y: 0, width: borderWidth, height: frame.height, color: borderColor)
+        base.addBorderUtility(x: base.frame.width - borderWidth, y: 0, width: borderWidth, height: base.frame.height, color: borderColor)
     }
     
     // MARK: 5.10、画圆环
@@ -534,14 +534,14 @@ public extension UIView {
     ///   - strokeColor: 外环的颜色
     ///   - strokeWidth: 外环的宽度
     func drawCircle(fillColor: UIColor, strokeColor: UIColor, strokeWidth: CGFloat) {
-        let ciecleRadius = self.jk.width > self.jk.height ? self.jk.height : self.jk.width
+        let ciecleRadius = self.base.jk.width > self.base.jk.height ? self.base.jk.height : self.base.jk.width
         let path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: ciecleRadius, height: ciecleRadius), cornerRadius: ciecleRadius / 2)
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path.cgPath
         shapeLayer.fillColor = fillColor.cgColor
         shapeLayer.strokeColor = strokeColor.cgColor
         shapeLayer.lineWidth = strokeWidth
-        self.layer.addSublayer(shapeLayer)
+        self.base.layer.addSublayer(shapeLayer)
     }
 }
 
@@ -660,12 +660,12 @@ public extension UIView {
 }
 
 // MARK:- 七、其他的方法
-public extension UIView {
+public extension JKPOP where Base : UIView {
     
     // MARK: 7.1、获取当前view的viewcontroller
     /// 获取当前view的viewcontroller
     var currentVC: UIViewController? {
-        var parentResponder: UIResponder? = self
+        var parentResponder: UIResponder? = self.base
         while parentResponder != nil {
             parentResponder = parentResponder!.next
             if let viewController = parentResponder as? UIViewController {
@@ -685,9 +685,9 @@ public extension UIView {
         let waterMark: NSString = markText.jk.toNSString
         let textSize: CGSize = waterMark.size(withAttributes: [NSAttributedString.Key.font : font])
         // 多少行
-        let line: NSInteger = NSInteger(self.jk.height * 3.5 / 80)
+        let line: NSInteger = NSInteger(self.base.jk.height * 3.5 / 80)
         // 多少列：自己的宽度/(每个水印的宽度+间隔)
-        let row: NSInteger = NSInteger(self.jk.width / markText.jk.rectWidth(font: font, size: CGSize(width: self.jk.width, height: CGFloat(MAXFLOAT))))
+        let row: NSInteger = NSInteger(self.base.jk.width / markText.jk.rectWidth(font: font, size: CGSize(width: self.base.jk.width, height: CGFloat(MAXFLOAT))))
         for i in 0..<line {
             for j in 0..<row {
                 let textLayer: CATextLayer = CATextLayer()
@@ -701,7 +701,7 @@ public extension UIView {
                 textLayer.frame = CGRect(x: CGFloat(j) * (textSize.width + 30), y: CGFloat(i) * 60, width: textSize.width, height: textSize.height)
                 // 旋转文字
                 textLayer.transform = CATransform3DMakeRotation(CGFloat(Double.pi*0.2), 0, 0, 3)
-                self.layer.addSublayer(textLayer)
+                self.base.layer.addSublayer(textLayer)
             }
         }
     }
@@ -709,7 +709,7 @@ public extension UIView {
     // MARK: 7.3、移除所有的子视图
     /// 移除所有的子视图
     func removeAllSubViews() {
-        for subView in self.subviews {
+        for subView in self.base.subviews {
             subView.removeFromSuperview()
         }
     }
@@ -719,12 +719,12 @@ public extension UIView {
     /// - Returns: 图片
     func toImage() -> UIImage? {
         let scale = UIScreen.main.scale
-        UIGraphicsBeginImageContextWithOptions(self.frame.size, false, scale)
+        UIGraphicsBeginImageContextWithOptions(self.base.frame.size, false, scale)
         guard let context = UIGraphicsGetCurrentContext() else {
             UIGraphicsEndImageContext()
             return nil
         }
-        self.layer.render(in: context)
+        self.base.layer.render(in: context)
         let viewImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return viewImage
@@ -736,10 +736,9 @@ public extension UIView {
     ///   - target: 监听对象
     ///   - selector: 方法
     func addTapGestureRecognizerAction(_ target : Any ,_ selector : Selector) {
-        self.isUserInteractionEnabled = true
-        self.addGestureRecognizer(UITapGestureRecognizer(target: target, action: selector))
+        self.base.isUserInteractionEnabled = true
+        self.base.addGestureRecognizer(UITapGestureRecognizer(target: target, action: selector))
     }
-
 }
 
 // MARK:- private method

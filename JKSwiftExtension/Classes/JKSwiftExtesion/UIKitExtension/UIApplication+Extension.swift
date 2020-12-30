@@ -6,13 +6,15 @@
 //
 
 import UIKit
-
+extension UIApplication: JKPOPCompatible {}
 // MARK:- 一、基本的扩展
-public extension UIApplication {
+public extension JKPOP where Base: UIApplication {
     
     // MARK: 1.1、Info.plist
     /// Info.plist
-    static let infoDictionary: [String : Any]? = Bundle.main.infoDictionary
+    static var infoDictionary: [String : Any]? {
+        return Bundle.main.infoDictionary
+    }
     // MARK: 1.2、项目名称
     /// 项目名称
     static var projectName: String {
@@ -60,7 +62,7 @@ public extension UIApplication {
     /// 获取根控制器
     /// - Parameter base: 哪个控制器为基准
     /// - Returns: 返回 UIViewController
-    class func topViewController(_ base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+    static func topViewController(_ base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let nav = base as? UINavigationController {
             return topViewController(nav.visibleViewController)
         }
@@ -77,7 +79,7 @@ public extension UIApplication {
     
     // MARK: 1.9、设备信息的获取
     /// 设备信息的获取
-    static let userAgent: String = {
+    static var userAgent: String {
         if let info = Bundle.main.infoDictionary {
             let executable = info[kCFBundleExecutableKey as String] as? String ?? "Unknown"
             let bundle = info[kCFBundleIdentifierKey as String] as? String ?? "Unknown"
@@ -94,8 +96,8 @@ public extension UIApplication {
             }()
             return "\(executable)/\(bundle) (\(version); \(osNameVersion))"
         }
-        return "JK" + UIApplication.appVersion
-    }()
+        return "JK" + UIApplication.jk.appVersion
+    }
     
     // MARK: 1.10、app定位区域
     /// app定位区域

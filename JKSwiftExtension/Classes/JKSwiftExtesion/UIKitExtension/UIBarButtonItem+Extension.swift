@@ -7,12 +7,12 @@
 //
 
 import UIKit
-
+extension UIBarButtonItem: JKPOPCompatible {}
 // MARK:- 一、基本的扩展
-public extension UIBarButtonItem {
+public extension JKPOP where Base: UIBarButtonItem {
     
     // MARK: 1.1、快捷创建 UIBarButtonItem
-    class func createBarbuttonItem(name: String, target: Any?, action: Selector) -> UIBarButtonItem {
+    static func createBarbuttonItem(name: String, target: Any?, action: Selector) -> UIBarButtonItem {
         let rightBtn = UIButton()
         rightBtn.setImage(UIImage(named: name), for: UIControl.State.normal)
         rightBtn.setImage(UIImage(named: name + "_highlighted"), for: UIControl.State.highlighted)

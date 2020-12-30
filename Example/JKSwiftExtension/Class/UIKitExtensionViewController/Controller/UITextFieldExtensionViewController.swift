@@ -17,7 +17,7 @@ class UITextFieldExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、基本的扩展", "二、链式编程"]
-        dataArray = [["添加左边的内边距", "添加左边的图片", "验证UITextField中字符长度", "是否都是数字", "设置富文本的占位符"], ["设置文字", "设置富文本", "设置占位符", "设置富文本占位符", "设置文本格式", "设置文本颜色", "设置文本颜色（十六进制字符串）", "设置文本字体大小(UIFont)", "设置文本字体大小(CGFloat)", "设置代理"]]
+        dataArray = [["添加左边的内边距", "添加左边的图片", "是否都是数字", "设置富文本的占位符"], ["设置文字", "设置富文本", "设置占位符", "设置富文本占位符", "设置文本格式", "设置文本颜色", "设置文本颜色（十六进制字符串）", "设置文本字体大小(UIFont)", "设置文本字体大小(CGFloat)", "设置代理"]]
     }
 }
 
@@ -183,7 +183,7 @@ extension UITextFieldExtensionViewController {
     @objc func test11() {
         let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40))
         textFiled.backgroundColor = .randomColor
-        textFiled.addLeftTextPadding(20)
+        textFiled.jk.addLeftTextPadding(20)
         self.view.addSubview(textFiled)
         JKAsyncs.asyncDelay(3) {
         } _: {
@@ -196,7 +196,7 @@ extension UITextFieldExtensionViewController {
         // addLeftIcon
         let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40))
         textFiled.backgroundColor = .randomColor
-        textFiled.addLeftIcon(UIImage(named: "ironman"), leftViewFrame: CGRect(x: 20, y: 20, width: 30, height: 30), imageSize: CGSize(width: 20, height: 20))
+        textFiled.jk.addLeftIcon(UIImage(named: "ironman"), leftViewFrame: CGRect(x: 20, y: 20, width: 30, height: 30), imageSize: CGSize(width: 20, height: 20))
         self.view.addSubview(textFiled)
         JKAsyncs.asyncDelay(300) {
         } _: {
@@ -204,41 +204,27 @@ extension UITextFieldExtensionViewController {
         }
     }
     
-    // MARK: 1.3、验证UITextField中字符长度
+    // MARK: 1.3、是否都是数字
     @objc func test13() {
         let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40))
         textFiled.backgroundColor = .randomColor
-        textFiled.addLeftIcon(UIImage(named: "ironman"), leftViewFrame: CGRect(x: 20, y: 20, width: 30, height: 30), imageSize: CGSize(width: 20, height: 20))
+        textFiled.jk.addLeftIcon(UIImage(named: "ironman"), leftViewFrame: CGRect(x: 20, y: 20, width: 30, height: 30), imageSize: CGSize(width: 20, height: 20))
         self.view.addSubview(textFiled)
-        
         JKAsyncs.asyncDelay(5) {
         } _: {
-            JKPrint("验证UITextField中字符长度", "结果是：\(textFiled.validateLength(ofCount: 5, option: .lessThan))，因为字符串的长度是：\(textFiled.text?.count ?? 0)")
+            JKPrint("是否都是数字", "结果是：\(textFiled.jk.validateDigits())")
             textFiled.removeFromSuperview()
         }
     }
     
-    // MARK: 1.4、是否都是数字
+    // MARK: 1.4、设置富文本的占位符
     @objc func test14() {
-        let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40))
-        textFiled.backgroundColor = .randomColor
-        textFiled.addLeftIcon(UIImage(named: "ironman"), leftViewFrame: CGRect(x: 20, y: 20, width: 30, height: 30), imageSize: CGSize(width: 20, height: 20))
-        self.view.addSubview(textFiled)
-        JKAsyncs.asyncDelay(5) {
-        } _: {
-            JKPrint("是否都是数字", "结果是：\(textFiled.validateDigits())")
-            textFiled.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 1.5、设置富文本的占位符
-    @objc func test15() {
         JKPrint("设置富文本的占位符")
         let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40))
         textFiled.backgroundColor = .randomColor
-        textFiled.addLeftIcon(UIImage(named: "ironman"), leftViewFrame: CGRect(x: 20, y: 20, width: 30, height: 30), imageSize: CGSize(width: 20, height: 20))
+        textFiled.jk.addLeftIcon(UIImage(named: "ironman"), leftViewFrame: CGRect(x: 20, y: 20, width: 30, height: 30), imageSize: CGSize(width: 20, height: 20))
         textFiled.placeholder = "我是占位符"
-        textFiled.setPlaceholderAttribute(font: UIFont.systemFont(ofSize: 16), color: UIColor.randomColor)
+        textFiled.jk.setPlaceholderAttribute(font: UIFont.systemFont(ofSize: 16), color: UIColor.randomColor)
         self.view.addSubview(textFiled)
         JKAsyncs.asyncDelay(5) {
         } _: {

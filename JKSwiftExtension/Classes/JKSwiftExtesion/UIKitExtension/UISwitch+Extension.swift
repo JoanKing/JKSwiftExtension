@@ -8,11 +8,11 @@
 import UIKit
 
 // MARK:- 一、基本的扩展
-extension UISwitch {
+public extension JKPOP where Base: UISwitch {
 
     // MARK: 1.1、开关切换
     /// 开关切换
-    public func toggle() {
-        self.setOn(!self.isOn, animated: true)
+    func toggle() {
+        self.base.setOn(!self.base.isOn, animated: true)
     }
 }

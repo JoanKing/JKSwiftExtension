@@ -26,7 +26,7 @@ extension UIViewExtensionViewController {
         let testView = UIView(frame: CGRect(x: 200, y: 100, width: 100, height: 100))
         testView.backgroundColor = .randomColor
         self.view.addSubview(testView)
-        guard let vc = testView.currentVC else {
+        guard let vc = testView.jk.currentVC else {
             return
         }
         JKAsyncs.asyncDelay(1, {
@@ -42,7 +42,7 @@ extension UIViewExtensionViewController {
         testView.backgroundColor = .randomColor
         testView.center.x = self.view.center.x
         testView.clipsToBounds = true
-        testView.addWater(markText: "这是水印", textColor: .red, font: .systemFont(ofSize: 19))
+        testView.jk.addWater(markText: "这是水印", textColor: .red, font: .systemFont(ofSize: 19))
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(3, {
         }) {
@@ -66,7 +66,7 @@ extension UIViewExtensionViewController {
         testView.addSubview(testView2)
         JKAsyncs.asyncDelay(3, {
         }) {
-            testView.removeAllSubViews()
+            testView.jk.removeAllSubViews()
             JKAsyncs.asyncDelay(2, {
             }) {
                 testView.removeFromSuperview()
@@ -92,7 +92,7 @@ extension UIViewExtensionViewController {
         let gifImageView = UIImageView(frame: CGRect(x: 100, y: testView.jk.bottom + 50, width: 200,height: 200))
         self.view.addSubview(gifImageView)
         
-        guard let image = testView.toImage() else {
+        guard let image = testView.jk.toImage() else {
             JKPrint("view转换image失败")
             return
         }
@@ -114,7 +114,7 @@ extension UIViewExtensionViewController {
         testView.backgroundColor = .randomColor
         testView.center.x = self.view.center.x
         testView.clipsToBounds = true
-        testView.addTapGestureRecognizerAction(self, #selector(click))
+        testView.jk.addTapGestureRecognizerAction(self, #selector(click))
         self.view.addSubview(testView)
         
         JKAsyncs.asyncDelay(5) {
@@ -293,8 +293,8 @@ extension UIViewExtensionViewController {
         testView.textAlignment = .center
         testView.textColor = .randomColor
         testView.jk.centerX = self.view.jk.centerX
-        testView.addShadow(shadowColor: UIColor.black.withAlphaComponent(0.48), shadowOffset: CGSize(width: 1.0, height: 1.0), shadowOpacity: 1, shadowRadius: 20)
-        testView.addCorner(conrners: [.topLeft], radius: 20)
+        testView.jk.addShadow(shadowColor: UIColor.black.withAlphaComponent(0.48), shadowOffset: CGSize(width: 1.0, height: 1.0), shadowOpacity: 1, shadowRadius: 20)
+        testView.jk.addCorner(conrners: [.topLeft], radius: 20)
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -310,7 +310,7 @@ extension UIViewExtensionViewController {
         testView.textAlignment = .center
         testView.textColor = .randomColor
         testView.jk.centerX = self.view.jk.centerX
-        testView.addShadow(shadowColor: UIColor.black.withAlphaComponent(0.48), shadowOffset: CGSize(width: 1.0, height: 1.0), shadowOpacity: 1, shadowRadius: 20)
+        testView.jk.addShadow(shadowColor: UIColor.black.withAlphaComponent(0.48), shadowOffset: CGSize(width: 1.0, height: 1.0), shadowOpacity: 1, shadowRadius: 20)
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -326,7 +326,7 @@ extension UIViewExtensionViewController {
         testView.textAlignment = .center
         testView.textColor = .randomColor
         testView.jk.centerX = self.view.jk.centerX
-        testView.addCornerAndShadow(superview: self.view, conrners: [.allCorners], radius: 6, shadowColor: UIColor.black.withAlphaComponent(0.48), shadowOffset: CGSize(width: 1.0, height: 1.0), shadowOpacity: 1, shadowRadius: 6)
+        testView.jk.addCornerAndShadow(superview: self.view, conrners: [.allCorners], radius: 6, shadowColor: UIColor.black.withAlphaComponent(0.48), shadowOffset: CGSize(width: 1.0, height: 1.0), shadowOpacity: 1, shadowRadius: 6)
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -342,7 +342,7 @@ extension UIViewExtensionViewController {
         testView.textAlignment = .center
         testView.textColor = .randomColor
         testView.jk.centerX = self.view.jk.centerX
-        testView.addBorder(borderWidth: 10, borderColor: .red)
+        testView.jk.addBorder(borderWidth: 10, borderColor: .red)
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -358,7 +358,7 @@ extension UIViewExtensionViewController {
         testView.textAlignment = .center
         testView.textColor = .randomColor
         testView.jk.centerX = self.view.jk.centerX
-        testView.addBorderTop(borderWidth: 10, borderColor: .red)
+        testView.jk.addBorderTop(borderWidth: 10, borderColor: .red)
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -374,7 +374,7 @@ extension UIViewExtensionViewController {
         testView.textAlignment = .center
         testView.textColor = .randomColor
         testView.jk.centerX = self.view.jk.centerX
-        testView.addBorderTopWithPadding(borderWidth: 40, borderColor: .brown, padding: 8)
+        testView.jk.addBorderTopWithPadding(borderWidth: 40, borderColor: .brown, padding: 8)
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -390,7 +390,7 @@ extension UIViewExtensionViewController {
         testView.textAlignment = .center
         testView.textColor = .randomColor
         testView.jk.centerX = self.view.jk.centerX
-        testView.addBorderBottom(borderWidth: 20, borderColor: .brown)
+        testView.jk.addBorderBottom(borderWidth: 20, borderColor: .brown)
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -406,7 +406,7 @@ extension UIViewExtensionViewController {
         testView.textAlignment = .center
         testView.textColor = .randomColor
         testView.jk.centerX = self.view.jk.centerX
-        testView.addBorderLeft(borderWidth: 20, borderColor: .brown)
+        testView.jk.addBorderLeft(borderWidth: 20, borderColor: .brown)
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -422,7 +422,7 @@ extension UIViewExtensionViewController {
         testView.textAlignment = .center
         testView.textColor = .randomColor
         testView.jk.centerX = self.view.jk.centerX
-        testView.addBorderRight(borderWidth: 20, borderColor: .brown)
+        testView.jk.addBorderRight(borderWidth: 20, borderColor: .brown)
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -438,14 +438,13 @@ extension UIViewExtensionViewController {
         testView.textAlignment = .center
         testView.textColor = .randomColor
         testView.jk.centerX = self.view.jk.centerX
-        testView.drawCircle(fillColor: .red, strokeColor: .blue, strokeWidth: 10)
+        testView.jk.drawCircle(fillColor: .red, strokeColor: .blue, strokeWidth: 10)
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2, {
         }) {
            testView.removeFromSuperview()
         }
     }
-    
 }
 
 // MARK:- 二、继承于 UIView 视图的 平面、3D 旋转 以及 缩放

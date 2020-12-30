@@ -6,9 +6,8 @@
 //
 
 import UIKit
-
 // MARK:- 一、加载 gif
-public extension UIImageView {
+public extension JKPOP where Base: UIImageView {
     
     // MARK: 1.1、加载本地的gif图片
     /// 加载本地的gif图片
@@ -17,7 +16,7 @@ public extension UIImageView {
         DispatchQueue.global().async {
             let image = UIImage.jk.gif(name: name)
             DispatchQueue.main.async {
-                self.image = image
+                self.base.image = image
             }
         }
     }
@@ -30,7 +29,7 @@ public extension UIImageView {
         DispatchQueue.global().async {
             let image = UIImage.jk.gif(asset: asset)
             DispatchQueue.main.async {
-                self.image = image
+                self.base.image = image
             }
         }
     }
@@ -43,7 +42,7 @@ public extension UIImageView {
         DispatchQueue.global().async {
             let image = UIImage.jk.gif(url: url)
             DispatchQueue.main.async {
-                self.image = image
+                self.base.image = image
             }
         }
     }

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 // MARK:- 一、链式编程
 public extension UILabel {
     
@@ -102,7 +101,7 @@ public extension UILabel {
 }
 
 // MARK:- 二、其他的基本扩展
-public extension UILabel {
+public extension JKPOP where Base: UILabel {
     
     // MARK: 2.1、获取已知 frame 的 label 的文本行数 & 每一行内容
     /// 获取已知 frame 的 label 的文本行数 & 每一行内容
@@ -112,7 +111,7 @@ public extension UILabel {
     ///   - paraSpace: 段间距，默认为0.0
     /// - Returns: label 的文本行数 & 每一行内容
     func linesCountAndLinesContent(lineSpace: CGFloat, textSpace: CGFloat = 0.0, paraSpace: CGFloat = 0.0) -> (Int?, [String]?) {
-        return linesCountAndLinesContent(accordWidth: frame.size.width, lineSpace: lineSpace, textSpace: textSpace, paraSpace: paraSpace)
+        return linesCountAndLinesContent(accordWidth: base.frame.size.width, lineSpace: lineSpace, textSpace: textSpace, paraSpace: paraSpace)
     }
     
     // MARK: 2.2、获取已知 width 的 label 的文本行数 & 每一行内容
@@ -124,13 +123,13 @@ public extension UILabel {
     ///   - paraSpace: 段间距，默认为0.0
     /// - Returns: description
     func linesCountAndLinesContent(accordWidth: CGFloat, lineSpace: CGFloat, textSpace: CGFloat = 0.0, paraSpace: CGFloat = 0.0) -> (Int?, [String]?) {
-        guard let t = text, let f = font else {return (0, nil)}
-        let align = textAlignment
+        guard let t = base.text, let f = base.font else {return (0, nil)}
+        let align = base.textAlignment
         let c_fn = f.fontName as CFString
         let fp = f.pointSize
         let c_f = CTFontCreateWithName(c_fn, fp, nil)
         
-        let contentDict = UILabel.genTextStyle(text: t as NSString, linebreakmode: NSLineBreakMode.byCharWrapping, align: align, font: f, lineSpace: lineSpace, textSpace: textSpace, paraSpace: paraSpace)
+        let contentDict = UILabel.jk.genTextStyle(text: t as NSString, linebreakmode: NSLineBreakMode.byCharWrapping, align: align, font: f, lineSpace: lineSpace, textSpace: textSpace, paraSpace: paraSpace)
         
         let attr = NSMutableAttributedString(string: t)
         let range = NSRange(location: 0, length: attr.length)
@@ -163,31 +162,31 @@ public extension UILabel {
     /// 改变行间距
     /// - Parameter space: 行间距大小
     func changeLineSpace(space: CGFloat) {
-        if self.text == nil || self.text == "" {
+        if self.base.text == nil || self.base.text == "" {
             return
         }
-        let text = self.text
+        let text = self.base.text
         let attributedString = NSMutableAttributedString(string: text!)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = space
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: .init(location: 0, length: text!.count))
-        self.attributedText = attributedString
-        self.sizeToFit()
+        self.base.attributedText = attributedString
+        self.base.sizeToFit()
     }
     
     // MARK: 2.5、改变字间距
     /// 改变字间距
     /// - Parameter space: 字间距大小
     func changeWordSpace(space: CGFloat) {
-        if self.text == nil || self.text == "" {
+        if self.base.text == nil || self.base.text == "" {
             return
         }
-        let text = self.text
+        let text = self.base.text
         let attributedString = NSMutableAttributedString(string: text!, attributes: [NSAttributedString.Key.kern:space])
         let paragraphStyle = NSMutableParagraphStyle()
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: .init(location: 0, length: text!.count))
-        self.attributedText = attributedString
-        self.sizeToFit()
+        self.base.attributedText = attributedString
+        self.base.sizeToFit()
     }
     
     // MARK: 2.6、改变字间距和行间距
@@ -196,16 +195,30 @@ public extension UILabel {
     ///   - lineSpace: 行间距
     ///   - wordSpace: 字间距
     func changeSpace(lineSpace: CGFloat, wordSpace: CGFloat) {
-        if self.text == nil || self.text == "" {
+        if self.base.text == nil || self.base.text == "" {
             return
         }
-        let text = self.text
+        let text = self.base.text
         let attributedString = NSMutableAttributedString(string: text!, attributes: [NSAttributedString.Key.kern:wordSpace])
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = lineSpace
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: .init(location: 0, length: text!.count))
-        self.attributedText = attributedString
-        self.sizeToFit()
+        self.base.attributedText = attributedString
+        self.base.sizeToFit()
+    }
+    
+    // MARK: 2.7、label添加中划线
+    /// label添加中划线
+    /// - Parameters:
+    ///   - lineValue: value 越大,划线越粗
+    ///   - underlineColor: 中划线的颜色
+    func centerLineText(lineValue: Int = 1, underlineColor: UIColor = .black) {
+        guard let content = base.text else {
+            return
+        }
+        let arrText = NSMutableAttributedString(string: content)
+        arrText.addAttributes([NSAttributedString.Key.strikethroughStyle: lineValue, NSAttributedString.Key.strikethroughColor: underlineColor], range: NSRange(location: 0, length: arrText.length))
+        base.attributedText = arrText
     }
     
     // MARK: 设置文本样式
@@ -219,7 +232,7 @@ public extension UILabel {
     ///   - textSpace: 设定字符间距，取值为 NSNumber 对象（整数），正值间距加宽，负值间距变窄
     ///   - paraSpace: 段与段之间的间距
     /// - Returns: 返回样式 [NSAttributedString.Key : Any]
-    private class func genTextStyle(text: NSString, linebreakmode: NSLineBreakMode, align: NSTextAlignment, font: UIFont, lineSpace: CGFloat, textSpace: CGFloat, paraSpace: CGFloat) -> [NSAttributedString.Key : Any] {
+    private static func genTextStyle(text: NSString, linebreakmode: NSLineBreakMode, align: NSTextAlignment, font: UIFont, lineSpace: CGFloat, textSpace: CGFloat, paraSpace: CGFloat) -> [NSAttributedString.Key : Any] {
         let style = NSMutableParagraphStyle()
         // 结尾部分的内容以……方式省略 ( "...wxyz" ,"abcd..." ,"ab...yz")
         /**

@@ -15,7 +15,7 @@ private enum LineType {
 }
 
 // MARK:- 一、基本的扩展
-public extension UIButton {
+public extension JKPOP where Base: UIButton {
     enum SmallButtonType {
         case red
         case pink
@@ -298,7 +298,7 @@ public extension UIButton {
 
 // MARK:- 三、UIButton 图片 与 title 位置关系
 /// UIButton 图片与title位置关系 https://www.jianshu.com/p/0f34c1b52604
-public extension UIButton {
+public extension JKPOP where Base: UIButton {
     
     /// 图片 和 title 的布局样式
     enum ImageTitleLayout {
@@ -315,7 +315,7 @@ public extension UIButton {
     ///   - spacing: 间距
     /// - Returns: 返回自身
     @discardableResult
-    func setImageTitleLayout(_ layout: ImageTitleLayout, spacing: CGFloat = 0) -> Self {
+    func setImageTitleLayout(_ layout: ImageTitleLayout, spacing: CGFloat = 0) -> UIButton {
         switch layout {
         case .imgLeft:
             alignHorizontal(spacing: spacing, imageFirst: true)
@@ -326,7 +326,7 @@ public extension UIButton {
         case .imgBottom:
             alignVertical(spacing: spacing, imageTop: false)
         }
-        return self
+        return self.base
     }
     
     /// 水平方向
@@ -335,20 +335,20 @@ public extension UIButton {
     ///   - imageFirst: 图片是否优先
     private func alignHorizontal(spacing: CGFloat, imageFirst: Bool) {
         let edgeOffset = spacing / 2
-        imageEdgeInsets = UIEdgeInsets(top: 0,
+        base.imageEdgeInsets = UIEdgeInsets(top: 0,
                                        left: -edgeOffset,
                                        bottom: 0,
                                        right: edgeOffset)
-        titleEdgeInsets = UIEdgeInsets(top: 0,
+        base.titleEdgeInsets = UIEdgeInsets(top: 0,
                                        left: edgeOffset,
                                        bottom: 0,
                                        right: -edgeOffset)
         if !imageFirst {
-            self.transform = CGAffineTransform(scaleX: -1, y: 1)
-            imageView?.transform = CGAffineTransform(scaleX: -1, y: 1)
-            titleLabel?.transform = CGAffineTransform(scaleX: -1, y: 1)
+            base.transform = CGAffineTransform(scaleX: -1, y: 1)
+            base.imageView?.transform = CGAffineTransform(scaleX: -1, y: 1)
+            base.titleLabel?.transform = CGAffineTransform(scaleX: -1, y: 1)
         }
-        contentEdgeInsets = UIEdgeInsets(top: 0, left: edgeOffset, bottom: 0, right: edgeOffset)
+        base.contentEdgeInsets = UIEdgeInsets(top: 0, left: edgeOffset, bottom: 0, right: edgeOffset)
     }
     
     /// 垂直方向
@@ -356,9 +356,9 @@ public extension UIButton {
     ///   - spacing: 间距
     ///   - imageTop: 图片是不是在顶部
     private func alignVertical(spacing: CGFloat, imageTop: Bool) {
-        guard let imageSize = self.imageView?.image?.size,
-            let text = self.titleLabel?.text,
-            let font = self.titleLabel?.font
+        guard let imageSize = self.base.imageView?.image?.size,
+              let text = self.base.titleLabel?.text,
+              let font = self.base.titleLabel?.font
             else {
                 return
         }
@@ -371,17 +371,17 @@ public extension UIButton {
         let titleHorizontalOffset = (imageSize.width) / 2
         let sign: CGFloat = imageTop ? 1 : -1
         
-        imageEdgeInsets = UIEdgeInsets(top: -imageVerticalOffset * sign,
+        base.imageEdgeInsets = UIEdgeInsets(top: -imageVerticalOffset * sign,
                                        left: imageHorizontalOffset,
                                        bottom: imageVerticalOffset * sign,
                                        right: -imageHorizontalOffset)
-        titleEdgeInsets = UIEdgeInsets(top: titleVerticalOffset * sign,
+        base.titleEdgeInsets = UIEdgeInsets(top: titleVerticalOffset * sign,
                                        left: -titleHorizontalOffset,
                                        bottom: -titleVerticalOffset * sign,
                                        right: titleHorizontalOffset)
         // increase content height to avoid clipping
-        let edgeOffset = (min(imageSize.height, titleSize.height) + spacing)/2
-        contentEdgeInsets = UIEdgeInsets(top: edgeOffset, left: 0, bottom: edgeOffset, right: 0)
+        let edgeOffset = (min(imageSize.height, titleSize.height) + spacing) / 2
+        base.contentEdgeInsets = UIEdgeInsets(top: edgeOffset, left: 0, bottom: edgeOffset, right: 0)
     }
 }
 

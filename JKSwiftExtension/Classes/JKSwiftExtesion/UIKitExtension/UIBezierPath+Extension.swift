@@ -6,9 +6,9 @@
 //
 
 import UIKit
-
+extension UIBezierPath: JKPOPCompatible {}
 // MARK:- 一、基本的扩展
-public extension UIBezierPath {
+public extension JKPOP where Base: UIBezierPath {
     
     // MARK: 1.1、根据圆上任意三个点添加圆弧
     /// 根据圆上任意三个点添加圆弧
@@ -25,7 +25,7 @@ public extension UIBezierPath {
         // 求角度
         let startAngle = getAngle(center: arcCenter, point: startPoint)
         let endAngle = getAngle(center: arcCenter, point: endPoint)
-        addArc(withCenter: arcCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: clockwise)
+        base.addArc(withCenter: arcCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: clockwise)
     }
     
     // MARK: 1.2、根据圆心和任意2个点添加圆弧
@@ -41,12 +41,12 @@ public extension UIBezierPath {
         // 求角度
         let startAngle = getAngle(center: arcCenter, point: startPoint)
         let endAngle = getAngle(center: arcCenter, point: endPoint)
-        addArc(withCenter: arcCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: clockwise)
+        base.addArc(withCenter: arcCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: clockwise)
     }
 }
 
 // MARK:- fileprivate 方法
-fileprivate extension UIBezierPath {
+fileprivate extension JKPOP where Base: UIBezierPath {
     
     // 计算圆心类
     // MARK:  计算出圆心

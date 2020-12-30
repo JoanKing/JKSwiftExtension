@@ -14,7 +14,7 @@ class UILabelExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、链式编程", "二、其他的基本扩展"]
-        dataArray = [["设置文字", "设置文字行数", "设置文字对齐方式", "设置富文本文字", "设置文本颜色", "设置文本颜色（十六进制字符串）", "设置字体的大小", "设置字体的大小", "设置字体的大小（粗体）"], ["获取已知 frame 的 label 的文本行数 & 每一行内容", "获取已知 width 的 label 的文本行数 & 每一行内容", "获取第一行内容", "改变行间距", "改变字间距", "改变字间距和行间距"]]
+        dataArray = [["设置文字", "设置文字行数", "设置文字对齐方式", "设置富文本文字", "设置文本颜色", "设置文本颜色（十六进制字符串）", "设置字体的大小", "设置字体的大小", "设置字体的大小（粗体）"], ["获取已知 frame 的 label 的文本行数 & 每一行内容", "获取已知 width 的 label 的文本行数 & 每一行内容", "获取第一行内容", "改变行间距", "改变字间距", "改变字间距和行间距", "添加中划线"]]
     }
     
     @objc func click(sender: UIButton) {
@@ -33,9 +33,12 @@ extension UILabelExtensionViewController {
         testLabel.numberOfLines = 0
         testLabel.text("梅花以它弱小娇艳的身躯，凌寒傲雪，傲然绽放，装点着寂寞荒凉的冬日。这是怎样的一种坚信和执着啊?因为它知道，不经历寒风冬雪的浸染，怎能有朵朵红花的暗香浮动?因为它知道，冬天过去了，春天还会遥远吗?")
         self.view.addSubview(testLabel)
-        let result = testLabel.linesCountAndLinesContent(lineSpace: 2)
+        let result = testLabel.jk.linesCountAndLinesContent(lineSpace: 2)
         if let number = result.0 {
             print("行数：\(number)")
+        }
+        if let contents = result.1 {
+            print("内容：\(contents)")
         }
         JKAsyncs.asyncDelay(3, {
         }) {
@@ -50,9 +53,12 @@ extension UILabelExtensionViewController {
         testLabel.numberOfLines = 0
         testLabel.text("梅花以它弱小娇艳的身躯，凌寒傲雪，傲然绽放，装点着寂寞荒凉的冬日。这是怎样的一种坚信和执着啊?因为它知道，不经历寒风冬雪的浸染，怎能有朵朵红花的暗香浮动?因为它知道，冬天过去了，春天还会遥远吗?")
         self.view.addSubview(testLabel)
-        let result = testLabel.linesCountAndLinesContent(accordWidth: 200, lineSpace: 2)
+        let result = testLabel.jk.linesCountAndLinesContent(accordWidth: 200, lineSpace: 2)
         if let number = result.0 {
             print("行数：\(number)")
+        }
+        if let contents = result.1 {
+            print("内容：\(contents)")
         }
         JKAsyncs.asyncDelay(3, {
         }) {
@@ -68,7 +74,7 @@ extension UILabelExtensionViewController {
         testLabel.numberOfLines = 0
         testLabel.text("梅花以它弱小娇艳的身躯，凌寒傲雪，傲然绽放，装点着寂寞荒凉的冬日。这是怎样的一种坚信和执着啊?因为它知道，不经历寒风冬雪的浸染，怎能有朵朵红花的暗香浮动?因为它知道，冬天过去了，春天还会遥远吗?")
         self.view.addSubview(testLabel)
-        if let firstLine = testLabel.firstLineString {
+        if let firstLine = testLabel.jk.firstLineString {
             JKPrint("获取第一行内容", "\(firstLine)")
         }
         JKAsyncs.asyncDelay(3, {
@@ -87,7 +93,7 @@ extension UILabelExtensionViewController {
         self.view.addSubview(testLabel)
         JKAsyncs.asyncDelay(3, {
         }) {
-            testLabel.changeLineSpace(space: 10)
+            testLabel.jk.changeLineSpace(space: 10)
             JKAsyncs.asyncDelay(3, {
             }) {
                 testLabel.removeFromSuperview()
@@ -106,7 +112,7 @@ extension UILabelExtensionViewController {
         self.view.addSubview(testLabel)
         JKAsyncs.asyncDelay(3, {
         }) {
-            testLabel.changeWordSpace(space: 4)
+            testLabel.jk.changeWordSpace(space: 4)
             JKAsyncs.asyncDelay(3, {
             }) {
                 testLabel.removeFromSuperview()
@@ -124,11 +130,27 @@ extension UILabelExtensionViewController {
         self.view.addSubview(testLabel)
         JKAsyncs.asyncDelay(3, {
         }) {
-            testLabel.changeSpace(lineSpace: 4, wordSpace: 4)
+            testLabel.jk.changeSpace(lineSpace: 4, wordSpace: 4)
             JKAsyncs.asyncDelay(3, {
             }) {
                 testLabel.removeFromSuperview()
             }
+        }
+    }
+    
+    // MARK: 2.7、label添加中划线
+    @objc func test27() {
+        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
+        testLabel.backgroundColor = .brown
+        testLabel.font(19)
+        testLabel.numberOfLines = 0
+        testLabel.text("梅花以它弱小娇艳的身躯，凌寒傲雪，傲然绽放，装点着寂寞荒凉的冬日。这是怎样的一种坚信和执着啊?因为它知道，不经历寒风冬雪的浸染，怎能有朵朵红花的暗香浮动?因为它知道，冬天过去了，春天还会遥远吗?")
+        testLabel.jk.centerLineText(lineValue: 1, underlineColor: .red)
+        self.view.addSubview(testLabel)
+        
+        JKAsyncs.asyncDelay(3, {
+        }) {
+            testLabel.removeFromSuperview()
         }
     }
 }

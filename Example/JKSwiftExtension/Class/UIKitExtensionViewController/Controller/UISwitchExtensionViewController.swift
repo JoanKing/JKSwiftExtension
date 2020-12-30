@@ -29,7 +29,7 @@ extension UISwitchExtensionViewController {
         
         JKAsyncs.asyncDelay(2, {
         }) {
-            sh.toggle()
+            sh.jk.toggle()
             JKAsyncs.asyncDelay(5, {
             }) {
                 sh.removeFromSuperview()
