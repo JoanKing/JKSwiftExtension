@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+extension Bundle: JKPOPCompatible {}
 public enum BundleType {
     // 自己 module 下的 bundle 文件
     case currentBundle
@@ -15,7 +15,7 @@ public enum BundleType {
 }
 
 // MARK:- 一、Bundle 的基本扩展
-public extension Bundle {
+public extension JKPOP where Base: Bundle {
     
     // MARK: 1.1、通过 通过字符串地址 从 Bundle 里面获取资源文件（支持当前的 Moudle下的Bundle和其他Moudle下的 Bundle）
     /// 从 Bundle 里面获取资源文件（支持当前的 Moudle下的Bundle和其他Moudle下的 Bundle）
@@ -45,18 +45,6 @@ public extension Bundle {
         }
         let imageStr = bundle.path(forResource: resourceName, ofType: ext)
         return imageStr
-    }
-    
-    // MARK: 1.3、从其他的 Bundle 通过 bundlename 获取 bundle
-    /// 从其他的 Bundle 通过 bundlename 获取 bundle
-    /// - Parameters:
-    ///   - bundleName: 目标bundle的名称
-    ///   - aClass: 目标bundle所在的父bundle的class
-    convenience init?(bundleName: String, forParent aClass: AnyClass) {
-        guard let path = Bundle(for: aClass).path(forResource: bundleName, ofType: "bundle") else {
-            return nil
-        }
-        self.init(path: path)
     }
 }
 

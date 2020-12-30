@@ -39,42 +39,42 @@ extension IntExtensionViewController {
     // MARK: 1.1、转 Double
     @objc func test11() {
         let value: Int = 2
-        JKPrint("转 Double", "\(value) 转 Double 后为 \(value.toFloat)")
+        JKPrint("转 Double", "\(value) 转 Double 后为 \(value.jk.intToFloat)")
     }
     
     // MARK: 1.2、转 Float
     @objc func test12() {
         let value: Int = 2
-        JKPrint("转 Float", "\(value) 转 Float 后为 \(value.toFloat)")
+        JKPrint("转 Float", "\(value) 转 Float 后为 \(value.jk.intToFloat)")
     }
     
     // MARK: 1.3、转 Int64
     @objc func test13() {
         let value: Int = 2
-        JKPrint("转 Int64", "\(value) 转 Int64 后为 \(value.toInt64)")
+        JKPrint("转 Int64", "\(value) 转 Int64 后为 \(value.jk.intToInt64)")
     }
     
     // MARK: 1.4、转 CGFloat
     @objc func test14() {
         let value: Int = 2
-        JKPrint("转 CGFloat", "\(value) 转 CGFloat 后为 \(value.toCGFloat)")
+        JKPrint("转 CGFloat", "\(value) 转 CGFloat 后为 \(value.jk.intToCGFloat)")
     }
     
     // MARK: 1.5、转 String
     @objc func test15() {
         let value: Int = 2
-        JKPrint("转 String", "\(value) 转 String 后为 \(value.toString)")
+        JKPrint("转 String", "\(value) 转 String 后为 \(value.jk.intToString)")
     }
     
     // MARK: 1.6、转 UInt
     @objc func test16() {
         let value: Int = 2
-        JKPrint("转 UInt", "\(value) 转 UInt 后为 \(value.toUInt)")
+        JKPrint("转 UInt", "\(value) 转 UInt 后为 \(value.jk.intToUInt)")
     }
     
     // MARK: 1.7、转 range
     @objc func test17() {
         let value: Int = 2
-        JKPrint("转 range", "\(value) 转 range 后为 \(value.range)")
+        JKPrint("转 range", "\(value) 转 range 后为 \(value.jk.intToTange)")
     }
 }

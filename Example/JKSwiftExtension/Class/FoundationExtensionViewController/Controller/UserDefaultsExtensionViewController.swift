@@ -43,7 +43,7 @@ extension UserDefaultsExtensionViewController {
     // MARK: 2.2、取出模型
     @objc func test22() {
         
-        guard let person =  UserDefaults.getItem(PersonItem.self, forKey: "plistData") else {
+        guard let person =  UserDefaults.jk.getItem(PersonItem.self, forKey: "plistData") else {
             return
         }
         JKPrint("有内容：", "名字：\(person.name ?? "")", "年龄：\(person.age ?? "")", "身高：\(person.height ?? "")")
@@ -58,7 +58,7 @@ extension UserDefaultsExtensionViewController {
         }
         
         let person = PersonItem(name: (plistData["Name"] as! String), age: (plistData["age"] as! String), height: (plistData["height"] as! String))
-        UserDefaults.setItem(person, forKey: "plistData")
+        UserDefaults.jk.setItem(person, forKey: "plistData")
     }
 }
 // MARK:- 一、基本的扩展
@@ -66,7 +66,7 @@ extension UserDefaultsExtensionViewController {
     
     // MARK: 1.1、存值
     @objc func test11() {
-        let isSuccess = UserDefaults.userDefaultsSetValue(value: "我是小可爱", key: "a")
+        let isSuccess = UserDefaults.jk.userDefaultsSetValue(value: "我是小可爱", key: "a")
         if isSuccess {
             JKPrint("存值成功")
         } else {
@@ -76,9 +76,9 @@ extension UserDefaultsExtensionViewController {
     
     // MARK: 1.2、取值
     @objc func test12() {
-        guard let value = UserDefaults.userDefaultsGetValue(key: "a") else {
+        guard let value = UserDefaults.jk.userDefaultsGetValue(key: "a") else {
             return
         }
-        print("value = \(value)")
+        JKPrint("存值成功：\(value)")
     }
 }

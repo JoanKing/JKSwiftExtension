@@ -6,53 +6,53 @@
 //
 
 import UIKit
-
+extension CGFloat: JKPOPCompatible {}
 // MARK:- 一、CGFloat 的基本转换
-extension CGFloat {
+public extension JKPOP where Base == CGFloat {
 
     // MARK: 1.1、转 Int
     /// 转 Int
-    public var int: Int { return Int(self) }
+    var int: Int { return Int(self.base) }
     
     // MARK: 1.2、转 CGFloat
     /// 转 CGFloat
-    public var cgFloat: CGFloat { return self }
+    var cgFloat: CGFloat { return self.base }
     
     // MARK: 1.3、转 Int64
     /// 转 Int64
-    public var int64: Int64 { return Int64(self) }
+    var int64: Int64 { return Int64(self.base) }
     
     // MARK: 1.4、转 Float
     /// 转 Float
-    public var float: Float { return Float(self) }
+    var float: Float { return Float(self.base) }
     
     // MARK: 1.5、转 String
     /// 转 String
-    public var string: String { return String(self.double) }
+    var string: String { return String(self.base.jk.double) }
     
     // MARK: 1.6、转 NSNumber
     /// 转 NSNumber
-    public var number: NSNumber { return NSNumber.init(value: self.double) }
+    var number: NSNumber { return NSNumber(value: self.base.jk.double) }
     
     // MARK: 1.7、转 Double
     /// 转 Double
-    public var double: Double { return Double(self) }
+    var double: Double { return Double(self.base) }
 }
 
 // MARK:- 二、角度和弧度相互转换
-extension CGFloat {
+public extension JKPOP where Base == CGFloat {
     
     // MARK: 角度转弧度
     /// 角度转弧度
     /// - Returns: 弧度
-    public func degreesToRadians() -> CGFloat {
-        return (.pi * self) / 180.0
+    func degreesToRadians() -> CGFloat {
+        return (.pi * self.base) / 180.0
     }
     
     // MARK: 弧度转角度
     /// 角弧度转角度
     /// - Returns: 角度
-    public func radiansToDegrees() -> CGFloat {
-        return (self * 180.0) / .pi
+    func radiansToDegrees() -> CGFloat {
+        return (self.base * 180.0) / .pi
     }
 }

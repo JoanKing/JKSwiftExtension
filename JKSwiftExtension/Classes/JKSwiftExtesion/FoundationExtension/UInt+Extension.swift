@@ -6,10 +6,10 @@
 //
 
 import UIKit
-
+extension UInt: JKPOPCompatible {}
 // MARK:- 一、UInt 与其他类型的转换
-extension UInt {
+public extension JKPOP where Base == UInt {
     // MARK: 1.1、转 Int
     /// 转 Int
-    public var toInt: Int { return Int(self) }
+    var uintToInt: Int { return Int(self.base) }
 }

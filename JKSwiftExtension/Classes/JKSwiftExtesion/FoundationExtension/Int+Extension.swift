@@ -6,37 +6,37 @@
 //
 
 import UIKit
-
+extension Int: JKPOPCompatible {}
 // MARK:- 一、Int 与其他类型的转换
-public extension Int {
+public extension JKPOP where Base == Int {
     
     // MARK: 1.1、转 Double
     /// 转 Double
-    var toDouble: Double { return Double(self) }
+    var intToDouble: Double { return Double(self.base) }
 
     // MARK: 1.2、转 Float
     /// 转 Float
-    var toFloat: Float { return Float(self) }
+    var intToFloat: Float { return Float(self.base) }
     
     // MARK: 1.3、转 Int64
     /// 转 Int64
-    var toInt64: Int64 { return Int64(self) }
+    var intToInt64: Int64 { return Int64(self.base) }
 
     // MARK: 1.4、转 CGFloat
     /// 转 CGFloat
-    var toCGFloat: CGFloat { return CGFloat(self) }
+    var intToCGFloat: CGFloat { return CGFloat(self.base) }
 
     // MARK: 1.5、转 String
     /// 转 String
-    var toString: String { return String(self) }
+    var intToString: String { return String(self.base) }
 
     // MARK: 1.6、转 UInt
     /// 转 UInt
-    var toUInt: UInt { return UInt(self) }
+    var intToUInt: UInt { return UInt(self.base) }
 
     // MARK: 1.7、转 range
     /// 转 range
-    var range: CountableRange<Int> { return 0..<self }
+    var intToTange: CountableRange<Int> { return 0..<self.base }
 }
 
 // MARK:- 二、其他常用方法

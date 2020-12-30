@@ -29,7 +29,7 @@ extension JKWaterFallLayoutViewController {
     
     // MARK: 1.2、随机高度
     @objc func test12() {
-        let number = Int(arc4random()%150).toCGFloat
+        let number = Int(arc4random()%150).jk.intToCGFloat
         print("\(number)")
     }
     
@@ -74,7 +74,7 @@ extension JKWaterFallLayoutViewController: JKWaterFallLayoutDataSoure, UICollect
     */
     
     func waterfall(_ waterfall: JKWaterFallLayout, item: Int) -> CGFloat {
-        return Int.random(within: 60..<150).toCGFloat
+        return Int.random(within: 60..<150).jk.intToCGFloat
     }
     
 }

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+extension UIDevice: JKPOPCompatible {}
 // 这里只指屏幕类型
 public enum UIDeviceScreenType: String {
     case IPHONE_5
@@ -22,11 +22,11 @@ public enum UIDeviceScreenType: String {
 }
 
 // MARK:- 一、基本的扩展
-public extension UIDevice {
+public extension JKPOP where Base: UIDevice {
     
     // MARK: 1.1、设备的名字
     /// 设备的名字
-    static let modelName: String = {
+    static var modelName: String {
         var systemInfo = utsname()
         uname(&systemInfo)
         let machineMirror = Mirror(reflecting: systemInfo.machine)
@@ -94,13 +94,13 @@ public extension UIDevice {
             #endif
         }
         return mapToDevice(identifier: identifier)
-    }()
+    }
     
     // MARK: 1.2、获取设备类型
     /// 获取设备类型
     /// - Returns: 设备类型
     static func screenType() -> UIDeviceScreenType {
-        let modelName = UIDevice.modelName
+        let modelName = Base.jk.modelName
         if modelName == "iPhone 5" || modelName == "iPhone 5c" || modelName == "iPhone 5s" || modelName == "iPhone SE" {
             return UIDeviceScreenType.IPHONE_5
         } else if modelName == "iPhone 6" || modelName == "iPhone 6s" || modelName == "iPhone 7" || modelName == "iPhone 8" {
@@ -129,7 +129,7 @@ public extension UIDevice {
     /// 判断是否为 Pad
     /// - Returns: bool
     static func isIpad() -> Bool {
-        let modelName = UIDevice.modelName
+        let modelName = Base.jk.modelName
         if modelName.contains("iPad") {
             return true
         }
@@ -153,8 +153,8 @@ public extension UIDevice {
     // MARK: 1.6、判断是否是 iphone5
     /// 判断是否是 iphone5
     /// - Returns: bool
-    class func isIphone5Screen() -> Bool {
-        if UIDevice.screenType() == .IPHONE_5 {
+    static func isIphone5Screen() -> Bool {
+        if Base.jk.screenType() == .IPHONE_5 {
             return true
         }
         return false
@@ -163,8 +163,8 @@ public extension UIDevice {
     // MARK: 1.7、判断是否是 iphone6
     /// 判断是否是 iphone5
     /// - Returns: bool
-    class func isIphone6Screen() -> Bool {
-        if UIDevice.screenType() == .IPHONE_6 {
+    static func isIphone6Screen() -> Bool {
+        if Base.jk.screenType() == .IPHONE_6 {
             return true
         }
         return false
@@ -174,7 +174,7 @@ public extension UIDevice {
     /// 是不是 x 系列
     /// - Returns: bool
     static func isIphoneXScreen() -> Bool {
-        if UIDevice.screenType() == .IPHONE_X || UIDevice.screenType() == .IPHONE_XS || UIDevice.screenType() == .IPHONE_XR || UIDevice.screenType() == .IPHONE_XS_Max ||  UIDevice.screenType() == .IPHONE_11 ||  UIDevice.screenType() == .IPHONE_11_PRO ||  UIDevice.screenType() == .IPHONE_11_PRO_MAX {
+        if Base.jk.screenType() == .IPHONE_X || Base.jk.screenType() == .IPHONE_XS || Base.jk.screenType() == .IPHONE_XR || Base.jk.screenType() == .IPHONE_XS_Max ||  Base.jk.screenType() == .IPHONE_11 ||  Base.jk.screenType() == .IPHONE_11_PRO ||  Base.jk.screenType() == .IPHONE_11_PRO_MAX {
             return true
         }
         return false
@@ -184,21 +184,31 @@ public extension UIDevice {
     /// 是不是 xs 系列
     /// - Returns: bool
     static func isIphoneXSScreen() -> Bool {
-        if UIDevice.screenType() == .IPHONE_XS || UIDevice.screenType() == .IPHONE_XR || UIDevice.screenType() == .IPHONE_XS_Max {
+        if Base.jk.screenType() == .IPHONE_XS || Base.jk.screenType() == .IPHONE_XR || Base.jk.screenType() == .IPHONE_XS_Max {
             return true
         }
         return false
     }
+    
+    // MARK: 1.10、当前设备是不是模拟器
+    /// 当前设备是不是模拟器
+    static func isSimulator() -> Bool {
+        var isSim = false
+        #if arch(i386) || arch(x86_64)
+        isSim = true
+        #endif
+        return isSim
+    }
 }
 
 // MARK:- 二、设备的基本信息
-public extension UIDevice {
+public extension JKPOP where Base: UIDevice {
     
     // MARK: 2.1、当前设备的系统版本
     /// 当前设备的系统版本
     static var currentSystemVersion : String {
         get {
-            return UIDevice.current.systemVersion
+            return Base.current.systemVersion
         }
     }
     
@@ -218,6 +228,83 @@ public extension UIDevice {
         }
     }
     
+    // MARK: 2.4、当前设备是否越狱
+    /// 当前设备是否越狱
+    static var isJailbroken: Bool {
+        if self.isSimulator() { return false }
+        let paths = ["/Applications/Cydia.app", "/private/var/lib/apt/",
+                     "/private/var/lib/cydia", "/private/var/stash"];
+        for path in paths {
+            if FileManager.default.fileExists(atPath: path) {
+                return true
+            }
+        }
+        let bash = fopen("/bin/bash", "r")
+        if bash != nil {
+            fclose(bash)
+            return true
+        }
+        let path = String(format: "/private/%@", String.jk.stringWithUUID() ?? "")
+        do {
+            try "test".write(toFile: path, atomically: true, encoding: .utf8)
+            try FileManager.default.removeItem(atPath: path)
+            return true
+        } catch {
+            NSLog(error.localizedDescription)
+        }
+        return false
+    }
+    
+    // MARK: 2.5、当前硬盘的空间
+    /// 当前硬盘的空间
+    static var diskSpace: Int64 {
+        if let attrs = try? FileManager.default.attributesOfFileSystem(forPath: NSHomeDirectory()) {
+            if let space: NSNumber = attrs[FileAttributeKey.systemSize] as? NSNumber {
+                if space.int64Value > 0 {
+                    return space.int64Value
+                }
+            }
+        }
+        return -1
+    }
+    
+    // MARK: 2.6、当前硬盘可用空间
+    /// 当前硬盘可用空间
+    static var diskSpaceFree: Int64 {
+        if let attrs = try? FileManager.default.attributesOfFileSystem(forPath: NSHomeDirectory()) {
+            if let space: NSNumber = attrs[FileAttributeKey.systemFreeSize] as? NSNumber {
+                if space.int64Value > 0 {
+                    return space.int64Value
+                }
+            }
+        }
+        return -1
+    }
+    
+    // MARK: 2.7、当前硬盘已经使用的空间
+    /// 当前硬盘已经使用的空间
+    static var diskSpaceUsed: Int64 {
+        let total = self.diskSpace
+        let free = self.diskSpaceFree
+        guard total > 0 && free > 0 else { return -1 }
+        let used = total - free
+        guard used > 0 else { return -1 }
+        
+        return used
+    }
+    
+    // MARK: 2.8、获取总内存大小
+    /// 获取总内存大小
+    static var memoryTotal: UInt64 {
+        return ProcessInfo.processInfo.physicalMemory
+    }
+    
+    static func canMakePhoneCalls() -> Bool {
+        if let url = URL(string: "tel://") {
+            return UIApplication.shared.canOpenURL(url)
+        }
+        return false
+    }
     
 }
 

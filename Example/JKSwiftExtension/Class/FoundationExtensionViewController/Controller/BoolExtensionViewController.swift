@@ -24,6 +24,6 @@ extension BoolExtensionViewController {
     // MARK: 1.1、Bool 值转 Int
     @objc func test11() {
         let value: Bool = true
-        JKPrint("Bool 值转 Int", "\(value) 转 Int 后为 \(value.toInt)")
+        JKPrint("Bool 值转 Int", "\(value) 转 Int 后为 \(value.jk.boolToInt)")
     }
 }

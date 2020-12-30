@@ -169,6 +169,14 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     func separatedByString(char: String) -> Array<Any> {
         return (base as! String).components(separatedBy: char)
     }
+    
+    // MARK: 1.16、设备的UUID
+    /// UUID
+    static func stringWithUUID() -> String? {
+        let uuid = CFUUIDCreate(kCFAllocatorDefault)
+        let cfString = CFUUIDCreateString(kCFAllocatorDefault, uuid)
+        return cfString as String?
+    }
 }
 
 // MARK:- 二、沙盒路径的获取
@@ -490,7 +498,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     // MARK: 4.9、字符串转 NSNumber
     /// 字符串转 NSNumber
     var toNumber: NSNumber? {
-        return self.toDouble()?.number
+        return self.toDouble()?.jk.number
     }
 }
 

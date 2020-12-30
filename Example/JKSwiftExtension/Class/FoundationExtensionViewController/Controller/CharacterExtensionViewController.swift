@@ -24,7 +24,7 @@ extension CharacterExtensionViewController {
     // MARK: 2.1、判断是不是 Emoji 表情
     @objc func test21() {
         let emoji: Character = "🙃"
-        JKPrint("判断是不是 Emoji 表情", "\(emoji) 是不是emoji表情：\(emoji.isEmoji)")
+        JKPrint("判断是不是 Emoji 表情", "\(emoji) 是不是emoji表情：\(emoji.jk.isEmoji)")
     }
 }
 
@@ -34,13 +34,13 @@ extension CharacterExtensionViewController {
     // MARK: 1.1、Character 转 String
     @objc func test11() {
         let charater: Character = "a"
-        JKPrint("Character 转 String", "\(charater) 转 String 后为 \(charater.toString)")
+        JKPrint("Character 转 String", "\(charater) 转 String 后为 \(charater.jk.charToString)")
     }
     
     // MARK: 1.2、Character 转 Int
     @objc func test12() {
         let charater: Character = "f"
-        JKPrint("Character 转 Int", "\(charater) 转 Int 后为 \(charater.toInt ?? 0)")
+        JKPrint("Character 转 Int", "\(charater) 转 Int 后为 \(charater.jk.charToInt ?? 0)")
     }
 }
 

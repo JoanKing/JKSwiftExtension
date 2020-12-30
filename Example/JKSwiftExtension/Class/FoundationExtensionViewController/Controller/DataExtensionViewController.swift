@@ -24,10 +24,10 @@ extension DataExtensionViewController {
     // MARK: 1.2、base64解码成 Data
     @objc func test12() {
         let content = "我是一只小小鸟"
-        guard let data = content.data(using: String.Encoding.utf8), let resultData = data.encodeToData  else {
+        guard let data = content.data(using: String.Encoding.utf8), let resultData = data.jk.encodeToData  else {
             return
         }
-        guard let oldData = resultData.decodeToDada, let oldString = String(data: oldData, encoding: .utf8) else {
+        guard let oldData = resultData.jk.decodeToDada, let oldString = String(data: oldData, encoding: .utf8) else {
             return
         }
         JKPrint("base64编码成 Data：\(resultData)", "解码后的data是：\(oldData)", "解码后的 String：\(oldString)")
@@ -36,7 +36,7 @@ extension DataExtensionViewController {
     // MARK: 1.1、base64编码成 Data
     @objc func test11() {
         let content = "我是一只小小鸟"
-        guard let data = content.data(using: String.Encoding.utf8), let resultData = data.encodeToData  else {
+        guard let data = content.data(using: String.Encoding.utf8), let resultData = data.jk.encodeToData else {
             return
         }
         JKPrint("\(content ) 被 base64编码成 Data：\(resultData)")

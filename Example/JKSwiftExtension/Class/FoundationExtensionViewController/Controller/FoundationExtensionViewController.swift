@@ -45,7 +45,7 @@ class FoundationExtensionViewController: UIViewController {
         self.view.backgroundColor = UIColor.green
   
         dataArray = ["Array+Extension", "Bundle+Extension", "UserDefaults+Extension", "Date+Extension", "NSObject+Extension", "String+Extension", "UIDevice+Extension", "UIFont+Extension", "Timer+Extension", "Int+Extension", "Double+Extension", "UInt+Extension", "Int64+Extension", "Float+Extension", "Data+Extension", "Bool+Extension", "CGFloat+Extension", "Character+Extension", "DateFormatter+Extension", "Dictionary+Extension", "FileManager+Extension", "URL+Extension", "NSDecimalNumberHandler+Extension"]
-        finishedDataArray = ["String+Extension"]
+        finishedDataArray = ["String+Extension", "Data+Extension", "Date+Extension", "Character+Extension", "Int+Extension", "Int64+Extension", "Bool+Extension", "CGFloat+Extension", "Float+Extension", "UIDevice+Extension", "UInt+Extension", "URL+Extension", "UserDefaults+Extension", "Double+Extension", "FileManager+Extension", "NSDecimalNumberHandler+Extension", "Bundle+Extension"]
         initUI()
     }
     

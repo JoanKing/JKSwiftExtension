@@ -7,7 +7,7 @@
 
 import UIKit
 import Foundation
-
+extension FileManager: JKPOPCompatible {}
 // MARK:- 一、沙盒路径的获取
 /*
  - 1、Home(应用程序包)目录
@@ -44,7 +44,7 @@ public enum BasePath {
     case Tmp
 }
 
-public extension FileManager {
+public extension JKPOP where Base: FileManager {
     // MARK: 1.1、获取Home的完整路径名
     /// 获取Home的完整路径名
     /// - Returns: Home的完整路径名
@@ -118,7 +118,7 @@ public extension FileManager {
 }
 
 // MARK:- 二、文件以及文件夹的操作 扩展
-public extension FileManager {
+public extension JKPOP where Base: FileManager {
     // MARK: 文件写入的类型
     /// 文件写入的类型
     enum FileWriteType {
@@ -550,13 +550,13 @@ public extension FileManager {
 }
 
 // MARK:- fileprivate
-extension FileManager {
+public extension JKPOP where Base: FileManager {
     
     // MARK: 计算文件大小：UInt64 -> String
     /// 计算文件大小：UInt64 -> String
     /// - Parameter size: 文件的大小
     /// - Returns: 转换后的文件大小
-    fileprivate static func covertUInt64ToString(with size: UInt64) -> String {
+    static func covertUInt64ToString(with size: UInt64) -> String {
         var convertedValue: Double = Double(size)
         var multiplyFactor = 0
         let tokens = ["bytes", "KB", "MB", "GB", "TB", "PB",  "EB",  "ZB", "YB"]

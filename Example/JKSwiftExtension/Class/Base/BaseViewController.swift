@@ -8,11 +8,10 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
+@objc class BaseViewController: UIViewController {
     static let BaseViewControllerCellIdentifier = "BaseViewControllerCellIdentifier"
     /// 资源数组
-    var
-        dataArray = [Any]()
+    var dataArray = [Any]()
     /// 资源数组
     var headDataArray = [Any]()
     lazy var tableView : UITableView = {

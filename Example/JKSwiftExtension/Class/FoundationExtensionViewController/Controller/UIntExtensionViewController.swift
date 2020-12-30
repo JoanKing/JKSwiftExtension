@@ -24,6 +24,6 @@ extension UIntExtensionViewController {
     // MARK: 1.1、转 Int
     @objc func test11() {
         let value: UInt = 2345
-        JKPrint("转 Int", "\(value) 转 Int 后为 \(value.toInt)")
+        JKPrint("转 Int", "\(value) 转 Int 后为 \(value.jk.uintToInt)")
     }
 }

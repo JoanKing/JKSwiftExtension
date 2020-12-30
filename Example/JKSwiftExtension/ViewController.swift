@@ -41,8 +41,6 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor.green
         dataArray = ["FoundationExtension", "UIKitExtension", "Protocol", "SmallTools", "TestFile(自己测试用的)"]
         initUI()
-        
-        
     }
     
     /// 创建控件
@@ -130,6 +128,7 @@ class HomeViewCell: UITableViewCell {
         label.numberOfLines = 0
         return label
     }()
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

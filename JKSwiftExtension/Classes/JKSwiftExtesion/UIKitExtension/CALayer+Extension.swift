@@ -359,7 +359,7 @@ public extension CALayer {
     ///   - repeatNumber: 重复的次数
     ///   - removedOnCompletion: 运动后的位置保持不变（layer的最后位置是toValue）
     ///   - option: 动画的时间节奏控制 方式
-    func addKeyframeAnimationRotation(values: [Any] = [CGFloat(-5).degreesToRadians(), CGFloat(5).degreesToRadians(), CGFloat(-5).degreesToRadians()],
+    func addKeyframeAnimationRotation(values: [Any] = [CGFloat(-5).jk.degreesToRadians(), CGFloat(5).jk.degreesToRadians(), CGFloat(-5).jk.degreesToRadians()],
                                       keyTimes: [NSNumber]?,
                                       duration: TimeInterval = 1.0,
                                       delay: TimeInterval = 0,

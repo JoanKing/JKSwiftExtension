@@ -24,7 +24,7 @@ extension FloatExtensionViewController {
     // MARK: 2.1、浮点数四舍五入
     @objc func test21() {
         let money: Float = 56789.654
-        let price = money.roundTo(places: 3)
+        let price = money.jk.roundTo(places: 3)
         JKPrint("浮点数四舍五入", "\(money) 浮点数四舍五入 后为：\(price)")
     }
 }
@@ -35,42 +35,42 @@ extension FloatExtensionViewController {
     // MARK: 1.1、转 Int
     @objc func test11() {
         let value: Float = 0.2
-        JKPrint("转 Int", "\(value) 转 Int 后为 \(value.int)")
+        JKPrint("转 Int", "\(value) 转 Int 后为 \(value.jk.int)")
     }
     
     // MARK: 1.2、转 CGFloat
     @objc func test12() {
         let value: Float = 0.2
-        JKPrint("转 CGFloat", "\(value) 转 CGFloat 后为 \(value.cgFloat)")
+        JKPrint("转 CGFloat", "\(value) 转 CGFloat 后为 \(value.jk.cgFloat)")
     }
     
     // MARK: 1.3、转 Int64
     @objc func test13() {
         let value: Float = 0.2
-        JKPrint("转 Int64", "\(value) 转 Int64 后为 \(value.int64)")
+        JKPrint("转 Int64", "\(value) 转 Int64 后为 \(value.jk.int64)")
     }
     
     // MARK: 1.4、转 Double
     @objc func test14() {
         let value: Float = 0.2
-        JKPrint("转 Double", "\(value) 转 Double 后为 \(value.double)")
+        JKPrint("转 Double", "\(value) 转 Double 后为 \(value.jk.double)")
     }
     
     // MARK: 1.5、转 String
     @objc func test15() {
         let value: Float = 0.2
-        JKPrint("转 String", "\(value) 转 String 后为 \(value.string)")
+        JKPrint("转 String", "\(value) 转 String 后为 \(value.jk.string)")
     }
     
     // MARK: 1.6、转 NSNumber
     @objc func test16() {
         let value: Float = 0.2
-        JKPrint("转 NSNumber", "\(value) 转 NSNumber 后为 \(value.number)")
+        JKPrint("转 NSNumber", "\(value) 转 NSNumber 后为 \(value.jk.number)")
     }
     
     // MARK: 1.7、转 Float
     @objc func test17() {
         let value: Float = 0.2
-        JKPrint("转 Float", "\(value) 转 Float 后为 \(value.float)")
+        JKPrint("转 Float", "\(value) 转 Float 后为 \(value.jk.float)")
     }
 }

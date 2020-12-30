@@ -26,6 +26,7 @@ import UIKit
  case bankers = 3 是在四舍五入的基础上，加上末尾数为5时，变成偶数的规则
  }
  */
+extension NSDecimalNumberHandler: JKPOPCompatible {}
 
 /// 计算的类型
 public enum DecimalNumberHandlerType: String {
@@ -40,7 +41,7 @@ public enum DecimalNumberHandlerType: String {
 }
 
 // MARK:- 一、基本的扩展
-public extension NSDecimalNumberHandler {
+public extension JKPOP where Base: NSDecimalNumberHandler {
     
     // MARK: 1.1、向下取整取倍数
     /// 向下取整取倍数
@@ -80,7 +81,7 @@ public extension NSDecimalNumberHandler {
 }
 
 // MARK:- public 公有方法
-public extension NSDecimalNumberHandler {
+public extension JKPOP where Base: NSDecimalNumberHandler {
     
     /// 两个数的：加 减 乘 除
     /// - Parameters:

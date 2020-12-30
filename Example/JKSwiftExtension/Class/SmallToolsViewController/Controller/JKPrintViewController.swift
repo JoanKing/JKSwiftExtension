@@ -38,7 +38,7 @@ extension JKPrintViewController {
     
     // MARK: 1.3、发送文件
     @objc func test13() {
-        let cachePath = FileManager.CachesDirectory()
+        let cachePath = FileManager.jk.CachesDirectory()
         let logURL = cachePath + "/log.txt"
         let documentController = UIDocumentInteractionController(url: URL(string: logURL)!)
         documentController.delegate = self

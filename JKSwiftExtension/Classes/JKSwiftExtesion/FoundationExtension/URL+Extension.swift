@@ -6,14 +6,14 @@
 //
 
 import UIKit
-
+extension URL: JKPOPCompatible {}
 // MARK:- 一、基本的扩展
-public extension URL {
+public extension JKPOP where Base == URL {
     
     // MARK: 1.1、提取链接中的参数以字典像是显示
     /// 提取链接中的参数以字典像是显示
     var queryParameters: [String: String]? {
-        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: true), let queryItems = components.queryItems else {
+        guard let components = URLComponents(url: self.base, resolvingAgainstBaseURL: true), let queryItems = components.queryItems else {
             return nil
         }
         var parameters = [String: String]()
@@ -26,7 +26,7 @@ public extension URL {
     // MARK: 1.2、属性说明
     /// 属性说明
     func propertyDescription() {
-        JKPrint("完整的url字符串 absoluteString：\(absoluteString)", "协议 scheme：\(scheme ?? "")", "相对路径 relativePath：\(relativePath)", "端口 port：\(port ?? 0)", "路径 path：\(path)", "pathComponents：\(pathComponents)", "参数 query：\(query ?? "")", "域名 host：\(host ?? "")")
+        JKPrint("完整的url字符串 absoluteString：\(base.absoluteString)", "协议 scheme：\(base.scheme ?? "")", "相对路径 relativePath：\(base.relativePath)", "端口 port：\(base.port ?? 0)", "路径 path：\(base.path)", "pathComponents：\(base.pathComponents)", "参数 query：\(base.query ?? "")", "域名 host：\(base.host ?? "")")
     }
 }
 

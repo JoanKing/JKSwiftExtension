@@ -33,7 +33,7 @@ extension NSDecimalNumberHandlerExtensionViewController {
     @objc func test13() {
         let value1: Double = 12.9999999999
         let value2: Double = 0.01
-        let result = NSDecimalNumberHandler.calculation(type: .subtracting, value1: value1, value2: value2)
+        let result = NSDecimalNumberHandler.jk.calculation(type: .subtracting, value1: value1, value2: value2)
         let stringValue = result.stringValue
         
         JKPrint("两个数字之间的计算：Float: \(value1) - \(value2) = \(result.floatValue)", "两个数字之间的计算：Double: \(value1) - \(value2) = \(result.doubleValue)", "两个数字之间的计算：stringValue: \(stringValue)")
@@ -45,7 +45,7 @@ extension NSDecimalNumberHandlerExtensionViewController {
         let value1: Double = 12.44
         let value2: Double = 10.0
         let value3: Double = 0.02
-        JKPrint("一个数字能否整除另外一个数字", "\(Float(value1 - value2)) 除以 \(value3) 能否整除：\(NSDecimalNumberHandler.isDivisible(value1: Decimal(value1) - Decimal(value2), value2: Decimal(value3)))")
+        JKPrint("一个数字能否整除另外一个数字", "\(Float(value1 - value2)) 除以 \(value3) 能否整除：\(NSDecimalNumberHandler.jk.isDivisible(value1: Decimal(value1) - Decimal(value2), value2: Decimal(value3)))")
     }
     
     // MARK: 1.1、向下取整取倍数
@@ -53,7 +53,7 @@ extension NSDecimalNumberHandlerExtensionViewController {
         let value1: Double = 12.46
         let value2: Double = 10.0
         let value3: Double = 0.02
-        JKPrint("向下取整取倍数", "\(Float(value1 - value2)) 除以 \(value3) 取整为：\(NSDecimalNumberHandler.getFloorIntValue(value1: Decimal(value1) - Decimal(value2), value2: Decimal(value3)))")
+        JKPrint("向下取整取倍数", "\(Float(value1 - value2)) 除以 \(value3) 取整为：\(NSDecimalNumberHandler.jk.getFloorIntValue(value1: Decimal(value1) - Decimal(value2), value2: Decimal(value3)))")
     }
 }
 

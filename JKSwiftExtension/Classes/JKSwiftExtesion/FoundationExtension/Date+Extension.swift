@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+extension Date: JKPOPCompatible {}
 /// 时间戳的类型
 public enum TimestampType: Int {
     // 秒
@@ -17,18 +17,18 @@ public enum TimestampType: Int {
 }
 
 // MARK:- 一、Date 基本的扩展
-public extension Date {
+public extension JKPOP where Base == Date {
     // MARK: 1.1、获取当前 秒级 时间戳 - 10 位
     /// 获取当前 秒级 时间戳 - 10 位
     static var secondStamp : String {
-        let timeInterval: TimeInterval = Self().timeIntervalSince1970
+        let timeInterval: TimeInterval = Base().timeIntervalSince1970
         return "\(Int(timeInterval))"
     }
     
     // MARK: 1.2、获取当前 毫秒级 时间戳 - 13 位
     /// 获取当前 毫秒级 时间戳 - 13 位
     static var milliStamp : String {
-        let timeInterval: TimeInterval = Self().timeIntervalSince1970
+        let timeInterval: TimeInterval = Base().timeIntervalSince1970
         let millisecond = CLongLong(round(timeInterval*1000))
         return "\(millisecond)"
     }
@@ -36,66 +36,66 @@ public extension Date {
     // MARK: 1.3、获取当前的时间 Date
     /// 获取当前的时间 Date
     static var currentDate : Date {
-        return Self()
+        return Base()
     }
     
     // MARK: 1.4、从 Date 获取年份
     /// 从 Date 获取年份
     var year: Int {
-        return Calendar.current.component(Calendar.Component.year, from: self)
+        return Calendar.current.component(Calendar.Component.year, from: self.base)
     }
     
     // MARK: 1.5、从 Date 获取月份
     /// 从 Date 获取年份
     var month: Int {
-        return Calendar.current.component(Calendar.Component.month, from: self)
+        return Calendar.current.component(Calendar.Component.month, from: self.base)
     }
     
     // MARK: 1.6、从 Date 获取 日
     /// 从 Date 获取 日
     var day: Int {
-        return Calendar.current.component(.day, from: self)
+        return Calendar.current.component(.day, from: self.base)
     }
     
     // MARK: 1.7、从 Date 获取 小时
     /// 从 Date 获取 日
     var hour: Int {
-        return Calendar.current.component(.hour, from: self)
+        return Calendar.current.component(.hour, from: self.base)
     }
     
     // MARK: 1.8、从 Date 获取 分钟
     /// 从 Date 获取 分钟
     var minute: Int {
-        return Calendar.current.component(.minute, from: self)
+        return Calendar.current.component(.minute, from: self.base)
     }
     
     // MARK: 1.9、从 Date 获取 秒
     /// 从 Date 获取 秒
     var second: Int {
-        return Calendar.current.component(.second, from: self)
+        return Calendar.current.component(.second, from: self.base)
     }
     
     // MARK: 1.9、从 Date 获取 毫秒
     /// 从 Date 获取 毫秒
     var nanosecond: Int {
-        return Calendar.current.component(.nanosecond, from: self)
+        return Calendar.current.component(.nanosecond, from: self.base)
     }
     
     // MARK: 1.10、从日期获取 星期(英文)
     /// 从日期获取 星期
     var weekday: String {
-        return DateFormatter(format: "EEEE").string(from: self)
+        return DateFormatter(format: "EEEE").string(from: self.base)
     }
     
     // MARK: 1.11、从日期获取 月(英文)
     /// 从日期获取 月(英文)
     var monthAsString: String {
-        return DateFormatter(format: "MMMM").string(from: self)
+        return DateFormatter(format: "MMMM").string(from: self.base)
     }
 }
 
 //MARK: - 二、时间格式的转换
-public extension Date {
+public extension JKPOP where Base == Date {
     
     // MARK: 2.1、时间戳 按照对应的格式 转化为 对应时间的字符串，支持10位 和 13位 
     /// 时间戳 按照对应的格式 转化为 对应时间的字符串，支持10位 和 13位 如：1603849053 按照 "yyyy-MM-dd HH:mm:ss" 转化后为：2020-10-28 09:37:33
@@ -146,7 +146,7 @@ public extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone.autoupdatingCurrent
         dateFormatter.dateFormat = formatter
-        return dateFormatter.string(from: self)
+        return dateFormatter.string(from: self.base)
     }
     
     // MARK: 2.4、带格式的时间转 时间戳，支持返回 13位 和 10位的时间戳
@@ -184,7 +184,7 @@ public extension Date {
 }
 
 // MARK:- 三、前天、昨天、今天、明天、后天、是否同一年同一月同一天 的判断
-public extension Date {
+public extension JKPOP where Base == Date {
     
     // MARK: 3.1、今天的日期
     /// 今天的日期
@@ -221,7 +221,7 @@ public extension Date {
     /// - Returns: bool
     var isToday: Bool {
         let date = Date()
-        if self.toformatterTimeString(formatter: "yyyyMMdd") == date.toformatterTimeString(formatter: "yyyyMMdd") {
+        if self.base.jk.toformatterTimeString(formatter: "yyyyMMdd") == date.jk.toformatterTimeString(formatter: "yyyyMMdd") {
             return true
         }
         return false
@@ -231,7 +231,7 @@ public extension Date {
     /// 是否为昨天
     var isYesterday: Bool {
         // 1.先拿到昨天的 date
-        guard let date = Date().yesterDayDate else {
+        guard let date = Base().jk.yesterDayDate else {
             return false
         }
         // 2.比较当前的日期和昨天的日期
@@ -242,7 +242,7 @@ public extension Date {
     /// 是否为前天
     var isTheDayBeforeYesterday: Bool  {
         // 1.先拿到前天的 date
-        guard let date = Date().theDayBeforYesterDayDate else {
+        guard let date = Base().jk.theDayBeforYesterDayDate else {
             return false
         }
         // 2.比较当前的日期和昨天的日期
@@ -254,7 +254,7 @@ public extension Date {
     var isThisYear: Bool  {
         let calendar = Calendar.current
         let nowCmps = calendar.dateComponents([.year], from: Date())
-        let selfCmps = calendar.dateComponents([.year], from: self)
+        let selfCmps = calendar.dateComponents([.year], from: self.base)
         let result = nowCmps.year == selfCmps.year
         return result
     }
@@ -270,14 +270,14 @@ public extension Date {
     /// - Parameter day: 天数变化
     /// - Returns: date
     private func adding(day: Int) -> Date? {
-        return Calendar.current.date(byAdding: DateComponents(day:day), to: self)
+        return Calendar.current.date(byAdding: DateComponents(day:day), to: self.base)
     }
     
     /// 是否为  同一年  同一月 同一天
     /// - Parameter date: date
     /// - Returns: 返回bool
     private func isSameYeaerMountDay(_ date: Date) -> Bool {
-        let com = Calendar.current.dateComponents([.year, .month, .day], from: self)
+        let com = Calendar.current.dateComponents([.year, .month, .day], from: self.base)
         let comToday = Calendar.current.dateComponents([.year, .month, .day], from: date)
         return (com.day == comToday.day &&
             com.month == comToday.month &&
@@ -286,13 +286,13 @@ public extension Date {
 }
 
 // MARK:- 四、相对的时间变化
-public extension Date {
+public extension JKPOP where Base == Date {
     
     // MARK: 4.1、取得与当前时间的间隔差
     /// 取得与当前时间的间隔差
     /// - Returns: 时间差
     func callTimeAfterNow() -> String {
-        let timeInterval = Date().timeIntervalSince(self)
+        let timeInterval = Date().timeIntervalSince(self.base)
         if timeInterval < 0 {
             return "刚刚"
         }

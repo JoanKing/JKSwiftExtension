@@ -33,22 +33,18 @@ public extension NSObject {
     /// 利用运行时获取类里面的成员变量
     @discardableResult
     static func printIvars() -> [String] {
-        // 成员变量数量
-        var outCount: UInt32 = 0
         // 成员变量名字
         var propertyNames = [String]()
+        // 成员变量数量
+        var count: UInt32 = 0
         // ivars实际上是一个数组
-        let ivars = class_copyIvarList(self, &outCount)
-        // 获取里面的每一个元素
-        for i in 0..<outCount {
+        let ivars = class_copyIvarList(Self.self, &count)
+        for i in 0 ..< count {
             // ivar是一个结构体的指针
             let ivar = ivars![Int(i)]
             // 获取 成员变量的名称,cName c语言的字符串,首元素地址
             let cName = ivar_getName(ivar)
             let name = String(cString: cName!, encoding: String.Encoding.utf8)
-            #if DEBUG
-            print("name: \(name ?? "没有内容")")
-            #endif
             propertyNames.append(name ?? "没有内容")
         }
         // 方法中有copy,create,的都需要释放
