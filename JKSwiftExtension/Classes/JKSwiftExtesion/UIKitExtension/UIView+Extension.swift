@@ -134,6 +134,9 @@ public var kTabbatBottom: CGFloat { return isIPhoneX ? 34 : 0 }
 // MARK: 2.7、缩放比
 /// 缩放比
 public let kPixel = 1.0 / UIScreen.main.scale
+// MARK: 2.8、身份证宽高比
+/// 身份证宽高比
+public let kRatioIDCard: CGFloat = 0.63
 
 // MARK: - 屏幕16:9比例系数下的宽高
 // 宽

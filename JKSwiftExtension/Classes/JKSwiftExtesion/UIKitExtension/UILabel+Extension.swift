@@ -261,7 +261,6 @@ public extension JKPOP where Base: UILabel {
         // 文本行末缩进距离
         style.tailIndent = 0.0
         
-        
         /*
          // 一组NSTextTabs。 内容应按位置排序。 默认值是一个由12个左对齐制表符组成的数组，间隔为28pt ？？？？？
          style.tabStops =
@@ -285,3 +284,117 @@ public extension JKPOP where Base: UILabel {
     }
 }
 
+// MARK:- 三、特定区域和特定文字的基本扩展
+public extension JKPOP where Base: UILabel {
+
+    // MARK: 2.1、设置特定区域的字体大小
+    /// 设置特定区域的字体大小
+    /// - Parameters:
+    ///   - font: 字体
+    ///   - range: 区域
+    func setRangeFontText(font: UIFont, range: NSRange) {
+        let attributedString = base.attributedText?.jk.setRangeFontText(font: font, range: range)
+        base.attributedText = attributedString
+    }
+    
+    // MARK: 2.2、设置特定文字的字体大小
+    /// 设置特定文字的字体大小
+    /// - Parameters:
+    ///   - text: 特定文字
+    ///   - font: 字体
+    func setsetSpecificTextFont(_ text: String, font: UIFont) {
+        let attributedString = base.attributedText?.jk.setSpecificTextFont(text, font: font)
+        base.attributedText = attributedString
+    }
+    
+    // MARK: 2.3、设置特定区域的字体颜色
+    /// 设置特定区域的字体颜色
+    /// - Parameters:
+    ///   - color: 字体颜色
+    ///   - range: 区域
+    func setSpecificRangeTextColor(color: UIColor, range: NSRange) {
+        let attributedString = base.attributedText?.jk.setSpecificRangeTextColor(color: color, range: range)
+        base.attributedText = attributedString
+    }
+    
+    // MARK: 2.4、设置特定文字的字体颜色
+    /// 设置特定文字的字体颜色
+    /// - Parameters:
+    ///   - text: 特定文字
+    ///   - color: 字体颜色
+    func setSpecificTextColor(_ text: String, color: UIColor) {
+        let attributedString = base.attributedText?.jk.setSpecificTextColor(text, color: color)
+        base.attributedText = attributedString
+    }
+    
+    // MARK: 2.5、设置行间距
+    /// 设置行间距
+    /// - Parameter space: 行间距
+    func setTextLineSpace(_ space: CGFloat) {
+        let attributedString = base.attributedText?.jk.setSpecificRangeTextLineSpace(lineSpace: space, alignment: base.textAlignment, range: NSRange.init(location: 0, length: base.text?.count ?? 0))
+        base.attributedText = attributedString
+    }
+    
+    // MARK: 2.6、设置特定文字区域的下划线
+    /// 设置特定区域的下划线
+    /// - Parameters:
+    ///   - color: 下划线颜色
+    ///   - stytle: 下划线样式，默认单下划线
+    ///   - range: 文字区域
+    func setSpecificRangeTextUnderLine(color: UIColor, stytle: NSUnderlineStyle = .single, range: NSRange) {
+        let attributedString = base.attributedText?.jk.setSpecificRangeUnderLine(color: color, stytle: stytle, range: range)
+        base.attributedText = attributedString
+    }
+    
+    // MARK: 2.7、设置特定文字的下划线
+    /// 设置特定文字的下划线
+    /// - Parameters:
+    ///   - text: 特定文字
+    ///   - color: 下划线颜色
+    ///   - stytle: 下划线样式，默认单下划线
+    func setSpecificTextUnderLine(_ text: String, color: UIColor, stytle: NSUnderlineStyle = .single) {
+        let attributedString = base.attributedText?.jk.setSpecificTextUnderLine(text, color: color, stytle: stytle)
+        base.attributedText = attributedString
+    }
+    
+    // MARK: 2.8、设置特定区域的删除线
+    /// 设置特定区域的删除线
+    /// - Parameters:
+    ///   - color: 删除线颜色
+    ///   - range: 特定区域范围
+    func setSpecificRangeDeleteLine(color: UIColor, range: NSRange) {
+        let attributedString = base.attributedText?.jk.setSpecificRangeDeleteLine(color: color, range: range)
+        base.attributedText = attributedString
+    }
+    
+    // MARK: 2.9、设置特定文字的删除线
+    /// 设置特定文字的删除线
+    /// - Parameters:
+    ///   - text: 特定文字
+    ///   - color: 删除线颜色
+    func setSpecificTextDeleteLine(_ text: String, color: UIColor) {
+        let attributedString = base.attributedText?.jk.setSpecificTextDeleteLine(text, color: color)
+        base.attributedText = attributedString
+    }
+    
+    // MARK: 2.10、插入图片
+    /// 插入图片
+    /// - Parameters:
+    ///   - imgName: 要添加的图片名称，如果是网络图片，需要传入完整路径名，且imgBounds必须传值
+    ///   - imgBounds: 图片的大小，默认为.zero，即自动根据图片大小设置，并以底部基线为标准。 y > 0 ：图片向上移动；y < 0 ：图片向下移动
+    ///   - imgIndex:  图片的位置，默认放在开头
+    func insertImage(imgName: String, imgBounds: CGRect = .zero, imgIndex: Int = 0) {
+        // 设置换行方式
+        base.lineBreakMode = NSLineBreakMode.byCharWrapping
+        let attributedString = base.attributedText?.jk.insertImage(imgName: imgName, imgBounds: imgBounds, imgIndex: imgIndex)
+        base.attributedText = attributedString
+    }
+    
+    // MARK: 2.11、首行缩进
+    /// 首行缩进
+    /// - Parameter edge: 缩进宽度
+    func firstLineLeftEdge(_ edge: CGFloat) {
+        let attributedString = base.attributedText?.jk.firstLineLeftEdge(edge)
+        base.attributedText = attributedString
+    }
+}

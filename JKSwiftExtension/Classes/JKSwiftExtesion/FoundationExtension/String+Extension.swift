@@ -164,9 +164,9 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     
     // MARK: 1.15、字符串根据某个字符进行分隔成数组
     /// 字符串根据某个字符进行分隔成数组
-    /// - Parameter char: 字符
+    /// - Parameter char: 分隔符
     /// - Returns: 分隔后的数组
-    func separatedByString(char: String) -> Array<Any> {
+    func separatedByString(with char: String) -> Array<Any> {
         return (base as! String).components(separatedBy: char)
     }
     
@@ -374,11 +374,20 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     // MARK: 3.8、url进行编码
     /// url 进行编码
     /// - Returns: 返回对应的URL
-    func urlValidate() -> URL {
-        return URL(string: (base as! String).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed) ?? "")!
+    func urlEncode() -> String {
+        // 为了不把url中一些特殊字符也进行转换(以%为例)，自己添加到自付集中
+        var charSet = CharacterSet.urlQueryAllowed
+        charSet.insert(charactersIn: "%")
+        return (base as! String).addingPercentEncoding(withAllowedCharacters: charSet) ?? ""
     }
     
-    // MARK: 3.9、某个字符使用某个字符替换掉
+    // MARK: 3.9、url进行解码
+    /// url解码
+    func urlDecode() -> String {
+        return (base as! String).removingPercentEncoding ?? ""
+    }
+    
+    // MARK: 3.10、某个字符使用某个字符替换掉
     /// 某个字符使用某个字符替换掉
     /// - Parameters:
     ///   - removeString: 原始字符
@@ -388,7 +397,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return (base as! String).replacingOccurrences(of: removeString, with: replacingString)
     }
     
-    // MARK: 3.10、使用正则表达式替换某些子串
+    // MARK: 3.11、使用正则表达式替换某些子串
     /// 使用正则表达式替换
     /// - Parameters:
     ///   - pattern: 正则
@@ -403,7 +412,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
                                               withTemplate: with)
     }
     
-    // MARK: 3.11、删除指定的字符
+    // MARK: 3.12、删除指定的字符
     /// 删除指定的字符
     /// - Parameter characterString: 指定的字符
     /// - Returns: 返回删除后的字符
@@ -1714,5 +1723,43 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         }
         free(buffer)
         return hash as String
+    }
+}
+
+// MARK:- 十七、unicode编码和解码
+public extension JKPOP where Base == String {
+
+    // MARK: 17.1、unicode编码
+    /// unicode编码
+    /// - Returns: unicode编码后的字符串
+    func unicodeEncode() -> String {
+        var tempStr = String()
+        for v in self.base.utf16 {
+            if v < 128 {
+                tempStr.append(Unicode.Scalar(v)!.escaped(asASCII: true))
+                continue
+            }
+            let codeStr = String.init(v, radix: 16, uppercase: false)
+            tempStr.append("\\u" + codeStr)
+        }
+        
+        return tempStr
+    }
+    
+    // MARK: 17.2、unicode解码
+    /// unicode解码
+    /// - Returns: unicode解码后的字符串
+    func unicodeDecode() -> String {
+        let tempStr1 = base.replacingOccurrences(of: "\\u", with: "\\U")
+        let tempStr2 = tempStr1.replacingOccurrences(of: "\"", with: "\\\"")
+        let tempStr3 = "\"".appending(tempStr2).appending("\"")
+        let tempData = tempStr3.data(using: String.Encoding.utf8)
+        var returnStr: String = ""
+        do {
+            returnStr = try PropertyListSerialization.propertyList(from: tempData!, options: [.mutableContainers], format: nil) as! String
+        } catch {
+            JKPrint(error)
+        }
+        return returnStr.replacingOccurrences(of: "\\r\\n", with: "\n")
     }
 }

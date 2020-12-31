@@ -215,7 +215,7 @@ private extension JKGlobalTools {
     /// - Parameter version: 版本号
     /// - Returns: 结果 和 版本号数组
     static func appVersion(version: String) -> (isSuccess: Bool, versions: [Int]) {
-        let versionArray = version.jk.separatedByString(char: ".")
+        let versionArray = version.jk.separatedByString(with: ".")
         guard versionArray.count == 3, let versionString1 = versionArray[0] as? String, let versionString2 = versionArray[1] as? String, let versionString3 = versionArray[2] as? String else {
             return (false, [])
         }

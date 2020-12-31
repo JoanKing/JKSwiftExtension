@@ -34,6 +34,10 @@
 		844A635525664F9B000059EC /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A634D25664F9B000059EC /* OneViewController.swift */; };
 		844A635925664FE7000059EC /* JKTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A635825664FE7000059EC /* JKTouchView.swift */; };
 		844A635D25665328000059EC /* TouchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A635C25665328000059EC /* TouchViewController.swift */; };
+		8457683B259DABD1006F93D4 /* NSAttributedStringExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457683A259DABD1006F93D4 /* NSAttributedStringExtensionViewController.swift */; };
+		8457685C259DC085006F93D4 /* UITabBarControllerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457685B259DC085006F93D4 /* UITabBarControllerExtensionViewController.swift */; };
+		8457686C259DC2A7006F93D4 /* NSIndexPathExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457686B259DC2A7006F93D4 /* NSIndexPathExtensionViewController.swift */; };
+		8457687C259DC3A3006F93D4 /* IndexPathExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457687B259DC3A3006F93D4 /* IndexPathExtensionViewController.swift */; };
 		8473AAC02562889500707877 /* UIImageViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473AABF2562889500707877 /* UIImageViewExtensionViewController.swift */; };
 		8473AADA2562985B00707877 /* pika2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8473AAD82562985A00707877 /* pika2.gif */; };
 		847D4B452560DF85000DDA3C /* UIBezierPathExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D4B442560DF84000DDA3C /* UIBezierPathExtensionViewController.swift */; };
@@ -142,6 +146,10 @@
 		844A634D25664F9B000059EC /* OneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
 		844A635825664FE7000059EC /* JKTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKTouchView.swift; sourceTree = "<group>"; };
 		844A635C25665328000059EC /* TouchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchViewController.swift; sourceTree = "<group>"; };
+		8457683A259DABD1006F93D4 /* NSAttributedStringExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensionViewController.swift; sourceTree = "<group>"; };
+		8457685B259DC085006F93D4 /* UITabBarControllerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarControllerExtensionViewController.swift; sourceTree = "<group>"; };
+		8457686B259DC2A7006F93D4 /* NSIndexPathExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSIndexPathExtensionViewController.swift; sourceTree = "<group>"; };
+		8457687B259DC3A3006F93D4 /* IndexPathExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexPathExtensionViewController.swift; sourceTree = "<group>"; };
 		846774172511FE9900DE8B44 /* JKSwiftExtension_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JKSwiftExtension_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		8473AABF2562889500707877 /* UIImageViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensionViewController.swift; sourceTree = "<group>"; };
 		8473AAD82562985A00707877 /* pika2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pika2.gif; sourceTree = "<group>"; };
@@ -443,6 +451,9 @@
 			isa = PBXGroup;
 			children = (
 				849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */,
+				8457686B259DC2A7006F93D4 /* NSIndexPathExtensionViewController.swift */,
+				8457687B259DC3A3006F93D4 /* IndexPathExtensionViewController.swift */,
+				8457683A259DABD1006F93D4 /* NSAttributedStringExtensionViewController.swift */,
 				8482AA052553EEFF00EB0A7A /* FileManagerExtensionViewController.swift */,
 				84B444092575E8AD00D3DD1D /* DataExtensionViewController.swift */,
 				84BEA370254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift */,
@@ -494,6 +505,8 @@
 		84BF16B8251D9EB1002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8418FB96255B8642000CB0B3 /* UILabelExtensionViewController.swift */,
+				8457685B259DC085006F93D4 /* UITabBarControllerExtensionViewController.swift */,
 				84BF16C7251D9FB6002ACE76 /* UIKitExtensionViewController.swift */,
 				84CEDD63258B62EE00D22735 /* UITableViewCellExtensionViewController.swift */,
 				84F9379F258A081700A35E77 /* UICollectionViewExtensionViewController.swift */,
@@ -511,7 +524,6 @@
 				84D8EC93255BFA3A001ACECA /* UIViewControllerExtensionViewController.swift */,
 				8418FB9A255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift */,
 				8418FB98255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift */,
-				8418FB96255B8642000CB0B3 /* UILabelExtensionViewController.swift */,
 				84A6FB78255A65EC00057839 /* UIButtonExtensionViewController.swift */,
 				84A6FB72255A40E400057839 /* UIBarButtonItemExtensionViewController.swift */,
 				84802819255963610038748A /* UISwitchExtensionViewController.swift */,
@@ -790,12 +802,14 @@
 			files = (
 				84B29411257747EF009E7760 /* UINavigationBarExtensionViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				8457683B259DABD1006F93D4 /* NSAttributedStringExtensionViewController.swift in Sources */,
 				843303FB2578B80F00051867 /* JKGlobalToolsViewController.swift in Sources */,
 				844A634E25664F9B000059EC /* FiveViewController.swift in Sources */,
 				844A635225664F9B000059EC /* TestViewController.swift in Sources */,
 				84BF16CA251D9FD3002ACE76 /* ProtocolViewController.swift in Sources */,
 				8483A737254C11C200ACF6FD /* JKRuntimeViewController.swift in Sources */,
 				84A6FB77255A655700057839 /* BaseNavigationViewController.swift in Sources */,
+				8457687C259DC3A3006F93D4 /* IndexPathExtensionViewController.swift in Sources */,
 				8473AAC02562889500707877 /* UIImageViewExtensionViewController.swift in Sources */,
 				84F86FEC2564EAF500B74128 /* JKValidateHelperViewController.swift in Sources */,
 				8480280E255933DE0038748A /* UIControlExtensionViewController.swift in Sources */,
@@ -823,6 +837,7 @@
 				84D9BDB825652C7200D92461 /* NibLoadableViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				844A635325664F9B000059EC /* SixViewController.swift in Sources */,
+				8457685C259DC085006F93D4 /* UITabBarControllerExtensionViewController.swift in Sources */,
 				84BEA371254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift in Sources */,
 				84BF16CC251DA012002ACE76 /* SmallToolsViewController.swift in Sources */,
 				844A635025664F9B000059EC /* TwoViewController.swift in Sources */,
@@ -847,6 +862,7 @@
 				84058C972554FA44007F0C30 /* UIViewExtensionViewController.swift in Sources */,
 				84B4440A2575E8AD00D3DD1D /* DataExtensionViewController.swift in Sources */,
 				84CEDD64258B62EE00D22735 /* UITableViewCellExtensionViewController.swift in Sources */,
+				8457686C259DC2A7006F93D4 /* NSIndexPathExtensionViewController.swift in Sources */,
 				848028082558D5A70038748A /* CALayerExtensionViewController.swift in Sources */,
 				8418FB99255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift in Sources */,
 				847DFF262550F07600EEE785 /* Int64ExtensionViewController.swift in Sources */,
