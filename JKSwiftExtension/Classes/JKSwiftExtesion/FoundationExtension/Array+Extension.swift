@@ -37,7 +37,6 @@ public extension Array {
         let JSONString = NSString(data:data as Data,encoding: String.Encoding.utf8.rawValue)
         return JSONString! as String
     }
-    
 }
 
 // MARK:- 二、数组 有关索引 的扩展方法

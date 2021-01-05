@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK:- 一、基本的扩展
-public extension Dictionary {
+public extension Dictionary  {
 
     // MARK: 1.1、检查字典里面是否有某个 key
     /// 检查字典里面是否有某个 key
