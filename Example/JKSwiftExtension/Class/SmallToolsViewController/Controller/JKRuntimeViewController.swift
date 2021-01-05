@@ -39,7 +39,7 @@ extension JKRuntimeViewController {
     
     // MARK: 1.3、获取方法列表
     @objc func test13() {
-        JKPrint("------获取方法列表----------", "\(JKRuntime.methods(from: Self.self))")
+        JKPrint("------获取方法列表----------", "\(JKRuntime.methods(from: UIFont.self))")
     }
     
     // MARK: 1.2、获取所有的属性名字

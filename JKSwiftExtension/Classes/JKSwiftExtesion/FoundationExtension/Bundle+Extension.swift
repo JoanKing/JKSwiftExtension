@@ -48,3 +48,43 @@ public extension JKPOP where Base: Bundle {
     }
 }
 
+// MARK:- 二、App的基本信息
+public extension JKPOP where Base: Bundle {
+    
+    // MARK: 2.1、App命名空间
+    /// App命名空间
+    static var namespace: String {
+        guard let namespace =  Bundle.main.infoDictionary?["CFBundleExecutable"] as? String else { return "" }
+        return  namespace
+    }
+    
+    // MARK: 2.2、项目/app 的名字
+    /// 项目/app 的名字
+    static var bundleName: String {
+        return (Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String) ?? ""
+    }
+    
+    // MARK: 2.3、获取app的版本号
+    /// 获取app的版本号
+    static var appVersion: String {
+        return (Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String) ?? ""
+    }
+    
+    // MARK: 2.4、获取app的 Build ID
+    /// 获取app的 Build ID
+    static var appBuild: String {
+        return (Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String) ?? ""
+    }
+    
+    // MARK: 2.5、获取app的 Bundle Identifier
+    /// 获取app的 Bundle Identifier
+    static var appBundleIdentifier: String {
+        return Bundle.main.bundleIdentifier ?? ""
+    }
+    
+    // MARK: 2.6、Info.plist
+    /// Info.plist
+    static var infoDictionary: [String : Any]? {
+        return Bundle.main.infoDictionary
+    }
+}

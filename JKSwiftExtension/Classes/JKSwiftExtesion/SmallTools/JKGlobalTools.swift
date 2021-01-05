@@ -70,7 +70,7 @@ public struct JKGlobalTools {
         }
         
         // 2、当前版本的版本号获取 三位Int值
-        let currentVersion = UIApplication.jk.appVersion
+        let currentVersion = Bundle.jk.appVersion
         let currentVersionResult = appVersion(version: currentVersion)
         guard currentVersionResult.isSuccess else {
             return false

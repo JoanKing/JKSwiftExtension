@@ -13,8 +13,8 @@ class UIButtonExtensionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headDataArray = ["一、基本的扩展", "二、链式调用", "三、UIButton 图片 与 title 位置关系(提示：title和image要在设置布局关系之前设置)", "四、自带倒计时功能的 Button"]
-        dataArray = [["创建一个带颜色的 Button", "创建一个常规的 Button"], ["设置title", "设置文字颜色", "设置字体大小(UIFont)", "设置字体大小(CGFloat)", "设置字体粗体", "设置图片", "设置图片(通过Bundle加载)", "设置图片(通过Bundle加载)", "设置图片(纯颜色的图片)", "设置背景图片", "设置背景图片(通过Bundle加载)", "设置背景图片(通过Bundle加载)", "设置背景图片(纯颜色的图片)", "按钮点击的变化"], ["图片在左", "图片在右", "图片在上", "图片在下"], ["设置 Button 倒计时", "是否可以点击", "是否正在倒计时", "处于倒计时时，前缀文案，如：「再次获取」 + (xxxs)", "销毁定时器"]]
+        headDataArray = ["一、基本的扩展", "二、链式调用", "三、UIButton 图片 与 title 位置关系(提示：title和image要在设置布局关系之前设置)", "四、自带倒计时功能的 Button", "五、Button的基本事件"]
+        dataArray = [["创建一个带颜色的 Button", "创建一个常规的 Button"], ["设置title", "设置文字颜色", "设置字体大小(UIFont)", "设置字体大小(CGFloat)", "设置字体粗体", "设置图片", "设置图片(通过Bundle加载)", "设置图片(通过Bundle加载)", "设置图片(纯颜色的图片)", "设置背景图片", "设置背景图片(通过Bundle加载)", "设置背景图片(通过Bundle加载)", "设置背景图片(纯颜色的图片)", "按钮点击的变化"], ["图片在左", "图片在右", "图片在上", "图片在下"], ["设置 Button 倒计时", "是否可以点击", "是否正在倒计时", "处于倒计时时，前缀文案，如：「再次获取」 + (xxxs)", "销毁定时器"], ["button的事件"]]
     }
     
     @objc func click() {
@@ -34,7 +34,30 @@ class UIButtonExtensionViewController: BaseViewController {
     }()
 }
 
-// MARK:- 三、UIButton 图片 与 title 位置关系
+// MARK:- 五、Button的基本事件
+extension UIButtonExtensionViewController {
+    
+    // MARK: 5.1、button的事件
+    @objc func test51() {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).image(.brown).title("哈哈").jk.setImageTitleLayout(.imgLeft, spacing: 6)
+        button.backgroundColor = .randomColor
+        button.center = self.view.center
+        button.tag = 100
+        button.jk.setHandleClick { (btn) in
+            guard let weakBtn = btn else { return }
+            print("button的事件", "tag：\(weakBtn.tag)")
+        }
+        self.view.addSubview(button)
+        JKAsyncs.asyncDelay(10, {
+        }) {
+            button.removeFromSuperview()
+        }
+        
+    }
+    
+}
+
+// MARK:- 四、自带倒计时功能的 Button
 extension UIButtonExtensionViewController {
     
     // MARK: 4.1、设置 Button 倒计时

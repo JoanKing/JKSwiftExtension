@@ -266,6 +266,9 @@
 		8457684F259DC017006F93D4 /* UITabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457684E259DC017006F93D4 /* UITabBarController+Extension.swift */; };
 		8457685F259DC1E7006F93D4 /* NSIndexPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457685E259DC1E7006F93D4 /* NSIndexPath+Extension.swift */; };
 		8457686F259DC367006F93D4 /* IndexPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457686E259DC367006F93D4 /* IndexPath+Extension.swift */; };
+		848A642525A44EF400E9EC48 /* NSNumber+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A642425A44EF400E9EC48 /* NSNumber+Extension.swift */; };
+		848A643225A4510500E9EC48 /* UISlider+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A643125A4510500E9EC48 /* UISlider+Extension.swift */; };
+		84B8FE2B25A3148700E7099E /* JKRegexHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B8FE2A25A3148700E7099E /* JKRegexHelper.swift */; };
 		84CEDD57258B626700D22735 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEDD56258B626700D22735 /* UITableViewCell+Extension.swift */; };
 		84F93790258A053F00A35E77 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F9378F258A053F00A35E77 /* UICollectionView+Extension.swift */; };
 		854CFE67EFDEDB341A61AD077D57BD09 /* UIControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9FA42223E7E1936FE61A5746EB0A9 /* UIControl+Extension.swift */; };
@@ -890,7 +893,10 @@
 		8457684E259DC017006F93D4 /* UITabBarController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extension.swift"; sourceTree = "<group>"; };
 		8457685E259DC1E7006F93D4 /* NSIndexPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSIndexPath+Extension.swift"; sourceTree = "<group>"; };
 		8457686E259DC367006F93D4 /* IndexPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexPath+Extension.swift"; sourceTree = "<group>"; };
+		848A642425A44EF400E9EC48 /* NSNumber+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNumber+Extension.swift"; sourceTree = "<group>"; };
+		848A643125A4510500E9EC48 /* UISlider+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISlider+Extension.swift"; sourceTree = "<group>"; };
 		84A40981B54ED05CF4BAEB4616A3D550 /* RxTableViewDataSourcePrefetchingProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxTableViewDataSourcePrefetchingProxy.swift; path = RxCocoa/iOS/Proxies/RxTableViewDataSourcePrefetchingProxy.swift; sourceTree = "<group>"; };
+		84B8FE2A25A3148700E7099E /* JKRegexHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKRegexHelper.swift; sourceTree = "<group>"; };
 		84CEDD56258B626700D22735 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		84D8BE5A7AC7AAB30E2037B9199539C2 /* Do.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Do.swift; path = RxSwift/Observables/Do.swift; sourceTree = "<group>"; };
 		84F9378F258A053F00A35E77 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
@@ -1571,6 +1577,7 @@
 				B8F9E160B9A91602793371C732B30B3A /* MaskingManager+Extension.swift */,
 				305B27841EDA663A193409756194664A /* QRCodeImageFactory.swift */,
 				55617EE872F3517BF653DFDF4C898EF6 /* WeakTimer.swift */,
+				84B8FE2A25A3148700E7099E /* JKRegexHelper.swift */,
 			);
 			name = SmallTools;
 			path = JKSwiftExtension/Classes/JKSwiftExtesion/SmallTools;
@@ -1579,16 +1586,18 @@
 		6B175F94E4F7454BCC9AAAFC8A681169 /* UIKitExtension */ = {
 			isa = PBXGroup;
 			children = (
+				2B680E9AC14BA2A8B48D7D1E9877360D /* UIApplication+Extension.swift */,
+				41F59A521B46F15C23F675521AB88C30 /* UISwitch+Extension.swift */,
+				9D1FC8E443C50BFCB894BAA703983A41 /* UIButton+Extension.swift */,
+				848A643125A4510500E9EC48 /* UISlider+Extension.swift */,
 				A8416AD97EEF5AD935392A13F93E43DC /* UILabel+Extension.swift */,
 				8457684E259DC017006F93D4 /* UITabBarController+Extension.swift */,
 				982303CBDB7E78A7C9EFEB63EDA47A5D /* CALayer+Extension.swift */,
 				84CEDD56258B626700D22735 /* UITableViewCell+Extension.swift */,
 				1EAF86D2F08FE78BC5919EB06576CD59 /* CATextLayer+Extension.swift */,
 				747DD15B48DBD1A29B36AE84092B60E4 /* UIAlertController+Extension.swift */,
-				2B680E9AC14BA2A8B48D7D1E9877360D /* UIApplication+Extension.swift */,
 				650F1477FA78E255581ED8645E7A68FC /* UIBarButtonItem+Extension.swift */,
 				34C5DC93344CA6B7FF243B52A1141640 /* UIBezierPath+Extension.swift */,
-				9D1FC8E443C50BFCB894BAA703983A41 /* UIButton+Extension.swift */,
 				F3895DE657C1AE3295DD928EB3023869 /* UIColor+Extension.swift */,
 				10F9FA42223E7E1936FE61A5746EB0A9 /* UIControl+Extension.swift */,
 				F52D770E7A0D9914DF6FC610F7E9DAB2 /* UIImage+Extension.swift */,
@@ -1598,7 +1607,6 @@
 				6ED6928BB1780DDAACFA14327C99EFE5 /* UIScreen+Extension.swift */,
 				ADF5FF838411DD385DDDEAF3AA4D4D45 /* UIScrollView+Extension.swift */,
 				5EDD8538C69AF06854EF46BE61320AF0 /* UIStackView+Extension.swift */,
-				41F59A521B46F15C23F675521AB88C30 /* UISwitch+Extension.swift */,
 				7C747996F79E6A954DF0718A940E22A0 /* UITableView+Extension.swift */,
 				7D87D3B6CBBDEA67F7B3014A3E72BDC8 /* UITextField+Extension.swift */,
 				DFBED8C09AC857CE4ACE537F9267585A /* UITextView+Extension.swift */,
@@ -1621,9 +1629,11 @@
 		6D40981BD1A37E524C2FD446C1E61ED2 /* FoundationExtension */ = {
 			isa = PBXGroup;
 			children = (
+				F21F384797508E5223A1D083CFA91C88 /* UIDevice+Extension.swift */,
+				848A642425A44EF400E9EC48 /* NSNumber+Extension.swift */,
+				FC4F3089587E0207ABEE0FFD43122735 /* Bundle+Extension.swift */,
 				818CE34169A3D2456FA7120700213F0E /* Array+Extension.swift */,
 				80FD68D8108EC34D770C3823C3CF864A /* Bool+Extension.swift */,
-				FC4F3089587E0207ABEE0FFD43122735 /* Bundle+Extension.swift */,
 				46F6E933D1734C74437F7120B46C2E37 /* CGFloat+Extension.swift */,
 				F6139D5A676EEBE7BD0533A73A823A1F /* Character+Extension.swift */,
 				B79854481A7FD943E15F825668188458 /* Data+extension.swift */,
@@ -1641,7 +1651,6 @@
 				5B206DB27B95656A718DE24B582804B0 /* NSObject+Extension.swift */,
 				06C622490F6C30A1B1277B7144690845 /* String+Extension.swift */,
 				913713C1EE709C7DB204243514633FC9 /* Timer+Extension.swift */,
-				F21F384797508E5223A1D083CFA91C88 /* UIDevice+Extension.swift */,
 				62EFC31DB38F648A1F943C4C89DC402B /* UIFont+Extension.swift */,
 				226A8CAAEECCAB57745E9F87A8B839B3 /* UInt+Extension.swift */,
 				A995FE24A0A4A968911D6DBC46B0DB6A /* URL+Extension.swift */,
@@ -2558,6 +2567,7 @@
 				30F490E7074D2A326D32911F3165021E /* CGFloat+Extension.swift in Sources */,
 				E524F26A228B7536246E6F211902CA54 /* Character+Extension.swift in Sources */,
 				7291D4FD8167D36F450AA6442D8EFCC5 /* Data+extension.swift in Sources */,
+				848A643225A4510500E9EC48 /* UISlider+Extension.swift in Sources */,
 				8457686F259DC367006F93D4 /* IndexPath+Extension.swift in Sources */,
 				C90FE0FCC3D4A6A3C2D283B34B62C3D3 /* Date+Extension.swift in Sources */,
 				F75FD859060FCD6799C068E58AF252B8 /* DateFormatter+Extension.swift in Sources */,
@@ -2576,6 +2586,7 @@
 				FA72CE5E0C18BF39A1AF2B7B10488530 /* JKEmitterable.swift in Sources */,
 				405CBE4D80A9EBCB172A4AEE6CF74A56 /* JKGlobalTools.swift in Sources */,
 				D88C0FA468792F9B908E1DBCFD3FE0FF /* JKLoadingView.swift in Sources */,
+				84B8FE2B25A3148700E7099E /* JKRegexHelper.swift in Sources */,
 				18EB21A9AA014F6ED505D39D8C49E43D /* JKPOP+String.swift in Sources */,
 				75478E45B37E248DB74D85A884F226E6 /* JKPOP.swift in Sources */,
 				F603D696AA74420E15DAD1880D6E04AD /* JKPrint.swift in Sources */,
@@ -2611,6 +2622,7 @@
 				A26EE60D984B01A6722FEDFF2BA79421 /* UINavigationController+Extension.swift in Sources */,
 				00B658FFC05CF60856931EBF14C95946 /* UInt+Extension.swift in Sources */,
 				37BDB516F68122A005E4CB51EBB11F6F /* UIScreen+Extension.swift in Sources */,
+				848A642525A44EF400E9EC48 /* NSNumber+Extension.swift in Sources */,
 				8457685F259DC1E7006F93D4 /* NSIndexPath+Extension.swift in Sources */,
 				BB7F642CCD7EB1C694E2D6E1448555A1 /* UIScrollView+Extension.swift in Sources */,
 				C63054BDBC7EF740A43ABCAE455F68CD /* UIStackView+Extension.swift in Sources */,

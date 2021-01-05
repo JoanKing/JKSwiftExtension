@@ -15,8 +15,45 @@ class BundleExtensionViewController: BaseViewController {
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green
         
-        headDataArray = ["一、Bundle 的基本扩展"]
-        dataArray = [["从 Bundle 里面获取资源文件（支持当前的 Moudle下的Bundle和其他Moudle下的 Bundle）", "从其他的 Bundle 通过 bundlename 获取 bundle"]]
+        headDataArray = ["一、Bundle 的基本扩展", "二、App的基本信息"]
+        dataArray = [["从 Bundle 里面获取资源文件（支持当前的 Moudle下的Bundle和其他Moudle下的 Bundle）", "从其他的 Bundle 通过 bundlename 获取 bundle"], ["App命名空间", "项目/app 的名字", "获取app的版本号", "获取app的 Build ID", "获取app的 Bundle Identifier", "Info.plist"]]
+    }
+}
+
+// MARK:- 二、App的基本信息
+extension BundleExtensionViewController {
+    
+    // MARK: 2.6、Info.plist
+    @objc func test26() {
+        guard let infoDictionary = Bundle.jk.infoDictionary else {
+            return
+        }
+        JKPrint("项目 Info.plist 打印" ,"\(infoDictionary)")
+    }
+    
+    // MARK: 2.5、获取app的 Bundle Identifier
+    @objc func test25() {
+        JKPrint("获取app的 Bundle Identifier：\(Bundle.jk.appBundleIdentifier)")
+    }
+    
+    // MARK: 2.4、获取app的 Build ID
+    @objc func test24() {
+        JKPrint("获取app的 Build ID：\(Bundle.jk.appBuild)")
+    }
+    
+    // MARK: 2.3、获取app的版本号
+    @objc func test23() {
+        JKPrint("获取app的版本号：\(Bundle.jk.appVersion)")
+    }
+    
+    // MARK: 2.2、项目/app 的名字
+    @objc func test22() {
+        JKPrint("项目/app 的名字：\(Bundle.jk.bundleName)")
+    }
+    
+    // MARK: 2.1、App命名空间
+    @objc func test21() {
+        JKPrint("App命名空间：\(Bundle.jk.namespace)")
     }
 }
 

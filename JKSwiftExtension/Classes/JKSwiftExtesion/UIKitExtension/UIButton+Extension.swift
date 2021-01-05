@@ -516,4 +516,31 @@ public extension UIButton {
     }
 }
 
+// MARK:- 五、Button的基本事件
+private var buttonCallBackKey: Void?
+extension UIButton: JKSwiftPropertyCompatible {
+    internal typealias T = UIButton
+    internal var swiftCallBack: SwiftCallBack?{
+        get { return jk_getAssociatedObject(self, &buttonCallBackKey) }
+        set { jk_setRetainedAssociatedObject(self, &buttonCallBackKey, newValue) }
+    }
+    
+    @objc internal func swiftButtonAction(_ button: UIButton) {
+        self.swiftCallBack?(button)
+    }
+}
+
+public extension JKPOP where Base: UIButton {
+    
+    // MARK: 5.1、button的事件
+    /// button的事件
+    /// - Parameters:
+    ///   - controlEvents: 事件类型，默认是 valueChanged
+    ///   - buttonCallBack: 事件
+    /// - Returns: 闭包事件
+    func setHandleClick(controlEvents: UIControl.Event = .touchUpInside, buttonCallBack: ((_ button: UIButton?) -> ())?){
+        base.swiftCallBack = buttonCallBack
+        base.addTarget(base, action: #selector(base.swiftButtonAction), for: controlEvents)
+    }
+}
 

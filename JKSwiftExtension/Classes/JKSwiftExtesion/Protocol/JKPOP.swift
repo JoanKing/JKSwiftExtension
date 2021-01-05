@@ -28,3 +28,16 @@ public extension JKPOPCompatible {
         set {}
     }
 }
+
+/// Define Property protocol
+internal protocol JKSwiftPropertyCompatible {
+  
+    /// Extended type
+    associatedtype T
+    
+    ///Alias for callback function
+    typealias SwiftCallBack = ((T?) -> ())
+    
+    ///Define the calculated properties of the closure type
+    var swiftCallBack: SwiftCallBack?  { get set }
+}

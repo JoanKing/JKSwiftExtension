@@ -212,7 +212,20 @@ public extension JKPOP where Base: UIDevice {
         }
     }
     
-    // MARK: 2.2、当前系统的名称
+    // MARK: 2.2、当前系统更新时间
+    /// 当前系统更新时间
+    static var systemUptime: Date {
+        let time = ProcessInfo.processInfo.systemUptime
+        return Date(timeIntervalSinceNow: 0 - time)
+    }
+    
+    // MARK: 2.3、当前设备的类型，如 iPhone、iPad 等等
+    /// 当前设备的类型
+    static var deviceType: String {
+        return UIDevice.current.model
+    }
+    
+    // MARK: 2.4、当前系统的名称
     /// 当前系统的名称
     static var currentSystemName : String {
         get {
@@ -220,7 +233,7 @@ public extension JKPOP where Base: UIDevice {
         }
     }
     
-    // MARK: 2.3、当前设备的名称
+    // MARK: 2.5、当前设备的名称
     /// 当前设备的名称
     static var currentDeviceName : String {
         get {
@@ -228,7 +241,7 @@ public extension JKPOP where Base: UIDevice {
         }
     }
     
-    // MARK: 2.4、当前设备是否越狱
+    // MARK: 2.6、当前设备是否越狱
     /// 当前设备是否越狱
     static var isJailbroken: Bool {
         if self.isSimulator() { return false }
@@ -255,7 +268,7 @@ public extension JKPOP where Base: UIDevice {
         return false
     }
     
-    // MARK: 2.5、当前硬盘的空间
+    // MARK: 2.7、当前硬盘的空间
     /// 当前硬盘的空间
     static var diskSpace: Int64 {
         if let attrs = try? FileManager.default.attributesOfFileSystem(forPath: NSHomeDirectory()) {
@@ -268,7 +281,7 @@ public extension JKPOP where Base: UIDevice {
         return -1
     }
     
-    // MARK: 2.6、当前硬盘可用空间
+    // MARK: 2.8、当前硬盘可用空间
     /// 当前硬盘可用空间
     static var diskSpaceFree: Int64 {
         if let attrs = try? FileManager.default.attributesOfFileSystem(forPath: NSHomeDirectory()) {
@@ -281,7 +294,7 @@ public extension JKPOP where Base: UIDevice {
         return -1
     }
     
-    // MARK: 2.7、当前硬盘已经使用的空间
+    // MARK: 2.9、当前硬盘已经使用的空间
     /// 当前硬盘已经使用的空间
     static var diskSpaceUsed: Int64 {
         let total = self.diskSpace
@@ -293,7 +306,7 @@ public extension JKPOP where Base: UIDevice {
         return used
     }
     
-    // MARK: 2.8、获取总内存大小
+    // MARK: 2.10、获取总内存大小
     /// 获取总内存大小
     static var memoryTotal: UInt64 {
         return ProcessInfo.processInfo.physicalMemory

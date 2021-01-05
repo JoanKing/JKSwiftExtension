@@ -13,12 +13,37 @@ class UIControlExtensionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headDataArray = ["一、基本的链式编程"]
-        dataArray = [["设置是否可用", "设置 点击状态", "是否高亮状态", "设置 垂直方向 对齐方式", "设置 水平方向 对齐方式", "添加事件（默认点击事件：touchUpInside）", "移除事件（默认移除 点击事件：touchUpInside）"]]
+        headDataArray = ["一、基本的链式编程", "二、基本的扩展"]
+        dataArray = [["设置是否可用", "设置 点击状态", "是否高亮状态", "设置 垂直方向 对齐方式", "设置 水平方向 对齐方式", "添加事件（默认点击事件：touchUpInside）", "移除事件（默认移除 点击事件：touchUpInside）"], ["多少秒内不可重复点击"]]
     }
     
     @objc func click(sender: UIButton) {
         JKPrint("点击测试")
+    }
+}
+
+
+// MARK:- 二、基本的扩展
+extension UIControlExtensionViewController {
+    
+    // MARK: 2.1、多少秒内不可重复点击
+    @objc func test21() {
+        let hitTime : Double = 5
+        let btn = UIButton(frame: CGRect(x: 50, y: kScreenH - 150, width: 200, height: 100))
+        btn.backgroundColor = .randomColor
+        btn.addTarget(self, action: #selector(click), for: .touchUpInside)
+        btn.tag = 20
+        btn.setTitle("\(hitTime)秒内不可重复点击", for: .normal)
+        btn.jk.preventDoubleHit(hitTime)
+        btn.jk.setHandleClick { (btn) in
+            guard let weakBtn = btn else { return }
+            print("button的点击事件", "tag：\(weakBtn.tag)")
+        }
+        btn.addTo(self.view)
+        JKAsyncs.asyncDelay(10, {
+        }) {
+            btn.removeFromSuperview()
+        }
     }
 }
 
