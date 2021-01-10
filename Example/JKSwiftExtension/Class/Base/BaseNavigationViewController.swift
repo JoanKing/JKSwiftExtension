@@ -21,4 +21,12 @@ class BaseNavigationViewController: UINavigationController {
         // item颜色
         navigationBar.tintColor = UIColor.black
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
 }

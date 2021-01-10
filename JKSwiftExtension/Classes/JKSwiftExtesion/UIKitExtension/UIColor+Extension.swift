@@ -200,6 +200,35 @@ public extension UIColor {
     }
 }
 
+// MARK:- 五、获取UIColor的HSV/HSB值（Hue色相、S饱和度、B亮度）
+/**
+ 在平时开发中我们使用的都是 RGB 颜色模式，即通过红、绿、蓝三原色来表示一种颜色。RGB 是对机器很友好的色彩模式，但并不够人性化。
+     相对于 RGB，还有种 HSB（也叫 HSV）颜色模式，该模式更便于描述人眼对与颜色的感觉。使用该模式可以很明确的表达是什么颜色？鲜艳不鲜艳？亮还是暗？
+ 1，HSB 模式介绍
+ HSB 又称 HSV，表示一种颜色模式。在 HSB 模式中，颜色由如下三种值组成：
+ H（hue）代表色相：色相指色彩的种类和名称。如红、橙、黄.... 取值范围 0°~360°，每个角度可以代表一种颜色。
+ S（saturation）表示饱和度：它用 0% 至 100% 的值描述了相同色相、明度下色彩纯度的变化。数值越大，颜色中的灰色越少，颜色越鲜艳，呈现一种从灰度到纯色的变化。
+ B（brightness）表示亮度：其作用是控制色彩的明暗变化。它同样使用了 0% 至 100% 的取值范围。数值越小，色彩越暗，越接近于黑色；数值越大，色彩越亮，越接近于白色。
+ */
+public extension UIColor {
+    // MARK: 5.1、返回HSBA模式颜色值
+    // 返回HSBA模式颜色值
+    var hsba: (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
+        /**
+         hue：色相
+         saturation：饱和度
+         brightness：亮度
+         alpha：透明度
+         */
+        var h: CGFloat = 0
+        var s: CGFloat = 0
+        var b: CGFloat = 0
+        var a: CGFloat = 0
+        self.getHue(&h, saturation: &s, brightness: &b, alpha: &a)
+        return (h * 360, s, b, a)
+    }
+}
+
 public extension UIColor {
     
     // MARK: 获取颜色的渐变的 RGB

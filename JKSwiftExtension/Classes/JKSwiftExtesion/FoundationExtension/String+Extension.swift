@@ -177,6 +177,12 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         let cfString = CFUUIDCreateString(kCFAllocatorDefault, uuid)
         return cfString as String?
     }
+    
+    // MARK: 1.17、复制
+    /// 复制
+    func copy() {
+        UIPasteboard.general.string = (self.base as! String)
+    }
 }
 
 // MARK:- 二、沙盒路径的获取

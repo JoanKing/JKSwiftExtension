@@ -35,12 +35,16 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   
+
         self.title = "JKSwiftExtension"
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green
         dataArray = ["FoundationExtension", "UIKitExtension", "Protocol", "SmallTools", "TestFile(自己测试用的)"]
         initUI()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
     /// 创建控件

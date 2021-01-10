@@ -24,6 +24,7 @@
 		8418FB99255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418FB98255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift */; };
 		8418FB9B255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418FB9A255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift */; };
 		843303FB2578B80F00051867 /* JKGlobalToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843303FA2578B80F00051867 /* JKGlobalToolsViewController.swift */; };
+		84336D6D25A8066700D17AC1 /* JKTapActionLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84336D6C25A8066700D17AC1 /* JKTapActionLabelViewController.swift */; };
 		844A634E25664F9B000059EC /* FiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A634625664F9A000059EC /* FiveViewController.swift */; };
 		844A634F25664F9B000059EC /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A634725664F9B000059EC /* Notification+Extension.swift */; };
 		844A635025664F9B000059EC /* TwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A634825664F9B000059EC /* TwoViewController.swift */; };
@@ -138,6 +139,7 @@
 		8418FB98255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensionViewController.swift; sourceTree = "<group>"; };
 		8418FB9A255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensionViewController.swift; sourceTree = "<group>"; };
 		843303FA2578B80F00051867 /* JKGlobalToolsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKGlobalToolsViewController.swift; sourceTree = "<group>"; };
+		84336D6C25A8066700D17AC1 /* JKTapActionLabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKTapActionLabelViewController.swift; sourceTree = "<group>"; };
 		844A634625664F9A000059EC /* FiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiveViewController.swift; sourceTree = "<group>"; };
 		844A634725664F9B000059EC /* Notification+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		844A634825664F9B000059EC /* TwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoViewController.swift; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 		84BF16B3251D9EAB002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				84BEA372254FAC6600CA8A75 /* UIFontExtensionViewController.swift */,
 				8482AA092554075E00EB0A7A /* UIDeviceExtensionViewController.swift */,
 				8483A6C9254BC02B00ACF6FD /* BundleExtensionViewController.swift */,
 				849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */,
@@ -475,7 +478,6 @@
 				84BEA37A25500B8F00CA8A75 /* DoubleExtensionViewController.swift */,
 				847DFF272550F43C00EEE785 /* UIntExtensionViewController.swift */,
 				84BEA378254FD78E00CA8A75 /* FloatExtensionViewController.swift */,
-				84BEA372254FAC6600CA8A75 /* UIFontExtensionViewController.swift */,
 				849D58F32537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift */,
 				8483A738254EC47E00ACF6FD /* NSObjectExtensionViewController.swift */,
 				84A5D2D52547B48E003D289C /* DateExtensionViewController.swift */,
@@ -509,6 +511,9 @@
 		84BF16B8251D9EB1002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				84802817255957560038748A /* UIApplicationExtensionViewController.swift */,
+				84813773254A5EC100D9289C /* UIColorExtensionViewController.swift */,
+				847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */,
 				8480280D255933DE0038748A /* UIControlExtensionViewController.swift */,
 				84802819255963610038748A /* UISwitchExtensionViewController.swift */,
 				84A6FB78255A65EC00057839 /* UIButtonExtensionViewController.swift */,
@@ -518,11 +523,9 @@
 				84CEDD63258B62EE00D22735 /* UITableViewCellExtensionViewController.swift */,
 				84F9379F258A081700A35E77 /* UICollectionViewExtensionViewController.swift */,
 				84B29410257747EF009E7760 /* UINavigationBarExtensionViewController.swift */,
-				84813773254A5EC100D9289C /* UIColorExtensionViewController.swift */,
 				848028072558D5A70038748A /* CALayerExtensionViewController.swift */,
 				84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */,
 				8473AABF2562889500707877 /* UIImageViewExtensionViewController.swift */,
-				847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */,
 				847D4B442560DF84000DDA3C /* UIBezierPathExtensionViewController.swift */,
 				8483C4CE255E94A30034A2F7 /* UITextFieldExtensionViewController.swift */,
 				8483C4BF255E799B0034A2F7 /* UIStackViewExtensionViewController.swift */,
@@ -532,7 +535,6 @@
 				8418FB9A255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift */,
 				8418FB98255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift */,
 				84A6FB72255A40E400057839 /* UIBarButtonItemExtensionViewController.swift */,
-				84802817255957560038748A /* UIApplicationExtensionViewController.swift */,
 				8480281525594C1E0038748A /* UIAlertControllerExtensionViewController.swift */,
 				84802813255948730038748A /* NSMutableAttributedStringExtensionViewController.swift */,
 				8480280B255926120038748A /* CATextLayerExtensionViewController.swift */,
@@ -600,6 +602,7 @@
 			isa = PBXGroup;
 			children = (
 				84BF16CB251DA012002ACE76 /* SmallToolsViewController.swift */,
+				84336D6C25A8066700D17AC1 /* JKTapActionLabelViewController.swift */,
 				84B8FE3725A314FD00E7099E /* JKRegexHelperViewController.swift */,
 				843303FA2578B80F00051867 /* JKGlobalToolsViewController.swift */,
 				84D9BDA825651FA600D92461 /* WeakTimerViewController.swift */,
@@ -856,6 +859,7 @@
 				84BF16C8251D9FB6002ACE76 /* UIKitExtensionViewController.swift in Sources */,
 				844A635425664F9B000059EC /* ThreeViewController.swift in Sources */,
 				8401537F2552B34A001AB2FD /* DictionaryExtensionViewController.swift in Sources */,
+				84336D6D25A8066700D17AC1 /* JKTapActionLabelViewController.swift in Sources */,
 				844A635925664FE7000059EC /* JKTouchView.swift in Sources */,
 				8483C4CF255E94A30034A2F7 /* UITextFieldExtensionViewController.swift in Sources */,
 				8401537D2552A8C3001AB2FD /* URLExtensionViewController.swift in Sources */,

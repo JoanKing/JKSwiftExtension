@@ -131,12 +131,12 @@ public extension JKPOP where Base: UIImage {
         UIGraphicsEndImageContext()
         return newImage ?? self.base
     }
-
+    
     // MARK: 1.6、裁剪给定区域
     /// 裁剪给定区域
     /// - Parameter crop: 裁剪区域
     /// - Returns: 剪裁后的图片
-     func cropWithCropRect( _ crop: CGRect) -> UIImage? {
+    func cropWithCropRect( _ crop: CGRect) -> UIImage? {
         let cropRect = CGRect(x: crop.origin.x * self.base.scale, y: crop.origin.y * self.base.scale, width: crop.size.width * self.base.scale, height: crop.size.height *  self.base.scale)
         if cropRect.size.width <= 0 || cropRect.size.height <= 0 {
             return nil
@@ -259,18 +259,51 @@ public extension JKPOP where Base: UIImage {
         }
         return tintedImage
     }
+    
+    // MARK: 1.11、获取图片某一个位置像素的颜色
+    /// 获取图片某一个位置像素的颜色
+    /// - Parameter point: 图片上某个点
+    /// - Returns: 返回某个点的 UIColor
+    func pixelColor(_ point: CGPoint) -> UIColor? {
+        if point.x < 0 || point.x > base.size.width || point.y < 0 || point.y > base.size.height {
+            return nil
+        }
+        
+        let provider = self.base.cgImage!.dataProvider
+        let providerData = provider!.data
+        let data = CFDataGetBytePtr(providerData)
+        
+        let numberOfComponents: CGFloat = 4.0
+        let pixelData = (base.size.width * point.y + point.x) * numberOfComponents
+        
+        let r = CGFloat(data![Int(pixelData)]) / 255.0
+        let g = CGFloat(data![Int(pixelData) + 1]) / 255.0
+        let b = CGFloat(data![Int(pixelData) + 2]) / 255.0
+        let a = CGFloat(data![Int(pixelData) + 3]) / 255.0
+        
+        return UIColor(red: r, green: g, blue: b, alpha: a)
+    }
+    
+    // MARK: 1.12、保存图片到相册
+    /// 保存图片到相册
+    func saveImageToPhotoAlbum() {
+        self.base.saveToPhotoAlbum()
+    }
 }
 
-public extension UIImage {
+fileprivate extension UIImage {
+    
     /// 保存图片到相册
-    final func saveImageToPhotoAlbum() {
+    func saveToPhotoAlbum() {
         UIImageWriteToSavedPhotosAlbum(self, self, #selector(saveImage(image:didFinishSavingWithError:contextInfo:)), nil)
     }
-    @objc final private func saveImage(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: AnyObject) {
+    
+    @discardableResult
+    @objc private func saveImage(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: AnyObject) -> Bool {
         if error != nil{
-            JKPrint("保存失败")
-        }else{
-            JKPrint("保存成功")
+            return false
+        } else {
+            return true
         }
     }
 }
@@ -971,7 +1004,7 @@ public extension JKPOP where Base : UIImage {
             }
             // At it's delay in cs
             let delaySeconds = delayForImageAtIndex(Int(index),
-                                                            source: source)
+                                                    source: source)
             delays.append(Int(delaySeconds * 1000.0)) // Seconds to ms
         }
         
@@ -1054,21 +1087,21 @@ public extension JKPOP where Base : UIImage {
     func flipVertical() -> UIImage? {
         return self.rotate(orientation: .downMirrored)
     }
-
+    
     // MARK: 7.5、向下翻转
     /// 向下翻转
     /// - Returns: 向下翻转后的图片
     func flipDown() -> UIImage? {
         return self.rotate(orientation: .down)
     }
-
+    
     // MARK: 7.6、向左翻转
     /// 向左翻转
     /// - Returns: 向左翻转后的图片
     func flipLeft() -> UIImage? {
         return self.rotate(orientation: .left)
     }
-
+    
     // MARK: 7.7、镜像向左翻转
     /// 镜像向左翻转
     /// - Returns: 镜像向左翻转后的图片
@@ -1181,7 +1214,7 @@ public extension JKPOP where Base : UIImage {
         UIGraphicsEndImageContext()
         return newImage
     }
-
+    
     /// 交换宽高
     /// - Parameter rect: image 的 frame
     private func swapWidthAndHeight(rect: inout CGRect) {

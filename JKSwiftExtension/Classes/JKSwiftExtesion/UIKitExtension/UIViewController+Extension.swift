@@ -122,3 +122,87 @@ public extension JKPOP where Base : UIViewController {
         self.base.navigationController?.pushViewController(vc, animated: true)
     }
 }
+
+@objc extension UIViewController {
+    
+    @objc dynamic public func test() {
+        
+    }
+    
+    override public class func initializeMethod() {
+        super.initializeMethod()
+        
+        if self == UIViewController.self {
+            let onceToken = "Hook_\(NSStringFromClass(classForCoder()))"
+            DispatchQueue.once(token: onceToken) {
+                let oriSel = #selector(viewDidLoad)
+                let repSel = #selector(hook_viewDidLoad)
+                _ = hookInstanceMethod(of: oriSel, with: repSel)
+                                
+                let oriSel1 = #selector(viewWillAppear(_:))
+                let repSel1 = #selector(hook_viewWillAppear(animated:))
+                _ = hookInstanceMethod(of: oriSel1, with: repSel1)
+                
+                let oriSel2 = #selector(viewWillDisappear(_:))
+                let repSel2 = #selector(hook_viewWillDisappear(animated:))
+                _ = hookInstanceMethod(of: oriSel2, with: repSel2)
+                
+                let oriSelPresent = #selector(present(_:animated:completion:))
+                let repSelPresent = #selector(hook_present(_:animated:completion:))
+                _ = hookInstanceMethod(of: oriSelPresent, with: repSelPresent)
+                
+                let oriSel4 = #selector(test)
+                let repSel4 = #selector(hook_test)
+                _ = hookInstanceMethod(of: oriSel4, with: repSel4)
+            }
+        } else if self == UINavigationController.self {
+            let onceToken = "Hook_\(NSStringFromClass(classForCoder()))"
+            DispatchQueue.once(token: onceToken) {
+                let oriSel = #selector(UINavigationController.pushViewController(_:animated:));
+                let repSel = #selector(UINavigationController.hook_pushViewController(_:animated:));
+                _ = hookInstanceMethod(of:oriSel , with: repSel)
+            }
+        }
+    }
+    
+    private func hook_test()  {
+        hook_test()
+    }
+    
+    private func hook_viewDidLoad(animated: Bool) {
+        hook_viewDidLoad(animated: animated)
+    }
+    
+    private func hook_viewWillAppear(animated: Bool) {
+        // 需要注入的代码写在此处
+        hook_viewWillAppear(animated: animated)
+    }
+    
+    private func hook_viewWillDisappear(animated: Bool) {
+        // 需要注入的代码写在此处
+        hook_viewWillDisappear(animated: animated)
+    }
+    
+    private func hook_present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
+        if viewControllerToPresent.presentationController == nil {
+            viewControllerToPresent.presentationController?.presentedViewController.dismiss(animated: false, completion: nil)
+            print("viewControllerToPresent.presentationController 不能为 nil")
+            return
+        }
+        hook_present(viewControllerToPresent, animated: flag, completion: completion)
+    }
+}
+
+@objc extension UINavigationController{
+    
+    public func hook_pushViewController(_ viewController: UIViewController, animated: Bool) {
+        // 判断是否是根控制器
+        if viewControllers.count > 0 {
+           
+        }
+        // push进入下一个控制器
+        hook_pushViewController(viewController, animated: animated)
+    }
+
+}
+
