@@ -511,6 +511,9 @@
 		84BF16B8251D9EB1002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */,
+				8418FB9A255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift */,
+				84D8EC93255BFA3A001ACECA /* UIViewControllerExtensionViewController.swift */,
 				84802817255957560038748A /* UIApplicationExtensionViewController.swift */,
 				84813773254A5EC100D9289C /* UIColorExtensionViewController.swift */,
 				847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */,
@@ -524,15 +527,12 @@
 				84F9379F258A081700A35E77 /* UICollectionViewExtensionViewController.swift */,
 				84B29410257747EF009E7760 /* UINavigationBarExtensionViewController.swift */,
 				848028072558D5A70038748A /* CALayerExtensionViewController.swift */,
-				84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */,
 				8473AABF2562889500707877 /* UIImageViewExtensionViewController.swift */,
 				847D4B442560DF84000DDA3C /* UIBezierPathExtensionViewController.swift */,
 				8483C4CE255E94A30034A2F7 /* UITextFieldExtensionViewController.swift */,
 				8483C4BF255E799B0034A2F7 /* UIStackViewExtensionViewController.swift */,
 				84CC32AE255D39F000F489F0 /* UITextViewExtensionViewController.swift */,
 				84CC32AC255CDBB300F489F0 /* UIScrollViewExtensionViewController.swift */,
-				84D8EC93255BFA3A001ACECA /* UIViewControllerExtensionViewController.swift */,
-				8418FB9A255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift */,
 				8418FB98255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift */,
 				84A6FB72255A40E400057839 /* UIBarButtonItemExtensionViewController.swift */,
 				8480281525594C1E0038748A /* UIAlertControllerExtensionViewController.swift */,

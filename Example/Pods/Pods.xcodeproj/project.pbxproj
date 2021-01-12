@@ -272,6 +272,9 @@
 		84B4917A25A586FC005F376A /* DispatchQueue+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4917925A586FC005F376A /* DispatchQueue+Extension.swift */; };
 		84B8FE2B25A3148700E7099E /* JKRegexHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B8FE2A25A3148700E7099E /* JKRegexHelper.swift */; };
 		84CEDD57258B626700D22735 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEDD56258B626700D22735 /* UITableViewCell+Extension.swift */; };
+		84E11DC325AD7F3200096B00 /* WKWebView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E11DC225AD7F3200096B00 /* WKWebView+Extension.swift */; };
+		84E11DE925AD8DE600096B00 /* UIGestureRecognizer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E11DE825AD8DE600096B00 /* UIGestureRecognizer+Extension.swift */; };
+		84E11DF625AD939100096B00 /* JKClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E11DF525AD939100096B00 /* JKClosure.swift */; };
 		84F93790258A053F00A35E77 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F9378F258A053F00A35E77 /* UICollectionView+Extension.swift */; };
 		854CFE67EFDEDB341A61AD077D57BD09 /* UIControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9FA42223E7E1936FE61A5746EB0A9 /* UIControl+Extension.swift */; };
 		85557BB8ADEDB23D463325DE651CF458 /* UIPickerView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = C781EAC70814F3B689611B1B92DD6215 /* UIPickerView+Rx.swift */; };
@@ -903,6 +906,9 @@
 		84B8FE2A25A3148700E7099E /* JKRegexHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKRegexHelper.swift; sourceTree = "<group>"; };
 		84CEDD56258B626700D22735 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		84D8BE5A7AC7AAB30E2037B9199539C2 /* Do.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Do.swift; path = RxSwift/Observables/Do.swift; sourceTree = "<group>"; };
+		84E11DC225AD7F3200096B00 /* WKWebView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+Extension.swift"; sourceTree = "<group>"; };
+		84E11DE825AD8DE600096B00 /* UIGestureRecognizer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIGestureRecognizer+Extension.swift"; sourceTree = "<group>"; };
+		84E11DF525AD939100096B00 /* JKClosure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKClosure.swift; sourceTree = "<group>"; };
 		84F9378F258A053F00A35E77 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		855E0D15BF0175BC156C0A105C35F58F /* InvocableScheduledItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InvocableScheduledItem.swift; path = RxSwift/Schedulers/Internal/InvocableScheduledItem.swift; sourceTree = "<group>"; };
 		856373923C33D6F51ABF659584854785 /* TakeLast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TakeLast.swift; path = RxSwift/Observables/TakeLast.swift; sourceTree = "<group>"; };
@@ -1583,6 +1589,7 @@
 				55617EE872F3517BF653DFDF4C898EF6 /* WeakTimer.swift */,
 				84B8FE2A25A3148700E7099E /* JKRegexHelper.swift */,
 				84336D5F25A8059D00D17AC1 /* JKTapActionLabel.swift */,
+				84E11DF525AD939100096B00 /* JKClosure.swift */,
 			);
 			name = SmallTools;
 			path = JKSwiftExtension/Classes/JKSwiftExtesion/SmallTools;
@@ -1591,7 +1598,9 @@
 		6B175F94E4F7454BCC9AAAFC8A681169 /* UIKitExtension */ = {
 			isa = PBXGroup;
 			children = (
+				C377E963B59B54EBF0EC3672123D5479 /* UIView+Extension.swift */,
 				B5D069162C3C6145C18C2156DF044649 /* UIViewController+Extension.swift */,
+				84E11DC225AD7F3200096B00 /* WKWebView+Extension.swift */,
 				2B680E9AC14BA2A8B48D7D1E9877360D /* UIApplication+Extension.swift */,
 				41F59A521B46F15C23F675521AB88C30 /* UISwitch+Extension.swift */,
 				9D1FC8E443C50BFCB894BAA703983A41 /* UIButton+Extension.swift */,
@@ -1616,8 +1625,8 @@
 				7C747996F79E6A954DF0718A940E22A0 /* UITableView+Extension.swift */,
 				7D87D3B6CBBDEA67F7B3014A3E72BDC8 /* UITextField+Extension.swift */,
 				DFBED8C09AC857CE4ACE537F9267585A /* UITextView+Extension.swift */,
-				C377E963B59B54EBF0EC3672123D5479 /* UIView+Extension.swift */,
 				84F9378F258A053F00A35E77 /* UICollectionView+Extension.swift */,
+				84E11DE825AD8DE600096B00 /* UIGestureRecognizer+Extension.swift */,
 			);
 			name = UIKitExtension;
 			path = JKSwiftExtension/Classes/JKSwiftExtesion/UIKitExtension;
@@ -2594,10 +2603,12 @@
 				405CBE4D80A9EBCB172A4AEE6CF74A56 /* JKGlobalTools.swift in Sources */,
 				D88C0FA468792F9B908E1DBCFD3FE0FF /* JKLoadingView.swift in Sources */,
 				84B8FE2B25A3148700E7099E /* JKRegexHelper.swift in Sources */,
+				84E11DF625AD939100096B00 /* JKClosure.swift in Sources */,
 				18EB21A9AA014F6ED505D39D8C49E43D /* JKPOP+String.swift in Sources */,
 				75478E45B37E248DB74D85A884F226E6 /* JKPOP.swift in Sources */,
 				F603D696AA74420E15DAD1880D6E04AD /* JKPrint.swift in Sources */,
 				8457681D259D7D65006F93D4 /* NSAttributedString+Extension.swift in Sources */,
+				84E11DC325AD7F3200096B00 /* WKWebView+Extension.swift in Sources */,
 				F72831F21C1319A7A93493AE1ECF9326 /* JKRuntime.swift in Sources */,
 				2AE341857759D6CD8B69E33BF54B130E /* JKSwiftExtension-dummy.m in Sources */,
 				74893F132660470ED8EFBF30D6653CAA /* JKValidateHelper.swift in Sources */,
@@ -2615,6 +2626,7 @@
 				5FB008096A1894489AFA6D40B6BDA3A5 /* UIAlertController+Extension.swift in Sources */,
 				B85FD34E322D6CD561363A2C10211A71 /* UIApplication+Extension.swift in Sources */,
 				84CEDD57258B626700D22735 /* UITableViewCell+Extension.swift in Sources */,
+				84E11DE925AD8DE600096B00 /* UIGestureRecognizer+Extension.swift in Sources */,
 				9A070C93FD1AE9D3F9A40C411583A817 /* UIBarButtonItem+Extension.swift in Sources */,
 				43436FC120F44106C625BA11DFE41758 /* UIBezierPath+Extension.swift in Sources */,
 				FDEFE8AF085BC65BE6E48E8C9A0FAB1E /* UIButton+Extension.swift in Sources */,

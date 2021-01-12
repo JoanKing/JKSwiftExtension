@@ -13,12 +13,254 @@ class UIViewExtensionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headDataArray = ["一、UIView 有关 Frame 的扩展", "二、继承于 UIView 视图的 平面、3D 旋转 以及 缩放", "三、关于UIView的 圆角 和 阴影的设置", "四、自定义链式编程", "其他的方法"]
-        dataArray = [["x 的位置", "y 的位置", "height: 视图的高度", "width: 视图的宽度", "size: 视图的zize", "centerX: 视图的X中间位置", "centerX: 视图的Y中间位置", "center: 视图的中间位置", "top 上端横坐标(y)", "left 左端横坐标(x)", "bottom 底端纵坐标 (y + height)", "right 底端纵坐标 (x + width)"], ["平面旋转", "沿 X 轴方向旋转多少度(3D旋转)", "沿 Y 轴方向旋转多少度(3D旋转)", "沿 Z 轴方向旋转多少度(3D旋转)", "沿 X、Y、Z 轴方向同时旋转多少度(3D旋转)", "设置 x,y 缩放"], ["设置圆角", "添加阴影", "添加阴影和圆角并存", "添加边框", "添加顶部的边框", "添加顶部的 内边框", "添加底部的 边框", "添加左边的 边框", "添加右边的 边框", "画圆环"], ["设置tag值", "设置圆角", "图片的模式", "设置背景色", "设置十六进制颜色", "设置 frame", "被添加到某个视图上", "设置是否支持触摸", "设置是否隐藏", "设置透明度", "设置tintColor", "链式编程的综合使用"], ["获取当前view的viewcontroller", "添加水印", "移除所有的子视图", "将 View 转换成图片", "添加点击事件"]]
+        headDataArray = ["一、UIView 有关 Frame 的扩展", "二、继承于 UIView 视图的 平面、3D 旋转 以及 缩放", "三、关于UIView的 圆角 和 阴影的设置", "四、自定义链式编程", "五、其他的方法", "六、试图调试", "七、手势的扩展"]
+        dataArray = [["x 的位置", "y 的位置", "height: 视图的高度", "width: 视图的宽度", "size: 视图的zize", "centerX: 视图的X中间位置", "centerX: 视图的Y中间位置", "center: 视图的中间位置", "top 上端横坐标(y)", "left 左端横坐标(x)", "bottom 底端纵坐标 (y + height)", "right 底端纵坐标 (x + width)"], ["平面旋转", "沿 X 轴方向旋转多少度(3D旋转)", "沿 Y 轴方向旋转多少度(3D旋转)", "沿 Z 轴方向旋转多少度(3D旋转)", "沿 X、Y、Z 轴方向同时旋转多少度(3D旋转)", "设置 x,y 缩放"], ["设置圆角", "添加阴影", "添加阴影和圆角并存", "添加边框", "添加顶部的边框", "添加顶部的 内边框", "添加底部的 边框", "添加左边的 边框", "添加右边的 边框", "画圆环"], ["设置tag值", "设置圆角", "图片的模式", "设置背景色", "设置十六进制颜色", "设置 frame", "被添加到某个视图上", "设置是否支持触摸", "设置是否隐藏", "设置透明度", "设置tintColor", "链式编程的综合使用"], ["获取当前view的viewcontroller", "添加水印", "将 View 转换成图片", "添加点击事件"], ["图层调试", "寻找某个类型子视图", "移除所有的子视图"], ["通用响应添加方法", "手势 - 单击", "手势 - 长按", "手势 - 拖拽", "手势 - 屏幕边缘", "手势 - 屏幕边缘(闭包)", "手势 - 清扫", "手势 - 清扫(闭包)", "手势 - 捏合", "手势 - 旋转"]]
     }
 }
 
-// MARK:- 其他的方法
+// MARK:- 七、手势的扩展
+extension UIViewExtensionViewController {
+    
+    // MARK: 7.10、手势 - 旋转
+    @objc func test710() {
+        let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
+        testView.backgroundColor = .randomColor
+        testView.center.x = self.view.center.x
+        testView.clipsToBounds = true
+        self.view.addSubview(testView)
+        testView.jk.addGestureRotation { (gestureRecognizer) in
+            JKPrint("手势 - 旋转")
+        }
+        JKAsyncs.asyncDelay(5) {
+            
+        } _: {
+            testView.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 7.9、手势 - 捏合
+    @objc func test79() {
+        let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
+        testView.backgroundColor = .randomColor
+        testView.center.x = self.view.center.x
+        testView.clipsToBounds = true
+        self.view.addSubview(testView)
+        testView.jk.addGesturePinch { (gestureRecognizer) in
+            JKPrint("手势 - 捏合")
+        }
+        JKAsyncs.asyncDelay(5) {
+            
+        } _: {
+            testView.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 7.8、手势 - 清扫(闭包)
+    @objc func test78() {
+        let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
+        testView.backgroundColor = .randomColor
+        testView.center.x = self.view.center.x
+        testView.clipsToBounds = true
+        self.view.addSubview(testView)
+        testView.jk.addGestureSwip({ (gestureRecognizer) in
+            JKPrint("手势 - 清扫")
+        }, for: .left)
+        JKAsyncs.asyncDelay(5) {
+            
+        } _: {
+            testView.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 7.7、手势 - 清扫
+    @objc func test77() {
+        let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
+        testView.backgroundColor = .randomColor
+        testView.center.x = self.view.center.x
+        testView.clipsToBounds = true
+        self.view.addSubview(testView)
+        testView.jk.addGestureSwip(self, action: #selector(swip), for: .right)
+        JKAsyncs.asyncDelay(5) {
+            
+        } _: {
+            testView.removeFromSuperview()
+        }
+    }
+    
+    @objc func swip() {
+        JKPrint("手势 - 清扫")
+    }
+    
+    // MARK: 7.6、手势 - 屏幕边缘
+    @objc func test76() {
+        let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
+        testView.backgroundColor = .randomColor
+        testView.center.x = self.view.center.x
+        testView.clipsToBounds = true
+        self.view.addSubview(testView)
+        testView.jk.addGestureEdgPan({ (gestureRecognizer) in
+            print("哈哈哈哈哈----------")
+        }, for: .right)
+        JKAsyncs.asyncDelay(5) {
+            
+        } _: {
+            testView.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 7.5、手势 - 屏幕边缘
+    @objc func test75() {
+        let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
+        testView.backgroundColor = .randomColor
+        testView.center.x = self.view.center.x
+        testView.clipsToBounds = true
+        self.view.addSubview(testView)
+        testView.jk.addGestureEdgPan(self, action: #selector(gestureEdgPan1), for: .right)
+        JKAsyncs.asyncDelay(5) {
+            
+        } _: {
+            testView.removeFromSuperview()
+        }
+    }
+    
+    @objc func gestureEdgPan1() {
+        JKPrint("手势 - 屏幕边缘")
+    }
+    
+    // MARK: 7.4、手势 - 拖拽
+    @objc func test74() {
+        let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
+        testView.backgroundColor = .randomColor
+        testView.center.x = self.view.center.x
+        testView.clipsToBounds = true
+        self.view.addSubview(testView)
+        
+        testView.jk.addGesturePan { (gestureRecognizer) in
+            JKPrint("手势 - 拖拽")
+        }
+        JKAsyncs.asyncDelay(5) {
+            
+        } _: {
+            testView.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 7.3、手势 - 长按
+    @objc func test73() {
+        let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
+        testView.backgroundColor = .randomColor
+        testView.center.x = self.view.center.x
+        testView.clipsToBounds = true
+        self.view.addSubview(testView)
+        
+        testView.jk.addGestureLongPress({ (gestureRecognizer) in
+            JKPrint("长按2秒")
+        }, for: 2)
+        JKAsyncs.asyncDelay(5) {
+            
+        } _: {
+            testView.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 7.2、手势 - 单击
+    @objc func test72() {
+        let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
+        testView.backgroundColor = .randomColor
+        testView.center.x = self.view.center.x
+        testView.clipsToBounds = true
+        self.view.addSubview(testView)
+        
+        testView.jk.addGestureTap { (gestureRecognizer) in
+            JKPrint("手势 - 单击")
+        }
+        JKAsyncs.asyncDelay(5) {
+            
+        } _: {
+            testView.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 7.1、通用响应添加方法
+    @objc func test71() {
+        let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
+        testView.backgroundColor = .randomColor
+        testView.center.x = self.view.center.x
+        testView.clipsToBounds = true
+        self.view.addSubview(testView)
+        
+        testView.jk.addActionClosure { (tapGestureRecognizer, view, integer) in
+            JKPrint("点击了")
+        }
+        JKAsyncs.asyncDelay(5) {
+            
+        } _: {
+            testView.removeFromSuperview()
+        }
+    }
+}
+
+// MARK:- 六、试图调试
+extension UIViewExtensionViewController {
+    
+    // MARK: 6.3、移除所有的子视图
+    @objc func test63() {
+        let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
+        testView.backgroundColor = .randomColor
+        testView.center.x = self.view.center.x
+        testView.clipsToBounds = true
+        self.view.addSubview(testView)
+        
+        let testView1 = UIView(frame: CGRect(x: 0, y: 10, width: 20, height: 20))
+        testView1.backgroundColor = .randomColor
+        testView.addSubview(testView1)
+        let testView2 = UIView(frame: CGRect(x: 100, y: 100, width: 20, height: 20))
+        testView2.backgroundColor = .randomColor
+        testView.addSubview(testView2)
+        JKAsyncs.asyncDelay(3, {
+        }) {
+            testView.jk.removeAllSubViews()
+            JKAsyncs.asyncDelay(2, {
+            }) {
+                testView.removeFromSuperview()
+            }
+        }
+    }
+    
+    // MARK: 6.2、寻找某个类型子视图
+    @objc func test62() {
+        let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
+        testView.backgroundColor = .randomColor
+        testView.center.x = self.view.center.x
+        testView.clipsToBounds = true
+        self.view.addSubview(testView)
+        
+        let testView1 = UIView(frame: CGRect(x: 0, y: 10, width: 20, height: 20))
+        testView1.backgroundColor = .randomColor
+        testView.addSubview(testView1)
+        let testView2 = UIView(frame: CGRect(x: 100, y: 100, width: 20, height: 20))
+        testView2.backgroundColor = .randomColor
+        testView.addSubview(testView2)
+        if let resultView = testView.jk.findSubview(type: UIView.self, resursion: true) {
+            JKPrint("寻找子视图:\(testView) 结果是：\(resultView)")
+        } else {
+            JKPrint("寻找子视图:\(testView) 结果是：false")
+        }
+        JKAsyncs.asyncDelay(2) {
+            
+        } _: {
+            testView.removeFromSuperview()
+        }
+
+    }
+    
+    // MARK: 6.1、图层调试(兼容OC)
+    @objc func test61() {
+        self.view.jk.getViewLayer()
+    }
+}
+
+// MARK:- 五、其他的方法
 extension UIViewExtensionViewController {
     
     // MARK: 5.1、获取当前view的viewcontroller
@@ -50,32 +292,8 @@ extension UIViewExtensionViewController {
         }
     }
     
-    // MARK: 5.3、移除所有的子视图
+    // MARK: 5.3、将 View 转换成图片
     @objc func test53() {
-        let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
-        testView.backgroundColor = .randomColor
-        testView.center.x = self.view.center.x
-        testView.clipsToBounds = true
-        self.view.addSubview(testView)
-        
-        let testView1 = UIView(frame: CGRect(x: 0, y: 10, width: 20, height: 20))
-        testView1.backgroundColor = .randomColor
-        testView.addSubview(testView1)
-        let testView2 = UIView(frame: CGRect(x: 100, y: 100, width: 20, height: 20))
-        testView2.backgroundColor = .randomColor
-        testView.addSubview(testView2)
-        JKAsyncs.asyncDelay(3, {
-        }) {
-            testView.jk.removeAllSubViews()
-            JKAsyncs.asyncDelay(2, {
-            }) {
-                testView.removeFromSuperview()
-            }
-        }
-    }
-    
-    // MARK: 5.4、将 View 转换成图片
-    @objc func test54() {
         let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
         testView.backgroundColor = .randomColor
         testView.center.x = self.view.center.x
@@ -108,8 +326,8 @@ extension UIViewExtensionViewController {
         }
     }
 
-    // MARK: 5.5、添加点击事件
-    @objc func test55() {
+    // MARK: 5.4、添加点击事件
+    @objc func test54() {
         let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
         testView.backgroundColor = .randomColor
         testView.center.x = self.view.center.x

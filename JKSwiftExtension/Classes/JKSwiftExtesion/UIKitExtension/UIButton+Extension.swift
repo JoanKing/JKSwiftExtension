@@ -520,7 +520,7 @@ public extension UIButton {
 private var buttonCallBackKey: Void?
 extension UIButton: JKSwiftPropertyCompatible {
     internal typealias T = UIButton
-    internal var swiftCallBack: SwiftCallBack?{
+    internal var swiftCallBack: SwiftCallBack? {
         get { return jk_getAssociatedObject(self, &buttonCallBackKey) }
         set { jk_setRetainedAssociatedObject(self, &buttonCallBackKey, newValue) }
     }

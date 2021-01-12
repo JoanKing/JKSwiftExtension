@@ -709,15 +709,7 @@ public extension JKPOP where Base : UIView {
         }
     }
     
-    // MARK: 7.3、移除所有的子视图
-    /// 移除所有的子视图
-    func removeAllSubViews() {
-        for subView in self.base.subviews {
-            subView.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 7.4、将 View 转换成图片
+    // MARK: 7.3、将 View 转换成图片
     /// 将 View 转换成图片
     /// - Returns: 图片
     func toImage() -> UIImage? {
@@ -733,7 +725,7 @@ public extension JKPOP where Base : UIView {
         return viewImage
     }
     
-    // MARK: 7.5、添加点击事件
+    // MARK: 7.4、添加点击事件
     /// 添加点击事件
     /// - Parameters:
     ///   - target: 监听对象
@@ -752,5 +744,251 @@ extension UIView {
         border.backgroundColor = color.cgColor
         border.frame = CGRect(x: x, y: y, width: width, height: height)
         layer.addSublayer(border)
+    }
+}
+
+// MARK: 八、视图调试
+public extension JKPOP where Base : UIView {
+    
+    // MARK: 8.1、图层调试(兼容OC)
+    /// 图层调试(兼容OC)
+    /// - Parameters:
+    ///   - borderWidth: 视图的边框宽度
+    ///   - borderColor: 视图的边框颜色
+    ///   - backgroundColor: 视图的背景色
+    func getViewLayer(borderWidth: CGFloat = 0.5, borderColor: UIColor = .randomColor, backgroundColor: UIColor = .randomColor) {
+        #if DEBUG
+        let subviews = self.base.subviews;
+        if subviews.count == 0 {
+            return;
+        }
+        for subview in subviews {
+            subview.layer.borderWidth = borderWidth
+            subview.layer.borderColor = borderColor.cgColor
+            subview.backgroundColor = backgroundColor
+            subview.jk.getViewLayer(borderWidth: borderWidth, borderColor: borderColor, backgroundColor: backgroundColor)
+        }
+        #endif
+    }
+    
+    // MARK: 8.2、寻找某个类型子视图
+    /// 寻找某个类型子视图
+    /// - Parameters:
+    ///   - type: 子视图类型
+    ///   - resursion: 是否递归查找
+    /// - Returns: 返回找到的子视图
+    @discardableResult
+    func findSubview(type: UIResponder.Type, resursion: Bool)-> UIView? {
+        for e in self.base.subviews.enumerated() {
+            if e.element.isKind(of: type) {
+                return e.element
+            }
+        }
+        // 是否递归查找
+        guard resursion == true else {
+            return nil
+        }
+        for e in self.base.subviews.enumerated() {
+            let tmpView = e.element.jk.findSubview(type: type, resursion: resursion)
+            if tmpView != nil {
+                return tmpView
+            }
+        }
+        return nil
+    }
+    
+    // MARK: 8.3、移除所有的子视图
+    /// 移除所有的子视图
+    func removeAllSubViews() {
+        for subView in self.base.subviews {
+            subView.removeFromSuperview()
+        }
+    }
+}
+
+// MARK: 九、手势的扩展
+public extension JKPOP where Base : UIView {
+    
+    // MARK: 9.1、通用响应添加方法
+    /// 通用响应添加方法
+    /// - Parameter actionClosure: 时间回调
+    func addActionClosure(_ actionClosure: @escaping ViewClosure) {
+        if let sender = self.base as? UIButton {
+            sender.jk.setHandleClick(controlEvents: .touchUpInside) { (control) in
+                guard let weakControl = control else {
+                    return
+                }
+                actionClosure(nil, weakControl, weakControl.tag)
+            }
+        } else if let sender = self.base as? UIControl {
+            sender.jk.addActionHandler({ (control) in
+                actionClosure(nil, control, control.tag)
+            }, for: .valueChanged)
+        } else {
+            _ = self.base.jk.addGestureTap { (reco) in
+                actionClosure((reco as! UITapGestureRecognizer), reco.view!, reco.view!.tag);
+            }
+        }
+    }
+
+    // MARK: 9.2、手势 - 单击
+    /// 手势 - 单击
+    /// - Parameter action: 事件
+    /// - Returns: 手势
+    @discardableResult
+    func addGestureTap(_ action: @escaping RecognizerClosure) -> UITapGestureRecognizer {
+        let obj = UITapGestureRecognizer(target: nil, action: nil)
+        // 轻点次数
+        obj.numberOfTapsRequired = 1
+        // 手指个数
+        obj.numberOfTouchesRequired = 1
+        addCommonGestureRecognizer(obj)
+        obj.addAction { (recognizer) in
+            action(recognizer)
+        }
+        return obj
+    }
+
+    // MARK: 9.3、手势 - 长按
+    /// 手势 - 长按
+    /// - Parameters:
+    ///   - action: 事件
+    ///   - minimumPressDuration: 长按的时间
+    /// - Returns: 手势
+    @discardableResult
+    func addGestureLongPress(_ action: @escaping RecognizerClosure, for minimumPressDuration: TimeInterval) -> UILongPressGestureRecognizer {
+        let obj = UILongPressGestureRecognizer(target: nil, action: nil)
+        obj.minimumPressDuration = minimumPressDuration;
+        addCommonGestureRecognizer(obj)
+        obj.addAction { (recognizer) in
+            action(recognizer)
+        }
+        return obj
+    }
+      
+    // MARK: 9.4、手势 - 拖拽
+    /// 手势 - 拖拽
+    /// - Parameter action: 事件
+    /// - Returns: 手势
+    @discardableResult
+    func addGesturePan(_ action: @escaping RecognizerClosure) -> UIPanGestureRecognizer {
+        let obj = UIPanGestureRecognizer(target: nil, action: nil)
+        // 最大最小的手势触摸次数
+        obj.minimumNumberOfTouches = 1
+        obj.maximumNumberOfTouches = 3
+        addCommonGestureRecognizer(obj)
+          
+        obj.addAction { (recognizer) in
+            if let sender = recognizer as? UIPanGestureRecognizer {
+                let translate:CGPoint = sender.translation(in: sender.view?.superview)
+                sender.view!.center = CGPoint(x: sender.view!.center.x + translate.x, y: sender.view!.center.y + translate.y)
+                sender.setTranslation( .zero, in: sender.view!.superview)
+                action(recognizer)
+            }
+        }
+        return obj
+    }
+      
+    // MARK: 9.5、手势 - 屏幕边缘
+    /// 手势 - 屏幕边缘
+    /// - Parameters:
+    ///   - target: 监听对象
+    ///   - action: 事件
+    ///   - edgs: 哪边缘手势
+    /// - Returns: 手势
+    @discardableResult
+    func addGestureEdgPan(_ target: Any?, action: Selector?, for edgs: UIRectEdge) -> UIScreenEdgePanGestureRecognizer {
+        let obj = UIScreenEdgePanGestureRecognizer(target: target, action: action)
+        obj.edges = edgs
+        addCommonGestureRecognizer(obj)
+        return obj
+    }
+    
+    // MARK: 9.6、手势 - 屏幕边缘(闭包)
+    /// 手势 - 屏幕边缘(闭包)
+    /// - Parameters:
+    ///   - action: 事件
+    ///   - edgs: 哪边缘手势
+    /// - Returns: 手势
+    @discardableResult
+    func addGestureEdgPan(_ action: @escaping RecognizerClosure, for edgs: UIRectEdge) -> UIScreenEdgePanGestureRecognizer {
+        let obj = UIScreenEdgePanGestureRecognizer(target: nil, action: nil)
+        obj.edges = edgs
+        addCommonGestureRecognizer(obj)
+        obj.addAction { (recognizer) in
+            action(recognizer)
+        }
+        return obj
+    }
+      
+    // MARK: 9.7、手势 - 清扫
+    /// 手势 - 清扫
+    /// - Parameters:
+    ///   - target: 对象
+    ///   - action: 事件
+    ///   - direction: 清扫的方向
+    /// - Returns: 手势
+    @discardableResult
+    func addGestureSwip(_ target: Any?, action: Selector?, for direction: UISwipeGestureRecognizer.Direction) -> UISwipeGestureRecognizer {
+        let obj = UISwipeGestureRecognizer(target: target, action: action)
+        obj.direction = direction
+        addCommonGestureRecognizer(obj)
+        return obj
+    }
+    
+    // MARK: 9.8、手势 - 清扫
+    /// 手势 - 清扫
+    /// - Parameters:
+    ///   - action: 事件
+    ///   - direction: 清扫的方向
+    /// - Returns: 手势
+    @discardableResult
+    func addGestureSwip(_ action: @escaping RecognizerClosure, for direction: UISwipeGestureRecognizer.Direction) -> UISwipeGestureRecognizer {
+        let obj = UISwipeGestureRecognizer(target: nil, action: nil)
+        obj.direction = direction
+        addCommonGestureRecognizer(obj)
+        obj.addAction { (recognizer) in
+            action(recognizer)
+        }
+        return obj
+    }
+      
+    // MARK: 9.9、手势 - 捏合 
+    @discardableResult
+    func addGesturePinch(_ action: @escaping RecognizerClosure) -> UIPinchGestureRecognizer {
+        let obj = UIPinchGestureRecognizer(target: nil, action: nil)
+        addCommonGestureRecognizer(obj)
+        obj.addAction { (recognizer) in
+            if let sender = recognizer as? UIPinchGestureRecognizer {
+                let location = recognizer.location(in: sender.view!.superview)
+                sender.view!.center = location
+                sender.view!.transform = sender.view!.transform.scaledBy(x: sender.scale, y: sender.scale)
+                sender.scale = 1.0
+                action(recognizer)
+            }
+        }
+        return obj
+    }
+    
+    // MARK: 9.10、手势 - 旋转
+    @discardableResult
+    func addGestureRotation(_ action: @escaping RecognizerClosure) -> UIRotationGestureRecognizer {
+        let obj = UIRotationGestureRecognizer(target: nil, action: nil)
+        addCommonGestureRecognizer(obj)
+        obj.addAction { (recognizer) in
+            if let sender = recognizer as? UIRotationGestureRecognizer {
+                sender.view!.transform = sender.view!.transform.rotated(by: sender.rotation)
+                sender.rotation = 0.0
+                action(recognizer)
+            }
+        }
+        return obj
+    }
+    
+    // MARK: 通用支持手势的方法 - private
+    private func addCommonGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer) {
+        base.isUserInteractionEnabled = true
+        base.isMultipleTouchEnabled = true
+        base.addGestureRecognizer(gestureRecognizer)
     }
 }

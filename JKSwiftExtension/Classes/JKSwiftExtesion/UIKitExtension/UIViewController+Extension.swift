@@ -36,7 +36,7 @@ public extension JKPOP where Base : UIViewController {
         return nil
     }
     
-    // MARK: 1.3、获取顶部控制器
+    // MARK: 1.3、获取顶部控制器(类方法)
     /// 获取顶部控制器
     /// - Returns: VC
     static func topViewController() -> UIViewController? {
@@ -49,7 +49,7 @@ public extension JKPOP where Base : UIViewController {
         return top(rootVC: rootVC)
     }
     
-    // MARK: 1.4、获取顶部控制器
+    // MARK: 1.4、获取顶部控制器(实例方法)
     /// 获取顶部控制器
     /// - Returns: VC
     func topViewController() -> UIViewController? {
@@ -75,6 +75,12 @@ public extension JKPOP where Base : UIViewController {
             return top(rootVC: selectedVC)
         }
         return rootVC
+    }
+    
+    // MARK: 1.5、是否正在展示
+    /// 是否正在展示
+    var isCurrentVC: Bool {
+        return base.isViewLoaded == true && (base.view!.window != nil)
     }
 }
 
@@ -125,10 +131,6 @@ public extension JKPOP where Base : UIViewController {
 
 @objc extension UIViewController {
     
-    @objc dynamic public func test() {
-        
-    }
-    
     override public class func initializeMethod() {
         super.initializeMethod()
         
@@ -150,10 +152,6 @@ public extension JKPOP where Base : UIViewController {
                 let oriSelPresent = #selector(present(_:animated:completion:))
                 let repSelPresent = #selector(hook_present(_:animated:completion:))
                 _ = hookInstanceMethod(of: oriSelPresent, with: repSelPresent)
-                
-                let oriSel4 = #selector(test)
-                let repSel4 = #selector(hook_test)
-                _ = hookInstanceMethod(of: oriSel4, with: repSel4)
             }
         } else if self == UINavigationController.self {
             let onceToken = "Hook_\(NSStringFromClass(classForCoder()))"
@@ -163,10 +161,6 @@ public extension JKPOP where Base : UIViewController {
                 _ = hookInstanceMethod(of:oriSel , with: repSel)
             }
         }
-    }
-    
-    private func hook_test()  {
-        hook_test()
     }
     
     private func hook_viewDidLoad(animated: Bool) {
@@ -205,4 +199,5 @@ public extension JKPOP where Base : UIViewController {
     }
 
 }
+
 
