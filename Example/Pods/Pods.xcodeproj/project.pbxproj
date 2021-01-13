@@ -267,6 +267,8 @@
 		8457684F259DC017006F93D4 /* UITabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457684E259DC017006F93D4 /* UITabBarController+Extension.swift */; };
 		8457685F259DC1E7006F93D4 /* NSIndexPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457685E259DC1E7006F93D4 /* NSIndexPath+Extension.swift */; };
 		8457686F259DC367006F93D4 /* IndexPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457686E259DC367006F93D4 /* IndexPath+Extension.swift */; };
+		848A439125AEA025003EA5E5 /* UITabBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A439025AEA025003EA5E5 /* UITabBar+Extension.swift */; };
+		848A439E25AEA25B003EA5E5 /* UIPageControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A439D25AEA25B003EA5E5 /* UIPageControl+Extension.swift */; };
 		848A642525A44EF400E9EC48 /* NSNumber+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A642425A44EF400E9EC48 /* NSNumber+Extension.swift */; };
 		848A643225A4510500E9EC48 /* UISlider+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A643125A4510500E9EC48 /* UISlider+Extension.swift */; };
 		84B4917A25A586FC005F376A /* DispatchQueue+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4917925A586FC005F376A /* DispatchQueue+Extension.swift */; };
@@ -899,6 +901,8 @@
 		8457684E259DC017006F93D4 /* UITabBarController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extension.swift"; sourceTree = "<group>"; };
 		8457685E259DC1E7006F93D4 /* NSIndexPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSIndexPath+Extension.swift"; sourceTree = "<group>"; };
 		8457686E259DC367006F93D4 /* IndexPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexPath+Extension.swift"; sourceTree = "<group>"; };
+		848A439025AEA025003EA5E5 /* UITabBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+Extension.swift"; sourceTree = "<group>"; };
+		848A439D25AEA25B003EA5E5 /* UIPageControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPageControl+Extension.swift"; sourceTree = "<group>"; };
 		848A642425A44EF400E9EC48 /* NSNumber+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNumber+Extension.swift"; sourceTree = "<group>"; };
 		848A643125A4510500E9EC48 /* UISlider+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISlider+Extension.swift"; sourceTree = "<group>"; };
 		84A40981B54ED05CF4BAEB4616A3D550 /* RxTableViewDataSourcePrefetchingProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxTableViewDataSourcePrefetchingProxy.swift; path = RxCocoa/iOS/Proxies/RxTableViewDataSourcePrefetchingProxy.swift; sourceTree = "<group>"; };
@@ -1599,6 +1603,7 @@
 			isa = PBXGroup;
 			children = (
 				C377E963B59B54EBF0EC3672123D5479 /* UIView+Extension.swift */,
+				848A439D25AEA25B003EA5E5 /* UIPageControl+Extension.swift */,
 				B5D069162C3C6145C18C2156DF044649 /* UIViewController+Extension.swift */,
 				84E11DC225AD7F3200096B00 /* WKWebView+Extension.swift */,
 				2B680E9AC14BA2A8B48D7D1E9877360D /* UIApplication+Extension.swift */,
@@ -1606,6 +1611,7 @@
 				9D1FC8E443C50BFCB894BAA703983A41 /* UIButton+Extension.swift */,
 				848A643125A4510500E9EC48 /* UISlider+Extension.swift */,
 				A8416AD97EEF5AD935392A13F93E43DC /* UILabel+Extension.swift */,
+				848A439025AEA025003EA5E5 /* UITabBar+Extension.swift */,
 				8457684E259DC017006F93D4 /* UITabBarController+Extension.swift */,
 				982303CBDB7E78A7C9EFEB63EDA47A5D /* CALayer+Extension.swift */,
 				84CEDD56258B626700D22735 /* UITableViewCell+Extension.swift */,
@@ -2613,6 +2619,7 @@
 				2AE341857759D6CD8B69E33BF54B130E /* JKSwiftExtension-dummy.m in Sources */,
 				74893F132660470ED8EFBF30D6653CAA /* JKValidateHelper.swift in Sources */,
 				3F252B29F5F1F1836E57002E20C582A2 /* JKVerticalCarousel.swift in Sources */,
+				848A439125AEA025003EA5E5 /* UITabBar+Extension.swift in Sources */,
 				61CE1F47001E9A298CF18A589A0D599B /* JKWaterFallLayout.swift in Sources */,
 				ED8F9FB1635004C06CA5D2085217E944 /* KeyboardAccessory.swift in Sources */,
 				8706EDC25E2EB089C03C826A550C4D06 /* MaskingManager+Extension.swift in Sources */,
@@ -2639,6 +2646,7 @@
 				65D0DA3B44F0839974A20FB09F18D4BA /* UILabel+Extension.swift in Sources */,
 				B08D414BB84A0E9EA45A13587EC23C95 /* UINavigationBar+Extension.swift in Sources */,
 				A26EE60D984B01A6722FEDFF2BA79421 /* UINavigationController+Extension.swift in Sources */,
+				848A439E25AEA25B003EA5E5 /* UIPageControl+Extension.swift in Sources */,
 				00B658FFC05CF60856931EBF14C95946 /* UInt+Extension.swift in Sources */,
 				37BDB516F68122A005E4CB51EBB11F6F /* UIScreen+Extension.swift in Sources */,
 				848A642525A44EF400E9EC48 /* NSNumber+Extension.swift in Sources */,

@@ -82,6 +82,20 @@ public extension JKPOP where Base : UIViewController {
     var isCurrentVC: Bool {
         return base.isViewLoaded == true && (base.view!.window != nil)
     }
+    
+    // MARK: 1.6、关闭当前的控制器
+    /// 关闭当前的控制器
+    func closeCurrentVC() {
+        guard let nav = self.base.navigationController else {
+            base.dismiss(animated: true, completion: nil)
+            return
+        }
+        if nav.viewControllers.count > 1 {
+            nav.popViewController(animated: true)
+        } else if let _ = nav.presentingViewController {
+            nav.dismiss(animated: true, completion: nil)
+        }
+    }
 }
 
 // MARK:- 二、Storyboard 的 VC 交互

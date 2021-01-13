@@ -904,7 +904,7 @@ public extension JKPOP where Base : UIView {
         return obj
     }
     
-    // MARK: 9.6、手势 - 屏幕边缘(闭包)
+    // MARK: 9.6、手势 - 屏幕边缘(闭包) - 靠近屏幕边缘的视图即可
     /// 手势 - 屏幕边缘(闭包)
     /// - Parameters:
     ///   - action: 事件

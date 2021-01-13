@@ -15,6 +15,7 @@ public extension JKPOP where Base : UITableView {
     /// tableView 在 iOS 11 上的适配
     func tableViewNeverAdjustContentInset() {
         if #available(iOS 11, *) {
+            self.base.estimatedRowHeight = 0
             self.base.estimatedSectionFooterHeight = 0
             self.base.estimatedSectionHeaderHeight = 0
             self.base.contentInsetAdjustmentBehavior = .never

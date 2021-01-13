@@ -23,6 +23,6 @@ extension UITabBarControllerExtensionViewController {
     
     // MARK: 1.1、当前选择索引
     @objc func test11() {
-        JKPrint("当前选择索引：\(UITabBarController.selectedIdx)")
+        JKPrint("当前选择索引：\(UITabBarController.jk.selectedIdx)")
     }
 }
