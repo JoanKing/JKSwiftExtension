@@ -124,7 +124,7 @@ public let kScreenH: CGFloat = UIScreen.main.bounds.height
 public let kStatusBarFrameH: CGFloat = UIApplication.shared.statusBarFrame.height
 // MARK: 2.4、获取导航栏的高度
 /// 获取导航栏的高度
-public var kNavFrameH: CGFloat { return isIPhoneX ? 88 : 64 }
+public var kNavFrameH: CGFloat { 44 + kStatusBarFrameH }
 // MARK: 2.5、获取tabbar的高度
 /// 获取tabbar的高度
 public var kTabbarFrameH: CGFloat { return isIPhoneX ? 83 : 49 }
