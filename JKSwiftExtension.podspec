@@ -8,20 +8,26 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JKSwiftExtension'
-  s.version          = '1.0.7'
+  s.version          = '1.0.8'
   s.summary          = 'Swift版本的一个扩展'
   s.description      = '这是Swift版本扩展的一个详细的使用，可以参考里面的用法'
 
   s.homepage         = 'https://github.com/JoanKing/JKSwiftExtension'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  
   s.author           = { 'JoanKing' => 'jkironman@163.com' }
+  s.social_media_url   = "https://github.com/JoanKing"
+  
   s.source           = { :git => 'https://github.com/JoanKing/JKSwiftExtension.git', :tag => s.version.to_s }
+  
   s.ios.deployment_target = '9.0'
-
-  s.source_files = 'JKSwiftExtension/Classes/**/*'
+  
   # swift 支持的版本
   s.swift_version = '5.0'
   
+  s.requires_arc = true
+  
+  s.source_files = 'JKSwiftExtension/Classes/**/*'
   s.resource_bundles = {
       'JKSwiftExtension' => ['JKSwiftExtension/Assets/*.png']
   }

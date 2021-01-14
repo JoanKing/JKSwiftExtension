@@ -6,7 +6,7 @@
 //
 
 import Foundation
-public extension JKPOP where Base : UIPageControl {
+public extension JKPOP where Base: UIPageControl {
 
     /// UIPageControl创建
     /// - Parameters:

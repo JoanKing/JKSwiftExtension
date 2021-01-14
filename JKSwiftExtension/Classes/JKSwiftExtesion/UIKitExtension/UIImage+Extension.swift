@@ -309,7 +309,7 @@ fileprivate extension UIImage {
 }
 
 // MARK:- 二、UIColor 生成的图片 和 生成渐变色图片
-public extension JKPOP where Base : UIImage {
+public extension JKPOP where Base: UIImage {
     
     // MARK: 2.1、生成指定尺寸的纯色图像
     /// 生成指定尺寸的纯色图像
@@ -428,7 +428,7 @@ public extension JKPOP where Base : UIImage {
 }
 
 // MARK:- 三、图片的拉伸和缩放
-public extension JKPOP where Base : UIImage {
+public extension JKPOP where Base: UIImage {
     
     // MARK: 3.1、获取固定大小的 image
     /// 获取固定大小的image
@@ -555,7 +555,7 @@ public extension JKPOP where Base : UIImage {
 }
 
 // MARK:- 四、UIImage 压缩相关
-public extension JKPOP where Base : UIImage {
+public extension JKPOP where Base: UIImage {
     
     // MARK: 4.1、压缩图片
     /// 压缩图片
@@ -728,7 +728,7 @@ public enum CompressionMode {
 
 
 // MARK:- 五、二维码的处理
-public extension JKPOP where Base : UIImage {
+public extension JKPOP where Base: UIImage {
     
     // MARK: 5.1、生成二维码图片
     /// 生成二维码图片
@@ -831,7 +831,7 @@ public enum DataType: String {
     case tiff   = "tiff"
     case defaultType
 }
-public extension JKPOP where Base : UIImage {
+public extension JKPOP where Base: UIImage {
     
     // MARK: 6.1、验证资源的格式，返回资源格式（png/gif/jpeg...）
     /// 验证资源的格式，返回资源格式（png/gif/jpeg...）
@@ -1037,7 +1037,7 @@ public extension JKPOP where Base : UIImage {
 }
 
 // MARK:- 七、图片旋转的一些操作
-public extension JKPOP where Base : UIImage {
+public extension JKPOP where Base: UIImage {
     
     // MARK: 7.1、图片旋转 (角度)
     /// 图片旋转 (角度)

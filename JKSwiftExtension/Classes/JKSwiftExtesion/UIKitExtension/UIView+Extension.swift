@@ -145,7 +145,7 @@ public let kScreenW16_9: CGFloat = kScreenW * 9.0 / 16.0
 public let kScreenH16_9: CGFloat = kScreenH * 16.0 / 9.0
 
 // MARK:- 三、UIView 有关 Frame 的扩展
-public extension JKPOP where Base : UIView {
+public extension JKPOP where Base: UIView {
     // MARK: 3.1、x 的位置
     /// x 的位置
     var x: CGFloat {
@@ -331,7 +331,7 @@ public extension JKPOP where Base : UIView {
  m43:z轴方向进行平移
  m44:初始为1
  */
-extension JKPOP where Base : UIView {
+extension JKPOP where Base: UIView {
     
     // MARK: 4.1、平面旋转
     /// 平面旋转
@@ -406,7 +406,7 @@ extension JKPOP where Base : UIView {
 }
 
 // MARK:- 五、关于UIView的 圆角、阴影、边框 的设置
-public extension JKPOP where Base : UIView {
+public extension JKPOP where Base: UIView {
     
     // MARK: 5.1、添加圆角
     /// 添加圆角
@@ -663,7 +663,7 @@ public extension UIView {
 }
 
 // MARK:- 七、其他的方法
-public extension JKPOP where Base : UIView {
+public extension JKPOP where Base: UIView {
     
     // MARK: 7.1、获取当前view的viewcontroller
     /// 获取当前view的viewcontroller
@@ -748,7 +748,7 @@ extension UIView {
 }
 
 // MARK: 八、视图调试
-public extension JKPOP where Base : UIView {
+public extension JKPOP where Base: UIView {
     
     // MARK: 8.1、图层调试(兼容OC)
     /// 图层调试(兼容OC)
@@ -807,7 +807,7 @@ public extension JKPOP where Base : UIView {
 }
 
 // MARK: 九、手势的扩展
-public extension JKPOP where Base : UIView {
+public extension JKPOP where Base: UIView {
     
     // MARK: 9.1、通用响应添加方法
     /// 通用响应添加方法
@@ -826,7 +826,7 @@ public extension JKPOP where Base : UIView {
             }, for: .valueChanged)
         } else {
             _ = self.base.jk.addGestureTap { (reco) in
-                actionClosure((reco as! UITapGestureRecognizer), reco.view!, reco.view!.tag);
+                actionClosure((reco as! UITapGestureRecognizer), reco.view!, reco.view!.tag)
             }
         }
     }
@@ -858,7 +858,7 @@ public extension JKPOP where Base : UIView {
     @discardableResult
     func addGestureLongPress(_ action: @escaping RecognizerClosure, for minimumPressDuration: TimeInterval) -> UILongPressGestureRecognizer {
         let obj = UILongPressGestureRecognizer(target: nil, action: nil)
-        obj.minimumPressDuration = minimumPressDuration;
+        obj.minimumPressDuration = minimumPressDuration
         addCommonGestureRecognizer(obj)
         obj.addAction { (recognizer) in
             action(recognizer)
@@ -879,10 +879,10 @@ public extension JKPOP where Base : UIView {
         addCommonGestureRecognizer(obj)
           
         obj.addAction { (recognizer) in
-            if let sender = recognizer as? UIPanGestureRecognizer {
-                let translate:CGPoint = sender.translation(in: sender.view?.superview)
-                sender.view!.center = CGPoint(x: sender.view!.center.x + translate.x, y: sender.view!.center.y + translate.y)
-                sender.setTranslation( .zero, in: sender.view!.superview)
+            if let sender = recognizer as? UIPanGestureRecognizer, let senderView = sender.view {
+                let translate: CGPoint = sender.translation(in: senderView.superview)
+                senderView.center = CGPoint(x: senderView.center.x + translate.x, y: senderView.center.y + translate.y)
+                sender.setTranslation( .zero, in: senderView.superview)
                 action(recognizer)
             }
         }
@@ -953,7 +953,10 @@ public extension JKPOP where Base : UIView {
         return obj
     }
       
-    // MARK: 9.9、手势 - 捏合 
+    // MARK: 9.9、手势 - 捏合
+    /// 手势 - 捏合
+    /// - Parameter action: 事件
+    /// - Returns: 手势
     @discardableResult
     func addGesturePinch(_ action: @escaping RecognizerClosure) -> UIPinchGestureRecognizer {
         let obj = UIPinchGestureRecognizer(target: nil, action: nil)
@@ -971,6 +974,9 @@ public extension JKPOP where Base : UIView {
     }
     
     // MARK: 9.10、手势 - 旋转
+    /// 手势 - 旋转
+    /// - Parameter action: 事件
+    /// - Returns: 手势
     @discardableResult
     func addGestureRotation(_ action: @escaping RecognizerClosure) -> UIRotationGestureRecognizer {
         let obj = UIRotationGestureRecognizer(target: nil, action: nil)

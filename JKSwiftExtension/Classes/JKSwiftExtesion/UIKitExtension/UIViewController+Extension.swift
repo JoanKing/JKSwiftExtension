@@ -9,7 +9,7 @@ import UIKit
 
 // MARK:- 一、基本的扩展
 extension UIViewController: JKPOPCompatible {}
-public extension JKPOP where Base : UIViewController {
+public extension JKPOP where Base: UIViewController {
     
     // MARK: 1.1、pop回上一个界面
     /// pop回上一个界面
@@ -105,7 +105,7 @@ public extension JKPOP where Base : UIViewController {
  2、VC 之间的连线，比如 button，按住 ctrl 拖到其他的VC后，松开后在弹出界面选择跳转的方式
  3、在进行 Storyboard 里面指定 VC 跳转的时候记得设置 identifier，不然找不到对应的VC
  */
-public extension JKPOP where Base : UIViewController {
+public extension JKPOP where Base: UIViewController {
     
     // MARK: 2.1、push跳转Storyboard(首个初始化的控制器)，一定要设置一个初始化的控制器，勾选：Is Initial View Controller
     /// push跳转Storyboard(首个初始化的控制器)
