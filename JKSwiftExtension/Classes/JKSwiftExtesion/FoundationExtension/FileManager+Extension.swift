@@ -7,6 +7,8 @@
 
 import UIKit
 import Foundation
+import AVKit
+
 extension FileManager: JKPOPCompatible {}
 // MARK:- 一、沙盒路径的获取
 /*
@@ -549,7 +551,7 @@ public extension JKPOP where Base: FileManager {
     }
 }
 
-// MARK:- fileprivate
+// MARK: fileprivate
 public extension JKPOP where Base: FileManager {
     
     // MARK: 计算文件大小：UInt64 -> String
@@ -565,5 +567,125 @@ public extension JKPOP where Base: FileManager {
             multiplyFactor += 1
         }
         return String(format: "%4.2f %@", convertedValue, tokens[multiplyFactor])
+    }
+}
+
+// MARK:- 三、有关视频缩略图获取的扩展
+// 视频URL的类型
+enum JKVideoUrlType {
+    // 本地
+    case local
+    // 服务器
+    case server
+}
+public extension JKPOP where Base: FileManager {
+    
+    // MARK: 3.1、通过本地(沙盒)视频文件路径获取截图
+    /// 通过本地(沙盒)视频文件路径获取截图
+    /// - Parameters:
+    ///   - videoPath: 视频在沙盒的路径
+    ///   - preferredTrackTransform: 缩略图的方向
+    /// - Returns: 视频的缩略图
+    static func getLocalVideoImage(videoPath: String, preferredTrackTransform: Bool = true) -> UIImage? {
+        //  获取截图
+        let videoImage = getVideoImage(videoUrlSouceType: .local, path: videoPath, seconds: 1, preferredTimescale: 10, maximumSize: nil, preferredTrackTransform: preferredTrackTransform)
+        return videoImage
+    }
+    
+    // MARK: 3.2、通过本地(沙盒)视频文件路径数组获取截图数组
+    /// 通过本地(沙盒)视频文件路径数组获取截图数组
+    /// - Parameters:
+    ///   - videoPaths: 视频在沙盒的路径数组
+    ///   - preferredTrackTransform: 缩略图的方向
+    /// - Returns: 视频的缩略图数组
+    static func getLocalVideoImages(videoPaths: [String], preferredTrackTransform: Bool = true) -> [UIImage?] {
+        //  获取截图
+        var allImageArray: [UIImage?] = []
+        for path in videoPaths {
+            let videoImage = getVideoImage(videoUrlSouceType: .local, path: path, seconds: 1, preferredTimescale: 10, maximumSize: nil, preferredTrackTransform: preferredTrackTransform)
+            allImageArray.append(videoImage)
+        }
+        return allImageArray
+    }
+    
+    // MARK: 3.3、通过网络视频文件路径获取截图
+    /// 通过网络视频文件路径获取截图
+    /// - Parameters:
+    ///   - videoPath: 视频在沙盒的路径
+    ///   - preferredTrackTransform: 缩略图的方向
+    /// - Returns: 视频的缩略图
+    static func getServerVideoImage(videoPath: String, videoImage: @escaping (UIImage?) -> Void, preferredTrackTransform: Bool = true) {
+        //异步获取网络视频缩略图，由于网络请求比较耗时，所以我们把获取在线视频的相关代码写在异步线程里
+        DispatchQueue.global().async {
+            //  获取截图
+            let image = getVideoImage(videoUrlSouceType: .server, path: videoPath, seconds: 1, preferredTimescale: 10, maximumSize: nil, preferredTrackTransform: preferredTrackTransform)
+            DispatchQueue.main.async {
+                videoImage(image)
+            }
+        }
+    }
+    
+    // MARK: 3.4、通过网络视频文件路径数组获取截图数组
+    /// 通过网络视频文件路径数组获取截图数组
+    /// - Parameters:
+    ///   - videoPaths: 视频在沙盒的路径数组
+    ///   - preferredTrackTransform: 缩略图的方向
+    /// - Returns: 视频的缩略图数组
+    static func getServerVideoImages(videoPaths: [String], videoImages: @escaping ([UIImage?]) -> Void, preferredTrackTransform: Bool = true) {
+        //异步获取网络视频缩略图，由于网络请求比较耗时，所以我们把获取在线视频的相关代码写在异步线程里
+        DispatchQueue.global().async {
+            //  获取截图
+            var allImageArray: [UIImage?] = []
+            for path in videoPaths {
+                let videoImage = getVideoImage(videoUrlSouceType: .server, path: path, seconds: 1, preferredTimescale: 10, maximumSize: nil, preferredTrackTransform: preferredTrackTransform)
+                allImageArray.append(videoImage)
+            }
+            DispatchQueue.main.async {
+                videoImages(allImageArray)
+            }
+        }
+    }
+   
+    // MARK: 获取视频缩略图的共有方法
+    /// 获取视频缩略图的共有方法
+    /// - Parameters:
+    ///   - videoUrlSouceType: 视频来源类型
+    ///   - path: 本地路径或者网络视频连接
+    ///   - seconds: 取第几秒
+    ///   - preferredTimescale: 一秒钟几帧
+    ///   - maximumSize: 设置图片的最大size(分辨率)
+    ///   - preferredTrackTransform: 设定缩略图的方向，如果不设定，可能会在视频旋转90/180/270°时，获取到的缩略图是被旋转过的，而不是正向的
+    /// - Returns: 返回获取的图片
+    private static func getVideoImage(videoUrlSouceType: JKVideoUrlType = .local, path: String, seconds: Double = 1, preferredTimescale: CMTimeScale = 10, maximumSize: CGSize?, preferredTrackTransform: Bool = true) -> UIImage? {
+        var videoURL: URL?
+        
+        if videoUrlSouceType == .local {
+            videoURL = URL(fileURLWithPath: path)
+        } else {
+            videoURL = URL(string: path)!
+        }
+        
+        guard let weakVideoURL = videoURL else {
+            return nil
+        }
+        let videoAsset = AVURLAsset(url: weakVideoURL)
+    
+        let imageGenerator = AVAssetImageGenerator(asset: videoAsset)
+        // 设定缩略图的方向
+        // 如果不设定，可能会在视频旋转90/180/270°时，获取到的缩略图是被旋转过的，而不是正向的
+        imageGenerator.appliesPreferredTrackTransform = preferredTrackTransform
+        // 设置图片的最大size(分辨率)
+        if let size = maximumSize {
+            imageGenerator.maximumSize = size
+        }
+        // 取第几秒，一秒钟几帧
+        let cmTime = CMTime(seconds: seconds, preferredTimescale: preferredTimescale)
+        if let cgImg = try? imageGenerator.copyCGImage(at: cmTime, actualTime: nil) {
+            let img = UIImage(cgImage: cgImg)
+            return img
+        } else {
+            JKPrint("获取缩略图失败")
+            return nil
+        }
     }
 }

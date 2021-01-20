@@ -9,7 +9,7 @@
 import Foundation
 extension Date: JKPOPCompatible {}
 /// 时间戳的类型
-public enum TimestampType: Int {
+public enum JKTimestampType: Int {
     // 秒
     case second
     // 毫秒
@@ -95,6 +95,14 @@ public extension JKPOP where Base == Date {
 }
 
 //MARK: - 二、时间格式的转换
+// MARK: 时间条的显示格式
+public enum JKTimeBarType {
+    // 默认格式，如 9秒：09，66秒：01：06，
+    case normal
+    case second
+    case minute
+    case hour
+}
 public extension JKPOP where Base == Date {
     
     // MARK: 2.1、时间戳 按照对应的格式 转化为 对应时间的字符串，支持10位 和 13位 
@@ -156,7 +164,7 @@ public extension JKPOP where Base == Date {
     ///   - formatter: 时间格式，如：yyyy-MM-dd HH:mm:ss
     ///   - timestampType: 返回的时间戳类型，默认是秒 10 为的时间戳字符串
     /// - Returns: 返回转化后的时间戳
-    static func formatterTimeStringToTimestamp(timesString: String, formatter: String, timestampType: TimestampType = .second) -> String {
+    static func formatterTimeStringToTimestamp(timesString: String, formatter: String, timestampType: JKTimestampType = .second) -> String {
         let date = formatterTimeStringToDate(timesString: timesString, formatter: formatter)
         if timestampType == .second {
             return "\(Int(date.timeIntervalSince1970))"
@@ -180,6 +188,45 @@ public extension JKPOP where Base == Date {
             #endif
         }
         return date
+    }
+    
+    // MARK: 2.6、秒转换成播放时间条的格式
+    /// 秒转换成播放时间条的格式
+    /// - Parameters:
+    ///   - secounds: 秒数
+    ///   - type: 格式类型
+    /// - Returns: 返回时间条
+    static func getFormatPlayTime(seconds: Int, type: JKTimeBarType = .normal) -> String {
+        if seconds <= 0{
+            return "00:00"
+        }
+        // 秒
+        let second = seconds % 60
+        if type == .second {
+            return String(format: "%02d", seconds)
+        }
+        // 分钟
+        var minute = Int(seconds / 60)
+        if type == .minute {
+            return String(format: "%02d:%02d", minute, second)
+        }
+        // 小时
+        var hour = 0
+        if minute >= 60 {
+            hour = Int(minute / 60)
+            minute = minute - hour * 60
+        }
+        if type == .hour {
+            return String(format: "%02d:%02d:%02d", hour, minute, second)
+        }
+        // normal 类型
+        if hour > 0 {
+            return String(format: "%02d:%02d:%02d", hour, minute, second)
+        }
+        if minute > 0 {
+            return String(format: "%02d:%02d", minute, second)
+        }
+        return String(format: "%02d", second)
     }
 }
 

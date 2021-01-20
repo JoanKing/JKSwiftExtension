@@ -9,13 +9,21 @@
 import UIKit
 
 class TimerExtensionViewController: BaseViewController {
+    
+    fileprivate lazy var timer1: Timer? = {
+        let timer = Timer(safeTimerWithTimeInterval: 3, repeats: true) { [weak self] _ in
+            print("定时器打印中...................")
+        }
+        RunLoop.main.add(timer, forMode: .default)
+        return timer
+    }()
 
     private var timer: Timer?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         headDataArray = ["一、基本的扩展"]
-        dataArray = [["构造器创建定时器", "类方法创建定时器", "C语言的形式创建定时器(创建后立即执行一次)", "销毁定时器"]]
+        dataArray = [["构造器创建定时器", "类方法创建定时器", "C语言的形式创建定时器(创建后立即执行一次)", "销毁定时器", "开", "关"]]
     }
 }
 
@@ -50,5 +58,17 @@ extension TimerExtensionViewController {
     @objc func test14() {
         
         timer?.invalidate()
+    }
+    
+    // MARK: 1.5、开
+    @objc func test15() {
+        timer1?.fireDate = NSDate.distantPast
+    }
+    
+    // MARK: 1.6、关
+    @objc func test16() {
+        
+        timer1?.invalidate()
+        timer1 = nil
     }
 }

@@ -16,6 +16,30 @@ class TestFileViewController: UIViewController {
         
         self.title = "TestFile"
         self.view.backgroundColor = .white
+        
+        
+        let label1 = UILabel(frame: CGRect(x: 0, y: 100, width: kScreenW, height: 30))
+        label1.text = "H"
+        label1.backgroundColor = .randomColor
+        label1.textAlignment = .center
+        self.view.addSubview(label1)
+        
+        
+        let text = "2256"
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .right
+        let attributedString = NSMutableAttributedString(string: text, attributes: [NSAttributedString.Key.kern: 20])
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: text.count))
+        attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 26), range: NSRange(location: 0, length: text.count))
+        
+        let size = JKContentSize.attributedStringSize(attributedString: attributedString, width: kScreenW, height: 30, font: UIFont.systemFont(ofSize: 26))
+        
+        let label = UILabel(frame: CGRect(x: (kScreenW - size.width) / 2.0 + 10, y: label1.jk.bottom + 10, width: size.width, height: size.height))
+        label.attributedText = attributedString
+        label.backgroundColor = .randomColor
+        self.view.addSubview(label)
+        
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

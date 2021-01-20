@@ -13,13 +13,89 @@ import UIKit
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        headDataArray = ["一、沙盒路径的获取", "二、文件以及文件夹的操作 扩展"]
-        dataArray = [["获取Home的完整路径名", "获取Documnets的完整路径名", "获取Library的完整路径名", "获取/Library/Cache的完整路径名", "获取Library/Preferences的完整路径名", "获取Tmp的完整路径名"], ["创建文件夹(蓝色的，文件夹和文件是不一样的)", "删除文件夹", "创建文件", "删除文件", "读取文件内容", "把文字，图片，数组，字典写入文件", "从文件 读取 文字，图片，数组，字典", "拷贝(文件夹/文件)的内容 到另外一个(文件夹/文件)，新的(文件夹/文件)如果存在就先删除再 拷贝", "移动(文件夹/文件)的内容 到另外一个(文件夹/文件)，新的(文件夹/文件)如果存在就先删除再 移动", "判断 (文件夹/文件) 是否存在", "获取 (文件夹/文件) 的前一个路径", "判断目录是否可读", "判断目录是否可写", "根据文件路径获取文件扩展类型", "根据文件路径获取文件名称，是否需要后缀", "对指定路径执行浅搜索，返回指定目录路径下的文件、子目录及符号链接的列表(只寻找一层)", "深度遍历，会递归遍历子文件夹（包括符号链接，所以要求性能的话用enumeratorAtPath）", "深度遍历，会递归遍历子文件夹（但不会递归符号链接）", "计算单个 (文件夹/文件) 的大小，单位为字节 （没有进行转换的）", "计算 (文件夹/文件) 的大小（转换过的）", "获取(文件夹/文件)属性集合"]]
+        headDataArray = ["一、沙盒路径的获取", "二、文件以及文件夹的操作 扩展", "三、有关视频缩略图获取的扩展"]
+        dataArray = [["获取Home的完整路径名", "获取Documnets的完整路径名", "获取Library的完整路径名", "获取/Library/Cache的完整路径名", "获取Library/Preferences的完整路径名", "获取Tmp的完整路径名"], ["创建文件夹(蓝色的，文件夹和文件是不一样的)", "删除文件夹", "创建文件", "删除文件", "读取文件内容", "把文字，图片，数组，字典写入文件", "从文件 读取 文字，图片，数组，字典", "拷贝(文件夹/文件)的内容 到另外一个(文件夹/文件)，新的(文件夹/文件)如果存在就先删除再 拷贝", "移动(文件夹/文件)的内容 到另外一个(文件夹/文件)，新的(文件夹/文件)如果存在就先删除再 移动", "判断 (文件夹/文件) 是否存在", "获取 (文件夹/文件) 的前一个路径", "判断目录是否可读", "判断目录是否可写", "根据文件路径获取文件扩展类型", "根据文件路径获取文件名称，是否需要后缀", "对指定路径执行浅搜索，返回指定目录路径下的文件、子目录及符号链接的列表(只寻找一层)", "深度遍历，会递归遍历子文件夹（包括符号链接，所以要求性能的话用enumeratorAtPath）", "深度遍历，会递归遍历子文件夹（但不会递归符号链接）", "计算单个 (文件夹/文件) 的大小，单位为字节 （没有进行转换的）", "计算 (文件夹/文件) 的大小（转换过的）", "获取(文件夹/文件)属性集合"], ["通过本地(沙盒)视频文件路径获取截图", "通过本地(沙盒)视频文件路径数组获取截图数组", "通过网络视频文件路径获取截图", "通过网络视频文件路径数组获取截图数组"]]
         
         print("根目录的路径：\(FileManager.jk.homeDirectory())")
     }
+}
+
+// MARK:- 三、有关视频缩略图获取的扩展
+extension FileManagerExtensionViewController {
     
+    // MARK: 3.4、通过网络视频文件路径数组获取截图数组
+    @objc func test34() {
+        // 添加录视频的缩略图
+        let videoPath1 = "http://play.ciotimes.com/DJT55.mp4"
+        let videoPath2 = "http://play.ciotimes.com/DJT58.mp4"
+        
+        "获取网路视频缩略图中，请稍等".toast()
+        
+        FileManager.jk.getServerVideoImages(videoPaths: [videoPath1, videoPath2]) {[weak self] (images) in
+            guard let weakSelf = self else { return }
+            if images.count == 2, let image1 = images[0] , let image2 = images[1] {
+                var imageView1 = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+                imageView1.image = image1
+                imageView1.contentMode = .scaleAspectFit
+                imageView1.jk.centerX = weakSelf.view.jk.centerX
+                weakSelf.view.addSubview(imageView1)
+                
+                let imageView2 = UIImageView(frame: CGRect(x: imageView1.jk.x, y: imageView1.jk.bottom + 20, width: 200, height: 200))
+                imageView2.image = image2
+                imageView2.contentMode = .scaleAspectFit
+                weakSelf.view.addSubview(imageView2)
+                
+                JKAsyncs.asyncDelay(3) {
+                } _: {
+                    imageView1.removeFromSuperview()
+                    imageView2.removeFromSuperview()
+                }
+            }
+            
+        }
+    }
     
+    // MARK: 3.3、通过网络视频文件路径获取截图
+    @objc func test33() {
+        
+        "获取网路视频缩略图中，请稍等".toast()
+        
+        // 添加录视频的缩略图
+        let videoPath = "http://play.ciotimes.com/DJT55.mp4"
+        FileManager.jk.getServerVideoImage(videoPath: videoPath) {[weak self] (image) in
+            guard let weakSelf = self, let videoImage = image else { return }
+            var imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+            imageView.image = videoImage
+            imageView.contentMode = .scaleAspectFit
+            imageView.jk.centerX = weakSelf.view.jk.centerX
+            weakSelf.view.addSubview(imageView)
+            JKAsyncs.asyncDelay(3) {
+            } _: {
+                imageView.removeFromSuperview()
+            }
+        }
+       
+    }
+    
+    // MARK: 3.2、通过本地(沙盒)视频文件路径数组获取截图数组
+    @objc func test32() {
+        // 添加录视频的缩略图
+        let videoPath = FileManager.jk.DocumnetsDirectory() + "/video.mp4"
+        
+        let playImage = FileManager.jk.getLocalVideoImages(videoPaths: [videoPath])
+        if playImage.count > 0, let _ = playImage[0] {
+            
+        }
+    }
+    
+    // MARK: 3.1、通过本地(沙盒)视频文件路径获取截图
+    @objc func test31() {
+        // 添加录视频的缩略图
+        let videoPath = FileManager.jk.DocumnetsDirectory() + "/video.mp4"
+        if let _ = FileManager.jk.getLocalVideoImage(videoPath: videoPath) {
+            
+        }
+    }
 }
 
 // MARK:- 二、文件以及文件夹的操作 扩展
