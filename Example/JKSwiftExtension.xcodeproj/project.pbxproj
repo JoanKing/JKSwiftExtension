@@ -41,6 +41,7 @@
 		8457687C259DC3A3006F93D4 /* IndexPathExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457687B259DC3A3006F93D4 /* IndexPathExtensionViewController.swift */; };
 		8473AAC02562889500707877 /* UIImageViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473AABF2562889500707877 /* UIImageViewExtensionViewController.swift */; };
 		8473AADA2562985B00707877 /* pika2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8473AAD82562985A00707877 /* pika2.gif */; };
+		847CCCF925B80D1E00928F5B /* AVAssetExportSessionExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CCCF825B80D1E00928F5B /* AVAssetExportSessionExtensionViewController.swift */; };
 		847D4B452560DF85000DDA3C /* UIBezierPathExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D4B442560DF84000DDA3C /* UIBezierPathExtensionViewController.swift */; };
 		847D4B9625611E50000DDA3C /* UIImageExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */; };
 		847DE9552573F0B60080EEC0 /* testFile.text in Resources */ = {isa = PBXBuildFile; fileRef = 847DE9542573F0B60080EEC0 /* testFile.text */; };
@@ -157,6 +158,7 @@
 		846774172511FE9900DE8B44 /* JKSwiftExtension_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JKSwiftExtension_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		8473AABF2562889500707877 /* UIImageViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensionViewController.swift; sourceTree = "<group>"; };
 		8473AAD82562985A00707877 /* pika2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pika2.gif; sourceTree = "<group>"; };
+		847CCCF825B80D1E00928F5B /* AVAssetExportSessionExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAssetExportSessionExtensionViewController.swift; sourceTree = "<group>"; };
 		847D4B442560DF84000DDA3C /* UIBezierPathExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtensionViewController.swift; sourceTree = "<group>"; };
 		847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensionViewController.swift; sourceTree = "<group>"; };
 		847DE9542573F0B60080EEC0 /* testFile.text */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = testFile.text; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 			isa = PBXGroup;
 			children = (
 				84A5D2D52547B48E003D289C /* DateExtensionViewController.swift */,
+				847CCCF825B80D1E00928F5B /* AVAssetExportSessionExtensionViewController.swift */,
 				84BEA372254FAC6600CA8A75 /* UIFontExtensionViewController.swift */,
 				8482AA092554075E00EB0A7A /* UIDeviceExtensionViewController.swift */,
 				8483A6C9254BC02B00ACF6FD /* BundleExtensionViewController.swift */,
@@ -876,6 +879,7 @@
 				8457686C259DC2A7006F93D4 /* NSIndexPathExtensionViewController.swift in Sources */,
 				84B8FE3825A314FD00E7099E /* JKRegexHelperViewController.swift in Sources */,
 				848028082558D5A70038748A /* CALayerExtensionViewController.swift in Sources */,
+				847CCCF925B80D1E00928F5B /* AVAssetExportSessionExtensionViewController.swift in Sources */,
 				8418FB99255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift in Sources */,
 				847DFF262550F07600EEE785 /* Int64ExtensionViewController.swift in Sources */,
 				84D9BD7D2565165D00D92461 /* MaskingManagerExtensionViewController.swift in Sources */,

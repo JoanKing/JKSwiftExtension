@@ -267,6 +267,7 @@
 		8457684F259DC017006F93D4 /* UITabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457684E259DC017006F93D4 /* UITabBarController+Extension.swift */; };
 		8457685F259DC1E7006F93D4 /* NSIndexPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457685E259DC1E7006F93D4 /* NSIndexPath+Extension.swift */; };
 		8457686F259DC367006F93D4 /* IndexPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457686E259DC367006F93D4 /* IndexPath+Extension.swift */; };
+		847CCCEC25B806A800928F5B /* AVAssetExportSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CCCEB25B806A800928F5B /* AVAssetExportSession+Extension.swift */; };
 		848A439125AEA025003EA5E5 /* UITabBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A439025AEA025003EA5E5 /* UITabBar+Extension.swift */; };
 		848A439E25AEA25B003EA5E5 /* UIPageControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A439D25AEA25B003EA5E5 /* UIPageControl+Extension.swift */; };
 		848A642525A44EF400E9EC48 /* NSNumber+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A642425A44EF400E9EC48 /* NSNumber+Extension.swift */; };
@@ -901,6 +902,7 @@
 		8457684E259DC017006F93D4 /* UITabBarController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extension.swift"; sourceTree = "<group>"; };
 		8457685E259DC1E7006F93D4 /* NSIndexPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSIndexPath+Extension.swift"; sourceTree = "<group>"; };
 		8457686E259DC367006F93D4 /* IndexPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexPath+Extension.swift"; sourceTree = "<group>"; };
+		847CCCEB25B806A800928F5B /* AVAssetExportSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVAssetExportSession+Extension.swift"; sourceTree = "<group>"; };
 		848A439025AEA025003EA5E5 /* UITabBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+Extension.swift"; sourceTree = "<group>"; };
 		848A439D25AEA25B003EA5E5 /* UIPageControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPageControl+Extension.swift"; sourceTree = "<group>"; };
 		848A642425A44EF400E9EC48 /* NSNumber+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNumber+Extension.swift"; sourceTree = "<group>"; };
@@ -1650,6 +1652,7 @@
 			isa = PBXGroup;
 			children = (
 				ACE0443581FFF7A98A73C39857E039E6 /* FileManager+Extension.swift */,
+				847CCCEB25B806A800928F5B /* AVAssetExportSession+Extension.swift */,
 				F21F384797508E5223A1D083CFA91C88 /* UIDevice+Extension.swift */,
 				84B4917925A586FC005F376A /* DispatchQueue+Extension.swift */,
 				848A642425A44EF400E9EC48 /* NSNumber+Extension.swift */,
@@ -2663,6 +2666,7 @@
 				8ECF13B4083170AF6A38284E2DE58498 /* URL+Extension.swift in Sources */,
 				71F4DBDB08563A8EADCBD941680D18EA /* UserDefaults+Extesnion.swift in Sources */,
 				D8D63960A91016D3A3C6A18043250B88 /* WeakTimer.swift in Sources */,
+				847CCCEC25B806A800928F5B /* AVAssetExportSession+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

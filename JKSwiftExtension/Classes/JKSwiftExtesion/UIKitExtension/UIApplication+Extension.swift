@@ -172,3 +172,8 @@ public extension JKPOP where Base: UIApplication {
         return detailUrl
     }
 }
+
+// MARK:- 二、APP内打开第三方
+public extension JKPOP where Base: UIApplication {
+    // MARK: 2.1、
+}
