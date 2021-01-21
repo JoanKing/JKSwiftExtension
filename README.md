@@ -39,7 +39,7 @@
    - 1.1.2、版本
      
          UIApplication+Extension 新增判断是否拥有权限，目前支持 照相机、相册、麦克风、定位，提示：这里判断是这些权限有没有被用户手动关闭
-JKGlobalTools 新增打开设置界面
+         JKGlobalTools 新增打开设置界面
    - 1.1.1、版本
    
          音视频压缩 AVAssetExportSession+Extension.swift 扩展的新增
