@@ -137,7 +137,7 @@ public struct JKGlobalTools {
         }
     }
     
-    private static func openUrl(url: URL, complete: @escaping ((Bool) -> Void)) {
+    static func openUrl(url: URL, complete: @escaping ((Bool) -> Void)) {
         // iOS 10.0 以前
         guard #available(iOS 10.0, *)  else {
             let success = UIApplication.shared.openURL(url)
@@ -205,6 +205,17 @@ public struct JKGlobalTools {
             }
         }
         return (ssid, mac)
+    }
+    
+    // MARK: 1.9、打开设置界面
+    /// 打开设置界面
+    public static func openSetting() {
+        // 设置
+        guard let url = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+        openUrl(url: url) { (result) in
+        }
     }
 }
 

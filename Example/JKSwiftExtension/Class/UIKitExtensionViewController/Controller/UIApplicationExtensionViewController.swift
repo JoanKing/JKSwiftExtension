@@ -13,11 +13,23 @@ class UIApplicationExtensionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headDataArray = ["一、基本的扩展"]
-        dataArray = [["获取屏幕的方向", "获取根控制器", "设备信息的获取", "app定位区域", "网络状态是否可用", "消息推送是否可用", "用户相册是否可用", "注册APNs远程推送", "app商店链接", "app详情链接"]]
+        headDataArray = ["一、基本的扩展", "二、APP权限的检测"]
+        dataArray = [["获取屏幕的方向", "获取根控制器", "设备信息的获取", "app定位区域", "网络状态是否可用", "消息推送是否可用", "用户相册是否可用", "注册APNs远程推送", "app商店链接", "app详情链接"], ["判断是否拥有权限，目前支持 照相机、相册、麦克风、定位，提示：这里判断是这些权限有没有被用户手动关闭"]]
     }
 }
 
+// MARK:- 二、APP权限的检测
+extension UIApplicationExtensionViewController {
+    
+    // MARK: 2.1、判断是否拥有权限，目前支持 照相机、相册、麦克风、定位，提示：这里判断是这些权限有没有被用户手动关闭
+    @objc func test21() {
+        let result1 = UIApplication.jk.isOpenPermission(.camera)
+        let result2 = UIApplication.jk.isOpenPermission(.album)
+        let result3 = UIApplication.jk.isOpenPermission(.audio)
+        let result4 = UIApplication.jk.isOpenPermission(.location)
+        JKPrint(" 照相机：\(result1)、相册：\(result2)、麦克风：\(result3)、定位：\(result4)")
+    }
+}
 // MARK:- 一、基本的扩展
 extension UIApplicationExtensionViewController {
     

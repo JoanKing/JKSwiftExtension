@@ -1604,11 +1604,11 @@
 		6B175F94E4F7454BCC9AAAFC8A681169 /* UIKitExtension */ = {
 			isa = PBXGroup;
 			children = (
+				2B680E9AC14BA2A8B48D7D1E9877360D /* UIApplication+Extension.swift */,
 				C377E963B59B54EBF0EC3672123D5479 /* UIView+Extension.swift */,
 				848A439D25AEA25B003EA5E5 /* UIPageControl+Extension.swift */,
 				B5D069162C3C6145C18C2156DF044649 /* UIViewController+Extension.swift */,
 				84E11DC225AD7F3200096B00 /* WKWebView+Extension.swift */,
-				2B680E9AC14BA2A8B48D7D1E9877360D /* UIApplication+Extension.swift */,
 				41F59A521B46F15C23F675521AB88C30 /* UISwitch+Extension.swift */,
 				9D1FC8E443C50BFCB894BAA703983A41 /* UIButton+Extension.swift */,
 				848A643125A4510500E9EC48 /* UISlider+Extension.swift */,

@@ -18,7 +18,7 @@ public extension JKPOP where Base: AVAssetExportSession {
     ///   - outputFileType: 导出视频类型
     ///   - handler: 处理视频的闭包，参数1：AVAssetExportSession对象，参数2：视频的时间，参数3：视频压缩后的大小，参数4：转码后的视频本地地址
     ///   - shouldOptimizeForNetworkUse: 是否优化网络
-    ///   - exportPresetMediumQuality: 压缩质量
+    ///   - exportPresetMediumQuality: 压缩质量，这种设置方式，最终生成的视频分辨率与具体的拍摄设备有关。比如 iPhone6 拍摄的视频：使用AVAssetExportPresetHighestQuality则视频分辨率是1920x1080（不压缩）；AVAssetExportPresetMediumQuality视频分辨率是568x320；AVAssetExportPresetLowQuality视频分辨率是224x128
     static func assetExportSession(inputPath: String, outputPath: String, outputFileType: AVFileType = .mp4, completionHandler handler: @escaping (AVAssetExportSession, Float64, String, String) -> Void, shouldOptimizeForNetworkUse: Bool = true, exportPresetMediumQuality: String = AVAssetExportPresetMediumQuality) {
         // 1、先检查是否存在输入是视频路径
         guard FileManager.jk.judgeFileOrFolderExists(filePath: inputPath) else {
