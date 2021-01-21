@@ -36,6 +36,9 @@
     我的联系方式：微信：18500652880，您加我后，我把您拉进 JKSwiftExtension 的使用和维护群
     
 ## 版本说明
+   - 1.1.1、版本
+   
+         音视频压缩 AVAssetExportSession+Extension.swift 扩展的新增
    - 1.1.0、版本
    
          FileManager+Extension 新增有关网络和本地视频缩略图获取的扩展
