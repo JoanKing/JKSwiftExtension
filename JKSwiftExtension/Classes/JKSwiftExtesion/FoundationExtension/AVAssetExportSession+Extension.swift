@@ -44,10 +44,12 @@ public extension JKPOP where Base: AVAssetExportSession {
         exportSession.shouldOptimizeForNetworkUse = shouldOptimizeForNetworkUse
         // 异步导出
         exportSession.exportAsynchronously {
-            if exportSession.status == .completed {
-                handler(exportSession, duration, FileManager.jk.fileOrDirectorySize(path: outputPath), outputPath)
-            } else {
-                handler(exportSession, duration, "", "")
+            DispatchQueue.main.async {
+                if exportSession.status == .completed {
+                    handler(exportSession, duration, FileManager.jk.fileOrDirectorySize(path: outputPath), outputPath)
+                } else {
+                    handler(exportSession, duration, "", "")
+                }
             }
         }
         //

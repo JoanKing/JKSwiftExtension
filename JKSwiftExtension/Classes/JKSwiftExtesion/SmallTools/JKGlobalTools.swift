@@ -137,7 +137,7 @@ public struct JKGlobalTools {
         }
     }
     
-    static func openUrl(url: URL, complete: @escaping ((Bool) -> Void)) {
+    public static func openUrl(url: URL, complete: @escaping ((Bool) -> Void)) {
         // iOS 10.0 以前
         guard #available(iOS 10.0, *)  else {
             let success = UIApplication.shared.openURL(url)
