@@ -36,7 +36,8 @@
     我的联系方式：微信：18500652880，您加我后，我把您拉进 JKSwiftExtension 的使用和维护群
     
 ## 版本说明
-    - 1.1.5、版本
+    
+   - 1.1.5、版本
     
          UIApplication+Extension 新增打开系统应用和第三方APP的方法，如打开微信
          UIApplication.jk.openThirdPartyApp(type: .weixin) { (result) in
