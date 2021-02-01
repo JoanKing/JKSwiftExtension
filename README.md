@@ -31,11 +31,18 @@
 
     Swift5.0+
     
-## 这个基础库的目的：快速开发，不重复再去查找资料，我希望感兴趣的朋友和我一起完善它和规范它
+## 这个基础库的目的：快速开发，不重复再去查找资料，我希望感兴趣的朋友和我一起完善它和规范它，如果觉得此项目对您的Swift学习有帮助，欢迎点赞...
   
     我的联系方式：微信：18500652880，您加我后，我把您拉进 JKSwiftExtension 的使用和维护群
     
 ## 版本说明
+    
+   - 1.1.5、版本
+    
+         UIApplication+Extension 新增打开系统应用和第三方APP的方法，如打开微信
+         UIApplication.jk.openThirdPartyApp(type: .weixin) { (result) in
+            JKPrint("结果：\(result)")
+         }
    - 1.1.2、版本
      
          UIApplication+Extension 新增判断是否拥有权限，目前支持 照相机、相册、麦克风、定位，提示：这里判断是这些权限有没有被用户手动关闭
