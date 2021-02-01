@@ -544,3 +544,35 @@ public extension JKPOP where Base: UIButton {
     }
 }
 
+// MARK:- 六、Button扩大点击事件
+private var JKUIButtonExpandSizeKey = "JKUIButtonExpandSizeKey"
+public extension UIButton {
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        let buttonRect = self.jk.expandRect()
+        if (buttonRect.equalTo(bounds)) {
+            return super.point(inside: point, with: event)
+        }else{
+            return buttonRect.contains(point)
+        }
+    }
+}
+public extension JKPOP where Base: UIButton {
+
+    // MARK: 6.1、扩大UIButton的点击区域，向四周扩展10像素的点击范围
+    /// 扩大UIButton的点击区域，向四周扩展10像素的点击范围
+    /// - Parameter size: 向四周扩展像素的点击范围
+    func expandSize(size: CGFloat) {
+        objc_setAssociatedObject(self.base, &JKUIButtonExpandSizeKey, size, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY)
+    }
+
+    fileprivate func expandRect() -> CGRect {
+        let expandSize = objc_getAssociatedObject(self.base, &JKUIButtonExpandSizeKey)
+        if (expandSize != nil) {
+            return CGRect(x: self.base.bounds.origin.x - (expandSize as! CGFloat), y: self.base.bounds.origin.y - (expandSize as! CGFloat), width: self.base.bounds.size.width + 2 * (expandSize as! CGFloat), height: self.base.bounds.size.height + 2 * (expandSize as! CGFloat))
+        } else {
+            return self.base.bounds
+        }
+    }
+}
+
+

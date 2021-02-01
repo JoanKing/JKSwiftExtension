@@ -278,6 +278,7 @@
 		84E11DC325AD7F3200096B00 /* WKWebView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E11DC225AD7F3200096B00 /* WKWebView+Extension.swift */; };
 		84E11DE925AD8DE600096B00 /* UIGestureRecognizer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E11DE825AD8DE600096B00 /* UIGestureRecognizer+Extension.swift */; };
 		84E11DF625AD939100096B00 /* JKClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E11DF525AD939100096B00 /* JKClosure.swift */; };
+		84E96DCC25C7E19400D76D5C /* CAGradientLayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E96DCB25C7E19400D76D5C /* CAGradientLayer+Extension.swift */; };
 		84F93790258A053F00A35E77 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F9378F258A053F00A35E77 /* UICollectionView+Extension.swift */; };
 		854CFE67EFDEDB341A61AD077D57BD09 /* UIControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9FA42223E7E1936FE61A5746EB0A9 /* UIControl+Extension.swift */; };
 		85557BB8ADEDB23D463325DE651CF458 /* UIPickerView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = C781EAC70814F3B689611B1B92DD6215 /* UIPickerView+Rx.swift */; };
@@ -915,6 +916,7 @@
 		84E11DC225AD7F3200096B00 /* WKWebView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+Extension.swift"; sourceTree = "<group>"; };
 		84E11DE825AD8DE600096B00 /* UIGestureRecognizer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIGestureRecognizer+Extension.swift"; sourceTree = "<group>"; };
 		84E11DF525AD939100096B00 /* JKClosure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKClosure.swift; sourceTree = "<group>"; };
+		84E96DCB25C7E19400D76D5C /* CAGradientLayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+Extension.swift"; sourceTree = "<group>"; };
 		84F9378F258A053F00A35E77 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		855E0D15BF0175BC156C0A105C35F58F /* InvocableScheduledItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InvocableScheduledItem.swift; path = RxSwift/Schedulers/Internal/InvocableScheduledItem.swift; sourceTree = "<group>"; };
 		856373923C33D6F51ABF659584854785 /* TakeLast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TakeLast.swift; path = RxSwift/Observables/TakeLast.swift; sourceTree = "<group>"; };
@@ -1604,15 +1606,16 @@
 		6B175F94E4F7454BCC9AAAFC8A681169 /* UIKitExtension */ = {
 			isa = PBXGroup;
 			children = (
-				2B680E9AC14BA2A8B48D7D1E9877360D /* UIApplication+Extension.swift */,
+				A8416AD97EEF5AD935392A13F93E43DC /* UILabel+Extension.swift */,
+				84E96DCB25C7E19400D76D5C /* CAGradientLayer+Extension.swift */,
 				C377E963B59B54EBF0EC3672123D5479 /* UIView+Extension.swift */,
+				2B680E9AC14BA2A8B48D7D1E9877360D /* UIApplication+Extension.swift */,
 				848A439D25AEA25B003EA5E5 /* UIPageControl+Extension.swift */,
 				B5D069162C3C6145C18C2156DF044649 /* UIViewController+Extension.swift */,
 				84E11DC225AD7F3200096B00 /* WKWebView+Extension.swift */,
 				41F59A521B46F15C23F675521AB88C30 /* UISwitch+Extension.swift */,
 				9D1FC8E443C50BFCB894BAA703983A41 /* UIButton+Extension.swift */,
 				848A643125A4510500E9EC48 /* UISlider+Extension.swift */,
-				A8416AD97EEF5AD935392A13F93E43DC /* UILabel+Extension.swift */,
 				848A439025AEA025003EA5E5 /* UITabBar+Extension.swift */,
 				8457684E259DC017006F93D4 /* UITabBarController+Extension.swift */,
 				982303CBDB7E78A7C9EFEB63EDA47A5D /* CALayer+Extension.swift */,
@@ -2601,6 +2604,7 @@
 				8F4DA2F50198D1DC977CFB0E8CB0BDAD /* Float+Extension.swift in Sources */,
 				8457681C259D7D65006F93D4 /* NSMutableAttributedString+Extension.swift in Sources */,
 				FCAE4903A01244C96B906C02FA3404FF /* Int+Extension.swift in Sources */,
+				84E96DCC25C7E19400D76D5C /* CAGradientLayer+Extension.swift in Sources */,
 				7B7FDCE4C06F1AF401E8BE6D9C5A4D7B /* Int64+Extension.swift in Sources */,
 				84F93790258A053F00A35E77 /* UICollectionView+Extension.swift in Sources */,
 				A23F21CA53B1CB8BE9858CB55E26F1D2 /* JKAsyncs.swift in Sources */,

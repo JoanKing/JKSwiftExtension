@@ -14,7 +14,7 @@ class UILabelExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、链式编程", "二、其他的基本扩展", "三、特定区域和特定文字的基本扩展"]
-        dataArray = [["设置文字", "设置文字行数", "设置文字对齐方式", "设置富文本文字", "设置文本颜色", "设置文本颜色（十六进制字符串）", "设置字体的大小", "设置字体的大小", "设置字体的大小（粗体）"], ["获取已知 frame 的 label 的文本行数 & 每一行内容", "获取已知 width 的 label 的文本行数 & 每一行内容", "获取第一行内容", "改变行间距", "改变字间距", "改变字间距和行间距", "添加中划线"], ["设置特定区域的字体大小", "设置特定文字的字体大小", "设置特定区域的字体颜色", "设置特定文字的字体颜色", "设置行间距", "设置特定文字区域的下划线", "设置特定文字的下划线", "设置特定区域的删除线", "设置特定文字的删除线", "插入图片", "首行缩进"]]
+        dataArray = [["设置文字", "设置文字行数", "设置文字对齐方式", "设置富文本文字", "设置文本颜色", "设置文本颜色（十六进制字符串）", "设置字体的大小", "设置字体的大小", "设置字体的大小（粗体）"], ["获取已知 frame 的 label 的文本行数 & 每一行内容", "获取已知 width 的 label 的文本行数 & 每一行内容", "获取第一行内容", "改变行间距", "改变字间距", "改变字间距和行间距", "添加中划线"], ["设置特定区域的字体大小", "设置特定文字的字体大小", "设置特定区域的字体颜色", "设置特定文字的字体颜色", "设置行间距", "设置特定文字区域的下划线", "设置特定文字的下划线", "设置特定区域的删除线", "设置特定文字的删除线", "插入图片", "首行缩进", "设置特定文字区域的倾斜", "设置特定文字的倾斜"]]
     }
     
     @objc func click(sender: UIButton) {
@@ -24,6 +24,42 @@ class UILabelExtensionViewController: BaseViewController {
 
 // MARK:- 三、特定区域和特定文字的基本扩展
 extension UILabelExtensionViewController {
+    
+    // MARK: 3.13、设置特定文字的倾斜
+    @objc func test313() {
+        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
+        testLabel.backgroundColor = .brown
+        testLabel.numberOfLines = 0
+        testLabel.font = UIFont.systemFont(ofSize: 20)
+        testLabel.text("梅花以它弱小娇艳的身躯，凌寒傲雪，傲然绽放，装点着寂寞荒凉的冬日")
+        self.view.addSubview(testLabel)
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            testLabel.jk.setSpecificTextBliqueness("傲雪", inclination: 0.3)
+            JKAsyncs.asyncDelay(5, {
+            }) {
+                testLabel.removeFromSuperview()
+            }
+        }
+    }
+    
+    // MARK: 3.12、设置特定文字区域的倾斜
+    @objc func test312() {
+        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
+        testLabel.backgroundColor = .brown
+        testLabel.numberOfLines = 0
+        testLabel.font = UIFont.systemFont(ofSize: 20)
+        testLabel.text("梅花以它弱小娇艳的身躯，凌寒傲雪，傲然绽放，装点着寂寞荒凉的冬日")
+        self.view.addSubview(testLabel)
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            testLabel.jk.setSpecificRangeBliqueness(inclination: 0.5, range: NSRange(location: 2, length: 3))
+            JKAsyncs.asyncDelay(5, {
+            }) {
+                testLabel.removeFromSuperview()
+            }
+        }
+    }
     
     // MARK: 3.11、首行缩进
     @objc func test311() {

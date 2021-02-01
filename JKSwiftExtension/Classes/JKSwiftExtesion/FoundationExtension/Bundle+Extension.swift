@@ -88,4 +88,10 @@ public extension JKPOP where Base: Bundle {
     static var infoDictionary: [String : Any]? {
         return Bundle.main.infoDictionary
     }
+    
+    // MARK: 2.7、App 名称
+    /// App 名称
+    static var appDisplayName: String {
+        return (Bundle.main.infoDictionary!["CFBundleDisplayName"] as? String) ?? ""
+    }
 }

@@ -998,3 +998,51 @@ public extension JKPOP where Base: UIView {
         base.addGestureRecognizer(gestureRecognizer)
     }
 }
+
+// MARK:- 十、颜色渐变
+public extension JKPOP where Base : UIView {
+
+    // MARK: 10.1、添加渐变色图层
+    /// 添加渐变色图层
+    /// - Parameters:
+    ///   - direction: 渐变方向
+    ///   - gradientColors: 渐变的颜色数组（颜色的数组是）
+    ///   - gradientLocations: 决定每个渐变颜色的终止位置，这些值必须是递增的，数组的长度和 colors 的长度最好一致
+    func gradientColor(_ direction: JKViewGradientDirection = .horizontal, _ gradientColors: [Any], _ gradientLocations: [NSNumber]? = nil) {
+        // 获取渐变对象
+        let gradientLayer = CAGradientLayer().jk.gradientLayer(direction, gradientColors, gradientLocations)
+        // 设置其CAGradientLayer对象的frame，并插入view的layer
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: self.base.jk.width, height: self.base.jk.height)
+        self.base.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    // MARK: 10.2、colors 变化渐变动画
+    /// colors 变化渐变动画
+    /// - Parameters:
+    ///   - direction: 渐变方向
+    ///   - startGradientColors: 开始渐变的颜色数组
+    ///   - endGradientColors: 结束渐变的颜色数组
+    ///   - gradientLocations: 决定每个渐变颜色的终止位置，这些值必须是递增的，数组的长度和 colors 的长度最好一致
+    func gradientColorAnimation(direction: JKViewGradientDirection = .horizontal, startGradientColors: [Any], endGradientColors: [Any], duration: CFTimeInterval = 1.0, gradientLocations: [NSNumber]? = nil) {
+        // 获取渐变对象
+        let gradientLayer = CAGradientLayer().jk.gradientLayer(direction, startGradientColors, gradientLocations)
+        // 设置其CAGradientLayer对象的frame，并插入view的layer
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: self.base.jk.width, height: self.base.jk.height)
+        self.base.layer.insertSublayer(gradientLayer, at: 0)
+        
+        startgradientColorAnimation(gradientLayer, startGradientColors, endGradientColors, duration)
+    }
+    
+    private func startgradientColorAnimation(_ gradientLayer: CAGradientLayer, _ startGradientColors: [Any], _ endGradientColors: [Any], _ duration: CFTimeInterval = 1.0) {
+        // 添加渐变动画
+        let colorChangeAnimation = CABasicAnimation(keyPath: "colors")
+        // colorChangeAnimation.delegate = self
+        colorChangeAnimation.duration = duration
+        colorChangeAnimation.fromValue = startGradientColors
+        colorChangeAnimation.toValue = endGradientColors
+        colorChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
+        // 动画结束后保持最终的效果
+        colorChangeAnimation.isRemovedOnCompletion = false
+        gradientLayer.add(colorChangeAnimation, forKey: "colorChange")
+    }
+}

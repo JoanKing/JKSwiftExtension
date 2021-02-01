@@ -210,6 +210,26 @@ public extension JKPOP where Base: NSAttributedString {
         }
         return mutableAttributedString
     }
+    
+    // MARK: 1.15、设置特定区域的倾斜
+    /// 设置特定区域的倾斜
+    /// - Parameters:
+    ///   - inclination: 倾斜度
+    ///   - range: 特定区域范围
+    /// - Returns: 返回设置后的富文本
+    func setSpecificRangeBliqueness(inclination: Float = 0, range: NSRange) -> NSAttributedString {
+        return setSpecificRangeTextMoreAttributes(attributes: [NSAttributedString.Key.obliqueness: inclination], range: range)
+    }
+    
+    // MARK: 1.16、设置特定文字的倾斜
+    /// 设置特定文字的倾斜
+    /// - Parameters:
+    ///   - text: 特定文字
+    ///   - inclination: 倾斜度
+    /// - Returns: 返回设置后的富文本
+    func setSpecificTextBliqueness(_ text: String, inclination: Float = 0) -> NSAttributedString {
+        return setSpecificTextMoreAttributes(text, attributes: [NSAttributedString.Key.obliqueness : inclination])
+    }
 }
 
 // MARK:- Private Func

@@ -309,6 +309,28 @@ fileprivate extension UIImage {
 }
 
 // MARK:- 二、UIColor 生成的图片 和 生成渐变色图片
+public enum JKImageGradientDirection {
+    case horizontal // 水平从左到右
+    case vertical // 垂直从上到下
+    case leftOblique // 左上到右下
+    case rightOblique // 右上到左下
+    case other(CGPoint, CGPoint)
+    
+    public func point(size: CGSize) -> (CGPoint, CGPoint) {
+        switch self {
+        case .horizontal:
+            return (CGPoint(x: 0, y: 0), CGPoint(x: size.width, y: 0))
+        case .vertical:
+            return (CGPoint(x: 0, y: 0), CGPoint(x: 0, y: size.height))
+        case .leftOblique:
+            return (CGPoint(x: 0, y: 0), CGPoint(x: size.width, y: size.height))
+        case .rightOblique:
+            return (CGPoint(x: size.width, y: 0), CGPoint(x: 0, y: size.height))
+        case .other(let stat, let end):
+            return (stat, end)
+        }
+    }
+}
 public extension JKPOP where Base: UIImage {
     
     // MARK: 2.1、生成指定尺寸的纯色图像
@@ -346,29 +368,6 @@ public extension JKPOP where Base: UIImage {
         return img
     }
     
-    enum GradientDirection {
-        case horizontal // 水平从左到右
-        case vertical // 垂直从上到下
-        case leftOblique // 左上到右下
-        case rightOblique // 右上到左下
-        case other(CGPoint, CGPoint)
-        
-        public func point(size: CGSize) -> (CGPoint, CGPoint) {
-            switch self {
-            case .horizontal:
-                return (CGPoint.init(x: 0, y: 0), CGPoint.init(x: size.width, y: 0))
-            case .vertical:
-                return (CGPoint.init(x: 0, y: 0), CGPoint.init(x: 0, y: size.height))
-            case .leftOblique:
-                return (CGPoint.init(x: 0, y: 0), CGPoint.init(x: size.width, y: size.height))
-            case .rightOblique:
-                return (CGPoint.init(x: size.width, y: 0), CGPoint.init(x: 0, y: size.height))
-            case .other(let stat, let end):
-                return (stat, end)
-            }
-        }
-    }
-    
     // MARK: 2.3、生成渐变色的图片 ["#B0E0E6", "#00CED1", "#2E8B57"]
     /// 生成渐变色的图片 ["#B0E0E6", "#00CED1", "#2E8B57"]
     /// - Parameters:
@@ -377,7 +376,7 @@ public extension JKPOP where Base: UIImage {
     ///   - locations: locations 数组
     ///   - direction: 渐变的方向
     /// - Returns: 渐变的图片
-    static func gradient(_ hexsString: [String], size: CGSize = CGSize(width: 1, height: 1), locations:[CGFloat]? = nil, direction: GradientDirection = .horizontal) -> UIImage? {
+    static func gradient(_ hexsString: [String], size: CGSize = CGSize(width: 1, height: 1), locations:[CGFloat]? = nil, direction: JKImageGradientDirection = .horizontal) -> UIImage? {
         return gradient(hexsString.map{ UIColor.hexStringColor(hexString: $0) }, size: size, locations: locations, direction: direction)
     }
     
@@ -389,7 +388,7 @@ public extension JKPOP where Base: UIImage {
     ///   - locations: locations 数组
     ///   - direction: 渐变的方向
     /// - Returns: 渐变的图片
-    static func gradient(_ colors: [UIColor], size: CGSize = CGSize(width: 10, height: 10), locations:[CGFloat]? = nil, direction: GradientDirection = .horizontal) -> UIImage? {
+    static func gradient(_ colors: [UIColor], size: CGSize = CGSize(width: 10, height: 10), locations:[CGFloat]? = nil, direction: JKImageGradientDirection = .horizontal) -> UIImage? {
         return gradient(colors, size: size, radius: 0, locations: locations, direction: direction)
     }
     
@@ -406,7 +405,7 @@ public extension JKPOP where Base: UIImage {
                          size: CGSize = CGSize(width: 10, height: 10),
                          radius: CGFloat,
                          locations:[CGFloat]? = nil,
-                         direction: GradientDirection = .horizontal) -> UIImage? {
+                         direction: JKImageGradientDirection = .horizontal) -> UIImage? {
         if colors.count == 0 { return nil }
         if colors.count == 1 {
             return image(color: colors[0])

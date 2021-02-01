@@ -16,14 +16,19 @@ class BundleExtensionViewController: BaseViewController {
         self.view.backgroundColor = UIColor.green
         
         headDataArray = ["一、Bundle 的基本扩展", "二、App的基本信息"]
-        dataArray = [["从 Bundle 里面获取资源文件（支持当前的 Moudle下的Bundle和其他Moudle下的 Bundle）", "从其他的 Bundle 通过 bundlename 获取 bundle"], ["App命名空间", "项目/app 的名字", "获取app的版本号", "获取app的 Build ID", "获取app的 Bundle Identifier", "Info.plist"]]
+        dataArray = [["从 Bundle 里面获取资源文件（支持当前的 Moudle下的Bundle和其他Moudle下的 Bundle）", "从其他的 Bundle 通过 bundlename 获取 bundle"], ["App命名空间", "项目/app 的名字", "获取app的版本号", "获取app的 Build ID", "获取app的 Bundle Identifier", "Info.plist", "App 名称"]]
     }
 }
 
 // MARK:- 二、App的基本信息
 extension BundleExtensionViewController {
     
-    // MARK: 2.6、Info.plist
+    // MARK: 2.7、App 名称
+    @objc func test27() {
+        let appDisplayName = Bundle.jk.appDisplayName
+        JKPrint("App 名称：\(appDisplayName)")
+    }
+    
     @objc func test26() {
         guard let infoDictionary = Bundle.jk.infoDictionary else {
             return
@@ -55,6 +60,7 @@ extension BundleExtensionViewController {
     @objc func test21() {
         JKPrint("App命名空间：\(Bundle.jk.namespace)")
     }
+    
 }
 
 // MARK:- 一、Bundle 的基本扩展
@@ -63,7 +69,7 @@ extension BundleExtensionViewController {
     // MARK: 1.1、从 Bundle 里面获取资源文件（支持当前的 Moudle下的Bundle和其他Moudle下的 Bundle）
     @objc func test11() {
         // 当前 moudle 下的 bundle 图片
-        let imagePath1 = Bundle.jk.getBundlePathResource(bundName: "JKBaseKit", resourceName: "icon_scan@2x.png", bundleType: .currentBundle)
+        let imagePath1 = Bundle.jk.getBundlePathResource(bundName: "JKBaseKit", resourceName: "icon_scan", bundleType: .currentBundle)
         // 其他 moudle 下的 bundle 图片
         let imagePath2 = Bundle.jk.getBundlePathResource(bundName: "MJRefresh", resourceName: "trail_arrow", bundleType: .otherBundle)
        

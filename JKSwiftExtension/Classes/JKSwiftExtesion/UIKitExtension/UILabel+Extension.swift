@@ -287,7 +287,7 @@ public extension JKPOP where Base: UILabel {
 // MARK:- 三、特定区域和特定文字的基本扩展
 public extension JKPOP where Base: UILabel {
 
-    // MARK: 2.1、设置特定区域的字体大小
+    // MARK: 3.1、设置特定区域的字体大小
     /// 设置特定区域的字体大小
     /// - Parameters:
     ///   - font: 字体
@@ -297,7 +297,7 @@ public extension JKPOP where Base: UILabel {
         base.attributedText = attributedString
     }
     
-    // MARK: 2.2、设置特定文字的字体大小
+    // MARK: 3.2、设置特定文字的字体大小
     /// 设置特定文字的字体大小
     /// - Parameters:
     ///   - text: 特定文字
@@ -307,7 +307,7 @@ public extension JKPOP where Base: UILabel {
         base.attributedText = attributedString
     }
     
-    // MARK: 2.3、设置特定区域的字体颜色
+    // MARK: 3.3、设置特定区域的字体颜色
     /// 设置特定区域的字体颜色
     /// - Parameters:
     ///   - color: 字体颜色
@@ -317,7 +317,7 @@ public extension JKPOP where Base: UILabel {
         base.attributedText = attributedString
     }
     
-    // MARK: 2.4、设置特定文字的字体颜色
+    // MARK: 3.4、设置特定文字的字体颜色
     /// 设置特定文字的字体颜色
     /// - Parameters:
     ///   - text: 特定文字
@@ -327,7 +327,7 @@ public extension JKPOP where Base: UILabel {
         base.attributedText = attributedString
     }
     
-    // MARK: 2.5、设置行间距
+    // MARK: 3.5、设置行间距
     /// 设置行间距
     /// - Parameter space: 行间距
     func setTextLineSpace(_ space: CGFloat) {
@@ -335,7 +335,7 @@ public extension JKPOP where Base: UILabel {
         base.attributedText = attributedString
     }
     
-    // MARK: 2.6、设置特定文字区域的下划线
+    // MARK: 3.6、设置特定文字区域的下划线
     /// 设置特定区域的下划线
     /// - Parameters:
     ///   - color: 下划线颜色
@@ -346,7 +346,7 @@ public extension JKPOP where Base: UILabel {
         base.attributedText = attributedString
     }
     
-    // MARK: 2.7、设置特定文字的下划线
+    // MARK: 3.7、设置特定文字的下划线
     /// 设置特定文字的下划线
     /// - Parameters:
     ///   - text: 特定文字
@@ -357,7 +357,7 @@ public extension JKPOP where Base: UILabel {
         base.attributedText = attributedString
     }
     
-    // MARK: 2.8、设置特定区域的删除线
+    // MARK: 3.8、设置特定区域的删除线
     /// 设置特定区域的删除线
     /// - Parameters:
     ///   - color: 删除线颜色
@@ -367,7 +367,7 @@ public extension JKPOP where Base: UILabel {
         base.attributedText = attributedString
     }
     
-    // MARK: 2.9、设置特定文字的删除线
+    // MARK: 3.9、设置特定文字的删除线
     /// 设置特定文字的删除线
     /// - Parameters:
     ///   - text: 特定文字
@@ -377,7 +377,7 @@ public extension JKPOP where Base: UILabel {
         base.attributedText = attributedString
     }
     
-    // MARK: 2.10、插入图片
+    // MARK: 3.10、插入图片
     /// 插入图片
     /// - Parameters:
     ///   - imgName: 要添加的图片名称，如果是网络图片，需要传入完整路径名，且imgBounds必须传值
@@ -390,11 +390,31 @@ public extension JKPOP where Base: UILabel {
         base.attributedText = attributedString
     }
     
-    // MARK: 2.11、首行缩进
+    // MARK: 3.11、首行缩进
     /// 首行缩进
     /// - Parameter edge: 缩进宽度
     func firstLineLeftEdge(_ edge: CGFloat) {
         let attributedString = base.attributedText?.jk.firstLineLeftEdge(edge)
+        base.attributedText = attributedString
+    }
+    
+    // MARK: 3.12、设置特定文字区域的倾斜
+    /// 设置特定区域的倾斜
+    /// - Parameters:
+    ///   - inclination: 倾斜度
+    ///   - range: 文字区域
+    func setSpecificRangeBliqueness(inclination: Float = 0, range: NSRange) {
+        let attributedString = base.attributedText?.jk.setSpecificRangeBliqueness(inclination: inclination, range: range)
+        base.attributedText = attributedString
+    }
+    
+    // MARK: 3.13、设置特定文字的倾斜
+    /// 设置特定文字的倾斜
+    /// - Parameters:
+    ///   - text: 特定文字
+    ///   - inclination: 倾斜度
+    func setSpecificTextBliqueness(_ text: String, inclination: Float = 0) {
+        let attributedString = base.attributedText?.jk.setSpecificTextBliqueness(text, inclination: inclination)
         base.attributedText = attributedString
     }
 }
