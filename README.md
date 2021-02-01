@@ -36,7 +36,11 @@
     我的联系方式：微信：18500652880，您加我后，我把您拉进 JKSwiftExtension 的使用和维护群
     
 ## 版本说明
-    
+   - 1.1.6、版本
+   
+         UIView+Extension：新增背景颜色渐变和colors变化渐变动画
+         UIButton+Extension：新增点击区域的扩展设置
+         CAGradientLayer+Extension：新增渐变扩展
    - 1.1.5、版本
     
          UIApplication+Extension 新增打开系统应用和第三方APP的方法，如打开微信
