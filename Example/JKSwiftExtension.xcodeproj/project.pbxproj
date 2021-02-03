@@ -516,6 +516,7 @@
 		84BF16B8251D9EB1002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */,
 				8418FB96255B8642000CB0B3 /* UILabelExtensionViewController.swift */,
 				84E96DD825C7E2D300D76D5C /* CAGradientLayerExtensionViewController.swift */,
 				84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */,
@@ -524,7 +525,6 @@
 				8418FB9A255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift */,
 				84D8EC93255BFA3A001ACECA /* UIViewControllerExtensionViewController.swift */,
 				84813773254A5EC100D9289C /* UIColorExtensionViewController.swift */,
-				847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */,
 				8480280D255933DE0038748A /* UIControlExtensionViewController.swift */,
 				84802819255963610038748A /* UISwitchExtensionViewController.swift */,
 				848A643E25A4517E00E9EC48 /* UISliderExtensionViewController.swift */,
