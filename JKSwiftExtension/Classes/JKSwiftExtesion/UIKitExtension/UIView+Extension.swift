@@ -125,6 +125,7 @@ public var kStatusBarFrameH: CGFloat {
     guard isIPhoneX else {
         return 20
     }
+    // 防止界面没有出来获取为0的情况
     return UIApplication.shared.statusBarFrame.height > 0 ? UIApplication.shared.statusBarFrame.height : 44
 }
 // MARK: 2.4、获取导航栏的高度
