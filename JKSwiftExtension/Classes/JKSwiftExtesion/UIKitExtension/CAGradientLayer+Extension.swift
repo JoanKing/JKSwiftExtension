@@ -41,7 +41,7 @@ public extension JKPOP where Base: CAGradientLayer {
     /// 设置渐变色图层
     /// - Parameters:
     ///   - direction: 渐变方向
-    ///   - gradientColors: 渐变的颜色数组（颜色的数组是）
+    ///   - gradientColors: 渐变的颜色数组（颜色的数组）
     ///   - gradientLocations: 设置渐变颜色的终止位置，这些值必须是递增的，数组的长度和 colors 的长度最好一致
     func gradientLayer(_ direction: JKViewGradientDirection = .horizontal, _ gradientColors: [Any], _ gradientLocations: [NSNumber]? = nil) -> CAGradientLayer {
        
