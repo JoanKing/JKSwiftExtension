@@ -36,6 +36,15 @@
     我的联系方式：微信：18500652880，您加我后，我把您拉进 JKSwiftExtension 的使用和维护群
     
 ## 版本说明
+   - 1.1.8、版本
+       调整状态栏的高度
+       
+         public var kStatusBarFrameH: CGFloat {
+            guard isIPhoneX else {
+              return 20
+            }
+            return UIApplication.shared.statusBarFrame.height > 0 ? UIApplication.shared.statusBarFrame.height : 44
+         }
    - 1.1.7、版本
    
          gif图片的：本地、asset、网络 的分解
