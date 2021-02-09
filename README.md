@@ -36,7 +36,8 @@
     我的联系方式：微信：18500652880，您加我后，我把您拉进 JKSwiftExtension 的使用和维护群
     
 ## 版本说明
-
+   - 1.2.1、版本
+     去除 SmallTools 中的 JKVerticalCarousel、MaskingManager、JKLoadingView 删除，也去除依赖SnapKit
    - 1.1.9、版本
        UIDevice+Extension.swift 扩展新增：有关设备运营商的信息
        - sim卡信息
