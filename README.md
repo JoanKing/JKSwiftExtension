@@ -37,7 +37,7 @@
     
 ## 版本说明
    - 1.2.1、版本
-     去除 SmallTools 中的 JKVerticalCarousel、MaskingManager、JKLoadingView 删除
+     去除 SmallTools 中的 JKVerticalCarousel、MaskingManager、JKLoadingView 删除，也去除依赖SnapKit
    - 1.1.9、版本
        UIDevice+Extension.swift 扩展新增：有关设备运营商的信息
        - sim卡信息
