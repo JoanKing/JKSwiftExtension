@@ -1,8 +1,7 @@
 PODS:
   - FDFullscreenPopGesture (1.1)
-  - JKSwiftExtension (0.7.2):
+  - JKSwiftExtension (1.1.9):
     - Kingfisher
-    - SnapKit
   - Kingfisher (4.10.1)
   - MJRefresh (3.5.0)
   - RxCocoa (5.1.1):
@@ -11,7 +10,6 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
-  - SnapKit (4.2.0)
 
 DEPENDENCIES:
   - FDFullscreenPopGesture
@@ -28,7 +26,6 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
-    - SnapKit
 
 EXTERNAL SOURCES:
   JKSwiftExtension:
@@ -36,14 +33,13 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  JKSwiftExtension: 4a4c90369e179a3fde8e510f87cc32560a953fa8
+  JKSwiftExtension: 46ed019fac6d660d309e267fc7e6cf8e0797fb87
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 38562e5572fcfd393da15c1cd2afa7bb6884d653
+PODFILE CHECKSUM: 8f2716e5a190f3c96062dadb20545f61f2344a07
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0

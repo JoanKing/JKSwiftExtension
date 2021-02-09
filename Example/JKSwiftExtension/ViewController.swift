@@ -7,10 +7,27 @@
 //
 
 import UIKit
-// 使用CoreTelephony获取运营商信息、网络制式（4G、3G、2G）
-import CoreTelephony
 
 class ViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.title = "JKSwiftExtension"
+        self.edgesForExtendedLayout = []
+        self.view.backgroundColor = UIColor.green
+        dataArray = ["FoundationExtension", "UIKitExtension", "Protocol", "SmallTools", "TestFile(自己测试用的)"]
+        initUI()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
+    /// 创建控件
+    private func initUI() {
+        view.addSubview(tableView)
+    }
     
     fileprivate static let ViewControllerCellIdentifier = "ViewControllerCellIdentifier"
     /// 资源数组
@@ -34,28 +51,6 @@ class ViewController: UIViewController {
         tableView.register(HomeViewCell.self, forCellReuseIdentifier: ViewController.ViewControllerCellIdentifier)
         return tableView
     }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        self.title = "JKSwiftExtension"
-        self.edgesForExtendedLayout = []
-        self.view.backgroundColor = UIColor.green
-        dataArray = ["FoundationExtension", "UIKitExtension", "Protocol", "SmallTools", "TestFile(自己测试用的)"]
-        initUI()
-        
-        
-        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-    
-    /// 创建控件
-    private func initUI() {
-        view.addSubview(tableView)
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

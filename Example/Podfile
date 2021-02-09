@@ -7,9 +7,4 @@ target 'JKSwiftExtension_Example' do
   pod 'FDFullscreenPopGesture'
   pod 'MJRefresh'
   
-  target 'JKSwiftExtension_Tests' do
-    inherit! :search_paths
-
-    
-  end
 end
