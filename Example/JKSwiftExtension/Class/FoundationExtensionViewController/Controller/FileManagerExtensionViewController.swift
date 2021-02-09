@@ -29,8 +29,6 @@ extension FileManagerExtensionViewController {
         let videoPath1 = "http://play.ciotimes.com/DJT55.mp4"
         let videoPath2 = "http://play.ciotimes.com/DJT58.mp4"
         
-        "获取网路视频缩略图中，请稍等".toast()
-        
         FileManager.jk.getServerVideoImages(videoPaths: [videoPath1, videoPath2]) {[weak self] (images) in
             guard let weakSelf = self else { return }
             if images.count == 2, let image1 = images[0] , let image2 = images[1] {
@@ -58,7 +56,7 @@ extension FileManagerExtensionViewController {
     // MARK: 3.3、通过网络视频文件路径获取截图
     @objc func test33() {
         
-        "获取网路视频缩略图中，请稍等".toast()
+        // "获取网路视频缩略图中，请稍等"
         
         // 添加录视频的缩略图
         let videoPath = "http://play.ciotimes.com/DJT55.mp4"

@@ -1136,6 +1136,6 @@ extension StringExtensionViewController {
     // MARK: 1.17、复制
     @objc func test117() {
         JKPrint("复制文字：我是一枚小可爱")
-        "复制：我是一枚小可爱".toast()
+        // "复制：我是一枚小可爱".toast()
     }
 }

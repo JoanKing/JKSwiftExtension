@@ -43,8 +43,8 @@ class SmallToolsViewController: UIViewController {
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green
   
-        dataArray = ["JKAsyncs", "JKTapActionLabel", "JKGlobalTools", "JKRegexHelper", "JKCommonTool", "JKContentSize", "JKValidateHelper", "JKVerticalCarousel", "JKPrint", "WeakTimer", "JKRuntime", "JKWaterFallLayout", "KeyboardAccessory", "MaskingManager+Extension", "QRCodeImageFactory"]
-        finishedDataArray = ["JKAsyncs", "JKGlobalTools", "WeakTimer", "JKPrint", "JKRuntime", "QRCodeImageFactory", "JKCommonTool", "JKContentSize", "JKValidateHelper", "JKVerticalCarousel", "JKWaterFallLayout", "MaskingManager+Extension", "KeyboardAccessory", "JKRegexHelper", "JKTapActionLabel"]
+        dataArray = ["JKAsyncs", "JKTapActionLabel", "JKGlobalTools", "JKRegexHelper", "JKCommonTool", "JKContentSize", "JKValidateHelper", "JKPrint", "WeakTimer", "JKRuntime", "JKWaterFallLayout", "KeyboardAccessory", "QRCodeImageFactory"]
+        finishedDataArray = ["JKAsyncs", "JKGlobalTools", "WeakTimer", "JKPrint", "JKRuntime", "QRCodeImageFactory", "JKCommonTool", "JKContentSize", "JKValidateHelper", "JKWaterFallLayout", "KeyboardAccessory", "JKRegexHelper", "JKTapActionLabel"]
         initUI()
     }
     

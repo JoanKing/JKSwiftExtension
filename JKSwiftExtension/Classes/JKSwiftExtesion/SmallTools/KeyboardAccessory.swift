@@ -24,18 +24,13 @@ public class KeyboardAccessory: UIView {
     }()
     
     public init() {
-        super.init(frame: CGRect(x: 0, y: 0, width: 320, height: 36))
-        doneBtn.addTo(self)
-        doneBtn.snp.makeConstraints { make in
-            make.top.right.bottom.equalToSuperview()
-            make.width.equalTo(50)
-        }
+        super.init(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 36))
         backgroundColor = .white
-        let line = UIView().backgroundColor(UIColor.hexStringColor(hexString: "#E6E6E6")).addTo(self)
-        line.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview()
-            make.height.equalTo(1)
-        }
+        doneBtn.frame = CGRect(x: kScreenW - 50, y: 0, width: 50, height: self.jk.height)
+        doneBtn.addTo(self)
+        let line = UIView().backgroundColor(UIColor.hexStringColor(hexString: "#E6E6E6"))
+        line.frame = CGRect(x: 0, y: 0, width: self.jk.width, height: 1)
+        line.addTo(self)
     }
     
     @objc func done() {

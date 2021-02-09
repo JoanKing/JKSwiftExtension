@@ -6,5 +6,5 @@ target 'JKSwiftExtension_Example' do
   pod 'RxCocoa'
   pod 'FDFullscreenPopGesture'
   pod 'MJRefresh'
-  
+  pod 'SnapKit'
 end

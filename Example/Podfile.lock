@@ -10,6 +10,7 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
+  - SnapKit (4.2.0)
 
 DEPENDENCIES:
   - FDFullscreenPopGesture
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - MJRefresh
   - RxCocoa
   - RxSwift
+  - SnapKit
 
 SPEC REPOS:
   trunk:
@@ -26,6 +28,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SnapKit
 
 EXTERNAL SOURCES:
   JKSwiftExtension:
@@ -39,7 +42,8 @@ SPEC CHECKSUMS:
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 8f2716e5a190f3c96062dadb20545f61f2344a07
+PODFILE CHECKSUM: 43f47b94db8a24c86807e1a666165517ff0d23e7
 
 COCOAPODS: 1.10.0

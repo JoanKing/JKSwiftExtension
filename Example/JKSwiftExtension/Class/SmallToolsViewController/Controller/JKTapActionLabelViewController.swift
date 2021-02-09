@@ -44,7 +44,7 @@ extension JKTapActionLabelViewController {
         label.setText(sumMutableString)
         
         label.tap(string: " 复制") {
-            "复制成功".toast()
+            // "复制成功".toast()
         }
         self.view.addSubview(label)
     }

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JKSwiftExtension'
-  s.version          = '1.1.9'
+  s.version          = '1.2.1'
   s.summary          = 'Swift版本的一个扩展'
   s.description      = '这是Swift版本扩展的一个详细的使用，可以参考里面的用法'
 
@@ -34,7 +34,6 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'SnapKit'
   s.dependency 'Kingfisher'
   
 end

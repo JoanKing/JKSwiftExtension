@@ -97,7 +97,6 @@
 		84CC32AF255D39F000F489F0 /* UITextViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CC32AE255D39F000F489F0 /* UITextViewExtensionViewController.swift */; };
 		84CEDD64258B62EE00D22735 /* UITableViewCellExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEDD63258B62EE00D22735 /* UITableViewCellExtensionViewController.swift */; };
 		84D8EC94255BFA3A001ACECA /* UIViewControllerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8EC93255BFA3A001ACECA /* UIViewControllerExtensionViewController.swift */; };
-		84D9BD7D2565165D00D92461 /* MaskingManagerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BD7C2565165D00D92461 /* MaskingManagerExtensionViewController.swift */; };
 		84D9BD9725651BEB00D92461 /* KeyboardAccessoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BD9625651BEB00D92461 /* KeyboardAccessoryViewController.swift */; };
 		84D9BDA925651FA600D92461 /* WeakTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BDA825651FA600D92461 /* WeakTimerViewController.swift */; };
 		84D9BDB825652C7200D92461 /* NibLoadableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BDB725652C7200D92461 /* NibLoadableViewController.swift */; };
@@ -109,7 +108,6 @@
 		84F86FBD2564B4C400B74128 /* JKCommonToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F86FBC2564B4C400B74128 /* JKCommonToolViewController.swift */; };
 		84F86FCC2564C66E00B74128 /* JKContentSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F86FCB2564C66E00B74128 /* JKContentSizeViewController.swift */; };
 		84F86FEC2564EAF500B74128 /* JKValidateHelperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F86FEB2564EAF500B74128 /* JKValidateHelperViewController.swift */; };
-		84F86FFD2564F22700B74128 /* JKVerticalCarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F86FFC2564F22700B74128 /* JKVerticalCarouselViewController.swift */; };
 		84F870012564F91600B74128 /* JKWaterFallLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F870002564F91600B74128 /* JKWaterFallLayoutViewController.swift */; };
 		84F9375A2589D4B500A35E77 /* MyStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F937592589D4B500A35E77 /* MyStoryboard.storyboard */; };
 		84F9375E2589D52F00A35E77 /* StoryboardTest1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F9375D2589D52F00A35E77 /* StoryboardTest1ViewController.swift */; };
@@ -216,7 +214,6 @@
 		84CC32AE255D39F000F489F0 /* UITextViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtensionViewController.swift; sourceTree = "<group>"; };
 		84CEDD63258B62EE00D22735 /* UITableViewCellExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtensionViewController.swift; sourceTree = "<group>"; };
 		84D8EC93255BFA3A001ACECA /* UIViewControllerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensionViewController.swift; sourceTree = "<group>"; };
-		84D9BD7C2565165D00D92461 /* MaskingManagerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskingManagerExtensionViewController.swift; sourceTree = "<group>"; };
 		84D9BD9625651BEB00D92461 /* KeyboardAccessoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAccessoryViewController.swift; sourceTree = "<group>"; };
 		84D9BDA825651FA600D92461 /* WeakTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakTimerViewController.swift; sourceTree = "<group>"; };
 		84D9BDB725652C7200D92461 /* NibLoadableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableViewController.swift; sourceTree = "<group>"; };
@@ -228,7 +225,6 @@
 		84F86FBC2564B4C400B74128 /* JKCommonToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKCommonToolViewController.swift; sourceTree = "<group>"; };
 		84F86FCB2564C66E00B74128 /* JKContentSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKContentSizeViewController.swift; sourceTree = "<group>"; };
 		84F86FEB2564EAF500B74128 /* JKValidateHelperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKValidateHelperViewController.swift; sourceTree = "<group>"; };
-		84F86FFC2564F22700B74128 /* JKVerticalCarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKVerticalCarouselViewController.swift; sourceTree = "<group>"; };
 		84F870002564F91600B74128 /* JKWaterFallLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKWaterFallLayoutViewController.swift; sourceTree = "<group>"; };
 		84F937592589D4B500A35E77 /* MyStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyStoryboard.storyboard; sourceTree = "<group>"; };
 		84F9375D2589D52F00A35E77 /* StoryboardTest1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardTest1ViewController.swift; sourceTree = "<group>"; };
@@ -613,9 +609,7 @@
 				843303FA2578B80F00051867 /* JKGlobalToolsViewController.swift */,
 				84D9BDA825651FA600D92461 /* WeakTimerViewController.swift */,
 				84D9BD9625651BEB00D92461 /* KeyboardAccessoryViewController.swift */,
-				84D9BD7C2565165D00D92461 /* MaskingManagerExtensionViewController.swift */,
 				84F870002564F91600B74128 /* JKWaterFallLayoutViewController.swift */,
-				84F86FFC2564F22700B74128 /* JKVerticalCarouselViewController.swift */,
 				84F86FEB2564EAF500B74128 /* JKValidateHelperViewController.swift */,
 				84F86FCB2564C66E00B74128 /* JKContentSizeViewController.swift */,
 				84F86FBC2564B4C400B74128 /* JKCommonToolViewController.swift */,
@@ -790,6 +784,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -800,6 +795,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -884,7 +880,6 @@
 				847CCCF925B80D1E00928F5B /* AVAssetExportSessionExtensionViewController.swift in Sources */,
 				8418FB99255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift in Sources */,
 				847DFF262550F07600EEE785 /* Int64ExtensionViewController.swift in Sources */,
-				84D9BD7D2565165D00D92461 /* MaskingManagerExtensionViewController.swift in Sources */,
 				84A6FB73255A40E400057839 /* UIBarButtonItemExtensionViewController.swift in Sources */,
 				8480280A2558E7940038748A /* UIScreenExtensionViewController.swift in Sources */,
 				84BEA373254FAC6600CA8A75 /* UIFontExtensionViewController.swift in Sources */,
@@ -906,7 +901,6 @@
 				8488026D256DF0DE007D41CA /* TestFileViewController.swift in Sources */,
 				84CC32AD255CDBB300F489F0 /* UIScrollViewExtensionViewController.swift in Sources */,
 				8418FB97255B8642000CB0B3 /* UILabelExtensionViewController.swift in Sources */,
-				84F86FFD2564F22700B74128 /* JKVerticalCarouselViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

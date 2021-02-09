@@ -77,9 +77,9 @@ class QRCodeImageFactoryViewController: UIViewController {
         }) { (success, error) in
             OperationQueue.main.addOperation({
                 if error == nil {
-                    "已保存到系统相册".toast()
+                    // "已保存到系统相册".toast()
                 } else {
-                    "保存失败".toast()
+                    // "保存失败".toast()
                 }
             })
         }
