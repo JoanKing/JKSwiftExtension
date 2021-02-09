@@ -460,13 +460,13 @@
 		84BF16B3251D9EAB002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8482AA092554075E00EB0A7A /* UIDeviceExtensionViewController.swift */,
+				849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */,
 				8482AA052553EEFF00EB0A7A /* FileManagerExtensionViewController.swift */,
 				84A5D2D52547B48E003D289C /* DateExtensionViewController.swift */,
 				847CCCF825B80D1E00928F5B /* AVAssetExportSessionExtensionViewController.swift */,
 				84BEA372254FAC6600CA8A75 /* UIFontExtensionViewController.swift */,
-				8482AA092554075E00EB0A7A /* UIDeviceExtensionViewController.swift */,
 				8483A6C9254BC02B00ACF6FD /* BundleExtensionViewController.swift */,
-				849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */,
 				8457686B259DC2A7006F93D4 /* NSIndexPathExtensionViewController.swift */,
 				8457687B259DC3A3006F93D4 /* IndexPathExtensionViewController.swift */,
 				8457683A259DABD1006F93D4 /* NSAttributedStringExtensionViewController.swift */,
@@ -1046,7 +1046,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XXHJUP7YMQ;
 				INFOPLIST_FILE = JKSwiftExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.1;
 				MODULE_NAME = ExampleApp;
@@ -1072,7 +1072,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XXHJUP7YMQ;
 				INFOPLIST_FILE = JKSwiftExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.1;
 				MODULE_NAME = ExampleApp;

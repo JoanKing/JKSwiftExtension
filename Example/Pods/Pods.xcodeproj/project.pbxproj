@@ -1654,9 +1654,9 @@
 		6D40981BD1A37E524C2FD446C1E61ED2 /* FoundationExtension */ = {
 			isa = PBXGroup;
 			children = (
+				F21F384797508E5223A1D083CFA91C88 /* UIDevice+Extension.swift */,
 				ACE0443581FFF7A98A73C39857E039E6 /* FileManager+Extension.swift */,
 				847CCCEB25B806A800928F5B /* AVAssetExportSession+Extension.swift */,
-				F21F384797508E5223A1D083CFA91C88 /* UIDevice+Extension.swift */,
 				84B4917925A586FC005F376A /* DispatchQueue+Extension.swift */,
 				848A642425A44EF400E9EC48 /* NSNumber+Extension.swift */,
 				FC4F3089587E0207ABEE0FFD43122735 /* Bundle+Extension.swift */,

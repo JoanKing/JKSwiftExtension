@@ -7,6 +7,8 @@
 //
 
 import UIKit
+// 使用CoreTelephony获取运营商信息、网络制式（4G、3G、2G）
+import CoreTelephony
 
 class ViewController: UIViewController {
     
@@ -41,6 +43,9 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor.green
         dataArray = ["FoundationExtension", "UIKitExtension", "Protocol", "SmallTools", "TestFile(自己测试用的)"]
         initUI()
+        
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

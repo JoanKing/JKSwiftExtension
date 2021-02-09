@@ -10,19 +10,22 @@ import UIKit
 
 class TestFileViewController: UIViewController {
     
+    var array: [Int] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "TestFile"
         self.view.backgroundColor = .white
+
         
- 
-        
-      
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        let temp = Int(arc4random() % 100) + 1
+        print(temp)
         
        
     }

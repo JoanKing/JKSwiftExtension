@@ -1126,6 +1126,22 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         }
     }
     
+    // MARK: 9.14、检查字符串是否有特定前缀：hasPrefix
+    /// 检查字符串是否有特定前缀：hasPrefix
+    /// - Parameter prefix: 前缀字符串
+    /// - Returns: 结果
+    public func isHasPrefix(prefix: String) -> Bool {
+        return (base as! String).hasPrefix(prefix)
+    }
+    
+    // MARK: 9.15、检查字符串是否有特定后缀：hasSuffix
+    /// 检查字符串是否有特定后缀：hasSuffix
+    /// - Parameter suffix: 后缀字符串
+    /// - Returns: 结果
+    public func isHasSuffix(suffix: String) -> Bool {
+        return (base as! String).hasSuffix(suffix)
+    }
+    
     // MARK:- private 方法
     // MARK: 是否是闰年
     /// 是否是闰年

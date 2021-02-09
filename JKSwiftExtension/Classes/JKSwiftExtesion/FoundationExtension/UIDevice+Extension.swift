@@ -6,6 +6,9 @@
 //
 
 import Foundation
+// 使用CoreTelephony获取运营商信息、网络制式（4G、3G、2G）
+import CoreTelephony
+
 extension UIDevice: JKPOPCompatible {}
 // 这里只指屏幕类型
 public enum UIDeviceScreenType: String {
@@ -202,6 +205,7 @@ public extension JKPOP where Base: UIDevice {
 }
 
 // MARK:- 二、设备的基本信息
+
 public extension JKPOP where Base: UIDevice {
     
     // MARK: 2.1、当前设备的系统版本
@@ -312,12 +316,170 @@ public extension JKPOP where Base: UIDevice {
         return ProcessInfo.processInfo.physicalMemory
     }
     
+    // MARK: 2.11、当前设备能否打电话
+    /// 当前设备能否打电话
+    /// - Returns: 结果
     static func canMakePhoneCalls() -> Bool {
         if let url = URL(string: "tel://") {
             return UIApplication.shared.canOpenURL(url)
         }
         return false
     }
-    
 }
 
+// MARK:- 三、有关设备运营商的信息
+public extension JKPOP where Base: UIDevice {
+    
+    // MARK: 3.1、sim卡信息
+    static func simCardInfos() -> [CTCarrier]? {
+        return getCarriers()
+    }
+    
+    // MARK: 3.2、数据业务对应的通信技术
+    /// 数据业务对应的通信技术
+    /// - Returns: 通信技术
+    static func currentRadioAccessTechnologys() -> [String]? {
+        guard !isSimulator() else {
+            return nil
+        }
+        // 获取并输出运营商信息
+        let info = CTTelephonyNetworkInfo()
+        if #available(iOS 12.0, *) {
+            guard let currentRadioTechs = info.serviceCurrentRadioAccessTechnology else {
+                return nil
+            }
+            return currentRadioTechs.allValues()
+        } else {
+            guard let currentRadioTech = info.currentRadioAccessTechnology else {
+                return nil
+            }
+            return [currentRadioTech]
+        }
+    }
+    
+    // MARK: 3.3、设备网络制式
+    /// 设备网络制式
+    /// - Returns: 网络
+    static func networkTypes() -> [String]? {
+        // 获取并输出运营商信息
+        guard let currentRadioTechs = currentRadioAccessTechnologys() else {
+            return nil
+        }
+        return currentRadioTechs.compactMap { getNetworkType(currentRadioTech: $0) }
+    }
+    
+    // MARK: 3.4、运营商名字
+    /// 运营商名字
+    /// - Returns: 运营商名字
+    static func carrierNames() -> [String]? {
+        // 获取并输出运营商信息
+        guard  let carriers = getCarriers(), carriers.count > 0 else {
+            return nil
+        }
+        return carriers.map{ $0.carrierName!}
+    }
+    
+    // MARK: 3.5、移动国家码(MCC)
+    /// 移动国家码(MCC)
+    /// - Returns: 移动国家码(MCC)
+    static func mobileCountryCodes() -> [String]? {
+        // 获取并输出运营商信息
+        guard  let carriers = getCarriers(), carriers.count > 0 else {
+            return nil
+        }
+        return carriers.map{ $0.mobileCountryCode!}
+    }
+    
+    // MARK: 3.6、移动网络码(MNC)
+    /// 移动网络码(MNC)
+    /// - Returns: 移动网络码(MNC)
+    static func mobileNetworkCodes() -> [String]? {
+        // 获取并输出运营商信息
+        guard  let carriers = getCarriers(), carriers.count > 0 else {
+            return nil
+        }
+        return carriers.map{ $0.mobileNetworkCode!}
+    }
+    
+    // MARK: 3.7、ISO国家代码
+    /// ISO国家代码
+    /// - Returns: ISO国家代码
+    static func isoCountryCodes() -> [String]? {
+        // 获取并输出运营商信息
+        guard  let carriers = getCarriers(), carriers.count > 0 else {
+            return nil
+        }
+        return carriers.map{ $0.isoCountryCode!}
+    }
+    
+    // MARK: 3.8、是否允许VoIP
+    /// 是否允许VoIP
+    /// - Returns: 是否允许VoIP
+    static func isAllowsVOIPs() -> [Bool]? {
+        // 获取并输出运营商信息
+        guard let carriers = getCarriers(), carriers.count > 0 else {
+            return nil
+        }
+        return carriers.map{ $0.allowsVOIP}
+    }
+    
+    /// 获取并输出运营商信息
+    /// - Returns: 运营商信息
+    private static func getCarriers() -> [CTCarrier]? {
+        guard !isSimulator() else {
+            return nil
+        }
+        // 获取并输出运营商信息
+        let info = CTTelephonyNetworkInfo()
+        if #available(iOS 12.0, *) {
+            guard let providers = info.serviceSubscriberCellularProviders else {
+                return []
+            }
+            return providers.filter { $0.value.carrierName != nil }.allValues()
+        } else {
+            guard let carrier = info.subscriberCellularProvider, carrier.carrierName != nil else {
+                return []
+            }
+            return [carrier]
+        }
+    }
+    
+    /// 根据数据业务信息获取对应的网络类型
+    /// - Parameter currentRadioTech: 当前的无线电接入技术信息
+    /// - Returns: 网络类型
+    private static func getNetworkType(currentRadioTech: String) -> String {
+        /**
+         手机的数据业务对应的通信技术
+         CTRadioAccessTechnologyGPRS：2G（有时又叫2.5G，介于2G和3G之间的过度技术）
+         CTRadioAccessTechnologyEdge：2G （有时又叫2.75G，是GPRS到第三代移动通信的过渡)
+         CTRadioAccessTechnologyWCDMA：3G
+         CTRadioAccessTechnologyHSDPA：3G (有时又叫 3.5G)
+         CTRadioAccessTechnologyHSUPA：3G (有时又叫 3.75G)
+         CTRadioAccessTechnologyCDMA1x ：2G
+         CTRadioAccessTechnologyCDMAEVDORev0：3G
+         CTRadioAccessTechnologyCDMAEVDORevA：3G
+         CTRadioAccessTechnologyCDMAEVDORevB：3G
+         CTRadioAccessTechnologyeHRPD：3G (有时又叫 3.75G，是电信使用的一种3G到4G的演进技术)
+         CTRadioAccessTechnologyLTE：4G (或者说接近4G)
+         // 5G：NR是New Radio的缩写，新无线(5G)的意思，NRNSA表示5G NR的非独立组网（NSA）模式。
+         CTRadioAccessTechnologyNRNSA：5G NSA
+         CTRadioAccessTechnologyNR：5G
+         */
+        if #available(iOS 14.0, *), currentRadioTech == CTRadioAccessTechnologyNRNSA || currentRadioTech == CTRadioAccessTechnologyNR {
+            return "5G"
+        }
+    
+        var networkType = ""
+        switch currentRadioTech {
+        case CTRadioAccessTechnologyGPRS, CTRadioAccessTechnologyEdge, CTRadioAccessTechnologyCDMA1x:
+            networkType = "2G"
+        case CTRadioAccessTechnologyeHRPD, CTRadioAccessTechnologyWCDMA, CTRadioAccessTechnologyHSDPA, CTRadioAccessTechnologyCDMAEVDORev0, CTRadioAccessTechnologyCDMAEVDORevA, CTRadioAccessTechnologyCDMAEVDORevB, CTRadioAccessTechnologyHSUPA:
+            networkType = "3G"
+        case CTRadioAccessTechnologyLTE:
+            networkType = "4G"
+        default:
+            break
+        }
+        return networkType
+    }
+}
