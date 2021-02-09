@@ -1,6 +1,6 @@
 PODS:
   - FDFullscreenPopGesture (1.1)
-  - JKSwiftExtension (1.1.9):
+  - JKSwiftExtension (1.2.1):
     - Kingfisher
   - Kingfisher (4.10.1)
   - MJRefresh (3.5.0)
@@ -36,7 +36,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  JKSwiftExtension: 46ed019fac6d660d309e267fc7e6cf8e0797fb87
+  JKSwiftExtension: 311cc348de7d677ec566781fa346d59d0795236b
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601

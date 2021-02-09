@@ -14,7 +14,7 @@ import UIKit
         super.viewDidLoad()
 
         headDataArray = ["一、沙盒路径的获取", "二、文件以及文件夹的操作 扩展", "三、有关视频缩略图获取的扩展"]
-        dataArray = [["获取Home的完整路径名", "获取Documnets的完整路径名", "获取Library的完整路径名", "获取/Library/Cache的完整路径名", "获取Library/Preferences的完整路径名", "获取Tmp的完整路径名"], ["创建文件夹(蓝色的，文件夹和文件是不一样的)", "删除文件夹", "创建文件", "删除文件", "读取文件内容", "把文字，图片，数组，字典写入文件", "从文件 读取 文字，图片，数组，字典", "拷贝(文件夹/文件)的内容 到另外一个(文件夹/文件)，新的(文件夹/文件)如果存在就先删除再 拷贝", "移动(文件夹/文件)的内容 到另外一个(文件夹/文件)，新的(文件夹/文件)如果存在就先删除再 移动", "判断 (文件夹/文件) 是否存在", "获取 (文件夹/文件) 的前一个路径", "判断目录是否可读", "判断目录是否可写", "根据文件路径获取文件扩展类型", "根据文件路径获取文件名称，是否需要后缀", "对指定路径执行浅搜索，返回指定目录路径下的文件、子目录及符号链接的列表(只寻找一层)", "深度遍历，会递归遍历子文件夹（包括符号链接，所以要求性能的话用enumeratorAtPath）", "深度遍历，会递归遍历子文件夹（但不会递归符号链接）", "计算单个 (文件夹/文件) 的大小，单位为字节 （没有进行转换的）", "计算 (文件夹/文件) 的大小（转换过的）", "获取(文件夹/文件)属性集合"], ["通过本地(沙盒)视频文件路径获取截图", "通过本地(沙盒)视频文件路径数组获取截图数组", "通过网络视频文件路径获取截图", "通过网络视频文件路径数组获取截图数组"]]
+        dataArray = [["获取Home的完整路径名", "获取Documnets的完整路径名", "获取Library的完整路径名", "获取/Library/Cache的完整路径名", "获取Library/Preferences的完整路径名", "获取Tmp的完整路径名"], ["创建文件夹(蓝色的，文件夹和文件是不一样的)", "删除文件夹", "创建文件", "删除文件", "读取文件内容", "把文字，图片，数组，字典写入文件", "从文件 读取 文字，图片，数组，字典", "拷贝(文件夹/文件)的内容 到另外一个(文件夹/文件)，新的(文件夹/文件)如果存在就先删除再 拷贝", "移动(文件夹/文件)的内容 到另外一个(文件夹/文件)，新的(文件夹/文件)如果存在就先删除再 移动", "判断 (文件夹/文件) 是否存在", "获取 (文件夹/文件) 的前一个路径", "判断目录是否可读", "判断目录是否可写", "判断目录是否可执行", "判断目录是否可删除", "根据文件路径获取文件扩展类型", "根据文件路径获取文件名称，是否需要后缀", "对指定路径执行浅搜索，返回指定目录路径下的文件、子目录及符号链接的列表(只寻找一层)", "深度遍历，会递归遍历子文件夹（包括符号链接，所以要求性能的话用enumeratorAtPath）", "深度遍历，会递归遍历子文件夹（但不会递归符号链接）", "计算单个 (文件夹/文件) 的大小，单位为字节 （没有进行转换的）", "计算 (文件夹/文件) 的大小（转换过的）", "获取(文件夹/文件)属性集合", "文件/文件夹比较 是否一样"], ["通过本地(沙盒)视频文件路径获取截图", "通过本地(沙盒)视频文件路径数组获取截图数组", "通过网络视频文件路径获取截图", "通过网络视频文件路径数组获取截图数组"]]
         
         print("根目录的路径：\(FileManager.jk.homeDirectory())")
     }
@@ -99,8 +99,15 @@ extension FileManagerExtensionViewController {
 // MARK:- 二、文件以及文件夹的操作 扩展
 extension FileManagerExtensionViewController {
     
-    // MARK: 2.21、获取(文件夹/文件)属性集合
-    @objc func test221() {
+    // MARK: 2.24、文件/文件夹比较 是否一样
+    @objc func test224() {
+        let path1 = FileManager.jk.DocumnetsDirectory() + "/华彩业务与客服—吴晓娜.pptx"
+        let path2 = FileManager.jk.DocumnetsDirectory() + "/华彩业务与客服—吴晓娜.pptx"
+        JKPrint("文件/文件夹比较 是否一样：\(FileManager.jk.isEqual(filePath1: path1, filePath2: path2))")
+    }
+    
+    // MARK: 2.23、获取(文件夹/文件)属性集合
+    @objc func test223() {
         let path = FileManager.jk.DocumnetsDirectory() + "/华彩业务与客服—吴晓娜.pptx"
         guard let attributes = FileManager.jk.fileAttributes(path: path) else {
             return
@@ -108,23 +115,23 @@ extension FileManagerExtensionViewController {
         JKPrint("获取(文件夹/文件)属性集合", "路径：\(path)", "属性：\(attributes)")
     }
     
-    // MARK: 2.20、计算 (文件夹/文件) 的大小（转换过的）
-    @objc func test220() {
+    // MARK: 2.22、计算 (文件夹/文件) 的大小（转换过的）
+    @objc func test222() {
         let path = FileManager.jk.DocumnetsDirectory() + "/华彩业务与客服—吴晓娜.pptx"
         let size = FileManager.jk.fileOrDirectorySize(path: path)
         let size2 = FileManager.jk.fileOrDirectorySingleSize(filePath: path)
         JKPrint("计算 (文件夹/文件) 的大小（转换过的）", "路径：\(path)", "文件大小：\(size)", "计算单个 (文件夹/文件) 的大小：\(size2)")
     }
     
-    // MARK: 2.19、计算单个 (文件夹/文件) 的大小，单位为字节 （没有进行转换的）
-    @objc func test219() {
+    // MARK: 2.21、计算单个 (文件夹/文件) 的大小，单位为字节 （没有进行转换的）
+    @objc func test221() {
         let path = FileManager.jk.LibraryDirectory() + "/1.jpeg"
         let size = FileManager.jk.fileOrDirectorySingleSize(filePath: path)
         JKPrint("路径：\(path)", "文件大小：\(size)")
     }
     
-    // MARK:2.18、深度遍历，会递归遍历子文件夹（但不会递归符号链接）
-    @objc func test218() {
+    // MARK:2.20、深度遍历，会递归遍历子文件夹（但不会递归符号链接）
+    @objc func test220() {
         let path = FileManager.jk.LibraryDirectory()
     
         guard let fileNames = FileManager.jk.deepSearchAllFiles(folderPath: path) else {
@@ -133,8 +140,8 @@ extension FileManagerExtensionViewController {
         JKPrint("路径：\(path)", "数组个数：\(fileNames.count)", "文件名称数组：\(fileNames)")
     }
     
-    // MARK: 2.17、深度遍历，会递归遍历子文件夹（包括符号链接，所以要求性能的话用enumeratorAtPath）
-    @objc func test217() {
+    // MARK: 2.19、深度遍历，会递归遍历子文件夹（包括符号链接，所以要求性能的话用enumeratorAtPath）
+    @objc func test219() {
         let path = FileManager.jk.LibraryDirectory()
     
         guard let fileNames = FileManager.jk.getAllFileNames(folderPath: path) else {
@@ -143,8 +150,8 @@ extension FileManagerExtensionViewController {
         JKPrint("路径：\(path)", "数组个数：\(fileNames.count)", "文件名称数组：\(fileNames)")
     }
     
-    // MARK: 2.16、对指定路径执行浅搜索，返回指定目录路径下的文件、子目录及符号链接的列表(只寻找一层)
-    @objc func test216() {
+    // MARK: 2.18、对指定路径执行浅搜索，返回指定目录路径下的文件、子目录及符号链接的列表(只寻找一层)
+    @objc func test218() {
         let path = FileManager.jk.PreferencesDirectory()
     
         guard let fileNames = FileManager.jk.shallowSearchAllFiles(folderPath: path) else {
@@ -153,19 +160,33 @@ extension FileManagerExtensionViewController {
         JKPrint("路径：\(path)", "数组个数：\(fileNames.count)", "文件名称数组：\(fileNames)")
     }
     
-    // MARK: 2.15、根据文件路径获取文件名称，是否需要后缀
-    @objc func test215() {
+    // MARK: 2.17、根据文件路径获取文件名称，是否需要后缀
+    @objc func test217() {
         let path = FileManager.jk.DocumnetsDirectory() + "/我是一只小小鸟.text"
         let suffix1 = FileManager.jk.fileName(path: path, suffix: true)
         let suffix2 = FileManager.jk.fileName(path: path, suffix: false)
         JKPrint("路径：\(path)", "文件名称(需要后缀)：\(suffix1)", "文件名称(不需要后缀)：\(suffix2)")
     }
     
-    // MARK: 2.14、根据文件路径获取文件扩展类型
-    @objc func test214() {
+    // MARK: 2.16、根据文件路径获取文件扩展类型
+    @objc func test216() {
         let path = FileManager.jk.DocumnetsDirectory() + "/我是一只小小鸟.text"
         let suffix = FileManager.jk.fileSuffixAtPath(path: path)
         JKPrint("路径：\(path)", "根据文件路径获取文件扩展类型：\(suffix)")
+    }
+    
+    // MARK: 2.15、判断目录是否可删除
+    @objc func test215() {
+        let path = FileManager.jk.DocumnetsDirectory() + "/哈哈"
+        let result = FileManager.jk.judegeIsDeletableFile(path: path)
+        JKPrint("路径：\(path)", "是否可删除：\(result)")
+    }
+    
+    // MARK: 2.14、判断目录是否可执行
+    @objc func test214() {
+        let path = FileManager.jk.DocumnetsDirectory() + "/嘿嘿/呵呵"
+        let result = FileManager.jk.judegeIsExecutableFile(path: path)
+        JKPrint("路径：\(path)", "是否可执行：\(result)")
     }
     
     // MARK: 2.13、判断目录是否可写

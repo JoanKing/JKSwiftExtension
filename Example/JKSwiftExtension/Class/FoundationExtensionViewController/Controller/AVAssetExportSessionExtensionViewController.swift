@@ -23,9 +23,6 @@ extension AVAssetExportSessionExtensionViewController {
     // MARK: 1.1、本地视频压缩
     @objc func test11() {
         
-        let aa = AVAssetExportPresetMediumQuality
-        print(aa)
-        
         AVAssetExportSession.jk.assetExportSession(inputPath: "是本地视频路径", outputPath: "导出视频的路径", outputFileType: .mp4, completionHandler: { (exportSession, duration, videoSize, localVideoPath) in
             switch exportSession.status{
             case .waiting:

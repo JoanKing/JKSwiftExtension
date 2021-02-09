@@ -410,7 +410,17 @@ public extension JKPOP where Base: FileManager {
         return fileManager.isReadableFile(atPath: path)
     }
     
-    // MARK: 2.14、根据文件路径获取文件扩展类型
+    // MARK: 2.14、判断目录是否可执行
+    static func judegeIsExecutableFile(path: String) -> Bool {
+        return fileManager.isExecutableFile(atPath: path)
+    }
+    
+    // MARK: 2.15、判断目录是否可删除
+    static func judegeIsDeletableFile(path: String) -> Bool {
+        return fileManager.isDeletableFile(atPath: path)
+    }
+    
+    // MARK: 2.16、根据文件路径获取文件扩展类型
     /// 根据文件路径获取文件扩展类型
     /// - Parameter path: 文件路径
     /// - Returns: 文件扩展类型
@@ -418,7 +428,7 @@ public extension JKPOP where Base: FileManager {
         return (path as NSString).pathExtension
     }
     
-    // MARK: 2.15、根据文件路径获取文件名称，是否需要后缀
+    // MARK: 2.17、根据文件路径获取文件名称，是否需要后缀
     /// 根据文件路径获取文件名称，是否需要后缀
     /// - Parameters:
     ///   - path: 文件路径
@@ -433,7 +443,7 @@ public extension JKPOP where Base: FileManager {
         return fileName
     }
     
-    // MARK: 2.16、对指定路径执行浅搜索，返回指定目录路径下的文件、子目录及符号链接的列表(只寻找一层)
+    // MARK: 2.18、对指定路径执行浅搜索，返回指定目录路径下的文件、子目录及符号链接的列表(只寻找一层)
     /// 对指定路径执行浅搜索，返回指定目录路径下的文件、子目录及符号链接的列表(只寻找一层)
     /// - Parameter folderPath: 建搜索的lujing
     /// - Returns: 指定目录路径下的文件、子目录及符号链接的列表
@@ -444,7 +454,7 @@ public extension JKPOP where Base: FileManager {
         return contentsOfDirectoryArray
     }
     
-    // MARK: 2.17、深度遍历，会递归遍历子文件夹（包括符号链接，所以要求性能的话用enumeratorAtPath）
+    // MARK: 2.19、深度遍历，会递归遍历子文件夹（包括符号链接，所以要求性能的话用enumeratorAtPath）
     /**深度遍历，会递归遍历子文件夹（包括符号链接，所以要求性能的话用enumeratorAtPath）*/
     static func getAllFileNames(folderPath: String) -> Array<String>? {
         // 查看文件夹是否存在，如果存在就直接读取，不存在就直接反空
@@ -454,7 +464,7 @@ public extension JKPOP where Base: FileManager {
         return subPaths
     }
     
-    // MARK: 2.18、深度遍历，会递归遍历子文件夹（但不会递归符号链接）
+    // MARK: 2.20、深度遍历，会递归遍历子文件夹（但不会递归符号链接）
     /** 对指定路径深度遍历，会递归遍历子文件夹（但不会递归符号链接））*/
     static func deepSearchAllFiles(folderPath: String) -> Array<Any>? {
         // 查看文件夹是否存在，如果存在就直接读取，不存在就直接反空
@@ -464,7 +474,7 @@ public extension JKPOP where Base: FileManager {
         return contentsOfPathArray.allObjects
     }
     
-    // MARK: 2.19、计算单个 (文件夹/文件) 的大小，单位为字节(bytes) （没有进行转换的）
+    // MARK: 2.21、计算单个 (文件夹/文件) 的大小，单位为字节(bytes) （没有进行转换的）
     /// 计算单个 (文件夹/文件) 的大小，单位为字节 （没有进行转换的）
     /// - Parameter filePath: (文件夹/文件) 路径
     /// - Returns: 单个文件或文件夹的大小
@@ -480,7 +490,7 @@ public extension JKPOP where Base: FileManager {
         return fileSizeValue
     }
     
-    //MARK: 2.20、计算 (文件夹/文件) 的大小（转换过的）
+    //MARK: 2.22、计算 (文件夹/文件) 的大小（转换过的）
     /// 计算 (文件夹/文件) 的大小
     /// - Parameter path: (文件夹/文件) 的路径
     /// - Returns: (文件夹/文件) 的大小
@@ -503,7 +513,7 @@ public extension JKPOP where Base: FileManager {
         return covertUInt64ToString(with: fileSize)
     }
 
-    // MARK: 2.21、获取(文件夹/文件)属性集合
+    // MARK: 2.23、获取(文件夹/文件)属性集合
     ///  获取(文件夹/文件)属性集合
     /// - Parameter path: (文件夹/文件)路径
     /// - Returns: (文件夹/文件)属性集合
@@ -548,6 +558,16 @@ public extension JKPOP where Base: FileManager {
         public static let systemNodes:
         public static let systemFreeNodes:
         */
+    }
+    
+    // MARK: 2.24、文件/文件夹比较 是否一样
+    static func isEqual(filePath1: String, filePath2: String) -> Bool {
+        // 先判断是否存在路径
+        guard judgeFileOrFolderExists(filePath: filePath1), judgeFileOrFolderExists(filePath: filePath2) else {
+            return false
+        }
+        // 下面比较用户文档中前面两个文件是否内容相同（该方法也可以用来比较目录）
+        return fileManager.contentsEqual(atPath: filePath1, andPath: filePath2)
     }
 }
 
