@@ -36,6 +36,8 @@
     我的联系方式：微信：18500652880，您加我后，我把您拉进 JKSwiftExtension 的使用和维护群
     
 ## 版本说明
+   - 1.2.3、版本
+     CLLocation+Extension.swift 和 NSRange+Extension.swift 扩展的新增
    - 1.1.2、版本
      FileManager+Extension.swift 新增部分扩展
    - 1.2.1、版本
