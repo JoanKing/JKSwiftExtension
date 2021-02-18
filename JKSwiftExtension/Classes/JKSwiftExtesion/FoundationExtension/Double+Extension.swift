@@ -14,27 +14,31 @@ public extension JKPOP where Base == Double {
     /// 转 Int
     var int: Int { return Int(self.base) }
     
-    // MARK: 1.2、转 CGFloat
+    // MARK: 1.2、Double 四舍五入转 Int
+    /// Double 四舍五入转 Int
+    var lroundToInt: Int { return lround(self.base) }
+    
+    // MARK: 1.3、转 CGFloat
     /// 转 CGFloat
     var cgFloat: CGFloat { return CGFloat(self.base) }
 
-    // MARK: 1.3、转 Int64
+    // MARK: 1.4、转 Int64
     /// 转 Int64
     var int64: Int64 { return Int64(self.base) }
     
-    // MARK: 1.4、转 Float
+    // MARK: 1.5、转 Float
     /// 转 Float
     var float: Float { return Float(self.base) }
     
-    // MARK: 1.5、转 String
+    // MARK: 1.6、转 String
     /// 转 String
     var string: String { return String(self.base) }
     
-    // MARK: 1.6、转 NSNumber
+    // MARK: 1.7、转 NSNumber
     /// 转 NSNumber
     var number: NSNumber { return NSNumber.init(value: self.base) }
     
-    // MARK: 1.7、转 Double
+    // MARK: 1.8、转 Double
     /// 转 Double
     var double: Double { return self.base }
 }

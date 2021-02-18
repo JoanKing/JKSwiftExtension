@@ -1239,8 +1239,19 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     }
     
     // MARK: 10.6、获取某个位置的字符串
+    /// 获取某个位置的字符串
+    /// - Parameter index: 位置
+    /// - Returns: 某个位置的字符串
     public func indexString(index: Int) -> String  {
         return slice((index..<index + 1))
+    }
+    
+    // MARK: 10.7、获取某个子串在父串中的范围
+    /// 获取某个子串在父串中的范围
+    /// - Parameter str: 子串
+    /// - Returns: 某个子串在父串中的范围
+    public func range(str: String) -> Range<String.Index>? {
+        return (base as! String).range(of: str)
     }
 }
 

@@ -253,6 +253,8 @@
 		827CAEFF54A4578498E3594A2CE2276C /* Using.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041AAA6A21B40B806E3D877209EE9B4 /* Using.swift */; };
 		82CBF275A644494FF9A1E19615B4DE8F /* Throttle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2C15E629FBC6873C9CA93896221086 /* Throttle.swift */; };
 		84911BDE4647439EC2297071D8554EAA /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3176BFC8DBB64A75CEADCC6BC48F0595 /* Bag.swift */; };
+		84F11D5F25DE0D3C00209B4C /* NSRange+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F11D5E25DE0D3C00209B4C /* NSRange+Extension.swift */; };
+		84F11DEC25DE477A00209B4C /* CLLocation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F11DEB25DE477A00209B4C /* CLLocation+Extension.swift */; };
 		853365D0331E1956600D6674F190C8AB /* Platform.Darwin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0BD920236DE20DD427FDA8CAAFE76D /* Platform.Darwin.swift */; };
 		85557BB8ADEDB23D463325DE651CF458 /* UIPickerView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = C781EAC70814F3B689611B1B92DD6215 /* UIPickerView+Rx.swift */; };
 		86408B1BC308802B7B5910C3CD281314 /* Scan.swift in Sources */ = {isa = PBXBuildFile; fileRef = E942FB846913A939A8102835A49F7E33 /* Scan.swift */; };
@@ -868,6 +870,8 @@
 		844538112A48CAAC3F5F14336FB4F645 /* GroupedObservable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GroupedObservable.swift; path = RxSwift/GroupedObservable.swift; sourceTree = "<group>"; };
 		84A40981B54ED05CF4BAEB4616A3D550 /* RxTableViewDataSourcePrefetchingProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxTableViewDataSourcePrefetchingProxy.swift; path = RxCocoa/iOS/Proxies/RxTableViewDataSourcePrefetchingProxy.swift; sourceTree = "<group>"; };
 		84D8BE5A7AC7AAB30E2037B9199539C2 /* Do.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Do.swift; path = RxSwift/Observables/Do.swift; sourceTree = "<group>"; };
+		84F11D5E25DE0D3C00209B4C /* NSRange+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRange+Extension.swift"; sourceTree = "<group>"; };
+		84F11DEB25DE477A00209B4C /* CLLocation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Extension.swift"; sourceTree = "<group>"; };
 		855E0D15BF0175BC156C0A105C35F58F /* InvocableScheduledItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InvocableScheduledItem.swift; path = RxSwift/Schedulers/Internal/InvocableScheduledItem.swift; sourceTree = "<group>"; };
 		856373923C33D6F51ABF659584854785 /* TakeLast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TakeLast.swift; path = RxSwift/Observables/TakeLast.swift; sourceTree = "<group>"; };
 		85D03BEC2CA9B2DB28398618379E7744 /* FDFullscreenPopGesture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FDFullscreenPopGesture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1477,6 +1481,8 @@
 		23FEE88F7FA94B82A8DEA09B3B3B9096 /* UIKitExtension */ = {
 			isa = PBXGroup;
 			children = (
+				9E600526655EF5768375EC05BD3A6366 /* UIView+Extension.swift */,
+				305A9F809D0B9796BD04844FC3F001AC /* UIImage+Extension.swift */,
 				2E4746454A4223FF07539091BFA44B02 /* CAGradientLayer+Extension.swift */,
 				0C30CFDB34F412E41F7734F42A5B3F0D /* CALayer+Extension.swift */,
 				392578812435664BCB78804EFD243830 /* CATextLayer+Extension.swift */,
@@ -1489,7 +1495,6 @@
 				94AA5684ADA68A25D92E14CFAE1FDB4C /* UIColor+Extension.swift */,
 				447EAD9E082F9F0FE86AA97A83E9EFD8 /* UIControl+Extension.swift */,
 				BBDFB17EE3E22DB111B99F44935FF2AA /* UIGestureRecognizer+Extension.swift */,
-				305A9F809D0B9796BD04844FC3F001AC /* UIImage+Extension.swift */,
 				FAD498A80A8AE5944D50EB213438A953 /* UIImageView+Extension.swift */,
 				8ADC49387AA3F51968B17699CD77F4B3 /* UILabel+Extension.swift */,
 				8049537B54644F71D43950074358850A /* UINavigationBar+Extension.swift */,
@@ -1506,7 +1511,6 @@
 				B0129762CEB685454D5BED527D559091 /* UITableViewCell+Extension.swift */,
 				F4BEAB26DBCF26A2571062E6FB3E5B50 /* UITextField+Extension.swift */,
 				F9244690D9F832E49CA9A739E2CCEC27 /* UITextView+Extension.swift */,
-				9E600526655EF5768375EC05BD3A6366 /* UIView+Extension.swift */,
 				6AD0DCEC4CF9206B37AA2AFA824269EC /* UIViewController+Extension.swift */,
 				3493A91F23A09662574815A25C309836 /* WKWebView+Extension.swift */,
 			);
@@ -1964,6 +1968,9 @@
 		F338E91456FAB7B56B9FA3A8ADE5C956 /* FoundationExtension */ = {
 			isa = PBXGroup;
 			children = (
+				CEF63256F1CAE8E4D296110D445F7559 /* String+Extension.swift */,
+				84F11DEB25DE477A00209B4C /* CLLocation+Extension.swift */,
+				84F11D5E25DE0D3C00209B4C /* NSRange+Extension.swift */,
 				9E25A16FC889DD4BAF22762B9B7E91C3 /* FileManager+Extension.swift */,
 				93D97F19988AD1386FE43F70B95244D7 /* Array+Extension.swift */,
 				CE3407C67C5D78C5C9DCC0F483C85A7E /* AVAssetExportSession+Extension.swift */,
@@ -1987,7 +1994,6 @@
 				DDEBC301FE93F16212A71FA658CDFCDC /* NSMutableAttributedString+Extension.swift */,
 				90265542EDF7C407C4FA725E2D6EEE91 /* NSNumber+Extension.swift */,
 				7328C48A0D01DA1F97378F5CCC87AA06 /* NSObject+Extension.swift */,
-				CEF63256F1CAE8E4D296110D445F7559 /* String+Extension.swift */,
 				CE5FF03E92F13A029C2BB6680B6EC03C /* Timer+Extension.swift */,
 				0B70B2BE33D31382BE866065C4540BFA /* UIDevice+Extension.swift */,
 				067DF40F62E618B1264EBE88A14073F6 /* UIFont+Extension.swift */,
@@ -2508,7 +2514,9 @@
 				AF9F6CA271079080AA5E07730033839F /* JKSwiftExtension-dummy.m in Sources */,
 				ABA1A3B2CF6BE0485E7EA245A6AECBFA /* JKTapActionLabel.swift in Sources */,
 				EC774AB4A0AF8DDF348E1CFDA6E13207 /* JKValidateHelper.swift in Sources */,
+				84F11D5F25DE0D3C00209B4C /* NSRange+Extension.swift in Sources */,
 				29F911D0DCFC5B6AEC79BB05B4A2701C /* JKWaterFallLayout.swift in Sources */,
+				84F11DEC25DE477A00209B4C /* CLLocation+Extension.swift in Sources */,
 				CD4B806D5F69CFA59DE1592523D6B7C1 /* KeyboardAccessory.swift in Sources */,
 				164ED5559E7E8654F65273E4678947F1 /* NibLoadable.swift in Sources */,
 				F9CD6E8EC560BAACDE5DCB5394015527 /* NSAttributedString+Extension.swift in Sources */,

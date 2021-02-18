@@ -20,6 +20,8 @@
 		84058C972554FA44007F0C30 /* UIViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */; };
 		840F883F256637BE009B73DA /* huaban1.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F883E256637BE009B73DA /* huaban1.png */; };
 		840F884325663B24009B73DA /* girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F884225663B24009B73DA /* girl.png */; };
+		8410D02D25DBC98300700FDD /* mebubble@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8410D02B25DBC98300700FDD /* mebubble@2x.png */; };
+		8410D02E25DBC98300700FDD /* yoububble@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8410D02C25DBC98300700FDD /* yoububble@2x.png */; };
 		8418FB97255B8642000CB0B3 /* UILabelExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418FB96255B8642000CB0B3 /* UILabelExtensionViewController.swift */; };
 		8418FB99255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418FB98255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift */; };
 		8418FB9B255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418FB9A255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift */; };
@@ -105,6 +107,8 @@
 		84D9BDD525652FE500D92461 /* JKEmitterableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BDD425652FE400D92461 /* JKEmitterableViewController.swift */; };
 		84E96DD925C7E2D300D76D5C /* CAGradientLayerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E96DD825C7E2D300D76D5C /* CAGradientLayerExtensionViewController.swift */; };
 		84EE8174257F8EFF00DDC56B /* Persons.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84EE8173257F8EFF00DDC56B /* Persons.plist */; };
+		84F11D6B25DE0DB500209B4C /* NSRangeExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F11D6A25DE0DB500209B4C /* NSRangeExtensionViewController.swift */; };
+		84F11DF825DE4A3400209B4C /* CLLocationExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F11DF725DE4A3400209B4C /* CLLocationExtensionViewController.swift */; };
 		84F86FBD2564B4C400B74128 /* JKCommonToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F86FBC2564B4C400B74128 /* JKCommonToolViewController.swift */; };
 		84F86FCC2564C66E00B74128 /* JKContentSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F86FCB2564C66E00B74128 /* JKContentSizeViewController.swift */; };
 		84F86FEC2564EAF500B74128 /* JKValidateHelperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F86FEB2564EAF500B74128 /* JKValidateHelperViewController.swift */; };
@@ -135,6 +139,8 @@
 		84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensionViewController.swift; sourceTree = "<group>"; };
 		840F883E256637BE009B73DA /* huaban1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = huaban1.png; sourceTree = "<group>"; };
 		840F884225663B24009B73DA /* girl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = girl.png; sourceTree = "<group>"; };
+		8410D02B25DBC98300700FDD /* mebubble@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mebubble@2x.png"; sourceTree = "<group>"; };
+		8410D02C25DBC98300700FDD /* yoububble@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yoububble@2x.png"; sourceTree = "<group>"; };
 		8418FB96255B8642000CB0B3 /* UILabelExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtensionViewController.swift; sourceTree = "<group>"; };
 		8418FB98255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensionViewController.swift; sourceTree = "<group>"; };
 		8418FB9A255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensionViewController.swift; sourceTree = "<group>"; };
@@ -222,6 +228,8 @@
 		84D9BDD425652FE400D92461 /* JKEmitterableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKEmitterableViewController.swift; sourceTree = "<group>"; };
 		84E96DD825C7E2D300D76D5C /* CAGradientLayerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAGradientLayerExtensionViewController.swift; sourceTree = "<group>"; };
 		84EE8173257F8EFF00DDC56B /* Persons.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Persons.plist; sourceTree = "<group>"; };
+		84F11D6A25DE0DB500209B4C /* NSRangeExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRangeExtensionViewController.swift; sourceTree = "<group>"; };
+		84F11DF725DE4A3400209B4C /* CLLocationExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationExtensionViewController.swift; sourceTree = "<group>"; };
 		84F86FBC2564B4C400B74128 /* JKCommonToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKCommonToolViewController.swift; sourceTree = "<group>"; };
 		84F86FCB2564C66E00B74128 /* JKContentSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKContentSizeViewController.swift; sourceTree = "<group>"; };
 		84F86FEB2564EAF500B74128 /* JKValidateHelperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKValidateHelperViewController.swift; sourceTree = "<group>"; };
@@ -300,6 +308,8 @@
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8410D02B25DBC98300700FDD /* mebubble@2x.png */,
+				8410D02C25DBC98300700FDD /* yoububble@2x.png */,
 				847DE9542573F0B60080EEC0 /* testFile.text */,
 				840F884225663B24009B73DA /* girl.png */,
 				8473AAD82562985A00707877 /* pika2.gif */,
@@ -456,9 +466,13 @@
 		84BF16B3251D9EAB002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */,
+				84F11DF725DE4A3400209B4C /* CLLocationExtensionViewController.swift */,
+				84F11D6A25DE0DB500209B4C /* NSRangeExtensionViewController.swift */,
+				84BEA378254FD78E00CA8A75 /* FloatExtensionViewController.swift */,
+				84BEA37A25500B8F00CA8A75 /* DoubleExtensionViewController.swift */,
 				8482AA052553EEFF00EB0A7A /* FileManagerExtensionViewController.swift */,
 				8482AA092554075E00EB0A7A /* UIDeviceExtensionViewController.swift */,
-				849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */,
 				84A5D2D52547B48E003D289C /* DateExtensionViewController.swift */,
 				847CCCF825B80D1E00928F5B /* AVAssetExportSessionExtensionViewController.swift */,
 				84BEA372254FAC6600CA8A75 /* UIFontExtensionViewController.swift */,
@@ -477,9 +491,7 @@
 				847DFF252550F07600EEE785 /* Int64ExtensionViewController.swift */,
 				84C4BF6025501B3600B3705F /* IntExtensionViewController.swift */,
 				84C4BF5E25500E5C00B3705F /* CGFloatExtensionViewController.swift */,
-				84BEA37A25500B8F00CA8A75 /* DoubleExtensionViewController.swift */,
 				847DFF272550F43C00EEE785 /* UIntExtensionViewController.swift */,
-				84BEA378254FD78E00CA8A75 /* FloatExtensionViewController.swift */,
 				849D58F32537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift */,
 				8483A738254EC47E00ACF6FD /* NSObjectExtensionViewController.swift */,
 				84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */,
@@ -512,10 +524,10 @@
 		84BF16B8251D9EB1002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */,
 				847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */,
 				8418FB96255B8642000CB0B3 /* UILabelExtensionViewController.swift */,
 				84E96DD825C7E2D300D76D5C /* CAGradientLayerExtensionViewController.swift */,
-				84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */,
 				84A6FB78255A65EC00057839 /* UIButtonExtensionViewController.swift */,
 				84802817255957560038748A /* UIApplicationExtensionViewController.swift */,
 				8418FB9A255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift */,
@@ -731,6 +743,7 @@
 			files = (
 				847DE9552573F0B60080EEC0 /* testFile.text in Resources */,
 				84F9375A2589D4B500A35E77 /* MyStoryboard.storyboard in Resources */,
+				8410D02D25DBC98300700FDD /* mebubble@2x.png in Resources */,
 				8483A730254C0A7F00ACF6FD /* testicon.png in Resources */,
 				8483A72C254BF0AD00ACF6FD /* JKBaseKit.bundle in Resources */,
 				840F884325663B24009B73DA /* girl.png in Resources */,
@@ -741,6 +754,7 @@
 				84D9BDD125652D9900D92461 /* TestView.xib in Resources */,
 				84EE8174257F8EFF00DDC56B /* Persons.plist in Resources */,
 				840F883F256637BE009B73DA /* huaban1.png in Resources */,
+				8410D02E25DBC98300700FDD /* yoububble@2x.png in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -858,6 +872,7 @@
 				84A5D2D62547B48E003D289C /* DateExtensionViewController.swift in Sources */,
 				847D4B452560DF85000DDA3C /* UIBezierPathExtensionViewController.swift in Sources */,
 				84BF16C8251D9FB6002ACE76 /* UIKitExtensionViewController.swift in Sources */,
+				84F11D6B25DE0DB500209B4C /* NSRangeExtensionViewController.swift in Sources */,
 				844A635425664F9B000059EC /* ThreeViewController.swift in Sources */,
 				8401537F2552B34A001AB2FD /* DictionaryExtensionViewController.swift in Sources */,
 				84336D6D25A8066700D17AC1 /* JKTapActionLabelViewController.swift in Sources */,
@@ -886,6 +901,7 @@
 				8483A739254EC47E00ACF6FD /* NSObjectExtensionViewController.swift in Sources */,
 				84D9BDA925651FA600D92461 /* WeakTimerViewController.swift in Sources */,
 				84D9BDD525652FE500D92461 /* JKEmitterableViewController.swift in Sources */,
+				84F11DF825DE4A3400209B4C /* CLLocationExtensionViewController.swift in Sources */,
 				847DFF2C2550F8C100EEE785 /* BoolExtensionViewController.swift in Sources */,
 				84F937A0258A081700A35E77 /* UICollectionViewExtensionViewController.swift in Sources */,
 				8483A732254C0D6200ACF6FD /* JKPrintViewController.swift in Sources */,

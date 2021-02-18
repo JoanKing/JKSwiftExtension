@@ -509,7 +509,18 @@ public extension JKPOP where Base: UIImage {
         return self.base.resizableImage(withCapInsets: edgeInsets, resizingMode: .stretch)
     }
     
-    // MARK: 3.5、调整图像方向 避免图像有旋转
+    // MARK: 3.5、图片设置拉伸
+    /// 图片设置拉伸
+    /// - Parameters:
+    ///   - edgeInsets: 拉伸区域
+    ///   - resizingMode: 拉伸模式
+    /// - Returns: 返回拉伸后的图片
+    func strechBubble(edgeInsets: UIEdgeInsets, resizingMode: UIImage.ResizingMode = .stretch) -> UIImage {
+        // 拉伸
+        return self.base.resizableImage(withCapInsets: edgeInsets, resizingMode: resizingMode)
+    }
+    
+    // MARK: 3.6、调整图像方向 避免图像有旋转
     /// 调整图像方向 避免图像有旋转
     /// - Returns: 返正常的图片
     func fixOrientation() -> UIImage {

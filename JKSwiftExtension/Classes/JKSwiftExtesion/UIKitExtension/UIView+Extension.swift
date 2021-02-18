@@ -741,6 +741,12 @@ public extension JKPOP where Base: UIView {
         self.base.isUserInteractionEnabled = true
         self.base.addGestureRecognizer(UITapGestureRecognizer(target: target, action: selector))
     }
+    
+    // MARK: 7.5、键盘收起来
+    /// 键盘收起来
+    func keyboardEndEditing() {
+        self.base.endEditing(true)
+    }
 }
 
 // MARK:- private method
