@@ -38,7 +38,7 @@
 ## 版本说明
    - 1.2.3、版本
      CLLocation+Extension.swift 和 NSRange+Extension.swift 扩展的新增
-   - 1.1.2、版本
+   - 1.2.2、版本
      FileManager+Extension.swift 新增部分扩展
    - 1.2.1、版本
      去除 SmallTools 中的 JKVerticalCarousel、MaskingManager、JKLoadingView 删除，也去除依赖SnapKit
