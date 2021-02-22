@@ -8,6 +8,7 @@
 
 import UIKit
 import EventKit
+
 class TestFileViewController: UIViewController {
     
     lazy var textFiled: UITextField = {
@@ -36,12 +37,40 @@ class TestFileViewController: UIViewController {
         return textview
     }()
     
+    lazy var appleImageView: UIImageView = {
+        let imageView = UIImageView(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
+        imageView.image = UIImage(named: "good5")
+        return imageView
+    }()
+    
+    var dynamicAnimator = UIDynamicAnimator()
+    var snap: UISnapBehavior?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "TestFile"
         self.view.backgroundColor = .white
+        
+        self.view.addSubview(appleImageView)
 
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        //附加识别器到视图
+        self.view.addGestureRecognizer(gesture)
+        
+    }
+    
+    @objc func tapped(tap: UITapGestureRecognizer) {
+
+        //获取点击位置
+        let point = tap.location(in: self.view)
+        
+        // 删除之前的吸附,添加一个新的
+        if self.snap != nil {
+            self.dynamicAnimator.removeBehavior(self.snap!)
+        }
+        self.snap = UISnapBehavior(item: self.appleImageView, snapTo: point)
+        self.dynamicAnimator.addBehavior(self.snap!)
 
     }
     
@@ -54,8 +83,7 @@ class TestFileViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-
-        self.view.jk.keyboardEndEditing()
+        self.navigationController?.pushViewController(QRTestViewController(), animated: true)
     }
     
 }

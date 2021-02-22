@@ -189,9 +189,9 @@ public extension JKPOP where Base: UIImage {
         UIGraphicsBeginImageContext(base.size)
         base.draw(in: CGRect.init(x: 0, y: 0, width: base.size.width, height: base.size.height))
         image.draw(in: rect)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return image
+        return newImage
     }
     
     // MARK: 1.9、文字图片占位符
@@ -243,17 +243,22 @@ public extension JKPOP where Base: UIImage {
     
     // MARK: 1.10、更改图片颜色
     /// 更改图片颜色
-    /// - Parameter color: 图片颜色
+    /// - Parameters:
+    ///   - color: 图片颜色
+    ///   - blendMode: 模式
     /// - Returns: 返回更改后的图片颜色
-    func imageWithColor(color : UIColor) -> UIImage? {
+    func tint(color: UIColor, blendMode: CGBlendMode = .destinationIn) -> UIImage? {
+        /**
+         有时我们的App需要能切换不同的主题和场景，希望图片能动态的改变颜色以配合对应场景的色调。虽然我们可以根据不同主题事先创建不同颜色的图片供调用，但既然用的图片素材都一样，还一个个转换显得太麻烦，而且不便于维护。使用blendMode变可以满足这个需求。
+         */
         defer {
             UIGraphicsEndImageContext()
         }
-        UIGraphicsBeginImageContext(self.base.size)
+        let drawRect = CGRect(x: 0, y: 0, width: self.base.size.width, height: self.base.size.height)
+        UIGraphicsBeginImageContextWithOptions(self.base.size, false, self.base.scale)
         color.setFill()
-        let bounds = CGRect(x: 0, y: 0, width: self.base.size.width, height: self.base.size.height)
-        UIRectFill(bounds)
-        self.base.draw(in: bounds, blendMode: CGBlendMode.destinationIn, alpha: 1.0)
+        UIRectFill(drawRect)
+        self.base.draw(in: drawRect, blendMode: CGBlendMode.destinationIn, alpha: 1.0)
         guard let tintedImage = UIGraphicsGetImageFromCurrentImageContext() else {
             return nil
         }
@@ -831,6 +836,24 @@ public extension JKPOP where Base: UIImage {
         
         return newPicture
     }
+    
+    // MARK: 5.2、获取图片中二维码数组
+    func getImageQRImage() -> [CIQRCodeFeature] {
+        let qrcodeImg = self.base as UIImage
+        let context = CIContext(options: nil)
+        guard let ciImage: CIImage = CIImage(image:qrcodeImg),
+              let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: context, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh]),
+              let features = detector.features(in: ciImage) as? [CIQRCodeFeature] else {
+            return []
+        }
+        return features
+    }
+    
+    // MARK: 5.3、获取图片每个二维码里面的信息数组
+    func getImageQRImageInfo() -> [String] {
+        // 遍历所有的二维码，并拿出二维码里面的信息
+        return getImageQRImage().map { $0.messageString ?? ""}
+    }
 }
 
 // MARK:- 六、gif 加载
@@ -1304,5 +1327,165 @@ public extension JKPOP where Base: UIImage {
         let swap = rect.size.width
         rect.size.width = rect.size.height
         rect.size.height = swap
+    }
+}
+
+// MARK:- 八、给图片添加滤镜效果（棕褐色老照片滤镜，黑白滤镜）
+/**
+ Core Image 是一个强大的滤镜处理框架。它除了可以直接给图片添加各种内置滤镜，还能精确地修改鲜艳程度, 色泽, 曝光等，下面通过两个样例演示如何给 UIImage 添加滤镜
+ */
+public extension JKPOP where Base: UIImage {
+    /// 滤镜类型
+    enum JKImageFilterType: String {
+        /// 棕褐色复古滤镜（老照片效果），有点复古老照片发黄的效果）
+        case CISepiaTone = "CISepiaTone"
+        /// 黑白效果滤镜
+        case CIPhotoEffectNoir = "CIPhotoEffectNoir"
+    }
+    
+    // MARK: 8.1、图片加滤镜
+    /// 图片加滤镜
+    /// - Parameters:
+    ///   - filterType: 滤镜类型
+    ///   - alpha: 透明度
+    /// - Returns: 添加滤镜后的图片
+    func filter(filterType: JKImageFilterType, alpha: CGFloat?) -> UIImage? {
+        guard let imageData = self.base.pngData() else {
+            return nil
+        }
+        let inputImage = CoreImage.CIImage(data: imageData)
+        let context = CIContext(options: nil)
+        guard let filter = CIFilter(name: filterType.rawValue) else {
+            return nil
+        }
+        filter.setValue(inputImage, forKey: kCIInputImageKey)
+        if alpha != nil {
+            filter.setValue(alpha, forKey: "inputIntensity")
+        }
+        guard let outputImage = filter.outputImage, let outImage = context.createCGImage(outputImage, from: outputImage.extent) else {
+            return nil
+        }
+        return UIImage(cgImage: outImage)
+    }
+    
+    // MARK: 8.2、全图马赛克
+    /// 全图马赛克
+    /// - Parameter value: 值越大马赛克就越大(使用默认)
+    /// - Returns: 全图马赛克的图片
+    func pixAll(value: Int? = nil) -> UIImage? {
+        guard let filter = CIFilter(name: "CIPixellate") else {
+            return nil
+        }
+        let context = CIContext(options: nil)
+        let inputImage = CIImage(image: self.base)
+        filter.setValue(inputImage, forKey: kCIInputImageKey)
+        if value != nil {
+            // 值越大马赛克就越大(使用默认)
+            filter.setValue(value, forKey: kCIInputScaleKey)
+        }
+        let fullPixellatedImage = filter.outputImage
+        let cgImage = context.createCGImage(fullPixellatedImage!, from: fullPixellatedImage!.extent)
+        return UIImage(cgImage: cgImage!)
+    }
+    
+    // MARK: 8.3、检测人脸的frame
+    // 检测人脸的frame
+    func detectFace() -> [CGRect]? {
+        guard let inputImage = CIImage(image: self.base) else {
+            return nil
+        }
+        let context = CIContext(options: nil)
+        // 人脸检测器
+        // CIDetectorAccuracyHigh: 检测的精度高,但速度更慢些
+        let detector = CIDetector(ofType: CIDetectorTypeFace,
+                                  context: context,
+                                  options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
+        var faceFeatures: [CIFaceFeature]!
+        // 人脸检测需要图片方向(有元数据的话使用元数据,没有就调用featuresInImage)
+        if let orientation = inputImage.properties[kCGImagePropertyOrientation as String] {
+            faceFeatures = (detector!.features(in: inputImage, options: [CIDetectorImageOrientation: orientation]) as! [CIFaceFeature])
+        } else {
+            faceFeatures = (detector!.features(in: inputImage) as! [CIFaceFeature])
+        }
+        // 打印所有的面部特征
+        // print(faceFeatures)
+        let inputImageSize = inputImage.extent.size
+        var transform = CGAffineTransform.identity
+        transform = transform.scaledBy(x: 1, y: -1)
+        transform = transform.translatedBy(x: 0, y: -inputImageSize.height)
+        
+        // 人脸位置的frame
+        var rects: [CGRect] = []
+        // 遍历所有的面部，并框出
+        for faceFeature in faceFeatures {
+            let faceViewBounds = faceFeature.bounds.applying(transform)
+            rects.append(faceViewBounds)
+        }
+        return rects
+    }
+    
+    // MARK: 8.4、检测人脸并打马赛克
+    /// 检测人脸并打马赛克
+    /// - Returns: 打马赛克后的人脸
+    func detectAndPixFace() -> UIImage? {
+        guard let inputImage = CIImage(image: self.base) else {
+            return nil
+        }
+        let context = CIContext(options: nil)
+        
+        // 用CIPixellate滤镜对原图先做个完全马赛克
+        let filter = CIFilter(name: "CIPixellate")!
+        filter.setValue(inputImage, forKey: kCIInputImageKey)
+        let inputScale = max(inputImage.extent.size.width, inputImage.extent.size.height) / 80
+        filter.setValue(inputScale, forKey: kCIInputScaleKey)
+        let fullPixellatedImage = filter.outputImage
+        // 检测人脸，并保存在faceFeatures中
+        guard let detector = CIDetector(ofType: CIDetectorTypeFace,
+                                       context: context,
+                                       options: nil) else {
+            return nil
+        }
+        let faceFeatures = detector.features(in: inputImage)
+        // 初始化蒙版图，并开始遍历检测到的所有人脸
+        var maskImage: CIImage!
+        for faceFeature in faceFeatures {
+            print(faceFeature.bounds)
+            // 基于人脸的位置，为每一张脸都单独创建一个蒙版，所以要先计算出脸的中心点，对应为x、y轴坐标，
+            // 再基于脸的宽度或高度给一个半径，最后用这些计算结果初始化一个CIRadialGradient滤镜
+            let centerX = faceFeature.bounds.origin.x + faceFeature.bounds.size.width / 2
+            let centerY = faceFeature.bounds.origin.y + faceFeature.bounds.size.height / 2
+            let radius = min(faceFeature.bounds.size.width, faceFeature.bounds.size.height)
+            guard let radialGradient = CIFilter(name: "CIRadialGradient",
+                                                parameters: [
+                                                  "inputRadius0" : radius,
+                                                  "inputRadius1" : radius + 1,
+                                                   "inputColor0" : CIColor(red: 0, green: 1, blue: 0, alpha: 1),
+                                                   "inputColor1" : CIColor(red: 0, green: 0, blue: 0, alpha: 0),
+                                               kCIInputCenterKey : CIVector(x: centerX, y: centerY)
+                                                ]) else {
+                return nil
+            }
+            // 由于CIRadialGradient滤镜创建的是一张无限大小的图，所以在使用之前先对它进行裁剪
+            let radialGradientOutputImage = radialGradient.outputImage!.cropped(to: inputImage.extent)
+            if maskImage == nil {
+                maskImage = radialGradientOutputImage
+            } else {
+                maskImage = CIFilter(name: "CISourceOverCompositing",
+                                     parameters: [
+                                        kCIInputImageKey : radialGradientOutputImage,
+                                        kCIInputBackgroundImageKey : maskImage as Any
+                                     ])!.outputImage
+            }
+        }
+        // 用CIBlendWithMask滤镜把马赛克图、原图、蒙版图混合起来
+        let blendFilter = CIFilter(name: "CIBlendWithMask")!
+        blendFilter.setValue(fullPixellatedImage, forKey: kCIInputImageKey)
+        blendFilter.setValue(inputImage, forKey: kCIInputBackgroundImageKey)
+        blendFilter.setValue(maskImage, forKey: kCIInputMaskImageKey)
+        // 输出，在界面上显示
+        guard let blendOutputImage = blendFilter.outputImage, let blendCGImage = context.createCGImage(blendOutputImage, from: blendOutputImage.extent) else {
+            return nil
+        }
+        return UIImage(cgImage: blendCGImage)
     }
 }

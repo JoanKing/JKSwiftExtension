@@ -16,8 +16,133 @@ class UIImageExtensionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headDataArray = ["一、基本的扩展", "二、UIColor 生成的图片 和 生成渐变色图片", "三、图片的拉伸和缩放", "四、UIImage 压缩相关", "五、二维码的处理", "六、gif 加载", "七、图片旋转的一些操作"]
-        dataArray = [["设置图片的圆角", "设置圆形图片", "获取视频的第一帧", "layer 转 image", "设置图片透明度", "裁剪给定区域", "给图片添加文字水印", "添加图片水印", "文字图片占位符", "更改图片颜色", "获取图片某一个位置像素的颜色", "保存图片到相册"], ["生成指定尺寸的纯色图像", "生成指定尺寸和圆角的纯色图像", "生成渐变色的图片 [\"#B0E0E6\", \"#00CED1\", \"#2E8B57\"]", "生成渐变色的图片 [UIColor, UIColor, UIColor]", "生成带圆角渐变色的图片 [UIColor, UIColor, UIColor]"], ["获取固定大小的 image", "按宽高比系数：等比缩放", "按指定尺寸等比缩放", "图片中间 1*1 拉伸——如气泡一般", "图片设置拉伸", "调整图像方向 避免图像有旋转"], ["压缩图片", "异步图片压缩", "压缩图片质量", "ImageIO 方式调整图片大小 性能很好", "CoreGraphics 方式调整图片大小 性能很好"], ["生成二维码图片"], ["验证资源的格式，返回资源格式（png/gif/jpeg...）", "加载 data 数据的 gif 图片", "加载网络 url 的 gif 图片", "加载本地的gif图片", "加载 asset 里面的图片", "获取 asset 里面的gif图片的信息：包含分解后的图片和gif时间", "获取 加载本地的 的gif图片的信息：包含分解后的图片和gif时间", "获取 网络 url 的 gif 图片的信息：包含分解后的图片和gif时间"], ["图片旋转 (角度)", "图片旋转 (弧度)", "水平翻转", "垂直翻转", "向下翻转", "向左翻转", "镜像向左翻转", "向右翻转", "镜像向右翻转", "图片平铺区域"]]
+        headDataArray = ["一、基本的扩展", "二、UIColor 生成的图片 和 生成渐变色图片", "三、图片的拉伸和缩放", "四、UIImage 压缩相关", "五、二维码的处理", "六、gif 加载", "七、图片旋转的一些操作", "给图片添加滤镜效果（棕褐色老照片滤镜，黑白滤镜）"]
+        dataArray = [["设置图片的圆角", "设置圆形图片", "获取视频的第一帧", "layer 转 image", "设置图片透明度", "裁剪给定区域", "给图片添加文字水印", "添加图片水印", "文字图片占位符", "更改图片颜色", "获取图片某一个位置像素的颜色", "保存图片到相册"], ["生成指定尺寸的纯色图像", "生成指定尺寸和圆角的纯色图像", "生成渐变色的图片 [\"#B0E0E6\", \"#00CED1\", \"#2E8B57\"]", "生成渐变色的图片 [UIColor, UIColor, UIColor]", "生成带圆角渐变色的图片 [UIColor, UIColor, UIColor]"], ["获取固定大小的 image", "按宽高比系数：等比缩放", "按指定尺寸等比缩放", "图片中间 1*1 拉伸——如气泡一般", "图片设置拉伸", "调整图像方向 避免图像有旋转"], ["压缩图片", "异步图片压缩", "压缩图片质量", "ImageIO 方式调整图片大小 性能很好", "CoreGraphics 方式调整图片大小 性能很好"], ["生成二维码图片", "获取图片中二维码数组", "获取图片每个二维码里面的信息数组"], ["验证资源的格式，返回资源格式（png/gif/jpeg...）", "加载 data 数据的 gif 图片", "加载网络 url 的 gif 图片", "加载本地的gif图片", "加载 asset 里面的图片", "获取 asset 里面的gif图片的信息：包含分解后的图片和gif时间", "获取 加载本地的 的gif图片的信息：包含分解后的图片和gif时间", "获取 网络 url 的 gif 图片的信息：包含分解后的图片和gif时间"], ["图片旋转 (角度)", "图片旋转 (弧度)", "水平翻转", "垂直翻转", "向下翻转", "向左翻转", "镜像向左翻转", "向右翻转", "镜像向右翻转", "图片平铺区域"], ["图片加滤镜", "全图马赛克", "检测人脸的frame", "检测人脸并打马赛克"]]
+    }
+}
+
+// MARK:- 八、给图片添加滤镜效果（棕褐色老照片滤镜，黑白滤镜）以及 马赛克
+extension UIImageExtensionViewController {
+    
+    // MARK: 8.4、检测人脸并打马赛克
+    @objc func test84() {
+        guard let image1 = UIImage(named: "tfboy"), let image = image1.jk.detectAndPixFace() else {
+            return
+        }
+        var imageView1 = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
+        imageView1.image = image1
+        imageView1.contentMode = .scaleAspectFit
+        imageView1.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView1)
+        
+        JKAsyncs.asyncDelay(2) {
+        } _: {
+            imageView1.image = image
+            JKAsyncs.asyncDelay(5) {
+            } _: {
+                imageView1.removeFromSuperview()
+            }
+        }
+    }
+    
+    // MARK: 8.3、检测人脸的frame
+    @objc func test83() {
+        
+        guard let image1 = UIImage(named: "tfboy"), let rects = image1.jk.detectFace() else {
+            return
+        }
+        print("人脸的rects：\(rects)")
+
+        var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
+        imageView.image = image1
+        imageView.contentMode = .scaleAspectFit
+        imageView.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView)
+        
+        guard let inputImage = CIImage(image: image1) else {
+            return
+        }
+        let inputImageSize = inputImage.extent.size
+        var transform = CGAffineTransform.identity
+        transform = transform.scaledBy(x: 1, y: -1)
+        transform = transform.translatedBy(x: 0, y: -inputImageSize.height)
+        
+        for rect in rects {
+            var faceViewBounds = rect
+            
+            // 由于检测的原图放在imageView中缩放的原因,我们还要考虑缩放比例和x,y轴偏移
+            let scale = min(imageView.bounds.size.width / inputImageSize.width,
+                            imageView.bounds.size.height / inputImageSize.height)
+            let offsetX = (imageView.bounds.size.width - inputImageSize.width * scale) / 2
+            let offsetY = (imageView.bounds.size.height - inputImageSize.height * scale) / 2
+            
+            faceViewBounds = faceViewBounds.applying(CGAffineTransform(scaleX: scale, y: scale))
+            faceViewBounds.origin.x += offsetX
+            faceViewBounds.origin.y += offsetY
+            
+            // 每个人脸对应一个UIView方框
+            let faceView = UIView(frame: faceViewBounds)
+            faceView.layer.borderColor = UIColor.orange.cgColor
+            faceView.layer.borderWidth = 2
+            
+            imageView.addSubview(faceView)
+        }
+        
+        JKAsyncs.asyncDelay(5) {
+        } _: {
+            imageView.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 8.2、全图马赛克
+    @objc func test82() {
+        let image1 = UIImage(named: "testicon")
+        var imageView1 = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
+        imageView1.image = image1
+        imageView1.contentMode = .scaleAspectFit
+        imageView1.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView1)
+        
+        JKAsyncs.asyncDelay(2) {
+        } _: {
+            imageView1.image = image1?.jk.pixAll()
+            JKAsyncs.asyncDelay(2) {
+            } _: {
+                imageView1.removeFromSuperview()
+            }
+        }
+    }
+    
+    // MARK: 8.1、图片加滤镜
+    @objc func test81() {
+        let image1 = UIImage(named: "testicon")
+        var imageView1 = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
+        imageView1.image = image1
+        imageView1.contentMode = .scaleAspectFit
+        imageView1.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView1)
+        
+        let image2 = UIImage(named: "testicon")
+        var imageView2 = UIImageView(frame: CGRect(x: 0, y: imageView1.jk.bottom + 30, width: 200, height: 200))
+        imageView2.image = image2
+        imageView2.contentMode = .scaleAspectFit
+        imageView2.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView2)
+        JKAsyncs.asyncDelay(2) {
+        } _: {
+            let image3 = UIImage(named: "testicon")?.jk.filter(filterType: .CISepiaTone, alpha: 0.8)
+            imageView2.image = image3
+            JKAsyncs.asyncDelay(2) {
+            } _: {
+                let image4 = UIImage(named: "testicon")?.jk.filter(filterType: .CIPhotoEffectNoir, alpha: nil)
+                imageView2.image = image4
+                JKAsyncs.asyncDelay(2) {
+                } _: {
+                    imageView1.removeFromSuperview()
+                    imageView2.removeFromSuperview()
+                }
+            }
+        }
     }
 }
 
@@ -447,6 +572,42 @@ extension UIImageExtensionViewController {
 // MARK:- 五、二维码的处理
 extension UIImageExtensionViewController {
     
+    // MARK: 5.3、获取图片每个二维码里面的信息数组
+    @objc func test53() {
+        let image = UIImage(named: "qr_test")
+        var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 300, height: 500))
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFit
+        imageView.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView)
+    
+        let qrCodeFeatures = image!.jk.getImageQRImageInfo()
+        JKPrint("获取图片每个二维码里面的信息数组：\(qrCodeFeatures)")
+        
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            imageView.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 5.2、获取图片中二维码数组
+    @objc func test52() {
+        let image = UIImage(named: "qr_test")
+        var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 300, height: 500))
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFit
+        imageView.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView)
+    
+        let qrCodeFeatures = image!.jk.getImageQRImage()
+        JKPrint("图片中二维码数组：\(qrCodeFeatures)")
+        
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            imageView.removeFromSuperview()
+        }
+    }
+    
     // MARK: 5.1、生成二维码图片
     @objc func test51() {
         let image = UIImage.jk.QRImage(with: "https://www.jianshu.com/u/8fed18ed70c9", size: CGSize(width: 100, height: 100), isLogo: true, logoSize: CGSize(width: 30, height: 30), logoImage: UIImage(named: "ironman"), logoRoundCorner: 4)
@@ -454,6 +615,7 @@ extension UIImageExtensionViewController {
         imageView.image = image
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
+    
         JKAsyncs.asyncDelay(3) {
         } _: {
             imageView.removeFromSuperview()
@@ -811,7 +973,7 @@ extension UIImageExtensionViewController {
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
         } _: {
-            imageView.image = image.jk.imageWithColor(color: .brown)
+            imageView.image = image.jk.tint(color: .green, blendMode: .destinationIn)
             JKAsyncs.asyncDelay(3) {
             } _: {
                 imageView.removeFromSuperview()

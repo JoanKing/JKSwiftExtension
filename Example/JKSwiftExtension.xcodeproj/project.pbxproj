@@ -43,6 +43,7 @@
 		8457687C259DC3A3006F93D4 /* IndexPathExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457687B259DC3A3006F93D4 /* IndexPathExtensionViewController.swift */; };
 		8473AAC02562889500707877 /* UIImageViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473AABF2562889500707877 /* UIImageViewExtensionViewController.swift */; };
 		8473AADA2562985B00707877 /* pika2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8473AAD82562985A00707877 /* pika2.gif */; };
+		8473D81E25E3432B0072AB0D /* QRTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473D81D25E3432B0072AB0D /* QRTestViewController.swift */; };
 		847CCCF925B80D1E00928F5B /* AVAssetExportSessionExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CCCF825B80D1E00928F5B /* AVAssetExportSessionExtensionViewController.swift */; };
 		847D4B452560DF85000DDA3C /* UIBezierPathExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D4B442560DF84000DDA3C /* UIBezierPathExtensionViewController.swift */; };
 		847D4B9625611E50000DDA3C /* UIImageExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */; };
@@ -163,6 +164,7 @@
 		846774172511FE9900DE8B44 /* JKSwiftExtension_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JKSwiftExtension_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		8473AABF2562889500707877 /* UIImageViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensionViewController.swift; sourceTree = "<group>"; };
 		8473AAD82562985A00707877 /* pika2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pika2.gif; sourceTree = "<group>"; };
+		8473D81D25E3432B0072AB0D /* QRTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRTestViewController.swift; sourceTree = "<group>"; };
 		847CCCF825B80D1E00928F5B /* AVAssetExportSessionExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAssetExportSessionExtensionViewController.swift; sourceTree = "<group>"; };
 		847D4B442560DF84000DDA3C /* UIBezierPathExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtensionViewController.swift; sourceTree = "<group>"; };
 		847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensionViewController.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 				844A634725664F9B000059EC /* Notification+Extension.swift */,
 				844A634A25664F9B000059EC /* TestViewController.swift */,
 				844A635C25665328000059EC /* TouchViewController.swift */,
+				8473D81D25E3432B0072AB0D /* QRTestViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -524,8 +527,8 @@
 		84BF16B8251D9EB1002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */,
 				847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */,
+				84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */,
 				8418FB96255B8642000CB0B3 /* UILabelExtensionViewController.swift */,
 				84E96DD825C7E2D300D76D5C /* CAGradientLayerExtensionViewController.swift */,
 				84A6FB78255A65EC00057839 /* UIButtonExtensionViewController.swift */,
@@ -914,6 +917,7 @@
 				84C4BF5F25500E5C00B3705F /* CGFloatExtensionViewController.swift in Sources */,
 				84CC32AF255D39F000F489F0 /* UITextViewExtensionViewController.swift in Sources */,
 				847D4B9625611E50000DDA3C /* UIImageExtensionViewController.swift in Sources */,
+				8473D81E25E3432B0072AB0D /* QRTestViewController.swift in Sources */,
 				8488026D256DF0DE007D41CA /* TestFileViewController.swift in Sources */,
 				84CC32AD255CDBB300F489F0 /* UIScrollViewExtensionViewController.swift in Sources */,
 				8418FB97255B8642000CB0B3 /* UILabelExtensionViewController.swift in Sources */,

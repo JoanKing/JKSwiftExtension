@@ -1796,3 +1796,44 @@ public extension JKPOP where Base == String {
         return returnStr.replacingOccurrences(of: "\\r\\n", with: "\n")
     }
 }
+
+// MARK:- 十八、字符值引用 (numeric character reference, NCR)与普通字符串的转换
+/**
+ 1，什么是字符值引用
+ （1）字符值引用 (numeric character reference, NCR) 是在标记语言SGML以及派生的如HTML与XML中常见的一种转义序列结构，用来表示Unicode的通用字符集 (UCS)中的单个字符. NCR可以表示在一个特定文档中不能直接编码的字符，而该标记语言阅读器软件把每个NCR当作一个字符来处理。
+ （2）我们可以将其理解为HTML、XML 等 SGML 类语言的转义序列（escape sequence）。而不是一种编码或转码。
+
+ 2，字符值引用的格式
+ 以「&#x」开头的后接十六进制数字。或者以「&#」开头的后接十进制数字。
+ &#x4e2d;&#x56fd;  //中国（16进制格式）
+ &#20013;&#22269;  //中国（10进制格式）
+ （不管哪种形式写在html页面中都会正常显示出“中国”）
+ */
+public extension JKPOP where Base == String {
+   
+    // MARK: 18.1、将普通字符串转为字符值引用
+    /// 将普通字符串转为字符值引用
+    /// - Returns: 字符值引用
+    func toHtmlEncodedString() -> String {
+        var result:String = "";
+        for scalar in self.base.utf16 {
+            //将十进制转成十六进制，不足4位前面补0
+            let tem = String().appendingFormat("%04x",scalar)
+            result += "&#x\(tem);"
+        }
+        return result
+    }
+    
+    // MARK: 18.2、字符值引用转普通字符串
+    /// 字符值引用转普通字符串
+    /// - Parameter htmlEncodedString: 字符值引用
+    /// - Returns: 普通字符串
+    func htmlEncodedStringToString() -> String? {
+        let attributedOptions: [NSAttributedString.DocumentReadingOptionKey : Any] = [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html,
+            NSAttributedString.DocumentReadingOptionKey.characterEncoding: String.Encoding.utf8.rawValue]
+        guard let encodedData = self.base.data(using: String.Encoding.utf8), let attributedString = try? NSAttributedString(data: encodedData, options: attributedOptions, documentAttributes: nil) else {
+            return nil
+        }
+        return attributedString.string
+    }
+}
