@@ -43,6 +43,7 @@
        - 图片打马赛克
        - 识别图片中的人脸位置
        - 图片中的人脸打马赛克
+       
        String+Extension.swift 新增 字符值引用 (numeric character reference, NCR)与普通字符串的转换
    - 1.2.5、版本
      CLLocation+Extension.swift 和 NSRange+Extension.swift 扩展的新增
