@@ -8,11 +8,11 @@
 
 import Foundation
 
-public protocol NibLoadable {
+public protocol JKNibLoadable {
 }
 
 // MARK:- 一、继承于UIView的才可以使用该协议的扩展
-public extension NibLoadable where Self: UIView {
+public extension JKNibLoadable where Self: UIView {
     
     // MARK: 1.1、加载xib视图
     /// 加载xib视图

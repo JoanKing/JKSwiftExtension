@@ -14,13 +14,22 @@ class URLExtensionViewController: BaseViewController {
         super.viewDidLoad()
 
         headDataArray = ["一、基本的扩展"]
-        dataArray = [["提取链接中的参数以字典像是显示", "属性说明"]]
+        dataArray = [["提取链接中的参数以字典像是显示", "属性说明", "检测应用是否能打开这个URL实例"]]
     }
 
 }
 
 // MARK:- 一、基本的扩展
 extension URLExtensionViewController {
+    
+    // MARK: 1.3、检测应用是否能打开这个URL实例
+    @objc func test13() {
+        guard let url = URL(string: "https://www.baidu.com") else {
+            return
+        }
+        let result = url.jk.verifyUrl()
+        JKPrint("检测应用是否能打开这个URL实例：\(result)")
+    }
     
     // MARK: 1.2、属性说明
     @objc func test12() {

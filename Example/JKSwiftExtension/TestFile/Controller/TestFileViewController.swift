@@ -71,7 +71,6 @@ class TestFileViewController: UIViewController {
         }
         self.snap = UISnapBehavior(item: self.appleImageView, snapTo: point)
         self.dynamicAnimator.addBehavior(self.snap!)
-
     }
     
     @objc func onMail(){

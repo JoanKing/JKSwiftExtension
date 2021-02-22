@@ -43,8 +43,8 @@ class ProtocolViewController: UIViewController {
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green
   
-        dataArray = ["JKEmitterable", "NibLoadable"]
-        finishedDataArray = ["JKEmitterable", "NibLoadable"]
+        dataArray = ["JKEmitterable", "NibLoadable", "JKJSON"]
+        finishedDataArray = ["JKEmitterable", "NibLoadable", "JKJSON"]
         initUI()
     }
     

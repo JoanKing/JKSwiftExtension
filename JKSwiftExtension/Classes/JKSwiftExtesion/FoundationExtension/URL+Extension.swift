@@ -28,5 +28,12 @@ public extension JKPOP where Base == URL {
     func propertyDescription() {
         JKPrint("完整的url字符串 absoluteString：\(base.absoluteString)", "协议 scheme：\(base.scheme ?? "")", "相对路径 relativePath：\(base.relativePath)", "端口 port：\(base.port ?? 0)", "路径 path：\(base.path)", "pathComponents：\(base.pathComponents)", "参数 query：\(base.query ?? "")", "域名 host：\(base.host ?? "")")
     }
+    
+    // MARK: 1.3、检测应用是否能打开这个URL实例
+    /// 1.3、检测应用是否能打开这个URL实例
+    /// - Returns: 结果
+    func verifyUrl() -> Bool {
+        return UIApplication.shared.canOpenURL(self.base)
+    }
 }
 

@@ -46,7 +46,7 @@
 		146FEFA661113F3759912ECBB13302EC /* UIBezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B16D87E3EF79E16ED25012B8F1D14F /* UIBezierPath+Extension.swift */; };
 		14E9ACC5796C5E35C84DD6659BEB788F /* ConstraintPriorityTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3EABC9887B6C07684761BDB753B4D9 /* ConstraintPriorityTarget.swift */; };
 		15D0D8EE39393B4628502414BD95C248 /* NSObject+Rx+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D4575E649DDDDEEB661A002E5EC4C /* NSObject+Rx+RawRepresentable.swift */; };
-		164ED5559E7E8654F65273E4678947F1 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73CD4C836EE4DDBDCF2E2985D9E6C52 /* NibLoadable.swift */; };
+		164ED5559E7E8654F65273E4678947F1 /* JKNibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73CD4C836EE4DDBDCF2E2985D9E6C52 /* JKNibLoadable.swift */; };
 		169072CCB84E8675A31F60963CFBF05D /* Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911913C190DE11FAD83CFC59687A80E /* Kingfisher.swift */; };
 		169094D297B643310BF2BD951A4684ED /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 68CD9104108DD8493E0ABE4443AA2C4F /* MJRefreshBackFooter.m */; };
 		16996F467C45679D6725399528821EBB /* UISlider+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD8065C9C49EE73E14FC65CEB132D7 /* UISlider+Extension.swift */; };
@@ -253,6 +253,8 @@
 		827CAEFF54A4578498E3594A2CE2276C /* Using.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041AAA6A21B40B806E3D877209EE9B4 /* Using.swift */; };
 		82CBF275A644494FF9A1E19615B4DE8F /* Throttle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2C15E629FBC6873C9CA93896221086 /* Throttle.swift */; };
 		84911BDE4647439EC2297071D8554EAA /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3176BFC8DBB64A75CEADCC6BC48F0595 /* Bag.swift */; };
+		84ADDC2F25E37E0500C8177C /* JKDrawSignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC2E25E37E0500C8177C /* JKDrawSignatureView.swift */; };
+		84ADDC3E25E3884300C8177C /* JKJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC3D25E3884300C8177C /* JKJSON.swift */; };
 		84F11D5F25DE0D3C00209B4C /* NSRange+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F11D5E25DE0D3C00209B4C /* NSRange+Extension.swift */; };
 		84F11DEC25DE477A00209B4C /* CLLocation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F11DEB25DE477A00209B4C /* CLLocation+Extension.swift */; };
 		853365D0331E1956600D6674F190C8AB /* Platform.Darwin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0BD920236DE20DD427FDA8CAAFE76D /* Platform.Darwin.swift */; };
@@ -869,6 +871,8 @@
 		844231532A125DC1A4DF30AA2D5291D6 /* RxCocoa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RxCocoa.debug.xcconfig; sourceTree = "<group>"; };
 		844538112A48CAAC3F5F14336FB4F645 /* GroupedObservable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GroupedObservable.swift; path = RxSwift/GroupedObservable.swift; sourceTree = "<group>"; };
 		84A40981B54ED05CF4BAEB4616A3D550 /* RxTableViewDataSourcePrefetchingProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxTableViewDataSourcePrefetchingProxy.swift; path = RxCocoa/iOS/Proxies/RxTableViewDataSourcePrefetchingProxy.swift; sourceTree = "<group>"; };
+		84ADDC2E25E37E0500C8177C /* JKDrawSignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKDrawSignatureView.swift; sourceTree = "<group>"; };
+		84ADDC3D25E3884300C8177C /* JKJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKJSON.swift; sourceTree = "<group>"; };
 		84D8BE5A7AC7AAB30E2037B9199539C2 /* Do.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Do.swift; path = RxSwift/Observables/Do.swift; sourceTree = "<group>"; };
 		84F11D5E25DE0D3C00209B4C /* NSRange+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRange+Extension.swift"; sourceTree = "<group>"; };
 		84F11DEB25DE477A00209B4C /* CLLocation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Extension.swift"; sourceTree = "<group>"; };
@@ -1100,7 +1104,7 @@
 		E69D90FCA0C335C112D0F63C482589B0 /* _RXDelegateProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = _RXDelegateProxy.m; path = RxCocoa/Runtime/_RXDelegateProxy.m; sourceTree = "<group>"; };
 		E6D868194A63F78AA8DEF26FA2F476C0 /* Driver+Subscription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Driver+Subscription.swift"; path = "RxCocoa/Traits/Driver/Driver+Subscription.swift"; sourceTree = "<group>"; };
 		E71354344BEDCBB3484BC6FCA7D26928 /* SubscribeOn.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SubscribeOn.swift; path = RxSwift/Observables/SubscribeOn.swift; sourceTree = "<group>"; };
-		E73CD4C836EE4DDBDCF2E2985D9E6C52 /* NibLoadable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		E73CD4C836EE4DDBDCF2E2985D9E6C52 /* JKNibLoadable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKNibLoadable.swift; sourceTree = "<group>"; };
 		E7CD74D68602F86584CAACC5432C68C7 /* Deprecated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Deprecated.swift; path = RxCocoa/Deprecated.swift; sourceTree = "<group>"; };
 		E8CD2E4C70B834D75FDEEE8BE0C5AB08 /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMultiplierTarget.swift; path = Source/ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
 		E90790E2CE6069ECA8D1A69BD0D0C601 /* KVORepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KVORepresentable.swift; path = RxCocoa/Foundation/KVORepresentable.swift; sourceTree = "<group>"; };
@@ -1560,6 +1564,7 @@
 				A387C347F786DEE5A07C7333F2E927D8 /* KeyboardAccessory.swift */,
 				447754912B3C6E1EFD77DFC7C992E03C /* QRCodeImageFactory.swift */,
 				7470EA489102B07B8419603EB9B30AB8 /* WeakTimer.swift */,
+				84ADDC2E25E37E0500C8177C /* JKDrawSignatureView.swift */,
 			);
 			name = SmallTools;
 			path = JKSwiftExtension/Classes/JKSwiftExtesion/SmallTools;
@@ -2010,7 +2015,8 @@
 			children = (
 				8BBA18D354FDE39A887C57B943F52848 /* JKEmitterable.swift */,
 				FADA32135A7B44E59A4850DB335D361E /* JKPOP.swift */,
-				E73CD4C836EE4DDBDCF2E2985D9E6C52 /* NibLoadable.swift */,
+				E73CD4C836EE4DDBDCF2E2985D9E6C52 /* JKNibLoadable.swift */,
+				84ADDC3D25E3884300C8177C /* JKJSON.swift */,
 				250E2823B1D2F7D40EA2B7F786A44F9D /* JKPOPExtension */,
 			);
 			name = Protocol;
@@ -2512,13 +2518,14 @@
 				BDE021658A4A43A323C808DBF04DE0FD /* JKRegexHelper.swift in Sources */,
 				73F063DA28C850F7D4B6D5DE678FBB16 /* JKRuntime.swift in Sources */,
 				AF9F6CA271079080AA5E07730033839F /* JKSwiftExtension-dummy.m in Sources */,
+				84ADDC2F25E37E0500C8177C /* JKDrawSignatureView.swift in Sources */,
 				ABA1A3B2CF6BE0485E7EA245A6AECBFA /* JKTapActionLabel.swift in Sources */,
 				EC774AB4A0AF8DDF348E1CFDA6E13207 /* JKValidateHelper.swift in Sources */,
 				84F11D5F25DE0D3C00209B4C /* NSRange+Extension.swift in Sources */,
 				29F911D0DCFC5B6AEC79BB05B4A2701C /* JKWaterFallLayout.swift in Sources */,
 				84F11DEC25DE477A00209B4C /* CLLocation+Extension.swift in Sources */,
 				CD4B806D5F69CFA59DE1592523D6B7C1 /* KeyboardAccessory.swift in Sources */,
-				164ED5559E7E8654F65273E4678947F1 /* NibLoadable.swift in Sources */,
+				164ED5559E7E8654F65273E4678947F1 /* JKNibLoadable.swift in Sources */,
 				F9CD6E8EC560BAACDE5DCB5394015527 /* NSAttributedString+Extension.swift in Sources */,
 				9347F7B6DCA5FE3A488EB94FCA99AACA /* NSDecimalNumberHandler+Extension.swift in Sources */,
 				0B6653F5448D95F4B29F28531260804D /* NSIndexPath+Extension.swift in Sources */,
@@ -2556,6 +2563,7 @@
 				D46177435363026541ADAA480F92F030 /* UITableView+Extension.swift in Sources */,
 				8A45B95D0050DC0700263DDF10CFD034 /* UITableViewCell+Extension.swift in Sources */,
 				B4C19BB3562F690892891ABB2E49D82D /* UITextField+Extension.swift in Sources */,
+				84ADDC3E25E3884300C8177C /* JKJSON.swift in Sources */,
 				8D0E44C0173386DCE373A8BDC407D223 /* UITextView+Extension.swift in Sources */,
 				23E3D6FF269FDD2E8B19847D0EE6C86F /* UIView+Extension.swift in Sources */,
 				34B30635115F80A1B6E8BFE2D16F1583 /* UIViewController+Extension.swift in Sources */,

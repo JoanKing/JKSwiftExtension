@@ -183,6 +183,24 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     func copy() {
         UIPasteboard.general.string = (self.base as! String)
     }
+
+    // MARK: 1.18、提取出字符串中所有的URL链接
+    /// 提取出字符串中所有的URL链接
+    /// - Returns: URL链接数组
+    func getUrls() -> [String]? {
+        var urls = [String]()
+        // 创建一个正则表达式对象
+        guard let dataDetector = try? NSDataDetector(types:  NSTextCheckingTypes(NSTextCheckingResult.CheckingType.link.rawValue)) else {
+            return nil
+        }
+        // 匹配字符串，返回结果集
+        let res = dataDetector.matches(in: self.base as! String, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, (self.base as! String).count))
+        // 取出结果
+        for checkingRes in res {
+            urls.append((self.base as! NSString).substring(with: checkingRes.range))
+        }
+        return urls
+    }
 }
 
 // MARK:- 二、沙盒路径的获取

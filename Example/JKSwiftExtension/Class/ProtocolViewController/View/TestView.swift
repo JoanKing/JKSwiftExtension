@@ -8,6 +8,6 @@
 
 import UIKit
 
-class TestView: UIView, NibLoadable {
+class TestView: UIView, JKNibLoadable {
     
 }
