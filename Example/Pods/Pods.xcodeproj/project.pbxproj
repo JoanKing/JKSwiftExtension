@@ -257,6 +257,7 @@
 		84ADDC3E25E3884300C8177C /* JKJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC3D25E3884300C8177C /* JKJSON.swift */; };
 		84F11D5F25DE0D3C00209B4C /* NSRange+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F11D5E25DE0D3C00209B4C /* NSRange+Extension.swift */; };
 		84F11DEC25DE477A00209B4C /* CLLocation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F11DEB25DE477A00209B4C /* CLLocation+Extension.swift */; };
+		84FEC02725E8D12B0074D207 /* JKPaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEC02625E8D12B0074D207 /* JKPaddingLabel.swift */; };
 		853365D0331E1956600D6674F190C8AB /* Platform.Darwin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0BD920236DE20DD427FDA8CAAFE76D /* Platform.Darwin.swift */; };
 		85557BB8ADEDB23D463325DE651CF458 /* UIPickerView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = C781EAC70814F3B689611B1B92DD6215 /* UIPickerView+Rx.swift */; };
 		86408B1BC308802B7B5910C3CD281314 /* Scan.swift in Sources */ = {isa = PBXBuildFile; fileRef = E942FB846913A939A8102835A49F7E33 /* Scan.swift */; };
@@ -876,6 +877,7 @@
 		84D8BE5A7AC7AAB30E2037B9199539C2 /* Do.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Do.swift; path = RxSwift/Observables/Do.swift; sourceTree = "<group>"; };
 		84F11D5E25DE0D3C00209B4C /* NSRange+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRange+Extension.swift"; sourceTree = "<group>"; };
 		84F11DEB25DE477A00209B4C /* CLLocation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Extension.swift"; sourceTree = "<group>"; };
+		84FEC02625E8D12B0074D207 /* JKPaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPaddingLabel.swift; sourceTree = "<group>"; };
 		855E0D15BF0175BC156C0A105C35F58F /* InvocableScheduledItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InvocableScheduledItem.swift; path = RxSwift/Schedulers/Internal/InvocableScheduledItem.swift; sourceTree = "<group>"; };
 		856373923C33D6F51ABF659584854785 /* TakeLast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TakeLast.swift; path = RxSwift/Observables/TakeLast.swift; sourceTree = "<group>"; };
 		85D03BEC2CA9B2DB28398618379E7744 /* FDFullscreenPopGesture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FDFullscreenPopGesture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1565,6 +1567,7 @@
 				447754912B3C6E1EFD77DFC7C992E03C /* QRCodeImageFactory.swift */,
 				7470EA489102B07B8419603EB9B30AB8 /* WeakTimer.swift */,
 				84ADDC2E25E37E0500C8177C /* JKDrawSignatureView.swift */,
+				84FEC02625E8D12B0074D207 /* JKPaddingLabel.swift */,
 			);
 			name = SmallTools;
 			path = JKSwiftExtension/Classes/JKSwiftExtesion/SmallTools;
@@ -2567,6 +2570,7 @@
 				8D0E44C0173386DCE373A8BDC407D223 /* UITextView+Extension.swift in Sources */,
 				23E3D6FF269FDD2E8B19847D0EE6C86F /* UIView+Extension.swift in Sources */,
 				34B30635115F80A1B6E8BFE2D16F1583 /* UIViewController+Extension.swift in Sources */,
+				84FEC02725E8D12B0074D207 /* JKPaddingLabel.swift in Sources */,
 				964EAE3C97B045F6C67E7E016A65C22A /* URL+Extension.swift in Sources */,
 				4760991F6AE51EAE221AFBFC581CC8AF /* UserDefaults+Extesnion.swift in Sources */,
 				D9A11956CB0004E316FFF0D8407B4E71 /* WeakTimer.swift in Sources */,

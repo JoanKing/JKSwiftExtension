@@ -11,9 +11,17 @@ import UIKit
 class CALayerExtensionViewController: BaseViewController, CAAnimationDelegate {
     
     var translatonAnimation: CABasicAnimation!
+    lazy var testButton: UIView = {
+        let testView = UIView()
+        testView.frame = CGRect(x: 50, y: 100, width: 100, height: 100)
+        testView.backgroundColor = UIColor.randomColor
+        return testView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "测试", style: .plain, target: self, action: #selector(test62))
         
         headDataArray = ["一、自定义链式编程", "二、有关 CABasicAnimation 动画的扩展", "三、有关 CAKeyframeAnimation 动画的扩展", "四、有关 CATransition 动画的扩展", "五、有关 CASpringAnimation 弹簧动画的扩展", "六、有关 CAAnimationGroup 动画组的扩展"]
         dataArray = [["设置圆角", "设置背景色", "设置背景色 (十六进制字符串)", "设置frame", "添加到父视图(UIView)", "添加到父视图(CALayer)", "是否隐藏", "设置边框宽度", "设置边框颜色", "是否开启光栅化", "设置光栅化比例", "设置阴影颜色", "设置阴影的透明度", "设置阴影的偏移量", "设置阴影圆角", "高性能添加阴影 Shadow Path"], ["移动到另外一个 点(point)", "移动X", "移动Y", "圆角动画", "缩放动画", "旋转动画"], ["position移动动画", "设置 角度值 抖动", "根据 CGPath 进行做 移动 动画"], ["转场动画的使用"], ["弹簧动画：Bounds 动画"], ["CAAnimationGroup 的基类动画"]]
@@ -31,6 +39,19 @@ class CALayerExtensionViewController: BaseViewController, CAAnimationDelegate {
 // MARK:- 六、有关 CAAnimationGroup 动画组的扩展
 extension CALayerExtensionViewController {
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        testButton.jk.x = scrollView.contentOffset.x + testButton.jk.x
+        testButton.jk.y = scrollView.contentOffset.y + testButton.jk.y
+        testButton.jk.width = 80
+        testButton.jk.height = 80
+        testButton.layer.cornerRadius = 40
+        testButton.clipsToBounds = true
+    }
+    
+    // MARK: CAAnimationGroup 动画
+    @objc func test62() {
+        self.view.addSubview(testButton)
+    }
     // MARK: CAAnimationGroup 动画
     @objc func test61() {
         
@@ -361,7 +382,8 @@ extension CALayerExtensionViewController {
         testLayer.backgroundColor = UIColor.green.cgColor
         testLayer.corner(12)
         self.view.layer.addSublayer(testLayer)
-        testLayer.jk.animationMovePoint(to: CGPoint(x: 100, y: 100), duration: 5, delay: 1, repeatNumber: 1, removedOnCompletion: false, option: .default)
+        testLayer.jk.animationCornerRadius(cornerRadius: 50)
+        testLayer.jk.animationMovePoint(to: CGPoint(x: 150, y: 150), duration: 5, delay: 1, repeatNumber: 1, removedOnCompletion: false, option: .default)
         JKAsyncs.asyncDelay(6) {
             
         } _: {
