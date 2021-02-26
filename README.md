@@ -36,6 +36,8 @@
     我的联系方式：微信：18500652880，您加我后，我把您拉进 JKSwiftExtension 的使用和维护群
     
 ## 版本说明
+   - 1.2.8、版本
+       新增具有内边距的label：JKPaddingLabel
    - 1.2.7、版本
        - URL+Extension.swift 增加 检测应用是否能打开这个URL实例
        - JKJSON.swift 小组件的新增：将数据转成可用的JSON模型
