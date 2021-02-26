@@ -36,6 +36,11 @@
     我的联系方式：微信：18500652880，您加我后，我把您拉进 JKSwiftExtension 的使用和维护群
     
 ## 版本说明
+   - 1.2.7、版本
+       - URL+Extension.swift 增加 检测应用是否能打开这个URL实例
+       - JKJSON.swift 小组件的新增：将数据转成可用的JSON模型
+       - String+Extension.swift 新增 提取出字符串中所有的URL链接
+       - JKDrawSignatureView.swift 签名板
    - 1.2.6、版本   
        UIImage+Extension.swift  
        - 图片中二维码的识别
