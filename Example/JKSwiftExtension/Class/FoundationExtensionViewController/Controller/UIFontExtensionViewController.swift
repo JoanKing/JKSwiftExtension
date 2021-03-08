@@ -14,98 +14,219 @@ class UIFontExtensionViewController: BaseViewController {
         super.viewDidLoad()
 
         headDataArray = ["一、常用的基本字体扩展"]
-        dataArray = [["6 号字体", "8 号字体", "hook字体", "测试"]]
+        dataArray = [["系统字体", "常规字体", "中等的字体", "加粗的字体", "半粗体的字体", "超细的字体", "纤细的字体", "亮字体", "介于Bold和Black之间", "最粗字体"]]
     }
 }
 
 // MARK:- 一、常用的基本字体扩展
 extension UIFontExtensionViewController {
     
-    // MARK: 1.4、测试
-    @objc func test14() -> String? {
-        let array = ["1", "2", "3"]
-        
-        for item in array {
-            print("打印：\(item)")
-            if item == "2" {
-                return item
-            }
-        }
-        print("没有值------")
-        return nil
-    
-    }
-    
-    // MARK: 1.3、hook
-    @objc func test13() {
-        
-        JKRuntime.methods(from: UIViewController.self)
-       
-        JKRuntime.methods(from: UIFont.self)
-        
+    // MARK: 1.10、最粗字体
+    @objc func test110() {
         var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
         label.backgroundColor = .green
         label.textColor = .brown
         label.text = "我是一只小小鸟"
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.jk.centerX = self.view.jk.centerX
-        label.textAlignment = .center
-        self.view.addSubview(label)
-    }
-    
-    // MARK: 1.2、8 号字体
-    @objc func test12() {
-        let label = UILabel(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
-        label.textColor = .brown
-        label.textAlignment = .left
-        self.view.addSubview(label)
-        
-        JKAsyncs.asyncDelay(1) {
-            label.font = UIFont.f8
-            JKAsyncs.asyncDelay(1) {
-                label.font = UIFont.f8Light
-                JKAsyncs.asyncDelay(1) {
-                    label.font = UIFont.f8Medium
-                    JKAsyncs.asyncDelay(1, {
-                        label.font = UIFont.f8Bold
-                    }) {
-                        label.removeFromSuperview()
-                    }
-                }
-            }
-        }
-    }
-    
-    // MARK: 1.1、6号字体
-    @objc func test11() {
-        var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
-        label.backgroundColor = .green
-        label.textColor = .brown
-        label.text = "我是一只小小鸟"
-        label.font = UIFont.f6
+        label.font = UIFont.jk.textBlack(6)
         label.jk.centerX = self.view.jk.centerX
         label.textAlignment = .center
         self.view.addSubview(label)
         
         JKAsyncs.asyncDelay(1, {
         }) {
-            label.font = UIFont.f6Light
+            label.font = UIFont.jk.textBlack(16)
             JKAsyncs.asyncDelay(1, {
             }) {
-                label.font = UIFont.f6
-                JKAsyncs.asyncDelay(1, {
-                }) {
-                    label.font = UIFont.f6Medium
-                    JKAsyncs.asyncDelay(1, {
-                    }) {
-                        label.font = UIFont.f6Bold
-                        JKAsyncs.asyncDelay(1, {
-                        }) {
-                            label.removeFromSuperview()
-                        }
-                    }
-                    
-                }
+                label.removeFromSuperview()
+            }
+        }
+    }
+    
+    // MARK: 1.9、介于Bold和Black之间
+    @objc func test19() {
+        var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
+        label.backgroundColor = .green
+        label.textColor = .brown
+        label.text = "我是一只小小鸟"
+        label.font = UIFont.jk.textHeavy(6)
+        label.jk.centerX = self.view.jk.centerX
+        label.textAlignment = .center
+        self.view.addSubview(label)
+        
+        JKAsyncs.asyncDelay(1, {
+        }) {
+            label.font = UIFont.jk.textHeavy(16)
+            JKAsyncs.asyncDelay(1, {
+            }) {
+                label.removeFromSuperview()
+            }
+        }
+    }
+    
+    // MARK: 1.8、亮字体
+    @objc func test18() {
+        var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
+        label.backgroundColor = .green
+        label.textColor = .brown
+        label.text = "我是一只小小鸟"
+        label.font = UIFont.jk.textLight(6)
+        label.jk.centerX = self.view.jk.centerX
+        label.textAlignment = .center
+        self.view.addSubview(label)
+        
+        JKAsyncs.asyncDelay(1, {
+        }) {
+            label.font = UIFont.jk.textLight(16)
+            JKAsyncs.asyncDelay(1, {
+            }) {
+                label.removeFromSuperview()
+            }
+        }
+    }
+    
+    // MARK: 1.7、纤细的字体
+    @objc func test17() {
+        var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
+        label.backgroundColor = .green
+        label.textColor = .brown
+        label.text = "我是一只小小鸟"
+        label.font = UIFont.jk.textThin(6)
+        label.jk.centerX = self.view.jk.centerX
+        label.textAlignment = .center
+        self.view.addSubview(label)
+        
+        JKAsyncs.asyncDelay(1, {
+        }) {
+            label.font = UIFont.jk.textThin(16)
+            JKAsyncs.asyncDelay(1, {
+            }) {
+                label.removeFromSuperview()
+            }
+        }
+    }
+    
+    // MARK: 1.6、超细的字体
+    @objc func test16() {
+        var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
+        label.backgroundColor = .green
+        label.textColor = .brown
+        label.text = "我是一只小小鸟"
+        label.font = UIFont.jk.textUltraLight(6)
+        label.jk.centerX = self.view.jk.centerX
+        label.textAlignment = .center
+        self.view.addSubview(label)
+        
+        JKAsyncs.asyncDelay(1, {
+        }) {
+            label.font = UIFont.jk.textUltraLight(16)
+            JKAsyncs.asyncDelay(1, {
+            }) {
+                label.removeFromSuperview()
+            }
+        }
+    }
+    
+    // MARK: 1.5、半粗体的字体
+    @objc func test15() {
+        var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
+        label.backgroundColor = .green
+        label.textColor = .brown
+        label.text = "我是一只小小鸟"
+        label.font = UIFont.jk.textSB(6)
+        label.jk.centerX = self.view.jk.centerX
+        label.textAlignment = .center
+        self.view.addSubview(label)
+        
+        JKAsyncs.asyncDelay(1, {
+        }) {
+            label.font = UIFont.jk.textSB(16)
+            JKAsyncs.asyncDelay(1, {
+            }) {
+                label.removeFromSuperview()
+            }
+        }
+    }
+    
+    // MARK: 1.4、加粗的字体
+    @objc func test14() {
+        var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
+        label.backgroundColor = .green
+        label.textColor = .brown
+        label.text = "我是一只小小鸟"
+        label.font = UIFont.jk.textB(6)
+        label.jk.centerX = self.view.jk.centerX
+        label.textAlignment = .center
+        self.view.addSubview(label)
+        
+        JKAsyncs.asyncDelay(1, {
+        }) {
+            label.font = UIFont.jk.textB(16)
+            JKAsyncs.asyncDelay(1, {
+            }) {
+                label.removeFromSuperview()
+            }
+        }
+    }
+    
+    // MARK: 1.3、中等的字体
+    @objc func test13() {
+        var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
+        label.backgroundColor = .green
+        label.textColor = .brown
+        label.text = "我是一只小小鸟"
+        label.font = UIFont.jk.textM(6)
+        label.jk.centerX = self.view.jk.centerX
+        label.textAlignment = .center
+        self.view.addSubview(label)
+        
+        JKAsyncs.asyncDelay(1, {
+        }) {
+            label.font = UIFont.jk.textM(16)
+            JKAsyncs.asyncDelay(1, {
+            }) {
+                label.removeFromSuperview()
+            }
+        }
+    }
+    
+    // MARK: 1.2、常规字体
+    @objc func test12() {
+        var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
+        label.backgroundColor = .green
+        label.textColor = .brown
+        label.text = "我是一只小小鸟"
+        label.font = UIFont.jk.textR(6)
+        label.jk.centerX = self.view.jk.centerX
+        label.textAlignment = .center
+        self.view.addSubview(label)
+        
+        JKAsyncs.asyncDelay(1, {
+        }) {
+            label.font = UIFont.jk.textR(16)
+            JKAsyncs.asyncDelay(1, {
+            }) {
+                label.removeFromSuperview()
+            }
+        }
+    }
+    
+    // MARK: 1.1、系统字体
+    @objc func test11() {
+        var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
+        label.backgroundColor = .green
+        label.textColor = .brown
+        label.text = "我是一只小小鸟"
+        label.font = UIFont.jk.textF(6)
+        label.jk.centerX = self.view.jk.centerX
+        label.textAlignment = .center
+        self.view.addSubview(label)
+        
+        JKAsyncs.asyncDelay(1, {
+        }) {
+            label.font = UIFont.jk.textF(16)
+            JKAsyncs.asyncDelay(1, {
+            }) {
+                label.removeFromSuperview()
             }
         }
     }

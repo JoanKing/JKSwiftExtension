@@ -26,7 +26,7 @@ class UIButtonExtensionViewController: BaseViewController {
     }
     
     lazy var testButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.yellow, .normal).boldFont(12)
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("点击后3秒后消失", .normal).textColor(.yellow, .normal).boldFont(12)
         button.backgroundColor = .brown
         button.center = self.view.center
         button.add(self, action: #selector(click))

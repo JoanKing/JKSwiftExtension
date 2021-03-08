@@ -1487,8 +1487,8 @@
 		23FEE88F7FA94B82A8DEA09B3B3B9096 /* UIKitExtension */ = {
 			isa = PBXGroup;
 			children = (
-				305A9F809D0B9796BD04844FC3F001AC /* UIImage+Extension.swift */,
 				9E600526655EF5768375EC05BD3A6366 /* UIView+Extension.swift */,
+				305A9F809D0B9796BD04844FC3F001AC /* UIImage+Extension.swift */,
 				2E4746454A4223FF07539091BFA44B02 /* CAGradientLayer+Extension.swift */,
 				0C30CFDB34F412E41F7734F42A5B3F0D /* CALayer+Extension.swift */,
 				392578812435664BCB78804EFD243830 /* CATextLayer+Extension.swift */,
