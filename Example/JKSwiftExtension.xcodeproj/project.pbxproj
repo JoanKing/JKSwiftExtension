@@ -45,6 +45,7 @@
 		8473AAC02562889500707877 /* UIImageViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473AABF2562889500707877 /* UIImageViewExtensionViewController.swift */; };
 		8473AADA2562985B00707877 /* pika2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8473AAD82562985A00707877 /* pika2.gif */; };
 		8473D81E25E3432B0072AB0D /* QRTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473D81D25E3432B0072AB0D /* QRTestViewController.swift */; };
+		847807B625F88FC800E2575B /* NumberFormatterExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847807B525F88FC800E2575B /* NumberFormatterExtensionViewController.swift */; };
 		847CCCF925B80D1E00928F5B /* AVAssetExportSessionExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CCCF825B80D1E00928F5B /* AVAssetExportSessionExtensionViewController.swift */; };
 		847D4B452560DF85000DDA3C /* UIBezierPathExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D4B442560DF84000DDA3C /* UIBezierPathExtensionViewController.swift */; };
 		847D4B9625611E50000DDA3C /* UIImageExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */; };
@@ -173,6 +174,7 @@
 		8473AABF2562889500707877 /* UIImageViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensionViewController.swift; sourceTree = "<group>"; };
 		8473AAD82562985A00707877 /* pika2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pika2.gif; sourceTree = "<group>"; };
 		8473D81D25E3432B0072AB0D /* QRTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRTestViewController.swift; sourceTree = "<group>"; };
+		847807B525F88FC800E2575B /* NumberFormatterExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterExtensionViewController.swift; sourceTree = "<group>"; };
 		847CCCF825B80D1E00928F5B /* AVAssetExportSessionExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAssetExportSessionExtensionViewController.swift; sourceTree = "<group>"; };
 		847D4B442560DF84000DDA3C /* UIBezierPathExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtensionViewController.swift; sourceTree = "<group>"; };
 		847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensionViewController.swift; sourceTree = "<group>"; };
@@ -488,6 +490,7 @@
 			isa = PBXGroup;
 			children = (
 				849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */,
+				847807B525F88FC800E2575B /* NumberFormatterExtensionViewController.swift */,
 				84F11DF725DE4A3400209B4C /* CLLocationExtensionViewController.swift */,
 				84F11D6A25DE0DB500209B4C /* NSRangeExtensionViewController.swift */,
 				84BEA378254FD78E00CA8A75 /* FloatExtensionViewController.swift */,
@@ -851,6 +854,7 @@
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				8457683B259DABD1006F93D4 /* NSAttributedStringExtensionViewController.swift in Sources */,
 				843303FB2578B80F00051867 /* JKGlobalToolsViewController.swift in Sources */,
+				847807B625F88FC800E2575B /* NumberFormatterExtensionViewController.swift in Sources */,
 				844A634E25664F9B000059EC /* FiveViewController.swift in Sources */,
 				844A635225664F9B000059EC /* TestViewController.swift in Sources */,
 				84BF16CA251D9FD3002ACE76 /* ProtocolViewController.swift in Sources */,

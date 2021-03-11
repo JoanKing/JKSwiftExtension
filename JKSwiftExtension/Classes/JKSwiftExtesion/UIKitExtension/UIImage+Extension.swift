@@ -895,7 +895,7 @@ public extension JKPOP where Base: UIImage {
     static func gif(data: Data) -> UIImage? {
         // Create source from data
         guard let source = CGImageSourceCreateWithData(data as CFData, nil) else {
-            print("SwiftGif: Source for the image does not exist")
+            JKPrint("SwiftGif: Source for the image does not exist")
             return nil
         }
         return animatedImageWithSource(source)
@@ -907,12 +907,12 @@ public extension JKPOP where Base: UIImage {
     static func gif(url: String) -> UIImage? {
         // Validate URL
         guard let bundleURL = URL(string: url) else {
-            print("SwiftGif: This image named \"\(url)\" does not exist")
+            JKPrint("SwiftGif: This image named \"\(url)\" does not exist")
             return nil
         }
         // Validate data
         guard let imageData = try? Data(contentsOf: bundleURL) else {
-            print("SwiftGif: Cannot turn image named \"\(url)\" into NSData")
+            JKPrint("SwiftGif: Cannot turn image named \"\(url)\" into NSData")
             return nil
         }
         
@@ -926,12 +926,12 @@ public extension JKPOP where Base: UIImage {
         // Check for existance of gif
         guard let bundleURL = Bundle.main
                 .url(forResource: name, withExtension: "gif") else {
-            print("SwiftGif: This image named \"\(name)\" does not exist")
+            JKPrint("SwiftGif: This image named \"\(name)\" does not exist")
             return nil
         }
         // Validate data
         guard let imageData = try? Data(contentsOf: bundleURL) else {
-            print("SwiftGif: Cannot turn image named \"\(name)\" into NSData")
+            JKPrint("SwiftGif: Cannot turn image named \"\(name)\" into NSData")
             return nil
         }
         
@@ -945,7 +945,7 @@ public extension JKPOP where Base: UIImage {
     static func gif(asset: String) -> UIImage? {
         // Create source from assets catalog
         guard let dataAsset = NSDataAsset(name: asset) else {
-            print("SwiftGif: Cannot turn image named \"\(asset)\" into NSDataAsset")
+            JKPrint("SwiftGif: Cannot turn image named \"\(asset)\" into NSDataAsset")
             return nil
         }
         return gif(data: dataAsset.data)
@@ -987,7 +987,7 @@ public extension JKPOP where Base: UIImage {
         }
         // Create source from data
         guard let source = CGImageSourceCreateWithData(imageData as CFData, nil) else {
-            print("SwiftGif: Source for the image does not exist")
+            JKPrint("SwiftGif: Source for the image does not exist")
             return (nil, nil)
         }
         return animatedImageSources(source)
@@ -1000,17 +1000,17 @@ public extension JKPOP where Base: UIImage {
     static func gifImages(url: String) -> (gifImages: [UIImage]?, duration: TimeInterval?) {
         // Validate URL
         guard let bundleURL = URL(string: url) else {
-            print("SwiftGif: This image named \"\(url)\" does not exist")
+            JKPrint("SwiftGif: This image named \"\(url)\" does not exist")
             return (nil, nil)
         }
         // Validate data
         guard let imageData = try? Data(contentsOf: bundleURL) else {
-            print("SwiftGif: Cannot turn image named \"\(url)\" into NSData")
+            JKPrint("SwiftGif: Cannot turn image named \"\(url)\" into NSData")
             return (nil, nil)
         }
         // Create source from data
         guard let source = CGImageSourceCreateWithData(imageData as CFData, nil) else {
-            print("SwiftGif: Source for the image does not exist")
+            JKPrint("SwiftGif: Source for the image does not exist")
             return (nil, nil)
         }
         return animatedImageSources(source)
@@ -1449,7 +1449,7 @@ public extension JKPOP where Base: UIImage {
         // 初始化蒙版图，并开始遍历检测到的所有人脸
         var maskImage: CIImage!
         for faceFeature in faceFeatures {
-            print(faceFeature.bounds)
+            JKPrint(faceFeature.bounds)
             // 基于人脸的位置，为每一张脸都单独创建一个蒙版，所以要先计算出脸的中心点，对应为x、y轴坐标，
             // 再基于脸的宽度或高度给一个半径，最后用这些计算结果初始化一个CIRadialGradient滤镜
             let centerX = faceFeature.bounds.origin.x + faceFeature.bounds.size.width / 2

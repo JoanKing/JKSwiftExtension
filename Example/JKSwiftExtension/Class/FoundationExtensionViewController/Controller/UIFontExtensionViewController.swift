@@ -12,9 +12,9 @@ class UIFontExtensionViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+  
         headDataArray = ["一、常用的基本字体扩展"]
-        dataArray = [["系统字体", "常规字体", "中等的字体", "加粗的字体", "半粗体的字体", "超细的字体", "纤细的字体", "亮字体", "介于Bold和Black之间", "最粗字体"]]
+        dataArray = [["系统字体", "常规字体", "中等的字体", "加粗的字体", "半粗体的字体", "超细的字体", "纤细的字体", "亮字体", "介于Bold和Black之间", "最粗字体", "测试"]]
     }
 }
 
@@ -27,14 +27,14 @@ extension UIFontExtensionViewController {
         label.backgroundColor = .green
         label.textColor = .brown
         label.text = "我是一只小小鸟"
-        label.font = UIFont.jk.textBlack(6)
+        label.font = UIFont.jk.textBlack(16)
         label.jk.centerX = self.view.jk.centerX
         label.textAlignment = .center
         self.view.addSubview(label)
         
         JKAsyncs.asyncDelay(1, {
         }) {
-            label.font = UIFont.jk.textBlack(16)
+            label.font = UIFont.jk.textBlack(26)
             JKAsyncs.asyncDelay(1, {
             }) {
                 label.removeFromSuperview()
@@ -48,14 +48,14 @@ extension UIFontExtensionViewController {
         label.backgroundColor = .green
         label.textColor = .brown
         label.text = "我是一只小小鸟"
-        label.font = UIFont.jk.textHeavy(6)
+        label.font = UIFont.jk.textHeavy(16)
         label.jk.centerX = self.view.jk.centerX
         label.textAlignment = .center
         self.view.addSubview(label)
         
         JKAsyncs.asyncDelay(1, {
         }) {
-            label.font = UIFont.jk.textHeavy(16)
+            label.font = UIFont.jk.textHeavy(26)
             JKAsyncs.asyncDelay(1, {
             }) {
                 label.removeFromSuperview()
@@ -69,14 +69,14 @@ extension UIFontExtensionViewController {
         label.backgroundColor = .green
         label.textColor = .brown
         label.text = "我是一只小小鸟"
-        label.font = UIFont.jk.textLight(6)
+        label.font = UIFont.jk.textLight(16)
         label.jk.centerX = self.view.jk.centerX
         label.textAlignment = .center
         self.view.addSubview(label)
         
         JKAsyncs.asyncDelay(1, {
         }) {
-            label.font = UIFont.jk.textLight(16)
+            label.font = UIFont.jk.textLight(26)
             JKAsyncs.asyncDelay(1, {
             }) {
                 label.removeFromSuperview()
@@ -90,14 +90,14 @@ extension UIFontExtensionViewController {
         label.backgroundColor = .green
         label.textColor = .brown
         label.text = "我是一只小小鸟"
-        label.font = UIFont.jk.textThin(6)
+        label.font = UIFont.jk.textThin(16)
         label.jk.centerX = self.view.jk.centerX
         label.textAlignment = .center
         self.view.addSubview(label)
         
         JKAsyncs.asyncDelay(1, {
         }) {
-            label.font = UIFont.jk.textThin(16)
+            label.font = UIFont.jk.textThin(26)
             JKAsyncs.asyncDelay(1, {
             }) {
                 label.removeFromSuperview()
@@ -111,14 +111,14 @@ extension UIFontExtensionViewController {
         label.backgroundColor = .green
         label.textColor = .brown
         label.text = "我是一只小小鸟"
-        label.font = UIFont.jk.textUltraLight(6)
+        label.font = UIFont.jk.textUltraLight(16)
         label.jk.centerX = self.view.jk.centerX
         label.textAlignment = .center
         self.view.addSubview(label)
         
         JKAsyncs.asyncDelay(1, {
         }) {
-            label.font = UIFont.jk.textUltraLight(16)
+            label.font = UIFont.jk.textUltraLight(26)
             JKAsyncs.asyncDelay(1, {
             }) {
                 label.removeFromSuperview()
@@ -132,14 +132,14 @@ extension UIFontExtensionViewController {
         label.backgroundColor = .green
         label.textColor = .brown
         label.text = "我是一只小小鸟"
-        label.font = UIFont.jk.textSB(6)
+        label.font = UIFont.jk.textSB(16)
         label.jk.centerX = self.view.jk.centerX
         label.textAlignment = .center
         self.view.addSubview(label)
         
         JKAsyncs.asyncDelay(1, {
         }) {
-            label.font = UIFont.jk.textSB(16)
+            label.font = UIFont.jk.textSB(26)
             JKAsyncs.asyncDelay(1, {
             }) {
                 label.removeFromSuperview()
@@ -153,14 +153,14 @@ extension UIFontExtensionViewController {
         label.backgroundColor = .green
         label.textColor = .brown
         label.text = "我是一只小小鸟"
-        label.font = UIFont.jk.textB(6)
+        label.font = UIFont.jk.textB(16)
         label.jk.centerX = self.view.jk.centerX
         label.textAlignment = .center
         self.view.addSubview(label)
         
         JKAsyncs.asyncDelay(1, {
         }) {
-            label.font = UIFont.jk.textB(16)
+            label.font = UIFont.jk.textB(26)
             JKAsyncs.asyncDelay(1, {
             }) {
                 label.removeFromSuperview()
@@ -174,14 +174,14 @@ extension UIFontExtensionViewController {
         label.backgroundColor = .green
         label.textColor = .brown
         label.text = "我是一只小小鸟"
-        label.font = UIFont.jk.textM(6)
+        label.font = UIFont.jk.textM(16)
         label.jk.centerX = self.view.jk.centerX
         label.textAlignment = .center
         self.view.addSubview(label)
         
         JKAsyncs.asyncDelay(1, {
         }) {
-            label.font = UIFont.jk.textM(16)
+            label.font = UIFont.jk.textM(26)
             JKAsyncs.asyncDelay(1, {
             }) {
                 label.removeFromSuperview()
@@ -195,14 +195,14 @@ extension UIFontExtensionViewController {
         label.backgroundColor = .green
         label.textColor = .brown
         label.text = "我是一只小小鸟"
-        label.font = UIFont.jk.textR(6)
+        label.font = UIFont.jk.textR(16)
         label.jk.centerX = self.view.jk.centerX
         label.textAlignment = .center
         self.view.addSubview(label)
         
         JKAsyncs.asyncDelay(1, {
         }) {
-            label.font = UIFont.jk.textR(16)
+            label.font = UIFont.jk.textR(26)
             JKAsyncs.asyncDelay(1, {
             }) {
                 label.removeFromSuperview()
@@ -216,14 +216,14 @@ extension UIFontExtensionViewController {
         label.backgroundColor = .green
         label.textColor = .brown
         label.text = "我是一只小小鸟"
-        label.font = UIFont.jk.textF(6)
+        label.font = UIFont.jk.textF(16)
         label.jk.centerX = self.view.jk.centerX
         label.textAlignment = .center
         self.view.addSubview(label)
         
         JKAsyncs.asyncDelay(1, {
         }) {
-            label.font = UIFont.jk.textF(16)
+            label.font = UIFont.jk.textF(26)
             JKAsyncs.asyncDelay(1, {
             }) {
                 label.removeFromSuperview()
