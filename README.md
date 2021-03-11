@@ -36,6 +36,8 @@
     我的联系方式：微信：18500652880
     
 ## 版本说明
+   - 1.3.0、版本
+       新增 NumberFormatter+Extension.swift：NumberFormatter进行数字格式化显示
    - 1.2.9、版本
        UIFont+Extension 字体的调整
    - 1.2.8、版本
