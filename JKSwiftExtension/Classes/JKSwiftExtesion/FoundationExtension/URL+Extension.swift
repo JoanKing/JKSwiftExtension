@@ -36,4 +36,3 @@ public extension JKPOP where Base == URL {
         return UIApplication.shared.canOpenURL(self.base)
     }
 }
-

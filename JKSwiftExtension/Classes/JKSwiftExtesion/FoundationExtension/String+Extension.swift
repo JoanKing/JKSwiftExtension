@@ -997,41 +997,36 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     // MARK: 9.6、判断是否是中文, 这里的中文不包括数字及标点符号
     /// 判断是否是中文, 这里的中文不包括数字及标点符号
     public var isChinese: Bool {
-        let mobileRgex = "(^[\u{4e00}-\u{9fef}]+$)"
-        let checker: NSPredicate = NSPredicate(format: "SELF MATCHES %@", mobileRgex)
-        return checker.evaluate(with: self)
+        let rgex = "(^[\u{4e00}-\u{9fef}]+$)"
+        return predicateValue(rgex: rgex)
     }
     
     // MARK: 9.7、是否是有效昵称，即允许“中文”、“英文”、“数字”
     /// 是否是有效昵称，即允许“中文”、“英文”、“数字”
     public var isValidNickName: Bool {
         let rgex = "(^[\u{4e00}-\u{9faf}_a-zA-Z0-9]+$)"
-        let checker: NSPredicate = NSPredicate(format: "SELF MATCHES %@", rgex)
-        return checker.evaluate(with: self)
+        return predicateValue(rgex: rgex)
     }
     
     // MARK: 9.8、判断是否是有效的手机号码
     /// 判断是否是有效的手机号码
     public var isValidMobile: Bool {
-        let mobileRgex = "^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199)\\d{8}$"
-        let checker: NSPredicate = NSPredicate(format: "SELF MATCHES %@", mobileRgex)
-        return checker.evaluate(with: self)
+        let rgex = "^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199)\\d{8}$"
+        return predicateValue(rgex: rgex)
     }
     
     // MARK: 9.9、判断是否是有效的电子邮件地址
     /// 判断是否是有效的电子邮件地址
     public var isValidEmail: Bool {
-        let mobileRgex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
-        let checker: NSPredicate = NSPredicate(format: "SELF MATCHES %@", mobileRgex)
-        return checker.evaluate(with: self)
+        let rgex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+        return predicateValue(rgex: rgex)
     }
     
     // MARK: 9.10、判断是否有效的身份证号码，不是太严格
     /// 判断是否有效的身份证号码，不是太严格
     public var isValidIDCardNumber: Bool {
-        let mobileRgex = "^(\\d{15})|((\\d{17})(\\d|[X]))$"
-        let checker: NSPredicate = NSPredicate(format: "SELF MATCHES %@", mobileRgex)
-        return checker.evaluate(with: self)
+        let rgex = "^(\\d{15})|((\\d{17})(\\d|[X]))$"
+        return predicateValue(rgex: rgex)
     }
     
     // MARK: 9.11、严格判断是否有效的身份证号码,检验了省份，生日，校验位，不过没检查市县的编码
@@ -1160,6 +1155,40 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return (base as! String).hasSuffix(suffix)
     }
     
+    // MARK: 9.16、是否为0-9之间的数字(字符串的组成是：0-9之间的数字)
+    /// 是否为0-9之间的数字(字符串的组成是：0-9之间的数字)
+    /// - Returns: 返回结果
+    public func isValidNumberValue() -> Bool {
+        guard (base as! String).count > 0 else {
+            return false
+        }
+        let rgex = "^[\\d]*$"
+        return predicateValue(rgex: rgex)
+    }
+    
+    // MARK: 9.17、是否为数字或者小数点(字符串的组成是：0-9之间的数字或者小数点即可)
+    /// 是否为数字或者小数点(字符串的组成是：0-9之间的数字或者小数点即可)
+    /// - Returns: 返回结果
+    public func isValidNumberAndDecimalPoint() -> Bool {
+        guard (base as! String).count > 0 else {
+            return false
+        }
+        let rgex = "^[\\d.]*$"
+        return predicateValue(rgex: rgex)
+    }
+    
+    // MARK: 9.18、验证URL格式是否正确
+    /// 验证URL格式是否正确
+    /// - Returns: 结果
+    public func verifyUrl() -> Bool {
+        // 创建NSURL实例
+        if let url = URL(string: (base as! String)) {
+            //检测应用是否能打开这个NSURL实例
+            return UIApplication.shared.canOpenURL(url)
+        }
+        return false
+    }
+    
     // MARK:- private 方法
     // MARK: 是否是闰年
     /// 是否是闰年
@@ -1176,6 +1205,12 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
             return false
         }
     }
+    
+    private func predicateValue(rgex: String) -> Bool {
+        let checker: NSPredicate = NSPredicate(format: "SELF MATCHES %@", rgex)
+        return checker.evaluate(with: (base as! String))
+    }
+    
 }
 
 // MARK:- 十、字符串截取的操作

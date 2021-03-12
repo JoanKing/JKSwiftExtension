@@ -1489,6 +1489,7 @@
 		23FEE88F7FA94B82A8DEA09B3B3B9096 /* UIKitExtension */ = {
 			isa = PBXGroup;
 			children = (
+				F9244690D9F832E49CA9A739E2CCEC27 /* UITextView+Extension.swift */,
 				9E600526655EF5768375EC05BD3A6366 /* UIView+Extension.swift */,
 				305A9F809D0B9796BD04844FC3F001AC /* UIImage+Extension.swift */,
 				2E4746454A4223FF07539091BFA44B02 /* CAGradientLayer+Extension.swift */,
@@ -1518,7 +1519,6 @@
 				715C848BF3A1D14B248FC882C208379B /* UITableView+Extension.swift */,
 				B0129762CEB685454D5BED527D559091 /* UITableViewCell+Extension.swift */,
 				F4BEAB26DBCF26A2571062E6FB3E5B50 /* UITextField+Extension.swift */,
-				F9244690D9F832E49CA9A739E2CCEC27 /* UITextView+Extension.swift */,
 				6AD0DCEC4CF9206B37AA2AFA824269EC /* UIViewController+Extension.swift */,
 				3493A91F23A09662574815A25C309836 /* WKWebView+Extension.swift */,
 			);

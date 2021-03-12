@@ -44,7 +44,7 @@ class TestFileViewController: BaseViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
    
-        self.navigationController?.pushViewController(ThreeViewController(), animated: true)
+        self.navigationController?.pushViewController(FourViewController(), animated: true)
     }
     
     @objc func test19() {
@@ -53,7 +53,7 @@ class TestFileViewController: BaseViewController {
     
     @objc func test12() {
         
-        self.navigationController?.pushViewController(TestFileViewController2(), animated: true)
+        self.navigationController?.pushViewController(FourViewController(), animated: true)
     }
 }
 

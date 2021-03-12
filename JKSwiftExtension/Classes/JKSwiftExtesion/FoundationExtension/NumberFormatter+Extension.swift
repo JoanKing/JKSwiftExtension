@@ -96,11 +96,6 @@ extension JKPOP where Base == NumberFormatter {
     ///   - nstyle: 显示样式
     /// - Returns: 格式化后的值
     public static func setGroupingSeparatorAndSize(value: String, separator: String, groupingSize: Int, number nstyle: NumberFormatter.Style = .none) -> String? {
-        // 从字符串装成数字
-        guard let number = NumberFormatter().number(from: value) else {
-            // fatalError("数值有问题")
-            return nil
-        }
         // 创建一个NumberFormatter对象
         let numberFormatter = NumberFormatter()
         // 设置number显示样式
@@ -111,11 +106,7 @@ extension JKPOP where Base == NumberFormatter {
         numberFormatter.groupingSeparator = separator
         // 分隔位数
         numberFormatter.groupingSize = groupingSize
-        // 格式化
-        guard let formatValue = numberFormatter.string(from: number) else {
-            return nil
-        }
-        return formatValue
+        return customFormatter(value: value, numberFormatter: numberFormatter)
     }
     
     // MARK: 2.3、设置格式宽度、填充符、填充位置
@@ -128,11 +119,6 @@ extension JKPOP where Base == NumberFormatter {
     ///   - nstyle: 显示样式
     /// - Returns: 格式化后的值
     public static func setFormatWidthPaddingCharacterAndPosition(value: String, formatWidth: Int, paddingCharacter: String, paddingPosition: NumberFormatter.PadPosition = .beforePrefix, number nstyle: NumberFormatter.Style = .none) -> String? {
-        // 从字符串装成数字
-        guard let number = NumberFormatter().number(from: value) else {
-            // fatalError("数值有问题")
-            return nil
-        }
         // 创建一个NumberFormatter对象
         let numberFormatter = NumberFormatter()
         // 设置number显示样式
@@ -140,11 +126,7 @@ extension JKPOP where Base == NumberFormatter {
         numberFormatter.formatWidth = formatWidth
         numberFormatter.paddingCharacter = paddingCharacter
         numberFormatter.paddingPosition = paddingPosition
-        // 格式化
-        guard let formatValue = numberFormatter.string(from: number) else {
-            return nil
-        }
-        return formatValue
+        return customFormatter(value: value, numberFormatter: numberFormatter)
     }
     
     // MARK: 2.4、设置最大整数位数、最小整数位数
@@ -156,22 +138,13 @@ extension JKPOP where Base == NumberFormatter {
     ///   - nstyle: 显示样式
     /// - Returns: 格式化后的值
     public static func setMaximumIntegerDigitsAndMinimumIntegerDigits(value: String, maximumIntegerDigits: Int, minimumIntegerDigits: Int, number nstyle: NumberFormatter.Style = .none) -> String? {
-        // 从字符串装成数字
-        guard let number = NumberFormatter().number(from: value) else {
-            // fatalError("数值有问题")
-            return nil
-        }
         // 创建一个NumberFormatter对象
         let numberFormatter = NumberFormatter()
         // 设置number显示样式
         numberFormatter.numberStyle = nstyle
         numberFormatter.maximumIntegerDigits = maximumIntegerDigits
         numberFormatter.minimumIntegerDigits = minimumIntegerDigits
-        // 格式化
-        guard let formatValue = numberFormatter.string(from: number) else {
-            return nil
-        }
-        return formatValue
+        return customFormatter(value: value, numberFormatter: numberFormatter)
     }
     
     // MARK: 2.5、设置最大小数位数、最小小数位数
@@ -183,20 +156,11 @@ extension JKPOP where Base == NumberFormatter {
     ///   - nstyle: 显示样式
     /// - Returns: 格式化后的值
     public static func setmMximumFractionDigitsAndMinimumFractionDigits(value: String, maximumFractionDigits: Int, minimumFractionDigits: Int) -> String? {
-        // 从字符串装成数字
-        guard let number = NumberFormatter().number(from: value) else {
-            // fatalError("数值有问题")
-            return nil
-        }
         // 创建一个NumberFormatter对象
         let numberFormatter = NumberFormatter()
         numberFormatter.maximumFractionDigits = maximumFractionDigits
         numberFormatter.minimumFractionDigits = minimumFractionDigits
-        // 格式化
-        guard let formatValue = numberFormatter.string(from: number) else {
-            return nil
-        }
-        return formatValue
+        return customFormatter(value: value, numberFormatter: numberFormatter)
     }
     
     // MARK: 2.6、设置前缀、后缀
@@ -208,22 +172,13 @@ extension JKPOP where Base == NumberFormatter {
     ///   - nstyle: 显示样式
     /// - Returns: 格式化后的值
     public static func setMaximumIntegerDigitsAndMinimumIntegerDigits(value: String, positivePrefix: String, positiveSuffix: String, number nstyle: NumberFormatter.Style = .none) -> String? {
-        // 从字符串装成数字
-        guard let number = NumberFormatter().number(from: value) else {
-            // fatalError("数值有问题")
-            return nil
-        }
         // 创建一个NumberFormatter对象
         let numberFormatter = NumberFormatter()
         // 设置number显示样式
         numberFormatter.numberStyle = nstyle
         numberFormatter.positivePrefix = positivePrefix
         numberFormatter.positiveSuffix = positiveSuffix
-        // 格式化
-        guard let formatValue = numberFormatter.string(from: number) else {
-            return nil
-        }
-        return formatValue
+        return customFormatter(value: value, numberFormatter: numberFormatter)
     }
     
     // MARK: 2.7、设置格式化字符串
@@ -234,20 +189,11 @@ extension JKPOP where Base == NumberFormatter {
     ///   - nstyle: 显示样式
     /// - Returns: 格式化后的值
     public static func setPositiveFormat(value: String, positiveFormat: String, number nstyle: NumberFormatter.Style = .none) -> String? {
-        // 从字符串装成数字
-        guard let number = NumberFormatter().number(from: value) else {
-            // fatalError("数值有问题")
-            return nil
-        }
         // 创建一个NumberFormatter对象
         let numberFormatter = NumberFormatter()
         // 设置number显示样式
         numberFormatter.numberStyle = nstyle
         numberFormatter.positiveFormat = positiveFormat
-        // 格式化
-        guard let formatValue = numberFormatter.string(from: number) else {
-            return nil
-        }
-        return formatValue
+        return customFormatter(value: value, numberFormatter: numberFormatter)
     }
 }
