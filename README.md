@@ -36,6 +36,8 @@
     我的联系方式：微信：18500652880
     
 ## 版本说明
+   - 1.3.2、版本
+       `UITextView+Extension` 新增：添加链接文本（链接为空时则表示普通文本）、转换特殊符号标签字段
    - 1.3.1、版本
        `String+Extension` 和 `NumberFormatter+Extension` 部分内容代码优化
    - 1.3.0、版本
