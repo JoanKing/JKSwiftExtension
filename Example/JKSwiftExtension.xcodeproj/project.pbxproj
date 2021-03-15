@@ -550,6 +550,7 @@
 		84BF16B8251D9EB1002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8483C4CE255E94A30034A2F7 /* UITextFieldExtensionViewController.swift */,
 				847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */,
 				84CC32AE255D39F000F489F0 /* UITextViewExtensionViewController.swift */,
 				84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */,
@@ -570,7 +571,6 @@
 				84B29410257747EF009E7760 /* UINavigationBarExtensionViewController.swift */,
 				8473AABF2562889500707877 /* UIImageViewExtensionViewController.swift */,
 				847D4B442560DF84000DDA3C /* UIBezierPathExtensionViewController.swift */,
-				8483C4CE255E94A30034A2F7 /* UITextFieldExtensionViewController.swift */,
 				8483C4BF255E799B0034A2F7 /* UIStackViewExtensionViewController.swift */,
 				84CC32AC255CDBB300F489F0 /* UIScrollViewExtensionViewController.swift */,
 				8418FB98255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift */,
@@ -642,7 +642,6 @@
 		84BF16C2251D9EBC002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				84BF16CB251DA012002ACE76 /* SmallToolsViewController.swift */,
 				849062D125FE01BC007F75D9 /* JKPhotoAlbumUtilViewController.swift */,
 				84FEC03225E8D1FE0074D207 /* JKPaddingLabelViewController.swift */,
 				84ADDC3A25E3804500C8177C /* JKDrawSignatureViewViewController.swift */,
@@ -659,6 +658,7 @@
 				8485CC7D2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift */,
 				8483A731254C0D6200ACF6FD /* JKPrintViewController.swift */,
 				8483A736254C11C200ACF6FD /* JKRuntimeViewController.swift */,
+				84BF16CB251DA012002ACE76 /* SmallToolsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

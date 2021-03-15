@@ -13,14 +13,14 @@ class JKPhotoAlbumUtilViewController: BaseViewController {
         super.viewDidLoad()
 
         headDataArray = ["一、基本的使用"]
-        dataArray = [["将图片保存到指定相簿中", "如果参数 albumName 不指定相簿名字，则默认保存到相机胶卷中去"]]
+        dataArray = [["将图片保存到指定相簿中", "如果参数 isCustomPhotoAlbumName 不指定，则默认保存到相机胶卷中去"]]
     }
 }
 
 // MARK:- 一、基本的工具
 extension JKPhotoAlbumUtilViewController {
     
-    // MARK: 1.1、如果参数 albumName 不指定相簿名字，则默认保存到相机胶卷中去
+    // MARK: 1.2、如果参数 isCustomPhotoAlbumName 不指定，则默认保存到相机胶卷中去
     @objc func test12() {
     
         guard let image = UIImage(named: "tfboy") else {
@@ -35,6 +35,10 @@ extension JKPhotoAlbumUtilViewController {
         JKAsyncs.asyncDelay(3) {
         } _: {
             JKPhotoAlbumUtil.saveImageInAlbum(image: image) { (result) in
+                JKAsyncs.asyncDelay(1) {
+                } _: {
+                    imageView.removeFromSuperview()
+                }
                 switch result{
                 case .success:
                     print("保存成功")
@@ -62,7 +66,12 @@ extension JKPhotoAlbumUtilViewController {
         
         JKAsyncs.asyncDelay(3) {
         } _: {
-            JKPhotoAlbumUtil.saveImageInAlbum(image: image, albumName: "秦时明月") { (result) in
+            JKPhotoAlbumUtil.saveImageInAlbum(image: image, isCustomPhotoAlbumName: true) { (result) in
+                
+                JKAsyncs.asyncDelay(1) {
+                } _: {
+                    imageView.removeFromSuperview()
+                }
                 switch result{
                 case .success:
                     print("保存成功")
@@ -73,6 +82,5 @@ extension JKPhotoAlbumUtilViewController {
                 }
             }
         }
-
     }
 }

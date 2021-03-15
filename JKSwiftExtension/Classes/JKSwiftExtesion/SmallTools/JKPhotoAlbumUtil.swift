@@ -23,14 +23,14 @@ public enum JKPhotoAlbumUtilResult {
 // MARK:- 一、一、基本的使用
 public class JKPhotoAlbumUtil: NSObject {
     
-    // 1.1、保存图片到相册
-    /// 保存图片到相册
+    // 1.1、保存图片到相册(异步操作保存到相册)
+    /// 保存图片到相册(异步操作保存到相册)
     /// - Parameters:
     ///   - image: 图片
-    ///   - albumName: 相册的名字
+    ///   - isCustomPhotoAlbumName: 是否使用自定义的相册名字(默认是不使用，保存到相册交卷，相册名是app的名字)
     ///   - completion: 结果闭包
     /// - Returns: 结果
-    public class func saveImageInAlbum(image: UIImage, albumName: String = "", completion: ((JKPhotoAlbumUtilResult) -> Void)?) {
+    public class func saveImageInAlbum(image: UIImage, isCustomPhotoAlbumName: Bool = false, completion: ((JKPhotoAlbumUtilResult) -> Void)?) {
         
         // 权限验证
         if !isAuthorized() {
@@ -40,12 +40,12 @@ public class JKPhotoAlbumUtil: NSObject {
         var assetAlbum: PHAssetCollection?
         
         // 如果指定的相册名称为空，则保存到相机胶卷。（否则保存到指定相册）
-        if albumName.isEmpty {
-            let list = PHAssetCollection
-                .fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary,
-                                       options: nil)
+        if !isCustomPhotoAlbumName {
+            let list = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
             assetAlbum = list[0]
         } else {
+            // 相册的名字
+            let albumName = Bundle.jk.bundleName
             // 看保存的指定相册是否存在
             let list = PHAssetCollection
                 .fetchAssetCollections(with: .album, subtype: .any, options: nil)
@@ -62,7 +62,11 @@ public class JKPhotoAlbumUtil: NSObject {
                     PHAssetCollectionChangeRequest
                         .creationRequestForAssetCollection(withTitle: albumName)
                 }, completionHandler: { (isSuccess, error) in
-                    self.saveImageInAlbum(image: image, albumName: albumName, completion: completion)
+                    if isSuccess {
+                        self.saveImageInAlbum(image: image, isCustomPhotoAlbumName: true, completion: completion)
+                    } else {
+                        completion?(.error)
+                    }
                 })
                 return
             }
@@ -73,16 +77,16 @@ public class JKPhotoAlbumUtil: NSObject {
             // 添加的相机胶卷
             let result = PHAssetChangeRequest.creationRequestForAsset(from: image)
             // 是否要添加到相簿
-            if !albumName.isEmpty {
+            if isCustomPhotoAlbumName {
                 let assetPlaceholder = result.placeholderForCreatedAsset
                 let albumChangeRequset = PHAssetCollectionChangeRequest(for: assetAlbum!)
-                albumChangeRequset!.addAssets([assetPlaceholder!]  as NSArray)
+                albumChangeRequset!.addAssets([assetPlaceholder!] as NSArray)
             }
         }) { (isSuccess: Bool, error: Error?) in
             if isSuccess {
                 completion?(.success)
             } else{
-                print(error!.localizedDescription)
+                // print(error!.localizedDescription)
                 completion?(.error)
             }
         }

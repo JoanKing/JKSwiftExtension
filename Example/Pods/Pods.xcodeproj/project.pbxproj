@@ -1556,6 +1556,7 @@
 		5EC26514F404C4BA8FD557EA19696E8A /* SmallTools */ = {
 			isa = PBXGroup;
 			children = (
+				849062C525FE006F007F75D9 /* JKPhotoAlbumUtil.swift */,
 				BDC2D4DA5301B90AC0512FC79BCF9246 /* JKAsyncs.swift */,
 				B97D6354C7AD764CE8E4C5983A4CEA68 /* JKClosure.swift */,
 				7EFB1EE96CA8CA251D272F4688760837 /* JKCommonTool.swift */,
@@ -1572,7 +1573,6 @@
 				7470EA489102B07B8419603EB9B30AB8 /* WeakTimer.swift */,
 				84ADDC2E25E37E0500C8177C /* JKDrawSignatureView.swift */,
 				84FEC02625E8D12B0074D207 /* JKPaddingLabel.swift */,
-				849062C525FE006F007F75D9 /* JKPhotoAlbumUtil.swift */,
 			);
 			name = SmallTools;
 			path = JKSwiftExtension/Classes/JKSwiftExtesion/SmallTools;
