@@ -43,8 +43,8 @@ class SmallToolsViewController: UIViewController {
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green
   
-        dataArray = ["JKAsyncs", "JKPaddingLabel", "JKPhotoAlbumUtil", "JKTapActionLabel", "JKDrawSignatureView", "JKGlobalTools", "JKRegexHelper", "JKCommonTool", "JKContentSize", "JKValidateHelper", "JKPrint", "WeakTimer", "JKRuntime", "JKWaterFallLayout", "KeyboardAccessory", "QRCodeImageFactory"]
-        finishedDataArray = ["JKAsyncs", "JKPhotoAlbumUtil", "JKPaddingLabel", "JKDrawSignatureView", "JKGlobalTools", "WeakTimer", "JKPrint", "JKRuntime", "QRCodeImageFactory", "JKCommonTool", "JKContentSize", "JKValidateHelper", "JKWaterFallLayout", "KeyboardAccessory", "JKRegexHelper", "JKTapActionLabel"]
+        dataArray = ["JKAsyncs", "JKEKEvent", "JKPaddingLabel", "JKPhotoAlbumUtil", "JKTapActionLabel", "JKDrawSignatureView", "JKGlobalTools", "JKRegexHelper", "JKCommonTool", "JKContentSize", "JKValidateHelper", "JKPrint", "WeakTimer", "JKRuntime", "JKWaterFallLayout", "KeyboardAccessory", "QRCodeImageFactory"]
+        finishedDataArray = ["JKAsyncs", "JKEKEvent", "JKPhotoAlbumUtil", "JKPaddingLabel", "JKDrawSignatureView", "JKGlobalTools", "WeakTimer", "JKPrint", "JKRuntime", "QRCodeImageFactory", "JKCommonTool", "JKContentSize", "JKValidateHelper", "JKWaterFallLayout", "KeyboardAccessory", "JKRegexHelper", "JKTapActionLabel"]
         initUI()
     }
     

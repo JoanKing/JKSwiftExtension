@@ -346,11 +346,11 @@ public extension JKPOP where Base == Date {
         
         let interval = fabs(timeInterval)
         
-        let i60 = interval/60
-        let i3600 = interval/3600
-        let i86400 = interval/86400
-        let i2592000 = interval/2592000
-        let i31104000 = interval/31104000
+        let i60 = interval / 60
+        let i3600 = interval / 3600
+        let i86400 = interval / 86400
+        let i2592000 = interval / 2592000
+        let i31104000 = interval / 31104000
         
         var time:String!
         
@@ -375,5 +375,36 @@ public extension JKPOP where Base == Date {
             time = "\(s)年前"
         }
         return time
+    }
+}
+
+// MARK:- 五、某年月份的天数获取
+public extension JKPOP where Base == Date {
+    
+    // MARK: 5.1、获取某一年某一月的天数
+    /// 获取某一年某一月的天数
+    /// - Parameters:
+    ///   - year: 年份
+    ///   - month: 月份
+    /// - Returns: 返回天数
+    static func daysCount(year: Int, month: Int) -> Int {
+        switch month {
+        case 1, 3, 5, 7, 8, 10, 12:
+            return 31
+        case 4, 6, 9, 11:
+            return 30
+        case 2:
+            let isLeapYear = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)
+            return isLeapYear ? 29 : 28
+        default:
+            fatalError("非法的月份:\(month)")
+        }
+    }
+    
+    // MARK: 5.2、获取当前月的天数
+    /// 获取当前月的天数
+    /// - Returns: 返回天数
+    static func currentMonthDays() -> Int {
+        return daysCount(year: Date.jk.currentDate.jk.year, month: Date.jk.currentDate.jk.month)
     }
 }

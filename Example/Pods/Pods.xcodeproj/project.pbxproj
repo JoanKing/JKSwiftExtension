@@ -252,6 +252,7 @@
 		826CEFCA835CFBC27766CC8B18AB6242 /* FDFullscreenPopGesture-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AAFD1EE2F8E9BD66B54169620FAB89E2 /* FDFullscreenPopGesture-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		827CAEFF54A4578498E3594A2CE2276C /* Using.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041AAA6A21B40B806E3D877209EE9B4 /* Using.swift */; };
 		82CBF275A644494FF9A1E19615B4DE8F /* Throttle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2C15E629FBC6873C9CA93896221086 /* Throttle.swift */; };
+		8464428F25FF525D002E73A6 /* JKEKEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464428E25FF525D002E73A6 /* JKEKEvent.swift */; };
 		847807A725F8649000E2575B /* NumberFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847807A625F8649000E2575B /* NumberFormatter+Extension.swift */; };
 		849062C625FE006F007F75D9 /* JKPhotoAlbumUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849062C525FE006F007F75D9 /* JKPhotoAlbumUtil.swift */; };
 		84911BDE4647439EC2297071D8554EAA /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3176BFC8DBB64A75CEADCC6BC48F0595 /* Bag.swift */; };
@@ -873,6 +874,7 @@
 		842940441BB89C2AFC625630AF0EF845 /* Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = RxRelay/Utils.swift; sourceTree = "<group>"; };
 		844231532A125DC1A4DF30AA2D5291D6 /* RxCocoa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RxCocoa.debug.xcconfig; sourceTree = "<group>"; };
 		844538112A48CAAC3F5F14336FB4F645 /* GroupedObservable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GroupedObservable.swift; path = RxSwift/GroupedObservable.swift; sourceTree = "<group>"; };
+		8464428E25FF525D002E73A6 /* JKEKEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKEKEvent.swift; sourceTree = "<group>"; };
 		847807A625F8649000E2575B /* NumberFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Extension.swift"; sourceTree = "<group>"; };
 		849062C525FE006F007F75D9 /* JKPhotoAlbumUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPhotoAlbumUtil.swift; sourceTree = "<group>"; };
 		84A40981B54ED05CF4BAEB4616A3D550 /* RxTableViewDataSourcePrefetchingProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxTableViewDataSourcePrefetchingProxy.swift; path = RxCocoa/iOS/Proxies/RxTableViewDataSourcePrefetchingProxy.swift; sourceTree = "<group>"; };
@@ -1491,9 +1493,9 @@
 		23FEE88F7FA94B82A8DEA09B3B3B9096 /* UIKitExtension */ = {
 			isa = PBXGroup;
 			children = (
+				305A9F809D0B9796BD04844FC3F001AC /* UIImage+Extension.swift */,
 				F9244690D9F832E49CA9A739E2CCEC27 /* UITextView+Extension.swift */,
 				9E600526655EF5768375EC05BD3A6366 /* UIView+Extension.swift */,
-				305A9F809D0B9796BD04844FC3F001AC /* UIImage+Extension.swift */,
 				2E4746454A4223FF07539091BFA44B02 /* CAGradientLayer+Extension.swift */,
 				0C30CFDB34F412E41F7734F42A5B3F0D /* CALayer+Extension.swift */,
 				392578812435664BCB78804EFD243830 /* CATextLayer+Extension.swift */,
@@ -1557,6 +1559,7 @@
 			isa = PBXGroup;
 			children = (
 				849062C525FE006F007F75D9 /* JKPhotoAlbumUtil.swift */,
+				8464428E25FF525D002E73A6 /* JKEKEvent.swift */,
 				BDC2D4DA5301B90AC0512FC79BCF9246 /* JKAsyncs.swift */,
 				B97D6354C7AD764CE8E4C5983A4CEA68 /* JKClosure.swift */,
 				7EFB1EE96CA8CA251D272F4688760837 /* JKCommonTool.swift */,
@@ -2574,6 +2577,7 @@
 				8A45B95D0050DC0700263DDF10CFD034 /* UITableViewCell+Extension.swift in Sources */,
 				B4C19BB3562F690892891ABB2E49D82D /* UITextField+Extension.swift in Sources */,
 				84ADDC3E25E3884300C8177C /* JKJSON.swift in Sources */,
+				8464428F25FF525D002E73A6 /* JKEKEvent.swift in Sources */,
 				849062C625FE006F007F75D9 /* JKPhotoAlbumUtil.swift in Sources */,
 				8D0E44C0173386DCE373A8BDC407D223 /* UITextView+Extension.swift in Sources */,
 				23E3D6FF269FDD2E8B19847D0EE6C86F /* UIView+Extension.swift in Sources */,

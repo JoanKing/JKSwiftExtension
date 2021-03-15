@@ -305,6 +305,28 @@ public extension JKPOP where Base: UIImage {
             completion(isSuccess, error)
         }
     }
+    
+    // MARK: 1.14、图片的模糊效果（高斯模糊滤镜）
+    /// 图片的模糊效果（高斯模糊滤镜）
+    /// - Parameter fuzzyValue: 设置模糊半径值（越大越模糊）
+    /// - Returns: 返回模糊后的图片
+    func getGaussianBlurImage(fuzzyValue: CGFloat = 20) -> UIImage? {
+        guard let ciImage = CIImage(image: self.base) else { return nil }
+        // 创建高斯模糊滤镜类
+        guard let blurFilter = CIFilter(name: "CIGaussianBlur") else { return nil }
+        // 设置图片
+        blurFilter.setValue(ciImage, forKey: kCIInputImageKey)
+        // 设置模糊半径值（越大越模糊）
+        blurFilter.setValue(fuzzyValue, forKey: kCIInputRadiusKey)
+        // 从滤镜中 取出图片
+        guard let outputImage = blurFilter.outputImage else { return nil }
+        // 创建上下文
+        let context = CIContext(options: nil)
+        // 根据滤镜中的图片 创建CGImage
+        guard let cgImage = context.createCGImage(outputImage, from: ciImage.extent) else { return nil }
+        // 生成的模糊图片
+        return UIImage(cgImage: cgImage)
+    }
 }
 
 fileprivate extension UIImage {
