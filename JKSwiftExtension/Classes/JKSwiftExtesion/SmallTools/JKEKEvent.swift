@@ -37,7 +37,9 @@ public extension JKEKEvent {
                     eventsClosure(eV)
                 }
             } else {
-                eventsClosure([])
+                DispatchQueue.main.async {
+                    eventsClosure([])
+                }
             }
         })
     }
@@ -101,23 +103,27 @@ public extension JKEKEvent {
                 })
                 let predicate = eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: calendars)
                 let events = eventStore.events(matching: predicate)
-                
-                // 遍历所有事件并修改
-                for event in events where event.calendarItemIdentifier == eventIdentifier {
-                    event.title = title
-                    event.startDate = startDate
-                    event.endDate = endDate
-                    event.notes = notes
-                    event.calendar = eventStore.defaultCalendarForNewEvents
-                    do {
-                        try eventStore.save(event, span: .thisEvent)
-                        DispatchQueue.main.async {
-                            eventsClosure(true)
-                        }
-                    } catch {
-                        DispatchQueue.main.async {
-                            eventsClosure(false)
-                        }
+                let eventArray = events.filter { $0.calendarItemIdentifier == eventIdentifier }
+                guard eventArray.count > 0 else {
+                    DispatchQueue.main.async {
+                        eventsClosure(false)
+                    }
+                    return
+                }
+                let event = eventArray[0]
+                event.title = title
+                event.startDate = startDate
+                event.endDate = endDate
+                event.notes = notes
+                event.calendar = eventStore.defaultCalendarForNewEvents
+                do {
+                    try eventStore.save(event, span: .thisEvent)
+                    DispatchQueue.main.async {
+                        eventsClosure(true)
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        eventsClosure(false)
                     }
                 }
             } else {
@@ -272,23 +278,28 @@ public extension JKEKEvent {
                         }
                         return
                     }
-                    // 遍历所有提醒并修改
-                    for reminder in weakReminders where reminder.calendarItemIdentifier == eventIdentifier {
-                        reminder.title = title
-                        reminder.notes = notes
-                        reminder.startDateComponents = dateComponentFrom(date: startDate)
-                        reminder.dueDateComponents = dateComponentFrom(date: endDate)
-                        reminder.calendar = eventStore.defaultCalendarForNewReminders()
-                        // 修改提醒事项
-                        do {
-                            try eventStore.save(reminder, commit: true)
-                            DispatchQueue.main.async {
-                                eventsClosure(true)
-                            }
-                        } catch {
-                            DispatchQueue.main.async {
-                                eventsClosure(false)
-                            }
+                    let weakReminder = weakReminders.filter { $0.calendarItemIdentifier == eventIdentifier }
+                    guard weakReminder.count > 0 else {
+                        DispatchQueue.main.async {
+                            eventsClosure(false)
+                        }
+                        return
+                    }
+                    let reminder = weakReminder[0]
+                    reminder.title = title
+                    reminder.notes = notes
+                    reminder.startDateComponents = dateComponentFrom(date: startDate)
+                    reminder.dueDateComponents = dateComponentFrom(date: endDate)
+                    reminder.calendar = eventStore.defaultCalendarForNewReminders()
+                    // 修改提醒事项
+                    do {
+                        try eventStore.save(reminder, commit: true)
+                        DispatchQueue.main.async {
+                            eventsClosure(true)
+                        }
+                    } catch {
+                        DispatchQueue.main.async {
+                            eventsClosure(false)
                         }
                     }
                 })
@@ -320,18 +331,22 @@ public extension JKEKEvent {
                         }
                         return
                     }
-                    // 遍历所有提醒并移除
-                    for reminder in weakReminders where reminder.calendarItemIdentifier == eventIdentifier {
-                        // 移除提醒事项
-                        do {
-                            try eventStore.remove(reminder, commit: true)
-                            DispatchQueue.main.async {
-                                eventsClosure(true)
-                            }
-                        } catch {
-                            DispatchQueue.main.async {
-                                eventsClosure(false)
-                            }
+                    let reminderArray = weakReminders.filter { $0.calendarItemIdentifier == eventIdentifier }
+                    guard reminderArray.count > 0 else {
+                        DispatchQueue.main.async {
+                            eventsClosure(false)
+                        }
+                        return
+                    }
+                    // 移除提醒事项
+                    do {
+                        try eventStore.remove(reminderArray[0], commit: true)
+                        DispatchQueue.main.async {
+                            eventsClosure(true)
+                        }
+                    } catch {
+                        DispatchQueue.main.async {
+                            eventsClosure(false)
                         }
                     }
                 })
