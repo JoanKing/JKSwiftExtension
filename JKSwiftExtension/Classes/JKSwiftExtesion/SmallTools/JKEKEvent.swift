@@ -10,7 +10,7 @@ import EventKit
 
 public class JKEKEvent: NSObject {}
 
-// MARK:- 一、日历基本的使用(一般来说，增加、修改、删除 用的多点)
+// MARK:- 一、日历基本的使用
 public extension JKEKEvent {
     
     // MARK: 1.1、根据时间段获取日历事件
@@ -183,7 +183,7 @@ public extension JKEKEvent {
     }
 }
 
-// MARK:- 二、提醒事件的基本的使用(一般来说，增加、修改、删除 用的多点)
+// MARK:- 二、提醒事件的基本的使用
 public extension JKEKEvent {
     
     // MARK: 2.1、查询出所有提醒事件
