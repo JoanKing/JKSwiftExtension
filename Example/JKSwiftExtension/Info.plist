@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSRemindersUsageDescription</key>
+	<string>APP需要访问您的提醒事件</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>JKSwiftExtension想要访问您的日历</string>
 	<key>CFBundleDevelopmentRegion</key>

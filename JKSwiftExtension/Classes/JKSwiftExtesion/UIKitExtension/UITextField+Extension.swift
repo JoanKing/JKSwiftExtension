@@ -28,7 +28,6 @@ public extension JKPOP where Base: UITextField {
     ///   - imageSize: 图片的大小
     func addLeftIcon(_ image: UIImage?, leftViewFrame: CGRect, imageSize: CGSize) {
         let leftView = UIView()
-        leftView.backgroundColor = .randomColor
         leftView.frame = leftViewFrame
         let imgageView = UIImageView()
         imgageView.frame = CGRect(x: leftViewFrame.width - 8 - imageSize.width, y: (leftViewFrame.height - imageSize.height) / 2, width: imageSize.width, height: imageSize.height)

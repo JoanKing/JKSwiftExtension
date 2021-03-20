@@ -644,8 +644,8 @@
 		84BF16C2251D9EBC002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				849062D125FE01BC007F75D9 /* JKPhotoAlbumUtilViewController.swift */,
 				8464429A25FF6BDE002E73A6 /* JKEKEventViewController.swift */,
+				849062D125FE01BC007F75D9 /* JKPhotoAlbumUtilViewController.swift */,
 				84FEC03225E8D1FE0074D207 /* JKPaddingLabelViewController.swift */,
 				84ADDC3A25E3804500C8177C /* JKDrawSignatureViewViewController.swift */,
 				84336D6C25A8066700D17AC1 /* JKTapActionLabelViewController.swift */,
