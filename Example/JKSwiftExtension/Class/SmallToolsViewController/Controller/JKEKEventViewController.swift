@@ -24,7 +24,7 @@ extension JKEKEventViewController {
     // MARK: 2.4、移除提醒事件(提示：先执行：2.1获取一个eventIdentifier)
     @objc func test24() {
         JKEKEvent.removeEvent(eventIdentifier: "1691CA27-63F4-4E7A-8CB7-DD7B6D1A48AF") { (result) in
-            JKPrint("移除的结果：\(result)")
+            JKPrint("线程：\(Thread.current) 移除的结果：\(result)")
         }
     }
     
@@ -38,7 +38,7 @@ extension JKEKEventViewController {
         let date2 = Date.jk.formatterTimeStringToDate(timesString: timestamp2, formatter: timestampFomatter2)
             
         JKEKEvent.updateEvent(eventIdentifier: "1691CA27-63F4-4E7A-8CB7-DD7B6D1A48AF", title: "这是修改的标题", startDate: date1, endDate: date2, notes: "这是修改后的备注") { (result) in
-            JKPrint("结果是：\(result)")
+            JKPrint("线程：\(Thread.current) 结果是：\(result)")
         }
     }
     
@@ -53,9 +53,9 @@ extension JKEKEventViewController {
             
         JKEKEvent.addReminder(title: "测试添加事件", startDate: date1, endDate: date2, notes: "这是备注") { (result, calendarItemIdentifier)  in
             if result {
-                JKPrint("添加成功 标识符：\(calendarItemIdentifier ?? "")")
+                JKPrint("线程：\(Thread.current) 添加成功 标识符：\(calendarItemIdentifier ?? "")")
             } else {
-                JKPrint("添加失败")
+                JKPrint("线程：\(Thread.current) 添加失败")
             }
         }
     }
@@ -68,7 +68,7 @@ extension JKEKEventViewController {
                 return
             }
             for (_, reminder)  in weakReminders.enumerated() {
-                JKPrint("提醒事件的名字：\(reminder.title ?? "")", "提醒事件的标识：\(reminder.calendarItemIdentifier)")
+                JKPrint("线程：\(Thread.current) 提醒事件的名字：\(reminder.title ?? "")", "提醒事件的标识：\(reminder.calendarItemIdentifier)")
             }
         }
     }
@@ -80,7 +80,7 @@ extension JKEKEventViewController {
     // MARK: 1.4、删除日历事件
     @objc func test14() {
         JKEKEvent.removeCalendarsEvent(eventIdentifier: "AD65E718-5F5B-46DA-9E12-5D30C37096C1") { (result) in
-            print("删除结果：\(result)")
+            print("线程：\(Thread.current) 删除结果：\(result)")
         }
     }
     
@@ -93,7 +93,7 @@ extension JKEKEventViewController {
         let timestampFomatter2 = "yyyy-MM-dd HH:mm"
         let date2 = Date.jk.formatterTimeStringToDate(timesString: timestamp2, formatter: timestampFomatter2)
         JKEKEvent.updateCalendarsEvents(eventIdentifier: "AD65E718-5F5B-46DA-9E12-5D30C37096C1", title: "修改后游乐园", startDate: date1, endDate: date2, notes: "修改后的备注") { (result) in
-            JKPrint("结果是：\(result)")
+            JKPrint("线程：\(Thread.current) 结果是：\(result)")
         }
     }
     
@@ -107,9 +107,9 @@ extension JKEKEventViewController {
         let date2 = Date.jk.formatterTimeStringToDate(timesString: timestamp2, formatter: timestampFomatter2)
         JKEKEvent.addCalendarsEvents(title: "日历事件", startDate: date1, endDate: date2, notes: "备注") { (result, calendarItemIdentifier) in
             if result {
-                JKPrint("添加成功 标识符：\(calendarItemIdentifier ?? "")")
+                JKPrint("线程：\(Thread.current) 添加成功 标识符：\(calendarItemIdentifier ?? "")")
             } else {
-                JKPrint("添加失败")
+                JKPrint("线程：\(Thread.current) 添加失败")
             }
         }
     }
@@ -127,7 +127,7 @@ extension JKEKEventViewController {
         JKEKEvent.selectCalendarsEvents(startDate: date1, endDate: date2) { (events) in
             JKPrint("事件数量是：\(events.count)")
             for (_, event) in events.enumerated() {
-                print("标题是：\(event.title ?? "") 事件的标识：\(event.calendarItemIdentifier)")
+                print("线程：\(Thread.current) 标题是：\(event.title ?? "") 事件的标识：\(event.calendarItemIdentifier)")
             }
         }
     }

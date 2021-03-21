@@ -311,13 +311,32 @@ public extension JKPOP where Base: UIImage {
     /// - Parameter fuzzyValue: 设置模糊半径值（越大越模糊）
     /// - Returns: 返回模糊后的图片
     func getGaussianBlurImage(fuzzyValue: CGFloat = 20) -> UIImage? {
+        // 生成的高斯模糊滤镜图片
+        return blurredPicture(fuzzyValue: fuzzyValue, filterName: "CIGaussianBlur")
+    }
+    
+    // MARK: 1.15、像素化后的图片
+    ///像素化后的图片
+    /// - Parameter fuzzyValue: 设置模糊半径值（越大越模糊）
+    /// - Returns: 返回像素化后的图片
+    func getPixellateImage(fuzzyValue: CGFloat = 20) -> UIImage? {
+        // 生成的高斯模糊滤镜图片
+        return blurredPicture(fuzzyValue: fuzzyValue, filterName: "CIPixellate")
+    }
+    
+    /// 图片模糊
+    /// - Parameters:
+    ///   - fuzzyValue: 设置模糊半径值（越大越模糊）
+    ///   - filterName: 模糊类型
+    /// - Returns: 返回模糊后的图片
+    private func blurredPicture(fuzzyValue: CGFloat, filterName: String) -> UIImage? {
         guard let ciImage = CIImage(image: self.base) else { return nil }
         // 创建高斯模糊滤镜类
-        guard let blurFilter = CIFilter(name: "CIGaussianBlur") else { return nil }
+        guard let blurFilter = CIFilter(name: filterName) else { return nil }
         // 设置图片
         blurFilter.setValue(ciImage, forKey: kCIInputImageKey)
         // 设置模糊半径值（越大越模糊）
-        blurFilter.setValue(fuzzyValue, forKey: kCIInputRadiusKey)
+        blurFilter.setValue(fuzzyValue, forKey: filterName == "CIPixellate" ? kCIInputScaleKey : kCIInputRadiusKey)
         // 从滤镜中 取出图片
         guard let outputImage = blurFilter.outputImage else { return nil }
         // 创建上下文

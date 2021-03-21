@@ -552,8 +552,8 @@
 		84BF16B8251D9EB1002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8483C4CE255E94A30034A2F7 /* UITextFieldExtensionViewController.swift */,
 				847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */,
+				8483C4CE255E94A30034A2F7 /* UITextFieldExtensionViewController.swift */,
 				84CC32AE255D39F000F489F0 /* UITextViewExtensionViewController.swift */,
 				84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */,
 				848028072558D5A70038748A /* CALayerExtensionViewController.swift */,

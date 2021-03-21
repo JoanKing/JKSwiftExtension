@@ -32,14 +32,9 @@ public extension JKEKEvent {
                 })
                 let predicate = eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: calendars)
                 let eV = eventStore.events(matching: predicate)
-                // 重新刷新表格数据
-                DispatchQueue.main.async {
-                    eventsClosure(eV)
-                }
+                resultMain(parameter: eV, eventsClosure: eventsClosure)
             } else {
-                DispatchQueue.main.async {
-                    eventsClosure([])
-                }
+                resultMain(parameter: [], eventsClosure: eventsClosure)
             }
         })
     }
@@ -65,18 +60,12 @@ public extension JKEKEvent {
                 event.calendar = eventStore.defaultCalendarForNewEvents
                 do {
                     try eventStore.save(event, span: .thisEvent)
-                    DispatchQueue.main.async {
-                        eventsClosure(true, event.calendarItemIdentifier)
-                    }
+                    resultMain(parameter: (true, event.calendarItemIdentifier), eventsClosure: eventsClosure)
                 } catch {
-                    DispatchQueue.main.async {
-                        eventsClosure(false, nil)
-                    }
+                    resultMain(parameter: (false, nil), eventsClosure: eventsClosure)
                 }
             } else {
-                DispatchQueue.main.async {
-                    eventsClosure(false, nil)
-                }
+                resultMain(parameter: (false, nil), eventsClosure: eventsClosure)
             }
         })
     }
@@ -105,9 +94,7 @@ public extension JKEKEvent {
                 let events = eventStore.events(matching: predicate)
                 let eventArray = events.filter { $0.calendarItemIdentifier == eventIdentifier }
                 guard eventArray.count > 0 else {
-                    DispatchQueue.main.async {
-                        eventsClosure(false)
-                    }
+                    resultMain(parameter: false, eventsClosure: eventsClosure)
                     return
                 }
                 let event = eventArray[0]
@@ -118,18 +105,12 @@ public extension JKEKEvent {
                 event.calendar = eventStore.defaultCalendarForNewEvents
                 do {
                     try eventStore.save(event, span: .thisEvent)
-                    DispatchQueue.main.async {
-                        eventsClosure(true)
-                    }
+                    resultMain(parameter: true, eventsClosure: eventsClosure)
                 } catch {
-                    DispatchQueue.main.async {
-                        eventsClosure(false)
-                    }
+                    resultMain(parameter: false, eventsClosure: eventsClosure)
                 }
             } else {
-                DispatchQueue.main.async {
-                    eventsClosure(false)
-                }
+                resultMain(parameter: false, eventsClosure: eventsClosure)
             }
         })
     }
@@ -165,25 +146,17 @@ public extension JKEKEvent {
                 }
                 let event = events.filter { return $0.calendarItemIdentifier == eventIdentifier }
                 guard event.count > 0 else {
-                    DispatchQueue.main.async {
-                        eventsClosure(false)
-                    }
+                    resultMain(parameter: false, eventsClosure: eventsClosure)
                     return
                 }
                 do {
                     try eventStore.remove(event[0], span: .thisEvent, commit: true)
-                    DispatchQueue.main.async {
-                        eventsClosure(true)
-                    }
+                    resultMain(parameter: true, eventsClosure: eventsClosure)
                 } catch {
-                    DispatchQueue.main.async {
-                        eventsClosure(false)
-                    }
+                    resultMain(parameter: false, eventsClosure: eventsClosure)
                 }
             } else {
-                DispatchQueue.main.async {
-                    eventsClosure(false)
-                }
+                resultMain(parameter: false, eventsClosure: eventsClosure)
             }
         })
     }
@@ -203,14 +176,10 @@ public extension JKEKEvent {
                 let predicate = eventStore.predicateForReminders(in: nil)
                 eventStore.fetchReminders(matching: predicate, completion: {
                     (reminders: [EKReminder]?) -> Void in
-                    DispatchQueue.main.async {
-                        remindersClosure(reminders)
-                    }
+                    resultMain(parameter: reminders, eventsClosure: remindersClosure)
                 })
             } else {
-                DispatchQueue.main.async {
-                    remindersClosure(nil)
-                }
+                resultMain(parameter: nil, eventsClosure: remindersClosure)
             }
         }
     }
@@ -238,18 +207,12 @@ public extension JKEKEvent {
                 // 保存提醒事项
                 do {
                     try eventStore.save(reminder, commit: true)
-                    DispatchQueue.main.async {
-                        eventsClosure(true, reminder.calendarItemIdentifier)
-                    }
+                    resultMain(parameter: (true, reminder.calendarItemIdentifier), eventsClosure: eventsClosure)
                 } catch {
-                    DispatchQueue.main.async {
-                        eventsClosure(false, nil)
-                    }
+                    resultMain(parameter: (false, nil), eventsClosure: eventsClosure)
                 }
             } else {
-                DispatchQueue.main.async {
-                    eventsClosure(false, nil)
-                }
+                resultMain(parameter: (false, nil), eventsClosure: eventsClosure)
             }
         }
     }
@@ -273,16 +236,12 @@ public extension JKEKEvent {
                 eventStore.fetchReminders(matching: predicate, completion: {
                     (reminders: [EKReminder]?) -> Void in
                     guard let weakReminders = reminders else {
-                        DispatchQueue.main.async {
-                            eventsClosure(false)
-                        }
+                        resultMain(parameter: false, eventsClosure: eventsClosure)
                         return
                     }
                     let weakReminder = weakReminders.filter { $0.calendarItemIdentifier == eventIdentifier }
                     guard weakReminder.count > 0 else {
-                        DispatchQueue.main.async {
-                            eventsClosure(false)
-                        }
+                        resultMain(parameter: false, eventsClosure: eventsClosure)
                         return
                     }
                     let reminder = weakReminder[0]
@@ -294,13 +253,9 @@ public extension JKEKEvent {
                     // 修改提醒事项
                     do {
                         try eventStore.save(reminder, commit: true)
-                        DispatchQueue.main.async {
-                            eventsClosure(true)
-                        }
+                        resultMain(parameter: true, eventsClosure: eventsClosure)
                     } catch {
-                        DispatchQueue.main.async {
-                            eventsClosure(false)
-                        }
+                        resultMain(parameter: false, eventsClosure: eventsClosure)
                     }
                 })
             }
@@ -326,28 +281,20 @@ public extension JKEKEvent {
                 eventStore.fetchReminders(matching: predicate, completion: {
                     (reminders: [EKReminder]?) -> Void in
                     guard let weakReminders = reminders else {
-                        DispatchQueue.main.async {
-                            eventsClosure(false)
-                        }
+                        resultMain(parameter: false, eventsClosure: eventsClosure)
                         return
                     }
                     let reminderArray = weakReminders.filter { $0.calendarItemIdentifier == eventIdentifier }
                     guard reminderArray.count > 0 else {
-                        DispatchQueue.main.async {
-                            eventsClosure(false)
-                        }
+                        resultMain(parameter: false, eventsClosure: eventsClosure)
                         return
                     }
                     // 移除提醒事项
                     do {
                         try eventStore.remove(reminderArray[0], commit: true)
-                        DispatchQueue.main.async {
-                            eventsClosure(true)
-                        }
+                        resultMain(parameter: true, eventsClosure: eventsClosure)
                     } catch {
-                        DispatchQueue.main.async {
-                            eventsClosure(false)
-                        }
+                        resultMain(parameter: false, eventsClosure: eventsClosure)
                     }
                 })
             }
@@ -386,9 +333,20 @@ private extension JKEKEvent {
         } else {
             components.day = -1
         }
-        let tem = startOfMonth(year: year, month:month)
+        let tem = startOfMonth(year: year, month: month)
         let endOfYear =  calendar.date(byAdding: components, to: tem)!
         return endOfYear
+    }
+    
+    /// 事件主线程
+    /// - Parameters:
+    ///   - parameter: 返回的参数
+    ///   - eventsClosure: 闭包
+    private static func resultMain<T>(parameter: T, eventsClosure: @escaping ((T) -> Void)) {
+        // 重新刷新表格数据
+        DispatchQueue.main.async {
+            eventsClosure(parameter)
+        }
     }
 }
 
