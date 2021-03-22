@@ -40,11 +40,8 @@ public extension JKPOP where Base: UIViewController {
     /// 获取顶部控制器
     /// - Returns: VC
     static func topViewController() -> UIViewController? {
-        var rootVC: UIViewController?
-        if let window = UIApplication.shared.delegate?.window {
-            rootVC = window?.rootViewController
-        } else {
-            rootVC = UIApplication.shared.keyWindow?.rootViewController
+        guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first, let rootVC = window.rootViewController  else {
+            return nil
         }
         return top(rootVC: rootVC)
     }
@@ -53,11 +50,8 @@ public extension JKPOP where Base: UIViewController {
     /// 获取顶部控制器
     /// - Returns: VC
     func topViewController() -> UIViewController? {
-        var rootVC: UIViewController?
-        if let window = UIApplication.shared.delegate?.window {
-            rootVC = window?.rootViewController
-        } else {
-            rootVC = UIApplication.shared.keyWindow?.rootViewController
+        guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first, let rootVC = window.rootViewController  else {
+            return nil
         }
         return Self.top(rootVC: rootVC)
     }
