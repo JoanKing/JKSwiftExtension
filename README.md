@@ -44,7 +44,6 @@
          ///   - parameter: 返回的参数
          ///   - eventsClosure: 闭包
          private static func resultMain<T>(parameter: T, eventsClosure: @escaping ((T) -> Void)) {
-            // 重新刷新表格数据
             DispatchQueue.main.async {
                eventsClosure(parameter)
             }
