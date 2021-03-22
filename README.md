@@ -36,6 +36,8 @@
     我的联系方式：微信：18500652880
     
 ## 版本说明
+   - 1.3.9、版本
+      修复 UIViewController+Extension.swift 1.3 和 1.4 找不到 rootViewController 的问题
    - 1.3.8、版本
       JKEKEvent.swift 回到主线程优化
       
