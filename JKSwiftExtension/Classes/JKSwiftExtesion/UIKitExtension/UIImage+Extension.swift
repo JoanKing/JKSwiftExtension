@@ -346,6 +346,40 @@ public extension JKPOP where Base: UIImage {
         // 生成的模糊图片
         return UIImage(cgImage: cgImage)
     }
+    
+    // MARK: 1.16、返回一个将白色背景变透明的UIImage
+    /// 返回一个将白色背景变透明的UIImage
+    /// - Returns: 白色背景变透明的UIImage
+    func imageByRemoveWhiteBg() -> UIImage? {
+        let colorMasking: [CGFloat] = [222, 255, 222, 255, 222, 255]
+        return transparentColor(colorMasking: colorMasking)
+    }
+    
+    // MARK: 1.17、返回一个将黑色背景变透明的UIImage
+    /// 返回一个将黑色背景变透明的UIImage
+    /// - Returns: 黑色背景变透明的UIImage
+    func imageByRemoveBlackBg() -> UIImage? {
+        let colorMasking: [CGFloat] = [0, 32, 0, 32, 0, 32]
+        return transparentColor(colorMasking: colorMasking)
+    }
+    
+    private func transparentColor(colorMasking: [CGFloat]) -> UIImage? {
+        defer {
+            UIGraphicsEndImageContext()
+        }
+        guard let rawImageRef = self.base.cgImage, let maskedImageRef = rawImageRef.copy(maskingColorComponents: colorMasking) else {
+            return nil
+        }
+        UIGraphicsBeginImageContext(self.base.size)
+        guard let context: CGContext = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+        context.translateBy(x: 0.0, y: self.base.size.height)
+        context.scaleBy(x: 1.0, y: -1.0)
+        context.draw(maskedImageRef, in: CGRect(x: 0, y: 0, width: self.base.size.width, height: self.base.size.height))
+        let result = UIGraphicsGetImageFromCurrentImageContext()
+        return result
+    }
 }
 
 fileprivate extension UIImage {

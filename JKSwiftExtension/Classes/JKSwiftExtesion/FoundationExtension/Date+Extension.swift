@@ -267,11 +267,7 @@ public extension JKPOP where Base == Date {
     /// 是否为今天（只比较日期，不比较时分秒）
     /// - Returns: bool
     var isToday: Bool {
-        let date = Date()
-        if self.base.jk.toformatterTimeString(formatter: "yyyyMMdd") == date.jk.toformatterTimeString(formatter: "yyyyMMdd") {
-            return true
-        }
-        return false
+        return Calendar.current.isDate(self.base, inSameDayAs: Date())
     }
     
     // MARK: 3.7、是否为昨天
@@ -282,7 +278,7 @@ public extension JKPOP where Base == Date {
             return false
         }
         // 2.比较当前的日期和昨天的日期
-        return isSameYeaerMountDay(date)
+        return Calendar.current.isDate(self.base, inSameDayAs: date)
     }
     
     // MARK: 3.8、是否为前天
@@ -293,7 +289,7 @@ public extension JKPOP where Base == Date {
             return false
         }
         // 2.比较当前的日期和昨天的日期
-        return isSameYeaerMountDay(date)
+        return Calendar.current.isDate(self.base, inSameDayAs: date)
     }
     
     // MARK: 3.9、是否为今年
@@ -306,11 +302,11 @@ public extension JKPOP where Base == Date {
         return result
     }
     
-    // MARK: 3.10、是否为 同一年 同一月 同一天
+    // MARK: 3.10、两个date是否为同一天
     /// 是否为  同一年  同一月 同一天
     /// - Returns: bool
-    var isSameYearMonthDayWithToday: Bool {
-        return isSameYeaerMountDay(Date())
+    func isSameDay(date: Date) -> Bool {
+        return Calendar.current.isDate(self.base, inSameDayAs: date)
     }
     
     /// 日期的加减操作

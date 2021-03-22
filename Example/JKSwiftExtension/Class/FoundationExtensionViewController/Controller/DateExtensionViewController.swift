@@ -13,7 +13,7 @@ class DateExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、Date 基本的扩展", "二、时间格式的转换", "三、前天、昨天、今天、明天、后天、是否同一年同一月同一天 的判断", "四、相对的时间变化", "五、某年月份的天数获取"]
-        dataArray = [["获取当前 秒级 时间戳 - 10 位", "获取当前 毫秒级 时间戳 - 13 位", "获取当前的时间 Date", "从 Date 获取年份", "从 Date 获取月份", "从 Date 获取 日", "从 Date 获取 小时", "从 Date 获取 分钟", "从 Date 获取 秒", "从 Date 获取 毫秒", "从日期获取 星期(英文)", "从日期获取 月(英文)"], ["时间戳 按照对应的格式 转化为 对应时间的字符串，支持10位 和 13位", "时间戳 转 Date, 支持 10 位 和 13 位", "Date 转换为相应格式的字符串", "带格式的时间转 时间戳，支持返回 13位 和 10位的时间戳", "带格式的时间转 Date，支持返回 13位 和 10位的时间戳", "秒转换成播放时间条的格式"], ["今天的日期", "昨天的日期", "明天的日期", "前天的日期", "后天的日期", "是否为今天（只比较日期，不比较时分秒）", "是否为昨天", "是否为前天", "是否为今年", "是否为 同一年 同一月 同一天"], ["取得与当前时间的间隔差"], ["获取某一年某一月的天数", "获取当前月的天数"]]
+        dataArray = [["获取当前 秒级 时间戳 - 10 位", "获取当前 毫秒级 时间戳 - 13 位", "获取当前的时间 Date", "从 Date 获取年份", "从 Date 获取月份", "从 Date 获取 日", "从 Date 获取 小时", "从 Date 获取 分钟", "从 Date 获取 秒", "从 Date 获取 毫秒", "从日期获取 星期(英文)", "从日期获取 月(英文)"], ["时间戳 按照对应的格式 转化为 对应时间的字符串，支持10位 和 13位", "时间戳 转 Date, 支持 10 位 和 13 位", "Date 转换为相应格式的字符串", "带格式的时间转 时间戳，支持返回 13位 和 10位的时间戳", "带格式的时间转 Date，支持返回 13位 和 10位的时间戳", "秒转换成播放时间条的格式"], ["今天的日期", "昨天的日期", "明天的日期", "前天的日期", "后天的日期", "是否为今天（只比较日期，不比较时分秒）", "是否为昨天", "是否为前天", "是否为今年", "两个date是否为同一年同一月的同一天"], ["取得与当前时间的间隔差"], ["获取某一年某一月的天数", "获取当前月的天数"]]
     }
 }
 
@@ -116,15 +116,15 @@ extension DateExtensionViewController {
         JKPrint("是否为今年的判断", "\(date1) 是否为今年：\(date1.jk.isThisYear)", "\(date2) 是否为今年：\(date2.jk.isThisYear)")
     }
     
-    // MARK: 3.10、是否为 同一年 同一月 同一天
+    // MARK: 3.10、两个date是否为同一年同一月的同一天
     @objc func test310() {
         // 2020-10-26 09:37:33
-        let timestamp1 = "1603869908"
+        let timestamp1 = "1572053853"
         let date1 = Date.jk.timestampToFormatterDate(timestamp: timestamp1)
         // 2019-10-26 09:37:33
         let timestamp2 = "1572053853"
         let date2 = Date.jk.timestampToFormatterDate(timestamp: timestamp2)
-        JKPrint("是否为 同一年 同一月 同一天", "\(date1) 是否为今年：\(date1.jk.isSameYearMonthDayWithToday)", "\(date2) 是否为今年：\(date2.jk.isSameYearMonthDayWithToday)")
+        JKPrint("是否为同一年同一月的同一天", "\(date1)", "\(date2)", "结果：\(date1.jk.isSameDay(date: date2))")
     }
 }
 

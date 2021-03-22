@@ -675,6 +675,12 @@ public extension JKPOP where Base: UIView {
     // MARK: 7.1、获取当前view的viewcontroller
     /// 获取当前view的viewcontroller
     var currentVC: UIViewController? {
+        /**
+         实现原理
+         通过消息响应者链找到 UIView 所在的 UIViewController。
+         UIView 类继承于 UIResponder，通过 UIResponder 的next 方法来获取 UIViewController。
+         如果 next 返回是空，则继续向上遍历 superview 并再次使用 next 方法获取。这样一直找下去，直到找到或抛出异常。
+         */
         var parentResponder: UIResponder? = self.base
         while parentResponder != nil {
             parentResponder = parentResponder!.next
