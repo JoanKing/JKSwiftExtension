@@ -36,6 +36,19 @@
     我的联系方式：微信：18500652880
     
 ## 版本说明
+   - 1.3.8、版本
+      JKEKEvent.swift 回到主线程优化
+      
+         /// 事件主线程
+         /// - Parameters:
+         ///   - parameter: 返回的参数
+         ///   - eventsClosure: 闭包
+         private static func resultMain<T>(parameter: T, eventsClosure: @escaping ((T) -> Void)) {
+            // 重新刷新表格数据
+            DispatchQueue.main.async {
+               eventsClosure(parameter)
+            }
+         }
    - 1.3.7、版本
        新增JKEKEvent日历和提醒事件的基本使用
    - 1.3.6、版本
