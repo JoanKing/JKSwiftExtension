@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSContactsUsageDescription</key>
+	<string>APP想要访问您的通讯录</string>
 	<key>NSRemindersUsageDescription</key>
 	<string>APP需要访问您的提醒事件</string>
 	<key>NSCalendarsUsageDescription</key>

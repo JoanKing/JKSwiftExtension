@@ -258,6 +258,7 @@
 		84911BDE4647439EC2297071D8554EAA /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3176BFC8DBB64A75CEADCC6BC48F0595 /* Bag.swift */; };
 		84ADDC2F25E37E0500C8177C /* JKDrawSignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC2E25E37E0500C8177C /* JKDrawSignatureView.swift */; };
 		84ADDC3E25E3884300C8177C /* JKJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC3D25E3884300C8177C /* JKJSON.swift */; };
+		84E01BA62609C78100D0F68A /* JKContactsKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E01BA52609C78100D0F68A /* JKContactsKit.swift */; };
 		84F11D5F25DE0D3C00209B4C /* NSRange+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F11D5E25DE0D3C00209B4C /* NSRange+Extension.swift */; };
 		84F11DEC25DE477A00209B4C /* CLLocation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F11DEB25DE477A00209B4C /* CLLocation+Extension.swift */; };
 		84FEC02725E8D12B0074D207 /* JKPaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEC02625E8D12B0074D207 /* JKPaddingLabel.swift */; };
@@ -881,6 +882,7 @@
 		84ADDC2E25E37E0500C8177C /* JKDrawSignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKDrawSignatureView.swift; sourceTree = "<group>"; };
 		84ADDC3D25E3884300C8177C /* JKJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKJSON.swift; sourceTree = "<group>"; };
 		84D8BE5A7AC7AAB30E2037B9199539C2 /* Do.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Do.swift; path = RxSwift/Observables/Do.swift; sourceTree = "<group>"; };
+		84E01BA52609C78100D0F68A /* JKContactsKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKContactsKit.swift; sourceTree = "<group>"; };
 		84F11D5E25DE0D3C00209B4C /* NSRange+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRange+Extension.swift"; sourceTree = "<group>"; };
 		84F11DEB25DE477A00209B4C /* CLLocation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Extension.swift"; sourceTree = "<group>"; };
 		84FEC02625E8D12B0074D207 /* JKPaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPaddingLabel.swift; sourceTree = "<group>"; };
@@ -1493,6 +1495,7 @@
 		23FEE88F7FA94B82A8DEA09B3B3B9096 /* UIKitExtension */ = {
 			isa = PBXGroup;
 			children = (
+				8ADC49387AA3F51968B17699CD77F4B3 /* UILabel+Extension.swift */,
 				305A9F809D0B9796BD04844FC3F001AC /* UIImage+Extension.swift */,
 				F9244690D9F832E49CA9A739E2CCEC27 /* UITextView+Extension.swift */,
 				9E600526655EF5768375EC05BD3A6366 /* UIView+Extension.swift */,
@@ -1509,7 +1512,6 @@
 				447EAD9E082F9F0FE86AA97A83E9EFD8 /* UIControl+Extension.swift */,
 				BBDFB17EE3E22DB111B99F44935FF2AA /* UIGestureRecognizer+Extension.swift */,
 				FAD498A80A8AE5944D50EB213438A953 /* UIImageView+Extension.swift */,
-				8ADC49387AA3F51968B17699CD77F4B3 /* UILabel+Extension.swift */,
 				8049537B54644F71D43950074358850A /* UINavigationBar+Extension.swift */,
 				6FF701166D67287DCE7EC2E251F6094C /* UINavigationController+Extension.swift */,
 				E6847B38463E03B54B4378A8795381FA /* UIPageControl+Extension.swift */,
@@ -1559,6 +1561,7 @@
 			isa = PBXGroup;
 			children = (
 				8464428E25FF525D002E73A6 /* JKEKEvent.swift */,
+				84E01BA52609C78100D0F68A /* JKContactsKit.swift */,
 				849062C525FE006F007F75D9 /* JKPhotoAlbumUtil.swift */,
 				BDC2D4DA5301B90AC0512FC79BCF9246 /* JKAsyncs.swift */,
 				B97D6354C7AD764CE8E4C5983A4CEA68 /* JKClosure.swift */,
@@ -2518,6 +2521,7 @@
 				CDC07348059A23AEB566585815BCCAA4 /* IndexPath+Extension.swift in Sources */,
 				7892DFD092B41806AA8A9058D6E2422D /* Int+Extension.swift in Sources */,
 				47189EAE6A6A18FD639E88ABD3F37E6F /* Int64+Extension.swift in Sources */,
+				84E01BA62609C78100D0F68A /* JKContactsKit.swift in Sources */,
 				B99A42139A1F33929BB76B2AA294C3F8 /* JKAsyncs.swift in Sources */,
 				0359DDE33FA2EADB74D7ABDC6B58DC17 /* JKClosure.swift in Sources */,
 				9C81A5396847801E31B11F6E48EEAC78 /* JKCommonTool.swift in Sources */,

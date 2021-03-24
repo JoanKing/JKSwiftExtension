@@ -113,6 +113,7 @@
 		84D9BDCD25652D8C00D92461 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BDCC25652D8C00D92461 /* TestView.swift */; };
 		84D9BDD125652D9900D92461 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D9BDD025652D9900D92461 /* TestView.xib */; };
 		84D9BDD525652FE500D92461 /* JKEmitterableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BDD425652FE400D92461 /* JKEmitterableViewController.swift */; };
+		84E01BB22609C8F500D0F68A /* JKContactsKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E01BB12609C8F500D0F68A /* JKContactsKitViewController.swift */; };
 		84E96DD925C7E2D300D76D5C /* CAGradientLayerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E96DD825C7E2D300D76D5C /* CAGradientLayerExtensionViewController.swift */; };
 		84EE8174257F8EFF00DDC56B /* Persons.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84EE8173257F8EFF00DDC56B /* Persons.plist */; };
 		84F11D6B25DE0DB500209B4C /* NSRangeExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F11D6A25DE0DB500209B4C /* NSRangeExtensionViewController.swift */; };
@@ -245,6 +246,7 @@
 		84D9BDCC25652D8C00D92461 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		84D9BDD025652D9900D92461 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
 		84D9BDD425652FE400D92461 /* JKEmitterableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKEmitterableViewController.swift; sourceTree = "<group>"; };
+		84E01BB12609C8F500D0F68A /* JKContactsKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKContactsKitViewController.swift; sourceTree = "<group>"; };
 		84E96DD825C7E2D300D76D5C /* CAGradientLayerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAGradientLayerExtensionViewController.swift; sourceTree = "<group>"; };
 		84EE8173257F8EFF00DDC56B /* Persons.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Persons.plist; sourceTree = "<group>"; };
 		84F11D6A25DE0DB500209B4C /* NSRangeExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRangeExtensionViewController.swift; sourceTree = "<group>"; };
@@ -552,12 +554,12 @@
 		84BF16B8251D9EB1002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8418FB96255B8642000CB0B3 /* UILabelExtensionViewController.swift */,
 				847D4B9525611E50000DDA3C /* UIImageExtensionViewController.swift */,
 				8483C4CE255E94A30034A2F7 /* UITextFieldExtensionViewController.swift */,
 				84CC32AE255D39F000F489F0 /* UITextViewExtensionViewController.swift */,
 				84058C962554FA43007F0C30 /* UIViewExtensionViewController.swift */,
 				848028072558D5A70038748A /* CALayerExtensionViewController.swift */,
-				8418FB96255B8642000CB0B3 /* UILabelExtensionViewController.swift */,
 				84E96DD825C7E2D300D76D5C /* CAGradientLayerExtensionViewController.swift */,
 				84A6FB78255A65EC00057839 /* UIButtonExtensionViewController.swift */,
 				84802817255957560038748A /* UIApplicationExtensionViewController.swift */,
@@ -644,6 +646,7 @@
 		84BF16C2251D9EBC002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				84E01BB12609C8F500D0F68A /* JKContactsKitViewController.swift */,
 				8464429A25FF6BDE002E73A6 /* JKEKEventViewController.swift */,
 				849062D125FE01BC007F75D9 /* JKPhotoAlbumUtilViewController.swift */,
 				84FEC03225E8D1FE0074D207 /* JKPaddingLabelViewController.swift */,
@@ -744,7 +747,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = XXHJUP7YMQ;
+						DevelopmentTeam = UNSNU79SRS;
 						LastSwiftMigration = 1160;
 						ProvisioningStyle = Automatic;
 					};
@@ -867,6 +870,7 @@
 				8483A737254C11C200ACF6FD /* JKRuntimeViewController.swift in Sources */,
 				84A6FB77255A655700057839 /* BaseNavigationViewController.swift in Sources */,
 				8457687C259DC3A3006F93D4 /* IndexPathExtensionViewController.swift in Sources */,
+				84E01BB22609C8F500D0F68A /* JKContactsKitViewController.swift in Sources */,
 				8473AAC02562889500707877 /* UIImageViewExtensionViewController.swift in Sources */,
 				84F86FEC2564EAF500B74128 /* JKValidateHelperViewController.swift in Sources */,
 				8480280E255933DE0038748A /* UIControlExtensionViewController.swift in Sources */,
@@ -1096,7 +1100,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XXHJUP7YMQ;
+				DEVELOPMENT_TEAM = UNSNU79SRS;
 				INFOPLIST_FILE = JKSwiftExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1123,7 +1127,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XXHJUP7YMQ;
+				DEVELOPMENT_TEAM = UNSNU79SRS;
 				INFOPLIST_FILE = JKSwiftExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
