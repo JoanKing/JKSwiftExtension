@@ -36,6 +36,13 @@
     我的联系方式：微信：18500652880
     
 ## 版本说明
+   - 1.5.0、版本
+      新增 JKContactsKit 获取通讯录的联系人
+        
+         在iOS9.0 之前, 我们只能通过 AddressBook 框架来获取通讯录联系人信息。但 AddressBook framework 语法很奇怪，同时也十分难用。所以苹果从 iOS9.0 开始推出的全新的联系人框架 Contacts FrameWork 作为替代，同时将原来的 AddressBook 给废弃掉。
+         Contacts FrameWork 同样包含两种访问通讯录的方式：
+         ContactsUI.framework 框架 ： 通过系统提供的通讯录交互界面来访问（替代原先的 AddressBookUI.framework）
+         Contacts.framework 框架 ： 没有界面，通过代码来获取所有联系人信息（替代原先的 AddressBook.framework）
    - 1.3.9、版本
       修复 UIViewController+Extension.swift 1.3 和 1.4 找不到 rootViewController 的问题
    - 1.3.8、版本
