@@ -36,6 +36,8 @@
     我的联系方式：微信：18500652880
     
 ## 版本说明
+   - 1.5.1、版本
+      新增 Range+Extension.swift ，Range 转 NSRange，String+Extension 新增任意位置插入字符串
    - 1.5.0、版本
       新增 JKContactsKit 获取通讯录的联系人
         
