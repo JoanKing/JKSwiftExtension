@@ -1261,7 +1261,8 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     /// 切割字符串(区间范围 前闭后开)
     /// - Parameter range: 范围
     /// - Returns: 切割后的字符串
-    public func slice(_ range: CountableRange<Int>) -> String { // 如 sliceString(2..<6)
+    public func slice(_ range: CountableRange<Int>) -> String {
+        // 如 slice(2..<6)
         /**
          upperBound（上界）
          lowerBound（下界）
@@ -1274,16 +1275,30 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return String((base as! String)[startIndex ..< endIndex])
     }
     
-    // MARK: 10.5、用整数返回子字符串开始的位置
-    /// 用整数返回子字符串开始的位置
-    /// - Parameter sub: 字符串
-    /// - Returns: 返回字符串的位置
-    public func position(of sub: String) -> Int {
-        if sub.isEmpty {
-            return 0
-        }
+    // MARK: 10.5、子字符串第一次出现的位置
+    /// 子字符串第一次出现的位置
+    /// - Parameter sub: 子字符串
+    /// - Returns: 返回字符串的位置（如果内部不存在该字符串则返回 -1）
+    public func positionFirst(of sub: String) -> Int {
+        return position(of: sub)
+    }
+    
+    // MARK: 10.6、子字符串最后一次出现的位置
+    /// 子字符串第一次出现的位置
+    /// - Parameter sub: 子字符串
+    /// - Returns: 返回字符串的位置（如果内部不存在该字符串则返回 -1）
+    public func positionLast(of sub: String) -> Int {
+        return position(of: sub, backwards: true)
+    }
+    
+    /// 返回(第一次/最后一次)出现的指定子字符串在此字符串中的索引，如果内部不存在该字符串则返回 -1
+    /// - Parameters:
+    ///   - sub: 子字符串
+    ///   - backwards: 如果backwards参数设置为true，则返回最后出现的位置
+    /// - Returns: 位置
+    private func position(of sub: String, backwards: Bool = false) -> Int {
         var pos = -1
-        if let range = (base as! String).range(of: sub) {
+        if let range = (base as! String).range(of: sub, options: backwards ? .backwards : .literal) {
             if !range.isEmpty {
                 pos = (base as! String).distance(from: (base as! String).startIndex, to: range.lowerBound)
             }
@@ -1291,7 +1306,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return pos
     }
     
-    // MARK: 10.6、获取某个位置的字符串
+    // MARK: 10.7、获取某个位置的字符串
     /// 获取某个位置的字符串
     /// - Parameter index: 位置
     /// - Returns: 某个位置的字符串
@@ -1299,12 +1314,39 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return slice((index..<index + 1))
     }
     
-    // MARK: 10.7、获取某个子串在父串中的范围
-    /// 获取某个子串在父串中的范围
+    // MARK: 10.8、获取某个子串在父串中的范围->Range
+    /// 获取某个子串在父串中的范围->Range
     /// - Parameter str: 子串
     /// - Returns: 某个子串在父串中的范围
-    public func range(str: String) -> Range<String.Index>? {
-        return (base as! String).range(of: str)
+    public func range(of subString: String) -> Range<String.Index>? {
+        return (base as! String).range(of: subString)
+    }
+    
+    // MARK: 10.9、获取某个子串在父串中的范围->NSRange
+    /// 获取某个子串在父串中的范围->NSRange
+    /// - Parameter str: 子串
+    /// - Returns: 某个子串在父串中的范围
+    public func nsRange(of subString: String) -> NSRange? {
+        guard (base as! String).jk.contains(find: subString) else {
+            return nil
+        }
+        let text = (base as! String) as NSString
+        return text.range(of: subString)
+    }
+    
+    // MARK: 10.10、在任意位置插入字符串
+    /// 在任意位置插入字符串
+    /// - Parameters:
+    ///   - content: 插入内容
+    ///   - locat: 插入的位置
+    /// - Returns: 添加后的字符串
+    public func insertString(content: String, locat: Int) -> String {
+        guard locat < (base as! String).count else {
+            return (base as! String)
+        }
+        let str1 = (base as! String).jk.sub(to: locat)
+        let str2 =  (base as! String).jk.sub(from: locat + 1)
+        return str1 + content + str2
     }
 }
 

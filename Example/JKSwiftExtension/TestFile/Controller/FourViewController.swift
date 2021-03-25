@@ -28,6 +28,25 @@ class FourViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.navigationController?.pushViewController(FiveViewController(), animated: true)
+        
+        let alertController = UIAlertController(title: "\n\n\n\n\n\n\n",
+                                                message: nil,
+                                                preferredStyle: .actionSheet)
+         
+        // 添加imageView控件
+        let testView = UIView(frame: CGRect(x: 10, y: 10, width: alertController.view.bounds.size.width - 40, height: 135))
+        testView.backgroundColor = .randomColor
+        // actionSheet样式尺寸
+        // imageView.frame = CGRect(x: 10, y: 10, width: alertController.view.bounds.size.width - 40, height: 135)
+        alertController.view.addSubview(testView)
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "确定", style: .default, handler: {
+            action in
+            print("点击了确定")
+        })
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }

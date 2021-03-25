@@ -16,6 +16,7 @@ class FiveViewController: UIViewController {
         self.title = "Five"
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.randomColor
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

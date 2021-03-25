@@ -29,7 +29,6 @@ public class JKPhotoAlbumUtil: NSObject {
     ///   - image: 图片
     ///   - isCustomPhotoAlbumName: 是否使用自定义的相册名字(默认是不使用，保存到相册交卷，相册名是app的名字)
     ///   - completion: 结果闭包
-    /// - Returns: 结果
     public class func saveImageInAlbum(image: UIImage, isCustomPhotoAlbumName: Bool = false, completion: ((JKPhotoAlbumUtilResult) -> Void)?) {
         
         // 权限验证
