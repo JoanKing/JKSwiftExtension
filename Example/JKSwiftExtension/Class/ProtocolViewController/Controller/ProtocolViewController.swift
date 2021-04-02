@@ -33,7 +33,7 @@ class ProtocolViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
         // 设置行高为自动适配
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(HomeViewCell.self, forCellReuseIdentifier: ProtocolViewController.ProtocolViewControllerCellIdentifier)
+        tableView.register(BaseViewCell.self, forCellReuseIdentifier: ProtocolViewController.ProtocolViewControllerCellIdentifier)
         return tableView
     }()
     
@@ -65,7 +65,7 @@ extension ProtocolViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ProtocolViewController.ProtocolViewControllerCellIdentifier, for: indexPath) as! HomeViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProtocolViewController.ProtocolViewControllerCellIdentifier, for: indexPath) as! BaseViewCell
         let cellName = dataArray[indexPath.row] as! String
         cell.contentLabel.text = "\(indexPath.row + 1)：\(cellName)"
         cell.contentLabel.textColor = finishedDataArray.contains(cellName) ? UIColor.hexStringColor(hexString: "#006400") : UIColor.c444444

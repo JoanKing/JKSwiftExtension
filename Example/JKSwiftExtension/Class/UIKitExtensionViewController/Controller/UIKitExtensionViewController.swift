@@ -33,7 +33,7 @@ class UIKitExtensionViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
         // 设置行高为自动适配
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(HomeViewCell.self, forCellReuseIdentifier: UIKitExtensionViewController.UIKitExtensionViewControllerCellIdentifier)
+        tableView.register(BaseViewCell.self, forCellReuseIdentifier: UIKitExtensionViewController.UIKitExtensionViewControllerCellIdentifier)
         // tableView.addWater(markText: "JKSwiftExtension", textColor: UIColor.randomColor(), font: UIFont.systemFont(ofSize: 12))
         return tableView
     }()
@@ -66,7 +66,7 @@ extension UIKitExtensionViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: UIKitExtensionViewController.UIKitExtensionViewControllerCellIdentifier, for: indexPath) as! HomeViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: UIKitExtensionViewController.UIKitExtensionViewControllerCellIdentifier, for: indexPath) as! BaseViewCell
         let cellName = dataArray[indexPath.row] as! String
         cell.contentLabel.text = "\(indexPath.row + 1)：\(cellName)"
         cell.contentLabel.textColor = finishedDataArray.contains(cellName) ? UIColor.hexStringColor(hexString: "#006400") : UIColor.c444444

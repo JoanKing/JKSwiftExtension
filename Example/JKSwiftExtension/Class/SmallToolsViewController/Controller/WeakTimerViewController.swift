@@ -10,7 +10,7 @@ import UIKit
 
 class WeakTimerViewController: BaseViewController {
     
-    var timer: WeakTimer?
+    var timer: JKWeakTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ extension WeakTimerViewController {
     
     // MARK: 1.1、
     @objc func test11() {
-        timer = WeakTimer.scheduledTimer(timeInterval: 2, repeats: true, queue: DispatchQueue.global()) { (timer) in
+        timer = JKWeakTimer.scheduledTimer(timeInterval: 2, repeats: true, queue: DispatchQueue.global()) { (timer) in
             print("定时器打印中：🚀🚀🚀🚀🚀🚀", "当前的线程：\(Thread.current)")
         }
 

@@ -34,7 +34,7 @@ import UIKit
         tableView.estimatedRowHeight = 80.0
         // 开启自适应
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(HomeViewCell.self, forCellReuseIdentifier: BaseViewController.BaseViewControllerCellIdentifier)
+        tableView.register(BaseViewCell.self, forCellReuseIdentifier: BaseViewController.BaseViewControllerCellIdentifier)
         return tableView
     }()
     
@@ -70,7 +70,7 @@ extension BaseViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: BaseViewController.BaseViewControllerCellIdentifier, for: indexPath) as! HomeViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: BaseViewController.BaseViewControllerCellIdentifier, for: indexPath) as! BaseViewCell
         let singleDataArray = dataArray[indexPath.section] as! [String]
         cell.contentLabel.text = "\(indexPath.row + 1)：\((singleDataArray[indexPath.row]))"
         return cell

@@ -670,6 +670,12 @@ public extension UIView {
 }
 
 // MARK:- 七、其他的方法
+// 抖动方向枚举
+public enum JKShakeDirection: Int {
+    case horizontal  //水平抖动
+    case vertical  //垂直抖动
+}
+
 public extension JKPOP where Base: UIView {
     
     // MARK: 7.1、获取当前view的viewcontroller
@@ -752,6 +758,40 @@ public extension JKPOP where Base: UIView {
     /// 键盘收起来
     func keyboardEndEditing() {
         self.base.endEditing(true)
+    }
+    
+    // MARK: 7.6、视图抖动
+    /// 视图抖动
+    /// - Parameters:
+    ///   - direction: 抖动方向（默认是水平方向）
+    ///   - times: 抖动次数（默认5次）
+    ///   - interval: 每次抖动时间（默认0.1秒）
+    ///   - delta: 抖动偏移量（默认2）
+    ///   - completion: 抖动动画结束后的回调
+    func shake(direction: JKShakeDirection = .horizontal, times: Int = 3, interval: TimeInterval = 0.1, delta: CGFloat = 2, completion: (() -> Void)? = nil) {
+        // 播放动画
+        UIView.animate(withDuration: interval, animations: {
+            switch direction {
+            case .horizontal:
+                self.base.layer.setAffineTransform(CGAffineTransform(translationX: delta, y: 0))
+                break
+            case .vertical:
+                self.base.layer.setAffineTransform(CGAffineTransform(translationX: 0, y: delta))
+                break
+            }
+        }) { (complete) -> Void in
+            // 如果当前是最后一次抖动，则将位置还原，并调用完成回调函数
+            if (times == 0) {
+                UIView.animate(withDuration: interval, animations: { () -> Void in
+                    self.base.layer.setAffineTransform(CGAffineTransform.identity)
+                }, completion: { (complete) -> Void in
+                    completion?()
+                })
+            } else {
+                // 如果当前不是最后一次抖动，则继续播放动画（总次数减1，偏移位置变成相反的）
+                self.shake(direction: direction, times: times - 1,  interval: interval, delta: delta * -1, completion:completion)
+            }
+        }
     }
 }
 

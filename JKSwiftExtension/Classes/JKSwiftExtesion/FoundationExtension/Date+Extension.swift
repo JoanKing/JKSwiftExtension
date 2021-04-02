@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 extension Date: JKPOPCompatible {}
 /// 时间戳的类型
 public enum JKTimestampType: Int {

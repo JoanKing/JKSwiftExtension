@@ -14,7 +14,7 @@ class JKRegexHelperViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、基本的使用"]
-        dataArray = [["通用匹配", "验证邮箱是否合法", "判断是否是有效的手机号码"]]
+        dataArray = [["通用匹配", "验证邮箱是否合法", "判断是否是有效的手机号码", "正则匹配用户姓名", "正则匹配用户身份证号15或18位"]]
     }
     
     override func didReceiveMemoryWarning() {
@@ -24,6 +24,19 @@ class JKRegexHelperViewController: BaseViewController {
 
 // MARK:- 一、基本的使用
 extension JKRegexHelperViewController {
+    
+    // MARK: 1.5、正则匹配用户身份证号15或18位
+    @objc func test15() {
+        let userCard = "422423199202026035"
+        JKPrint("正则匹配用户身份证号15或18位", "身份证号：\(userCard) 是不是身份证号：\(JKRegexHelper.validateUserIdCard(userCard))")
+    }
+    
+    // MARK: 1.4、正则匹配用户姓名
+    @objc func test14() {
+        let name = "##"
+        JKPrint("正则匹配用户姓名", "姓名：\(name) 是不是姓名：\(JKRegexHelper.validateUserName(name))")
+    }
+    
     // MARK: 1.3、判断是否是有效的手机号码
     @objc func test13() {
         let phoneNumber = "18500652889"

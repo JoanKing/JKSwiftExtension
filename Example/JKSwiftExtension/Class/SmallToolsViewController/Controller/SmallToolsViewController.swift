@@ -33,7 +33,7 @@ class SmallToolsViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
         // 设置行高为自动适配
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(HomeViewCell.self, forCellReuseIdentifier: SmallToolsViewController.SmallToolsViewControllerCellIdentifier)
+        tableView.register(BaseViewCell.self, forCellReuseIdentifier: SmallToolsViewController.SmallToolsViewControllerCellIdentifier)
         return tableView
     }()
     
@@ -43,8 +43,8 @@ class SmallToolsViewController: UIViewController {
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green
   
-        dataArray = ["JKAsyncs", "JKEKEvent", "JKPaddingLabel", "JKContactsKit", "JKPhotoAlbumUtil", "JKTapActionLabel", "JKDrawSignatureView", "JKGlobalTools", "JKRegexHelper", "JKCommonTool", "JKContentSize", "JKValidateHelper", "JKPrint", "WeakTimer", "JKRuntime", "JKWaterFallLayout", "KeyboardAccessory", "QRCodeImageFactory"]
-        finishedDataArray = ["JKAsyncs", "JKEKEvent", "JKContactsKit", "JKPhotoAlbumUtil", "JKPaddingLabel", "JKDrawSignatureView", "JKGlobalTools", "WeakTimer", "JKPrint", "JKRuntime", "QRCodeImageFactory", "JKCommonTool", "JKContentSize", "JKValidateHelper", "JKWaterFallLayout", "KeyboardAccessory", "JKRegexHelper", "JKTapActionLabel"]
+        dataArray = ["JKAsyncs", "JKEKEvent", "JKPaddingLabel", "JKContactsKit", "JKPhotoAlbumUtil", "JKTapActionLabel", "JKDrawSignatureView", "JKGlobalTools", "JKRegexHelper", "JKCommonTool", "JKContentSize", "JKPrint", "WeakTimer", "JKRuntime", "JKWaterFallLayout", "KeyboardAccessory", "QRCodeImageFactory"]
+        finishedDataArray = ["JKAsyncs", "JKEKEvent", "JKContactsKit", "JKPhotoAlbumUtil", "JKPaddingLabel", "JKDrawSignatureView", "JKGlobalTools", "WeakTimer", "JKPrint", "JKRuntime", "QRCodeImageFactory", "JKCommonTool", "JKContentSize", "JKWaterFallLayout", "KeyboardAccessory", "JKRegexHelper", "JKTapActionLabel"]
         initUI()
     }
     
@@ -65,7 +65,7 @@ extension SmallToolsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SmallToolsViewController.SmallToolsViewControllerCellIdentifier, for: indexPath) as! HomeViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: SmallToolsViewController.SmallToolsViewControllerCellIdentifier, for: indexPath) as! BaseViewCell
         let cellName = dataArray[indexPath.row] as! String
         cell.contentLabel.text = "\(indexPath.row + 1)：\(cellName)"
         cell.contentLabel.textColor = finishedDataArray.contains(cellName) ? UIColor.hexStringColor(hexString: "#006400") : UIColor.c444444

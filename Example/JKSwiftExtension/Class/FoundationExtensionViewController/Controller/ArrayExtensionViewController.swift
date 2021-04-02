@@ -32,7 +32,7 @@ class ArrayExtensionViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
         // 设置行高为自动适配
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(HomeViewCell.self, forCellReuseIdentifier: ArrayExtensionViewController.ArrayExtensionViewControllerCellIdentifier)
+        tableView.register(BaseViewCell.self, forCellReuseIdentifier: ArrayExtensionViewController.ArrayExtensionViewControllerCellIdentifier)
         return tableView
     }()
     
@@ -178,7 +178,7 @@ extension ArrayExtensionViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ArrayExtensionViewController.ArrayExtensionViewControllerCellIdentifier, for: indexPath) as! HomeViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ArrayExtensionViewController.ArrayExtensionViewControllerCellIdentifier, for: indexPath) as! BaseViewCell
         let singleDataArray = dataArray[indexPath.section] as! [String]
         cell.contentLabel.text = "\(indexPath.row + 1)：\((singleDataArray[indexPath.row]))"
         return cell

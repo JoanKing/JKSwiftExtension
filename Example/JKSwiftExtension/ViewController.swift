@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
-        tableView.register(HomeViewCell.self, forCellReuseIdentifier: ViewController.ViewControllerCellIdentifier)
+        tableView.register(BaseViewCell.self, forCellReuseIdentifier: ViewController.ViewControllerCellIdentifier)
         return tableView
     }()
     
@@ -64,7 +64,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ViewController.ViewControllerCellIdentifier, for: indexPath) as! HomeViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ViewController.ViewControllerCellIdentifier, for: indexPath) as! BaseViewCell
         cell.contentLabel.text = (dataArray[indexPath.row] as! String)
         // cell.lineView.isHidden = indexPath.row == dataArray.count - 1 ? true : false
         return cell
@@ -113,46 +113,4 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(TestFileViewController(), animated: true)
         }
     }
-}
-
-
-class HomeViewCell: UITableViewCell {
-
-    var lineView: UIView = {
-           let view = UIView()
-        view.backgroundColor = UIColor.brown
-           return view
-       }()
-    /// 文本的展示
-    var contentLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = UIColor.c444444
-        label.textAlignment = .left
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
-        // self.selectionStyle = .none
-        self.contentView.addSubview(contentLabel)
-        self.contentView.addSubview(lineView)
-        contentLabel.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 1))
-        }
-        lineView.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(15)
-            make.right.equalToSuperview().offset(0)
-            make.bottom.equalToSuperview()
-            make.height.equalTo(0.5)
-        }
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
 }

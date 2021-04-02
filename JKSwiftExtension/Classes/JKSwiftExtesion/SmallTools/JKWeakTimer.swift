@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK:- 定时器 Timer 的封装
-public class WeakTimer {
+public class JKWeakTimer {
     
     public enum State: Int {
         case none = 100
@@ -45,7 +45,7 @@ public class WeakTimer {
     private var timeInterval: TimeInterval = 1.0
     private weak var target: NSObjectProtocol?
     private var selector: Selector?
-    private var timerCallBack: ((WeakTimer) -> Void)?
+    private var timerCallBack: ((JKWeakTimer) -> Void)?
     private var timer: DispatchSourceTimer?
     
     init() {}
@@ -81,8 +81,8 @@ public class WeakTimer {
     ///   - userInfo: 调用附加信息 默认 nil
     ///   - yesOrNo: 是否重复 默认 false
     /// - Returns: 已启动的timer
-    public class func scheduledTimer(timeInterval ti: TimeInterval = 1.0, target aTarget: NSObjectProtocol, selector aSelector: Selector, userInfo: Any? = nil, repeats yesOrNo: Bool = false) -> WeakTimer {
-        let timer = WeakTimer.init()
+    public class func scheduledTimer(timeInterval ti: TimeInterval = 1.0, target aTarget: NSObjectProtocol, selector aSelector: Selector, userInfo: Any? = nil, repeats yesOrNo: Bool = false) -> JKWeakTimer {
+        let timer = JKWeakTimer.init()
         timer.timeInterval = ti
         timer.target = aTarget
         timer.selector = aSelector
@@ -99,7 +99,7 @@ public class WeakTimer {
     ///   - repeats: 是否重复 默认 false
     ///   - queue: 调用队列 默认 nil 全局队列
     ///   - block: 回调
-    public convenience init(timeInterval interval: TimeInterval = 1.0, repeats: Bool = false, queue: DispatchQueue? = nil, block: @escaping (WeakTimer) -> Void) {
+    public convenience init(timeInterval interval: TimeInterval = 1.0, repeats: Bool = false, queue: DispatchQueue? = nil, block: @escaping (JKWeakTimer) -> Void) {
         self.init()
         timeInterval = interval
         self.timerCallBack = block
@@ -115,8 +115,8 @@ public class WeakTimer {
     ///   - queue: 调用队列 默认 nil 全局队列
     ///   - block: 回调
     /// - Returns: 已启动的timer
-    public class func scheduledTimer(timeInterval interval: TimeInterval = 1.0, repeats: Bool = false, queue: DispatchQueue? = nil, block: @escaping (WeakTimer) -> Void) -> WeakTimer {
-        let timer = WeakTimer.init()
+    public class func scheduledTimer(timeInterval interval: TimeInterval = 1.0, repeats: Bool = false, queue: DispatchQueue? = nil, block: @escaping (JKWeakTimer) -> Void) -> JKWeakTimer {
+        let timer = JKWeakTimer.init()
         timer.timeInterval = interval
         timer.timerCallBack = block
         timer.isRepeats = repeats
@@ -133,7 +133,7 @@ public class WeakTimer {
     ///   - repeats: 是否重复 默认 false
     ///   - queue: 调用队列 默认 nil 全局队列
     ///   - block: 回调
-    public convenience init(fire date: Date, interval: TimeInterval = 1.0, repeats: Bool, queue: DispatchQueue? = nil, block: @escaping (WeakTimer) -> Void) {
+    public convenience init(fire date: Date, interval: TimeInterval = 1.0, repeats: Bool, queue: DispatchQueue? = nil, block: @escaping (JKWeakTimer) -> Void) {
         self.init()
         _fireDate = date
         timeInterval = interval

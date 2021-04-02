@@ -157,11 +157,12 @@ extension UITextView {
         self.placeholderLabel = UILabel()
         placeholderLabel?.font = self.placeholdFont
         placeholderLabel?.text = placeholder
+        placeholderLabel?.backgroundColor = .randomColor
         placeholderLabel?.numberOfLines = 0
         placeholderLabel?.lineBreakMode = .byWordWrapping
         placeholderLabel?.textColor = self.placeholdColor
-        let rect = placeholder.boundingRect(with: CGSize(width: self.jk.width - placeholderOrigin!.x * 2, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : self.placeholdFont!], context: nil)
-        placeholderLabel?.frame = CGRect(x: placeholderOrigin!.x, y: placeholderOrigin!.y, width: self.jk.width - placeholderOrigin!.x * 2, height: rect.size.height)
+        let rect = placeholder.boundingRect(with: CGSize(width: self.jk.width - placeholderOrigin!.x, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : self.placeholdFont!], context: nil)
+        placeholderLabel?.frame = CGRect(x: placeholderOrigin!.x + 1, y: placeholderOrigin!.y, width: self.jk.width - placeholderOrigin!.x * 2 - 1, height: rect.size.height)
         addSubview(self.placeholderLabel!)
         oldFrame = self.frame
         placeholderLabel?.isHidden = self.text.count > 0 ? true : false
@@ -223,7 +224,7 @@ extension UITextView {
                 // JKPrint("Maximum number of words");
             }
         } else {
-            //行数限制
+            // 行数限制
             if (limitLines != nil) {
                 var size = getStringPlaceSize(self.text, textFont: self.font!)
                 let height = self.font!.lineHeight * CGFloat(limitLines!.floatValue)
@@ -244,7 +245,7 @@ extension UITextView {
         let font : UIFont = textFont
         let attribute = [NSAttributedString.Key.font : font];
         let options = NSStringDrawingOptions.usesLineFragmentOrigin
-        let size = string.boundingRect(with: CGSize(width: self.contentSize.width-10, height: CGFloat.greatestFiniteMagnitude), options: options, attributes: attribute, context: nil).size
+        let size = string.boundingRect(with: CGSize(width: self.contentSize.width - 10, height: CGFloat.greatestFiniteMagnitude), options: options, attributes: attribute, context: nil).size
         return size
     }
     
@@ -357,5 +358,76 @@ public extension JKPOP where Base: UITextView {
         let nonAlphaNumericCharacters = CharacterSet.alphanumerics.inverted
         let characterArray = text.components(separatedBy: nonAlphaNumericCharacters)
         return characterArray[0]
+    }
+}
+
+// MARK:- 三、其他的扩展
+public extension JKPOP where Base: UITextView {
+    // MARK: 3.1、限制字数的输入(提示在：- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;方法里面调用)
+    /// 限制字数的输入
+    /// - Parameters:
+    ///   - range: 范围
+    ///   - text: 输入的文字
+    ///   - maxCharacters: 限制字数
+    ///   - regex: 可输入内容(正则)
+    /// - Returns: 返回是否可输入
+    func inputRestrictions(shouldChangeTextIn range: NSRange, replacementText text: String, maxCharacters: Int, regex: String?) -> Bool {
+        guard !text.isEmpty else {
+            return true
+        }
+        
+        guard let oldContent = self.base.text else {
+            return false
+        }
+        
+        if let _ = self.base.markedTextRange {
+            /*
+             let selectedRange = textView.markedTextRange
+             let beginning = textView.beginningOfDocument
+             let selectionStart = selectedRange.start
+             let selectionEnd = selectedRange.end
+             
+             let location = textView.offset(from: beginning, to: selectionStart)
+             let length = textView.offset(from: selectionStart, to: selectionEnd)
+             
+             print("location：\(location) length：\(length)")
+             let selectText = textView.text(in: selectedRange)
+             print("高亮部分的文字：\(selectText ?? "高亮没有文字")")
+             print("有range-----------：YES \(selectedRange) 开始：\(selectedRange.start) 内容：\(oldContent) 长度：\(oldContent.count) 新的内容：\(text) 长度：\(text.count) 是否包含emoji表情：\(text.fb.containsEmoji()) range：\(range)")
+             */
+            // print("🚀有range---------内容：\(oldContent) 长度：\(oldContent.count) 新的内容：\(text) 长度：\(text.count) range：\(range)")
+             // 有高亮
+            if range.length == 0 {
+                // 联想中
+                return oldContent.count + 1 <= maxCharacters
+            } else {
+                // 正则的判断
+                if let weakRegex = regex, JKRegexHelper.match(text, pattern: weakRegex) {
+                    return false
+                }
+                // 联想选中键盘
+                let allContent = oldContent.jk.sub(to: range.location) + text
+                if allContent.count > maxCharacters  {
+                    let newContent = allContent.jk.sub(to: maxCharacters)
+                    // print("content1：\(allContent) content2：\(newContent)")
+                    self.base.text = newContent
+                    return false
+                }
+            }
+        } else {
+            guard !text.jk.isNineKeyBoard() else {
+                return true
+            }
+            // 正则的判断
+            if let weakRegex = regex, JKRegexHelper.match(text, pattern: weakRegex) {
+                return false
+            }
+            // print("没有range---------：NO 内容：\(oldContent) 长度：\(oldContent.count) 新的内容：\(text) 长度：\(text.count) range：\(range)")
+            // 2、如果数字大于指定位数，不能输入
+            guard oldContent.count + text.count <= maxCharacters else {
+                return false
+            }
+        }
+        return true
     }
 }

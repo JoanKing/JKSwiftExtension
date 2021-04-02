@@ -69,6 +69,58 @@ public extension JKPOP where Base: UITextField {
         let arrStr = NSMutableAttributedString(string: self.base.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: color, NSAttributedString.Key.font: font])
         self.base.attributedPlaceholder = arrStr
     }
+    
+    // MARK: 1.5、限制字数的输入(提示在：- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string; 里面调用)
+    /// 限制字数的输入
+    /// - Parameters:
+    ///   - range: 范围
+    ///   - text: 输入的文字
+    ///   - maxCharacters: 限制字数
+    ///   - regex: 可输入内容(正则)
+    /// - Returns: 返回是否可输入
+    func inputRestrictions(shouldChangeTextIn range: NSRange, replacementText text: String, maxCharacters: Int, regex: String?) -> Bool {
+        guard !text.isEmpty else {
+            return true
+        }
+        
+        guard let oldContent = self.base.text else {
+            return false
+        }
+        
+        if let _ = self.base.markedTextRange {
+             // 有高亮
+            if range.length == 0 {
+                // 联想中
+                return oldContent.count + 1 <= maxCharacters
+            } else {
+                // 正则的判断
+                if let weakRegex = regex, JKRegexHelper.match(text, pattern: weakRegex) {
+                    return false
+                }
+                // 联想选中键盘
+                let allContent = oldContent.jk.sub(to: range.location) + text
+                if allContent.count > maxCharacters  {
+                    let newContent = allContent.jk.sub(to: maxCharacters)
+                    // print("content1：\(allContent) content2：\(newContent)")
+                    self.base.text = newContent
+                    return false
+                }
+            }
+        } else {
+            guard !text.jk.isNineKeyBoard() else {
+                return true
+            }
+            // 正则的判断
+            if let weakRegex = regex, JKRegexHelper.match(text, pattern: weakRegex) {
+                return false
+            }
+            // 2、如果数字大于指定位数，不能输入
+            guard oldContent.count + text.count <= maxCharacters else {
+                return false
+            }
+        }
+        return true
+    }
 }
 
 // MARK:- 二、链式编程
