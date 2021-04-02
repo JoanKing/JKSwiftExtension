@@ -36,6 +36,11 @@
     我的联系方式：微信：18500652880
     
 ## 版本说明
+   - 1.5.2、版本
+     JKValidateHelper内容合并到JKRegexHelper
+     JKRegexHelper：新增JKRegexCharacterType(校验字符的表达式)和JKRegexDigitalType(校验数字的表达式)
+     WeakTimer->改为JKWeakTimer
+     UITextView&UITextField 扩展新增方法(`inputRestrictions`)，限制字数的输入(考虑了九宫格键盘和高亮状态)
    - 1.5.1、版本
       新增 Range+Extension.swift ，Range 转 NSRange，String+Extension 新增任意位置插入字符串
    - 1.5.0、版本
