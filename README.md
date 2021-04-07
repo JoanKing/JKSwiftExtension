@@ -36,6 +36,8 @@
     我的联系方式：微信：18500652880
     
 ## 版本说明
+   - 1.5.6、版本
+     - 修复UITextView+Extension和UITextFiled+Extension 限制字符正则的bug
    - 1.5.5、版本
      - UITextView 限制行数、限制字符、自动变化高度的去除
    - 1.5.2、版本
