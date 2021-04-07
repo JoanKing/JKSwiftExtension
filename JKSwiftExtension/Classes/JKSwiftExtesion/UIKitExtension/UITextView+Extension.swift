@@ -254,7 +254,7 @@ public extension JKPOP where Base: UITextView {
                 return oldContent.count + 1 <= maxCharacters
             } else {
                 // 正则的判断
-                if let weakRegex = regex, JKRegexHelper.match(text, pattern: weakRegex) {
+                if let weakRegex = regex, !JKRegexHelper.match(text, pattern: weakRegex) {
                     return false
                 }
                 // 联想选中键盘
@@ -271,7 +271,7 @@ public extension JKPOP where Base: UITextView {
                 return true
             }
             // 正则的判断
-            if let weakRegex = regex, JKRegexHelper.match(text, pattern: weakRegex) {
+            if let weakRegex = regex, !JKRegexHelper.match(text, pattern: weakRegex) {
                 return false
             }
             // print("没有range---------：NO 内容：\(oldContent) 长度：\(oldContent.count) 新的内容：\(text) 长度：\(text.count) range：\(range)")

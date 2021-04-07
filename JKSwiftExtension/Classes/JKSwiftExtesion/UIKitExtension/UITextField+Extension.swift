@@ -94,7 +94,7 @@ public extension JKPOP where Base: UITextField {
                 return oldContent.count + 1 <= maxCharacters
             } else {
                 // 正则的判断
-                if let weakRegex = regex, JKRegexHelper.match(text, pattern: weakRegex) {
+                if let weakRegex = regex, !JKRegexHelper.match(text, pattern: weakRegex) {
                     return false
                 }
                 // 联想选中键盘
@@ -111,7 +111,7 @@ public extension JKPOP where Base: UITextField {
                 return true
             }
             // 正则的判断
-            if let weakRegex = regex, JKRegexHelper.match(text, pattern: weakRegex) {
+            if let weakRegex = regex, !JKRegexHelper.match(text, pattern: weakRegex) {
                 return false
             }
             // 2、如果数字大于指定位数，不能输入
