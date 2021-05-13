@@ -161,7 +161,7 @@ public extension UIColor {
 // MARK:- 四、UIColor 的一些属性
 public extension UIColor {
     
-    // MARK: 4.1、UIColor 转  十六进制颜色的字符串
+    // MARK: 4.1、UIColor 转十六进制颜色的字符串
     /// UIColor 转  十六进制颜色的字符串
     var hexString: String? {
         var red: CGFloat = 0
@@ -231,7 +231,7 @@ public extension UIColor {
 
 public extension UIColor {
     
-    // MARK: 获取颜色的渐变的 RGB
+    // MARK: 获取颜色的渐变的 RGB -------不建议使用
     /// 获取颜色的渐变的 RGB
     /// - Parameters:
     ///   - firstColor: 第一个颜色
@@ -277,14 +277,6 @@ extension UIColor {
     static func JKTextGayColor() -> UIColor {
         return color(r: 140, g: 140, b: 140, alpha: 1.0)
     }
-    
-    // MARK: 字体的蓝色
-    static func JKTextzhuBlueColor() -> UIColor {
-        return color(r: 0, g: 150, b: 255, alpha: 1.0)
-    }
-    
-    /// 通用btn字体的颜色
-    public private(set) static var c444444: UIColor = UIColor.hexStringColor(hexString: "#444444", alpha: 1.0)
 }
 
 

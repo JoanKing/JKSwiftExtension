@@ -292,8 +292,8 @@ public extension JKPOP where Base: UIImage {
     
     // MARK: 1.12、保存图片到相册
     /// 保存图片到相册
-    func saveImageToPhotoAlbum() {
-        self.base.saveToPhotoAlbum()
+    func saveImageToPhotoAlbum(_ result: ((Bool)->())?) {
+        self.base.saveToPhotoAlbum(result)
     }
     
     // MARK: 1.13、保存图片到相册(建议使用这个)
@@ -384,27 +384,44 @@ public extension JKPOP where Base: UIImage {
 
 fileprivate extension UIImage {
     
+    private struct JKRuntimeKey {
+        static let saveBlockKey = UnsafeRawPointer.init(bitPattern: "saveBlock".hashValue)
+    }
+    private var saveBlock: ((Bool)->())? {
+        set {
+            objc_setAssociatedObject(self, JKRuntimeKey.saveBlockKey!, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+        }
+        get {
+            return objc_getAssociatedObject(self, JKRuntimeKey.saveBlockKey!) as? (Bool) -> ()
+        }
+    }
+    
     /// 保存图片到相册
-    func saveToPhotoAlbum() {
+    func saveToPhotoAlbum(_ result: ((Bool)->())?) {
+        saveBlock = result
         UIImageWriteToSavedPhotosAlbum(self, self, #selector(saveImage(image:didFinishSavingWithError:contextInfo:)), nil)
     }
     
-    @discardableResult
-    @objc private func saveImage(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: AnyObject) -> Bool {
+    @objc private func saveImage(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: AnyObject) {
         if error != nil{
-            return false
+            saveBlock?(false)
         } else {
-            return true
+            saveBlock?(true)
         }
     }
 }
 
 // MARK:- 二、UIColor 生成的图片 和 生成渐变色图片
 public enum JKImageGradientDirection {
-    case horizontal // 水平从左到右
-    case vertical // 垂直从上到下
-    case leftOblique // 左上到右下
-    case rightOblique // 右上到左下
+    /// 水平从左到右
+    case horizontal
+    /// 垂直从上到下
+    case vertical
+    /// 左上到右下
+    case leftOblique
+    /// 右上到左下
+    case rightOblique
+    /// 自定义
     case other(CGPoint, CGPoint)
     
     public func point(size: CGSize) -> (CGPoint, CGPoint) {

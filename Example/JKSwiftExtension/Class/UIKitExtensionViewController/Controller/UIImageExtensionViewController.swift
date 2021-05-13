@@ -1042,12 +1042,14 @@ extension UIImageExtensionViewController {
         imageView.contentMode = .scaleAspectFill
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
-        JKAsyncs.asyncDelay(3) {
+        JKAsyncs.asyncDelay(1) {
         } _: {
-            image.jk.saveImageToPhotoAlbum()
-            JKAsyncs.asyncDelay(3) {
-            } _: {
-                imageView.removeFromSuperview()
+            image.jk.saveImageToPhotoAlbum { (result) in
+                print("保存结果：\(result)")
+                JKAsyncs.asyncDelay(3) {
+                } _: {
+                    imageView.removeFromSuperview()
+                }
             }
         }
     }

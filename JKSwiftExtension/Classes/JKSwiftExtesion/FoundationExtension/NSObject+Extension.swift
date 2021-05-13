@@ -54,20 +54,17 @@ public extension NSObject {
 }
 
 // MARK:- 三、Hook
-@objc public extension NSObject{
+@objc public extension NSObject {
     /// 实例方法替换
     static func hookInstanceMethod(of origSel: Selector, with replSel: Selector) -> Bool {
         let clz: AnyClass = classForCoder()
-      
-        guard let oriMethod = class_getInstanceMethod(clz, origSel) as Method?
-        else {
-            print("原 实例方法：Swizzling Method(\(origSel)) not found while swizzling class \(NSStringFromClass(classForCoder())).")
+        guard let oriMethod = class_getInstanceMethod(clz, origSel) as Method? else {
+            JKPrint("原 实例方法：Swizzling Method(\(origSel)) not found while swizzling class \(NSStringFromClass(classForCoder())).")
             return false
         }
         
-        guard let repMethod = class_getInstanceMethod(clz, replSel) as Method?
-        else {
-            print("新 实例方法：Swizzling Method(\(replSel)) not found while swizzling class \(NSStringFromClass(classForCoder())).")
+        guard let repMethod = class_getInstanceMethod(clz, replSel) as Method? else {
+            JKPrint("新 实例方法：Swizzling Method(\(replSel)) not found while swizzling class \(NSStringFromClass(classForCoder())).")
             return false
         }
         
@@ -86,15 +83,13 @@ public extension NSObject {
     static func hookClassMethod(of origSel: Selector, with replSel: Selector) -> Bool {
         let clz: AnyClass = classForCoder()
         
-        guard let oriMethod = class_getClassMethod(clz, origSel) as Method?
-        else {
-            print("原 类方法：Swizzling Method(\(origSel)) not found while swizzling class \(NSStringFromClass(classForCoder())).")
+        guard let oriMethod = class_getClassMethod(clz, origSel) as Method? else {
+            JKPrint("原 类方法：Swizzling Method(\(origSel)) not found while swizzling class \(NSStringFromClass(classForCoder())).")
             return false
         }
         
-        guard let repMethod = class_getClassMethod(clz, replSel) as Method?
-        else {
-            print("新 类方法 replSel：Swizzling Method(\(replSel)) not found while swizzling class \(NSStringFromClass(classForCoder())).")
+        guard let repMethod = class_getClassMethod(clz, replSel) as Method? else {
+            JKPrint("新 类方法 replSel：Swizzling Method(\(replSel)) not found while swizzling class \(NSStringFromClass(classForCoder())).")
             return false
         }
         
@@ -116,7 +111,7 @@ public extension NSObject {
         guard let oriMethod = (isClassMethod ? class_getClassMethod(clz, origSel) : class_getClassMethod(clz, origSel)) as Method?,
               let repMethod = (isClassMethod ? class_getClassMethod(clz, replSel) : class_getClassMethod(clz, replSel)) as Method?
         else {
-            print("Swizzling Method(s) not found while swizzling class \(NSStringFromClass(classForCoder())).")
+            JKPrint("Swizzling Method(s) not found while swizzling class \(NSStringFromClass(classForCoder())).")
             return false
         }
         
@@ -160,11 +155,11 @@ public extension NSObject {
     }
     
     private func hook_setValue(_ value: Any?, forUndefinedKey key: String) {
-        print("setValue: forUndefinedKey:, 未知键Key: \(key)")
+        JKPrint("setValue: forUndefinedKey:, 未知键Key: \(key)")
     }
     
     private func hook_value(forUndefinedKey key: String) -> Any? {
-        print("valueForUndefinedKey:, 未知键: \(key)")
+        JKPrint("valueForUndefinedKey:, 未知键: \(key)")
         return nil
     }
     

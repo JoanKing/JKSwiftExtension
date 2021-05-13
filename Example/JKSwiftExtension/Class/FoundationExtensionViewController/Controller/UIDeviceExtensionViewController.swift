@@ -14,7 +14,7 @@ class UIDeviceExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、基本的扩展", "二、设备的基本信息", "三、有关设备运营商的信息"]
-        dataArray = [["设备的名字", "获取设备类型", "判断是否为 iPad", "判断是否是 pad", "判断是否为 iphone", "判断是否是 iphone5", "判断是否是 iphone6", "是不是 x 系列", "是不是 xs系列", "当前设备是不是模拟器"], ["当前设备的系统版本", "当前系统更新时间", "当前设备的类型", "当前系统的名称", "当前设备的名称", "当前设备是否越狱", "当前硬盘的空间", "当前硬盘可用空间", "当前硬盘已经使用的空间", "获取总内存大小", "当前设备能否打电话"], ["sim卡信息", "数据业务对应的通信技术", "设备网络制式", "运营商名字", "移动国家码(MCC)", "移动网络码(MNC)", "ISO国家代码", "是否允许VoIP"]]
+        dataArray = [["设备的名字", "获取设备类型", "判断是否为 iPad", "判断是否是 pad", "判断是否为 iphone", "判断是否是 iphone5", "判断是否是 iphone6", "是不是 x 系列", "是不是 xs系列", "当前设备是不是模拟器"], ["当前设备的系统版本", "当前系统更新时间", "当前设备的类型", "当前系统的名称", "当前设备的名称", "当前设备是否越狱", "当前硬盘的空间", "当前硬盘可用空间", "当前硬盘已经使用的空间", "获取总内存大小", "当前设备能否打电话", "当前设备语言"], ["sim卡信息", "数据业务对应的通信技术", "设备网络制式", "运营商名字", "移动国家码(MCC)", "移动网络码(MNC)", "ISO国家代码", "是否允许VoIP"]]
     }
 }
 
@@ -88,6 +88,11 @@ extension UIDeviceExtensionViewController {
 
 // MARK:- 二、设备的基本信息
 extension UIDeviceExtensionViewController {
+    
+    //MARK: 2.12、当前设备语言
+    @objc func test212() {
+        JKPrint("当前设备语言：\(UIDevice.jk.deviceLanguage)")
+    }
     
     // MARK: 2.11、当前设备能否打电话
     @objc func test211() {

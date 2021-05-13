@@ -19,7 +19,7 @@ class BaseViewCell: UITableViewCell {
     var contentLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = UIColor.c444444
+        label.textColor = UIColor.hexStringColor(hexString: "#444444")
         label.textAlignment = .left
         label.numberOfLines = 0
         return label

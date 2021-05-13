@@ -94,3 +94,65 @@ public extension JKPOP where Base: UIFont {
         return UIFont.systemFont(ofSize: ofSize, weight: Weight)
     }
 }
+
+// MARK:- 二、自定义字体
+fileprivate enum UIFontWeight: String {
+    /// 常规
+    case Regular = "Regular"
+    /// 中等
+    case Medium = "Medium"
+    /// 加粗
+    case Bold = "Bold"
+    /// 半粗体
+    case Semibold = "Semibold"
+}
+
+public extension JKPOP where Base: UIFont {
+    
+    // MARK: 2.1、常规字体
+    /// 常规字体
+    /// - Parameter ofSize: 字体大小
+    /// - Returns: 字体
+    static func customFontR(_ ofSize: CGFloat) -> UIFont {
+        return text(ofSize, W: .Regular)
+    }
+    
+    // MARK: 2.2、中等的字体
+    /// - Parameter ofSize: 字体大小
+    /// - Returns: 字体
+    static func customFontM(_ ofSize: CGFloat) -> UIFont {
+        return text(ofSize, W: .Medium)
+    }
+    
+    // MARK: 2.3、加粗的字体
+    /// 加粗的字体
+    /// - Parameter ofSize: 字体大小
+    /// - Returns: 字体
+    static func customFontB(_ ofSize: CGFloat) -> UIFont {
+        return text(ofSize, W: .Bold)
+    }
+    
+    // MARK: 2.4、半粗体的字体
+    /// 半粗体的字体
+    /// - Parameter ofSize: 字体大小
+    /// - Returns: 字体
+    static func customFontSB(_ ofSize: CGFloat) -> UIFont {
+        return text(ofSize, W: .Semibold)
+    }
+    
+    /// 文字字体
+    private static func text(_ ofSize: CGFloat, W Weight: UIFontWeight) -> UIFont {
+        let fontName = "PingFangSC-" + Weight.rawValue
+        return appFont(fontName: fontName, ofSize: ofSize, Weight: Weight)
+    }
+    
+    private static func appFont(fontName: String, ofSize: CGFloat, Weight: UIFontWeight = .Regular) -> UIFont {
+        if let font = UIFont(name: fontName, size: ofSize) {
+            return font
+        } else if Weight == .Regular {
+            return UIFont.systemFont(ofSize: ofSize)
+        } else {
+            return UIFont.boldSystemFont(ofSize: ofSize)
+        }
+    }
+}

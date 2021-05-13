@@ -24,8 +24,8 @@ extension NumberFormatterExtensionViewController {
     // MARK: 2.6、设置格式化字符串
     @objc func test27() {
         // 原始值
-        let numberValue = "12345.6789"
-        guard let formatValue = NumberFormatter.jk.setPositiveFormat(value: numberValue, positiveFormat: "###,###.##", number: .none) else {
+        let numberValue = "5432112345.67890"
+        guard let formatValue = NumberFormatter.jk.setPositiveFormat(value: numberValue, positiveFormat: "###,###.######", number: .none) else {
             return
         }
         JKPrint("原始值为：\(numberValue)", "格式化后的值为：\(formatValue)")

@@ -325,6 +325,12 @@ public extension JKPOP where Base: UIDevice {
         }
         return false
     }
+    
+    //MARK: 2.12、当前设备语言
+    /// 当前设备语言
+    static var deviceLanguage: String {
+        return Bundle.main.preferredLocalizations[0]
+    }
 }
 
 // MARK:- 三、有关设备运营商的信息
