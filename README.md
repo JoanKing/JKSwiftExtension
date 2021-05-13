@@ -1,4 +1,4 @@
-# JKSwiftExtension
+![](https://user-images.githubusercontent.com/19670000/114378430-45129480-9bba-11eb-9051-74d89c3e15f3.png)
 
 [![CI Status](https://img.shields.io/travis/JoanKing/JKSwiftExtension.svg?style=flat)](https://travis-ci.org/JoanKing/JKSwiftExtension)
 [![Version](https://img.shields.io/cocoapods/v/JKSwiftExtension.svg?style=flat)](https://cocoapods.org/pods/JKSwiftExtension)
@@ -32,10 +32,10 @@
     Swift5.0+
     
 ## 这个基础库的目的：快速开发，不重复再去查找资料，我希望感兴趣的朋友和我一起完善它和规范它，如果觉得此项目对您的Swift学习有帮助，欢迎点赞...
-  
-    我的联系方式：微信：18500652880
     
 ## 版本说明
+   - 1.5.6、版本
+     - 修复UITextView+Extension和UITextFiled+Extension 限制字符正则的bug
    - 1.5.5、版本
      - UITextView 限制行数、限制字符、自动变化高度的去除
    - 1.5.2、版本
