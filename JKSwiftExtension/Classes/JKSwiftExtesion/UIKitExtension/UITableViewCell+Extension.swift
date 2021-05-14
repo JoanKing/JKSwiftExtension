@@ -21,4 +21,14 @@ public extension JKPOP where Base: UITableViewCell {
         }
         return nil
     }
+    
+    // MARK: 标识符
+    var identifier: String {
+        get {
+            let classStr = NSStringFromClass(Base.self)
+            // 获取类名
+            return classStr.components(separatedBy: ".").last!
+        }
+    }
+    
 }

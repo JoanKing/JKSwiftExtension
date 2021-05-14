@@ -28,8 +28,7 @@ class ViewController: UIViewController {
     private func initUI() {
         view.addSubview(tableView)
     }
-    
-    fileprivate static let ViewControllerCellIdentifier = "ViewControllerCellIdentifier"
+
     /// 资源数组
     fileprivate var dataArray = [Any]()
     lazy var tableView : UITableView = {
@@ -48,7 +47,7 @@ class ViewController: UIViewController {
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
-        tableView.register(BaseViewCell.self, forCellReuseIdentifier: ViewController.ViewControllerCellIdentifier)
+        tableView.jk.register(cellClass: BaseViewCell.self)
         return tableView
     }()
     
@@ -64,7 +63,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ViewController.ViewControllerCellIdentifier, for: indexPath) as! BaseViewCell
+        let cell = tableView.jk.dequeueReusableCell(cellType: BaseViewCell.self, cellForRowAt: indexPath)
         cell.contentLabel.text = (dataArray[indexPath.row] as! String)
         // cell.lineView.isHidden = indexPath.row == dataArray.count - 1 ? true : false
         return cell

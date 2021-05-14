@@ -33,7 +33,7 @@ class FoundationExtensionViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
         // 设置行高为自动适配
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(BaseViewCell.self, forCellReuseIdentifier: FoundationExtensionViewController.FoundationExtensionViewControllerCellIdentifier)
+        tableView.jk.register(cellClass: BaseViewCell.self)
         // tableView.addWater(markText: "JKSwiftExtension", textColor: UIColor.randomColor(), font: UIFont.systemFont(ofSize: 12))
         return tableView
     }()
@@ -66,7 +66,7 @@ extension FoundationExtensionViewController: UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FoundationExtensionViewController.FoundationExtensionViewControllerCellIdentifier, for: indexPath) as! BaseViewCell
+        let cell = tableView.jk.dequeueReusableCell(cellType: BaseViewCell.self, cellForRowAt: indexPath)
         let cellName = dataArray[indexPath.row] as! String
         cell.contentLabel.text = "\(indexPath.row + 1)：\(cellName)"
         cell.contentLabel.textColor = finishedDataArray.contains(cellName) ? UIColor.hexStringColor(hexString: "#006400") : UIColor.hexStringColor(hexString: "#444444")

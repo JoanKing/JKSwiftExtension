@@ -471,7 +471,7 @@ public extension JKPOP where Base: UIDevice {
          CTRadioAccessTechnologyNRNSA：5G NSA
          CTRadioAccessTechnologyNR：5G
          */
-        if #available(iOS 14.0, *), currentRadioTech == CTRadioAccessTechnologyNRNSA || currentRadioTech == CTRadioAccessTechnologyNR {
+        if #available(iOS 14.1, *), currentRadioTech == CTRadioAccessTechnologyNRNSA || currentRadioTech == CTRadioAccessTechnologyNR {
             return "5G"
         }
     

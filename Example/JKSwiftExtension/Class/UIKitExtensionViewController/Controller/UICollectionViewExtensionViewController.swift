@@ -20,14 +20,59 @@ class UICollectionViewExtensionViewController: BaseViewController {
         let collection = UICollectionView(frame: CGRect(x: 10, y: 150, width: 200, height: 300), collectionViewLayout: layout)
         collection.delegate = self
         collection.dataSource = self
-        collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "1234")
+        collection.jk.register(cellClass: UICollectionViewCell.self)
         return collection
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headDataArray = ["一、基本的扩展"]
-        dataArray = [["移动 item"]]
+        headDataArray = ["一、基本的扩展", "二、滚动和注册"]
+        dataArray = [["移动 item"], ["是否滚动到顶部", "是否滚动到底部", "滚动到什么位置（CGPoint）", "注册自定义cell", "注册Xib自定义cell", "创建UITableViewCell(注册后使用该方法)", "创建Section 的Header或者Footer(注册后使用该方法)"]]
+    }
+}
+
+// MARK:- 二、滚动和注册
+extension UICollectionViewExtensionViewController {
+    
+    // MARK: 2.8、创建Section 的Header或者Footer(注册后使用该方法)
+    @objc func test28() {
+        
+    }
+    
+    // MARK: 2.7、注册自定义: Section 的Header或者Footer
+    @objc func test27() {
+        
+    }
+    
+    // MARK: 2.6、创建UITableViewCell(注册后使用该方法)
+    @objc func test26() {
+        
+    }
+    
+    // MARK: 2.5、注册Xib自定义cell
+    @objc func test25() {
+        let nib = UINib(nibName: "Xib的名字", bundle: nil)
+        collectionView.jk.register(nib: nib)
+    }
+    
+    // MARK: 2.4、注册自定义cell
+    @objc func test24() {
+        collectionView.jk.register(cellClass: UICollectionViewCell.self)
+    }
+    
+    // MARK: 2.3、滚动到什么位置（CGPoint）
+    @objc func test23() {
+        collectionView.jk.scrollToOffset(offsetX: 20, offsetY: 100, animated: true)
+    }
+    
+    // MARK: 2.2、是否滚动到底部
+    @objc func test22() {
+        collectionView.jk.scrollToBottom(animated: true)
+    }
+    
+    // MARK: 2.1、是否滚动到顶部
+    @objc func test21() {
+        collectionView.jk.scrollToTop(animated: true)
     }
 }
 
@@ -52,7 +97,7 @@ extension UICollectionViewExtensionViewController: UICollectionViewDelegate, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "1234", for: indexPath)
+        let cell = collectionView.jk.dequeueReusableCell(cellType: UICollectionViewCell.self, cellForRowAt: indexPath)
         cell.backgroundColor = .randomColor
         return cell
     }

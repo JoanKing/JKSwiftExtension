@@ -1158,12 +1158,16 @@ extension StringExtensionViewController {
     
     // MARK: 1.8、字符串转 UIViewController
     @objc func test18() {
-        
+        let stringVC = "DateFormatterExtensionViewController"
+        let vc = stringVC.jk.toViewController()
+        JKPrint("字符串：\(stringVC) 转VC为：\(vc!)", "转控制器名为：\(vc!.className)")
     }
     
     // MARK: 1.9、字符串转 AnyClass
     @objc func test19() {
-        
+        let stringContent = "FileManagerExtensionViewController"
+        let stringClass: AnyClass? = stringContent.jk.toClass()
+        JKPrint("字符串转 AnyClass：\(stringContent) 转AnyClass为：\(stringClass!)")
     }
     
     // MARK: 1.10、字符串转数组
