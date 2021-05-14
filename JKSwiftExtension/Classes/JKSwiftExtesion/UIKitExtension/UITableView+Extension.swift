@@ -46,16 +46,25 @@ public extension JKPOP where Base: UITableView {
     }
     
     // MARK: 1.5、注册自定义cell
+    /// 注册自定义cell
+    /// - Parameter cellClass: UITableViewCell类型
     func register(cellClass: UITableViewCell.Type) {
         base.register(cellClass.self, forCellReuseIdentifier: cellClass.className)
     }
     
     // MARK: 1.6、注册Xib自定义cell
+    /// 注册Xib自定义cell
+    /// - Parameter nib: nib description
     func register(nib: UINib) {
         base.register(nib, forCellReuseIdentifier: nib.className)
     }
     
     // MARK: 1.7、创建UITableViewCell(注册后使用该方法)
+    /// 创建UITableViewCell(注册后使用该方法)
+    /// - Parameters:
+    ///   - cellType: UITableViewCell类型
+    ///   - indexPath: indexPath description
+    /// - Returns: 返回UITableViewCell类型
     func dequeueReusableCell<T: UITableViewCell>(cellType: T.Type, cellForRowAt indexPath: IndexPath) -> T {
         return base.dequeueReusableCell(withIdentifier: cellType.className, for: indexPath) as! T
     }

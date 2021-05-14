@@ -70,26 +70,46 @@ public extension JKPOP where Base: UICollectionView {
     }
     
     // MARK: 2.4、注册自定义cell
+    /// 注册自定义cell
+    /// - Parameter cellClass: UICollectionViewCell类型
     func register(cellClass: UICollectionViewCell.Type) {
         base.register(cellClass.self, forCellWithReuseIdentifier: cellClass.className)
     }
     
     // MARK: 2.5、注册Xib自定义cell
+    /// 注册Xib自定义cell
+    /// - Parameter nib: nib description
     func register(nib: UINib) {
         base.register(nib, forCellWithReuseIdentifier: nib.className)
     }
     
     // MARK: 2.6、创建UICollectionViewCell(注册后使用该方法)
+    /// 创建UICollectionViewCell(注册后使用该方法)
+    /// - Parameters:
+    ///   - cellType: UICollectionViewCell类型
+    ///   - indexPath: indexPath description
+    /// - Returns: 返回UICollectionViewCell类型
     func dequeueReusableCell<T: UICollectionViewCell>(cellType: T.Type, cellForRowAt indexPath: IndexPath) -> T {
         return base.dequeueReusableCell(withReuseIdentifier: cellType.className, for: indexPath) as! T
     }
     
     // MARK: 2.7、注册自定义: Section 的Header或者Footer
-    func registerCollectionReusableView(cellClass: UICollectionViewCell.Type, forSupplementaryViewOfKind elementKind: String) {
-        base.register(Base.self, forSupplementaryViewOfKind: elementKind, withReuseIdentifier: cellClass.className)
+    /// 注册自定义: Section 的Header或者Footer
+    /// - Parameters:
+    ///   - reusableView: UICollectionReusableView类
+    ///   - elementKind: elementKind： header：UICollectionView.elementKindSectionHeader  还是 footer：UICollectionView.elementKindSectionFooter
+    func registerCollectionReusableView(reusableView: UICollectionReusableView.Type, forSupplementaryViewOfKind elementKind: String) {
+        base.register(reusableView.self, forSupplementaryViewOfKind: elementKind, withReuseIdentifier: reusableView.className)
     }
     
     // MARK: 2.8、创建Section 的Header或者Footer(注册后使用该方法)
+    /// 创建Section 的Header或者Footer(注册后使用该方法)
+    /// - Parameters:
+    ///   - reusableView: UICollectionReusableView类
+    ///   - collectionView: collectionView
+    ///   - elementKind:  header：UICollectionView.elementKindSectionHeader  还是 footer：UICollectionView.elementKindSectionFooter
+    ///   - indexPath: indexPath description
+    /// - Returns: 返回UICollectionReusableView类型
     func dequeueReusableSupplementaryView<T: UICollectionReusableView>(reusableView: T.Type, in collectionView: UICollectionView, ofKind elementKind: String, for indexPath: IndexPath) -> T {
         return collectionView.dequeueReusableSupplementaryView(ofKind: elementKind, withReuseIdentifier: reusableView.className, for: indexPath) as! T
     }
