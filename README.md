@@ -34,6 +34,8 @@
 ## 这个基础库的目的：快速开发，不重复再去查找资料，我希望感兴趣的朋友和我一起完善它和规范它，如果觉得此项目对您的Swift学习有帮助，欢迎点赞...
     
 ## 版本说明
+   - 1.5.7、版本
+     - UIFont+Extension新增PingFangSC-字体
    - 1.5.6、版本
      - 修复UITextView+Extension和UITextFiled+Extension 限制字符正则的bug
    - 1.5.5、版本
