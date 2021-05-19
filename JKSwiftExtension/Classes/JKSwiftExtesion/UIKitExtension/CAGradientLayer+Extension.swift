@@ -25,7 +25,7 @@ public enum JKViewGradientDirection {
         case .horizontal:
             return (CGPoint(x: 0, y: 0), CGPoint(x: 1, y: 0))
         case .vertical:
-            return (CGPoint(x: 0, y: 0), CGPoint(x: 0, y: 0))
+            return (CGPoint(x: 0, y: 0), CGPoint(x: 0, y: 1))
         case .leftOblique:
             return (CGPoint(x: 0, y: 0), CGPoint(x: 1, y: 1))
         case .rightOblique:
