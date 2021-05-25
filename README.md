@@ -34,6 +34,8 @@
 ## 这个基础库的目的：快速开发，不重复再去查找资料，如果觉得此项目对您的Swift学习有帮助，欢迎点赞...
     
 ## 版本说明
+   - 1.6.0、版本
+      修复枚举 `JKViewGradientDirection` 在 `vertical` 为 `return (CGPoint(x: 0, y: 0), CGPoint(x: 0, y: 1))`
    - 1.5.9、版本
      - UITableView+Extension 新增 UITableViewCell的注册和使用的方法
      - UICollectionView+Extension 新增 UICollectionViewCell的注册和使用的方法
