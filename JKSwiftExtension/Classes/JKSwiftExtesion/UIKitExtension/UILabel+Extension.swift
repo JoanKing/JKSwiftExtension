@@ -111,7 +111,7 @@ public extension JKPOP where Base: UILabel {
     ///   - paraSpace: 段间距，默认为0.0
     /// - Returns: label 的文本行数 & 每一行内容
     func linesCountAndLinesContent(lineSpace: CGFloat, textSpace: CGFloat = 0.0, paraSpace: CGFloat = 0.0) -> (Int?, [String]?) {
-        return linesCountAndLinesContent(accordWidth: base.frame.size.width, lineSpace: lineSpace, textSpace: textSpace, paraSpace: paraSpace)
+        return accordWidthLinesCountAndLinesContent(accordWidth: base.frame.size.width, lineSpace: lineSpace, textSpace: textSpace, paraSpace: paraSpace)
     }
     
     // MARK: 2.2、获取已知 width 的 label 的文本行数 & 每一行内容
@@ -122,7 +122,7 @@ public extension JKPOP where Base: UILabel {
     ///   - textSpace: 字间距，默认为0.0
     ///   - paraSpace: 段间距，默认为0.0
     /// - Returns: description
-    func linesCountAndLinesContent(accordWidth: CGFloat, lineSpace: CGFloat, textSpace: CGFloat = 0.0, paraSpace: CGFloat = 0.0) -> (Int?, [String]?) {
+    func accordWidthLinesCountAndLinesContent(accordWidth: CGFloat, lineSpace: CGFloat, textSpace: CGFloat = 0.0, paraSpace: CGFloat = 0.0) -> (Int?, [String]?) {
         guard let t = base.text, let f = base.font else {return (0, nil)}
         let align = base.textAlignment
         let c_fn = f.fontName as CFString
@@ -281,6 +281,55 @@ public extension JKPOP where Base: UILabel {
         let dict = [
             NSAttributedString.Key.font : font, NSAttributedString.Key.paragraphStyle : style, NSAttributedString.Key.kern : textSpace] as [NSAttributedString.Key : Any]
         return dict
+    }
+    
+    // MARK: 2.8、获取已知label 的文本行数 & 每一行内容
+    /// 获取已知label 的文本行数 & 每一行内容
+    /// - Returns: 每行的内容
+    func linesCountAndLinesContent() -> (Int?, [String]?) {
+        guard let t = base.text else {return (0, nil)}
+        let lodFontName = base.font.fontName
+        let fontSize = getFontSizeForLabel()
+        let newFont = UIFont(name: lodFontName, size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
+        let c_fn = newFont.fontName as CFString
+        let fp = newFont.pointSize
+        let c_f = CTFontCreateWithName(c_fn, fp, nil)
+ 
+        let style = NSMutableParagraphStyle()
+        style.lineBreakMode = .byCharWrapping
+        let contentDict = [NSAttributedString.Key.paragraphStyle : style] as [NSAttributedString.Key : Any]
+        
+        let attr = NSMutableAttributedString(string: t)
+        let range = NSRange(location: 0, length: attr.length)
+        attr.addAttributes(contentDict, range: range)
+        attr.addAttribute(NSAttributedString.Key.font, value: c_f, range: range)
+        let frameSetter = CTFramesetterCreateWithAttributedString(attr as CFAttributedString)
+        
+        let path = CGMutablePath()
+        /// 2.5 是经验误差值
+        path.addRect(CGRect(x: 0, y: 0, width: base.jk.width, height: base.jk.height > (fp * 1.5) ? base.jk.height : fp * 1.5))
+        let framef = CTFramesetterCreateFrame(frameSetter, CFRangeMake(0, 0), path, nil)
+        let lines = CTFrameGetLines(framef) as NSArray
+        var lineArr = [String]()
+        for line in lines {
+            let lineRange = CTLineGetStringRange(line as! CTLine)
+            let lineString = t.jk.sub(start: lineRange.location, length: lineRange.length)
+            lineArr.append(lineString as String)
+        }
+        return (lineArr.count, lineArr)
+    }
+    
+    // MARK: 2.9、获取字体的大小
+    /// 获取字体的大小
+    /// - Returns: 字体大小
+    func getFontSizeForLabel() -> CGFloat {
+        let text: NSMutableAttributedString = NSMutableAttributedString(attributedString: base.attributedText!)
+        text.setAttributes([NSAttributedString.Key.font: base.font as Any], range: NSMakeRange(0, text.length))
+        let context: NSStringDrawingContext = NSStringDrawingContext()
+        context.minimumScaleFactor = base.minimumScaleFactor
+        text.boundingRect(with: base.frame.size, options: NSStringDrawingOptions.usesLineFragmentOrigin, context: context)
+        let adjustedFontSize: CGFloat = base.font.pointSize * context.actualScaleFactor
+        return adjustedFontSize
     }
 }
 

@@ -22,7 +22,11 @@ class TestFileViewController: BaseViewController {
 }
 
 extension TestFileViewController {
-   @objc func test11() {
+    @objc func test12() {
+        
+    }
+    
+    @objc func test11() {
         self.navigationController?.pushViewController(FiveViewController(), animated: true)
     }
 }

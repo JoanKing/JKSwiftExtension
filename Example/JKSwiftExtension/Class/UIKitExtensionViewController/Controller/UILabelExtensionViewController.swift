@@ -292,7 +292,7 @@ extension UILabelExtensionViewController {
         testLabel.numberOfLines = 0
         testLabel.text("梅花以它弱小娇艳的身躯，凌寒傲雪，傲然绽放，装点着寂寞荒凉的冬日。这是怎样的一种坚信和执着啊?因为它知道，不经历寒风冬雪的浸染，怎能有朵朵红花的暗香浮动?因为它知道，冬天过去了，春天还会遥远吗?")
         self.view.addSubview(testLabel)
-        let result = testLabel.jk.linesCountAndLinesContent(accordWidth: 200, lineSpace: 2)
+        let result = testLabel.jk.accordWidthLinesCountAndLinesContent(accordWidth: 200, lineSpace: 2)
         if let number = result.0 {
             print("行数：\(number)")
         }

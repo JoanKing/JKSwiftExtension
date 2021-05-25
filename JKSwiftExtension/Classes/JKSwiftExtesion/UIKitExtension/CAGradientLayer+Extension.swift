@@ -17,7 +17,7 @@ public enum JKViewGradientDirection {
     case leftOblique
     /// 右上到左下
     case rightOblique
-    /// 请他情况
+    /// 其他情况.
     case other(CGPoint, CGPoint)
     
     public func point() -> (CGPoint, CGPoint) {

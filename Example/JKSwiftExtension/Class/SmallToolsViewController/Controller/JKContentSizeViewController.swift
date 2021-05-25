@@ -13,12 +13,19 @@ class JKContentSizeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headDataArray = ["一、文字内容的计算"]
-        dataArray = [["返回文字的 size", "计算富文本的 size"]]
+        headDataArray = ["一、文字内容的计算", "二、文本行数和内容的计算"]
+        dataArray = [["返回文字的 size", "计算富文本的 size"], ["行数和每行的内容"]]
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+}
+
+extension JKContentSizeViewController {
+    // MARK: 2.1、行数和每行的内容
+    @objc func test21() {
+        self.navigationController?.pushViewController(TenViewController(), animated: true)
     }
 }
 
