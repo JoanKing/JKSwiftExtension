@@ -201,6 +201,45 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         }
         return urls
     }
+    
+    // MARK: 1.19、String或者String HTML标签转富文本设置
+    /// String 或者String HTML标签 转 html 富文本设置
+    /// - Parameters:
+    ///   - str: html 未处理的字符串
+    ///   - font: 设置字体
+    ///   - lineSpacing: 设置行高
+    /// - Returns: 默认不将 \n替换<br/> 返回处理好的富文本
+    func setHtmlAttributedString(font: UIFont? = UIFont.systemFont(ofSize: 16), lineSpacing: CGFloat? = 10) -> NSMutableAttributedString {
+        var htmlString: NSMutableAttributedString? = nil
+        do {
+            if let data = (self.base as! String).replacingOccurrences(of: "\n", with: "<br/>").data(using: .utf8) {
+                htmlString = try NSMutableAttributedString(data: data, options: [
+                    NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html,
+                    NSAttributedString.DocumentReadingOptionKey.characterEncoding: NSNumber(value: String.Encoding.utf8.rawValue)
+                ], documentAttributes: nil)
+                let wrapHtmlString = NSMutableAttributedString(string: "\n")
+                // 判断尾部是否是换行符
+                if let weakHtmlString = htmlString, weakHtmlString.string.hasSuffix("\n") {
+                    htmlString?.deleteCharacters(in: NSRange(location: weakHtmlString.length - wrapHtmlString.length, length: wrapHtmlString.length))
+                }
+            }
+        } catch {
+        }
+        // 设置富文本字的大小
+        if let font = font {
+            htmlString?.addAttributes([
+                NSAttributedString.Key.font: font
+            ], range: NSRange(location: 0, length: htmlString?.length ?? 0))
+        }
+        
+        // 设置行间距
+        if let weakLineSpacing = lineSpacing {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = weakLineSpacing
+            htmlString?.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: htmlString?.length ?? 0))
+        }
+        return htmlString ?? NSMutableAttributedString(string: self.base as! String)
+    }
 }
 
 // MARK:- 二、沙盒路径的获取

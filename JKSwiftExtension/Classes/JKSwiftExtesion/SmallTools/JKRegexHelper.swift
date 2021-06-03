@@ -74,7 +74,7 @@ public struct JKRegexHelper {
     ///   - pattern: 匹配规则
     /// - Returns: 返回匹配的结果
     public static func match(_ input: String, pattern: String) -> Bool {
-        guard let regex: NSRegularExpression = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive) else {
+        guard let regex: NSRegularExpression = try? NSRegularExpression(pattern: pattern, options: []) else {
             return false
         }
         let matches = regex.matches(in: input,

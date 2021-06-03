@@ -23,12 +23,16 @@ class TestFileViewController: BaseViewController {
 
 extension TestFileViewController {
     @objc func test12() {
-        
     }
     
     @objc func test11() {
         self.navigationController?.pushViewController(FiveViewController(), animated: true)
     }
+    
+    @objc func test13() {
+        self.navigationController?.pushViewController(SixViewController(), animated: true)
+    }
+   
 }
 
 
