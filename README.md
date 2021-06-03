@@ -34,6 +34,12 @@
 ## 这个基础库的目的：快速开发，不重复再去查找资料，如果觉得此项目对您的Swift学习有帮助，欢迎点赞...
     
 ## 版本说明
+   - 1.6.2、版本
+       String+Extension.swift 新增String或者String HTML标签转富文本设置，方法如下
+       
+         func setHtmlAttributedString(font: UIFont? = UIFont.systemFont(ofSize: 16), lineSpacing: CGFloat? = 10) -> NSMutableAttributedString {
+             省略......
+         }
    - 1.6.1、版本
        JKContentSize 新增指定宽度的文本：行数和每行的内容（可缩放后的文本）
    - 1.6.0、版本
