@@ -13,12 +13,27 @@ class UIColorExtensionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headDataArray = ["一、构造器设置颜色", "二、使用方法设置颜色", "三、UIColor的一些方法", "四、UIColor 的一些属性", "五、获取UIColor的HSV/HSB值（Hue色相、S饱和度、B亮度）"]
-        dataArray = [["根据 RGBA 设置颜色", "十六进制字符串设置颜色", "十六进制 Int 设置颜色"], ["根据 RGBA 设置颜色(方法)", "十六进制字符串设置颜色(方法)", "十六进制 Int 颜色的使用(方法)"], ["根据 十六进制字符串 获取 RGB，如：#3CB371 或者 ##3CB371 -> 60,179,113", "根据 十六进制值 颜色获取 RGB， 如：0x3CB371 -> 60,179,113", "color 转 RGBA"], ["UIColor 转十六进制颜色的字符串", "随机色"], ["返回HSBA模式颜色值"]]
+        headDataArray = ["一、构造器设置颜色", "二、使用方法设置颜色", "三、UIColor的一些方法", "四、UIColor 的一些属性", "五、获取UIColor的HSV/HSB值（Hue色相、S饱和度、B亮度）", "六、暗黑模式颜色处理类"]
+        dataArray = [["根据 RGBA 设置颜色", "十六进制字符串设置颜色", "十六进制 Int 设置颜色"], ["根据 RGBA 设置颜色(方法)", "十六进制字符串设置颜色(方法)", "十六进制 Int 颜色的使用(方法)"], ["根据 十六进制字符串 获取 RGB，如：#3CB371 或者 ##3CB371 -> 60,179,113", "根据 十六进制值 颜色获取 RGB， 如：0x3CB371 -> 60,179,113", "color 转 RGBA"], ["UIColor 转十六进制颜色的字符串", "随机色"], ["返回HSBA模式颜色值"], ["深色模式和浅色模式颜色设置，非layer颜色设置"]]
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+}
+
+// MARK:- 暗黑模式颜色的使用
+extension UIColor {
+    /// 颜色
+    private(set) static var cB1: UIColor = UIColor.darkModeColor(lightColor: UIColor.green, darkColor: UIColor.blue)
+}
+    
+// MARK: 六、暗黑模式颜色处理类
+extension UIColorExtensionViewController {
+    
+    // MARK: 6.1、深色模式和浅色模式颜色设置，非layer颜色设置
+    @objc func test61() {
+        self.tableView.backgroundColor = .cB1
     }
 }
 

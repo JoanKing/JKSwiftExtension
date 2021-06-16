@@ -246,6 +246,30 @@ public extension UIColor {
     }
 }
 
+// MARK: 六、暗黑模式颜色处理类
+public extension UIColor {
+    
+    // MARK: 6.1、深色模式和浅色模式颜色设置，非layer颜色设置
+    /// 深色模式和浅色模式颜色设置，非layer颜色设置
+    /// - Parameters:
+    ///   - lightColor: 浅色模式的颜色
+    ///   - darkColor: 深色模式的颜色
+    /// - Returns: 返回一个颜色（UIColor）
+    static func darkModeColor(lightColor: UIColor, darkColor: UIColor) -> UIColor {
+       if #available(iOS 13.0, *) {
+          return UIColor { (traitCollection) -> UIColor in
+               if traitCollection.userInterfaceStyle == .dark {
+                   return darkColor
+               } else {
+                   return lightColor
+               }
+           }
+       } else {
+          return lightColor
+       }
+   }
+}
+
 // MARK:- 私有的一些方法
 fileprivate extension UIColor {
     
@@ -264,16 +288,22 @@ fileprivate extension UIColor {
 extension UIColor {
     
     // MARK: 背景灰色
+    /// 背景灰色
+    /// - Returns: 背景灰色
     static func JKGlobalColor() -> UIColor {
         return color(r: 240, g: 240, b: 240, alpha: 1)
     }
     
     // MARK: 红色
+    /// 红色
+    /// - Returns: 红色
     static func JKGlobalRedColor() -> UIColor {
         return color(r: 245, g: 80, b: 83, alpha: 1.0)
     }
     
     // MARK: 字体的灰色
+    /// 字体的灰色
+    /// - Returns: 字体的灰色
     static func JKTextGayColor() -> UIColor {
         return color(r: 140, g: 140, b: 140, alpha: 1.0)
     }

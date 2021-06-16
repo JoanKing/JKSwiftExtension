@@ -1229,7 +1229,7 @@ extension StringExtensionViewController {
     
     // MARK: 1.19、String或者String HTML标签转富文本设置
     @objc func test119() {
-        let strHtml = "<p style='color:green'>首付<span style='color:#e83c36;'>5000元</span>，提前付<span style='color:red'>3倍月供</span>，月供<span style='color:red'>3000元</span>(48期)</p>"
+        let strHtml = "<font color=\"#666666\">账号或密码错误次数达到10次，您的账号已被冻结</font><font color=\"#FF4600\">30分钟</font><font color=\"#666666\">，忘记密码请尝试找回，如有问题请</font><font color=\"#447EFF\">联系客服</font>"
         let attributedText = strHtml.jk.setHtmlAttributedString(font: UIFont.systemFont(ofSize: 20), lineSpacing: 10)
         let textSize = attributedText.boundingRect(with: CGSize(width: kScreenW - 40, height: CGFloat.greatestFiniteMagnitude), options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil).size
         let label = UILabel(frame: CGRect(x: 20, y: 100, width: kScreenW - 40, height: textSize.height))

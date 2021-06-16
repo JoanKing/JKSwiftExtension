@@ -205,7 +205,6 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     // MARK: 1.19、String或者String HTML标签转富文本设置
     /// String 或者String HTML标签 转 html 富文本设置
     /// - Parameters:
-    ///   - str: html 未处理的字符串
     ///   - font: 设置字体
     ///   - lineSpacing: 设置行高
     /// - Returns: 默认不将 \n替换<br/> 返回处理好的富文本
