@@ -35,6 +35,7 @@
     
 ## 版本说明
    - 1.6.8、版本
+   
         获取字体的名字由 `font.fontName` 替换为 `font.fontName == ".SFUI-Regular" ? "TimesNewRomanPSMT" : font.fontName`
    - 1.6.7、版本
        `UIColor+Extension.swift` 增加暗黑模式颜色适配，方法如下
