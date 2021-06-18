@@ -34,6 +34,42 @@
 ## 这个基础库的目的：快速开发，不重复再去查找资料，如果觉得此项目对您的Swift学习有帮助，欢迎点赞...
     
 ## 版本说明
+   - 1.6.7、版本
+       `UIColor+Extension.swift` 增加暗黑模式颜色适配，方法如下
+       
+         public extension UIColor {
+    
+           // MARK: 6.1、深色模式和浅色模式颜色设置，非layer颜色设置
+           /// 深色模式和浅色模式颜色设置，非layer颜色设置
+           /// - Parameters:
+           ///   - lightColor: 浅色模式的颜色
+           ///   - darkColor: 深色模式的颜色
+           /// - Returns: 返回一个颜色（UIColor）
+           static func darkModeColor(lightColor: UIColor, darkColor: UIColor) -> UIColor {
+              if #available(iOS 13.0, *) {
+                return UIColor { (traitCollection) -> UIColor in
+                   if traitCollection.userInterfaceStyle == .dark {
+                      return darkColor
+                   } else {
+                      return lightColor
+                   }
+                }
+              } else {
+                return lightColor
+              }
+           }
+         }
+        使用，建议设置一个业务颜色的扩展，在使用的时候调用业务的颜色，如下
+        
+         // MARK:- 业务颜色的使用
+         extension UIColor {
+            /// 颜色
+            private(set) static var cB1: UIColor = UIColor.darkModeColor(lightColor: UIColor.green, darkColor: UIColor.blue)
+         }
+        具体的调用
+        
+          self.view.backgroundColor = .cB1
+      
    - 1.6.2、版本
        String+Extension.swift 新增String或者String HTML标签转富文本设置，方法如下
        
