@@ -23,6 +23,7 @@ class TestFileViewController: BaseViewController {
 
 extension TestFileViewController {
     @objc func test12() {
+        self.navigationController?.pushViewController(TenViewController(), animated: true)
     }
     
     @objc func test11() {

@@ -288,7 +288,7 @@ public extension JKPOP where Base: UILabel {
     /// - Returns: 每行的内容
     func linesCountAndLinesContent() -> (Int?, [String]?) {
         guard let t = base.text else {return (0, nil)}
-        let lodFontName = base.font.fontName
+        let lodFontName = base.font.fontName == ".SFUI-Regular" ? "TimesNewRomanPSMT" : base.font.fontName
         let fontSize = getFontSizeForLabel()
         let newFont = UIFont(name: lodFontName, size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
         let c_fn = newFont.fontName as CFString

@@ -22,7 +22,7 @@ class UIColorExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 暗黑模式颜色的使用
+// MARK:- 业务颜色的使用
 extension UIColor {
     /// 颜色
     private(set) static var cB1: UIColor = UIColor.darkModeColor(lightColor: UIColor.green, darkColor: UIColor.blue)

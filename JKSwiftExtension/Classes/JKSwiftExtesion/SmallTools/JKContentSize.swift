@@ -54,7 +54,7 @@ public extension JKContentSize {
     ///   - minimumScaleFactor: 缩放率
     /// - Returns: 文本行数 & 每一行内容
     static func linesCountAndLinesContent(content: String, font: UIFont, width: CGFloat, height: CGFloat, minimumScaleFactor: CGFloat = 1.0) -> (Int?, [String]?) {
-        let lodFontName = font.fontName
+        let lodFontName = font.fontName == ".SFUI-Regular" ? "TimesNewRomanPSMT" : font.fontName
         let fontSize = getFontSizeForLabel(content: content, minimumScaleFactor: minimumScaleFactor, font: font, width: width, height: height)
         let newFont = UIFont(name: lodFontName, size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
         let c_fn = newFont.fontName as CFString
