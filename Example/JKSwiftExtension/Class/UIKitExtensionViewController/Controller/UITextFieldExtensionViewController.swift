@@ -17,7 +17,7 @@ class UITextFieldExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、基本的扩展", "二、链式编程"]
-        dataArray = [["添加左边的内边距", "添加左边的图片", "是否都是数字", "设置富文本的占位符"], ["设置文字", "设置富文本", "设置占位符", "设置富文本占位符", "设置文本格式", "设置文本颜色", "设置文本颜色（十六进制字符串）", "设置文本字体大小(UIFont)", "设置文本字体大小(CGFloat)", "设置代理"]]
+        dataArray = [["添加左边的内边距", "添加左边的图片", "是否都是数字", "设置富文本的占位符"], ["设置文字", "设置富文本", "设置占位符", "设置富文本占位符", "设置文本格式", "设置文本颜色", "设置文本颜色（十六进制字符串）", "设置文本字体大小(UIFont)", "设置文本字体大小(CGFloat)", "设置代理","设置键盘样式"]]
     }
 }
 
@@ -130,6 +130,17 @@ extension UITextFieldExtensionViewController {
     // MARK: 2.10、设置代理
     @objc func test210() {
         testTextFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).placeholder("我是一只小小鸟").color("#FF1493").font(22).delegate(self)
+        testTextFiled.backgroundColor = .randomColor
+        self.view.addSubview(testTextFiled)
+        JKAsyncs.asyncDelay(300) {
+        } _: { [weak self] in
+            guard let weakSelf = self else { return }
+            weakSelf.testTextFiled.removeFromSuperview()
+        }
+    }
+    // MARK: 2.11、键盘样式设置
+    @objc func test211() {
+        testTextFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).placeholder("我是一只小小鸟").color("#FF1493").font(22).delegate(self).keyboardType(.decimalPad)
         testTextFiled.backgroundColor = .randomColor
         self.view.addSubview(testTextFiled)
         JKAsyncs.asyncDelay(300) {
