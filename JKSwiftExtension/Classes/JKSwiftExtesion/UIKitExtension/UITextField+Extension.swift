@@ -225,4 +225,13 @@ public extension UITextField {
         self.delegate = delegate
         return self
     }
+    // MARK: 2.11、设置键盘样式
+    /// 设置代理
+    /// - Parameter keyboardType: 键盘样式
+    /// - Returns: 返回自身
+    @discardableResult
+    func keyboardType(_ keyboardType: UIKeyboardType) -> Self {
+        self.keyboardType = keyboardType
+        return self
+    }
 }
