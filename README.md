@@ -34,6 +34,9 @@
 ## 这个基础库的目的：快速开发，不重复再去查找资料，如果觉得此项目对您的Swift学习有帮助，欢迎点赞...
     
 ## 版本说明
+   - 1.6.8、版本
+   
+        获取字体的名字由 `font.fontName` 替换为 `font.fontName == ".SFUI-Regular" ? "TimesNewRomanPSMT" : font.fontName`
    - 1.6.7、版本
        `UIColor+Extension.swift` 增加暗黑模式颜色适配，方法如下
        
