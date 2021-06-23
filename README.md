@@ -34,6 +34,16 @@
 ## 这个基础库的目的：快速开发，不重复再去查找资料，如果觉得此项目对您的Swift学习有帮助，欢迎点赞...
     
 ## 版本说明
+   - 1.6.9、版本
+     
+     `Date+Extension.swift` 新增两个Date之间的关系，如下
+     
+         获取两个日期之间的数据
+         获取两个日期之间的天数
+         获取两个日期之间的小时
+         获取两个日期之间的分钟
+         获取两个日期之间的秒数
+     
    - 1.6.8、版本
    
         获取字体的名字由 `font.fontName` 替换为 `font.fontName == ".SFUI-Regular" ? "TimesNewRomanPSMT" : font.fontName`
