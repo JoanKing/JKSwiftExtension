@@ -505,7 +505,6 @@
 			children = (
 				849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */,
 				84BEA372254FAC6600CA8A75 /* UIFontExtensionViewController.swift */,
-				84A5D2D52547B48E003D289C /* DateExtensionViewController.swift */,
 				8401537A2552A7B2001AB2FD /* DateFormatterExtensionViewController.swift */,
 				847807B525F88FC800E2575B /* NumberFormatterExtensionViewController.swift */,
 				84F11DF725DE4A3400209B4C /* CLLocationExtensionViewController.swift */,
@@ -535,6 +534,7 @@
 				8483A738254EC47E00ACF6FD /* NSObjectExtensionViewController.swift */,
 				84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */,
 				84BF16C5251D9F8D002ACE76 /* FoundationExtensionViewController.swift */,
+				84A5D2D52547B48E003D289C /* DateExtensionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

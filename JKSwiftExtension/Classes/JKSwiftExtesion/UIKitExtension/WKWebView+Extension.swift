@@ -85,3 +85,18 @@ import WebKit
     }
 }
 
+
+
+//MARK: -  Extending properties for UIScrollView
+public extension JKPOP where Base: WKWebView {
+    
+    // MARK: 2.1、获取WKWebView视图
+    /// 获取WKWebView视图
+    /// - Parameter callBack: 回调函数
+    /// - Returns: WKWebView视图
+    func snapShotContentScroll(callBack: @escaping (UIImage?) -> ()) {
+        base.scrollView.snapShotContentScroll { (image) in
+            callBack(image)
+        }
+    }
+}

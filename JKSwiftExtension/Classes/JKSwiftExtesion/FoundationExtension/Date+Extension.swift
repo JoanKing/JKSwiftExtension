@@ -310,6 +310,13 @@ public extension JKPOP where Base == Date {
         return Calendar.current.isDate(self.base, inSameDayAs: date)
     }
     
+    // MARK: 3.11、当前日期是不是润年
+    /// 当前日期是不是润年
+    var isLeapYear: Bool {
+        let year = base.jk.year
+        return ((year % 400 == 0) || ((year % 100 != 0) && (year % 4 == 0)))
+    }
+    
     /// 日期的加减操作
     /// - Parameter day: 天数变化
     /// - Returns: date
@@ -340,9 +347,7 @@ public extension JKPOP where Base == Date {
         if timeInterval < 0 {
             return "刚刚"
         }
-        
         let interval = fabs(timeInterval)
-        
         let i60 = interval / 60
         let i3600 = interval / 3600
         let i86400 = interval / 86400
@@ -350,7 +355,6 @@ public extension JKPOP where Base == Date {
         let i31104000 = interval / 31104000
         
         var time:String!
-        
         if i3600 < 1 {
             let s = NSNumber(value: i60 as Double).intValue
             if s == 0 {
@@ -372,6 +376,50 @@ public extension JKPOP where Base == Date {
             time = "\(s)年前"
         }
         return time
+    }
+    
+    // MARK: 4.2、获取两个日期之间的数据
+    /// 获取两个日期之间的数据
+    /// - Parameters:
+    ///   - date: 对比的日期
+    ///   - unit: 对比的类型
+    /// - Returns: 两个日期之间的数据
+    func componentCompare(from date: Date, unit: Set<Calendar.Component> = [.year,.month,.day]) -> DateComponents {
+        let calendar = Calendar.current
+        let component = calendar.dateComponents(unit, from: date, to: base)
+        return component
+    }
+    
+    // MARK: 4.3、获取两个日期之间的天数
+    /// 获取两个日期之间的天数
+    /// - Parameter date: 对比的日期
+    /// - Returns: 两个日期之间的天数
+    func numberOfDays(from date: Date) -> Int? {
+       return componentCompare(from: date, unit: [.day]).day
+    }
+    
+    // MARK: 4.4、获取两个日期之间的小时
+    /// 获取两个日期之间的小时
+    /// - Parameter date: 对比的日期
+    /// - Returns: 两个日期之间的小时
+    func numberOfHours(from date: Date) -> Int? {
+       return componentCompare(from: date, unit: [.hour]).hour
+    }
+    
+    // MARK: 4.5、获取两个日期之间的分钟
+    /// 获取两个日期之间的分钟
+    /// - Parameter date: 对比的日期
+    /// - Returns: 两个日期之间的分钟
+    func numberOfMinutes(from date: Date) -> Int? {
+       return componentCompare(from: date, unit: [.minute]).minute
+    }
+    
+    // MARK: 4.6、获取两个日期之间的秒数
+    /// 获取两个日期之间的秒数
+    /// - Parameter date: 对比的日期
+    /// - Returns: 两个日期之间的秒数
+    func numberOfSeconds(from date: Date) -> Int? {
+       return componentCompare(from: date, unit: [.second]).second
     }
 }
 

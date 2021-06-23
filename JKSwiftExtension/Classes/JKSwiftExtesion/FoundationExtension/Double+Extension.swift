@@ -43,9 +43,9 @@ public extension JKPOP where Base == Double {
     var double: Double { return self.base }
 }
 
-// MARK:- 浮点数四舍五入
+// MARK:- 二、数字的处理
 public extension JKPOP where Base == Double {
-    // MARK:- 浮点数四舍五入
+    // MARK: 2.1、浮点数四舍五入
     /// 浮点数四舍五入
     /// - Parameter places: 数字
     /// - Returns: Double

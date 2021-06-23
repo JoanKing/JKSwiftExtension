@@ -279,3 +279,56 @@ public extension UIScrollView {
     }
 }
 
+extension UIScrollView {
+    
+    /// 获取 ScrollView 的 contentScroll 长图像
+    func snapShotContentScroll(_ completionHandler: @escaping (_ screenShotImage: UIImage?) -> Void) {
+        /// 放一个假的封面
+        let snapShotView = self.snapshotView(afterScreenUpdates: true)
+        snapShotView?.frame = CGRect(x: self.frame.origin.x,
+                                     y: self.frame.origin.y,
+                                     width: (snapShotView?.frame.size.width)!,
+                                     height: (snapShotView?.frame.size.height)!)
+        self.superview?.addSubview(snapShotView!)
+        ///  基的原点偏移
+        let originOffset = self.contentOffset
+        /// 分页
+        let page  = floorf(Float(self.contentSize.height / self.bounds.height))
+        /// 打开位图上下文大小为截图的大小
+        UIGraphicsBeginImageContextWithOptions(self.contentSize, false, UIScreen.main.scale)
+        /// 这个方法是一个绘图，里面可能有递归调用
+        self.snapShotContentScrollPage(index: 0,maxIndex: Int(page),callback: { [weak self] () -> Void in
+            guard let weakSelf = self else { return }
+            let screenShotImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            /// 设置原点偏移
+            weakSelf.setContentOffset(originOffset, animated: false)
+            snapShotView?.removeFromSuperview()
+            /// 获取 snapShotContentScroll 时的回调图像
+            completionHandler(screenShotImage)
+        })
+    }
+    
+    /// 根据偏移量和页数绘制
+    /// 此方法为绘图，根据偏移量和页数可能会递归调用insideraw
+    func snapShotContentScrollPage(index: Int,
+                                            maxIndex: Int,
+                                            callback: @escaping () -> Void) {
+        self.setContentOffset(CGPoint(x: 0, y: CGFloat(index) * self.frame.size.height), animated: false)
+        let splitFrame = CGRect(x: 0,
+                                y: CGFloat(index) * self.frame.size.height,
+                            width: bounds.size.width,
+                            height: bounds.size.height)
+        JKAsyncs.asyncDelay(Double(Int64(0.3 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {
+        } _: {
+            self.drawHierarchy(in: splitFrame, afterScreenUpdates: true)
+            if index < maxIndex {
+                self.snapShotContentScrollPage(index: index + 1, maxIndex: maxIndex, callback: callback)
+            } else {
+                callback()
+            }
+        }
+    }
+}
+
+
