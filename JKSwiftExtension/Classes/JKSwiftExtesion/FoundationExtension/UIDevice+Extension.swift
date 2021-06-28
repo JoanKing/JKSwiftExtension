@@ -331,6 +331,12 @@ public extension JKPOP where Base: UIDevice {
     static var deviceLanguage: String {
         return Bundle.main.preferredLocalizations[0]
     }
+    
+    //MARK: 2.13、设备区域化型号
+    /// 设备区域化型号
+    static var localizedModel: String {
+        return UIDevice.current.localizedModel
+    }
 }
 
 // MARK:- 三、有关设备运营商的信息

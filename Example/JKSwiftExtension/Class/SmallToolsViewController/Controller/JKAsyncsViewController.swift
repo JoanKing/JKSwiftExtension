@@ -27,7 +27,7 @@ class JKAsyncsViewController: BaseViewController {
 extension JKAsyncsViewController {
     
     // MARK: 1.4、异步延迟回到主线程(子线程执行任务，然后回到主线程执行任务)
-    @objc func test15() {
+    @objc func test14() {
         JKAsyncs.asyncDelay(2) {
             JKPrint("异步延迟回到主线程(子线程执行任务，然后回到主线程执行任务)", "当前的线程是：\(Thread.current)")
         } _: {
@@ -36,7 +36,7 @@ extension JKAsyncsViewController {
     }
     
     // MARK: 1.3、异步延迟(子线程执行任务)
-    @objc func test14() {
+    @objc func test13() {
         JKAsyncs.asyncDelay(2) {
             JKPrint("异步延迟(子线程执行任务)", "当前的线程是：\(Thread.current)")
         }

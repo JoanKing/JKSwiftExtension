@@ -134,7 +134,7 @@ public extension NSObject {
         }
         
         let onceToken = "Hook_\(NSStringFromClass(classForCoder()))"
-        DispatchQueue.once(token: onceToken) {
+        DispatchQueue.jk.once(token: onceToken) {
             
             let oriSel = #selector(self.setValue(_:forUndefinedKey:))
             let repSel = #selector(self.hook_setValue(_:forUndefinedKey:))
