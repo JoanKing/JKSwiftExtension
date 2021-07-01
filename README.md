@@ -34,6 +34,16 @@
 ## 这个基础库的目的：快速开发，不重复再去查找资料，如果觉得此项目对您的Swift学习有帮助，欢迎点赞...
     
 ## 版本说明
+   - 1.7.1、版本
+   
+     `WKWebView+Extension.swift` 扩展内容的补充
+     
+     - `WKWebViewConfiguration`默认配置
+     - `js`注入
+     - `js`交互
+     - 调整字体的比例
+     - 加载网页
+     - 获取WKWebView视图
    - 1.7.0、版本
 
      `DispatchQueue+Extension.swift` 扩展内容的补充
