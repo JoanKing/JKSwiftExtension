@@ -43,7 +43,7 @@
      - `js`交互
      - 调整字体的比例
      - 加载网页
-     - 获取WKWebView视图
+     - 获取WKWebView视图(长截图)
    - 1.7.0、版本
 
      `DispatchQueue+Extension.swift` 扩展内容的补充
