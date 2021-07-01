@@ -95,6 +95,7 @@ extension ProtocolViewController: UITableViewDelegate, UITableViewDataSource {
         let cellName = dataArray[indexPath.row] as! String
         let vcName = cellName.jk.removeSomeStringUseSomeString(removeString: "+") + "ViewController"
         guard let vc = vcName.jk.toViewController() else {
+            JKPrint("没有该名字的控制器：\(vcName)")
             return
         }
         vc.title = cellName

@@ -14,7 +14,7 @@ class UIScrollViewExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、基本的扩展", "二、链式编程"]
-        dataArray = [["适配iOS 11", "设置滚动到：上左下右"], ["设置偏移量 CGPoint", "设置偏移量 x: CGFloat, y: CGFloat", "设置滑动区域大小(CGSize)，默认是CGSizeZero", "设置滑动区域大小(width: CGFloat, height: CGFloat)，默认是CGSizeZero", "设置边缘插入内容以外的可滑动区域，默认是UIEdgeInsetsZero(提示：必须设置contentSize后才有效)", "设置边缘插入内容以外的可滑动区域(UIEdgeInsets)，默认是UIEdgeInsetsZero(提示：必须设置contentSize后才有效)", "设置代理", "设置弹性效果，默认是true, 如果设置成false，则当你滑动到边缘时将不具有弹性效果", "竖直方向 总是可以弹性滑动，默认是 false", "水平方向 总是可以弹性滑动，默认是 false", "设置是否可分页，默认是false， 如果设置成true， 则可分页", "是否显示水平方向滑动条，默认是true, 如果设置为false，当滑动的时候则不会显示水平滑动条", "是否显示垂直方向滑动条，默认是true, 如果设置为false，当滑动的时候则不会显示水平滑动条", "设置偏移量(x,y)", "设置 水平方向(x) 偏移量", "设置 垂直方向(y) 偏移量", "设置滑动条的边缘插入，即是距离上、左、下、右的距离，比如：top(20) 当向下滑动时，滑动条距离顶部的距离总是 20", "是否可滑动，默认是true, 如果默认为false, 则无法滑动", "设置滑动条颜色，默认是灰白色", "设置减速率，CGFloat类型，当你滑动松开手指后的减速速率， 但是尽管decelerationRate是一个CGFloat类型，但是目前系统只支持以下两种速率设置选择：fast 和 normal", "锁住水平或竖直方向的滑动， 默认为false，如果设置为TRUE，那么在推拖拽UIScrollView的时候，会锁住水平或竖直方向的滑动"]]
+        dataArray = [["适配iOS 11", "设置滚动到：上左下右", "获取 ScrollView 的 contentScroll 长图像"], ["设置偏移量 CGPoint", "设置偏移量 x: CGFloat, y: CGFloat", "设置滑动区域大小(CGSize)，默认是CGSizeZero", "设置滑动区域大小(width: CGFloat, height: CGFloat)，默认是CGSizeZero", "设置边缘插入内容以外的可滑动区域，默认是UIEdgeInsetsZero(提示：必须设置contentSize后才有效)", "设置边缘插入内容以外的可滑动区域(UIEdgeInsets)，默认是UIEdgeInsetsZero(提示：必须设置contentSize后才有效)", "设置代理", "设置弹性效果，默认是true, 如果设置成false，则当你滑动到边缘时将不具有弹性效果", "竖直方向 总是可以弹性滑动，默认是 false", "水平方向 总是可以弹性滑动，默认是 false", "设置是否可分页，默认是false， 如果设置成true， 则可分页", "是否显示水平方向滑动条，默认是true, 如果设置为false，当滑动的时候则不会显示水平滑动条", "是否显示垂直方向滑动条，默认是true, 如果设置为false，当滑动的时候则不会显示水平滑动条", "设置偏移量(x,y)", "设置 水平方向(x) 偏移量", "设置 垂直方向(y) 偏移量", "设置滑动条的边缘插入，即是距离上、左、下、右的距离，比如：top(20) 当向下滑动时，滑动条距离顶部的距离总是 20", "是否可滑动，默认是true, 如果默认为false, 则无法滑动", "设置滑动条颜色，默认是灰白色", "设置减速率，CGFloat类型，当你滑动松开手指后的减速速率， 但是尽管decelerationRate是一个CGFloat类型，但是目前系统只支持以下两种速率设置选择：fast 和 normal", "锁住水平或竖直方向的滑动， 默认为false，如果设置为TRUE，那么在推拖拽UIScrollView的时候，会锁住水平或竖直方向的滑动"]]
     }
 }
 
@@ -476,27 +476,12 @@ extension UIScrollViewExtensionViewController {
     }
 }
 
-
-
 // MARK:- 一、基本的扩展
 extension UIScrollViewExtensionViewController {
     
-    // MARK: 1.1、适配iOS 11
-    @objc func test11() {
-        let scrollView = UIScrollView(frame: CGRect(x: 100, y: 100, width: 100, height: 200))
-        scrollView.backgroundColor = .randomColor
-        scrollView.jk.neverAdjustContentInset()
-        scrollView.contentSize = CGSize(width: 100, height: 280)
-        self.view.addSubview(scrollView)
+    // MARK: 1.3、获取 ScrollView 的 contentScroll 长图像
+    @objc func test13() {
         
-        let testView = UIView(frame: CGRect(x: 0, y: 260, width: 100, height: 20))
-        testView.backgroundColor = .brown
-        scrollView.addSubview(testView)
-        
-        JKAsyncs.asyncDelay(2) {
-        } _: {
-            scrollView.removeFromSuperview()
-        }
     }
     
     // MARK: 1.2、设置滚动到：上左下右
@@ -546,6 +531,24 @@ extension UIScrollViewExtensionViewController {
                     }
                 }
             }
+        }
+    }
+    
+    // MARK: 1.1、适配iOS 11
+    @objc func test11() {
+        let scrollView = UIScrollView(frame: CGRect(x: 100, y: 100, width: 100, height: 200))
+        scrollView.backgroundColor = .randomColor
+        scrollView.jk.neverAdjustContentInset()
+        scrollView.contentSize = CGSize(width: 100, height: 280)
+        self.view.addSubview(scrollView)
+        
+        let testView = UIView(frame: CGRect(x: 0, y: 260, width: 100, height: 20))
+        testView.backgroundColor = .brown
+        scrollView.addSubview(testView)
+        
+        JKAsyncs.asyncDelay(2) {
+        } _: {
+            scrollView.removeFromSuperview()
         }
     }
 }

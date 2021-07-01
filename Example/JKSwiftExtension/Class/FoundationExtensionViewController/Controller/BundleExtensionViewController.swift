@@ -16,7 +16,7 @@ class BundleExtensionViewController: BaseViewController {
         self.view.backgroundColor = UIColor.green
         
         headDataArray = ["一、Bundle 的基本扩展", "二、App的基本信息"]
-        dataArray = [["从 Bundle 里面获取资源文件（支持当前的 Moudle下的Bundle和其他Moudle下的 Bundle）", "从其他的 Bundle 通过 bundlename 获取 bundle"], ["App命名空间", "项目/app 的名字", "获取app的版本号", "获取app的 Build ID", "获取app的 Bundle Identifier", "Info.plist", "App 名称"]]
+        dataArray = [["从 Bundle 里面获取资源文件（支持当前的 Moudle下的Bundle和其他Moudle下的 Bundle）", "从其他的 Bundle 通过 bundlename 获取 bundle", "读取项目本地文件数据"], ["App命名空间", "项目/app 的名字", "获取app的版本号", "获取app的 Build ID", "获取app的 Bundle Identifier", "Info.plist", "App 名称"]]
     }
 }
 
@@ -60,36 +60,14 @@ extension BundleExtensionViewController {
     @objc func test21() {
         JKPrint("App命名空间：\(Bundle.jk.namespace)")
     }
-    
 }
 
 // MARK:- 一、Bundle 的基本扩展
 extension BundleExtensionViewController {
     
-    // MARK: 1.1、从 Bundle 里面获取资源文件（支持当前的 Moudle下的Bundle和其他Moudle下的 Bundle）
-    @objc func test11() {
-        // 当前 moudle 下的 bundle 图片
-        let imagePath1 = Bundle.jk.getBundlePathResource(bundName: "JKBaseKit", resourceName: "icon_scan", bundleType: .currentBundle)
-        // 其他 moudle 下的 bundle 图片
-        let imagePath2 = Bundle.jk.getBundlePathResource(bundName: "MJRefresh", resourceName: "trail_arrow", bundleType: .otherBundle)
-       
-        var imageView1 = UIImageView(frame: CGRect(x: 0, y: 100, width: 100, height: 100))
-        imageView1.jk.centerX = self.view.jk.centerX
-        imageView1.backgroundColor = .red
-        imageView1.image = UIImage(named: imagePath1)
-
-        var imageView2 = UIImageView(frame: CGRect(x: 0, y: 300, width: 100, height: 100))
-        imageView2.jk.centerX = self.view.jk.centerX
-        imageView2.backgroundColor = .red
-        imageView2.image = UIImage(named: imagePath2)
-        self.view.addSubview(imageView1)
-        self.view.addSubview(imageView2)
+    // MARK: 1.3、读取项目本地文件数据
+    @objc func test13() {
         
-        JKAsyncs.asyncDelay(2, {
-        }) {
-            imageView1.removeFromSuperview()
-            imageView2.removeFromSuperview()
-        }
     }
     
     // MARK: 1.2、从其他的 Bundle 通过 bundlename 获取 bundle
@@ -109,6 +87,32 @@ extension BundleExtensionViewController {
         imageView2.jk.centerX = self.view.jk.centerX
         imageView2.backgroundColor = .red
         imageView2.image = UIImage(named: imagePath2 ?? "")
+        self.view.addSubview(imageView1)
+        self.view.addSubview(imageView2)
+        
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            imageView1.removeFromSuperview()
+            imageView2.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 1.1、从 Bundle 里面获取资源文件（支持当前的 Moudle下的Bundle和其他Moudle下的 Bundle）
+    @objc func test11() {
+        // 当前 moudle 下的 bundle 图片
+        let imagePath1 = Bundle.jk.getBundlePathResource(bundName: "JKBaseKit", resourceName: "icon_scan", bundleType: .currentBundle)
+        // 其他 moudle 下的 bundle 图片
+        let imagePath2 = Bundle.jk.getBundlePathResource(bundName: "MJRefresh", resourceName: "trail_arrow", bundleType: .otherBundle)
+       
+        var imageView1 = UIImageView(frame: CGRect(x: 0, y: 100, width: 100, height: 100))
+        imageView1.jk.centerX = self.view.jk.centerX
+        imageView1.backgroundColor = .red
+        imageView1.image = UIImage(named: imagePath1)
+
+        var imageView2 = UIImageView(frame: CGRect(x: 0, y: 300, width: 100, height: 100))
+        imageView2.jk.centerX = self.view.jk.centerX
+        imageView2.backgroundColor = .red
+        imageView2.image = UIImage(named: imagePath2)
         self.view.addSubview(imageView1)
         self.view.addSubview(imageView2)
         
