@@ -40,8 +40,8 @@
        - 主要方法是：
          - 开启跟随模式：`setDarkModeFollowSystem` 
          - 自定义模式：`setDarkModeCustom`
-         - 是否是跟随模式：JKDarkModeUtil.isFloorSystem
-         - 是否是浅色模式：JKDarkModeUtil.isLight
+         - 是否是跟随模式：`JKDarkModeUtil.isFloorSystem`
+         - 是否是浅色模式：`JKDarkModeUtil.isLight`
    - 1.7.1、版本
    
      `WKWebView+Extension.swift` 扩展内容的补充
