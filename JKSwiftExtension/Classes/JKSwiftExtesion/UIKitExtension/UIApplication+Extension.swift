@@ -79,7 +79,7 @@ public extension JKPOP where Base: UIApplication {
     /// 消息推送是否可用
     static func hasRightOfPush() -> Bool {
         let notOpen = UIApplication.shared.currentUserNotificationSettings?.types == UIUserNotificationType(rawValue: 0)
-        return !notOpen;
+        return !notOpen
     }
     
     // MARK: 1.7、注册APNs远程推送
@@ -88,7 +88,7 @@ public extension JKPOP where Base: UIApplication {
         if #available(iOS 10.0, *) {
             let options: UNAuthorizationOptions = [.alert, .badge, .sound]
             let center = UNUserNotificationCenter.current()
-            center.delegate = (delegate as! UNUserNotificationCenterDelegate);
+            center.delegate = (delegate as! UNUserNotificationCenterDelegate)
             center.requestAuthorization(options: options){ (granted: Bool, error:Error?) in
                 if granted {
                     print("success")
@@ -109,33 +109,29 @@ public extension JKPOP where Base: UIApplication {
     @available(iOS 10.0, *)
     func addLocalUserNoti(trigger: AnyObject,
                           content: UNMutableNotificationContent,
-                          identifier: String,
-                          notiCategories: AnyObject,
+                       identifier: String,
+                   notiCategories: AnyObject,
                           repeats: Bool = true,
                           handler: ((UNUserNotificationCenter, UNNotificationRequest, NSError?)->Void)?) {
         
         var notiTrigger: UNNotificationTrigger?
         if let date = trigger as? NSDate {
-            var interval = date.timeIntervalSince1970 - NSDate().timeIntervalSince1970;
-            interval = interval < 0 ? 1 : interval;
-            
+            var interval = date.timeIntervalSince1970 - NSDate().timeIntervalSince1970
+            interval = interval < 0 ? 1 : interval
             notiTrigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: repeats)
         } else if let components = trigger as? DateComponents {
             notiTrigger = UNCalendarNotificationTrigger(dateMatching: components as DateComponents, repeats: repeats)
-            
         } else if let region = trigger as? CLCircularRegion {
             notiTrigger = UNLocationNotificationTrigger(region: region, repeats: repeats)
-            
         }
-        
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: notiTrigger)
         let center = UNUserNotificationCenter.current()
         
         center.add(request) { (error) in
             if error == nil {
-                return;
+                return
             }
-            JKPrint("推送已添加成功");
+            JKPrint("推送已添加成功")
         }
     }
     

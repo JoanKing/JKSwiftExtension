@@ -580,7 +580,7 @@ public extension JKPOP where Base: CALayer {
         animationGroup.beginTime = CACurrentMediaTime() + delay
         animationGroup.animations = animations
         animationGroup.duration = duration
-        animationGroup.fillMode = .forwards;
+        animationGroup.fillMode = .forwards
         animationGroup.isRemovedOnCompletion = removedOnCompletion
         // 动画的时间节奏控制 方式
         animationGroup.timingFunction = CAMediaTimingFunction(name: option)

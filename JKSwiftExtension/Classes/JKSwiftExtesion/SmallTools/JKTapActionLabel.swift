@@ -36,7 +36,7 @@ public class JKTapActionLabel: UIView {
     
     @objc public func tap(string: String,with Action: @escaping ()->()) {
         tapStringArray.append(string as NSString)
-        reactFunctionArray.append(Action);
+        reactFunctionArray.append(Action)
     }
     
     @objc public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -70,7 +70,7 @@ public class JKTapActionLabel: UIView {
             }
         }
         for tapString:NSString in tapStringArray {
-            let range = (attString.string as NSString).range(of: tapString as String);
+            let range = (attString.string as NSString).range(of: tapString as String)
             if range.length > 0 {
                 if index >= CFIndex.init(range.location) && index <= CFIndex.init(range.location + range.length) {
                     let stringIndex = tapStringArray.firstIndex(of: tapString)

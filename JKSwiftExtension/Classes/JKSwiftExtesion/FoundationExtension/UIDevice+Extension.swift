@@ -250,7 +250,7 @@ public extension JKPOP where Base: UIDevice {
     static var isJailbroken: Bool {
         if self.isSimulator() { return false }
         let paths = ["/Applications/Cydia.app", "/private/var/lib/apt/",
-                     "/private/var/lib/cydia", "/private/var/stash"];
+                     "/private/var/lib/cydia", "/private/var/stash"]
         for path in paths {
             if FileManager.default.fileExists(atPath: path) {
                 return true

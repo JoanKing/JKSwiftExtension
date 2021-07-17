@@ -38,7 +38,7 @@ public struct JKContentSize {
         tempLabel.numberOfLines = 0
         tempLabel.sizeToFit()
         let size: CGSize = tempLabel.jk.size
-        return size;
+        return size
     }
 }
 

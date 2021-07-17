@@ -164,8 +164,8 @@ public extension JKPOP where Base: UIViewController {
         } else if self == UINavigationController.self {
             let onceToken = "Hook_\(NSStringFromClass(classForCoder()))"
             DispatchQueue.jk.once(token: onceToken) {
-                let oriSel = #selector(UINavigationController.pushViewController(_:animated:));
-                let repSel = #selector(UINavigationController.hook_pushViewController(_:animated:));
+                let oriSel = #selector(UINavigationController.pushViewController(_:animated:))
+                let repSel = #selector(UINavigationController.hook_pushViewController(_:animated:))
                 _ = hookInstanceMethod(of:oriSel , with: repSel)
             }
         }

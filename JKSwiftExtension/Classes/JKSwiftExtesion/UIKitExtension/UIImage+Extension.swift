@@ -1592,3 +1592,24 @@ public extension JKPOP where Base: UIImage {
         return UIImage(cgImage: blendCGImage)
     }
 }
+
+// MARK:- 九、动态图片的使用
+public extension JKPOP where Base: UIImage {
+
+    // MARK: 9.1、深色图片和浅色图片切换 （深色模式适配）
+    /// 深色图片和浅色图片切换 （深色模式适配）
+    /// - Parameters:
+    ///   - light: 浅色图片
+    ///   - dark: 深色图片
+    /// - Returns: 最终图片
+    static func image(light: UIImage?, dark: UIImage?) -> UIImage? {
+        if #available(iOS 13.0, *) {
+            guard let weakLight = light, let weakDark = dark, let config = weakLight.configuration else { return light }
+            let lightImage = weakLight.withConfiguration(config.withTraitCollection(UITraitCollection.init(userInterfaceStyle: UIUserInterfaceStyle.light)))
+            lightImage.imageAsset?.register(weakDark, with: config.withTraitCollection(UITraitCollection(userInterfaceStyle: UIUserInterfaceStyle.dark)))
+            return lightImage.imageAsset?.image(with: UITraitCollection.current) ?? light
+        } else {
+            return light
+        }
+    }
+}

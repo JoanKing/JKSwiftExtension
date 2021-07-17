@@ -89,7 +89,7 @@ public extension UIControl {
 
 //MARK:- 二、基本的扩展
 private struct AssociateKeys {
-    static var closure   = "UIControl" + "closure"
+    static var closure = "UIControl" + "closure"
 }
 
 public extension JKPOP where Base: UIControl {
@@ -103,7 +103,7 @@ public extension JKPOP where Base: UIControl {
     /// UIControl 添加回调方式
     func addActionHandler(_ action: @escaping ControlClosure, for controlEvents: UIControl.Event = .touchUpInside) {
         self.base.addTarget(self, action: #selector(base.handleAction), for: controlEvents)
-        objc_setAssociatedObject(self, &AssociateKeys.closure, action, .OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        objc_setAssociatedObject(self, &AssociateKeys.closure, action, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
     
 }
@@ -132,7 +132,7 @@ fileprivate extension UIControl  {
     /// 点击回调
     @objc func handleAction(_ sender: UIControl) {
         if let block = objc_getAssociatedObject(self, &AssociateKeys.closure) as? ControlClosure {
-            block(sender);
+            block(sender)
         }
     }
 }

@@ -239,7 +239,7 @@ public extension JKPOP where Base: UIView {
         set(newValue) {
             var tempCenter: CGPoint = base.center
             tempCenter.y = newValue
-            base.center = tempCenter;
+            base.center = tempCenter
         }
     }
     
@@ -817,9 +817,9 @@ public extension JKPOP where Base: UIView {
     ///   - backgroundColor: 视图的背景色
     func getViewLayer(borderWidth: CGFloat = 0.5, borderColor: UIColor = .randomColor, backgroundColor: UIColor = .randomColor) {
         #if DEBUG
-        let subviews = self.base.subviews;
+        let subviews = self.base.subviews
         if subviews.count == 0 {
-            return;
+            return
         }
         for subview in subviews {
             subview.layer.borderWidth = borderWidth

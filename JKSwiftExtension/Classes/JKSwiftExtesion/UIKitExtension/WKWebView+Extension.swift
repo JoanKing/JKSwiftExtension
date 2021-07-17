@@ -21,10 +21,9 @@ public extension JKPOP where Base: WKWebView {
     /// WKWebViewConfiguration默认配置
     static var confiDefault: WKWebViewConfiguration {
         get {
-            if let obj = objc_getAssociatedObject(self,  &Base.WKWebViewAssociateKeys.confiDefault) as? WKWebViewConfiguration {
+            if let obj = objc_getAssociatedObject(self, &Base.WKWebViewAssociateKeys.confiDefault) as? WKWebViewConfiguration {
                 return obj
             }
-            
             let sender = WKWebViewConfiguration()
             sender.allowsInlineMediaPlayback = true
             sender.selectionGranularity = .dynamic
@@ -77,13 +76,10 @@ public extension JKPOP where Base: WKWebView {
             JKPrint("链接错误")
             return
         }
-        
         let cookieSource: String = "document.cookie = 'user=\("userValue")';"
         let cookieScript = WKUserScript(source: cookieSource, injectionTime: .atDocumentStart, forMainFrameOnly: false)
-        
         let userContentController = WKUserContentController()
         userContentController.addUserScript(cookieScript)
-        
         base.configuration.userContentController = userContentController
         
         var request = URLRequest(url: url)
@@ -93,7 +89,6 @@ public extension JKPOP where Base: WKWebView {
                 request.addValue("user=\("userValue")", forHTTPHeaderField: "Cookie")
             }
         }
-        
         additionalHttpHeaders?.forEach { (key, value) in
             request.addValue(value, forHTTPHeaderField: key)
         }

@@ -110,8 +110,8 @@ extension UITextView {
     
     /// 动态监听
     /// - Parameter notification: 动态监听
-    @objc fileprivate func textChange(_ notification : Notification) {
-        let textView = notification.object as! UITextView;
+    @objc fileprivate func textChange(_ notification: Notification) {
+        let textView = notification.object as! UITextView
         if placeholder != nil {
             placeholderLabel?.isHidden = true
             self.placeholderLabel?.isHidden = !(textView.text.count == 0)

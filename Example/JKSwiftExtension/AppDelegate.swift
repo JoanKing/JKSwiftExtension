@@ -17,9 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = type == "1" ? BaseNavigationViewController(rootViewController: ViewController()) : BaseNavigationViewController(rootViewController: OneViewController())
         window?.makeKeyAndVisible()
+        
+        // 跟随系统暗黑模式开启监听
+        JKDarkModeUtil.defaultDark()
         
         UIViewController.initializeMethod()
         UIFont.initializeMethod()

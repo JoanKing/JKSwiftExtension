@@ -40,7 +40,7 @@ public extension JKPOP where Base == Int {
 }
 
 // MARK:- 二、其他常用方法
-public extension Int {
+public extension JKPOP where Base == Int {
 
     // MARK: 2.1、取区间内的随机数，如取  0..<10 之间的随机数
     ///  取区间内的随机数，如取  0..<10 之间的随机数
@@ -56,12 +56,12 @@ public extension Int {
     /// - Parameter scale: 小数点后舍入值的位数，默认 1 位
     /// - Returns: 返回万的字符串
     func toTenThousandString(scale: Int = 1) -> String {
-        if self < 0 {
+        if self.base < 0 {
             return "0"
-        } else if self <= 9999 {
-            return "\(self)"
+        } else if self.base <= 9999 {
+            return "\(self.base)"
         } else {
-            let doub = CGFloat(self) / 10000
+            let doub = CGFloat(self.base) / 10000
             let str = String(format: "%.\(scale)f", doub)
             let start_index = str.index(str.endIndex, offsetBy: -1)
             let suffix = String(str[start_index ..< str.endIndex])
@@ -72,5 +72,20 @@ public extension Int {
                 return str + "万"
             }
         }
+    }
+    
+    // MARK: 2.3、计算大小：UInt64 -> String
+    /// 计算大小：UInt64 -> String
+    /// - Parameter size: 大小
+    /// - Returns: 转换后的文件大小
+    func covertUInt64ToString() -> String {
+        var convertedValue: Double = Double(self.base)
+        var multiplyFactor = 0
+        let tokens = ["bytes", "KB", "MB", "GB", "TB", "PB",  "EB",  "ZB", "YB"]
+        while convertedValue > 1024 {
+            convertedValue /= 1024
+            multiplyFactor += 1
+        }
+        return String(format: "%4.2f %@", convertedValue, tokens[multiplyFactor])
     }
 }

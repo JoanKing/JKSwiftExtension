@@ -21,7 +21,7 @@ import Foundation
                 return obj
             }
  
-            let string = String(describing: self.classForCoder);
+            let string = String(describing: self.classForCoder)
             objc_setAssociatedObject(self, &AssociateKeys.funcName, string, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             return string
         }
@@ -32,7 +32,7 @@ import Foundation
     
     /// 闭包回调
     public func addAction(_ closure: @escaping (UIGestureRecognizer) -> Void) {
-        objc_setAssociatedObject(self, &AssociateKeys.closure, closure, .OBJC_ASSOCIATION_COPY_NONATOMIC);
+        objc_setAssociatedObject(self, &AssociateKeys.closure, closure, .OBJC_ASSOCIATION_COPY_NONATOMIC)
         addTarget(self, action: #selector(p_invoke))
     }
     

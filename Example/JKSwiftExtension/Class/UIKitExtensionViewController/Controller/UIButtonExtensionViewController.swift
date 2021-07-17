@@ -95,9 +95,7 @@ extension UIButtonExtensionViewController {
         }) {
             button.removeFromSuperview()
         }
-        
     }
-    
 }
 
 // MARK:- 四、自带倒计时功能的 Button

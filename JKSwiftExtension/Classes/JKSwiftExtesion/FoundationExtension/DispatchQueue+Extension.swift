@@ -48,8 +48,7 @@ public extension JKPOP where Base == DispatchQueue {
     ///   - JKTask: 异步任务
     ///   - mainJKTask: 主线程任务
     @discardableResult
-    static func async(_ JKTask: @escaping JKTask,
-                      _ mainJKTask: @escaping JKTask) -> DispatchWorkItem{
+    static func async(_ JKTask: @escaping JKTask, _ mainJKTask: @escaping JKTask) -> DispatchWorkItem{
         return _asyncDelay(0, JKTask, mainJKTask)
     }
     
@@ -58,8 +57,7 @@ public extension JKPOP where Base == DispatchQueue {
     /// - Parameter seconds: 延迟秒数
     /// - Parameter JKTask: 延迟的block
     @discardableResult
-    static func asyncDelay(_ seconds: Double,
-                           _ JKTask: @escaping JKTask) -> DispatchWorkItem {
+    static func asyncDelay(_ seconds: Double, _ JKTask: @escaping JKTask) -> DispatchWorkItem {
         return _asyncDelay(seconds, JKTask)
     }
     
@@ -70,8 +68,8 @@ public extension JKPOP where Base == DispatchQueue {
     /// - Parameter mainJKTask: 延迟的主线程block
     @discardableResult
     static func asyncDelay(_ seconds: Double,
-                           _ JKTask: @escaping JKTask,
-                           _ mainJKTask: @escaping JKTask) -> DispatchWorkItem {
+                            _ JKTask: @escaping JKTask,
+                        _ mainJKTask: @escaping JKTask) -> DispatchWorkItem {
         return _asyncDelay(seconds, JKTask, mainJKTask)
     }
 }
@@ -86,11 +84,10 @@ extension JKPOP where Base == DispatchQueue {
     ///   - mainJKTask: 任务
     /// - Returns: DispatchWorkItem
     fileprivate static func _asyncDelay(_ seconds: Double,
-                                        _ JKTask: @escaping JKTask,
-                                        _ mainJKTask: JKTask? = nil) -> DispatchWorkItem {
+                                         _ JKTask: @escaping JKTask,
+                                     _ mainJKTask: JKTask? = nil) -> DispatchWorkItem {
         let item = DispatchWorkItem(block: JKTask)
-        DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + seconds,
-                                          execute: item)
+        DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + seconds, execute: item)
         if let main = mainJKTask {
             item.notify(queue: DispatchQueue.main, execute: main)
         }

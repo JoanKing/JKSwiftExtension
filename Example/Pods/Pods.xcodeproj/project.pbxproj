@@ -256,6 +256,7 @@
 		847807A725F8649000E2575B /* NumberFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847807A625F8649000E2575B /* NumberFormatter+Extension.swift */; };
 		849062C625FE006F007F75D9 /* JKPhotoAlbumUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849062C525FE006F007F75D9 /* JKPhotoAlbumUtil.swift */; };
 		84911BDE4647439EC2297071D8554EAA /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3176BFC8DBB64A75CEADCC6BC48F0595 /* Bag.swift */; };
+		84AC2764269C139800A06A8A /* JKDarkModeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC2763269C139800A06A8A /* JKDarkModeUtil.swift */; };
 		84ADDC2F25E37E0500C8177C /* JKDrawSignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC2E25E37E0500C8177C /* JKDrawSignatureView.swift */; };
 		84ADDC3E25E3884300C8177C /* JKJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC3D25E3884300C8177C /* JKJSON.swift */; };
 		84B5BDA0260C2EA400616143 /* Range+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B5BD9F260C2EA400616143 /* Range+Extension.swift */; };
@@ -878,6 +879,7 @@
 		847807A625F8649000E2575B /* NumberFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Extension.swift"; sourceTree = "<group>"; };
 		849062C525FE006F007F75D9 /* JKPhotoAlbumUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPhotoAlbumUtil.swift; sourceTree = "<group>"; };
 		84A40981B54ED05CF4BAEB4616A3D550 /* RxTableViewDataSourcePrefetchingProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxTableViewDataSourcePrefetchingProxy.swift; path = RxCocoa/iOS/Proxies/RxTableViewDataSourcePrefetchingProxy.swift; sourceTree = "<group>"; };
+		84AC2763269C139800A06A8A /* JKDarkModeUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKDarkModeUtil.swift; sourceTree = "<group>"; };
 		84ADDC2E25E37E0500C8177C /* JKDrawSignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKDrawSignatureView.swift; sourceTree = "<group>"; };
 		84ADDC3D25E3884300C8177C /* JKJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKJSON.swift; sourceTree = "<group>"; };
 		84B5BD9F260C2EA400616143 /* Range+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Range+Extension.swift"; sourceTree = "<group>"; };
@@ -1578,6 +1580,7 @@
 				7470EA489102B07B8419603EB9B30AB8 /* JKWeakTimer.swift */,
 				84ADDC2E25E37E0500C8177C /* JKDrawSignatureView.swift */,
 				84FEC02625E8D12B0074D207 /* JKPaddingLabel.swift */,
+				84AC2763269C139800A06A8A /* JKDarkModeUtil.swift */,
 			);
 			name = SmallTools;
 			path = JKSwiftExtension/Classes/JKSwiftExtesion/SmallTools;
@@ -2503,6 +2506,7 @@
 			files = (
 				0EB139F294FD997A454C94430EC77E78 /* Array+Extension.swift in Sources */,
 				68431525CD4968705909918D48573618 /* AVAssetExportSession+Extension.swift in Sources */,
+				84AC2764269C139800A06A8A /* JKDarkModeUtil.swift in Sources */,
 				5687E5E4BB0DB43C84EFD646983C617A /* Bool+Extension.swift in Sources */,
 				60C19DB49F0EC8E0E8CECF4946410AEF /* Bundle+Extension.swift in Sources */,
 				A17F74BA3CC897B852850D7D36DE0911 /* CAGradientLayer+Extension.swift in Sources */,

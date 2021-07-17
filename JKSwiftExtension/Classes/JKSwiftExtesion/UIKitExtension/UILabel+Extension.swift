@@ -269,9 +269,9 @@ public extension JKPOP where Base: UILabel {
          // 文档范围的默认选项卡间隔 ？？？？？
          style.defaultTabInterval = 1
          // 最低行高（设置最低行高后，如果文本小于20行，会通过增加行间距达到20行的高度）
-         style.minimumLineHeight = 10;
+         style.minimumLineHeight = 10
          // 最高行高（设置最高行高后，如果文本大于10行，会通过降低行间距达到10行的高度）
-         style.maximumLineHeight = 20;
+         style.maximumLineHeight = 20
          //从左到右的书写方向
          style.baseWritingDirection = .leftToRight
          // 在受到最小和最大行高约束之前，自然线高度乘以该因子（如果为正） 多少倍行间距

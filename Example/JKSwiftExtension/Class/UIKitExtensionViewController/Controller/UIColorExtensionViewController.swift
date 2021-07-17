@@ -26,6 +26,8 @@ class UIColorExtensionViewController: BaseViewController {
 extension UIColor {
     /// 颜色
     private(set) static var cB1: UIColor = UIColor.darkModeColor(lightColor: UIColor.green, darkColor: UIColor.blue)
+    /// 背景色
+    private(set) static var cBackViewColor: UIColor = UIColor.darkModeColor(lightColor: UIColor.white, darkColor: UIColor.black)
 }
     
 // MARK: 六、暗黑模式颜色处理类

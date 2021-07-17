@@ -14,22 +14,46 @@ class IntExtensionViewController: BaseViewController {
         super.viewDidLoad()
 
         headDataArray = ["一、CGFloat 的基本转换", "二、其他常用方法"]
-        dataArray = [["转 Double", "转 Float", "转 Int64", "转 CGFloat", "转 String", "转 UInt", "转 range"], ["取区间内的随机数，如取  0..<10 之间的随机数", "转换万单位"]]
+        dataArray = [["转 Double", "转 Float", "转 Int64", "转 CGFloat", "转 String", "转 UInt", "转 range"], ["取区间内的随机数，如取  0..<10 之间的随机数", "转换万单位", "计算大小"]]
     }
 }
 
 // MARK:- 二、其他常用方法
 extension IntExtensionViewController {
     
-    // MARK: 2.1、取区间内的随机数，如取  0..<10 之间的随机数"
-    @objc func test21() {
-        JKPrint("\(Int.random(within: 0..<10))")
+    // MARK: 2.3、计算大小
+    @objc func test23() {
+
+        guard let path = Bundle.main.path(forResource: "girl", ofType: "jpg") else {
+            return
+        }
+        guard let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else {
+            return
+        }
+        let image = UIImage(data: data)
+        var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 300))
+        imageView.image = image
+        imageView.contentMode = .scaleToFill
+        imageView.clipsToBounds = true
+        imageView.jk.centerX = self.view.jk.centerX
+        self.view.addSubview(imageView)
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            imageView.removeFromSuperview()
+        }
+        let imageDataSize = data.count.jk.covertUInt64ToString()
+        JKPrint("计算大小", "图片的大小为：\(imageDataSize)")
     }
     
     // MARK: 2.2、转换万单位
     @objc func test22() {
         let value: Int = 1001100
-        JKPrint("转换万单位", "\(value) 保留 1 为 转换后为：\(value.toTenThousandString())")
+        JKPrint("转换万单位", "\(value) 保留 1 为 转换后为：\(value.jk.toTenThousandString())")
+    }
+    
+    // MARK: 2.1、取区间内的随机数，如取  0..<10 之间的随机数"
+    @objc func test21() {
+        JKPrint("\(Int.jk.random(within: 0..<10))")
     }
 }
 

@@ -74,7 +74,7 @@ extension JKWaterFallLayoutViewController: JKWaterFallLayoutDataSoure, UICollect
     */
     
     func waterfall(_ waterfall: JKWaterFallLayout, item: Int) -> CGFloat {
-        return Int.random(within: 60..<150).jk.intToCGFloat
+        return Int.jk.random(within: 60..<150).jk.intToCGFloat
     }
     
 }
