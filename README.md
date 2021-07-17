@@ -34,6 +34,14 @@
 ## 这个基础库的目的：快速开发，不重复再去查找资料，如果觉得此项目对您的Swift学习有帮助，欢迎点赞...
     
 ## 版本说明
+   - 1.7.2、暗黑模式的添加：`JKDarkModeUtil`
+    
+       - 在设置 `window` 的 `rootViewController` 后需要调用 `JKDarkModeUtil.defaultDark()`
+       - 主要方法是：
+         - 开启跟随模式：`setDarkModeFollowSystem` 
+         - 自定义模式：`setDarkModeCustom`
+         - 是否是跟随模式：JKDarkModeUtil.isFloorSystem
+         - 是否是浅色模式：JKDarkModeUtil.isLight
    - 1.7.1、版本
    
      `WKWebView+Extension.swift` 扩展内容的补充
