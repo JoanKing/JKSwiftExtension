@@ -8,6 +8,12 @@
 
 import UIKit
 
+// MARK:- 业务颜色的使用
+extension UIColor {
+    /// 背景色
+    private(set) static var cA1 = JKDarkModeUtil.colorLightDark(light: UIColor.yellow, dark: UIColor.green)
+}
+
 class JKDarkModeUtilViewController: UIViewController {
     
     lazy var label1: UILabel = {
@@ -53,7 +59,7 @@ class JKDarkModeUtilViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "暗黑模式适配"
-        self.view.backgroundColor = JKDarkModeUtil.colorLightDark(light: UIColor.yellow, dark: UIColor.green)
+        self.view.backgroundColor = .cA1
         
         initUI()
     }
