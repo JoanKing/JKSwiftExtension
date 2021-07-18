@@ -34,7 +34,7 @@
 ## 这个基础库的目的：快速开发，不重复再去查找资料，如果觉得此项目对您的Swift学习有帮助，欢迎点赞...
     
 ## 版本说明
-   - 1.7.6、暗黑模式适配 iOS 13以下的：浅色和深色
+   - 1.7.6、暗黑模式适配iOS 13以上和iOS 13以下的：浅色和深色
      - iOS 13以上使用系统的暗黑模式：`JKDarkModeUtil`，默认跟随系统
         使用方式：在设置 `window` 的 `rootViewController` 后需要调用 `JKDarkModeUtil.defaultDark()`，颜色调用如下：
         
