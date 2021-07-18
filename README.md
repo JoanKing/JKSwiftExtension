@@ -34,6 +34,26 @@
 ## 这个基础库的目的：快速开发，不重复再去查找资料，如果觉得此项目对您的Swift学习有帮助，欢迎点赞...
     
 ## 版本说明
+   - 1.7.6、暗黑模式适配 iOS 13以下的：浅色和深色
+     - iOS 13以上使用系统的暗黑模式：`JKDarkModeUtil`，默认跟随系统
+        使用方式：在设置 `window` 的 `rootViewController` 后需要调用 `JKDarkModeUtil.defaultDark()`，颜色调用如下：
+        
+           self.view.backgroundColor = JKDarkModeUtil.colorLightDark(light: UIColor.yellow, dark: UIColor.green)
+     - iOS 13以下使用主题色：`JKThemeProvider`，默认是浅色
+       使用方式：
+          - 1.1、遵守协议 `JKThemeable` （遵守UITraitEnvironment协议的均可使用）
+            
+                extension lViewController: JKThemeable {
+                   func apply() {
+                      self.view.backgroundColor = JKDarkModeUtil.colorLightDark(light: UIColor.yellow, dark: UIColor.green)
+                   }
+                }
+          - 1.2、注册监听模式变化
+         
+                themeProvider.register(observer: self)
+          - 1.3、模式变化通知
+          
+                JKDarkModeUtil.setDarkModeCustom(isLight: true) 
    - 1.7.2、暗黑模式的添加：`JKDarkModeUtil`
     
        - 在设置 `window` 的 `rootViewController` 后需要调用 `JKDarkModeUtil.defaultDark()`
