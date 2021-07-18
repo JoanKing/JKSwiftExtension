@@ -54,6 +54,12 @@
           - 1.3、模式变化通知
           
                 JKDarkModeUtil.setDarkModeCustom(isLight: true) 
+     - 建议使用业务色
+
+           extension UIColor {
+              /// 背景色
+              private(set) static var cA1 = JKDarkModeUtil.colorLightDark(light: UIColor.yellow, dark: UIColor.green)
+           }
    - 1.7.2、暗黑模式的添加：`JKDarkModeUtil`
     
        - 在设置 `window` 的 `rootViewController` 后需要调用 `JKDarkModeUtil.defaultDark()`
