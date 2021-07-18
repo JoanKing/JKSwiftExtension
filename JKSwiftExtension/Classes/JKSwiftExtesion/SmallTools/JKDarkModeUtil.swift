@@ -18,37 +18,32 @@ import UIKit
  */
 public class JKDarkModeUtil {
     
-    /// 单例模式
-    public static let share = JKDarkModeUtil()
     /// 跟随系统的key
     private static let JKDarkToSystem = "JKDarkToSystem"
     /// 是否浅色模式的key
     private static let JKLightDark = "JKLightDark"
     /// 是否浅色
     public static var isLight: Bool {
-        if #available(iOS 13, *) {
-            if let value = UserDefaults.jk.userDefaultsGetValue(key: JKLightDark) as? Bool {
-                return value
-            }
-            return false
+        if let value = UserDefaults.jk.userDefaultsGetValue(key: JKLightDark) as? Bool {
+            return value
         }
         return true
     }
     /// 是否跟随系统
     public static var isFloorSystem: Bool {
-        if let value = UserDefaults.jk.userDefaultsGetValue(key: JKDarkToSystem) as? Bool {
-            return value
+        if #available(iOS 13, *) {
+            if let value = UserDefaults.jk.userDefaultsGetValue(key: JKDarkToSystem) as? Bool {
+                return value
+            }
+            return true
         }
-        return true
+        return false
     }
 }
 
 // MARK:- 方法的调用
 extension JKDarkModeUtil: JKThemeable {
-    
-    public func apply() {
-        
-    }
+    public func apply() {}
 }
 
 public extension JKDarkModeUtil {
@@ -91,6 +86,9 @@ public extension JKDarkModeUtil {
             UserDefaults.jk.userDefaultsSetValue(value: false, key: JKDarkToSystem)
             UserDefaults.jk.userDefaultsSetValue(value: isLight, key: JKLightDark)
         } else {
+            // 模式存储
+            UserDefaults.jk.userDefaultsSetValue(value: isLight, key: JKLightDark)
+            // 通知模式更新
             LegacyThemeProvider.shared.updateTheme()
         }
     }
