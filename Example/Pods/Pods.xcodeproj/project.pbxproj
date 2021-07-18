@@ -252,6 +252,7 @@
 		826CEFCA835CFBC27766CC8B18AB6242 /* FDFullscreenPopGesture-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AAFD1EE2F8E9BD66B54169620FAB89E2 /* FDFullscreenPopGesture-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		827CAEFF54A4578498E3594A2CE2276C /* Using.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041AAA6A21B40B806E3D877209EE9B4 /* Using.swift */; };
 		82CBF275A644494FF9A1E19615B4DE8F /* Throttle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2C15E629FBC6873C9CA93896221086 /* Throttle.swift */; };
+		8409564126A3ED4B00A1297E /* JKThemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409564026A3ED4B00A1297E /* JKThemeProvider.swift */; };
 		8464428F25FF525D002E73A6 /* JKEKEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464428E25FF525D002E73A6 /* JKEKEvent.swift */; };
 		847807A725F8649000E2575B /* NumberFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847807A625F8649000E2575B /* NumberFormatter+Extension.swift */; };
 		849062C625FE006F007F75D9 /* JKPhotoAlbumUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849062C525FE006F007F75D9 /* JKPhotoAlbumUtil.swift */; };
@@ -871,6 +872,7 @@
 		82B4FDBA1AC0D5EBFA4E1B83786F5117 /* PublishRelay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PublishRelay.swift; path = RxRelay/PublishRelay.swift; sourceTree = "<group>"; };
 		83A1CEC3C55CE1CBBA9627434311A397 /* MJRefreshGifHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshGifHeader.h; path = MJRefresh/Custom/Header/MJRefreshGifHeader.h; sourceTree = "<group>"; };
 		83D6DA8F18A0735EB7A66649139B21A4 /* NSObject+Rx+KVORepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSObject+Rx+KVORepresentable.swift"; path = "RxCocoa/Foundation/NSObject+Rx+KVORepresentable.swift"; sourceTree = "<group>"; };
+		8409564026A3ED4B00A1297E /* JKThemeProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKThemeProvider.swift; sourceTree = "<group>"; };
 		841D35711F9D0CEE6ABAE4CBE0D4401F /* ObserverBase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObserverBase.swift; path = RxSwift/Observers/ObserverBase.swift; sourceTree = "<group>"; };
 		842940441BB89C2AFC625630AF0EF845 /* Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = RxRelay/Utils.swift; sourceTree = "<group>"; };
 		844231532A125DC1A4DF30AA2D5291D6 /* RxCocoa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RxCocoa.debug.xcconfig; sourceTree = "<group>"; };
@@ -1581,6 +1583,7 @@
 				84ADDC2E25E37E0500C8177C /* JKDrawSignatureView.swift */,
 				84FEC02625E8D12B0074D207 /* JKPaddingLabel.swift */,
 				84AC2763269C139800A06A8A /* JKDarkModeUtil.swift */,
+				8409564026A3ED4B00A1297E /* JKThemeProvider.swift */,
 			);
 			name = SmallTools;
 			path = JKSwiftExtension/Classes/JKSwiftExtesion/SmallTools;
@@ -2587,6 +2590,7 @@
 				84ADDC3E25E3884300C8177C /* JKJSON.swift in Sources */,
 				8464428F25FF525D002E73A6 /* JKEKEvent.swift in Sources */,
 				849062C625FE006F007F75D9 /* JKPhotoAlbumUtil.swift in Sources */,
+				8409564126A3ED4B00A1297E /* JKThemeProvider.swift in Sources */,
 				8D0E44C0173386DCE373A8BDC407D223 /* UITextView+Extension.swift in Sources */,
 				23E3D6FF269FDD2E8B19847D0EE6C86F /* UIView+Extension.swift in Sources */,
 				34B30635115F80A1B6E8BFE2D16F1583 /* UIViewController+Extension.swift in Sources */,

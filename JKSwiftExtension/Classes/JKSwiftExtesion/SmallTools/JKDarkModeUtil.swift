@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 /*
  默认开启：跟随系统模式
  
@@ -17,7 +16,6 @@ import UIKit
  2.1、浅色，UIApplication.shared.windows.filter({$0.isKeyWindow}).first?.overrideUserInterfaceStyle = .light
  2.2、深色，UIApplication.shared.windows.filter({$0.isKeyWindow}).first?.overrideUserInterfaceStyle = .dark
  */
-
 public class JKDarkModeUtil {
     
     /// 单例模式
@@ -46,6 +44,13 @@ public class JKDarkModeUtil {
 }
 
 // MARK:- 方法的调用
+extension JKDarkModeUtil: JKThemeable {
+    
+    public func apply() {
+        
+    }
+}
+
 public extension JKDarkModeUtil {
     
     // MARK: 初始化的调用
@@ -85,6 +90,8 @@ public extension JKDarkModeUtil {
             // 1.2、设置跟随系统：否
             UserDefaults.jk.userDefaultsSetValue(value: false, key: JKDarkToSystem)
             UserDefaults.jk.userDefaultsSetValue(value: isLight, key: JKLightDark)
+        } else {
+            LegacyThemeProvider.shared.updateTheme()
         }
     }
 }
@@ -104,8 +111,13 @@ public extension JKDarkModeUtil {
                     return JKDarkModeUtil.isLight ? light : dark
                 }
             }
+        } else {
+            // iOS 13 以下主题色的使用
+            if JKDarkModeUtil.isLight {
+                return light
+            }
+            return dark
         }
-        return light
     }
 }
 
@@ -125,7 +137,11 @@ public extension JKDarkModeUtil {
             lightImage.imageAsset?.register(weakDark, with: config.withTraitCollection(UITraitCollection(userInterfaceStyle: UIUserInterfaceStyle.dark)))
             return lightImage.imageAsset?.image(with: UITraitCollection.current) ?? light
         } else {
-            return light
+            // iOS 13 以下主题色的使用
+            if JKDarkModeUtil.isLight {
+                return light
+            }
+            return dark
         }
     }
 }

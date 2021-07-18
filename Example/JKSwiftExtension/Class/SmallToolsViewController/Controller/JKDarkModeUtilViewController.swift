@@ -81,6 +81,8 @@ class JKDarkModeUtilViewController: UIViewController {
                 print("window模式---未知模式")
             }
         }
+        
+        themeProvider.register(observer: self)
     }
 }
 
@@ -111,5 +113,12 @@ extension JKDarkModeUtilViewController {
             print("模式：\(UITraitCollection.current.userInterfaceStyle.rawValue)")
         }
         button.layer.borderColor = JKDarkModeUtil.colorLightDark(light: .green, dark: .brown).cgColor
+    }
+}
+
+// MARK:- iOS 13 以下主题色的更新
+extension JKDarkModeUtilViewController: JKThemeable {
+    func apply() {
+        self.view.backgroundColor = JKDarkModeUtil.colorLightDark(light: UIColor.yellow, dark: UIColor.green)
     }
 }
