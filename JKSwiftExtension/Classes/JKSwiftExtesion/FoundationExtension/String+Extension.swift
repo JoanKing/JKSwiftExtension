@@ -36,7 +36,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return (base as! String).range(of: find, options: .caseInsensitive) != nil
     }
      
-    // MARK: 1.4、字符串 Base64 编码
+    // MARK: 1.4、字符串转 base64
     /// 字符串 Base64 编码
     var base64Encode: String? {
         guard let codingData = (base as! String).data(using: .utf8) else {
@@ -44,13 +44,13 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         }
         return codingData.base64EncodedString()
     }
-    // MARK: 1.5、字符串 Base64 解码
+    // MARK: 1.5、base64转字符串转
     /// 字符串 Base64 编码
     var base64Decode: String? {
         guard let decryptionData = Data(base64Encoded: base as! String, options: .ignoreUnknownCharacters) else {
             return nil
         }
-        return String.init(data: decryptionData, encoding: .utf8)
+        return String(data: decryptionData, encoding: .utf8)
     }
     
     // MARK: 1.6、将16进制字符串转为Int
@@ -1948,7 +1948,7 @@ public extension JKPOP where Base == String {
     /// 将普通字符串转为字符值引用
     /// - Returns: 字符值引用
     func toHtmlEncodedString() -> String {
-        var result:String = "";
+        var result: String = ""
         for scalar in self.base.utf16 {
             //将十进制转成十六进制，不足4位前面补0
             let tem = String().appendingFormat("%04x",scalar)

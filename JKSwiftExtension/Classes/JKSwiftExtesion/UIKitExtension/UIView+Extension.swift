@@ -432,7 +432,7 @@ public extension JKPOP where Base: UIView {
     /// 给继承于view的类添加阴影
     /// - Parameters:
     ///   - shadowColor: 阴影的颜色
-    ///   - shadowOffset: 阴影的偏移度：CGSizeMake(X[正的右偏移,负的左偏移], Y[正的下偏移,负的上偏移]);
+    ///   - shadowOffset: 阴影的偏移度：CGSizeMake(X[正的右偏移,负的左偏移], Y[正的下偏移,负的上偏移])
     ///   - shadowOpacity: 阴影的透明度
     ///   - shadowRadius: 阴影半径，默认 3
     func addShadow(shadowColor: UIColor, shadowOffset: CGSize, shadowOpacity: Float, shadowRadius: CGFloat = 3) {
@@ -452,7 +452,7 @@ public extension JKPOP where Base: UIView {
     ///   - conrners: 具体哪个圆角
     ///   - radius: 圆角大小
     ///   - shadowColor: 阴影的颜色
-    ///   - shadowOffset: 阴影的偏移度：CGSizeMake(X[正的右偏移,负的左偏移], Y[正的下偏移,负的上偏移]);
+    ///   - shadowOffset: 阴影的偏移度：CGSizeMake(X[正的右偏移,负的左偏移], Y[正的下偏移,负的上偏移])
     ///   - shadowOpacity: 阴影的透明度
     ///   - shadowRadius: 阴影半径，默认 3
     func addCornerAndShadow(superview: UIView, conrners: UIRectCorner , radius: CGFloat = 3, shadowColor: UIColor, shadowOffset: CGSize, shadowOpacity: Float, shadowRadius: CGFloat = 3) {

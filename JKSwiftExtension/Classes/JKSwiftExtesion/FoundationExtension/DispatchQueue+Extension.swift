@@ -21,7 +21,7 @@ public extension JKPOP where Base == DispatchQueue {
     /// - Returns: 一次性函数
     static func once(token: String, block: () -> ()) {
         if _onceTracker.contains(token) {
-            return;
+            return
         }
         objc_sync_enter(self)
         defer {

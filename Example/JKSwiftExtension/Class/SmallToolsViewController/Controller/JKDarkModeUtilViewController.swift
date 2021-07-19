@@ -47,12 +47,18 @@ class JKDarkModeUtilViewController: UIViewController {
     }()
     
     lazy var button: UIButton = {
-        let button = UIButton(frame: CGRect(x: 20, y: label2.jk.bottom + 50, width: 100, height: 50))
+        let button = UIButton(frame: CGRect(x: 20, y: label1.jk.bottom + 130, width: 100, height: 50))
         button.setTitle("边框", for: .normal)
         button.backgroundColor = .white
         button.layer.borderWidth = 5
-        button.layer.borderColor = UIColor.darkModeColor(lightColor: .green, darkColor: .brown).cgColor
+        button.layer.borderColor = JKDarkModeUtil.colorLightDark(light: .green, dark: .brown).cgColor
         return button
+    }()
+    
+    lazy var darkImageView: UIImageView = {
+        let imageView = UIImageView(frame: CGRect(x: 20, y: button.jk.bottom + 50, width: 22, height: 22))
+        imageView.image = JKDarkModeUtil.image(light: UIImage(named: "tabbar_profile"), dark: UIImage(named: "tabbar_profile_selected"))
+        return imageView
     }()
     
     override func viewDidLoad() {
@@ -69,10 +75,14 @@ class JKDarkModeUtilViewController: UIViewController {
         self.view.addSubview(label1)
         self.view.addSubview(switch1)
         
-        self.view.addSubview(label2)
-        self.view.addSubview(switch2)
+        if #available(iOS 13.0, *) {
+            self.view.addSubview(label2)
+            self.view.addSubview(switch2)
+        }
         
         self.view.addSubview(button)
+        
+        self.view.addSubview(darkImageView)
         
         label1.isHidden = JKDarkModeUtil.isFloorSystem
         switch1.isHidden = JKDarkModeUtil.isFloorSystem
@@ -119,6 +129,7 @@ extension JKDarkModeUtilViewController {
             print("模式：\(UITraitCollection.current.userInterfaceStyle.rawValue)")
         }
         button.layer.borderColor = JKDarkModeUtil.colorLightDark(light: .green, dark: .brown).cgColor
+        darkImageView.image = JKDarkModeUtil.image(light: UIImage(named: "tabbar_profile"), dark: UIImage(named: "tabbar_profile_selected"))
     }
 }
 
@@ -126,5 +137,7 @@ extension JKDarkModeUtilViewController {
 extension JKDarkModeUtilViewController: JKThemeable {
     func apply() {
         self.view.backgroundColor = JKDarkModeUtil.colorLightDark(light: UIColor.yellow, dark: UIColor.green)
+        button.layer.borderColor = JKDarkModeUtil.colorLightDark(light: .green, dark: .brown).cgColor
+        darkImageView.image = JKDarkModeUtil.image(light: UIImage(named: "tabbar_profile"), dark: UIImage(named: "tabbar_profile_selected"))
     }
 }

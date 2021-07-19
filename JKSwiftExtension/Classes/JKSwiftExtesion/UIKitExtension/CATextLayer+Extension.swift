@@ -48,7 +48,7 @@ public extension CATextLayer {
     /// none 不剪裁，默认
     /// start 剪裁开始部分
     /// end 剪裁结束部分
-    /// middle 剪裁中间部分;
+    /// middle 剪裁中间部分
     /// - Returns: 返回自身
     @discardableResult
     func truncationMode(_ truncationMode: CATextLayerTruncationMode) -> Self {

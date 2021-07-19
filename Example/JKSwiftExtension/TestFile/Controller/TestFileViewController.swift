@@ -14,10 +14,6 @@ class TestFileViewController: BaseViewController {
         super.viewDidLoad()
         
         self.title = "TestFile"
-        self.tableView.backgroundColor = JKDarkModeUtil.colorLightDark(light: .yellow, dark: .green)
-        
-        let uuid = UIDevice.current.identifierForVendor!.uuidString as NSString
-        print("uuid：\(uuid)")
         
         headDataArray = ["一、基本的使用"]
         dataArray = [["设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "引导页", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label"]]
