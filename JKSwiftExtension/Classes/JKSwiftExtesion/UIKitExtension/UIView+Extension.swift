@@ -448,13 +448,16 @@ public extension JKPOP where Base: UIView {
     
     // MARK: 5.3、添加阴影和圆角并存
     /// 添加阴影和圆角并存
-    /// - Parameters:
-    ///   - conrners: 具体哪个圆角
-    ///   - radius: 圆角大小
-    ///   - shadowColor: 阴影的颜色
-    ///   - shadowOffset: 阴影的偏移度：CGSizeMake(X[正的右偏移,负的左偏移], Y[正的下偏移,负的上偏移])
-    ///   - shadowOpacity: 阴影的透明度
-    ///   - shadowRadius: 阴影半径，默认 3
+    ///
+    /// - Parameter superview: 父视图
+    /// - Parameter conrners: 具体哪个圆角
+    /// - Parameter radius: 圆角大小
+    /// - Parameter shadowColor: 阴影的颜色
+    /// - Parameter shadowOffset: 阴影的偏移度：CGSizeMake(X[正的右偏移,负的左偏移], Y[正的下偏移,负的上偏移])
+    /// - Parameter shadowOpacity: 阴影的透明度
+    /// - Parameter shadowRadius: 阴影半径，默认 3
+    ///
+    /// - Note: 提示：如果在异步布局(如：SnapKit布局)中使用，要在布局后先调用 layoutIfNeeded，再使用该方法
     func addCornerAndShadow(superview: UIView, conrners: UIRectCorner , radius: CGFloat = 3, shadowColor: UIColor, shadowOffset: CGSize, shadowOpacity: Float, shadowRadius: CGFloat = 3) {
         
         let maskPath = UIBezierPath(roundedRect: self.base.bounds, byRoundingCorners: conrners, cornerRadii: CGSize(width: radius, height: radius))
