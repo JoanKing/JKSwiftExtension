@@ -16,7 +16,7 @@ class BundleExtensionViewController: BaseViewController {
         self.view.backgroundColor = UIColor.green
         
         headDataArray = ["一、Bundle 的基本扩展", "二、App的基本信息"]
-        dataArray = [["从 Bundle 里面获取资源文件（支持当前的 Moudle下的Bundle和其他Moudle下的 Bundle）", "从其他的 Bundle 通过 bundlename 获取 bundle", "读取项目本地文件数据"], ["App命名空间", "项目/app 的名字", "获取app的版本号", "获取app的 Build ID", "获取app的 Bundle Identifier", "Info.plist", "App 名称"]]
+        dataArray = [["从 Bundle 里面获取资源文件（支持当前的 Moudle下的Bundle和其他Moudle下的 Bundle）", "从其他的 Bundle 通过 bundlename 获取 bundle", "读取项目本地图片"], ["App命名空间", "项目/app 的名字", "获取app的版本号", "获取app的 Build ID", "获取app的 Bundle Identifier", "Info.plist", "App 名称"]]
     }
 }
 
@@ -65,9 +65,22 @@ extension BundleExtensionViewController {
 // MARK:- 一、Bundle 的基本扩展
 extension BundleExtensionViewController {
     
-    // MARK: 1.3、读取项目本地文件数据
+    // MARK: 1.3、读取项目本地图片
     @objc func test13() {
+        let filePath = Bundle.main.path(forResource: "girl", ofType: "jpg")
+    
+        let image = UIImage(contentsOfFile: filePath ?? "")
+        // girl.jpg
+        var imageView2 = UIImageView(frame: CGRect(x: 0, y: 300, width: 150, height: 300))
+        imageView2.jk.centerX = self.view.jk.centerX
+        imageView2.backgroundColor = .red
+        imageView2.image = image
+        self.view.addSubview(imageView2)
         
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            imageView2.removeFromSuperview()
+        }
     }
     
     // MARK: 1.2、从其他的 Bundle 通过 bundlename 获取 bundle

@@ -588,14 +588,21 @@ extension UIViewExtensionViewController {
     
     // MARK: 3.3、添加 圆角 和 阴影
     @objc func test33() {
-        var testView = UILabel(frame: CGRect(x: 0, y: 100, width: 200, height: 100))
+        
+        var testView = UIView(frame: CGRect(x: 0, y: 100, width: 200, height: 100))
         testView.backgroundColor = .randomColor
-        testView.text = "2秒后消失"
-        testView.textAlignment = .center
-        testView.textColor = .randomColor
         testView.jk.centerX = self.view.jk.centerX
-        testView.jk.addCornerAndShadow(superview: self.view, conrners: [.allCorners], radius: 6, shadowColor: UIColor.black.withAlphaComponent(0.48), shadowOffset: CGSize(width: 1.0, height: 1.0), shadowOpacity: 1, shadowRadius: 6)
+        testView.layer.cornerRadius = 6
+        testView.clipsToBounds = false
         self.view.addSubview(testView)
+        
+        let testLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+        testLabel.backgroundColor = .randomColor
+        testLabel.text = "2秒后消失"
+        testLabel.textAlignment = .center
+        testLabel.textColor = .randomColor
+        testLabel.jk.addCornerAndShadow(superview: testView, conrners: [.allCorners], radius: 6, shadowColor: UIColor.black.withAlphaComponent(0.48), shadowOffset: CGSize(width: 1.0, height: 1.0), shadowOpacity: 1, shadowRadius: 6)
+        testView.addSubview(testLabel)
         JKAsyncs.asyncDelay(2, {
         }) {
            testView.removeFromSuperview()

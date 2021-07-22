@@ -137,6 +137,7 @@ public struct JKGlobalTools {
         }
     }
     
+    // MARK: 1.7、跳转URL
     public static func openUrl(url: URL, complete: @escaping ((Bool) -> Void)) {
         // iOS 10.0 以前
         guard #available(iOS 10.0, *)  else {
