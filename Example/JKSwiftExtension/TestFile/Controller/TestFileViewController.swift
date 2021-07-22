@@ -16,16 +16,14 @@ class TestFileViewController: BaseViewController {
         self.title = "TestFile"
         
         headDataArray = ["一、基本的使用"]
-        dataArray = [["设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "引导页", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label"]]
+        dataArray = [["设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label"]]
     }
 }
 
 extension TestFileViewController {
     
     @objc func test15() {
-        let vc = FBGuidePageVC()
-        vc.modalPresentationStyle = .fullScreen
-        self.navigationController?.present(vc, animated: true, completion: nil)
+       
     }
     
     @objc func test14() {
