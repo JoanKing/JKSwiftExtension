@@ -589,14 +589,14 @@ extension UIViewExtensionViewController {
     // MARK: 3.3、添加 圆角 和 阴影
     @objc func test33() {
         
-        var testView = UIView(frame: CGRect(x: 0, y: 100, width: 200, height: 100))
+        var testView = UIView(frame: CGRect(x: 0, y: 100, width: 300, height: 200))
         testView.backgroundColor = .randomColor
         testView.jk.centerX = self.view.jk.centerX
         testView.layer.cornerRadius = 6
         testView.clipsToBounds = false
         self.view.addSubview(testView)
         
-        let testLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+        let testLabel = UILabel(frame: CGRect(x: 50, y: 50, width: 200, height: 100))
         testLabel.backgroundColor = .randomColor
         testLabel.text = "2秒后消失"
         testLabel.textAlignment = .center
