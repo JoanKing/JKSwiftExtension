@@ -12,14 +12,14 @@ class BaseViewCell: UITableViewCell {
 
     var lineView: UIView = {
            let view = UIView()
-        view.backgroundColor = UIColor.brown
+        view.backgroundColor = UIColor.cN4
            return view
        }()
     /// 文本的展示
     var contentLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = UIColor.hexStringColor(hexString: "#444444")
+        label.textColor = UIColor.cN1
         label.textAlignment = .left
         label.numberOfLines = 0
         return label
@@ -39,7 +39,7 @@ class BaseViewCell: UITableViewCell {
             make.left.equalToSuperview().offset(15)
             make.right.equalToSuperview().offset(0)
             make.bottom.equalToSuperview()
-            make.height.equalTo(0.5)
+            make.height.equalTo(kPixel)
         }
     }
     

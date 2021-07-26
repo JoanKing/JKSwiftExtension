@@ -15,7 +15,7 @@ class ViewController: UIViewController {
 
         self.title = "JKSwiftExtension"
         self.edgesForExtendedLayout = []
-        self.view.backgroundColor = UIColor.green
+        self.view.backgroundColor = UIColor.cBackViewColor
         dataArray = ["FoundationExtension", "UIKitExtension", "Protocol", "SmallTools", "TestFile(自己测试用的)"]
         initUI()
     }
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         } else {
             automaticallyAdjustsScrollViewInsets = false
         }
-        tableView.backgroundColor = UIColor.white
+        tableView.backgroundColor = UIColor.cBackViewColor
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none

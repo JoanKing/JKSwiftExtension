@@ -25,7 +25,7 @@ class SmallToolsViewController: UIViewController {
         } else {
             automaticallyAdjustsScrollViewInsets = false
         }
-        tableView.backgroundColor = UIColor.white
+        tableView.backgroundColor = UIColor.cBackViewColor
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
@@ -68,7 +68,7 @@ extension SmallToolsViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: SmallToolsViewController.SmallToolsViewControllerCellIdentifier, for: indexPath) as! BaseViewCell
         let cellName = dataArray[indexPath.row] as! String
         cell.contentLabel.text = "\(indexPath.row + 1)：\(cellName)"
-        cell.contentLabel.textColor = finishedDataArray.contains(cellName) ? UIColor.hexStringColor(hexString: "#006400") : UIColor.hexStringColor(hexString: "#444444")
+        cell.contentLabel.textColor = finishedDataArray.contains(cellName) ? UIColor.hexStringColor(hexString: "#006400") : UIColor.cN1
         // cell.lineView.isHidden = indexPath.row == dataArray.count - 1 ? true : false
         return cell
     }

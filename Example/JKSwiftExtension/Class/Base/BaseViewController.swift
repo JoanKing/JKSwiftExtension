@@ -24,7 +24,7 @@ import UIKit
         } else {
             automaticallyAdjustsScrollViewInsets = false
         }
-        tableView.backgroundColor = UIColor.white
+        tableView.backgroundColor = UIColor.cBackViewColor
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
@@ -42,7 +42,7 @@ import UIKit
         super.viewDidLoad()
         
         self.edgesForExtendedLayout = []
-        self.view.backgroundColor = UIColor.green
+        self.view.backgroundColor = UIColor.cBackViewColor
         
         headDataArray = []
         dataArray = []

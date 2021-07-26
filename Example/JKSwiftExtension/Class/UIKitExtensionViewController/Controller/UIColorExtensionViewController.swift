@@ -27,7 +27,11 @@ extension UIColor {
     /// 颜色
     private(set) static var cB1: UIColor = UIColor.darkModeColor(lightColor: UIColor.green, darkColor: UIColor.blue)
     /// 背景色
-    private(set) static var cBackViewColor: UIColor = UIColor.darkModeColor(lightColor: UIColor.white, darkColor: UIColor.black)
+    private(set) static var cBackViewColor: UIColor = UIColor.darkModeColor(lightColor: UIColor.hexStringColor(hexString: "#FAFAFA"), darkColor: UIColor.hexStringColor(hexString: "#121212"))
+    /// 字体颜色
+    private(set) static var cN1: UIColor = UIColor.darkModeColor(lightColor: UIColor.hexStringColor(hexString: "#333333"), darkColor: UIColor.hexStringColor(hexString: "#FFFFFF").withAlphaComponent(0.85))
+    /// 横线颜色
+    private(set) static var cN4: UIColor = UIColor.darkModeColor(lightColor: UIColor.hexStringColor(hexString: "#EBEBEB"), darkColor: UIColor.hexStringColor(hexString: "#FFFFFF").withAlphaComponent(0.10))
 }
     
 // MARK: 六、暗黑模式颜色处理类

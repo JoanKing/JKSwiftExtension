@@ -25,7 +25,7 @@ class FoundationExtensionViewController: UIViewController {
         } else {
             automaticallyAdjustsScrollViewInsets = false
         }
-        tableView.backgroundColor = UIColor.white
+        tableView.backgroundColor = UIColor.cBackViewColor
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
@@ -69,7 +69,7 @@ extension FoundationExtensionViewController: UITableViewDelegate, UITableViewDat
         let cell = tableView.jk.dequeueReusableCell(cellType: BaseViewCell.self, cellForRowAt: indexPath)
         let cellName = dataArray[indexPath.row] as! String
         cell.contentLabel.text = "\(indexPath.row + 1)：\(cellName)"
-        cell.contentLabel.textColor = finishedDataArray.contains(cellName) ? UIColor.hexStringColor(hexString: "#006400") : UIColor.hexStringColor(hexString: "#444444")
+        cell.contentLabel.textColor = finishedDataArray.contains(cellName) ? UIColor.hexStringColor(hexString: "#006400") : UIColor.cN1
         // cell.lineView.isHidden = indexPath.row == dataArray.count - 1 ? true : false
         return cell
     }
