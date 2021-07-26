@@ -27,18 +27,12 @@ class UserDefaultsExtensionViewController: BaseViewController {
         super.viewDidLoad()
 
         headDataArray = ["一、基本的扩展", "二、模型持久化（复杂类型）"]
-        dataArray = [["存值", "取值"], ["存储模型", "取出模型"]]
+        dataArray = [["存值", "取值", "移除单个值", "移除所有值"], ["存储模型", "取出模型"]]
     }
 
 }
 // MARK:- 二、模型持久化（复杂类型）
 extension UserDefaultsExtensionViewController {
-    
-    // MARK: 2.3
-    @objc func test23() {
-        
-     
-    }
     
     // MARK: 2.2、取出模型
     @objc func test22() {
@@ -64,14 +58,14 @@ extension UserDefaultsExtensionViewController {
 // MARK:- 一、基本的扩展
 extension UserDefaultsExtensionViewController {
     
-    // MARK: 1.1、存值
-    @objc func test11() {
-        let isSuccess = UserDefaults.jk.userDefaultsSetValue(value: "我是小可爱", key: "a")
-        if isSuccess {
-            JKPrint("存值成功")
-        } else {
-            JKPrint("存值失败")
-        }
+    // MARK: 1.4、移除所有值
+    @objc func test14() {
+        UserDefaults.jk.removeAllKeyValue()
+    }
+    
+    // MARK: 1.3、移除单个值
+    @objc func test13() {
+        UserDefaults.jk.remove("a")
     }
     
     // MARK: 1.2、取值
@@ -80,5 +74,15 @@ extension UserDefaultsExtensionViewController {
             return
         }
         JKPrint("存值成功：\(value)")
+    }
+    
+    // MARK: 1.1、存值
+    @objc func test11() {
+        let isSuccess = UserDefaults.jk.userDefaultsSetValue(value: "我是小可爱", key: "a")
+        if isSuccess {
+            JKPrint("存值成功")
+        } else {
+            JKPrint("存值失败")
+        }
     }
 }

@@ -36,6 +36,24 @@ public extension JKPOP where Base: UserDefaults {
         }
         return result
     }
+    
+    // MARK: 1.3、移除单个值
+    /// 移除单个值
+    /// - Parameter key: 键名
+    static func remove(_ key: String) {
+        guard let _ = Base.standard.value(forKey: key) else {
+            return
+        }
+        Base.standard.removeObject(forKey: key)
+    }
+    
+    // MARK: 1.4、移除所有值
+    /// 移除所有值
+    static func removeAllKeyValue() {
+        if let bundleID = Bundle.main.bundleIdentifier {
+            Base.standard.removePersistentDomain(forName: bundleID)
+        }
+    }
 }
 
 // MARK:- 二、模型持久化

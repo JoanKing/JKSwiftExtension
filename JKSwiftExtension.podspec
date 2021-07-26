@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   # 项目名
   s.name             = 'JKSwiftExtension'
   # 版本号
-  s.version          = '1.7.7'
+  s.version          = '1.7.8'
   # 简单描述
   s.summary          = 'Swift版本的一个扩展'
   # 详细介绍
