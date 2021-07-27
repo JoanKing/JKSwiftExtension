@@ -14,7 +14,7 @@ class BaseNavigationViewController: UINavigationController {
         super.viewDidLoad()
 
         // 设置导航栏背景颜色
-        navigationBar.barTintColor = UIColor.white
+        navigationBar.barTintColor = UIColor.cBackViewColor
         let dict: NSDictionary = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 18)]
         // 标题颜色
         navigationBar.titleTextAttributes = (dict as! [NSAttributedString.Key : Any])

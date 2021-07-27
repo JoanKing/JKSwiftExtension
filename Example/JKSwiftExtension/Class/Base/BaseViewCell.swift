@@ -25,11 +25,12 @@ class BaseViewCell: UITableViewCell {
         return label
     }()
     
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         // self.selectionStyle = .none
+        self.backgroundColor = .cBackViewColor
+        self.contentView.backgroundColor = .cBackViewColor
         self.contentView.addSubview(contentLabel)
         self.contentView.addSubview(lineView)
         contentLabel.snp.makeConstraints { (make) in
