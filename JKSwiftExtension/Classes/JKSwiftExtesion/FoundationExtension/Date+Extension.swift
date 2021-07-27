@@ -229,6 +229,16 @@ public extension JKPOP where Base == Date {
         }
         return String(format: "%02d", second)
     }
+    
+    // MARK: 2.7、Date 转 时间戳
+    /// Date 转 时间戳
+    /// - Parameter timestampType: 返回的时间戳类型，默认是秒 10 为的时间戳字符串
+    /// - Returns: 时间戳
+    func dateToTimeStamp(timestampType: JKTimestampType = .second) -> String {
+        // 10位数时间戳 和 13位数时间戳
+        let interval = timestampType == .second ? CLongLong(Int(self.base.timeIntervalSince1970)) : CLongLong(round(self.base.timeIntervalSince1970 * 1000))
+        return "\(interval)"
+    }
 }
 
 // MARK:- 三、前天、昨天、今天、明天、后天、是否同一年同一月同一天 的判断
