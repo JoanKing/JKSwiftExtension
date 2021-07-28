@@ -138,7 +138,7 @@ extension JKDarkModeUtilViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                let contentHeight = JKContentSize.textStringSize(string: "进入换肤时段后，App将自动切换至“魅力黑”夜间肤色，换肤时间结束，切换为原始肤色", size: CGSize(width: kScreenW - 30, height: CGFloat(MAXFLOAT)), font: UIFont.jk.textR(14)).height + 18
+                let contentHeight = JKContentSize.textStringSize(string: "进入换肤时段后，App将自动切换至“魅力黑”夜间肤色，换肤时间结束，切换为原始肤色", size: CGSize(width: kScreenW - 30, height: CGFloat(MAXFLOAT)), font: UIFont.jk.textR(14)).height + 20
                 return contentHeight
             } else {
                 return 44.0
