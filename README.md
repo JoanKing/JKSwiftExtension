@@ -36,7 +36,7 @@
 ## 版本说明
    - 1.8.0、版本：新增智能换肤
        用户可以设置时间来定义：浅色和深色的切换时间，到时间自动切换模式，需要开发者自己去找触发机制，具体的测试用例在：JKDarkModeUtilViewController
-       ![智能换肤](https://user-images.githubusercontent.com/19670000/127318538-157aa88b-2335-49fa-9732-f72474e95e88.png)
+       ![智能换肤](https://upload-images.jianshu.io/upload_images/1728484-2d6b41fd7cc6c0cc.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
    - 1.7.8、版本：部分扩展的新增
    - 1.7.7、版本：暗黑模式的完善
    - 1.7.6、版本：暗黑模式适配iOS 13以上和iOS 13以下的：浅色和深色
