@@ -97,6 +97,7 @@
 		84A8FEFF2534598A00830EAF /* ArrayExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */; };
 		84ADDC3B25E3804500C8177C /* JKDrawSignatureViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC3A25E3804500C8177C /* JKDrawSignatureViewViewController.swift */; };
 		84ADDC5425E38BE400C8177C /* JKJSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC5325E38BE400C8177C /* JKJSONViewController.swift */; };
+		84AEE11826B2549100A93F61 /* JKVVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEE11726B2549100A93F61 /* JKVVViewController.swift */; };
 		84B16BDF268C481C003C8AF9 /* WKWebViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B16BDE268C481C003C8AF9 /* WKWebViewExtensionViewController.swift */; };
 		84B29411257747EF009E7760 /* UINavigationBarExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B29410257747EF009E7760 /* UINavigationBarExtensionViewController.swift */; };
 		84B4440A2575E8AD00D3DD1D /* DataExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B444092575E8AD00D3DD1D /* DataExtensionViewController.swift */; };
@@ -241,6 +242,7 @@
 		84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensionViewController.swift; sourceTree = "<group>"; };
 		84ADDC3A25E3804500C8177C /* JKDrawSignatureViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKDrawSignatureViewViewController.swift; sourceTree = "<group>"; };
 		84ADDC5325E38BE400C8177C /* JKJSONViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKJSONViewController.swift; sourceTree = "<group>"; };
+		84AEE11726B2549100A93F61 /* JKVVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKVVViewController.swift; sourceTree = "<group>"; };
 		84B16BDE268C481C003C8AF9 /* WKWebViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewExtensionViewController.swift; sourceTree = "<group>"; };
 		84B29410257747EF009E7760 /* UINavigationBarExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarExtensionViewController.swift; sourceTree = "<group>"; };
 		84B444092575E8AD00D3DD1D /* DataExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensionViewController.swift; sourceTree = "<group>"; };
@@ -677,6 +679,7 @@
 			children = (
 				84E01BB12609C8F500D0F68A /* JKContactsKitViewController.swift */,
 				8468190C26A32BA1000B2607 /* JKDarkModeUtilViewController.swift */,
+				84AEE11726B2549100A93F61 /* JKVVViewController.swift */,
 				8464429A25FF6BDE002E73A6 /* JKEKEventViewController.swift */,
 				849062D125FE01BC007F75D9 /* JKPhotoAlbumUtilViewController.swift */,
 				84FEC03225E8D1FE0074D207 /* JKPaddingLabelViewController.swift */,
@@ -969,6 +972,7 @@
 				8401537B2552A7B2001AB2FD /* DateFormatterExtensionViewController.swift in Sources */,
 				84ADDC5425E38BE400C8177C /* JKJSONViewController.swift in Sources */,
 				84009E0A2563D8BA00C3CB08 /* JKAsyncsViewController.swift in Sources */,
+				84AEE11826B2549100A93F61 /* JKVVViewController.swift in Sources */,
 				8482AA0A2554075E00EB0A7A /* UIDeviceExtensionViewController.swift in Sources */,
 				84D9BDCD25652D8C00D92461 /* TestView.swift in Sources */,
 				84058C972554FA44007F0C30 /* UIViewExtensionViewController.swift in Sources */,

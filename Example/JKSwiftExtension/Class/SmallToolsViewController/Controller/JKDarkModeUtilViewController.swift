@@ -11,9 +11,9 @@ import UIKit
 // MARK:- 业务颜色的使用
 extension UIColor {
     /// 背景色
-    private(set) static var cA1 = JKDarkModeUtil.colorLightDark(light: UIColor.yellow, dark: UIColor.green)
+    private(set) static var cA1 = JKDarkModeUtil.colorLightDark(lightColor: UIColor.yellow, darkColor: UIColor.green)
     /// B1-品牌橙色 #FF4600
-    private(set) static var cB1_Orange: UIColor = JKDarkModeUtil.colorLightDark(light: UIColor.hexStringColor(hexString: "#FF4600"), dark: UIColor.hexStringColor(hexString: "#FF4600").withAlphaComponent(0.8))
+    private(set) static var cB1_Orange: UIColor = JKDarkModeUtil.colorLightDark(lightColor: UIColor.hexStringColor(hexString: "#FF4600"), darkColor: UIColor.hexStringColor(hexString: "#FF4600").withAlphaComponent(0.8))
 }
 
 class JKDarkModeUtilViewController: UIViewController {
@@ -48,9 +48,11 @@ class JKDarkModeUtilViewController: UIViewController {
 
         self.title = "皮肤设置"
         self.view.backgroundColor = .cBackViewColor
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "跳转", style: .plain, target: self, action: #selector(click))
         initUI()
         commonUI()
         updateTheme()
+        themeProvider.register(observer: self)
     }
     
     /// 创建控件
@@ -92,6 +94,10 @@ class JKDarkModeUtilViewController: UIViewController {
         return tableView
     }()
     
+    // MARK: 跳转
+    @objc func click() {
+        self.navigationController?.pushViewController(JKVVViewController(), animated: true)
+    }
     
 }
 
@@ -227,5 +233,12 @@ extension JKDarkModeUtilViewController {
             topHeadView.updateSelected()
             self.tableView.reloadData()
         }
+    }
+}
+
+extension JKDarkModeUtilViewController: JKThemeable {
+    func apply() {
+        tableView.backgroundColor = JKDarkModeUtil.colorLightDark(lightColor: UIColor.hexStringColor(hexString: "#FAFAFA"), darkColor: UIColor.hexStringColor(hexString: "#121212"))
+        self.tableView.reloadData()
     }
 }

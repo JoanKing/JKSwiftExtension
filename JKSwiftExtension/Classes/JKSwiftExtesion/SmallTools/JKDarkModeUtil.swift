@@ -179,27 +179,27 @@ public extension JKDarkModeUtil {
 
 // MARK:- 动态颜色的使用
 public extension JKDarkModeUtil {
-    static func colorLightDark(light: UIColor, dark: UIColor) -> UIColor {
+    static func colorLightDark(lightColor: UIColor, darkColor: UIColor) -> UIColor {
         if #available(iOS 13.0, *) {
             return UIColor { (traitCollection) -> UIColor in
                 if JKDarkModeUtil.isFollowSystem {
                     if traitCollection.userInterfaceStyle == .light {
-                        return light
+                        return lightColor
                     } else {
-                        return dark
+                        return darkColor
                     }
                 } else if JKDarkModeUtil.isSmartPeeling {
-                    return isSmartPeelingTime() ? dark : light
+                    return isSmartPeelingTime() ? darkColor : lightColor
                 } else {
-                    return JKDarkModeUtil.isLight ? light : dark
+                    return JKDarkModeUtil.isLight ? lightColor : darkColor
                 }
             }
         } else {
             // iOS 13 以下主题色的使用
             if JKDarkModeUtil.isLight {
-                return light
+                return lightColor
             }
-            return dark
+            return darkColor
         }
     }
     

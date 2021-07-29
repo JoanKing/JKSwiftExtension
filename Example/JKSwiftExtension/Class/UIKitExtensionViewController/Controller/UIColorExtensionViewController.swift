@@ -27,12 +27,12 @@ extension UIColor {
     /// 颜色
     private(set) static var cB1: UIColor = UIColor.darkModeColor(lightColor: UIColor.green, darkColor: UIColor.blue)
     /// 背景色
-    private(set) static var cBackViewColor: UIColor = JKDarkModeUtil.colorLightDark(light: UIColor.hexStringColor(hexString: "#FAFAFA"), dark: UIColor.hexStringColor(hexString: "#121212"))
+    private(set) static var cBackViewColor: UIColor = JKDarkModeUtil.colorLightDark(lightColor: UIColor.hexStringColor(hexString: "#FAFAFA"), darkColor: UIColor.hexStringColor(hexString: "#121212"))
     /// 字体颜色
-    private(set) static var cN1: UIColor = JKDarkModeUtil.colorLightDark(light: UIColor.hexStringColor(hexString: "#333333"), dark: UIColor.hexStringColor(hexString: "#FFFFFF").withAlphaComponent(0.85))
+    private(set) static var cN1: UIColor = JKDarkModeUtil.colorLightDark(lightColor: UIColor.hexStringColor(hexString: "#333333"), darkColor: UIColor.hexStringColor(hexString: "#FFFFFF").withAlphaComponent(0.85))
     /// N2 适用辅助标题、辅助文字色、未选中、不可选置灰 #999999
-    private(set) static var cN2: UIColor = JKDarkModeUtil.colorLightDark(light: UIColor.hexStringColor(hexString: "#999999"), dark: UIColor.hexStringColor(hexString: "#FFFFFF").withAlphaComponent(0.6))
-    private(set) static var cN3: UIColor = JKDarkModeUtil.colorLightDark(light: UIColor.hexStringColor(hexString: "#666666"), dark: UIColor.hexStringColor(hexString: "#FFFFFF").withAlphaComponent(0.4))
+    private(set) static var cN2: UIColor = JKDarkModeUtil.colorLightDark(lightColor: UIColor.hexStringColor(hexString: "#999999"), darkColor: UIColor.hexStringColor(hexString: "#FFFFFF").withAlphaComponent(0.6))
+    private(set) static var cN3: UIColor = JKDarkModeUtil.colorLightDark(lightColor: UIColor.hexStringColor(hexString: "#666666"), darkColor: UIColor.hexStringColor(hexString: "#FFFFFF").withAlphaComponent(0.4))
     /// 横线颜色
     private(set) static var cN4: UIColor = UIColor.darkModeColor(lightColor: UIColor.hexStringColor(hexString: "#EBEBEB"), darkColor: UIColor.hexStringColor(hexString: "#FFFFFF").withAlphaComponent(0.10))
 }
