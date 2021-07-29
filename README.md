@@ -15,7 +15,7 @@
 ## 使用说明
 
    每一个 `Extension` 都会对应一个测试用例的类，如果没有的说明还没有完善，如： String 的分类 `String+Extension` 的测试用例在 `StringExtensionViewController.swift` 里面
-   ![WechatIMG160.jpeg](https://upload-images.jianshu.io/upload_images/1728484-f0bcaccd3f7d26b3.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+   ![WechatIMG160.jpeg](https://upload-images.jianshu.io/upload_images/1728484-f0bcaccd3f7d26b3.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1024)
 
 ## 导入方式
 
@@ -34,6 +34,10 @@
 ## 这个基础库的目的：快速开发，不重复再去查找资料，如果觉得此项目对您的Swift学习有帮助，欢迎点赞...
     
 ## 版本说明
+   - 1.8.0、版本：新增智能换肤
+       用户可以设置时间来定义：浅色和深色的切换时间，到时间自动切换模式，需要开发者自己去找触发机制，具体的测试用例在：JKDarkModeUtilViewController
+       
+       ![智能换肤](https://upload-images.jianshu.io/upload_images/1728484-2d6b41fd7cc6c0cc.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
    - 1.7.8、版本：部分扩展的新增
    - 1.7.7、版本：暗黑模式的完善
    - 1.7.6、版本：暗黑模式适配iOS 13以上和iOS 13以下的：浅色和深色
