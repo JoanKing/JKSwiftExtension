@@ -95,6 +95,7 @@
 		84A6FB77255A655700057839 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6FB76255A655700057839 /* BaseNavigationViewController.swift */; };
 		84A6FB79255A65EC00057839 /* UIButtonExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6FB78255A65EC00057839 /* UIButtonExtensionViewController.swift */; };
 		84A8FEFF2534598A00830EAF /* ArrayExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */; };
+		84ABF14326C26A960058E64A /* EightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABF14226C26A960058E64A /* EightViewController.swift */; };
 		84ADDC3B25E3804500C8177C /* JKDrawSignatureViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC3A25E3804500C8177C /* JKDrawSignatureViewViewController.swift */; };
 		84ADDC5425E38BE400C8177C /* JKJSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADDC5325E38BE400C8177C /* JKJSONViewController.swift */; };
 		84AEE11826B2549100A93F61 /* JKVVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AEE11726B2549100A93F61 /* JKVVViewController.swift */; };
@@ -123,7 +124,7 @@
 		84D7397326B16F2200A5538B /* DescriptionCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7397226B16F2200A5538B /* DescriptionCustomViewCell.swift */; };
 		84D8EC94255BFA3A001ACECA /* UIViewControllerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8EC93255BFA3A001ACECA /* UIViewControllerExtensionViewController.swift */; };
 		84D9BD9725651BEB00D92461 /* KeyboardAccessoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BD9625651BEB00D92461 /* KeyboardAccessoryViewController.swift */; };
-		84D9BDA925651FA600D92461 /* WeakTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BDA825651FA600D92461 /* WeakTimerViewController.swift */; };
+		84D9BDA925651FA600D92461 /* JKWeakTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BDA825651FA600D92461 /* JKWeakTimerViewController.swift */; };
 		84D9BDB825652C7200D92461 /* NibLoadableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BDB725652C7200D92461 /* NibLoadableViewController.swift */; };
 		84D9BDCD25652D8C00D92461 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BDCC25652D8C00D92461 /* TestView.swift */; };
 		84D9BDD125652D9900D92461 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D9BDD025652D9900D92461 /* TestView.xib */; };
@@ -240,6 +241,7 @@
 		84A6FB76255A655700057839 /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
 		84A6FB78255A65EC00057839 /* UIButtonExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensionViewController.swift; sourceTree = "<group>"; };
 		84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensionViewController.swift; sourceTree = "<group>"; };
+		84ABF14226C26A960058E64A /* EightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EightViewController.swift; sourceTree = "<group>"; };
 		84ADDC3A25E3804500C8177C /* JKDrawSignatureViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKDrawSignatureViewViewController.swift; sourceTree = "<group>"; };
 		84ADDC5325E38BE400C8177C /* JKJSONViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKJSONViewController.swift; sourceTree = "<group>"; };
 		84AEE11726B2549100A93F61 /* JKVVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKVVViewController.swift; sourceTree = "<group>"; };
@@ -268,7 +270,7 @@
 		84D7397226B16F2200A5538B /* DescriptionCustomViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionCustomViewCell.swift; sourceTree = "<group>"; };
 		84D8EC93255BFA3A001ACECA /* UIViewControllerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensionViewController.swift; sourceTree = "<group>"; };
 		84D9BD9625651BEB00D92461 /* KeyboardAccessoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAccessoryViewController.swift; sourceTree = "<group>"; };
-		84D9BDA825651FA600D92461 /* WeakTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakTimerViewController.swift; sourceTree = "<group>"; };
+		84D9BDA825651FA600D92461 /* JKWeakTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKWeakTimerViewController.swift; sourceTree = "<group>"; };
 		84D9BDB725652C7200D92461 /* NibLoadableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableViewController.swift; sourceTree = "<group>"; };
 		84D9BDCC25652D8C00D92461 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		84D9BDD025652D9900D92461 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 				844A634625664F9A000059EC /* FiveViewController.swift */,
 				844A634B25664F9B000059EC /* SixViewController.swift */,
 				8489F3E0265B6C0200BCEF5E /* TenViewController.swift */,
+				84ABF14226C26A960058E64A /* EightViewController.swift */,
 				844A634725664F9B000059EC /* Notification+Extension.swift */,
 				844A634A25664F9B000059EC /* TestViewController.swift */,
 				844A635C25665328000059EC /* TouchViewController.swift */,
@@ -677,6 +680,7 @@
 		84BF16C2251D9EBC002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				84D9BDA825651FA600D92461 /* JKWeakTimerViewController.swift */,
 				84E01BB12609C8F500D0F68A /* JKContactsKitViewController.swift */,
 				8468190C26A32BA1000B2607 /* JKDarkModeUtilViewController.swift */,
 				84AEE11726B2549100A93F61 /* JKVVViewController.swift */,
@@ -687,7 +691,6 @@
 				84336D6C25A8066700D17AC1 /* JKTapActionLabelViewController.swift */,
 				84B8FE3725A314FD00E7099E /* JKRegexHelperViewController.swift */,
 				843303FA2578B80F00051867 /* JKGlobalToolsViewController.swift */,
-				84D9BDA825651FA600D92461 /* WeakTimerViewController.swift */,
 				84D9BD9625651BEB00D92461 /* KeyboardAccessoryViewController.swift */,
 				84F870002564F91600B74128 /* JKWaterFallLayoutViewController.swift */,
 				84F86FCB2564C66E00B74128 /* JKContentSizeViewController.swift */,
@@ -942,6 +945,7 @@
 				848A643F25A4517E00E9EC48 /* UISliderExtensionViewController.swift in Sources */,
 				84D9BDB825652C7200D92461 /* NibLoadableViewController.swift in Sources */,
 				8423F2E8269FF45200CACC47 /* FBGuidePage.swift in Sources */,
+				84ABF14326C26A960058E64A /* EightViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				844A635325664F9B000059EC /* SixViewController.swift in Sources */,
 				8457685C259DC085006F93D4 /* UITabBarControllerExtensionViewController.swift in Sources */,
@@ -993,7 +997,7 @@
 				84D7396F26B16E4A00A5538B /* DarkModeHeadView.swift in Sources */,
 				8483A739254EC47E00ACF6FD /* NSObjectExtensionViewController.swift in Sources */,
 				84FEC03325E8D1FE0074D207 /* JKPaddingLabelViewController.swift in Sources */,
-				84D9BDA925651FA600D92461 /* WeakTimerViewController.swift in Sources */,
+				84D9BDA925651FA600D92461 /* JKWeakTimerViewController.swift in Sources */,
 				84D9BDD525652FE500D92461 /* JKEmitterableViewController.swift in Sources */,
 				84F11DF825DE4A3400209B4C /* CLLocationExtensionViewController.swift in Sources */,
 				847DFF2C2550F8C100EEE785 /* BoolExtensionViewController.swift in Sources */,

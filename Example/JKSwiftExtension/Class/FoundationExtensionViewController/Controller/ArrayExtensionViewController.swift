@@ -98,14 +98,16 @@ extension ArrayExtensionViewController {
     @objc func test22() {
         let testArray = ["1", "2", "3", "2"]
         let element = "2"
-        JKPrint("获取元素首次出现的位置", "\(element) 在数组：\(testArray) 首次出现的索引是：\(testArray.firstIndex(of: element) ?? 0)")
+        JKPrint("获取元素首次出现的位置", "\(element) 在数组：\(testArray) 首次出现的索引是：\(testArray.firstIndex(element) ?? 0)")
+        // testArray.firstIndex(of: element) ?? 0
     }
     
     // MARK: 2.3、获取元素最后出现的位置
     @objc func test23() {
        let testArray = ["1", "2", "3", "2"]
        let element = "2"
-       JKPrint("获取元素最后出现的位置", "\(element) 在数组：\(testArray) 最后出现的索引是：\(testArray.lastIndex(of: element) ?? 0)")
+       JKPrint("获取元素最后出现的位置", "\(element) 在数组：\(testArray) 最后出现的索引是：\(testArray.lastIndex(element) ?? 0)")
+        // testArray.lastIndex(of: element) ?? 0
     }
 
 }

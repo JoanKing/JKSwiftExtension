@@ -59,7 +59,7 @@ public extension Array where Element : Equatable {
     /// - Parameter item: 元素
     /// - Returns: 索引值
     func firstIndex(_ item: Element) -> Int? {
-        for (index, value) in lazy.enumerated() where value == item {
+        for (index, value) in self.enumerated() where value == item {
             return index
         }
         return nil

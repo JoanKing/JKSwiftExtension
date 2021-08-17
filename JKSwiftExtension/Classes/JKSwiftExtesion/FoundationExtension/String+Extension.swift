@@ -1858,7 +1858,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     ///   - cryptType: 加密类型，默认是 SHA1 加密
     ///   - key: 加密的key
     ///   - lower: 大写还是小写，默认小写
-    /// - Returns: 解密以后的字符串
+    /// - Returns: 加密以后的字符串
     func shaCrypt(cryptType: DDYSHAType = .SHA1, key: String?, lower: Bool = true) -> String? {
         guard let cStr = (self.base as! String).cString(using: String.Encoding.utf8) else {
             return nil

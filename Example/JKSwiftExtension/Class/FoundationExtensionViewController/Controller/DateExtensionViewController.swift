@@ -13,7 +13,7 @@ class DateExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、Date 基本的扩展", "二、时间格式的转换", "三、前天、昨天、今天、明天、后天、是否同一年同一月同一天 的判断", "四、相对的时间变化", "五、某年月份的天数获取"]
-        dataArray = [["获取当前 秒级 时间戳 - 10 位", "获取当前 毫秒级 时间戳 - 13 位", "获取当前的时间 Date", "从 Date 获取年份", "从 Date 获取月份", "从 Date 获取 日", "从 Date 获取 小时", "从 Date 获取 分钟", "从 Date 获取 秒", "从 Date 获取 毫秒", "从日期获取 星期(英文)", "从日期获取 月(英文)"], ["时间戳 按照对应的格式 转化为 对应时间的字符串，支持10位 和 13位", "时间戳 转 Date, 支持 10 位 和 13 位", "Date 转换为相应格式的字符串", "带格式的时间转 时间戳，支持返回 13位 和 10位的时间戳", "带格式的时间转 Date，支持返回 13位 和 10位的时间戳", "秒转换成播放时间条的格式", "Date 转 时间戳"], ["今天的日期", "昨天的日期", "明天的日期", "前天的日期", "后天的日期", "是否为今天（只比较日期，不比较时分秒）", "是否为昨天", "是否为前天", "是否为今年", "两个date是否为同一年同一月的同一天", "当前日期是不是润年"], ["取得与当前时间的间隔差", "获取两个日期之间的数据", "获取两个日期之间的天数", "获取两个日期之间的小时", "获取两个日期之间的分钟", "获取两个日期之间的秒数"], ["获取某一年某一月的天数", "获取当前月的天数"]]
+        dataArray = [["获取当前 秒级 时间戳 - 10 位", "获取当前 毫秒级 时间戳 - 13 位", "获取当前的时间 Date", "从 Date 获取年份", "从 Date 获取月份", "从 Date 获取 日", "从 Date 获取 小时", "从 Date 获取 分钟", "从 Date 获取 秒", "从 Date 获取 毫秒", "从日期获取 星期(英文)", "从日期获取 星期(中文)", "从日期获取 月(英文)"], ["时间戳 按照对应的格式 转化为 对应时间的字符串，支持10位 和 13位", "时间戳 转 Date, 支持 10 位 和 13 位", "Date 转换为相应格式的字符串", "带格式的时间转 时间戳，支持返回 13位 和 10位的时间戳", "带格式的时间转 Date，支持返回 13位 和 10位的时间戳", "秒转换成播放时间条的格式", "Date 转 时间戳"], ["今天的日期", "昨天的日期", "明天的日期", "前天的日期", "后天的日期", "是否为今天（只比较日期，不比较时分秒）", "是否为昨天", "是否为前天", "是否为今年", "两个date是否为同一年同一月的同一天", "当前日期是不是润年", "是否为本周"], ["取得与当前时间的间隔差", "获取两个日期之间的数据", "获取两个日期之间的天数", "获取两个日期之间的小时", "获取两个日期之间的分钟", "获取两个日期之间的秒数"], ["获取某一年某一月的天数", "获取当前月的天数"]]
     }
 }
 
@@ -100,6 +100,16 @@ extension DateExtensionViewController {
 // MARK:- 三、前天、昨天、今天、明天、后天、是否同一年同一月同一天 的判断
 extension DateExtensionViewController {
     
+    // MARK: 3.12、是否为本周
+    @objc func test312() {
+        // 2021-06-23 14:09:06
+        let timestamp = "1624428546"
+        let date = Date.jk.timestampToFormatterDate(timestamp: timestamp)
+        let timestamp2 = "1629104010"
+        let date2 = Date.jk.timestampToFormatterDate(timestamp: timestamp2)
+        JKPrint("是否为本周", "日期：\(date)", "是否为本周: \(date.jk.isThisWeek)", "日期：\(date2)", "是否为本周: \(date2.jk.isThisWeek)")
+    }
+    
     // MARK: 3.11、当前日期是不是润年
     @objc func test311() {
         // 2021-06-23 14:09:06
@@ -154,7 +164,7 @@ extension DateExtensionViewController {
     
     // MARK: 3.5、后天的日期
     @objc func test35() {
-        guard let date = Date().jk.theDayAfterYesterDayDate else {
+        guard let date = Date.jk.theDayAfterYesterDayDate else {
             return
         }
         JKPrint("后天的日期：\(date)")
@@ -162,7 +172,7 @@ extension DateExtensionViewController {
     
     // MARK: 3.4、前天的日期
     @objc func test34() {
-        guard let date = Date().jk.theDayBeforYesterDayDate else {
+        guard let date = Date.jk.theDayBeforYesterDayDate else {
             return
         }
         JKPrint("前天的日期：\(date)")
@@ -170,7 +180,7 @@ extension DateExtensionViewController {
     
     // MARK: 3.3、明天的日期
     @objc func test33() {
-        guard let date = Date().jk.tomorrowDate else {
+        guard let date = Date.jk.tomorrowDate else {
             return
         }
         JKPrint("明天的日期：\(date)")
@@ -178,7 +188,7 @@ extension DateExtensionViewController {
     
     // MARK: 3.2、昨天的日期
     @objc func test32() {
-        guard let date = Date().jk.yesterDayDate else {
+        guard let date = Date.jk.yesterDayDate else {
             return
         }
         JKPrint("昨天的日期：\(date)")
@@ -186,7 +196,7 @@ extension DateExtensionViewController {
     
     // MARK: 3.1、今天的日期
     @objc func test31() {
-        JKPrint("今天的日期：\(Date().jk.todayDate)")
+        JKPrint("今天的日期：\(Date.jk.todayDate)")
     }
 }
 
@@ -198,7 +208,7 @@ extension DateExtensionViewController {
         let timestamp1 = "2020-10-28 09:37:33"
         let timestamp1Fomatter = "yyyy-MM-dd HH:mm:ss"
         let date = Date.jk.formatterTimeStringToDate(timesString: timestamp1, formatter: timestamp1Fomatter)
-        print("Date 转 时间戳：\(date.jk.dateToTimeStamp(timestampType: .second))")
+        print("Date 转 时间戳" ,"\(date)：转 时间戳\(date.jk.dateToTimeStamp(timestampType: .second))")
     }
     
     // MARK: 2.6、秒转换成播放时间条的格式
@@ -230,7 +240,7 @@ extension DateExtensionViewController {
         let timestamp3 = "2020-10-28 09:37:33"
         let timestamp3Fomatter = "yyyy-MM-dd HH:mm:ss"
         
-        JKPrint("时间戳 转 Date, 支持 10 位 和 13 位：", "\(timestamp1) -> \(Date.jk.formatterTimeStringToTimestamp(timesString: timestamp1, formatter: timestamp1Fomatter, timestampType: .second))", "\(timestamp2) -> \(Date.jk.formatterTimeStringToTimestamp(timesString: timestamp2, formatter: timestamp2Fomatter, timestampType: .millisecond))", "\(timestamp3) -> \(Date.jk.formatterTimeStringToTimestamp(timesString: timestamp3, formatter: timestamp3Fomatter, timestampType: .millisecond))")
+        JKPrint("时间戳 转 Date, 支持 10 位 和 13 位：", "\(timestamp1) -> \(Date.jk.formatterTimeStringToTimestamp(timesString: timestamp1, formatter: timestamp1Fomatter, timestampType: .second))", "\(timestamp2) -> \(Date.jk.formatterTimeStringToTimestamp(timesString: timestamp2, formatter: timestamp2Fomatter, timestampType: .millisecond))", "\(timestamp3) -> \(Date.jk.formatterTimeStringToTimestamp(timesString: timestamp3, formatter: timestamp3Fomatter, timestampType: .second))")
     }
     
     // MARK: 2.3、Date 转换为相应格式的字符串
@@ -257,43 +267,58 @@ extension DateExtensionViewController {
 // MARK:- 一、Date 基本的扩展
 extension DateExtensionViewController {
     
-    // MARK: 1.11、从日期获取 月(英文)
-    @objc func test111() {
+    // MARK: 1.13、从日期获取 月(英文)
+    @objc func test113() {
         let date = Date.jk.currentDate
         JKPrint("从日期获取 月(英文)", "\(date) 的 月 为：\(date.jk.monthAsString)")
     }
     
-    // MARK: 1.10、从日期获取 星期
-    @objc func test110() {
+    // MARK: 1.12、从日期获取 星期(中文)
+    @objc func test112() {
+        let date = Date.jk.currentDate
+        // 2021-08-18 16:53:30 星期三
+        let timestamp1 = "1629276810"
+        let date2 = Date.jk.timestampToFormatterDate(timestamp: timestamp1)
+        JKPrint("从日期获取 星期(中文)", "\(date) 的 星期 为：\(date.jk.weekdayStringFromDate)", "\(date2) 的 星期 为：\(date2.jk.weekdayStringFromDate)")
+    }
+    
+    // MARK: 1.11、从日期获取 星期(英文)
+    @objc func test111() {
         let date = Date.jk.currentDate
         JKPrint("从日期获取 星期", "\(date) 的 星期 为：\(date.jk.weekday)")
     }
     
-    // MARK: 1.9、从 Date 获取 毫秒
-    @objc func test19() {
+    // MARK: 1.10、从 Date 获取 毫秒
+    @objc func test110() {
         let date = Date.jk.currentDate
         JKPrint("从日期获取 毫秒", "\(date) 的 毫秒 为：\(date.jk.nanosecond)")
     }
     
-    // MARK: 1.8、从 Date 获取 秒
-    @objc func test18() {
+    // MARK: 1.9、从 Date 获取 秒
+    @objc func test19() {
         let date = Date.jk.currentDate
         JKPrint("从日期获取 秒", "\(date) 的 秒 为：\(date.jk.second)")
     }
     
-    // MARK: 1.7、从 Date 获取 分钟
-    @objc func test17() {
+    // MARK: 1.8、从 Date 获取 分钟
+    @objc func test18() {
         let date = Date.jk.currentDate
         JKPrint("从日期获取 分钟", "\(date) 的 分钟 为：\(date.jk.minute)")
     }
     
-    // MARK: 1.6、从 Date 获取 小时
-    @objc func test16() {
+    // MARK: 1.7、从 Date 获取 小时
+    @objc func test17() {
         let date = Date.jk.currentDate
         JKPrint("从日期获取 小时", "\(date) 的 小时 为：\(date.jk.hour)")
     }
     
-    // MARK: 1.5、从日期获取 日
+    // MARK: 1.6、从日期获取 日
+    @objc func test16() {
+        let date = Date.jk.currentDate
+        JKPrint("从日期获取 日", "\(date) 的 日 为：\(date.jk.day)")
+    }
+    
+    // MARK: 1.5、从 Date 获取月份
     @objc func test15() {
         let date = Date.jk.currentDate
         JKPrint("从日期获取 日", "\(date) 的 日 为：\(date.jk.day)")

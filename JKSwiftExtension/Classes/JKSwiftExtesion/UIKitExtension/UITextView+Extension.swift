@@ -102,7 +102,7 @@ extension UITextView {
         label.numberOfLines = 0
         // label.lineBreakMode = .byWordWrapping
         label.textColor = self.placeholdColor
-        label.backgroundColor = .randomColor
+        // label.backgroundColor = .randomColor
         self.placeholderLabel = label
         addSubview(self.placeholderLabel!)
         placeholderLabel?.isHidden = self.text.count > 0 ? true : false
