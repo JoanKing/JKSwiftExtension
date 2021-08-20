@@ -208,7 +208,7 @@ public extension JKPOP where Base == Date {
             #if DEBUG
             fatalError("时间有问题")
             #else
-            return Date()
+            return ""
             #endif
         }
         if timestampType == .second {
