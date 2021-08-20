@@ -22,4 +22,10 @@ public extension JKPOP where Base == Data {
         return Data(base64Encoded: self.base)
     }
     
+    // MARK: 1.3、转成bytes
+    /// 转成bytes
+    var bytes: [UInt8] {
+        return [UInt8](self.base)
+    }
+    
 }

@@ -11,9 +11,9 @@ import Foundation
 extension Date: JKPOPCompatible {}
 /// 时间戳的类型
 public enum JKTimestampType: Int {
-    // 秒
+    /// 秒
     case second
-    // 毫秒
+    /// 毫秒
     case millisecond
 }
 
@@ -116,8 +116,8 @@ public enum JKTimeBarType {
 }
 public extension JKPOP where Base == Date {
     
-    // MARK: 2.1、时间戳 按照对应的格式 转化为 对应时间的字符串，支持10位 和 13位 
-    /// 时间戳 按照对应的格式 转化为 对应时间的字符串，支持10位 和 13位 如：1603849053 按照 "yyyy-MM-dd HH:mm:ss" 转化后为：2020-10-28 09:37:33
+    // MARK: 2.1、时间戳(支持10位和13位)按照对应的格式 转化为 对应时间的字符串
+    /// 时间戳(支持10位和13位)按照对应的格式 转化为 对应时间的字符串 如：1603849053 按照 "yyyy-MM-dd HH:mm:ss" 转化后为：2020-10-28 09:37:33
     /// - Parameters:
     ///   - timestamp: 时间戳
     ///   - format: 格式
@@ -132,8 +132,8 @@ public extension JKPOP where Base == Date {
         return dateFormatter.string(from: date)
     }
     
-    // MARK: 2.2、时间戳 转 Date, 支持 10 位 和 13 位
-    /// 时间戳 转 Date, 支持 10 位 和 13 位
+    // MARK: 2.2、时间戳(支持 10 位 和 13 位) 转 Date
+    /// 时间戳(支持 10 位 和 13 位) 转 Date
     /// - Parameter timestamp: 时间戳
     /// - Returns: 返回 Date
     static func timestampToFormatterDate(timestamp: String) -> Date {
@@ -144,19 +144,16 @@ public extension JKPOP where Base == Date {
             return Date()
             #endif
         }
-        guard let timestampDouble = timestamp.jk.toDouble() else {
+        guard let timestampInt = timestamp.jk.toInt() else {
             #if DEBUG
             fatalError("时间戳位有问题")
             #else
             return Date()
             #endif
         }
-        let timestampValue = timestamp.count == 10 ? timestampDouble : timestampDouble / 1000
+        let timestampValue = timestamp.count == 10 ? timestampInt : timestampInt / 1000
         // 时间戳转为Date
-        // Date(timeIntervalSince1970: timestampValue)
-        guard let date = getNowDateFromatAnDate(Date(timeIntervalSince1970: timestampValue)) else {
-            return Date()
-        }
+        let date = Date(timeIntervalSince1970: TimeInterval(timestampValue))
         return date
     }
     
@@ -198,7 +195,7 @@ public extension JKPOP where Base == Date {
         return dateFormatter.string(from: self.base)
     }
     
-    // MARK: 2.4、带格式的时间转 时间戳，支持返回 13位 和 10位的时间戳
+    // MARK: 2.4、带格式的时间转 时间戳，支持返回 13位 和 10位的时间戳，时间字符串和时间格式必须保持一致
     /// 带格式的时间转 时间戳，支持返回 13位 和 10位的时间戳，时间字符串和时间格式必须保持一致
     /// - Parameters:
     ///   - timeString: 时间字符串，如：2020-10-26 16:52:41
@@ -206,7 +203,14 @@ public extension JKPOP where Base == Date {
     ///   - timestampType: 返回的时间戳类型，默认是秒 10 为的时间戳字符串
     /// - Returns: 返回转化后的时间戳
     static func formatterTimeStringToTimestamp(timesString: String, formatter: String, timestampType: JKTimestampType = .second) -> String {
-        let date = formatterTimeStringToDate(timesString: timesString, formatter: formatter)
+        let dateFormatter = DateFormatter(format: formatter)
+        guard let date = dateFormatter.date(from: timesString) else {
+            #if DEBUG
+            fatalError("时间有问题")
+            #else
+            return Date()
+            #endif
+        }
         if timestampType == .second {
             return "\(Int(date.timeIntervalSince1970))"
         }
@@ -214,7 +218,7 @@ public extension JKPOP where Base == Date {
     }
     
     // MARK: 2.5、带格式的时间转 Date
-    /// 带格式的时间转 Date，支持返回 13位 和 10位的时间戳
+    /// 带格式的时间转 Date
     /// - Parameters:
     ///   - timesString: 时间字符串
     ///   - formatter: 格式
@@ -228,10 +232,12 @@ public extension JKPOP where Base == Date {
             return Date()
             #endif
         }
+        /*
         guard let resultDate = getNowDateFromatAnDate(date) else {
             return Date()
         }
-        return resultDate
+        */
+        return date
     }
     
     // MARK: 2.6、秒转换成播放时间条的格式
@@ -281,6 +287,12 @@ public extension JKPOP where Base == Date {
         // 10位数时间戳 和 13位数时间戳
         let interval = timestampType == .second ? CLongLong(Int(self.base.timeIntervalSince1970)) : CLongLong(round(self.base.timeIntervalSince1970 * 1000))
         return "\(interval)"
+    }
+    
+    // 转成当前时区的日期
+    func dateFromGMT() -> Date {
+        let secondFromGMT: TimeInterval = TimeInterval(TimeZone.current.secondsFromGMT(for: self.base))
+        return self.base.addingTimeInterval(secondFromGMT)
     }
 }
 

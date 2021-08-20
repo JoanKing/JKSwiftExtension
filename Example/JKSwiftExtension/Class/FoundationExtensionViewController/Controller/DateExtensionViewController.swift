@@ -13,7 +13,7 @@ class DateExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、Date 基本的扩展", "二、时间格式的转换", "三、前天、昨天、今天、明天、后天、是否同一年同一月同一天 的判断", "四、相对的时间变化", "五、某年月份的天数获取"]
-        dataArray = [["获取当前 秒级 时间戳 - 10 位", "获取当前 毫秒级 时间戳 - 13 位", "获取当前的时间 Date", "从 Date 获取年份", "从 Date 获取月份", "从 Date 获取 日", "从 Date 获取 小时", "从 Date 获取 分钟", "从 Date 获取 秒", "从 Date 获取 毫秒", "从日期获取 星期(英文)", "从日期获取 星期(中文)", "从日期获取 月(英文)"], ["时间戳 按照对应的格式 转化为 对应时间的字符串，支持10位 和 13位", "时间戳 转 Date, 支持 10 位 和 13 位", "Date 转换为相应格式的字符串", "带格式的时间转 时间戳，支持返回 13位 和 10位的时间戳", "带格式的时间转 Date，支持返回 13位 和 10位的时间戳", "秒转换成播放时间条的格式", "Date 转 时间戳"], ["今天的日期", "昨天的日期", "明天的日期", "前天的日期", "后天的日期", "是否为今天（只比较日期，不比较时分秒）", "是否为昨天", "是否为前天", "是否为今年", "两个date是否为同一年同一月的同一天", "当前日期是不是润年", "是否为本周"], ["取得与当前时间的间隔差", "获取两个日期之间的数据", "获取两个日期之间的天数", "获取两个日期之间的小时", "获取两个日期之间的分钟", "获取两个日期之间的秒数"], ["获取某一年某一月的天数", "获取当前月的天数"]]
+        dataArray = [["获取当前 秒级 时间戳 - 10 位", "获取当前 毫秒级 时间戳 - 13 位", "获取当前的时间 Date", "从 Date 获取年份", "从 Date 获取月份", "从 Date 获取 日", "从 Date 获取 小时", "从 Date 获取 分钟", "从 Date 获取 秒", "从 Date 获取 毫秒", "从日期获取 星期(英文)", "从日期获取 星期(中文)", "从日期获取 月(英文)"], ["时间戳(支持10位和13位)按照对应的格式 转化为 对应时间的字符串 如：1603849053 按照 yyyy-MM-dd HH:mm:ss 转化后为：2020-10-28 09:37:33", "时间戳(支持 10 位 和 13 位) 转 Date", "Date 转换为相应格式的字符串", "带格式的时间转 时间戳，支持返回 13位 和 10位的时间戳，时间字符串和时间格式必须保持一致", "带格式的时间转 Date", "秒转换成播放时间条的格式", "Date 转 时间戳"], ["今天的日期", "昨天的日期", "明天的日期", "前天的日期", "后天的日期", "是否为今天（只比较日期，不比较时分秒）", "是否为昨天", "是否为前天", "是否为今年", "两个date是否为同一年同一月的同一天", "当前日期是不是润年", "是否为本周"], ["取得与当前时间的间隔差", "获取两个日期之间的数据", "获取两个日期之间的天数", "获取两个日期之间的小时", "获取两个日期之间的分钟", "获取两个日期之间的秒数"], ["获取某一年某一月的天数", "获取当前月的天数"]]
     }
 }
 
@@ -205,10 +205,12 @@ extension DateExtensionViewController {
     
     // MARK: 2.7、Date 转 时间戳
     @objc func test27() {
-        let timestamp1 = "2020-10-28 09:37:33"
+        let timeStr = "2020-10-28 09:37:33"
         let timestamp1Fomatter = "yyyy-MM-dd HH:mm:ss"
-        let date = Date.jk.formatterTimeStringToDate(timesString: timestamp1, formatter: timestamp1Fomatter)
-        print("Date 转 时间戳" ,"\(date)：转 时间戳\(date.jk.dateToTimeStamp(timestampType: .second))")
+        let date = Date.jk.formatterTimeStringToDate(timesString: timeStr, formatter: timestamp1Fomatter)
+        let timestamp = date.jk.dateFromGMT().jk.dateToTimeStamp(timestampType: .second)
+        let newTimeStr = Date.jk.timestampToFormatterTimeString(timestamp: timestamp, format: "yyyy-MM-dd HH:mm:ss")
+        print("Date 转 时间戳" ,"\(date)：转 时间戳：\(timestamp) -> \(newTimeStr)")
     }
     
     // MARK: 2.6、秒转换成播放时间条的格式
@@ -219,44 +221,68 @@ extension DateExtensionViewController {
         JKPrint("秒转换成播放时间条的格式，\(second)秒 1时2分6秒", "秒类型：\(Date.jk.getFormatPlayTime(seconds: second, type: .second))", "分钟类型：\(Date.jk.getFormatPlayTime(seconds: second, type: .minute))", "小时类型：\(Date.jk.getFormatPlayTime(seconds: second, type: .hour))", "自动类型：\(Date.jk.getFormatPlayTime(seconds: second, type: .normal))", "秒转换成播放时间条的格式，\(second2)秒 32分8秒", "秒类型：\(Date.jk.getFormatPlayTime(seconds: second2, type: .second))", "分钟类型：\(Date.jk.getFormatPlayTime(seconds: second2, type: .minute))", "小时类型：\(Date.jk.getFormatPlayTime(seconds: second2, type: .hour))", "自动类型：\(Date.jk.getFormatPlayTime(seconds: second2, type: .normal))", "秒转换成播放时间条的格式，\(second3)秒 28秒", "秒类型：\(Date.jk.getFormatPlayTime(seconds: second3, type: .second))", "分钟类型：\(Date.jk.getFormatPlayTime(seconds: second3, type: .minute))", "小时类型：\(Date.jk.getFormatPlayTime(seconds: second3, type: .hour))", "自动类型：\(Date.jk.getFormatPlayTime(seconds: second3, type: .normal))")
     }
     
-    // MARK: 2.5、带格式的时间转 Date，支持返回 13位 和 10位的时间戳
+    // MARK: 2.5、带格式的时间转 Date
     @objc func test25() {
-        let timestamp1 = "2020-10-28"
+        let timesString1 = "2020-10-28"
         let timestamp1Fomatter = "yyyy-MM-dd"
-        let timestamp2 = "2020年10月28日"
-        let timestamp2Fomatter = "yyyy年MM月dd日"
-        let timestamp3 = "2020-10-28 09:37:33"
-        let timestamp3Fomatter = "yyyy-MM-dd HH:mm:ss"
+        let date1 = Date.jk.formatterTimeStringToDate(timesString: timesString1, formatter: timestamp1Fomatter)
+        let timestamp1 = date1.jk.dateToTimeStamp(timestampType: .second)
         
-        JKPrint("带格式的时间转 Date，支持返回 13位 和 10位的时间戳", "\(timestamp1) -> \(Date.jk.formatterTimeStringToDate(timesString: timestamp1, formatter: timestamp1Fomatter))", "\(timestamp2) -> \(Date.jk.formatterTimeStringToDate(timesString: timestamp2, formatter: timestamp2Fomatter))","\(timestamp3) -> \(Date.jk.formatterTimeStringToDate(timesString: timestamp3, formatter: timestamp3Fomatter))")
+        let timesString2 = "2020年10月28日"
+        let timestamp2Fomatter = "yyyy年MM月dd日"
+        let date2 = Date.jk.formatterTimeStringToDate(timesString: timesString2, formatter: timestamp2Fomatter)
+        let timestamp2 = date2.jk.dateToTimeStamp(timestampType: .second)
+        
+        let timesString3 = "2020-10-28 09:37:33"
+        let timestamp3Fomatter = "yyyy-MM-dd HH:mm:ss"
+        let date3 = Date.jk.formatterTimeStringToDate(timesString: timesString3, formatter: timestamp3Fomatter)
+        let timestamp3 = date3.jk.dateToTimeStamp(timestampType: .second)
+        
+        JKPrint("带格式的时间转 Date", "\(timesString1) -> \(date1) -> \(timestamp1)", "\(timesString2) -> \(date2) -> \(timestamp2)","\(timesString3) -> \(date3) -> \(timestamp3)")
     }
     
-    // MARK: 2.4、带格式的时间转 时间戳，支持返回 13位 和 10位的时间戳
+    // MARK: 2.4、带格式的时间转 时间戳，支持返回 13位 和 10位的时间戳，时间字符串和时间格式必须保持一致
     @objc func test24() {
-        let timestamp1 = "2020-10-28"
+        let timeStr1 = "2020-10-28"
         let timestamp1Fomatter = "yyyy-MM-dd"
-        let timestamp2 = "2020年10月28日"
-        let timestamp2Fomatter = "yyyy年MM月dd日"
-        let timestamp3 = "2020-10-28 09:37:33"
-        let timestamp3Fomatter = "yyyy-MM-dd HH:mm:ss"
+        let timestamp1 = Date.jk.formatterTimeStringToTimestamp(timesString: timeStr1, formatter: timestamp1Fomatter, timestampType: .second)
+        let timeNewStr1 = Date.jk.timestampToFormatterTimeString(timestamp: timestamp1, format: "yyyy-MM-dd HH:mm:ss")
         
-        JKPrint("时间戳 转 Date, 支持 10 位 和 13 位：", "\(timestamp1) -> \(Date.jk.formatterTimeStringToTimestamp(timesString: timestamp1, formatter: timestamp1Fomatter, timestampType: .second))", "\(timestamp2) -> \(Date.jk.formatterTimeStringToTimestamp(timesString: timestamp2, formatter: timestamp2Fomatter, timestampType: .millisecond))", "\(timestamp3) -> \(Date.jk.formatterTimeStringToTimestamp(timesString: timestamp3, formatter: timestamp3Fomatter, timestampType: .second))")
+        let timeStr2 = "2020年10月28日"
+        let timestamp2Fomatter = "yyyy年MM月dd日"
+        let timestamp2 = Date.jk.formatterTimeStringToTimestamp(timesString: timeStr2, formatter: timestamp2Fomatter, timestampType: .millisecond)
+        let timeNewStr2 = Date.jk.timestampToFormatterTimeString(timestamp: timestamp2, format: "yyyy-MM-dd HH:mm:ss")
+        
+        let timeStr3 = "2020-10-28 09:37:33"
+        let timestamp3Fomatter = "yyyy-MM-dd HH:mm:ss"
+        let timestamp3 = Date.jk.formatterTimeStringToTimestamp(timesString: timeStr3, formatter: timestamp3Fomatter, timestampType: .second)
+        let timeNewStr3 = Date.jk.timestampToFormatterTimeString(timestamp: timestamp3, format: "yyyy-MM-dd HH:mm:ss")
+        
+        JKPrint("时间戳 转 Date, 支持 10 位 和 13 位：", "\(timeStr1) -> \(timestamp1) -> \(timeNewStr1)", "\(timeStr2) -> \(timestamp2) -> \(timeNewStr2)", "\(timeStr3) -> \(timestamp3) -> \(timeNewStr3)")
     }
     
     // MARK: 2.3、Date 转换为相应格式的字符串
     @objc func test23() {
-        let date = Date.jk.currentDate
-        JKPrint("Date 转换为相应格式的字符串", "获取当前的时间 Date位：\(date)","当前的 date 转 时间为：\(date.jk.toformatterTimeString(formatter: "yyyy-MM-dd"))")
+        /// 2020-10-28 09:37:33+
+        let timestamp = "1603849053"
+        let date = Date.jk.timestampToFormatterDate(timestamp: timestamp)
+        JKPrint("时间戳：\(timestamp)(2020-10-28 09:37:33) 转为Date为：\(date)", "date 转 时间yyyy-MM-dd HH:mm:ss格式的时间为：\(date.jk.toformatterTimeString(formatter: "yyyy-MM-dd HH:mm:ss"))")
     }
     
-    // MARK: 2.2、时间戳 转 Date, 支持 10 位 和 13 位
+    // MARK: 2.2、时间戳(支持 10 位 和 13 位) 转 Date
     @objc func test22() {
         let timestamp1 = "1603849053"
+        let date1 = Date.jk.timestampToFormatterDate(timestamp: timestamp1)
+        let timestampStr1 = date1.jk.dateToTimeStamp(timestampType: .second)
+        
         let timestamp2 = "1603849053000"
-        JKPrint("时间戳 转 Date, 支持 10 位 和 13 位：", "\(timestamp1) -> \(Date.jk.timestampToFormatterDate(timestamp: timestamp1))", "\(timestamp2) -> \(Date.jk.timestampToFormatterDate(timestamp: timestamp2))")
+        let date2 = Date.jk.timestampToFormatterDate(timestamp: timestamp2)
+        let timestampStr2 = date2.jk.dateToTimeStamp(timestampType: .millisecond)
+        
+        JKPrint("时间戳(支持 10 位 和 13 位) 转 Date：", "\(timestamp1) -> \(date1) -> \(timestampStr1)", "\(timestamp2) -> \(date2) -> \(timestampStr2)")
     }
     
-    // MARK: 2.1、时间戳 按照对应的格式 转化为 对应时间的字符串
+    // MARK: 2.1、时间戳(支持10位和13位)按照对应的格式 转化为 对应时间的字符串 如：1603849053 按照 "yyyy-MM-dd HH:mm:ss" 转化后为：2020-10-28 09:37:33
     @objc func test21() {
         let timestamp1 = "1603849053"
         let timestamp2 = "1603849053000"

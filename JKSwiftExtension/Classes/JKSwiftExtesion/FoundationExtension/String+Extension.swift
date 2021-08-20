@@ -239,6 +239,23 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         }
         return htmlString ?? NSMutableAttributedString(string: self.base as! String)
     }
+   
+    // MARK: 1.20、计算字符个数（英文 = 1，数字 = 1，汉语 = 2）
+    /// 计算字符个数（英文 = 1，数字 = 1，汉语 = 2）
+    /// - Returns: 返回字符的个数
+    func countOfChars() -> Int {
+        var count = 0
+        guard (self.base as! String).count > 0 else { return 0 }
+        for i in 0...(self.base as! String).count - 1 {
+            let c: unichar = ((self.base as! String) as NSString).character(at: i)
+            if (c >= 0x4E00) {
+                count += 2
+            } else {
+                count += 1
+            }
+        }
+        return count
+    }
 }
 
 // MARK:- 二、沙盒路径的获取
@@ -1225,6 +1242,12 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
             return UIApplication.shared.canOpenURL(url)
         }
         return false
+    }
+    
+    // MARK: 9.19、是否是一个有效的文件URL, "file://Documents/file.txt".isValidFileUrl -> true
+    /// 是否是一个有效的文件URL
+    public var isValidFileUrl: Bool {
+        return URL(string: base as! String)?.isFileURL ?? false
     }
     
     // MARK:- private 方法

@@ -421,6 +421,6 @@ extension UIApplicationExtensionViewController {
     
     // MARK: 1.1、获取屏幕的方向
     @objc func test11() {
-        JKPrint("获取屏幕的方向", "\(UIApplication.jk.screenOrientation)")
+        JKPrint("获取屏幕的方向", "\(UIApplication.jk.screenOrientation.rawValue)")
     }
 }
