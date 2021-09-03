@@ -605,8 +605,37 @@ public extension JKPOP where Base: UIView {
         shapeLayer.path = path
         self.base.layer.addSublayer(shapeLayer)
     }
+    
+    // MARK: 5.12、添加内阴影
+    /// 添加内阴影
+    /// - Parameters:
+    ///   - shadowColor: 阴影的颜色
+    ///   - shadowOffset: 阴影的偏移度：CGSizeMake(X[正的右偏移,负的左偏移], Y[正的下偏移,负的上偏移])
+    ///   - shadowOpacity: 阴影的透明度
+    ///   - shadowRadius: 阴影半径，默认 3
+    ///   - insetBySize: 内阴影偏移大小
+    func addInnerShadowLayer(shadowColor: UIColor, shadowOffset: CGSize = CGSize(width: 0, height: 0), shadowOpacity: Float = 0.5, shadowRadius: CGFloat = 3, insetBySize: CGSize = CGSize(width: -42, height: -42)) {
+        let shadowLayer = CAShapeLayer()
+        shadowLayer.frame = self.base.bounds
+        shadowLayer.shadowColor = shadowColor.cgColor
+        shadowLayer.shadowOffset = shadowOffset
+        shadowLayer.shadowOpacity = shadowOpacity
+        shadowLayer.shadowRadius = shadowRadius
+        shadowLayer.fillRule = .evenOdd
+        let path = CGMutablePath()
+        path.addRect(self.base.bounds.insetBy(dx: insetBySize.width, dy: insetBySize.height))
+      
+        // let someInnerPath = UIBezierPath(roundedRect: self.base.bounds, cornerRadius: innerPathRadius).cgPath
+        let someInnerPath = UIBezierPath(roundedRect: self.base.bounds, cornerRadius: shadowRadius).cgPath
+        path.addPath(someInnerPath)
+        path.closeSubpath()
+        shadowLayer.path = path
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = someInnerPath
+        shadowLayer.mask = maskLayer
+        self.base.layer.addSublayer(shadowLayer)
+    }
 }
-
 
 // MARK:- 六、自定义链式编程
 public extension UIView {

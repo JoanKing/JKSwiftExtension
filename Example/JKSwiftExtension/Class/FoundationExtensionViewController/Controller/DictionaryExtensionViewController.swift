@@ -13,10 +13,20 @@ class DictionaryExtensionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        headDataArray = ["一、基本的扩展"]
-        dataArray = [["检查字典里面是否有某个 key", "字典的key或者value组成的数组", "JSON字符串 -> 字典", "字典 -> JSON字符串", "字典里面所有的 key", "字典里面所有的 value"]]
+        headDataArray = ["一、基本的扩展", "二、其他基本扩展"]
+        dataArray = [["检查字典里面是否有某个 key", "字典的key或者value组成的数组", "JSON字符串 -> 字典", "字典 -> JSON字符串", "字典里面所有的 key", "字典里面所有的 value"], ["字典转JSON"]]
     }
 
+}
+
+// MARK:- 二、其他基本扩展
+extension DictionaryExtensionViewController {
+    
+    // MARK: 2.1、字典转JSON
+    @objc func test21() {
+        let dictionary: Dictionary<String, Any> = ["b": "2", "a": "1"]
+        JKPrint("字典转JSON", "字典：\(dictionary) 转JSON为：\(dictionary.jk.dictionaryToJson() ?? "无法解析")")
+    }
 }
 
 // MARK:- 一、基本的扩展

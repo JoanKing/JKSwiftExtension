@@ -6,6 +6,7 @@
 //
 
 import UIKit
+extension Dictionary: JKPOPCompatible { }
 
 // MARK:- 一、基本的扩展
 public extension Dictionary  {
@@ -64,6 +65,27 @@ public extension Dictionary  {
     /// - Returns: value 数组
     func allValues() -> [Value] {
         return self.values.shuffled()
+    }
+}
+
+// MARK:- 二、其他基本扩展
+public extension JKPOP where Base == Dictionary<String, Any> {
+
+    // MARK: 2.1、字典转JSON
+    /// 字典转JSON
+    @discardableResult
+    func dictionaryToJson() -> String? {
+        if (!JSONSerialization.isValidJSONObject(self.base)) {
+            JKPrint("无法解析出JSONString")
+            return nil
+        }
+        if let data = try? JSONSerialization.data(withJSONObject: self.base) {
+            let JSONString = NSString(data:data,encoding: String.Encoding.utf8.rawValue)
+            return JSONString! as String
+        } else {
+            JKPrint("无法解析出JSONString")
+            return nil
+        }
     }
 }
 
