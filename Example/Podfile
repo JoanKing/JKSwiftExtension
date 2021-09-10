@@ -7,4 +7,5 @@ target 'JKSwiftExtension_Example' do
   pod 'FDFullscreenPopGesture'
   pod 'MJRefresh'
   pod 'SnapKit'
+  pod 'Kingfisher'
 end
