@@ -308,6 +308,8 @@ public extension JKPOP where Base: CALayer {
         }
         // 结束的值
         translatonAnimation.toValue = endValue
+        // 重复的次数
+        translatonAnimation.repeatCount = repeatNumber
         // 动画持续的时间
         translatonAnimation.duration = duration
         // 运动后的位置保持不变（layer的最后位置是toValue）

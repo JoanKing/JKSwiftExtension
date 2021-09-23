@@ -10,11 +10,6 @@ import UIKit
 
 class ThreeViewController: UIViewController {
 
-    lazy var arrowTestLabel: FBArrowTestLabel = {
-        let label = FBArrowTestLabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        return label
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,13 +17,10 @@ class ThreeViewController: UIViewController {
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.randomColor
         
-        arrowTestLabel.center = self.view.center
-        self.view.addSubview(arrowTestLabel)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        arrowTestLabel.jk.height = 30
-        arrowTestLabel.changeHeight()
+        self.navigationController?.jk.pop(count: 2, animated: true)
     }
 
 }
