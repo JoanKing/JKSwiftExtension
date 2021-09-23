@@ -34,6 +34,7 @@
 ## 这个基础库的目的：快速开发，不重复再去查找资料，如果觉得此项目对您的Swift学习有帮助，欢迎点赞...
     
 ## 版本说明
+   - 1.8.7、版本：CALayer+Extension.swift中baseBasicAnimation动画repeatNumber: 重复的次数的使用
    - 1.8.6、版本：去除Kingfisher依赖
    - 1.8.5、版本：UIView+Extension新增内阴影
    - 1.8.2、版本：扩展更新
