@@ -144,7 +144,7 @@ public let kNavFrameH: CGFloat = 44 + kStatusBarFrameH
 public var kTabbarFrameH: CGFloat { return isIPhoneX ? 83 : 49 }
 // MARK: 2.6、底部tabbar多出的部分
 /// 底部tabbar多出的部分
-public var kTabbatBottom: CGFloat { return isIPhoneX ? 34 : 0 }
+public var kTabbarBottom: CGFloat { return isIPhoneX ? 34 : 0 }
 // MARK: 2.7、缩放比
 /// 缩放比
 public let kPixel = 1.0 / UIScreen.main.scale

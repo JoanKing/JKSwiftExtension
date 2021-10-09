@@ -34,16 +34,16 @@ extension URLExtensionViewController {
     // MARK: 1.2、属性说明
     @objc func test12() {
         
-        guard let url = URL(string: "https://www.jianshu.com?a=1&b=2") else {
+        guard let url = URL(string: "huacai://com.huacai.stock/hah/?type=1&id=2") else {
             return
         }
         url.jk.propertyDescription()
     }
     
     // MARK: 1.1、提取链接中的参数以字典像是显示
-    @objc func test11() {   
+    @objc func test11() {
         
-        guard let url = URL(string: "https://www.jianshu.com?a=1&b=2"), let query = url.jk.queryParameters else {
+        guard let url = URL(string: "huacai://com.huacai.stock/hah/?type=1&id=2&info={name: 你好}"), let query = url.jk.queryParameters else {
             return
         }
         JKPrint("内容", "\(url) 取后为 \(query)")

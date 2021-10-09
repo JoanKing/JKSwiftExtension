@@ -11,7 +11,7 @@ extension URL: JKPOPCompatible {}
 public extension JKPOP where Base == URL {
     
     // MARK: 1.1、提取链接中的参数以字典像是显示
-    /// 提取链接中的参数以字典像是显示
+    /// 提取链接中的参数以字典形式显示
     var queryParameters: [String: String]? {
         guard let components = URLComponents(url: self.base, resolvingAgainstBaseURL: true), let queryItems = components.queryItems else {
             return nil

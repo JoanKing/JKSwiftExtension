@@ -2,14 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>JKSwiftExtension想要访问您的相册</string>
-	<key>NSContactsUsageDescription</key>
-	<string>APP想要访问您的通讯录</string>
-	<key>NSRemindersUsageDescription</key>
-	<string>APP需要访问您的提醒事件</string>
-	<key>NSCalendarsUsageDescription</key>
-	<string>JKSwiftExtension想要访问您的日历</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -28,6 +20,19 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string></string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>myapp1</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -37,8 +42,18 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCalendarsUsageDescription</key>
+	<string>JKSwiftExtension想要访问您的日历</string>
+	<key>NSCameraUsageDescription</key>
+	<string>JKSwiftExtension请求使用相机</string>
+	<key>NSContactsUsageDescription</key>
+	<string>APP想要访问您的通讯录</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>JKSwiftExtension想要访问您的相册</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>JKSwiftExtension想要获取您的相册权限</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>APP需要访问您的提醒事件</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -52,8 +67,6 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>JKSwiftExtension请求使用相机</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
 </dict>
