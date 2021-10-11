@@ -35,7 +35,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     func containsIgnoringCase(find: String) -> Bool {
         return (base as! String).range(of: find, options: .caseInsensitive) != nil
     }
-     
+    
     // MARK: 1.4、字符串转 base64
     /// 字符串 Base64 编码
     var base64Encode: String? {
@@ -183,7 +183,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     func copy() {
         UIPasteboard.general.string = (self.base as! String)
     }
-
+    
     // MARK: 1.18、提取出字符串中所有的URL链接
     /// 提取出字符串中所有的URL链接
     /// - Returns: URL链接数组
@@ -239,7 +239,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         }
         return htmlString ?? NSMutableAttributedString(string: self.base as! String)
     }
-   
+    
     // MARK: 1.20、计算字符个数（英文 = 1，数字 = 1，汉语 = 2）
     /// 计算字符个数（英文 = 1，数字 = 1，汉语 = 2）
     /// - Returns: 返回字符的个数
@@ -1250,6 +1250,36 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return URL(string: base as! String)?.isFileURL ?? false
     }
     
+    // MARK: 9.20、富文本匹配(某些关键词高亮)
+    /// 富文本匹配
+    /// - Parameters:
+    ///   - substring: 匹配的关键字
+    ///   - normalColor: 常规的颜色
+    ///   - highlightedCololor: 关键字的颜色
+    ///   - isSplit: 是否分隔匹配
+    ///   - options: 匹配规则
+    /// - Returns: 返回匹配后的富文本
+    public func stringWithHighLightSubstring(keyword: String, normalColor: UIColor, keywordCololor: UIColor, isSplit: Bool = false, options: NSRegularExpression.Options = []) -> NSMutableAttributedString {
+        let totalString = (base as! String)
+        let attributedString = NSMutableAttributedString(string: totalString)
+        attributedString.addAttributes([NSAttributedString.Key.foregroundColor: normalColor], range: NSRange(location: 0, length: totalString.count))
+        if isSplit {
+            for i in 0..<keyword.count {
+                let singleString = keyword.jk.sub(start: i, length: 1)
+                let ranges = JKRegexHelper.matchRange(totalString, pattern: singleString)
+                for range in ranges {
+                    attributedString.addAttributes([.foregroundColor: keywordCololor], range: range)
+                }
+            }
+        } else {
+            let ranges = JKRegexHelper.matchRange(totalString, pattern: keyword)
+            for range in ranges {
+                attributedString.addAttributes([.foregroundColor: keywordCololor], range: range)
+            }
+        }
+        return attributedString
+    }
+    
     // MARK:- private 方法
     // MARK: 是否是闰年
     /// 是否是闰年
@@ -1418,7 +1448,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     /// url编码 默认urlQueryAllowed
     public func urlEncoding(characters: CharacterSet = .urlQueryAllowed) -> String {
         let encodeUrlString = (base as! String).addingPercentEncoding(withAllowedCharacters:
-                                                            characters)
+                                                                        characters)
         return encodeUrlString ?? ""
     }
     
@@ -1432,7 +1462,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         var allowedCharacterSet = CharacterSet.urlQueryAllowed
         allowedCharacterSet.remove(charactersIn: "\(generalDelimitersToEncode)\(subDelimitersToEncode)")
         let encodeUrlString = (base as! String).addingPercentEncoding(withAllowedCharacters:
-                                                            allowedCharacterSet)
+                                                                        allowedCharacterSet)
         return encodeUrlString ?? ""
     }
     
@@ -1445,7 +1475,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         var allowedCharacterSet = CharacterSet.urlQueryAllowed
         allowedCharacterSet.remove(charactersIn: "\(generalDelimitersToEncode)\(subDelimitersToEncode)")
         let encodeUrlString = (base as! String).addingPercentEncoding(withAllowedCharacters:
-                                                            allowedCharacterSet)
+                                                                        allowedCharacterSet)
         return encodeUrlString ?? ""
     }
 }
@@ -1674,7 +1704,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
 /**
  单向散列函数，又被称为消息摘要函数（message digest function），哈希函数
  输出的散列值，也被称为消息摘要（message digest）、指纹（fingerprint）
-
+ 
  常见的几种单向散列函数
  MD4、MD5
  产生128bit的散列值，MD就是Message Digest的缩写，目前已经不安全
@@ -1737,7 +1767,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
             return tempStr.jk.slice(8..<24)
         }
     }
-
+    
     // MARK: 14.2、Base64 编解码
     /// Base64 编解码
     /// - Parameter encode: true:编码 false:解码
@@ -1767,7 +1797,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
 public enum DDYSCAType {
     case AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish
     var infoTuple: (algorithm: CCAlgorithm, digLength: Int, keyLength: Int) {
-    switch self {
+        switch self {
         case .AES:
             return (CCAlgorithm(kCCAlgorithmAES), Int(kCCKeySizeAES128), Int(kCCKeySizeAES128))
         case .AES128:
@@ -1797,7 +1827,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     ///   - encode: 是编码还是解码
     /// - Returns: 编码或者解码后的字符串
     func scaCrypt(cryptType: DDYSCAType, key: String?, encode: Bool) -> String? {
-
+        
         let strData = encode ? (self.base as! String).data(using: .utf8) : Data(base64Encoded: (self.base as! String))
         // 创建数据编码后的指针
         let dataPointer = UnsafeRawPointer((strData! as NSData).bytes)
@@ -1856,7 +1886,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
  */
 // MARK: 加密类型
 public enum DDYSHAType {
-   case SHA1, SHA224, SHA256, SHA384, SHA512
+    case SHA1, SHA224, SHA256, SHA384, SHA512
     var infoTuple: (algorithm: CCHmacAlgorithm, length: Int) {
         switch self {
         case .SHA1:
@@ -1890,7 +1920,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         let digLen = cryptType.infoTuple.length
         let buffer = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: digLen)
         let hash = NSMutableString()
-
+        
         if let cKey = key?.cString(using: String.Encoding.utf8), key != "" {
             let keyLen = Int(key!.lengthOfBytes(using: String.Encoding.utf8))
             CCHmac(cryptType.infoTuple.algorithm, cKey, keyLen, cStr, strLen, buffer)
@@ -1917,7 +1947,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
 
 // MARK:- 十七、unicode编码和解码
 public extension JKPOP where Base == String {
-
+    
     // MARK: 17.1、unicode编码
     /// unicode编码
     /// - Returns: unicode编码后的字符串
@@ -1958,7 +1988,7 @@ public extension JKPOP where Base == String {
  1，什么是字符值引用
  （1）字符值引用 (numeric character reference, NCR) 是在标记语言SGML以及派生的如HTML与XML中常见的一种转义序列结构，用来表示Unicode的通用字符集 (UCS)中的单个字符. NCR可以表示在一个特定文档中不能直接编码的字符，而该标记语言阅读器软件把每个NCR当作一个字符来处理。
  （2）我们可以将其理解为HTML、XML 等 SGML 类语言的转义序列（escape sequence）。而不是一种编码或转码。
-
+ 
  2，字符值引用的格式
  以「&#x」开头的后接十六进制数字。或者以「&#」开头的后接十进制数字。
  &#x4e2d;&#x56fd;  //中国（16进制格式）
@@ -1966,7 +1996,7 @@ public extension JKPOP where Base == String {
  （不管哪种形式写在html页面中都会正常显示出“中国”）
  */
 public extension JKPOP where Base == String {
-   
+    
     // MARK: 18.1、将普通字符串转为字符值引用
     /// 将普通字符串转为字符值引用
     /// - Returns: 字符值引用
@@ -1986,7 +2016,7 @@ public extension JKPOP where Base == String {
     /// - Returns: 普通字符串
     func htmlEncodedStringToString() -> String? {
         let attributedOptions: [NSAttributedString.DocumentReadingOptionKey : Any] = [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html,
-            NSAttributedString.DocumentReadingOptionKey.characterEncoding: String.Encoding.utf8.rawValue]
+                                                                                      NSAttributedString.DocumentReadingOptionKey.characterEncoding: String.Encoding.utf8.rawValue]
         guard let encodedData = self.base.data(using: String.Encoding.utf8), let attributedString = try? NSAttributedString(data: encodedData, options: attributedOptions, documentAttributes: nil) else {
             return nil
         }

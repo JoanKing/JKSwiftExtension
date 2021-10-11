@@ -73,17 +73,34 @@ public struct JKRegexHelper {
     ///   - input: 匹配的字符串
     ///   - pattern: 匹配规则
     /// - Returns: 返回匹配的结果
-    public static func match(_ input: String, pattern: String) -> Bool {
-        guard let regex: NSRegularExpression = try? NSRegularExpression(pattern: pattern, options: []) else {
+    public static func match(_ input: String, pattern: String, options: NSRegularExpression.Options = []) -> Bool {
+        guard let regex: NSRegularExpression = try? NSRegularExpression(pattern: pattern, options: options) else {
             return false
         }
-        let matches = regex.matches(in: input,
-                               options: [],
-                                 range: NSMakeRange(0, input.utf16.count))
+        let matches = regex.matches(in: input, options: [], range: NSMakeRange(0, input.utf16.count))
         return matches.count > 0
     }
     
-    // MARK: 1.2、验证邮箱是否合法
+    // MARK: 1.2、获取匹配的Range
+    /// 获取匹配的Range
+    /// - Parameters:
+    ///   - input: 匹配的字符串
+    ///   - pattern: 匹配规则
+    /// - Returns: 返回匹配的[NSRange]结果
+    public static func matchRange(_ input: String, pattern: String, options: NSRegularExpression.Options = []) -> [NSRange] {
+        guard let regex: NSRegularExpression = try? NSRegularExpression(pattern: pattern, options: options) else {
+            return []
+        }
+        let matches = regex.matches(in: input, options: [], range: NSMakeRange(0, input.utf16.count))
+        guard matches.count > 0 else {
+            return []
+        }
+        return matches.map { value in
+            value.range
+        }
+    }
+    
+    // MARK: 1.3、验证邮箱是否合法
     /// 验证邮箱是否合法
     /// - Parameters:
     ///   - emailString: 邮箱
@@ -93,7 +110,7 @@ public struct JKRegexHelper {
         return match(emailString, pattern: pattern)
     }
     
-    // MARK: 1.3、 判断是否是有效的手机号码
+    // MARK: 1.4、 判断是否是有效的手机号码
     ///  判断是否是有效的手机号码
     /// - Parameter telNum: 手机号码
     /// - Returns: 返回结果
@@ -101,7 +118,7 @@ public struct JKRegexHelper {
         return match(telNum, pattern: pattern)
     }
     
-    // MARK: 1.4、正则匹配用户姓名
+    // MARK: 1.5、正则匹配用户姓名
     /// 正则匹配用户姓名
     /// - Parameter userName: 用户姓名
     /// - Returns: 匹配结果
@@ -112,7 +129,7 @@ public struct JKRegexHelper {
         return isMatch
     }
     
-    // MARK: 1.5、正则匹配用户身份证号15或18位
+    // MARK: 1.6、正则匹配用户身份证号15或18位
     /// 正则匹配用户身份证号15或18位
     /// - Parameter userIdCard: 用户身份证号15或18位
     /// - Returns: 匹配结果

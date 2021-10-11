@@ -23,7 +23,7 @@ class TestFileViewController: BaseViewController {
 extension TestFileViewController {
     
     @objc func test15() {
-       
+        self.navigationController?.pushViewController(NineViewController(), animated: true)
     }
     
     @objc func test14() {
