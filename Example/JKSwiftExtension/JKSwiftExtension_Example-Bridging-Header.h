@@ -3,10 +3,6 @@
 //
 
 #import <JKSwiftExtension/JKSwiftExtension-Swift.h>
-
-#import <RxCocoa/RxCocoa-Swift.h>
-#import <RxRelay/RxRelay-Swift.h>
-#import <RxSwift/RxSwift-Swift.h>
 #import <SnapKit/SnapKit-Swift.h>
 
 #import "UINavigationController+FDFullscreenPopGesture.h"

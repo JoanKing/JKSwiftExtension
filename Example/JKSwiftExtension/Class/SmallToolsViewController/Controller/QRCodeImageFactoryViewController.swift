@@ -10,7 +10,6 @@ import UIKit
 import Photos
 class QRCodeImageFactoryViewController: UIViewController {
     
-    fileprivate lazy var bag: DisposeBag = DisposeBag()
     fileprivate var qrImage: UIImage?
     
     lazy var qrImageView: UIImageView = {
@@ -33,20 +32,20 @@ class QRCodeImageFactoryViewController: UIViewController {
         btn.backgroundColor = .brown
         btn.setTitleColor(.white, for: .normal)
         btn.setTitle("生成二维码", for: .normal)
-        btn.rx.tap.subscribe { [weak self] (event: Event<()>) in
+        btn.jk.setHandleClick {[weak self] button in
             guard let weakSelf = self else { return }
             weakSelf.getQRImage()
-        }.disposed(by: bag)
+        }
         self.view.addSubview(btn)
         
         let saveImageBtn = UIButton(frame: CGRect(x: self.view.jk.centerX + 20, y: 130, width: 130, height: 50))
         saveImageBtn.backgroundColor = .brown
         saveImageBtn.setTitleColor(.white, for: .normal)
         saveImageBtn.setTitle("保存二维码", for: .normal)
-        saveImageBtn.rx.tap.subscribe { [weak self] (event: Event<()>) in
+        saveImageBtn.jk.setHandleClick {[weak self] button in
             guard let weakSelf = self else { return }
             weakSelf.saveQRImage()
-        }.disposed(by: bag)
+        }
         self.view.addSubview(saveImageBtn)
         
         qrImageView.jk.centerX = self.view.jk.centerX
