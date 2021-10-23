@@ -21,7 +21,7 @@ class JKEmitterableViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、粒子发射器
+// MARK: - 一、粒子发射器
 extension JKEmitterableViewController: JKEmitterable {
     
     // MARK: 1.1、开始发射

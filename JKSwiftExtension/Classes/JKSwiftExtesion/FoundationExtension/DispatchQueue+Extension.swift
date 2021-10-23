@@ -8,7 +8,7 @@
 import Foundation
 extension DispatchQueue: JKPOPCompatible {}
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 public extension JKPOP where Base == DispatchQueue {
     
     private static var _onceTracker = [String]()
@@ -32,7 +32,7 @@ public extension JKPOP where Base == DispatchQueue {
     }
 }
 
-// MARK:- 二、延迟事件
+// MARK: - 二、延迟事件
 public extension JKPOP where Base == DispatchQueue {
     // MARK: 2.1、异步做一些任务
     /// 异步做一些任务
@@ -74,7 +74,7 @@ public extension JKPOP where Base == DispatchQueue {
     }
 }
 
-// MARK:- 私有的方法
+// MARK: - 私有的方法
 extension JKPOP where Base == DispatchQueue {
     
     /// 延迟任务

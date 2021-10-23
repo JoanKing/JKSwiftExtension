@@ -18,7 +18,7 @@ class UIDeviceExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 三、有关设备运营商的信息
+// MARK: - 三、有关设备运营商的信息
 extension UIDeviceExtensionViewController {
     
     // MARK: 3.8、是否允许VoIP
@@ -86,7 +86,7 @@ extension UIDeviceExtensionViewController {
     }
 }
 
-// MARK:- 二、设备的基本信息
+// MARK: - 二、设备的基本信息
 extension UIDeviceExtensionViewController {
     
     //MARK: 2.13、设备区域化型号
@@ -153,7 +153,7 @@ extension UIDeviceExtensionViewController {
         JKPrint("当前设备的系统版本", "\(UIDevice.jk.currentSystemVersion)")
     }
 }
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension UIDeviceExtensionViewController {
     
     // MARK: 1.1、设备的名字

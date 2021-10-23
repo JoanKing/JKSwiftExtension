@@ -15,7 +15,7 @@ public enum BundleType {
     case otherBundle
 }
 
-// MARK:- 一、Bundle 的基本扩展
+// MARK: - 一、Bundle 的基本扩展
 public extension JKPOP where Base: Bundle {
     
     // MARK: 1.1、通过 通过字符串地址 从 Bundle 里面获取资源文件（支持当前的 Moudle下的Bundle和其他Moudle下的 Bundle）
@@ -62,7 +62,7 @@ public extension JKPOP where Base: Bundle {
     }
 }
 
-// MARK:- 二、App的基本信息
+// MARK: - 二、App的基本信息
 public extension JKPOP where Base: Bundle {
     
     // MARK: 2.1、App命名空间

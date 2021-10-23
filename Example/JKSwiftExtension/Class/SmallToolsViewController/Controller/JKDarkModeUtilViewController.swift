@@ -8,7 +8,7 @@
 
 import UIKit
 
-// MARK:- 业务颜色的使用
+// MARK: - 业务颜色的使用
 extension UIColor {
     /// 背景色
     private(set) static var cA1 = JKDarkModeUtil.colorLightDark(lightColor: UIColor.yellow, darkColor: UIColor.green)
@@ -101,7 +101,7 @@ class JKDarkModeUtilViewController: UIViewController {
     
 }
 
-// MARK:- UITableViewDelegate, UITableViewDataSource
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension JKDarkModeUtilViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -210,7 +210,7 @@ extension JKDarkModeUtilViewController: UITableViewDelegate, UITableViewDataSour
     }
 }
 
-// MARK:- 时间
+// MARK: - 时间
 extension JKDarkModeUtilViewController {
     // MARK: 开关
     @objc func switchClick(sender: UISwitch) {

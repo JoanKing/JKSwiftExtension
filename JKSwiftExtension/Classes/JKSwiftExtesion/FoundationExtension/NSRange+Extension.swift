@@ -8,7 +8,7 @@
 import Foundation
 extension NSRange: JKPOPCompatible {}
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 public extension JKPOP where Base == NSRange {
     
     // MARK: 1.1、NSRange转换成Range的方法

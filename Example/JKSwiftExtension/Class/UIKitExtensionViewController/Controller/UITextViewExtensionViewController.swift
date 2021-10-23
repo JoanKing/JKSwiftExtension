@@ -22,7 +22,7 @@ class UITextViewExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 二、文本链接的扩展
+// MARK: - 二、文本链接的扩展
 extension UITextViewExtensionViewController: UITextViewDelegate {
     
     // MARK: 2.2、转换特殊符号标签字段
@@ -112,7 +112,7 @@ extension UITextViewExtensionViewController: UITextViewDelegate {
 
 
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension UITextViewExtensionViewController {
     
     // MARK: 1.4、设置默认文本的 CGPoint

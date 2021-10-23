@@ -9,7 +9,7 @@ import UIKit
 /**
  CATextLayer 使用Core Text 进行绘制，渲染速度比使用 Web Kit 的 UILable 快很多。而且 UILable 主要是管理内容，而 CATextLayer 则是绘制内容。
  */
-// MARK:- 一、基本的链式编程 扩展
+// MARK: - 一、基本的链式编程 扩展
 public extension CATextLayer {
     
     // MARK: 1.1、设置文字的内容

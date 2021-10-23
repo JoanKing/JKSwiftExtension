@@ -18,7 +18,7 @@ class JKTapActionLabelViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、基本的工具
+// MARK: - 一、基本的工具
 extension JKTapActionLabelViewController {
     
     // MARK: 1.1、设置可点击的label

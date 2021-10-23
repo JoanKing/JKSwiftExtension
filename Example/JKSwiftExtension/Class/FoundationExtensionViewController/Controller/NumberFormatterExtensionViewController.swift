@@ -18,7 +18,7 @@ class NumberFormatterExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 二、进阶扩展用法
+// MARK: - 二、进阶扩展用法
 extension NumberFormatterExtensionViewController {
 
     // MARK: 2.6、设置格式化字符串
@@ -105,7 +105,7 @@ extension NumberFormatterExtensionViewController {
     }
 }
 
-// MARK:- 一、基本的扩展用法
+// MARK: - 一、基本的扩展用法
 /**
  NumberFormatter.Style
  .none：四舍五入的整数

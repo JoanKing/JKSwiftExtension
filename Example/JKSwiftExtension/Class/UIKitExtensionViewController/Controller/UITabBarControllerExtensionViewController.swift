@@ -18,7 +18,7 @@ class UITabBarControllerExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、基本扩展
+// MARK: - 一、基本扩展
 extension UITabBarControllerExtensionViewController {
     
     // MARK: 1.1、当前选择索引

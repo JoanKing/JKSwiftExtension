@@ -19,7 +19,7 @@ class NSAttributedStringExtensionViewController: BaseViewController {
 
 }
 
-// MARK:- 一、文本设置的基本扩展
+// MARK: - 一、文本设置的基本扩展
 extension NSAttributedStringExtensionViewController {
     
     // MARK: 1.1、

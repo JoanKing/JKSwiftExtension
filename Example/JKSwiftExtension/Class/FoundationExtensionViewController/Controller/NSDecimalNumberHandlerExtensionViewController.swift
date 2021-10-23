@@ -18,7 +18,7 @@ class NSDecimalNumberHandlerExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension NSDecimalNumberHandlerExtensionViewController {
     
     @objc func test14() {

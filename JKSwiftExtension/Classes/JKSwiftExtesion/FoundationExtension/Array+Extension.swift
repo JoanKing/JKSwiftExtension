@@ -5,7 +5,7 @@
 //  Created by IronMan on 2020/9/7.
 //
 
-// MARK:- 一、数组 的基本扩展
+// MARK: - 一、数组 的基本扩展
 public extension Array {
     
     // MARK: 1.1、安全的取某个索引的值
@@ -39,7 +39,7 @@ public extension Array {
     }
 }
 
-// MARK:- 二、数组 有关索引 的扩展方法
+// MARK: - 二、数组 有关索引 的扩展方法
 public extension Array where Element : Equatable {
     
     // MARK: 2.1、获取数组中的指定元素的索引值
@@ -75,7 +75,7 @@ public extension Array where Element : Equatable {
     }
 }
 
-// MARK:- 三、遵守 Equatable 协议的数组 (增删改查) 扩展
+// MARK: - 三、遵守 Equatable 协议的数组 (增删改查) 扩展
 public extension Array where Element : Equatable {
     
     // MARK: 3.1、删除数组的中的元素(可删除第一个出现的或者删除全部出现的)
@@ -116,7 +116,7 @@ public extension Array where Element : Equatable {
     }
 }
 
-// MARK:- 四、遵守 NSObjectProtocol 协议对应数组的扩展方法
+// MARK: - 四、遵守 NSObjectProtocol 协议对应数组的扩展方法
 public extension Array where Element : NSObjectProtocol {
     
     // MARK: 4.1、删除数组中遵守NSObjectProtocol协议的元素，是否删除重复的元素
@@ -157,7 +157,7 @@ public extension Array where Element : NSObjectProtocol {
     }
 }
 
-// MARK:- 五、针对数组元素是 String 的扩展
+// MARK: - 五、针对数组元素是 String 的扩展
 public extension Array where Self.Element == String {
     
     // MARK: 5.1、数组转字符转（数组的元素是 字符串），如：["1", "2", "3"] 连接器为 - ，那么转化后为 "1-2-3"

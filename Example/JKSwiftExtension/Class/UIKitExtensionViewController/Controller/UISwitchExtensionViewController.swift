@@ -18,7 +18,7 @@ class UISwitchExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、一、基本的扩展
+// MARK: - 一、一、基本的扩展
 extension UISwitchExtensionViewController {
     
     // MARK: 1.2、开关事件

@@ -18,7 +18,7 @@ class CAGradientLayerExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、基本的颜色扩展
+// MARK: - 一、基本的颜色扩展
 extension CAGradientLayerExtensionViewController {
     
     // MARK: 1.1、背景的渐变设置

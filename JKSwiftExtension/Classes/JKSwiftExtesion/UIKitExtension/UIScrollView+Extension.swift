@@ -15,7 +15,7 @@ public enum Edge {
     case right
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 public extension JKPOP where Base: UIScrollView {
     
     // MARK: 1.1、适配iOS 11
@@ -89,7 +89,7 @@ public extension JKPOP where Base: UIScrollView {
     }
 }
 
-// MARK:- 二、链式编程
+// MARK: - 二、链式编程
 public extension UIScrollView {
     
     // MARK: 2.1、设置偏移量 CGPoint

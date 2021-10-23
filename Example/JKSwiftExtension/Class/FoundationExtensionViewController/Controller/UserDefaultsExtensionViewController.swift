@@ -31,7 +31,7 @@ class UserDefaultsExtensionViewController: BaseViewController {
     }
 
 }
-// MARK:- 二、模型持久化（复杂类型）
+// MARK: - 二、模型持久化（复杂类型）
 extension UserDefaultsExtensionViewController {
     
     // MARK: 2.2、取出模型
@@ -55,7 +55,7 @@ extension UserDefaultsExtensionViewController {
         UserDefaults.jk.setItem(person, forKey: "plistData")
     }
 }
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension UserDefaultsExtensionViewController {
     
     // MARK: 1.4、移除所有值

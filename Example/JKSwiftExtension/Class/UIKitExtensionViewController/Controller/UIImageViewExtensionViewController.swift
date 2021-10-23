@@ -19,7 +19,7 @@ class UIImageViewExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、加载 gif
+// MARK: - 一、加载 gif
 extension UIImageViewExtensionViewController {
     
     // MARK: 1.3、加载网络 url 的 gif 图片

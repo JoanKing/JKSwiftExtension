@@ -11,7 +11,7 @@ import UIKit
 // 事件闭包
 public typealias JKTask = () -> Void
 
-// MARK:- 延迟事件
+// MARK: - 延迟事件
 public struct JKAsyncs {
     // MARK: 1.1、异步做一些任务
     /// 异步做一些任务
@@ -55,7 +55,7 @@ public struct JKAsyncs {
     }
 }
 
-// MARK:- 私有的方法
+// MARK: - 私有的方法
 extension JKAsyncs {
     
     /// 延迟任务

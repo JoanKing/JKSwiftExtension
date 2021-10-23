@@ -17,7 +17,7 @@ class NSObjectExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、 NSObject 属性的扩展
+// MARK: - 一、 NSObject 属性的扩展
 extension NSObjectExtensionViewController {
     
     // MARK: 1.1、类名（对象方法）
@@ -31,7 +31,7 @@ extension NSObjectExtensionViewController {
     }
 }
 
-// MARK:- 二、一些常用的方法
+// MARK: - 二、一些常用的方法
 extension NSObjectExtensionViewController {
     
     // MARK: 2.1、利用运行时获取类里面的成员变量

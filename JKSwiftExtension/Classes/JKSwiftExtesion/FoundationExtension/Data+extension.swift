@@ -7,7 +7,7 @@
 
 import UIKit
 extension Data: JKPOPCompatible {}
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 public extension JKPOP where Base == Data {
 
     // MARK: 1.1、base64编码成 Data

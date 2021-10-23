@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-// MARK:- 粒子发射器
+// MARK: - 粒子发射器
 /**
  两部分组成：粒子发射引擎 和 粒子单元
  1、粒子发射引擎(CAEmitterLayer)：负责粒子发射效果的宏观属性，例如粒子的发生速度、粒子的存活时间、粒子的发射位置等等

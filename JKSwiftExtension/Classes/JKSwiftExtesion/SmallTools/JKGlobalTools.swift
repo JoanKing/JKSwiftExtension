@@ -8,7 +8,7 @@
 import UIKit
 import StoreKit
 import SystemConfiguration.CaptiveNetwork
-// MARK:- 一、基本的工具
+// MARK: - 一、基本的工具
 public struct JKGlobalTools {
     
     // MARK: 1.1、拨打电话

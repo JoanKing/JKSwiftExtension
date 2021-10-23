@@ -17,7 +17,7 @@ public enum JKTimestampType: Int {
     case millisecond
 }
 
-// MARK:- 一、Date 基本的扩展
+// MARK: - 一、Date 基本的扩展
 public extension JKPOP where Base == Date {
     // MARK: 1.1、获取当前 秒级 时间戳 - 10 位
     /// 获取当前 秒级 时间戳 - 10 位
@@ -296,7 +296,7 @@ public extension JKPOP where Base == Date {
     }
 }
 
-// MARK:- 三、前天、昨天、今天、明天、后天、是否同一年同一月同一天 的判断
+// MARK: - 三、前天、昨天、今天、明天、后天、是否同一年同一月同一天 的判断
 public extension JKPOP where Base == Date {
     
     // MARK: 3.1、今天的日期
@@ -411,7 +411,7 @@ public extension JKPOP where Base == Date {
     }
 }
 
-// MARK:- 四、相对的时间变化
+// MARK: - 四、相对的时间变化
 public extension JKPOP where Base == Date {
     
     // MARK: 4.1、取得与当前时间的间隔差
@@ -498,7 +498,7 @@ public extension JKPOP where Base == Date {
     }
 }
 
-// MARK:- 五、某年月份的天数获取
+// MARK: - 五、某年月份的天数获取
 public extension JKPOP where Base == Date {
     
     // MARK: 5.1、获取某一年某一月的天数

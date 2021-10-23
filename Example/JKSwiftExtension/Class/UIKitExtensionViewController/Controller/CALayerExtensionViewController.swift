@@ -36,7 +36,7 @@ class CALayerExtensionViewController: BaseViewController, CAAnimationDelegate {
     }
 }
 
-// MARK:- 六、有关 CAAnimationGroup 动画组的扩展
+// MARK: - 六、有关 CAAnimationGroup 动画组的扩展
 extension CALayerExtensionViewController {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -89,7 +89,7 @@ extension CALayerExtensionViewController {
     }
 }
 
-// MARK:- 五、有关 CASpringAnimation 弹簧动画的扩展
+// MARK: - 五、有关 CASpringAnimation 弹簧动画的扩展
 extension CALayerExtensionViewController {
     
     // MARK: 5.1、 弹簧动画：Bounds 动画
@@ -110,7 +110,7 @@ extension CALayerExtensionViewController {
     
 }
 
-// MARK:- 四、有关 CATransition 动画的扩展
+// MARK: - 四、有关 CATransition 动画的扩展
 extension CALayerExtensionViewController {
     
     // MARK: 4.1、转场动画的使用
@@ -132,7 +132,7 @@ extension CALayerExtensionViewController {
     }
 }
 
-// MARK:- 三、有关 CAKeyframeAnimation 动画的扩展
+// MARK: - 三、有关 CAKeyframeAnimation 动画的扩展
 extension CALayerExtensionViewController {
     
     // MARK: 3.3、根据 CGPath 进行做 移动 动画
@@ -225,7 +225,7 @@ extension CALayerExtensionViewController {
     
 }
 
-// MARK:- 二、有关 CABasicAnimation 动画的扩展
+// MARK: - 二、有关 CABasicAnimation 动画的扩展
 extension CALayerExtensionViewController {
     
     // MARK: 2.6、旋转动画
@@ -395,7 +395,7 @@ extension CALayerExtensionViewController {
     }
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension CALayerExtensionViewController {
     
     // MARK: 1.1、设置圆角

@@ -7,7 +7,7 @@
 
 import UIKit
 extension UIBezierPath: JKPOPCompatible {}
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 public extension JKPOP where Base: UIBezierPath {
     
     // MARK: 1.1、根据圆上任意三个点添加圆弧
@@ -45,7 +45,7 @@ public extension JKPOP where Base: UIBezierPath {
     }
 }
 
-// MARK:- fileprivate 方法
+// MARK: - fileprivate 方法
 fileprivate extension JKPOP where Base: UIBezierPath {
     
     // 计算圆心类

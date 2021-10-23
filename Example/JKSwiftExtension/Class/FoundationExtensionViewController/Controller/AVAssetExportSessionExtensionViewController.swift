@@ -18,7 +18,7 @@ class AVAssetExportSessionExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、有关视频压缩的扩展
+// MARK: - 一、有关视频压缩的扩展
 extension AVAssetExportSessionExtensionViewController {
     // MARK: 1.1、本地视频压缩
     @objc func test11() {

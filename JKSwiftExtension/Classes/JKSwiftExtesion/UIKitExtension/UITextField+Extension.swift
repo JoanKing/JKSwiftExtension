@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 public extension JKPOP where Base: UITextField {
     
     // MARK: 1.1、添加左边的内边距
@@ -123,7 +123,7 @@ public extension JKPOP where Base: UITextField {
     }
 }
 
-// MARK:- 二、链式编程
+// MARK: - 二、链式编程
 public extension UITextField {
     
     // MARK: 2.1、设置文字

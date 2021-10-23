@@ -18,7 +18,7 @@ class UIStackViewExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、链式编程
+// MARK: - 一、链式编程
 extension UIStackViewExtensionViewController {
     
     // MARK: 1.1、布局时是否参照基准线，默认是 false（决定了垂直轴如果是文本的话，是否按照 baseline 来参与布局）

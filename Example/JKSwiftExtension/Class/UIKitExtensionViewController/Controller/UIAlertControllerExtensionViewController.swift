@@ -18,7 +18,7 @@ class UIAlertControllerExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、基本的链式编程
+// MARK: - 一、基本的链式编程
 extension UIAlertControllerExtensionViewController {
     
     // MARK: 1.1、初始化创建 UIAlertController

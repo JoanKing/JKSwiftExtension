@@ -22,7 +22,7 @@ class JKGlobalToolsViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、基本的工具
+// MARK: - 一、基本的工具
 extension JKGlobalToolsViewController {
     
     // MARK: 1.9、打开设置界面

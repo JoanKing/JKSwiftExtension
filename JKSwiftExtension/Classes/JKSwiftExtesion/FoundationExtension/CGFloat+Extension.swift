@@ -7,7 +7,7 @@
 
 import UIKit
 extension CGFloat: JKPOPCompatible {}
-// MARK:- 一、CGFloat 的基本转换
+// MARK: - 一、CGFloat 的基本转换
 public extension JKPOP where Base == CGFloat {
 
     // MARK: 1.1、转 Int
@@ -39,7 +39,7 @@ public extension JKPOP where Base == CGFloat {
     var double: Double { return Double(self.base) }
 }
 
-// MARK:- 二、角度和弧度相互转换
+// MARK: - 二、角度和弧度相互转换
 public extension JKPOP where Base == CGFloat {
     
     // MARK: 角度转弧度

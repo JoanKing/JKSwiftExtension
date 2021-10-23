@@ -5,7 +5,7 @@
 //  Created by IronMan on 2021/3/14.
 //
 
-// MARK:- 相册操作工具类
+// MARK: - 相册操作工具类
 import Foundation
 import Photos
 /**
@@ -20,7 +20,7 @@ public enum JKPhotoAlbumUtilResult {
     case success, error, denied
 }
 
-// MARK:- 一、一、基本的使用
+// MARK: - 一、一、基本的使用
 public class JKPhotoAlbumUtil: NSObject {
     
     // 1.1、保存图片到相册(异步操作保存到相册)

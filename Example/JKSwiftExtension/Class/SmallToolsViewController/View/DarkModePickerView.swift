@@ -6,7 +6,7 @@
 //  Copyright © 2021 wuyanwei. All rights reserved.
 //
 
-// MARK:- 暗黑模式时间的设置
+// MARK: - 暗黑模式时间的设置
 import UIKit
 
 class DarkModePickerView: UIView {

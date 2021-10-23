@@ -7,7 +7,7 @@
 
 import UIKit
 extension UserDefaults: JKPOPCompatible {}
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 public extension JKPOP where Base: UserDefaults {
   
     // MARK: 1.1、存值
@@ -56,7 +56,7 @@ public extension JKPOP where Base: UserDefaults {
     }
 }
 
-// MARK:- 二、模型持久化
+// MARK: - 二、模型持久化
 public extension JKPOP where Base: UserDefaults {
     
     // MARK: 2.1、存储模型

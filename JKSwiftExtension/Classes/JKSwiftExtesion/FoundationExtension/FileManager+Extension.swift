@@ -10,7 +10,7 @@ import Foundation
 import AVKit
 
 extension FileManager: JKPOPCompatible {}
-// MARK:- 一、沙盒路径的获取
+// MARK: - 一、沙盒路径的获取
 /*
  - 1、Home(应用程序包)目录
  - 整个应用程序各文档所在的目录,包含了所有的资源文件和可执行文件
@@ -119,7 +119,7 @@ public extension JKPOP where Base: FileManager {
     }
 }
 
-// MARK:- 二、文件以及文件夹的操作 扩展
+// MARK: - 二、文件以及文件夹的操作 扩展
 public extension JKPOP where Base: FileManager {
     // MARK: 文件写入的类型
     /// 文件写入的类型
@@ -590,7 +590,7 @@ public extension JKPOP where Base: FileManager {
     }
 }
 
-// MARK:- 三、有关视频缩略图获取的扩展
+// MARK: - 三、有关视频缩略图获取的扩展
 // 视频URL的类型
 enum JKVideoUrlType {
     // 本地

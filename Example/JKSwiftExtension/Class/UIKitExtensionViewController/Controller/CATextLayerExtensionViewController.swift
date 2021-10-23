@@ -18,7 +18,7 @@ class CATextLayerExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、基本的链式编程
+// MARK: - 一、基本的链式编程
 extension CATextLayerExtensionViewController {
     
     // MARK: 1.1、设置文字的内容

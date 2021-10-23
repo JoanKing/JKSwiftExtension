@@ -22,7 +22,7 @@ class UILabelExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 三、特定区域和特定文字的基本扩展
+// MARK: - 三、特定区域和特定文字的基本扩展
 extension UILabelExtensionViewController {
     
     // MARK: 3.13、设置特定文字的倾斜
@@ -262,7 +262,7 @@ extension UILabelExtensionViewController {
 }
 
 
-// MARK:- 二、其他的基本扩展
+// MARK: - 二、其他的基本扩展
 extension UILabelExtensionViewController {
     
     // MARK: 2.1、获取已知 frame 的 label 的文本行数 & 每一行内容
@@ -394,7 +394,7 @@ extension UILabelExtensionViewController {
     }
 }
 
-// MARK:- 一、链式编程
+// MARK: - 一、链式编程
 extension UILabelExtensionViewController {
     
     // MARK: 1.1、设置文字

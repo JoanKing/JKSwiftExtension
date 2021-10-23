@@ -18,7 +18,7 @@ class UIntExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension UIntExtensionViewController {
     
     // MARK: 1.1、转 Int

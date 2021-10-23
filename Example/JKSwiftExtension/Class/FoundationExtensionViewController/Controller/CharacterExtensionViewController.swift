@@ -18,7 +18,7 @@ class CharacterExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 二、常用的属性和方法
+// MARK: - 二、常用的属性和方法
 extension CharacterExtensionViewController {
     
     // MARK: 2.1、判断是不是 Emoji 表情
@@ -28,7 +28,7 @@ extension CharacterExtensionViewController {
     }
 }
 
-// MARK:- 一、Character 与其他类型的转换
+// MARK: - 一、Character 与其他类型的转换
 extension CharacterExtensionViewController {
     
     // MARK: 1.1、Character 转 String

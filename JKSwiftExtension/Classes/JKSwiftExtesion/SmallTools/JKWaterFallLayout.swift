@@ -25,7 +25,7 @@ public class JKWaterFallLayout: UICollectionViewFlowLayout {
     fileprivate var preCount: Int = 0
 }
 
-// MARK:- 准备布局
+// MARK: - 准备布局
 public extension JKWaterFallLayout {
     /// 准备
     override func prepare() {
@@ -66,14 +66,14 @@ public extension JKWaterFallLayout {
     }
 }
 
-// MARK:- 返回准备好的所vVVVVVVVVVVvvvvvvvvvvvv有布局
+// MARK: - 返回准备好的所vVVVVVVVVVVvvvvvvvvvvvv有布局
 public extension JKWaterFallLayout {
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         return cellAttributes
     }
 }
 
-// MARK:- 设置 contentSize
+// MARK: - 设置 contentSize
 public extension JKWaterFallLayout {
     override var collectionViewContentSize: CGSize {
         return CGSize(width: 0, height: totalHeights.max()! + sectionInset.bottom - minimumLineSpacing)

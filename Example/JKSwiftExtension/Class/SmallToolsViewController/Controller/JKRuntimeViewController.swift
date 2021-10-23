@@ -18,7 +18,7 @@ class JKRuntimeViewController: BaseViewController {
     }
 }
 
-// MARK:- 二、交换方法
+// MARK: - 二、交换方法
 extension JKRuntimeViewController {
     
     // MARK: 2.2、交换方法2
@@ -34,7 +34,7 @@ extension JKRuntimeViewController {
     }
 }
 
-// MARK:- 一、运行时
+// MARK: - 一、运行时
 extension JKRuntimeViewController {
     
     // MARK: 1.3、获取方法列表

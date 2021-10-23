@@ -22,7 +22,7 @@ class UIColorExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 业务颜色的使用
+// MARK: - 业务颜色的使用
 extension UIColor {
     /// 颜色
     private(set) static var cB1: UIColor = UIColor.darkModeColor(lightColor: UIColor.green, darkColor: UIColor.blue)
@@ -46,7 +46,7 @@ extension UIColorExtensionViewController {
     }
 }
 
-// MARK:- 五、获取UIColor的HSV/HSB值（Hue色相、S饱和度、B亮度）
+// MARK: - 五、获取UIColor的HSV/HSB值（Hue色相、S饱和度、B亮度）
 extension UIColorExtensionViewController {
     
     // MARK: 5.1、返回HSBA模式颜色值
@@ -60,7 +60,7 @@ extension UIColorExtensionViewController {
     }
 }
 
-// MARK:- 四、UIColor 的一些属性
+// MARK: - 四、UIColor 的一些属性
 extension UIColorExtensionViewController {
     
     // MARK: 4.1、UIColor 转十六进制颜色的字符串
@@ -87,7 +87,7 @@ extension UIColorExtensionViewController {
     }
 }
 
-// MARK:- 三、UIColor的一些方法
+// MARK: - 三、UIColor的一些方法
 extension UIColorExtensionViewController {
     
     // MARK: 3.1、根据 十六进制字符串颜色 获取 RGB
@@ -134,7 +134,7 @@ extension UIColorExtensionViewController {
     }
 }
 
-// MARK:- 二、使用方法设置颜色
+// MARK: - 二、使用方法设置颜色
 extension UIColorExtensionViewController {
     
     // MARK: 2.1、根据 RGBA 设置颜色颜色
@@ -156,7 +156,7 @@ extension UIColorExtensionViewController {
     }
 }
 
-// MARK:- 一、构造器设置颜色
+// MARK: - 一、构造器设置颜色
 extension UIColorExtensionViewController {
     
     // MARK: 1.1、根据 RGBA 设置颜色颜色

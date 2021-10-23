@@ -21,7 +21,7 @@ class NibLoadableViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、继承于UIView的才可以使用该协议的扩展
+// MARK: - 一、继承于UIView的才可以使用该协议的扩展
 extension NibLoadableViewController {
     
     // MARK: 1.1、加载xib视图

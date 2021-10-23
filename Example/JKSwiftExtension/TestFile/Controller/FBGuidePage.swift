@@ -5,7 +5,7 @@
 //  Created by wuyanwei on 2019/9/19.
 //  Copyright © 2019 wuyanwei. All rights reserved.
 //
-// MARK:- 引导页
+// MARK: - 引导页
 import UIKit
 
 class FBGuidePageVC: UIViewController, UIScrollViewDelegate {

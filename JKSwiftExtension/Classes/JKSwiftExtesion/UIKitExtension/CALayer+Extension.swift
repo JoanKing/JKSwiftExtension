@@ -7,7 +7,7 @@
 
 import UIKit
 extension CALayer: JKPOPCompatible {}
-// MARK:- 一、自定义链式编程
+// MARK: - 一、自定义链式编程
 public extension CALayer {
     
     // MARK: 1.1、设置圆角
@@ -173,7 +173,7 @@ public extension CALayer {
     }
 }
 
-// MARK:- 二、有关 CABasicAnimation 动画的扩展
+// MARK: - 二、有关 CABasicAnimation 动画的扩展
 public extension JKPOP where Base: CALayer {
     
     // MARK: 2.1、移动到另外一个 点(point)
@@ -328,7 +328,7 @@ public extension JKPOP where Base: CALayer {
     }
 }
 
-// MARK:- 三、有关 CAKeyframeAnimation 动画的扩展
+// MARK: - 三、有关 CAKeyframeAnimation 动画的扩展
 public extension JKPOP where Base: CALayer {
     
     // MARK: 3.1、设置values使其沿 position 运动 (这里移动是以 视图的 锚点移动的，默认是视图的 中心点)
@@ -436,7 +436,7 @@ public extension JKPOP where Base: CALayer {
     }
 }
 
-// MARK:- 四、有关 CATransition 动画的扩展
+// MARK: - 四、有关 CATransition 动画的扩展
 /**
  转场动画，比UIVIew转场动画具有更多的动画效果，比如Nav的默认Push视图的效果就是通过CATransition的kCATransitionPush类型来实现。
  */
@@ -478,7 +478,7 @@ public extension JKPOP where Base: CALayer {
     }
 }
 
-// MARK:- 五、有关 CASpringAnimation 弹簧动画的扩展
+// MARK: - 五、有关 CASpringAnimation 弹簧动画的扩展
 /**
  CASpringAnimation是 iOS9 新加入动画类型，是CABasicAnimation的子类，用于实现弹簧动画
  CASpringAnimation和UIView的SpringAnimation对比：
@@ -556,7 +556,7 @@ public extension JKPOP where Base: CALayer {
     }
 }
 
-// MARK:- 六、有关 CAAnimationGroup 动画组的扩展
+// MARK: - 六、有关 CAAnimationGroup 动画组的扩展
 /**
  使用Group可以将多个动画合并一起加入到层中，Group中所有动画并发执行，可以方便地实现需要多种类型动画的场景
  */

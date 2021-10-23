@@ -66,7 +66,7 @@ public class JKDarkModeUtil {
     }
 }
 
-// MARK:- 方法的调用
+// MARK: - 方法的调用
 extension JKDarkModeUtil: JKThemeable {
     public func apply() {}
 }
@@ -177,7 +177,7 @@ public extension JKDarkModeUtil {
     }
 }
 
-// MARK:- 动态颜色的使用
+// MARK: - 动态颜色的使用
 public extension JKDarkModeUtil {
     static func colorLightDark(lightColor: UIColor, darkColor: UIColor) -> UIColor {
         if #available(iOS 13.0, *) {
@@ -228,7 +228,7 @@ public extension JKDarkModeUtil {
     }
 }
 
-// MARK:- 动态图片的使用
+// MARK: - 动态图片的使用
 public extension JKDarkModeUtil {
 
     // MARK: 深色图片和浅色图片切换 （深色模式适配）

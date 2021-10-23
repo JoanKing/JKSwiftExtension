@@ -18,7 +18,7 @@ class NSRangeExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension NSRangeExtensionViewController {
     
     // MARK: 1.1、NSRange转换成Range的方法

@@ -12,7 +12,7 @@ import Dispatch
 import Photos
 
 extension UIImage: JKPOPCompatible {}
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 public extension JKPOP where Base: UIImage {
     
     // MARK: 1.1、设置图片的圆角
@@ -411,7 +411,7 @@ fileprivate extension UIImage {
     }
 }
 
-// MARK:- 二、UIColor 生成的图片 和 生成渐变色图片
+// MARK: - 二、UIColor 生成的图片 和 生成渐变色图片
 public enum JKImageGradientDirection {
     /// 水平从左到右
     case horizontal
@@ -534,7 +534,7 @@ public extension JKPOP where Base: UIImage {
     }
 }
 
-// MARK:- 三、图片的拉伸和缩放
+// MARK: - 三、图片的拉伸和缩放
 public extension JKPOP where Base: UIImage {
     
     // MARK: 3.1、获取固定大小的 image
@@ -672,7 +672,7 @@ public extension JKPOP where Base: UIImage {
     }
 }
 
-// MARK:- 四、UIImage 压缩相关
+// MARK: - 四、UIImage 压缩相关
 public extension JKPOP where Base: UIImage {
     
     // MARK: 4.1、压缩图片
@@ -845,7 +845,7 @@ public enum CompressionMode {
 }
 
 
-// MARK:- 五、二维码的处理
+// MARK: - 五、二维码的处理
 public extension JKPOP where Base: UIImage {
     
     // MARK: 5.1、生成二维码图片
@@ -959,7 +959,7 @@ public extension JKPOP where Base: UIImage {
     }
 }
 
-// MARK:- 六、gif 加载
+// MARK: - 六、gif 加载
 public enum DataType: String {
     case gif    = "gif"
     case png    = "png"
@@ -1245,7 +1245,7 @@ public extension JKPOP where Base: UIImage {
     }
 }
 
-// MARK:- 七、图片旋转的一些操作
+// MARK: - 七、图片旋转的一些操作
 public extension JKPOP where Base: UIImage {
     
     // MARK: 7.1、图片旋转 (角度)
@@ -1433,7 +1433,7 @@ public extension JKPOP where Base: UIImage {
     }
 }
 
-// MARK:- 八、给图片添加滤镜效果（棕褐色老照片滤镜，黑白滤镜）
+// MARK: - 八、给图片添加滤镜效果（棕褐色老照片滤镜，黑白滤镜）
 /**
  Core Image 是一个强大的滤镜处理框架。它除了可以直接给图片添加各种内置滤镜，还能精确地修改鲜艳程度, 色泽, 曝光等，下面通过两个样例演示如何给 UIImage 添加滤镜
  */
@@ -1593,7 +1593,7 @@ public extension JKPOP where Base: UIImage {
     }
 }
 
-// MARK:- 九、动态图片的使用
+// MARK: - 九、动态图片的使用
 public extension JKPOP where Base: UIImage {
 
     // MARK: 9.1、深色图片和浅色图片切换 （深色模式适配）

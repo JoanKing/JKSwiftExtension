@@ -18,7 +18,7 @@ class IndexPathExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、基本扩展
+// MARK: - 一、基本扩展
 extension IndexPathExtensionViewController {
     
     // MARK: 1.3、当前 NSIndexPath 的后一个 NSIndexPath

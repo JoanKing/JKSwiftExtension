@@ -20,7 +20,7 @@ class BundleExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 二、App的基本信息
+// MARK: - 二、App的基本信息
 extension BundleExtensionViewController {
     
     // MARK: 2.7、App 名称
@@ -62,7 +62,7 @@ extension BundleExtensionViewController {
     }
 }
 
-// MARK:- 一、Bundle 的基本扩展
+// MARK: - 一、Bundle 的基本扩展
 extension BundleExtensionViewController {
     
     // MARK: 1.3、读取项目本地图片

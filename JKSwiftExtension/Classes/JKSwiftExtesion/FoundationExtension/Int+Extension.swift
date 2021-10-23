@@ -7,7 +7,7 @@
 
 import UIKit
 extension Int: JKPOPCompatible {}
-// MARK:- 一、Int 与其他类型的转换
+// MARK: - 一、Int 与其他类型的转换
 public extension JKPOP where Base == Int {
     
     // MARK: 1.1、转 Double
@@ -39,7 +39,7 @@ public extension JKPOP where Base == Int {
     var intToTange: CountableRange<Int> { return 0..<self.base }
 }
 
-// MARK:- 二、其他常用方法
+// MARK: - 二、其他常用方法
 public extension JKPOP where Base == Int {
 
     // MARK: 2.1、取区间内的随机数，如取  0..<10 之间的随机数

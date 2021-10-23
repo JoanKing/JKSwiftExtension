@@ -8,13 +8,13 @@
 
 import UIKit
 
-// MARK:- 带有样式的button
+// MARK: - 带有样式的button
 private enum LineType {
     case none
     case color(_: UIColor)
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 public extension JKPOP where Base: UIButton {
     enum SmallButtonType {
         case red
@@ -112,7 +112,7 @@ public extension JKPOP where Base: UIButton {
     }
 }
 
-// MARK:- 二、链式调用
+// MARK: - 二、链式调用
 public extension UIButton {
     
     // MARK: 2.1、设置title
@@ -296,7 +296,7 @@ public extension UIButton {
     }
 }
 
-// MARK:- 三、UIButton 图片 与 title 位置关系
+// MARK: - 三、UIButton 图片 与 title 位置关系
 /// UIButton 图片与title位置关系 https://www.jianshu.com/p/0f34c1b52604
 public extension JKPOP where Base: UIButton {
     
@@ -385,7 +385,7 @@ public extension JKPOP where Base: UIButton {
     }
 }
 
-// MARK:- 四、自带倒计时功能的 Button（有待改进）
+// MARK: - 四、自带倒计时功能的 Button（有待改进）
 /// 自带倒计时功能的Button
 /// - 状态分为 [倒计时中，倒计时完成]，分别提供回调
 /// - 需要和业务结合时，后期再考虑
@@ -516,7 +516,7 @@ public extension UIButton {
     }
 }
 
-// MARK:- 五、Button的基本事件
+// MARK: - 五、Button的基本事件
 private var buttonCallBackKey: Void?
 extension UIButton: JKSwiftPropertyCompatible {
     internal typealias T = UIButton
@@ -544,7 +544,7 @@ public extension JKPOP where Base: UIButton {
     }
 }
 
-// MARK:- 六、Button扩大点击事件
+// MARK: - 六、Button扩大点击事件
 private var JKUIButtonExpandSizeKey = "JKUIButtonExpandSizeKey"
 public extension UIButton {
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {

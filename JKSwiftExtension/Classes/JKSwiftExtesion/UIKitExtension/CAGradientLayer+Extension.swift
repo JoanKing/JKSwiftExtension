@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 public enum JKViewGradientDirection {
     /// 水平从左到右
     case horizontal

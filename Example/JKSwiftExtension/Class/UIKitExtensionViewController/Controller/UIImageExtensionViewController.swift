@@ -21,7 +21,7 @@ class UIImageExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 九、动态图片的使用
+// MARK: - 九、动态图片的使用
 extension UIImageExtensionViewController {
     
     // MARK: 9.1、深色图片和浅色图片切换 （深色模式适配）
@@ -42,7 +42,7 @@ extension UIImageExtensionViewController {
         }
     }
 }
-// MARK:- 八、给图片添加滤镜效果（棕褐色老照片滤镜，黑白滤镜）以及 马赛克
+// MARK: - 八、给图片添加滤镜效果（棕褐色老照片滤镜，黑白滤镜）以及 马赛克
 extension UIImageExtensionViewController {
     
     // MARK: 8.4、检测人脸并打马赛克
@@ -167,7 +167,7 @@ extension UIImageExtensionViewController {
     }
 }
 
-// MARK:- 七、图片旋转的一些操作
+// MARK: - 七、图片旋转的一些操作
 extension UIImageExtensionViewController {
     
     // MARK: 7.10、图片平铺区域
@@ -420,7 +420,7 @@ extension UIImageExtensionViewController {
         }
     }
 }
-// MARK:- 六、gif 加载
+// MARK: - 六、gif 加载
 extension UIImageExtensionViewController {
     
     // MARK: 6.8、获取 网络 url 的 gif 图片的信息：包含分解后的图片和gif时间
@@ -590,7 +590,7 @@ extension UIImageExtensionViewController {
     }
 }
 
-// MARK:- 五、二维码的处理
+// MARK: - 五、二维码的处理
 extension UIImageExtensionViewController {
     
     // MARK: 5.3、获取图片每个二维码里面的信息数组
@@ -644,7 +644,7 @@ extension UIImageExtensionViewController {
     }
 }
 
-// MARK:- 四、UIImage 压缩相关
+// MARK: - 四、UIImage 压缩相关
 extension UIImageExtensionViewController {
     
     // MARK: 4.5、CoreGraphics 方式调整图片大小 性能很好
@@ -737,7 +737,7 @@ extension UIImageExtensionViewController {
     }
 }
 
-// MARK:- 三、图片的拉伸和缩放
+// MARK: - 三、图片的拉伸和缩放
 extension UIImageExtensionViewController {
     
     // MARK: 3.6、调整图像方向 避免图像有旋转
@@ -847,7 +847,7 @@ extension UIImageExtensionViewController {
     }
 }
 
-// MARK:- 二、UIColor 生成的图片 和 生成渐变色图片
+// MARK: - 二、UIColor 生成的图片 和 生成渐变色图片
 extension UIImageExtensionViewController {
     
     // MARK: 2.5、生成带圆角渐变色的图片 [UIColor, UIColor, UIColor]
@@ -936,7 +936,7 @@ extension UIImageExtensionViewController {
     }
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension UIImageExtensionViewController {
     
     // MARK: 1.17、返回一个将黑色背景变透明的UIImage

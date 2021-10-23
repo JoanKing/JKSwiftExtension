@@ -17,7 +17,7 @@ class DispatchQueueExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 二、延迟事件
+// MARK: - 二、延迟事件
 extension DispatchQueueExtensionViewController {
     // MARK: 2.4、异步延迟回到主线程(子线程执行任务，然后回到主线程执行任务)
     @objc func test24() {
@@ -52,7 +52,7 @@ extension DispatchQueueExtensionViewController {
     }
 }
 
-// MARK:- 一、DispatchQueue 基本的扩展
+// MARK: - 一、DispatchQueue 基本的扩展
 extension DispatchQueueExtensionViewController {
     
     // MARK: 1.1、函数只被执行一次

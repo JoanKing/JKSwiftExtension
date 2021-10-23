@@ -8,7 +8,7 @@
 import Foundation
 import AVFoundation
 extension AVAssetExportSession: JKPOPCompatible { }
-// MARK:- 一、有关视频压缩的扩展
+// MARK: - 一、有关视频压缩的扩展
 public extension JKPOP where Base: AVAssetExportSession {
     // MARK: 1.1、本地视频压缩
     /// 本地视频压缩

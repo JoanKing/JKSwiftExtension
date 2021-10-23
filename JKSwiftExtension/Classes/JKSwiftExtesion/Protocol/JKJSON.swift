@@ -7,12 +7,12 @@
 
 import Foundation
 
-// MARK:- 自定义一个JSON协议
+// MARK: - 自定义一个JSON协议
 public protocol JKJSON: Codable {
     func toJSONString() -> String?
 }
  
-// MARK:- 扩展协议方法
+// MARK: - 扩展协议方法
 public extension JKJSON {
     // MARK: 将数据转成可用的JSON模型
     func toJSONString() -> String? {

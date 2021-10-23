@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CommonCrypto
 
-// MARK:- 一：字符串基本的扩展
+// MARK: - 一：字符串基本的扩展
 public extension JKPOP where Base: ExpressibleByStringLiteral {
     
     // MARK: 1.1、字符串的长度
@@ -258,7 +258,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK:- 二、沙盒路径的获取
+// MARK: - 二、沙盒路径的获取
 /*
  - 1、Home(应用程序包)目录
  - 整个应用程序各文档所在的目录,包含了所有的资源文件和可执行文件
@@ -357,7 +357,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK:- 三、iOS CharacterSet（字符集）
+// MARK: - 三、iOS CharacterSet（字符集）
 /**
  CharacterSet是在Foundation框架下的一个结构体，用于搜索操作的一组Unicode字符值。官方的API地址：https://developer.apple.com/documentation/foundation/characterset
  概述
@@ -501,7 +501,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK:- 四、字符串的转换
+// MARK: - 四、字符串的转换
 public extension JKPOP where Base: ExpressibleByStringLiteral {
     
     // MARK: 4.1、字符串 转 CGFloat
@@ -590,7 +590,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK:- 五、字符串UI的处理
+// MARK: - 五、字符串UI的处理
 extension JKPOP where Base: ExpressibleByStringLiteral {
     
     // MARK: 5.1、对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)
@@ -760,7 +760,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK:- 六、字符串有关数字方面的扩展
+// MARK: - 六、字符串有关数字方面的扩展
 public enum StringCutType {
     case normal, auto
 }
@@ -859,7 +859,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK:- 七、苹果针对浮点类型计算精度问题提供出来的计算类
+// MARK: - 七、苹果针对浮点类型计算精度问题提供出来的计算类
 /// NSDecimalNumberHandler 苹果针对浮点类型计算精度问题提供出来的计算类
 /**
  初始化方法
@@ -951,7 +951,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK:- 八、字符串包含表情的处理
+// MARK: - 八、字符串包含表情的处理
 extension JKPOP where Base: ExpressibleByStringLiteral {
     
     // MARK: 8.1、检查字符串是否包含 Emoji 表情
@@ -1005,7 +1005,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK:- 九、字符串的一些正则校验
+// MARK: - 九、字符串的一些正则校验
 extension JKPOP where Base: ExpressibleByStringLiteral {
     
     // MARK: 9.1、判断是否全是空白,包括空白字符和换行符号，长度为0返回true
@@ -1280,7 +1280,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return attributedString
     }
     
-    // MARK:- private 方法
+    // MARK: - private 方法
     // MARK: 是否是闰年
     /// 是否是闰年
     /// - Parameter year: 年份
@@ -1304,7 +1304,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     
 }
 
-// MARK:- 十、字符串截取的操作
+// MARK: - 十、字符串截取的操作
 extension JKPOP where Base: ExpressibleByStringLiteral {
     
     // MARK: 10.1、截取字符串从开始到 index
@@ -1441,7 +1441,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK:- 十一、字符串编码的处理
+// MARK: - 十一、字符串编码的处理
 extension JKPOP where Base: ExpressibleByStringLiteral {
     
     // MARK: 11.1、特殊字符编码处理urlEncoded
@@ -1480,7 +1480,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK:- 十二、进制之间的转换
+// MARK: - 十二、进制之间的转换
 /*
  Binary：      二进制
  Octal：       八进制
@@ -1653,7 +1653,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK:- 十三、String -> NSMutableAttributedString
+// MARK: - 十三、String -> NSMutableAttributedString
 public extension JKPOP where Base: ExpressibleByStringLiteral {
     
     // MARK: 13.1、String 添加颜色后转 NSMutableAttributedString
@@ -1700,7 +1700,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK:- 十四、MD5 加密 和 Base64 编解码
+// MARK: - 十四、MD5 加密 和 Base64 编解码
 /**
  单向散列函数，又被称为消息摘要函数（message digest function），哈希函数
  输出的散列值，也被称为消息摘要（message digest）、指纹（fingerprint）
@@ -1789,7 +1789,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK:- 十五、AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
+// MARK: - 十五、AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
 /**
  iOS中填充规则PKCS7,加解密模式ECB(无补码,CCCrypt函数中对应的nil),字符集UTF8,输出base64(可以自己改hex)
  */
@@ -1878,7 +1878,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK:- 十六、SHA1, SHA224, SHA256, SHA384, SHA512
+// MARK: - 十六、SHA1, SHA224, SHA256, SHA384, SHA512
 /**
  - 安全哈希算法（Secure Hash Algorithm）主要适用于数字签名标准（Digital Signature Standard DSS）里面定义的数字签名算法（Digital Signature Algorithm DSA）。对于长度小于2^64位的消息，SHA1会产生一个160位的消息摘要。当接收到消息的时候，这个消息摘要可以用来验证数据的完整性。在传输的过程中，数据很可能会发生变化，那么这时候就会产生不同的消息摘要。当让除了SHA1还有SHA256以及SHA512等。
  - SHA1有如下特性：不可以从消息摘要中复原信息；两个不同的消息不会产生同样的消息摘要
@@ -1945,7 +1945,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK:- 十七、unicode编码和解码
+// MARK: - 十七、unicode编码和解码
 public extension JKPOP where Base == String {
     
     // MARK: 17.1、unicode编码
@@ -1983,7 +1983,7 @@ public extension JKPOP where Base == String {
     }
 }
 
-// MARK:- 十八、字符值引用 (numeric character reference, NCR)与普通字符串的转换
+// MARK: - 十八、字符值引用 (numeric character reference, NCR)与普通字符串的转换
 /**
  1，什么是字符值引用
  （1）字符值引用 (numeric character reference, NCR) 是在标记语言SGML以及派生的如HTML与XML中常见的一种转义序列结构，用来表示Unicode的通用字符集 (UCS)中的单个字符. NCR可以表示在一个特定文档中不能直接编码的字符，而该标记语言阅读器软件把每个NCR当作一个字符来处理。

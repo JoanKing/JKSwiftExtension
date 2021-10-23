@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK:- 一、基本的方法
+// MARK: - 一、基本的方法
 public struct JKCommonTool {
     
     // MARK: 1.1、交换两个值

@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 public extension UICollectionView {
     // MARK: 1.1、移动 item
     /// 允许手势移动Item，默认不允许
@@ -43,7 +43,7 @@ extension UICollectionView {
     }
 }
 
-// MARK:- 二、滚动和注册
+// MARK: - 二、滚动和注册
 public extension JKPOP where Base: UICollectionView {
     
     // MARK: 2.1、是否滚动到顶部

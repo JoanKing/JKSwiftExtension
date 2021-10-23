@@ -20,7 +20,7 @@ import UIKit
     }
 }
 
-// MARK:- 三、有关视频缩略图获取的扩展
+// MARK: - 三、有关视频缩略图获取的扩展
 extension FileManagerExtensionViewController {
     
     // MARK: 3.4、通过网络视频文件路径数组获取截图数组
@@ -96,7 +96,7 @@ extension FileManagerExtensionViewController {
     }
 }
 
-// MARK:- 二、文件以及文件夹的操作 扩展
+// MARK: - 二、文件以及文件夹的操作 扩展
 extension FileManagerExtensionViewController {
     
     // MARK: 2.24、文件/文件夹比较 是否一样
@@ -295,7 +295,7 @@ extension FileManagerExtensionViewController {
     }
 }
 
-// MARK:- 一、沙盒路径的获取
+// MARK: - 一、沙盒路径的获取
 @objc extension FileManagerExtensionViewController {
     
     // MARK: 1.1、获取Home的完整路径名

@@ -17,7 +17,7 @@ class UIScreenExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension UIScreenExtensionViewController {
     
     // MARK: 1.1、获取宽度

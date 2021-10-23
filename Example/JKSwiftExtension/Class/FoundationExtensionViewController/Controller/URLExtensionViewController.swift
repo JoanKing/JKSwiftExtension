@@ -19,7 +19,7 @@ class URLExtensionViewController: BaseViewController {
 
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension URLExtensionViewController {
     
     // MARK: 1.3、检测应用是否能打开这个URL实例

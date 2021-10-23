@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK:- 苹果针对浮点类型计算精度问题提供出来的计算类
+// MARK: - 苹果针对浮点类型计算精度问题提供出来的计算类
 /// NSDecimalNumberHandler 苹果针对浮点类型计算精度问题提供出来的计算类
 /**
  初始化方法
@@ -40,7 +40,7 @@ public enum DecimalNumberHandlerType: String {
     case dividing
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 public extension JKPOP where Base: NSDecimalNumberHandler {
     
     // MARK: 1.1、向下取整取倍数
@@ -80,7 +80,7 @@ public extension JKPOP where Base: NSDecimalNumberHandler {
     }
 }
 
-// MARK:- public 公有方法
+// MARK: - public 公有方法
 public extension JKPOP where Base: NSDecimalNumberHandler {
     
     /// 两个数的：加 减 乘 除

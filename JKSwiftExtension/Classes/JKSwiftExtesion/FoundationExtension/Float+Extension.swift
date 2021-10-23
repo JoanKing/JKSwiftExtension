@@ -7,7 +7,7 @@
 
 import UIKit
 extension Float: JKPOPCompatible {}
-// MARK:- 一、Float 与其他类型的转换
+// MARK: - 一、Float 与其他类型的转换
 public extension JKPOP where Base == Float {
     
     // MARK: 1.1、转 Int
@@ -43,7 +43,7 @@ public extension JKPOP where Base == Float {
     var float: Float { return self.base }
 }
 
-// MARK:- 二、其他常用的方法
+// MARK: - 二、其他常用的方法
 public extension JKPOP where Base == Float {
 
     // MARK: 2.1、浮点数四舍五入

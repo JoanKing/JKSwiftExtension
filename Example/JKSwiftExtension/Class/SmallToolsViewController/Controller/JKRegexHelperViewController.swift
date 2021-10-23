@@ -22,7 +22,7 @@ class JKRegexHelperViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、基本的使用
+// MARK: - 一、基本的使用
 extension JKRegexHelperViewController {
     
     // MARK: 1.5、正则匹配用户身份证号15或18位

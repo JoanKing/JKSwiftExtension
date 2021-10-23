@@ -28,7 +28,7 @@ class JKWeakTimerViewController: BaseViewController {
     }
 }
 
-// MARK:- 定时器的其他操作
+// MARK: - 定时器的其他操作
 extension JKWeakTimerViewController {
     
     // MARK: 3.1、定时器销毁
@@ -37,7 +37,7 @@ extension JKWeakTimerViewController {
     }
 }
 
-// MARK:- 二、延迟执行的定时器
+// MARK: - 二、延迟执行的定时器
 extension JKWeakTimerViewController {
     
     // MARK: 2.2、便利初始化定时器(有队列，可设置延迟执行日期)
@@ -59,7 +59,7 @@ extension JKWeakTimerViewController {
     }
 }
 
-// MARK:- 一、初始化定时器方法(普通方式)
+// MARK: - 一、初始化定时器方法(普通方式)
 extension JKWeakTimerViewController {
     
     // MARK: 1.4、类方法初始化定时器（有队列）- 自动开启定时器

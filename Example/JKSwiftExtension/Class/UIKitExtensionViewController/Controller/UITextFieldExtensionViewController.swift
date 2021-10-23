@@ -21,7 +21,7 @@ class UITextFieldExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 二、链式编程
+// MARK: - 二、链式编程
 extension UITextFieldExtensionViewController {
     
     // MARK: 2.1、设置文字
@@ -187,7 +187,7 @@ extension UITextFieldExtensionViewController: UITextFieldDelegate {
     }
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension UITextFieldExtensionViewController {
     
     // MARK: 1.1、添加左边的内边距

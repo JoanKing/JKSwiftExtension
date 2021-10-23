@@ -23,7 +23,7 @@ class UIControlExtensionViewController: BaseViewController {
 }
 
 
-// MARK:- 二、基本的扩展
+// MARK: - 二、基本的扩展
 extension UIControlExtensionViewController {
     
     // MARK: 2.1、多少秒内不可重复点击
@@ -47,7 +47,7 @@ extension UIControlExtensionViewController {
     }
 }
 
-// MARK:- 一、基本的链式编程
+// MARK: - 一、基本的链式编程
 extension UIControlExtensionViewController {
     
     // MARK: 1.1、设置是否可用(测试这里设置不可用)

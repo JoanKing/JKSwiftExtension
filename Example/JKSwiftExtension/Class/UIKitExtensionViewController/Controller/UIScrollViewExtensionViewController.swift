@@ -28,7 +28,7 @@ extension UIScrollViewExtensionViewController {
     }
 }
 
-// MARK:- 二、链式编程
+// MARK: - 二、链式编程
 extension UIScrollViewExtensionViewController {
     
     // MARK: 2.1、设置偏移量 CGPoint
@@ -476,7 +476,7 @@ extension UIScrollViewExtensionViewController {
     }
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension UIScrollViewExtensionViewController {
     
     // MARK: 1.3、获取 ScrollView 的 contentScroll 长图像

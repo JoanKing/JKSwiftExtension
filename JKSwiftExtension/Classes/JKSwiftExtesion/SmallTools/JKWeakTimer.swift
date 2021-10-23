@@ -5,7 +5,7 @@
 //  Created by IronMan on 2020/9/29.
 //
 
-// MARK:- 定时器 Timer 的封装
+// MARK: - 定时器 Timer 的封装
 import UIKit
 
 public class JKWeakTimer {
@@ -232,7 +232,7 @@ public extension JKWeakTimer {
     }
 }
 
-// MARK:- 二、延迟执行的定时器
+// MARK: - 二、延迟执行的定时器
 public extension JKWeakTimer {
     
     // MARK: 2.1、便利初始化定时器(可设置延迟执行日期)

@@ -18,7 +18,7 @@ class UIViewControllerExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 二、Storyboard 的 VC 交互
+// MARK: - 二、Storyboard 的 VC 交互
 extension UIViewControllerExtensionViewController {
     
     // MARK: 2.2、push跳转到Storyboard中指定UIViewController
@@ -34,7 +34,7 @@ extension UIViewControllerExtensionViewController {
     }
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension UIViewControllerExtensionViewController {
     
     // MARK: 1.6、关闭当前的控制器

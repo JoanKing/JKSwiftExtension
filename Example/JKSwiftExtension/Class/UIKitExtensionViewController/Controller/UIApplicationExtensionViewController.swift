@@ -18,7 +18,7 @@ class UIApplicationExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 三、打开系统应用和第三方APP
+// MARK: - 三、打开系统应用和第三方APP
 extension UIApplicationExtensionViewController {
     
     // MARK: 3.48、下厨房
@@ -354,7 +354,7 @@ extension UIApplicationExtensionViewController {
     }
 }
 
-// MARK:- 二、APP权限的检测
+// MARK: - 二、APP权限的检测
 extension UIApplicationExtensionViewController {
     
     @objc func test22() {
@@ -373,7 +373,7 @@ extension UIApplicationExtensionViewController {
         JKPrint(" 照相机：\(result1)、相册：\(result2)、麦克风：\(result3)、定位：\(result4)")
     }
 }
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension UIApplicationExtensionViewController {
     
     // MARK: 1.9、app详情链接

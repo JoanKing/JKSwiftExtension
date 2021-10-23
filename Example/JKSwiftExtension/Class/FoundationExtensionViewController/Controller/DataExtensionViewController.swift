@@ -18,7 +18,7 @@ class DataExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension DataExtensionViewController {
     
     // MARK: 1.3、转成bytes

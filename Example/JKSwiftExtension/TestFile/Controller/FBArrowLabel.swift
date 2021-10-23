@@ -6,7 +6,7 @@
 //  Copyright © 2021 wuyanwei. All rights reserved.
 //
 
-// MARK:- 带箭头的Label
+// MARK: - 带箭头的Label
 import UIKit
 /*
  支持的配置化属性：

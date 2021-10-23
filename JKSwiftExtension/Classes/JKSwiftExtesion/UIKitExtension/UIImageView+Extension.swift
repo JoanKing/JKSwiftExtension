@@ -6,7 +6,7 @@
 //
 
 import UIKit
-// MARK:- 一、加载 gif
+// MARK: - 一、加载 gif
 public extension JKPOP where Base: UIImageView {
     
     // MARK: 1.1、加载本地的gif图片

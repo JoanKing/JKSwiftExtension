@@ -19,7 +19,7 @@ class DictionaryExtensionViewController: BaseViewController {
 
 }
 
-// MARK:- 二、其他基本扩展
+// MARK: - 二、其他基本扩展
 extension DictionaryExtensionViewController {
     
     // MARK: 2.1、字典转JSON
@@ -29,7 +29,7 @@ extension DictionaryExtensionViewController {
     }
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension DictionaryExtensionViewController {
     
     // MARK: 1.5、字典里面所有的 values

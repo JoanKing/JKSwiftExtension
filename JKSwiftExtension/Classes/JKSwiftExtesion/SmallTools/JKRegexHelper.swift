@@ -6,7 +6,7 @@
 //
 
 import Foundation
-// MARK:- 校验字符的表达式
+// MARK: - 校验字符的表达式
 public enum JKRegexCharacterType: String {
     /// 汉字
     case type1 = "^[\\u4e00-\\u9fa5]{0,}$"
@@ -34,7 +34,7 @@ public enum JKRegexCharacterType: String {
     case type12 = "[^~\\x22]+"
 }
 
-// MARK:- 校验数字的表达式
+// MARK: - 校验数字的表达式
 public enum JKRegexDigitalType: String {
     /// 数字
     case type1 = "^[0-9]*$"
@@ -64,7 +64,7 @@ public enum JKRegexDigitalType: String {
     case type13 = "^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199)\\d{8}$"
 }
 
-// MARK:- 一、正则匹配的使用
+// MARK: - 一、正则匹配的使用
 public struct JKRegexHelper {
 
     // MARK: 1.1、通用匹配

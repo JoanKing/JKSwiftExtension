@@ -8,7 +8,7 @@
 
 import UIKit
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 public extension JKPOP where Base: UITableView {
 
     // MARK: 1.1、tableView 在 iOS 11 上的适配
@@ -70,7 +70,7 @@ public extension JKPOP where Base: UITableView {
     }
 }
 
-// MARK:- 二、链式编程
+// MARK: - 二、链式编程
 public extension UITableView {
     
     // MARK: 2.1、设置 delegate 代理

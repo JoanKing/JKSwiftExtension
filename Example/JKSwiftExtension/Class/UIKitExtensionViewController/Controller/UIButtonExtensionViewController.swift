@@ -34,7 +34,7 @@ class UIButtonExtensionViewController: BaseViewController {
     }()
 }
 
-// MARK:- 六、Button扩大点击事件
+// MARK: - 六、Button扩大点击事件
 extension UIButtonExtensionViewController {
     // MARK: 6.1、扩大UIButton的点击区域，向四周扩展10像素的点击范围
     @objc func test61() {
@@ -77,7 +77,7 @@ extension UIButtonExtensionViewController {
     }
 }
 
-// MARK:- 五、Button的基本事件
+// MARK: - 五、Button的基本事件
 extension UIButtonExtensionViewController {
     
     // MARK: 5.1、button的事件
@@ -98,7 +98,7 @@ extension UIButtonExtensionViewController {
     }
 }
 
-// MARK:- 四、自带倒计时功能的 Button
+// MARK: - 四、自带倒计时功能的 Button
 extension UIButtonExtensionViewController {
     
     // MARK: 4.1、设置 Button 倒计时
@@ -136,7 +136,7 @@ extension UIButtonExtensionViewController {
         print("销毁定时器")
     }
 }
-// MARK:- 三、UIButton 图片 与 title 位置关系
+// MARK: - 三、UIButton 图片 与 title 位置关系
 extension UIButtonExtensionViewController {
     
     // MARK: 3.1、图片在左
@@ -188,7 +188,7 @@ extension UIButtonExtensionViewController {
     }
 }
 
-// MARK:- 二、链式调用
+// MARK: - 二、链式调用
 extension UIButtonExtensionViewController {
     
     // MARK: 2.1、设置title
@@ -370,7 +370,7 @@ extension UIButtonExtensionViewController {
     }
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension UIButtonExtensionViewController {
     // MARK: 1.1、创建一个带颜色的 Button
     @objc func test11() {

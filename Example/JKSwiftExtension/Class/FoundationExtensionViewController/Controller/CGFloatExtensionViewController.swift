@@ -18,7 +18,7 @@ class CGFloatExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 二、角度和弧度相互转换
+// MARK: - 二、角度和弧度相互转换
 extension CGFloatExtensionViewController {
     
     // MARK: 2.1、角度转弧度
@@ -34,7 +34,7 @@ extension CGFloatExtensionViewController {
     }
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension CGFloatExtensionViewController {
     
     // MARK: 1.1、转 Int

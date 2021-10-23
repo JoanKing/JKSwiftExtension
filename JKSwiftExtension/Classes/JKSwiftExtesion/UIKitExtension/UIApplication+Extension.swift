@@ -9,7 +9,7 @@ import UIKit
 import Photos
 
 extension UIApplication: JKPOPCompatible {}
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 public extension JKPOP where Base: UIApplication {
     
     // MARK: 1.1、获取屏幕的方向
@@ -152,7 +152,7 @@ public extension JKPOP where Base: UIApplication {
     }
 }
 
-// MARK:- 二、APP权限的检测
+// MARK: - 二、APP权限的检测
 public enum JKAppPermissionType {
     // 照相机
     case camera
@@ -189,7 +189,7 @@ public extension JKPOP where Base: UIApplication {
     }
 }
 
-// MARK:- 三、打开系统应用和第三方APP
+// MARK: - 三、打开系统应用和第三方APP
 /// 系统app
 public enum JKSystemAppType: String {
     case safari = "http://"

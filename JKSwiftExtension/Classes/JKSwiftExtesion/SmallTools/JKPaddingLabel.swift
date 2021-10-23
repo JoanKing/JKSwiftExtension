@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK:- 具有内边距的Label 
+// MARK: - 具有内边距的Label 
 public class JKPaddingLabel : UILabel {
     
     private var padding = UIEdgeInsets.zero

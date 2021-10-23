@@ -18,7 +18,7 @@ class DoubleExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 二、其他常用的方法
+// MARK: - 二、其他常用的方法
 extension DoubleExtensionViewController {
     
     // MARK: 2.1、浮点数四舍五入
@@ -29,7 +29,7 @@ extension DoubleExtensionViewController {
     }
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension DoubleExtensionViewController {
     
     // MARK: 1.8、转 Double

@@ -18,7 +18,7 @@ class Int64ExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension Int64ExtensionViewController {
     
     // MARK: 1.1、转 Int

@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: 提示：如果你想对textView.text直接赋值。请在设置属性之前进行，否则影响计算
-// MARK:- 一、基本的扩展 (使用runtime添加属性)
+// MARK: - 一、基本的扩展 (使用runtime添加属性)
 public extension UITextView {
     
     // MARK: 1.1、设置占位符
@@ -66,7 +66,7 @@ public extension UITextView {
     }
 }
 
-// MARK:- fileprivate 私有的内容
+// MARK: - fileprivate 私有的内容
 extension UITextView {
     
     fileprivate struct RuntimeKey {
@@ -119,7 +119,7 @@ extension UITextView {
     }
 }
 
-// MARK:- 二、文本链接的扩展
+// MARK: - 二、文本链接的扩展
 public extension JKPOP where Base: UITextView {
     
     // MARK: 2.1、添加链接文本（链接为空时则表示普通文本）
@@ -213,7 +213,7 @@ public extension JKPOP where Base: UITextView {
     }
 }
 
-// MARK:- 三、其他的扩展
+// MARK: - 三、其他的扩展
 public extension JKPOP where Base: UITextView {
     // MARK: 3.1、限制字数的输入(提示在：- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;方法里面调用)
     /// 限制字数的输入

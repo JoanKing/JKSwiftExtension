@@ -18,7 +18,7 @@ class UISliderExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension UISliderExtensionViewController {
     
     // MARK: 1.1、UISlider的 闭包事件

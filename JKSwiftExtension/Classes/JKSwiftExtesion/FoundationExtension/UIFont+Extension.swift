@@ -7,7 +7,7 @@
 
 import UIKit
 extension UIFont: JKPOPCompatible {}
-// MARK:- 一、常用的基本字体扩展
+// MARK: - 一、常用的基本字体扩展
 public extension JKPOP where Base: UIFont {
     
     // MARK: 1.1、默认字体
@@ -95,7 +95,7 @@ public extension JKPOP where Base: UIFont {
     }
 }
 
-// MARK:- 二、自定义字体
+// MARK: - 二、自定义字体
 fileprivate enum UIFontWeight: String {
     /// 常规
     case Regular = "Regular"

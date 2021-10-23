@@ -7,7 +7,7 @@
 
 import UIKit
 extension Int64: JKPOPCompatible {}
-// MARK:- 一、Int64 与其他类型的转换
+// MARK: - 一、Int64 与其他类型的转换
 public extension JKPOP where Base == Int64 {
     
     // MARK: 1.1、转 Int

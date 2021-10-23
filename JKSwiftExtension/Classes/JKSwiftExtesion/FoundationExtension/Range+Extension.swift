@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension Range: JKPOPCompatible {}
 
 public extension JKPOP where Base: RangeExpression, Base.Bound == String.Index {

@@ -23,7 +23,7 @@ class JKPrintViewController: BaseViewController, UIDocumentInteractionController
     }
 }
 
-// MARK:- 一、打印的方式
+// MARK: - 一、打印的方式
 extension JKPrintViewController {
     
     // MARK: 1.1、打印单个内容

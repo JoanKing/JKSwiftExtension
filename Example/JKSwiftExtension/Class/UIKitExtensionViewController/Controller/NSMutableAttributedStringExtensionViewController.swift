@@ -18,7 +18,7 @@ class NSMutableAttributedStringExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、基本的链式编程
+// MARK: - 一、基本的链式编程
 extension NSMutableAttributedStringExtensionViewController {
     
     // MARK: 1.1、设置 删除线

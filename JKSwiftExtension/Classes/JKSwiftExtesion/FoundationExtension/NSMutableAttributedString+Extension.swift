@@ -32,7 +32,7 @@ import UIKit
  // NSParagraphStyleAttributeName      设置文本段落排版格式，取值为 NSParagraphStyle 对象
  */
 
-// MARK:- 一、基本的链式编程 扩展
+// MARK: - 一、基本的链式编程 扩展
 public extension NSMutableAttributedString {
  
     // MARK: 1.1、设置 删除线
@@ -90,7 +90,7 @@ public extension NSMutableAttributedString {
     }
 }
 
-// MARK:- 二、其他的扩展
+// MARK: - 二、其他的扩展
 public extension NSMutableAttributedString {
 
 }

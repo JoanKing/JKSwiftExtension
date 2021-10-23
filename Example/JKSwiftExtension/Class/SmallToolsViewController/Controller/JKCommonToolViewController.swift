@@ -22,7 +22,7 @@ class JKCommonToolViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、基本的方法
+// MARK: - 一、基本的方法
 extension JKCommonToolViewController {
     
     // MARK: 1.1、交换两个值

@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension UIViewController: JKPOPCompatible {}
 public extension JKPOP where Base: UIViewController {
     
@@ -92,7 +92,7 @@ public extension JKPOP where Base: UIViewController {
     }
 }
 
-// MARK:- 二、Storyboard 的 VC 交互
+// MARK: - 二、Storyboard 的 VC 交互
 /**
  提示：
  1、Storyboard 一定要设置一个初始化的控制器，勾选：Is Initial View Controller

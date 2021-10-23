@@ -17,7 +17,7 @@ public enum JKDashLineDirection: Int {
 }
 
 extension UIView: JKPOPCompatible {}
-// MARK:- 一、机型的判断
+// MARK: - 一、机型的判断
 /*
  iphone硬件型号
  iPhoneX的分辨率：      2436 * 1125 || pt: 812 * 375
@@ -119,7 +119,7 @@ public func is678P() -> Bool {
     return isIphone() && kScreenH == 736
 }
 
-// MARK:- 二、屏幕尺寸常用的常量
+// MARK: - 二、屏幕尺寸常用的常量
 // MARK: 2.1、屏幕的宽
 /// 屏幕的宽
 public let kScreenW: CGFloat = UIScreen.main.bounds.width
@@ -158,7 +158,7 @@ public let kScreenW16_9: CGFloat = kScreenW * 9.0 / 16.0
 // 高
 public let kScreenH16_9: CGFloat = kScreenH * 16.0 / 9.0
 
-// MARK:- 三、UIView 有关 Frame 的扩展
+// MARK: - 三、UIView 有关 Frame 的扩展
 public extension JKPOP where Base: UIView {
     // MARK: 3.1、x 的位置
     /// x 的位置
@@ -325,7 +325,7 @@ public extension JKPOP where Base: UIView {
     }
 }
 
-// MARK:- 四、继承于 UIView 视图的 平面、3D 旋转 以及 缩放
+// MARK: - 四、继承于 UIView 视图的 平面、3D 旋转 以及 缩放
 /**
  从m11到m44定义的含义如下：
  m11：x轴方向进行缩放
@@ -419,7 +419,7 @@ extension JKPOP where Base: UIView {
     }
 }
 
-// MARK:- 五、关于UIView的 圆角、阴影、边框、虚线 的设置
+// MARK: - 五、关于UIView的 圆角、阴影、边框、虚线 的设置
 public extension JKPOP where Base: UIView {
     
     // MARK: 5.1、添加圆角
@@ -637,7 +637,7 @@ public extension JKPOP where Base: UIView {
     }
 }
 
-// MARK:- 六、自定义链式编程
+// MARK: - 六、自定义链式编程
 public extension UIView {
     // MARK: 6.1、设置 tag 值
     /// 设置 tag 值
@@ -751,7 +751,7 @@ public extension UIView {
     }
 }
 
-// MARK:- 七、其他的方法
+// MARK: - 七、其他的方法
 // 抖动方向枚举
 public enum JKShakeDirection: Int {
     case horizontal  //水平抖动
@@ -892,7 +892,7 @@ public extension JKPOP where Base: UIView {
     }
 }
 
-// MARK:- private method
+// MARK: - private method
 extension UIView {
     /// 边框的私有内容
     fileprivate func addBorderUtility(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, color: UIColor) {
@@ -1165,7 +1165,7 @@ public extension JKPOP where Base: UIView {
     }
 }
 
-// MARK:- 十、颜色渐变
+// MARK: - 十、颜色渐变
 public extension JKPOP where Base : UIView {
 
     // MARK: 10.1、添加渐变色图层

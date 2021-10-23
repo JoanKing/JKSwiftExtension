@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK:- 一、构造器设置颜色
+// MARK: - 一、构造器设置颜色
 public extension UIColor {
     
     // MARK: 1.1、根据 RGBA 设置颜色颜色
@@ -49,7 +49,7 @@ public extension UIColor {
     }
 }
 
-// MARK:- 二、使用方法设置颜色
+// MARK: - 二、使用方法设置颜色
 public extension UIColor {
     
     // MARK: 2.1、根据RGBA的颜色(方法)
@@ -88,7 +88,7 @@ public extension UIColor {
     }
 }
 
-// MARK:- 三、UIColor的一些方法
+// MARK: - 三、UIColor的一些方法
 public extension UIColor {
     
     // MARK: 3.1、根据 十六进制字符串 颜色获取 RGB，如：#3CB371 或者 ##3CB371 -> 60,179,113
@@ -158,7 +158,7 @@ public extension UIColor {
     }
 }
 
-// MARK:- 四、UIColor 的一些属性
+// MARK: - 四、UIColor 的一些属性
 public extension UIColor {
     
     // MARK: 4.1、UIColor 转十六进制颜色的字符串
@@ -200,7 +200,7 @@ public extension UIColor {
     }
 }
 
-// MARK:- 五、获取UIColor的HSV/HSB值（Hue色相、S饱和度、B亮度）
+// MARK: - 五、获取UIColor的HSV/HSB值（Hue色相、S饱和度、B亮度）
 /**
  在平时开发中我们使用的都是 RGB 颜色模式，即通过红、绿、蓝三原色来表示一种颜色。RGB 是对机器很友好的色彩模式，但并不够人性化。
      相对于 RGB，还有种 HSB（也叫 HSV）颜色模式，该模式更便于描述人眼对与颜色的感觉。使用该模式可以很明确的表达是什么颜色？鲜艳不鲜艳？亮还是暗？
@@ -270,7 +270,7 @@ public extension UIColor {
    }
 }
 
-// MARK:- 私有的一些方法
+// MARK: - 私有的一些方法
 fileprivate extension UIColor {
     
     // MARK: 根据 UIColor 获取对应的 RGB(UIColor需要是 RGB创建的)
@@ -284,7 +284,7 @@ fileprivate extension UIColor {
     }
 }
 
-// MARK:- 个性化的颜色设置
+// MARK: - 个性化的颜色设置
 extension UIColor {
     
     // MARK: 背景灰色

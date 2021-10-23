@@ -17,7 +17,7 @@ public func jk_setRetainedAssociatedObject<T>(_ object: Any, _ key: UnsafeRawPoi
 }
 
 
-// MARK:- 一、基本的方法
+// MARK: - 一、基本的方法
 public class JKRuntime: NSObject {
 
     // MARK: 1.1、成员变量列表
@@ -85,7 +85,7 @@ public class JKRuntime: NSObject {
     }
 }
 
-// MARK:- 二、交换方法
+// MARK: - 二、交换方法
 public extension JKRuntime {
 
     // MARK: 2.1、交换方法1

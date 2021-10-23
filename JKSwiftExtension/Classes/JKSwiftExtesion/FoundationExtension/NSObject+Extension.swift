@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK:- 一、 NSObject 属性的扩展
+// MARK: - 一、 NSObject 属性的扩展
 #if os(iOS) || os(tvOS)
 public extension NSObject {
     
@@ -26,7 +26,7 @@ public extension NSObject {
 
 #endif
 
-// MARK:- 二、一些常用的方法
+// MARK: - 二、一些常用的方法
 public extension NSObject {
     
     // MARK: 2.1、利用运行时获取类里面的成员变量
@@ -53,7 +53,7 @@ public extension NSObject {
     }
 }
 
-// MARK:- 三、Hook
+// MARK: - 三、Hook
 @objc public extension NSObject {
     /// 实例方法替换
     static func hookInstanceMethod(of origSel: Selector, with replSel: Selector) -> Bool {

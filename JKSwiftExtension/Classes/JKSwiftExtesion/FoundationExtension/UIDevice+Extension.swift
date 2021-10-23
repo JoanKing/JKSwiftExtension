@@ -24,7 +24,7 @@ public enum UIDeviceScreenType: String {
     case IPHONE_11_PRO_MAX
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 public extension JKPOP where Base: UIDevice {
     
     // MARK: 1.1、设备的名字
@@ -204,7 +204,7 @@ public extension JKPOP where Base: UIDevice {
     }
 }
 
-// MARK:- 二、设备的基本信息
+// MARK: - 二、设备的基本信息
 
 public extension JKPOP where Base: UIDevice {
     
@@ -339,7 +339,7 @@ public extension JKPOP where Base: UIDevice {
     }
 }
 
-// MARK:- 三、有关设备运营商的信息
+// MARK: - 三、有关设备运营商的信息
 public extension JKPOP where Base: UIDevice {
     
     // MARK: 3.1、sim卡信息

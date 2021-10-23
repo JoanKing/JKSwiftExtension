@@ -5,11 +5,11 @@
 //  Created by IronMan on 2021/3/10.
 //
 
-// MARK:- 数字格式化显示
+// MARK: - 数字格式化显示
 import Foundation
 extension NumberFormatter: JKPOPCompatible {}
 
-// MARK:- 一、基本的扩展用法
+// MARK: - 一、基本的扩展用法
 extension JKPOP where Base == NumberFormatter {
     
     // MARK: 1.1、将Float数字转成格式化后的字符串
@@ -65,7 +65,7 @@ extension JKPOP where Base == NumberFormatter {
     }
 }
 
-// MARK:- 二、进阶扩展用法
+// MARK: - 二、进阶扩展用法
 extension JKPOP where Base == NumberFormatter {
     
     // MARK: 2.1、通用数字格式化

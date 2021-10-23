@@ -7,25 +7,25 @@
 
 import Foundation
 
-// MARK:- JKThemeProvider协议
+// MARK: - JKThemeProvider协议
 public protocol JKThemeProvider: AnyObject {
     func register<Observer: JKThemeable>(observer: Observer)
     func updateTheme()
 }
 
-// MARK:- JKThemeable协议
+// MARK: - JKThemeable协议
 public protocol JKThemeable: AnyObject {
     func apply()
 }
 
-// MARK:- 设置遵守UITraitEnvironment的可以使用协议JKThemeable
+// MARK: - 设置遵守UITraitEnvironment的可以使用协议JKThemeable
 public extension JKThemeable where Self: UITraitEnvironment {
     var themeProvider: JKThemeProvider {
         return LegacyThemeProvider.shared
     }
 }
 
-// MARK:- LegacyThemeProvider
+// MARK: - LegacyThemeProvider
 public class LegacyThemeProvider: JKThemeProvider {
     
     /// 单粒

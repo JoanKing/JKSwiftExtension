@@ -6,7 +6,7 @@
 //
 extension NSAttributedString: JKPOPCompatible {}
 
-// MARK:- 一、文本设置的基本扩展
+// MARK: - 一、文本设置的基本扩展
 public extension JKPOP where Base: NSAttributedString {
 
     // MARK: 1.1、设置特定区域的字体大小
@@ -232,7 +232,7 @@ public extension JKPOP where Base: NSAttributedString {
     }
 }
 
-// MARK:- Private Func
+// MARK: - Private Func
 public extension JKPOP where Base: NSAttributedString {
     /// 获取对应字符串的range数组
     /// - Parameter textArray: 字符串数组

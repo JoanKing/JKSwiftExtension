@@ -18,7 +18,7 @@ class UIFontExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 二、自定义字体
+// MARK: - 二、自定义字体
 extension UIFontExtensionViewController {
     
     // MARK: 2.4、半粗体的字体
@@ -106,7 +106,7 @@ extension UIFontExtensionViewController {
     }
 }
 
-// MARK:- 一、常用的基本字体扩展
+// MARK: - 一、常用的基本字体扩展
 extension UIFontExtensionViewController {
     
     // MARK: 1.10、最粗字体

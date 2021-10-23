@@ -17,7 +17,7 @@ class DateExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 五、某年月份的天数获取
+// MARK: - 五、某年月份的天数获取
 extension DateExtensionViewController {
     
     // MARK: 5.2、获取当前月的天数
@@ -31,7 +31,7 @@ extension DateExtensionViewController {
     }
 }
 
-// MARK:- 四、相对的时间变化
+// MARK: - 四、相对的时间变化
 extension DateExtensionViewController {
     // MARK: 4.6、获取两个日期之间的秒数
     @objc func test46() {
@@ -97,7 +97,7 @@ extension DateExtensionViewController {
     }
 }
 
-// MARK:- 三、前天、昨天、今天、明天、后天、是否同一年同一月同一天 的判断
+// MARK: - 三、前天、昨天、今天、明天、后天、是否同一年同一月同一天 的判断
 extension DateExtensionViewController {
     
     // MARK: 3.12、是否为本周
@@ -200,7 +200,7 @@ extension DateExtensionViewController {
     }
 }
 
-// MARK:- 二、时间格式的转换
+// MARK: - 二、时间格式的转换
 extension DateExtensionViewController {
     
     // MARK: 2.7、Date 转 时间戳
@@ -290,7 +290,7 @@ extension DateExtensionViewController {
     }
 }
 
-// MARK:- 一、Date 基本的扩展
+// MARK: - 一、Date 基本的扩展
 extension DateExtensionViewController {
     
     // MARK: 1.13、从日期获取 月(英文)

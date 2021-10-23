@@ -22,7 +22,7 @@ class UITableViewExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 二、链式编程
+// MARK: - 二、链式编程
 extension UITableViewExtensionViewController {
     
     // MARK: 2.1、设置 delegate 代理
@@ -226,7 +226,7 @@ extension UITableViewExtensionViewController {
     }
 }
 
-// MARK:- 一、基本扩展
+// MARK: - 一、基本扩展
 extension UITableViewExtensionViewController {
     
     // MARK: 1.1、tableView 在 iOS 11 上的适配

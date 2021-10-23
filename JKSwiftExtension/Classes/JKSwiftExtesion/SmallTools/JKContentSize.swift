@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK:- 一、文字内容的计算
+// MARK: - 一、文字内容的计算
 public struct JKContentSize {
     
     // MARK: 1.1、返回文字的 size
@@ -42,7 +42,7 @@ public struct JKContentSize {
     }
 }
 
-// MARK:- 二、文本行数和内容的计算
+// MARK: - 二、文本行数和内容的计算
 public extension JKContentSize {
     // MARK: 2.1、行数和每行的内容
     /// 获取已知 width 的 label 的文本行数 & 每一行内容

@@ -18,7 +18,7 @@ class WKWebViewExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension WKWebViewExtensionViewController {
     
     // MARK: 1.6、获取WKWebView视图

@@ -32,7 +32,7 @@ class KeyboardAccessoryViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、基本的方法
+// MARK: - 一、基本的方法
 extension KeyboardAccessoryViewController: KeyboardAccessoryDelegate {
     
     func keyboardAccessoryDone() {

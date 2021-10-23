@@ -138,7 +138,7 @@
          }
         使用，建议设置一个业务颜色的扩展，在使用的时候调用业务的颜色，如下
         
-         // MARK:- 业务颜色的使用
+         // MARK: - 业务颜色的使用
          extension UIColor {
             /// 颜色
             private(set) static var cB1: UIColor = UIColor.darkModeColor(lightColor: UIColor.green, darkColor: UIColor.blue)

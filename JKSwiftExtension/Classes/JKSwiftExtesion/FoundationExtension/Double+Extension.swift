@@ -7,7 +7,7 @@
 
 import UIKit
 extension Double: JKPOPCompatible {}
-// MARK:- 一、Double 的基本转换
+// MARK: - 一、Double 的基本转换
 public extension JKPOP where Base == Double {
    
     // MARK: 1.1、转 Int
@@ -43,7 +43,7 @@ public extension JKPOP where Base == Double {
     var double: Double { return self.base }
 }
 
-// MARK:- 二、数字的处理
+// MARK: - 二、数字的处理
 public extension JKPOP where Base == Double {
     // MARK: 2.1、浮点数四舍五入
     /// 浮点数四舍五入

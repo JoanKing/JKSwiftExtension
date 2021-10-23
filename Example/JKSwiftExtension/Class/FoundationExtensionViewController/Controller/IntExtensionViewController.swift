@@ -18,7 +18,7 @@ class IntExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 二、其他常用方法
+// MARK: - 二、其他常用方法
 extension IntExtensionViewController {
     
     // MARK: 2.3、计算大小
@@ -57,7 +57,7 @@ extension IntExtensionViewController {
     }
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension IntExtensionViewController {
     
     // MARK: 1.1、转 Double

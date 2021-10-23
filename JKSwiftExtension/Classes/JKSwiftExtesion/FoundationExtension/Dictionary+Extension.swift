@@ -8,7 +8,7 @@
 import UIKit
 extension Dictionary: JKPOPCompatible { }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 public extension Dictionary  {
 
     // MARK: 1.1、检查字典里面是否有某个 key
@@ -68,7 +68,7 @@ public extension Dictionary  {
     }
 }
 
-// MARK:- 二、其他基本扩展
+// MARK: - 二、其他基本扩展
 public extension JKPOP where Base == Dictionary<String, Any> {
 
     // MARK: 2.1、字典转JSON

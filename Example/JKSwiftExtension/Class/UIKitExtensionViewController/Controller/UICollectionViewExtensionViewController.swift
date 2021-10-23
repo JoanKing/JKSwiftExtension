@@ -31,7 +31,7 @@ class UICollectionViewExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 二、滚动和注册
+// MARK: - 二、滚动和注册
 extension UICollectionViewExtensionViewController {
     
     // MARK: 2.8、创建Section 的Header或者Footer(注册后使用该方法)
@@ -76,7 +76,7 @@ extension UICollectionViewExtensionViewController {
     }
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension UICollectionViewExtensionViewController {
     
     // MARK: 1.1、移动 item

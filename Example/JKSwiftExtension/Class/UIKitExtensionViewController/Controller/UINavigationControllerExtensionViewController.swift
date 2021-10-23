@@ -18,7 +18,7 @@ class UINavigationControllerExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 extension UINavigationControllerExtensionViewController {
     
     // MARK: 1.1、pop返回后再push进某个控制器

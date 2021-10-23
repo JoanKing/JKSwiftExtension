@@ -26,7 +26,7 @@ class StringExtensionViewController: BaseViewController {
     }
 }
 
-// MARK:- 十八、字符值引用 (numeric character reference, NCR)与普通字符串的转换
+// MARK: - 十八、字符值引用 (numeric character reference, NCR)与普通字符串的转换
 extension StringExtensionViewController {
     
     // MARK: 18.2、字符值引用转普通字符串
@@ -48,7 +48,7 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK:- 十七、unicode编码和解码
+// MARK: - 十七、unicode编码和解码
 extension StringExtensionViewController {
     
     // MARK: 17.2、unicode解码
@@ -66,7 +66,7 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK:- 十六、SHA1, SHA224, SHA256, SHA384, SHA512
+// MARK: - 十六、SHA1, SHA224, SHA256, SHA384, SHA512
 extension StringExtensionViewController {
     
     // MARK: 16.1、SHA1, SHA224, SHA256, SHA384, SHA512 加密
@@ -79,7 +79,7 @@ extension StringExtensionViewController {
         print("加密后的字符串：\(newString)")
     }
 }
-// MARK:- 十五、AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
+// MARK: - 十五、AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
 extension StringExtensionViewController {
     
     // MARK: 15.1、字符串 AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
@@ -93,7 +93,7 @@ extension StringExtensionViewController {
     }
     
 }
-// MARK:- 十四、MD5 加密 和 Base64 编解码
+// MARK: - 十四、MD5 加密 和 Base64 编解码
 extension StringExtensionViewController {
     
     // MARK: 14.2、Base64 编解码
@@ -119,7 +119,7 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK:- 十三、String -> NSMutableAttributedString
+// MARK: - 十三、String -> NSMutableAttributedString
 extension StringExtensionViewController {
     
     // MARK: 13.1、String 添加颜色后转 NSMutableAttributedString
@@ -195,7 +195,7 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK:- 十二、进制之间的转换
+// MARK: - 十二、进制之间的转换
 extension StringExtensionViewController {
     // MARK: 12.1、二进制 -> 八进制
     @objc func test121() {
@@ -270,7 +270,7 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK:- 十一、字符串编码的处理
+// MARK: - 十一、字符串编码的处理
 extension StringExtensionViewController {
     // MARK: 11.1、
     @objc func test100() {
@@ -278,7 +278,7 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK:- 十、字符串截取的操作
+// MARK: - 十、字符串截取的操作
 extension StringExtensionViewController {
     // MARK: 10.1、截取字符串从开始到 index
     ///  截取字符串从开始到 index
@@ -362,7 +362,7 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK:- 九、字符串的一些正则校验
+// MARK: - 九、字符串的一些正则校验
 extension StringExtensionViewController {
     
     // MARK: 9.1、判断是否全是空白,包括空白字符和换行符号，长度为0返回true
@@ -535,7 +535,7 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK:- 八、字符串包含表情的处理
+// MARK: - 八、字符串包含表情的处理
 extension StringExtensionViewController {
     
     // MARK: 8.1、检查字符串是否包含 Emoji 表情
@@ -551,7 +551,7 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK:- 七、苹果针对浮点类型计算精度问题提供出来的计算类
+// MARK: - 七、苹果针对浮点类型计算精度问题提供出来的计算类
 extension StringExtensionViewController {
     // MARK: 7.1、加
     @objc func test71() {
@@ -582,7 +582,7 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK:- 六、字符串有关数字方面的扩展
+// MARK: - 六、字符串有关数字方面的扩展
 extension StringExtensionViewController {
     // MARK: 6.1、将金额字符串转化为带逗号的金额 按照千分位划分，如  "1234567" => 1,234,567   1234567.56 => 1,234,567.56
     /// 将金额字符串转化为带逗号的金额 按照千分位划分，如  "1234567" => 1,234,567   1234567.56 => 1,234,567.56
@@ -616,7 +616,7 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK:- 五、字符串UI的处理
+// MARK: - 五、字符串UI的处理
 extension StringExtensionViewController {
     // MARK: 5.1、对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)
     /// 对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)
@@ -946,7 +946,7 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK:- 四、字符串的转换
+// MARK: - 四、字符串的转换
 extension StringExtensionViewController {
     
     // MARK: 4.1、字符串 转 CGFloat
@@ -1006,7 +1006,7 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK:- 三、iOS CharacterSet（字符集）
+// MARK: - 三、iOS CharacterSet（字符集）
 extension StringExtensionViewController {
     
     // MARK: 3.1、去除字符串前后的 空格
@@ -1107,7 +1107,7 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK:- 二、沙盒路径的获取
+// MARK: - 二、沙盒路径的获取
 extension StringExtensionViewController {
     // MARK: 获取Home的完整路径名
     @objc func test21() {
@@ -1135,7 +1135,7 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK:- 一、字符串基本的扩展
+// MARK: - 一、字符串基本的扩展
 extension StringExtensionViewController {
     // MARK: 1.1、字符串的长度
     @objc func test11() {

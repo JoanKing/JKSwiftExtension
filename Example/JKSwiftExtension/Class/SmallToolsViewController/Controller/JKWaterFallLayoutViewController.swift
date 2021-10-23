@@ -24,7 +24,7 @@ class JKWaterFallLayoutViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、CollectionView流水布局
+// MARK: - 一、CollectionView流水布局
 extension JKWaterFallLayoutViewController {
     
     // MARK: 1.2、随机高度
@@ -50,7 +50,7 @@ extension JKWaterFallLayoutViewController {
     }
 }
 
-// MARK:- 一、CollectionView流水布局
+// MARK: - 一、CollectionView流水布局
 extension JKWaterFallLayoutViewController: JKWaterFallLayoutDataSoure, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

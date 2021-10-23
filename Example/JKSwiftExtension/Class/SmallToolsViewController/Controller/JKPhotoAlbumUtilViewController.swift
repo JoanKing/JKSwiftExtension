@@ -17,7 +17,7 @@ class JKPhotoAlbumUtilViewController: BaseViewController {
     }
 }
 
-// MARK:- 一、基本的工具
+// MARK: - 一、基本的工具
 extension JKPhotoAlbumUtilViewController {
 
     // MARK: 1.2、如果参数 isCustomPhotoAlbumName 不指定，则默认保存到相机胶卷中去

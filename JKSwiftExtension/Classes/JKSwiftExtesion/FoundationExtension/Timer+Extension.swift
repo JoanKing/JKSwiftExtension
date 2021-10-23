@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 public extension Timer {
     
     // MARK: 1.1、构造器创建定时器
@@ -56,7 +56,7 @@ public extension Timer {
     }
 }
 
-// MARK:- 私有的方法
+// MARK: - 私有的方法
 public extension Timer {
     @objc fileprivate class func timerCB(timer: Timer) {
         guard let cb = timer.userInfo as? ((Timer) -> Void) else {

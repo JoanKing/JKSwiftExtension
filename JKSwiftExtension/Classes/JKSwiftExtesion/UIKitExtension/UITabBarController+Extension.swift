@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK:- 一、基本的扩展
+// MARK: - 一、基本的扩展
 public extension JKPOP where Base: UITabBarController {
     // MARK: 1.1、当前选择索引
     /// 当前选择索引
