@@ -16,3 +16,11 @@ class NineViewController: UIViewController {
         
     }
 }
+
+class A: NSObject {
+    
+}
+
+class B: A {
+    
+}

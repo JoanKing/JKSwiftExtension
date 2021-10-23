@@ -1251,7 +1251,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     }
     
     // MARK: 9.20、富文本匹配(某些关键词高亮)
-    /// 富文本匹配
+    /// 富文本匹配(某些关键词高亮)
     /// - Parameters:
     ///   - substring: 匹配的关键字
     ///   - normalColor: 常规的颜色

@@ -1241,6 +1241,9 @@ extension StringExtensionViewController {
     @objc func test117() {
         JKPrint("复制文字：我是一枚小可爱")
         // "复制：我是一枚小可爱".toast()
+        "我是一枚小可爱".jk.copy()
+        print("复制的内容是：\(UIPasteboard.general.string ?? "没有内容")")
+        
     }
     
     // MARK: 1.18、提取出字符串中所有的URL链接

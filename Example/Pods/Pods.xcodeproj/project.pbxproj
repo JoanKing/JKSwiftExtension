@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		023CF213D02B37B451FF4752CC1F7CD4 /* JKContactsKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11D5B0D56F7B808B7961FD5D879C72 /* JKContactsKit.swift */; };
 		04C82698CFEC88DC5F7B6E9C8F174ECC /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5124EAF848150107D0C315C7CCBED73E /* UIButton+Extension.swift */; };
 		06BB05C0AC2462B04EB9043B33206DCB /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E1F08D3900056C66B3DAEF58079637 /* UITableView+Extension.swift */; };
 		0796336CEFF601AE1247F220908D6122 /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6D5D3764DA9C9AA734FD439C886B6D /* LayoutConstraintItem.swift */; };
@@ -195,7 +194,6 @@
 		CD076312FBCFADF5A5D3A7B825143174 /* Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB2E393F330F45371B3654702B8D3B0 /* Kingfisher.swift */; };
 		CD4823161DBD529C7BFF79AE9EA2E033 /* AnimatedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEE98140B3BA9F5E6E7D40FCFDB540E /* AnimatedImageView.swift */; };
 		CDECFB8688DE5ACD21DC69EF9660602C /* MJRefreshAutoNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = A7F0BFA287A3D707CD2B14DEEC8E8CD7 /* MJRefreshAutoNormalFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CF5014E2292B3AB6A95475F235D1FCD8 /* JKEKEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F742FE6A424D7C962B6FB051D7146672 /* JKEKEvent.swift */; };
 		D3D23AC513D9BD37E9584ECC7A43EB96 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B11F6C2E091D8CB26025607111D1E365 /* MJRefresh.bundle */; };
 		D6DFEB267BAFE818193E8DB29102BAAC /* Data+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59B9C80D72101F83093106EB30C359F /* Data+extension.swift */; };
 		D78F6A95A088F7E619745556DAFE9E0A /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719E543C32EEFADB4782E18E7EC638E4 /* ConstraintMakerRelatable.swift */; };
@@ -297,7 +295,6 @@
 		1BBF6C1F3539B327957835E2683958BE /* Constraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = Source/Constraint.swift; sourceTree = "<group>"; };
 		1DC4C65D7D43D13174115DE9A18330A3 /* String+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		1E5E4823EEC19FA1248976851ABA3F97 /* CacheSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CacheSerializer.swift; path = Sources/CacheSerializer.swift; sourceTree = "<group>"; };
-		1F11D5B0D56F7B808B7961FD5D879C72 /* JKContactsKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKContactsKit.swift; sourceTree = "<group>"; };
 		20516CA8CAD454EEB396B7287158E7B9 /* MJRefreshStateHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshStateHeader.m; path = MJRefresh/Custom/Header/MJRefreshStateHeader.m; sourceTree = "<group>"; };
 		20685AF560CA10F7762F8B3DC3FCFD53 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 		21488E356A3C64BF11701DC7084BBB77 /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Filter.swift; sourceTree = "<group>"; };
@@ -418,11 +415,11 @@
 		90C31564576E6264056858273C0E17A2 /* ConstraintInsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsetTarget.swift; path = Source/ConstraintInsetTarget.swift; sourceTree = "<group>"; };
 		91B6BA571958FB63DB6092706934043B /* IndexPath+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "IndexPath+Extension.swift"; sourceTree = "<group>"; };
 		9602F8752E16ECFFD67DC6D71EBF6F0A /* Kingfisher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kingfisher.release.xcconfig; sourceTree = "<group>"; };
-		9747C42ACE2BEB958E8BA3E3D4B3024B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		9747C42ACE2BEB958E8BA3E3D4B3024B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		979486118B3E90C08386079D57962701 /* SnapKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SnapKit; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98E42E7674975F892C53E8D067002851 /* Array+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		9B4E7A5DBD40CD6ECC62505437348D7C /* ConstraintMakerEditable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerEditable.swift; path = Source/ConstraintMakerEditable.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DB5F3ADE8CF9D1D1F563F5A875514B9 /* Pods-JKSwiftExtension_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JKSwiftExtension_Example-dummy.m"; sourceTree = "<group>"; };
 		9ED89F92F9705E8B71C88F4E978B7936 /* JKPOP+String.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "JKPOP+String.swift"; sourceTree = "<group>"; };
 		9EEE98140B3BA9F5E6E7D40FCFDB540E /* AnimatedImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatedImageView.swift; path = Sources/AnimatedImageView.swift; sourceTree = "<group>"; };
@@ -467,7 +464,7 @@
 		BF5BFB8130181AB1E298DAAE4E669D28 /* LayoutConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraint.swift; path = Source/LayoutConstraint.swift; sourceTree = "<group>"; };
 		C0A09E88BDA30D578A08EF878ECA326A /* KingfisherManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KingfisherManager.swift; path = Sources/KingfisherManager.swift; sourceTree = "<group>"; };
 		C2066A46CEF6FE8AFA792DFB7DA2A9C0 /* URL+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
-		C3CC8D3122AAAB592C590A72B9F51B71 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		C3CC8D3122AAAB592C590A72B9F51B71 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Kingfisher; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C59BB2E1D2F9EFC9D9F6EA14F1DC8BF2 /* UIGestureRecognizer+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIGestureRecognizer+Extension.swift"; sourceTree = "<group>"; };
 		C60B44670D9C6F07F5DC4A1D07D332BF /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
@@ -523,10 +520,9 @@
 		F2BD4CDFF1B2A0A7F8933D9F00A7C538 /* MJRefresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MJRefresh.debug.xcconfig; sourceTree = "<group>"; };
 		F3A4444FACF0D8F3DD63A0DAA0C04447 /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConstantTarget.swift; path = Source/ConstraintConstantTarget.swift; sourceTree = "<group>"; };
 		F3B3453A7FDBF07AAC3C0814E9BC211F /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+FDFullscreenPopGesture.h"; path = "FDFullscreenPopGesture/UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
-		F5C562723952C4C82CF1AC34F77A9FA8 /* JKSwiftExtension.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = JKSwiftExtension.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F5C562723952C4C82CF1AC34F77A9FA8 /* JKSwiftExtension.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = JKSwiftExtension.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F711F10C0E630292FA8B9A0FF1C6082B /* FDFullscreenPopGesture.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FDFullscreenPopGesture.release.xcconfig; sourceTree = "<group>"; };
 		F73AAFB3C99FCE837A417DB976C1C4DF /* UIStackView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
-		F742FE6A424D7C962B6FB051D7146672 /* JKEKEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKEKEvent.swift; sourceTree = "<group>"; };
 		F892588EFC8075F8C50D436FCC52A94B /* Kingfisher-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kingfisher-umbrella.h"; sourceTree = "<group>"; };
 		FA1EFB5727DBA59270AD11E2C817F6C4 /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMultiplierTarget.swift; path = Source/ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
 		FB375BBB4F52ACA26F1C19437DEDD115 /* JKContentSize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKContentSize.swift; sourceTree = "<group>"; };
@@ -609,11 +605,9 @@
 				161F658CDE2B03C0D3E4CE788C0B4411 /* JKAsyncs.swift */,
 				CEDBE438DD4ED87B3977605599EB72BD /* JKClosure.swift */,
 				6405684411F705216FDBFA9A81ECB44C /* JKCommonTool.swift */,
-				1F11D5B0D56F7B808B7961FD5D879C72 /* JKContactsKit.swift */,
 				FB375BBB4F52ACA26F1C19437DEDD115 /* JKContentSize.swift */,
 				E609A0062532C6038128FF79C1242BBE /* JKDarkModeUtil.swift */,
 				D793EEB8AA690F3636CE70AAFE2FB21A /* JKDrawSignatureView.swift */,
-				F742FE6A424D7C962B6FB051D7146672 /* JKEKEvent.swift */,
 				42BF6E070C05DC5263A9F72B0E3477DD /* JKGlobalTools.swift */,
 				324764037E453C7E65CD308B8293AA73 /* JKPaddingLabel.swift */,
 				1A5038D8989A732BFE68B26171AFC37C /* JKPhotoAlbumUtil.swift */,
@@ -685,7 +679,6 @@
 				2ACDF6D25D312A511B1995A4D639B775 /* UIButton+Kingfisher.swift */,
 				405820B15342EA6A5364FF28D2EFA00B /* Support Files */,
 			);
-			name = Kingfisher;
 			path = Kingfisher;
 			sourceTree = "<group>";
 		};
@@ -744,7 +737,6 @@
 				EAB4391A4860AF7F6D51389FA44AC7F5 /* UILayoutSupport+Extensions.swift */,
 				BFFA6D555795653A1EE7B4845AE01E47 /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -777,7 +769,6 @@
 			children = (
 				9ED89F92F9705E8B71C88F4E978B7936 /* JKPOP+String.swift */,
 			);
-			name = JKPOPExtension;
 			path = JKPOPExtension;
 			sourceTree = "<group>";
 		};
@@ -959,7 +950,6 @@
 				0EEBA189A1BA66745A45BD1545AEBACC /* Resources */,
 				8E6FF4EFEB2D0AA51A3F5603ECDB2DFD /* Support Files */,
 			);
-			name = MJRefresh;
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
@@ -990,7 +980,6 @@
 				704227FA36B0C357B42BE2ECD83EC0EA /* UINavigationController+FDFullscreenPopGesture.m */,
 				C4DDA4630CA00CC05FE176A7A76D0563 /* Support Files */,
 			);
-			name = FDFullscreenPopGesture;
 			path = FDFullscreenPopGesture;
 			sourceTree = "<group>";
 		};
@@ -1450,11 +1439,9 @@
 				1737B336FB782FB07848A72ED25D693B /* JKAsyncs.swift in Sources */,
 				8A4124EB72D48959988B9794D7C14325 /* JKClosure.swift in Sources */,
 				085864FDDCCDE4B590A9C0B47BEF1122 /* JKCommonTool.swift in Sources */,
-				023CF213D02B37B451FF4752CC1F7CD4 /* JKContactsKit.swift in Sources */,
 				B8D3038728319EE4BA2FD561604B8326 /* JKContentSize.swift in Sources */,
 				3822FDC2907FA78EF14EE0B0501C0ECB /* JKDarkModeUtil.swift in Sources */,
 				9353352BBFAFC83A55E1AAB167E5C274 /* JKDrawSignatureView.swift in Sources */,
-				CF5014E2292B3AB6A95475F235D1FCD8 /* JKEKEvent.swift in Sources */,
 				1C10A75AAEA2BC5DB2D7FCF2E5903851 /* JKEmitterable.swift in Sources */,
 				09CEC7249D3B4CE8BFCB0013BB47B9C4 /* JKGlobalTools.swift in Sources */,
 				AF1CC26D324CCD140479240F03E5CCA5 /* JKJSON.swift in Sources */,
@@ -2099,8 +2086,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
