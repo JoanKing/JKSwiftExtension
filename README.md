@@ -34,6 +34,7 @@
 ## 这个基础库的目的：快速开发，不重复再去查找资料，如果觉得此项目对您的Swift学习有帮助，欢迎点赞...
     
 ## 版本说明
+   - 1.9.1、版本：mark注释更新
    - 1.9.0、版本：1.9.0之后的版本去除JKEKEvent.swift和JKContactsKit.swift，原因是：对于日历和通讯录的API使用，苹果机身需要在：info.plist中添加对用的key和value
    - 1.8.9、版本：去除依赖库
    - 1.8.8、版本：kTabbatBottom 改为 kTabbarBottom
