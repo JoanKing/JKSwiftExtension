@@ -29,7 +29,7 @@ extension JKEmitterableViewController: JKEmitterable {
         let style = JKEmitterStyle()
         style.cellEmitterLifetime = 5
         style.cellEmitterBirthRate = 3
-        style.emitterPosition = CGPoint(x: UIScreen.main.bounds.width / 2.0, y: UIScreen.main.bounds.height - kNavFrameH)
+        style.emitterPosition = CGPoint(x: UIScreen.main.bounds.width / 2.0, y: UIScreen.main.bounds.height - jk_kNavFrameH)
         self.startEmitter(emitterImageNames: ["good", "good1", "good2", "good3", "good4", "good5", "good6", "good7", "good8", "good9"], style: style)
     }
     

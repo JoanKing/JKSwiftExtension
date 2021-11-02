@@ -114,13 +114,14 @@ public struct QRCodeImageFactory {
         return outputImage
     }
     
-    /**
-    调整二维码清晰度，添加水印图片
-    @param img 模糊的二维码图片
-    @param size 二维码的宽高
-    @param waterImg 水印图片
-    @return 添加水印图片后，清晰的二维码图片
-    */
+    // MARK: 调整二维码清晰度，添加水印图片
+    /// 调整二维码清晰度，添加水印图片
+    /// - Parameters:
+    ///   - image: 模糊的二维码图片
+    ///   - size: 二维码的宽高
+    ///   - logoSize: 水印图片的大小
+    ///   - waterImg: 水印图片
+    /// - Returns: 添加水印图片后，清晰的二维码图片
     static func getHDImgWithCIImage(with image: CIImage, size: CGSize, logoSize: CGSize?, waterImg: UIImage) -> UIImage? {
         let extent = image.extent.integral
         let scale = min(size.width / extent.width, size.height / extent.height)

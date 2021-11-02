@@ -24,7 +24,7 @@ class TenViewController: UIViewController, UITextViewDelegate {
     }()
 
     lazy var showLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 20, y: 100, width: kScreenW / 3.0 - 15 - 5, height: 19))
+        let label = UILabel(frame: CGRect(x: 20, y: 100, width: jk_kScreenW / 3.0 - 15 - 5, height: 19))
         label.backgroundColor = .yellow
         label.font = UIFont.jk.customFontSB(15)
         label.textAlignment = .left
@@ -35,7 +35,7 @@ class TenViewController: UIViewController, UITextViewDelegate {
     }()
     
     lazy var showLabel2: UILabel = {
-        let label = UILabel(frame: CGRect(x: 20, y: resetButton.jk.bottom + 20, width: kScreenW / 3.0 - 15 - 5, height: 19))
+        let label = UILabel(frame: CGRect(x: 20, y: resetButton.jk.bottom + 20, width: jk_kScreenW / 3.0 - 15 - 5, height: 19))
         label.backgroundColor = .yellow
         label.font = UIFont.jk.customFontSB(15)
         label.textAlignment = .left
@@ -47,7 +47,7 @@ class TenViewController: UIViewController, UITextViewDelegate {
     }()
     
     lazy var resetButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: (kScreenW - 100) / 2.0, y: writeTextView.jk.bottom + 50, width: 100, height: 50))
+        let button = UIButton(frame: CGRect(x: (jk_kScreenW - 100) / 2.0, y: writeTextView.jk.bottom + 50, width: 100, height: 50))
         button.setTitle("重置", for: .normal)
         button.addTarget(self, action: #selector(click), for: .touchUpInside)
         button.backgroundColor = .randomColor
@@ -69,7 +69,7 @@ class TenViewController: UIViewController, UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         let content = textView.text ?? ""
         print("输入的内容：\(content)")
-        let newContent = JKContentSize.linesCountAndLinesContent(content: content, font: UIFont.jk.customFontSB(15), width: kScreenW / 3.0 - 15 - 5, height: 10, minimumScaleFactor: 11 / 15).1?.first ?? ""
+        let newContent = JKContentSize.linesCountAndLinesContent(content: content, font: UIFont.jk.customFontSB(15), width: jk_kScreenW / 3.0 - 15 - 5, height: 10, minimumScaleFactor: 11 / 15).1?.first ?? ""
         showLabel2.text = content
         showLabel.text = newContent
         print("第一行的内容：\(newContent)")
@@ -83,7 +83,7 @@ class TenViewController: UIViewController, UITextViewDelegate {
         showLabel.text = s
         print("第一行的内容：\(s)")
         */
-        let newContent = JKContentSize.linesCountAndLinesContent(content: content, font: UIFont.jk.customFontSB(15), width: kScreenW / 3.0 - 15 - 5, height: 10, minimumScaleFactor:11 / 15).1?.first ?? ""
+        let newContent = JKContentSize.linesCountAndLinesContent(content: content, font: UIFont.jk.customFontSB(15), width: jk_kScreenW / 3.0 - 15 - 5, height: 10, minimumScaleFactor:11 / 15).1?.first ?? ""
         showLabel2.text = content
         showLabel.text = newContent
         print("第一行的内容：\(newContent)")

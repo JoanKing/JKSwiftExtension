@@ -60,9 +60,9 @@ extension JKContentSizeViewController {
         let font = UIFont.systemFont(ofSize: 16)
         
         let attributedString = NSMutableAttributedString(string: "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。").color(.green).font(font)
-        let size = JKContentSize.attributedStringSize(attributedString: attributedString, width: kScreenW - 100, height: CGFloat(MAXFLOAT), font: font)
+        let size = JKContentSize.attributedStringSize(attributedString: attributedString, width: jk_kScreenW - 100, height: CGFloat(MAXFLOAT), font: font)
         
-        let testView1 = UILabel(frame: CGRect(x: 50, y: 100, width: kScreenW - 100, height: size.height))
+        let testView1 = UILabel(frame: CGRect(x: 50, y: 100, width: jk_kScreenW - 100, height: size.height))
         testView1.backgroundColor = .brown
         testView1.numberOfLines = 0
         testView1.attributedText = attributedString

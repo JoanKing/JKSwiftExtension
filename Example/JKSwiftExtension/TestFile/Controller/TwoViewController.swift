@@ -55,7 +55,7 @@ class TwoViewController: UIViewController {
         view.addSubview(arrowLableTop)
         bgView.snp.makeConstraints {
             $0.left.equalTo(40)
-            $0.width.equalTo(kScreenW - 80)
+            $0.width.equalTo(jk_kScreenW - 80)
             $0.height.equalTo(80)
             $0.centerY.equalToSuperview()
         }

@@ -20,7 +20,7 @@ class FiveViewController: UIViewController {
     }()
     
     lazy var showLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 20, y: 100, width: kScreenW - 40, height: 0))
+        let label = UILabel(frame: CGRect(x: 20, y: 100, width: jk_kScreenW - 40, height: 0))
         label.font = UIFont.jk.textR(15)
         label.textColor = .black
         label.backgroundColor = .randomColor
@@ -38,7 +38,7 @@ class FiveViewController: UIViewController {
         self.view.addSubview(showLabel)
         
         let content = "今年市场特别流行一个词赛道今年市场特别流行一个词赛道今年市场特别流行一个词赛道今年市场特别流行一个词赛道今赛道今赛。"
-        let contentH = JKContentSize.textStringSize(string: content, size: CGSize(width: kScreenW - 40, height: CGFloat(MAXFLOAT)), font: UIFont.jk.textR(15)).height
+        let contentH = JKContentSize.textStringSize(string: content, size: CGSize(width: jk_kScreenW - 40, height: CGFloat(MAXFLOAT)), font: UIFont.jk.textR(15)).height
         showLabel.text = content
         showLabel.jk.height = contentH
         

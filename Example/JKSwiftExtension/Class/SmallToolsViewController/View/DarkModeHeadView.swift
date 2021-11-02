@@ -36,13 +36,13 @@ class DarkModeHeadView: UIView {
     }()
     /// 浅色图片
     lazy var lightImageView: UIImageView = {
-        let imageView = UIImageView(frame: CGRect(x: kScreenW / 2.0 - 18 - 80, y: 76, width: 80, height: 150))
+        let imageView = UIImageView(frame: CGRect(x: jk_kScreenW / 2.0 - 18 - 80, y: 76, width: 80, height: 150))
         imageView.image = UIImage.jk.image(color: UIColor.green)
         return imageView
     }()
     /// 深色图片
     lazy var darkImageView: UIImageView = {
-        let imageView = UIImageView(frame: CGRect(x: kScreenW / 2.0 + 18, y: 76, width: 80, height: 150))
+        let imageView = UIImageView(frame: CGRect(x: jk_kScreenW / 2.0 + 18, y: 76, width: 80, height: 150))
         imageView.image = UIImage.jk.image(color: UIColor.red)
         return imageView
     }()
@@ -81,7 +81,7 @@ class DarkModeHeadView: UIView {
     
     /// 浅色的按钮
     lazy var lightSelectedButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: kScreenW / 2.0 - 18 - 80, y: 76, width: 80, height: 185))
+        let button = UIButton(frame: CGRect(x: jk_kScreenW / 2.0 - 18 - 80, y: 76, width: 80, height: 185))
         button.addTarget(self, action: #selector(click), for: .touchUpInside)
         button.tag = 100
         return button
@@ -89,7 +89,7 @@ class DarkModeHeadView: UIView {
     
     /// 深色的按钮
     lazy var darkSelectedButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: kScreenW / 2.0 + 18, y: 76, width: 80, height: 185))
+        let button = UIButton(frame: CGRect(x: jk_kScreenW / 2.0 + 18, y: 76, width: 80, height: 185))
         button.addTarget(self, action: #selector(click), for: .touchUpInside)
         button.tag = 101
         return button

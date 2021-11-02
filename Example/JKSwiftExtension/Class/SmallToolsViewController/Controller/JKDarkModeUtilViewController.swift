@@ -19,7 +19,7 @@ extension UIColor {
 class JKDarkModeUtilViewController: UIViewController {
     /// 顶部的视图
     lazy var topHeadView: DarkModeHeadView = {
-        let headView = DarkModeHeadView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 285), currentMode: JKDarkModeUtil.isLight ? .light : .dark)
+        let headView = DarkModeHeadView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 285), currentMode: JKDarkModeUtil.isLight ? .light : .dark)
         headView.selectModeClosure = {[weak self] (mode) in
             guard let weakSelf = self else { return }
             JKDarkModeUtil.setDarkModeCustom(isLight: mode == .light ? true : false)
@@ -63,7 +63,7 @@ class JKDarkModeUtilViewController: UIViewController {
     /// 添加控件和设置约束
     private func commonUI() {
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: kNavFrameH, left: 0, bottom: 0, right: 0))
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: jk_kNavFrameH, left: 0, bottom: 0, right: 0))
         }
     }
     
@@ -74,7 +74,7 @@ class JKDarkModeUtilViewController: UIViewController {
     
     lazy var tableView : UITableView = {
         
-        let tableView = UITableView(frame: CGRect(x:0, y: kNavFrameH, width: kScreenW, height: kScreenH - kNavFrameH), style:.grouped)
+        let tableView = UITableView(frame: CGRect(x:0, y: jk_kNavFrameH, width: jk_kScreenW, height: jk_kScreenH - jk_kNavFrameH), style:.grouped)
         if #available(iOS 11, *) {
             tableView.estimatedSectionFooterHeight = 0
             tableView.estimatedSectionHeaderHeight = 0
@@ -86,8 +86,8 @@ class JKDarkModeUtilViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 0.01))
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 0.01))
         tableView.tableHeaderView = topHeadView
         tableView.jk.register(cellClass: SettingCustomViewCell.self)
         tableView.jk.register(cellClass: DescriptionCustomViewCell.self)
@@ -144,20 +144,20 @@ extension JKDarkModeUtilViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                let contentHeight = JKContentSize.textStringSize(string: "进入换肤时段后，App将自动切换至“魅力黑”夜间肤色，换肤时间结束，切换为原始肤色", size: CGSize(width: kScreenW - 30, height: CGFloat(MAXFLOAT)), font: UIFont.jk.textR(14)).height + 20
+                let contentHeight = JKContentSize.textStringSize(string: "进入换肤时段后，App将自动切换至“魅力黑”夜间肤色，换肤时间结束，切换为原始肤色", size: CGSize(width: jk_kScreenW - 30, height: CGFloat(MAXFLOAT)), font: UIFont.jk.textR(14)).height + 20
                 return contentHeight
             } else {
                 return 44.0
             }
         } else if indexPath.section == 1 {
-            let contentHeight = JKContentSize.textStringSize(string: "开启后将跟随系统打开或关闭夜间肤色", size: CGSize(width: kScreenW - 30, height: CGFloat(MAXFLOAT)), font: UIFont.jk.textR(14)).height + 18
+            let contentHeight = JKContentSize.textStringSize(string: "开启后将跟随系统打开或关闭夜间肤色", size: CGSize(width: jk_kScreenW - 30, height: CGFloat(MAXFLOAT)), font: UIFont.jk.textR(14)).height + 18
             return contentHeight
         }
         return 0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 55))
+        let sectionView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 55))
         let label = UILabel(frame: CGRect(x: 15, y: 0, width: 100, height: 55))
         label.font = UIFont.jk.textR(16)
         label.textColor = UIColor.cN3
@@ -165,7 +165,7 @@ extension JKDarkModeUtilViewController: UITableViewDelegate, UITableViewDataSour
         label.text = section == 0 ? "智能换肤" : "跟随系统"
         sectionView.addSubview(label)
         
-        var switchSetting = UISwitch(frame: CGRect(x: kScreenW - 15 - 51, y: 0, width: 51, height: 55))
+        var switchSetting = UISwitch(frame: CGRect(x: jk_kScreenW - 15 - 51, y: 0, width: 51, height: 55))
         switchSetting.jk.centerY = label.jk.centerY
         switchSetting.isOn = section == 0 ? JKDarkModeUtil.isSmartPeeling : JKDarkModeUtil.isFollowSystem
         switchSetting.tag = section == 0 ? 100 : 101
@@ -185,7 +185,7 @@ extension JKDarkModeUtilViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let sectionFootView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
+        let sectionFootView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 0.01))
         return sectionFootView
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

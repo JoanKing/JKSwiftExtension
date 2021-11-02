@@ -22,7 +22,7 @@ class JKDrawSignatureViewViewController: UIViewController {
     }()
     
     lazy var showSignature: UIButton = {
-        let button = UIButton(frame: CGRect(x: 20, y: kNavFrameH + 20, width: 80, height: 40))
+        let button = UIButton(frame: CGRect(x: 20, y: jk_kNavFrameH + 20, width: 80, height: 40))
         button.setTitle("预览签名", for: .normal)
         button.backgroundColor = .randomColor
         button.addTarget(self, action: #selector(previewSignatureClick), for: .touchUpInside)
@@ -30,7 +30,7 @@ class JKDrawSignatureViewViewController: UIViewController {
     }()
     
     lazy var saveSignature: UIButton = {
-        let button = UIButton(frame: CGRect(x: showSignature.jk.right + 20, y: kNavFrameH + 20, width: 80, height: 40))
+        let button = UIButton(frame: CGRect(x: showSignature.jk.right + 20, y: jk_kNavFrameH + 20, width: 80, height: 40))
         button.setTitle("保存签名", for: .normal)
         button.backgroundColor = .randomColor
         button.addTarget(self, action: #selector(savaSignatureClick), for: .touchUpInside)
@@ -38,7 +38,7 @@ class JKDrawSignatureViewViewController: UIViewController {
     }()
     
     lazy var clearSignature: UIButton = {
-        let button = UIButton(frame: CGRect(x: saveSignature.jk.right + 20, y: kNavFrameH + 20, width: 130, height: 40))
+        let button = UIButton(frame: CGRect(x: saveSignature.jk.right + 20, y: jk_kNavFrameH + 20, width: 130, height: 40))
         button.setTitle("清除预览签名", for: .normal)
         button.backgroundColor = .randomColor
         button.addTarget(self, action: #selector(clearSignatureClick), for: .touchUpInside)

@@ -26,7 +26,7 @@ extension CAGradientLayerExtensionViewController {
         // 获取彩虹渐变层
         let gradientLayer = CAGradientLayer().jk.gradientLayer(.horizontal, [UIColor.red.cgColor, UIColor.green.cgColor], nil)
         
-        let button = UIButton(frame: CGRect(x: 30, y: 150, width: kScreenW - 60, height: 50))
+        let button = UIButton(frame: CGRect(x: 30, y: 150, width: jk_kScreenW - 60, height: 50))
         self.view.addSubview(button)
         
         // 设置其CAGradientLayer对象的frame，并插入button的layer

@@ -319,7 +319,7 @@ public extension JKPOP where Base: UIDevice {
     // MARK: 2.11、当前设备能否打电话
     /// 当前设备能否打电话
     /// - Returns: 结果
-    static func canMakePhoneCalls() -> Bool {
+    static func isCanCallTel() -> Bool {
         if let url = URL(string: "tel://") {
             return UIApplication.shared.canOpenURL(url)
         }

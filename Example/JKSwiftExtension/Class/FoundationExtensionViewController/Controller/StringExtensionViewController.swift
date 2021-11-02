@@ -522,7 +522,7 @@ extension StringExtensionViewController {
         let totalString = "我是一只小小鸟，一直感a觉飞不高， 飞飞，你鸟要飞的更高"
         let substring = "小鸟"
         let attributedString = totalString.jk.stringWithHighLightSubstring(keyword: substring, normalColor: UIColor.brown, keywordCololor: UIColor.red, isSplit: true, options: [.caseInsensitive])
-        let testView1 = UILabel(frame: CGRect(x: 10, y: 100, width: kScreenW - 20, height: 200))
+        let testView1 = UILabel(frame: CGRect(x: 10, y: 100, width: jk_kScreenW - 20, height: 200))
         testView1.numberOfLines = 0
         testView1.backgroundColor = .yellow
         testView1.attributedText = attributedString
@@ -1256,8 +1256,8 @@ extension StringExtensionViewController {
     @objc func test119() {
         let strHtml = "<font color=\"#666666\">账号或密码错误次数达到10次，您的账号已被冻结</font><font color=\"#FF4600\">30分钟</font><font color=\"#666666\">，忘记密码请尝试找回，如有问题请</font><font color=\"#447EFF\">联系客服</font>"
         let attributedText = strHtml.jk.setHtmlAttributedString(font: UIFont.systemFont(ofSize: 20), lineSpacing: 10)
-        let textSize = attributedText.boundingRect(with: CGSize(width: kScreenW - 40, height: CGFloat.greatestFiniteMagnitude), options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil).size
-        let label = UILabel(frame: CGRect(x: 20, y: 100, width: kScreenW - 40, height: textSize.height))
+        let textSize = attributedText.boundingRect(with: CGSize(width: jk_kScreenW - 40, height: CGFloat.greatestFiniteMagnitude), options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil).size
+        let label = UILabel(frame: CGRect(x: 20, y: 100, width: jk_kScreenW - 40, height: textSize.height))
         label.backgroundColor = .randomColor
         label.numberOfLines = 0
       

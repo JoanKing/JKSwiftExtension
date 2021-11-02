@@ -87,7 +87,7 @@ public extension JKPOP where Base: UIButton {
         switch lineType {
         case let .color(color):
             color.setStroke()
-            path.lineWidth = kPixel
+            path.lineWidth = jk_kPixel
             path.stroke()
         default:
             break

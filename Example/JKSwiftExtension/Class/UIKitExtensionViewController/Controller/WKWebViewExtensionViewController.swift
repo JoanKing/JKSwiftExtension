@@ -24,7 +24,7 @@ extension WKWebViewExtensionViewController {
     // MARK: 1.6、获取WKWebView视图
     @objc func test16() {
         
-        let wkWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: kScreenH - kNavFrameH))
+        let wkWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: jk_kScreenH - jk_kNavFrameH))
         wkWebView.navigationDelegate = self
         let rul = URL(string:("https://mbd.baidu.com/newspage/data/landingsuper?context=%7B%22nid%22%3A%22news_9743234139645720408%22%7D&n_type=0&p_from=1"))
         let request = URLRequest(url: rul!)
@@ -53,7 +53,7 @@ extension WKWebViewExtensionViewController {
     
     // MARK: 1.5、加载网页
     @objc func test15() {
-        let wkWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: kScreenH - kNavFrameH))
+        let wkWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: jk_kScreenH - jk_kNavFrameH))
         wkWebView.navigationDelegate = self
         let url = URL(string:("https://www.jianshu.com/p/13b77f3e52bd"))
         let request = URLRequest(url: url!)
@@ -73,7 +73,7 @@ extension WKWebViewExtensionViewController {
     
     // MARK: 1.4、调整字体的比例
     @objc func test14() {
-        let wkWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: kScreenH - kNavFrameH))
+        let wkWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: jk_kScreenH - jk_kNavFrameH))
         wkWebView.navigationDelegate = self
         let url = URL(string:("https://www.jianshu.com/p/13b77f3e52bd"))
         let request = URLRequest(url: url!)
@@ -94,7 +94,7 @@ extension WKWebViewExtensionViewController {
     // MARK: 1.3、js交互
     @objc func test13() {
         let jsCode = "document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '\(200)%'"
-        let wkWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: kScreenH - kNavFrameH))
+        let wkWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: jk_kScreenH - jk_kNavFrameH))
         wkWebView.navigationDelegate = self
         let url = URL(string:("https://www.jianshu.com/p/13b77f3e52bd"))
         let request = URLRequest(url: url!)
@@ -120,7 +120,7 @@ extension WKWebViewExtensionViewController {
         // 以下代码适配大小
         let jScript = "var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);"
         
-        let wkWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: kScreenH - kNavFrameH))
+        let wkWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: jk_kScreenH - jk_kNavFrameH))
         wkWebView.navigationDelegate = self
         let url = URL(string:("https://www.jianshu.com/p/13b77f3e52bd"))
         let request = URLRequest(url: url!)
@@ -148,7 +148,7 @@ extension WKWebViewExtensionViewController {
         configuration.preferences.javaScriptCanOpenWindowsAutomatically = false
         configuration.preferences.javaScriptEnabled = true
         
-        let wkWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: kScreenH - kNavFrameH), configuration: configuration)
+        let wkWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: jk_kScreenH - jk_kNavFrameH), configuration: configuration)
         wkWebView.navigationDelegate = self
         let url = URL(string:("https://mbd.baidu.com/newspage/data/landingsuper?context=%7B%22nid%22%3A%22news_9743234139645720408%22%7D&n_type=0&p_from=1"))
         let request = URLRequest(url: url!)

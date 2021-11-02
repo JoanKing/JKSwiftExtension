@@ -63,7 +63,7 @@ extension NSMutableAttributedStringExtensionViewController {
     // MARK: 1.4、设置富文本文字的大小
     @objc func test14() {
         let attributedString = NSMutableAttributedString(string: "2秒后消失").color(.green).font(30)
-        let testView1 = UILabel(frame: CGRect(x: 50, y: 100, width: kScreenW - 100, height: 100))
+        let testView1 = UILabel(frame: CGRect(x: 50, y: 100, width: jk_kScreenW - 100, height: 100))
         testView1.backgroundColor = .brown
         testView1.attributedText = attributedString
         testView1.addTo(self.view)
@@ -76,7 +76,7 @@ extension NSMutableAttributedStringExtensionViewController {
     // MARK: 1.5、设置富文本文字的 UIFont
     @objc func test15() {
         let attributedString = NSMutableAttributedString(string: "2秒后消失").color(.green).font(UIFont.systemFont(ofSize: 11))
-        let testView1 = UILabel(frame: CGRect(x: 50, y: 100, width: kScreenW - 100, height: 100))
+        let testView1 = UILabel(frame: CGRect(x: 50, y: 100, width: jk_kScreenW - 100, height: 100))
         testView1.backgroundColor = .brown
         testView1.attributedText = attributedString
         testView1.addTo(self.view)

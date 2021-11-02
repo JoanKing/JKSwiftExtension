@@ -29,7 +29,7 @@ extension UIControlExtensionViewController {
     // MARK: 2.1、多少秒内不可重复点击
     @objc func test21() {
         let hitTime : Double = 5
-        let btn = UIButton(frame: CGRect(x: 50, y: kScreenH - 250, width: 200, height: 100))
+        let btn = UIButton(frame: CGRect(x: 50, y: jk_kScreenH - 250, width: 200, height: 100))
         btn.backgroundColor = .randomColor
         btn.addTarget(self, action: #selector(click), for: .touchUpInside)
         btn.tag = 20

@@ -213,7 +213,7 @@ public extension JKPOP where Base: UIImage {
         let sise = CGSize(width: size.0, height: size.1)
         let rect = CGRect(origin: CGPoint.zero, size: sise)
         
-        let textsize = text.jk.rectSize(font: UIFont.systemFont(ofSize: fontSize), size: CGSize(width: kScreenW, height: CGFloat(MAXFLOAT)))
+        let textsize = text.jk.rectSize(font: UIFont.systemFont(ofSize: fontSize), size: CGSize(width: jk_kScreenW, height: CGFloat(MAXFLOAT)))
         
         // 开启上下文
         UIGraphicsBeginImageContext(sise)

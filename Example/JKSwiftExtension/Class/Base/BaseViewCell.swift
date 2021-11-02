@@ -40,7 +40,7 @@ class BaseViewCell: UITableViewCell {
             make.left.equalToSuperview().offset(15)
             make.right.equalToSuperview().offset(0)
             make.bottom.equalToSuperview()
-            make.height.equalTo(kPixel)
+            make.height.equalTo(jk_kPixel)
         }
     }
     

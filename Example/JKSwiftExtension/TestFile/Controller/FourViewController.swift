@@ -17,7 +17,7 @@ class FourViewController: UIViewController {
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.randomColor
         
-        let label = UILabel(frame: CGRect(x: 20, y: 100, width: kScreenW - 40, height: 60))
+        let label = UILabel(frame: CGRect(x: 20, y: 100, width: jk_kScreenW - 40, height: 60))
         label.backgroundColor = .brown
         label.textColor = .white
         label.lineBreakMode = .byTruncatingTail

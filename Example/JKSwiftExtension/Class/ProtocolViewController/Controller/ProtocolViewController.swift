@@ -17,7 +17,7 @@ class ProtocolViewController: UIViewController {
     fileprivate var finishedDataArray: [String] = []
     lazy var tableView : UITableView = {
         
-        let tableView = UITableView(frame:CGRect(x:0, y: 0, width: kScreenW, height: kScreenH - CGFloat(kNavFrameH)), style:.grouped)
+        let tableView = UITableView(frame:CGRect(x:0, y: 0, width: jk_kScreenW, height: jk_kScreenH - CGFloat(jk_kNavFrameH)), style:.grouped)
         if #available(iOS 11, *) {
             tableView.estimatedSectionFooterHeight = 0
             tableView.estimatedSectionHeaderHeight = 0
@@ -29,8 +29,8 @@ class ProtocolViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 0.01))
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 0.01))
         // 设置行高为自动适配
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(BaseViewCell.self, forCellReuseIdentifier: ProtocolViewController.ProtocolViewControllerCellIdentifier)
@@ -74,7 +74,7 @@ extension ProtocolViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height:0.01))
+        let sectionView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height:0.01))
         return sectionView
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -82,7 +82,7 @@ extension ProtocolViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let sectionFootView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
+        let sectionFootView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 0.01))
         return sectionFootView
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

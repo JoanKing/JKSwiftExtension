@@ -11,13 +11,13 @@ import UIKit
 class FBGuidePageVC: UIViewController, UIScrollViewDelegate {
     
     lazy var scrollView: UIScrollView = {
-        let sc = UIScrollView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: kScreenH))
+        let sc = UIScrollView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: jk_kScreenH))
         sc.backgroundColor = .randomColor
         sc.isPagingEnabled = true
         sc.bounces = false
         sc.showsVerticalScrollIndicator = false
         sc.showsHorizontalScrollIndicator = false
-        let width = CGFloat(GuideImages().count) * kScreenW
+        let width = CGFloat(GuideImages().count) * jk_kScreenW
         sc.contentSize = CGSize(width: width, height: 0)
         sc.delegate = self
         return sc
@@ -25,7 +25,7 @@ class FBGuidePageVC: UIViewController, UIScrollViewDelegate {
     
     // pageControl
     lazy var pageControl: UIPageControl = {
-        let pageView: UIPageControl = UIPageControl(frame: CGRect(x: (kScreenW - 100) / 2, y: scrollView.frame.size.height - 100, width: 100, height: 20))
+        let pageView: UIPageControl = UIPageControl(frame: CGRect(x: (jk_kScreenW - 100) / 2, y: scrollView.frame.size.height - 100, width: 100, height: 20))
         pageView.hidesForSinglePage = true
         // 设置不是当前页的小点颜色
         pageView.pageIndicatorTintColor = UIColor.green
@@ -73,13 +73,13 @@ class FBGuidePageVC: UIViewController, UIScrollViewDelegate {
             let imageStr = Bundle.jk.getBundlePathResource(bundName: "CashCow", resourceName: imageName, bundleType: .currentBundle)
             let image = UIImage(named: imageStr)
             let imageView = UIImageView(image: image)
-            imageView.frame = CGRect(x: kScreenW * CGFloat(index), y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height)
+            imageView.frame = CGRect(x: jk_kScreenW * CGFloat(index), y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height)
                 
             imageView.contentMode = .scaleAspectFill
             scrollView.addSubview(imageView)
             
             if index == images.count - 1 {
-                let skipButton = UIButton(frame: CGRect(x: kScreenW * CGFloat(index), y: 0, width: kScreenW, height: 150)).backgroundColor(.clear)
+                let skipButton = UIButton(frame: CGRect(x: jk_kScreenW * CGFloat(index), y: 0, width: jk_kScreenW, height: 150)).backgroundColor(.clear)
                 skipButton.addTarget(self, action: #selector(skipClick), for: .touchUpInside)
                 scrollView.addSubview(skipButton)
             }
@@ -92,13 +92,13 @@ class FBGuidePageVC: UIViewController, UIScrollViewDelegate {
     
     func GuideImages() -> [String] {
         var guide = "GuideP"
-        //if (kScreenW == 414.0) && (kScreenH == 736.0) {
+        //if (jk_kScreenW == 414.0) && (jk_kScreenH == 736.0) {
         //    guide = "GuideP"
-        //} else if (kScreenW == 375.0) && (kScreenH == 812.0) {
+        //} else if (jk_kScreenW == 375.0) && (jk_kScreenH == 812.0) {
             guide = "GuideX"
-        //} else if (kScreenW == 414.0 ) && (kScreenH == 896.0) {
+        //} else if (jk_kScreenW == 414.0 ) && (jk_kScreenH == 896.0) {
         //    guide = "GuideXsr"
-        //} else if (kScreenW == 320.0 ) {
+        //} else if (jk_kScreenW == 320.0 ) {
         //    guide = "GuideM"
         //}
         var ret = [String]()

@@ -101,7 +101,7 @@ extension UIDeviceExtensionViewController {
     
     // MARK: 2.11、当前设备能否打电话
     @objc func test211() {
-        JKPrint("当前设备能否打电话：\(UIDevice.jk.canMakePhoneCalls())")
+        JKPrint("当前设备能否打电话：\(UIDevice.jk.isCanCallTel())")
     }
     
     // MARK: 2.10、获取总内存大小

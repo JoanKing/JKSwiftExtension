@@ -24,9 +24,9 @@ public class KeyboardAccessory: UIView {
     }()
     
     public init() {
-        super.init(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 36))
+        super.init(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 36))
         backgroundColor = .white
-        doneBtn.frame = CGRect(x: kScreenW - 50, y: 0, width: 50, height: self.jk.height)
+        doneBtn.frame = CGRect(x: jk_kScreenW - 50, y: 0, width: 50, height: self.jk.height)
         doneBtn.addTo(self)
         let line = UIView().backgroundColor(UIColor.hexStringColor(hexString: "#E6E6E6"))
         line.frame = CGRect(x: 0, y: 0, width: self.jk.width, height: 1)

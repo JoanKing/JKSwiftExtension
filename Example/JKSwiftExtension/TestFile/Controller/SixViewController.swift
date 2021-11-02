@@ -25,7 +25,7 @@ class SixViewController: UIViewController {
     var dataArray = [Any]()
     lazy var tableView : UITableView = {
         
-        let tableView = UITableView(frame:CGRect(x:0, y: 0, width: kScreenW, height: kScreenH - CGFloat(kNavFrameH)), style:.grouped)
+        let tableView = UITableView(frame:CGRect(x:0, y: 0, width: jk_kScreenW, height: jk_kScreenH - CGFloat(jk_kNavFrameH)), style:.grouped)
         if #available(iOS 11, *) {
             tableView.estimatedSectionFooterHeight = 0
             tableView.estimatedSectionHeaderHeight = 0
@@ -37,8 +37,8 @@ class SixViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 0.01))
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 0.01))
         // 设置一个默认高度
         tableView.estimatedRowHeight = 80.0
         // 开启自适应
@@ -65,7 +65,7 @@ extension SixViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let sectionFootView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
+        let sectionFootView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 0.01))
         return sectionFootView
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

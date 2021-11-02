@@ -16,7 +16,7 @@ import UIKit
     var headDataArray = [Any]()
     lazy var tableView : UITableView = {
         
-        let tableView = UITableView(frame:CGRect(x:0, y: 0, width: kScreenW, height: kScreenH - CGFloat(kNavFrameH)), style:.grouped)
+        let tableView = UITableView(frame:CGRect(x:0, y: 0, width: jk_kScreenW, height: jk_kScreenH - CGFloat(jk_kNavFrameH)), style:.grouped)
         if #available(iOS 11, *) {
             tableView.estimatedSectionFooterHeight = 0
             tableView.estimatedSectionHeaderHeight = 0
@@ -28,8 +28,8 @@ import UIKit
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 0.01))
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 0.01))
         // 设置一个默认高度
         tableView.estimatedRowHeight = 80.0
         // 开启自适应
@@ -78,10 +78,10 @@ extension BaseViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let str = headDataArray[section] as! String
-        let size = str.jk.rectSize(font: UIFont.systemFont(ofSize: 18), size: CGSize(width: kScreenW - 20, height: CGFloat(MAXFLOAT)))
+        let size = str.jk.rectSize(font: UIFont.systemFont(ofSize: 18), size: CGSize(width: jk_kScreenW - 20, height: CGFloat(MAXFLOAT)))
         
-        let sectionView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height:size.height + 20))
-        let label = UILabel(frame: CGRect(x: 10, y: 10, width: kScreenW - 20, height: size.height))
+        let sectionView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height:size.height + 20))
+        let label = UILabel(frame: CGRect(x: 10, y: 10, width: jk_kScreenW - 20, height: size.height))
         label.text = str
         label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .left
@@ -92,12 +92,12 @@ extension BaseViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let str = headDataArray[section] as! String
-        let size = str.jk.rectSize(font: UIFont.systemFont(ofSize: 18), size: CGSize(width: kScreenW - 20, height: CGFloat(MAXFLOAT)))
+        let size = str.jk.rectSize(font: UIFont.systemFont(ofSize: 18), size: CGSize(width: jk_kScreenW - 20, height: CGFloat(MAXFLOAT)))
         return size.height + 20
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let sectionFootView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 0.01))
+        let sectionFootView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 0.01))
         return sectionFootView
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

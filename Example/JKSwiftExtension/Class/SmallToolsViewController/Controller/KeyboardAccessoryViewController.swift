@@ -10,7 +10,7 @@ import UIKit
 
 class KeyboardAccessoryViewController: BaseViewController {
     var textView: UITextView = {
-        let view = UITextView(frame: CGRect(x: 20, y: 100, width: kScreenW - 40, height: 200))
+        let view = UITextView(frame: CGRect(x: 20, y: 100, width: jk_kScreenW - 40, height: 200))
         view.backgroundColor = .randomColor
         return view
     }()

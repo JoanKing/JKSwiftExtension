@@ -41,7 +41,7 @@ extension JKWaterFallLayoutViewController {
         layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 20
-        collectioView = UICollectionView(frame: CGRect(x: 20, y: 20, width: kScreenW - 40 - kNavFrameH, height: 500), collectionViewLayout: layout)
+        collectioView = UICollectionView(frame: CGRect(x: 20, y: 20, width: jk_kScreenW - 40 - jk_kNavFrameH, height: 500), collectionViewLayout: layout)
         collectioView.jk.centerX = self.view.jk.centerX
         collectioView.delegate = self
         collectioView.dataSource = self

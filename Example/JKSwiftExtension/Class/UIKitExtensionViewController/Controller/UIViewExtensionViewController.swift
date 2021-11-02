@@ -125,7 +125,7 @@ extension UIViewExtensionViewController {
     
     // MARK: 7.6、手势 - 屏幕边缘(闭包)
     @objc func test76() {
-        let testView = UIView(frame: CGRect(x: 0, y: 100, width: kScreenW, height: 200))
+        let testView = UIView(frame: CGRect(x: 0, y: 100, width: jk_kScreenW, height: 200))
         testView.backgroundColor = .randomColor
         testView.center.x = self.view.center.x
         testView.clipsToBounds = true
@@ -1041,7 +1041,7 @@ extension UIViewExtensionViewController {
         testView.backgroundColor = .randomColor
         self.view.addSubview(testView)
         UIView.animate(withDuration: 2, animations: {
-            testView.jk.right = kScreenW - 20
+            testView.jk.right = jk_kScreenW - 20
         }) { (result) in
             testView.removeFromSuperview()
         }

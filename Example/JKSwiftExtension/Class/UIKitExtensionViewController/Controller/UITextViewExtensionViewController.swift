@@ -27,7 +27,7 @@ extension UITextViewExtensionViewController: UITextViewDelegate {
     
     // MARK: 2.2、转换特殊符号标签字段
     @objc func test22() {
-        let textView = UITextView(frame: CGRect(x: 16, y: 100, width: kScreenW - 32, height: 200))
+        let textView = UITextView(frame: CGRect(x: 16, y: 100, width: jk_kScreenW - 32, height: 200))
         textView.backgroundColor = .brown
         //设置展示文本框的代理
         textView.delegate = self
@@ -55,7 +55,7 @@ extension UITextViewExtensionViewController: UITextViewDelegate {
     
     // MARK: 2.1、添加链接文本（链接为空时则表示普通文本）
     @objc func test21() {
-        let textView = UITextView(frame: CGRect(x: 16, y: 100, width: kScreenW - 32, height: 200))
+        let textView = UITextView(frame: CGRect(x: 16, y: 100, width: jk_kScreenW - 32, height: 200))
         textView.backgroundColor = .brown
         //设置展示文本框的代理
         textView.delegate = self

@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   # 项目名
   s.name             = 'JKSwiftExtension'
   # 版本号
-  s.version          = '1.9.1'
+  s.version          = '1.9.2'
   # 简单描述
   s.summary          = 'Swift版本的一个扩展'
   # 详细介绍
@@ -42,7 +42,7 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # 需要用到的frameworks，不需要加.frameworks后缀。（这个没有用到也可以不填）
   # s.frameworks = 'UIKit', 'MapKit'
-  #依赖关系，该项目所依赖的其他库
+  # 依赖关系，该项目所依赖的其他库
   # s.dependency 'Kingfisher'
   
 end
