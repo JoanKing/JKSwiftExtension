@@ -26,7 +26,7 @@ public extension JKPOP where Base == URL {
     // MARK: 1.2、属性说明
     /// 属性说明
     func propertyDescription() {
-        JKPrint("完整的url字符串 absoluteString：\(base.absoluteString)", "协议 scheme：\(base.scheme ?? "")", "相对路径 relativePath：\(base.relativePath)", "端口 port：\(base.port ?? 0)", "路径 path：\(base.path)", "pathComponents：\(base.pathComponents)", "参数 query：\(base.query ?? "")", "域名 host：\(base.host ?? "")")
+        JKPrint("完整的url字符串 absoluteString：\(base.absoluteString)", "协议 scheme：\(base.scheme ?? "")", "域名 host：\(base.host ?? "")", "路径 path：\(base.path)", "相对路径 relativePath：\(base.relativePath)", "端口 port：\(base.port ?? 0)", "pathComponents：\(base.pathComponents)", "参数 query：\(base.query ?? "")")
     }
     
     // MARK: 1.3、检测应用是否能打开这个URL实例
