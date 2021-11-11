@@ -234,7 +234,7 @@ public extension JKPOP where Base: FileManager {
     /// - Returns: 写入的结果
     @discardableResult
     static func writeToFile(writeType: FileWriteType, content: Any, writePath: String) -> (isSuccess: Bool, error: String) {
-        guard judgeFileOrFolderExists(filePath: writePath) else {
+        guard judgeFileOrFolderExists(filePath: directoryAtPath(path: writePath)) else {
             // 不存在的文件路径
             return (false, "不存在的文件路径")
         }
