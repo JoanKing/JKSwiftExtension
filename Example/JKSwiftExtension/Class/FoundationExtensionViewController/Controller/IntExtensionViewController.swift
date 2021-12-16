@@ -99,6 +99,6 @@ extension IntExtensionViewController {
     // MARK: 1.7、转 range
     @objc func test17() {
         let value: Int = 2
-        JKPrint("转 range", "\(value) 转 range 后为 \(value.jk.intToTange)")
+        JKPrint("转 range", "\(value) 转 range 后为 \(value.jk.intToRange)")
     }
 }

@@ -36,7 +36,7 @@ public extension JKPOP where Base == Int {
 
     // MARK: 1.7、转 range
     /// 转 range
-    var intToTange: CountableRange<Int> { return 0..<self.base }
+    var intToRange: CountableRange<Int> { return 0..<self.base }
 }
 
 // MARK: - 二、其他常用方法
