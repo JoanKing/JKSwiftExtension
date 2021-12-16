@@ -18,7 +18,7 @@ import UIKit
  // NSStrikethroughColorAttributeName  设置删除线颜色，取值为 UIColor 对象，默认值为黑色
  // NSUnderlineStyleAttributeName      设置下划线，取值为 NSNumber 对象（整数），枚举常量 NSUnderlineStyle中的值，与删除线类似
  // NSUnderlineColorAttributeName      设置下划线颜色，取值为 UIColor 对象，默认值为黑色
- // NSStrokeWidthAttributeName         设置笔画宽度，取值为 NSNumber 对象（整数），负值填充效果，正值中空效果
+ // NSStrokeWidth AttributeName         设置笔画宽度，取值为 NSNumber 对象（整数），负值填充效果，正值中空效果
  // NSStrokeColorAttributeName         填充部分颜色，不是字体颜色，取值为 UIColor 对象
  // NSShadowAttributeName              设置阴影属性，取值为 NSShadow 对象
  // NSTextEffectAttributeName          设置文本特殊效果，取值为 NSString 对象，目前只有图版印刷效果可用：

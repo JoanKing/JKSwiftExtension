@@ -115,6 +115,9 @@ public class JKEmitterStyle: NSObject {
     public var cellEmissionLongitude: CGFloat = CGFloat(-Double.pi/2)
     /// 粒子发射角度范围
     public var cellEmissionRange: CGFloat = CGFloat(Double.pi/5)
+    
+    /// 粒子是否只发射一次
+    public var cellFireOnce: Bool = false
 }
 
 // 只有 控制器才可以遵守协议 extension JKEmitterable where Self : UIViewController
@@ -125,7 +128,8 @@ public extension JKEmitterable where Self : UIViewController {
     /// - Parameters:
     ///   - emitterImageNames: 粒子单元图片名
     ///   - style: 发射器和粒子的样式
-    func startEmitter(emitterImageNames: [String], style: JKEmitterStyle = JKEmitterStyle()) {
+    @discardableResult
+    func startEmitter(emitterImageNames: [String], style: JKEmitterStyle = JKEmitterStyle()) -> CAEmitterLayer {
         // 1、发射器的设置
         // 1.1、创建发射器
         let emitter = CAEmitterLayer()
@@ -141,6 +145,18 @@ public extension JKEmitterable where Self : UIViewController {
         emitter.emitterCells = cells
         // 4.将发射器的Layer添加到父Layer中
         view.layer.addSublayer(emitter)
+        
+        JKAsyncs.asyncDelay(0.1) {
+        } _: {
+            guard style.cellFireOnce else { return }
+            emitter.birthRate = 0
+            JKAsyncs.asyncDelay(1) {
+            } _: {[weak self] in
+                guard let weakSelf = self else { return }
+                weakSelf.stopEmitter()
+            }
+        }
+        return emitter
     }
     
     // MARK: 停止 粒子发射器

@@ -27,7 +27,7 @@ extension JKTapActionLabelViewController {
         let label = JKTapActionLabel()
         label.frame = CGRect(x: 50, y: 100, width: 200, height: 200)
         label.backgroundColor = UIColor.randomColor
-        let sumMutableString = NSMutableAttributedString(string: "我是一复制只小小鸟")
+        let sumMutableString = NSMutableAttributedString(string: "我是一只小小鸟")
         let paraStyle = NSMutableParagraphStyle()
         // 右对齐
         paraStyle.alignment = .right
@@ -36,15 +36,16 @@ extension JKTapActionLabelViewController {
         sumDic.updateValue(UIColor.yellow, forKey: .foregroundColor)
         sumMutableString.addAttributes(sumDic, range: NSRange(location: 0, length: sumMutableString.length))
         
-        let subString = NSMutableAttributedString(string: " 复制")
+        let subString = NSMutableAttributedString(string: "复制")
         var paraDic: [NSAttributedString.Key: Any] = [.font : UIFont.systemFont(ofSize: 14)]
         paraDic.updateValue(UIColor.green, forKey: .foregroundColor)
         subString.setAttributes(paraDic, range: NSRange(location: 0, length: subString.length))
         sumMutableString.append(subString)
         label.setText(sumMutableString)
         
-        label.tap(string: " 复制") {
+        label.tap(string: "复制") {
             // "复制成功".toast()
+            JKPrint("点击了复制")
         }
         self.view.addSubview(label)
     }

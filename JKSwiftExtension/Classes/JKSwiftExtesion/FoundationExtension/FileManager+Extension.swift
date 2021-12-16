@@ -243,6 +243,10 @@ public extension JKPOP where Base: FileManager {
         case .TextType:
             let info = "\(content)"
             do {
+                // 文件可以追加
+                // let stringToWrite = "\n" + string
+                // 找到末尾位置并添加
+                // fileHandle.seekToEndOfFile()
                 try info.write(toFile: writePath, atomically: true, encoding: String.Encoding.utf8)
                 return (true, "")
             } catch _ {

@@ -85,7 +85,8 @@ public extension JKPOP where Base == Date {
     // MARK: 1.11、从日期获取 星期(英文)
     /// 从日期获取 星期
     var weekday: String {
-        return DateFormatter(format: "EEEE").string(from: self.base)
+        jk_formatter.dateFormat = "EEEE"
+        return jk_formatter.string(from: self.base)
     }
     
     // MARK: 1.12、从日期获取 星期(中文)
@@ -101,7 +102,8 @@ public extension JKPOP where Base == Date {
     // MARK: 1.13、从日期获取 月(英文)
     /// 从日期获取 月(英文)
     var monthAsString: String {
-        return DateFormatter(format: "MMMM").string(from: self.base)
+        jk_formatter.dateFormat = "MMMM"
+        return jk_formatter.string(from: self.base)
     }
 }
 
@@ -125,11 +127,11 @@ public extension JKPOP where Base == Date {
     static func timestampToFormatterTimeString(timestamp: String, format: String = "yyyy-MM-dd HH:mm:ss") -> String {
         // 时间戳转为Date
         let date = timestampToFormatterDate(timestamp: timestamp)
-        let dateFormatter = DateFormatter()
+        // let dateFormatter = DateFormatter()
         // 设置 dateFormat
-        dateFormatter.dateFormat = format
+        jk_formatter.dateFormat = format
         // 按照dateFormat把Date转化为String
-        return dateFormatter.string(from: date)
+        return jk_formatter.string(from: date)
     }
     
     // MARK: 2.2、时间戳(支持 10 位 和 13 位) 转 Date
@@ -189,10 +191,10 @@ public extension JKPOP where Base == Date {
     /// - Parameter format: 转换的格式
     /// - Returns: 返回具体的字符串
     func toformatterTimeString(formatter: String = "yyyy-MM-dd HH:mm:ss") -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone.autoupdatingCurrent
-        dateFormatter.dateFormat = formatter
-        return dateFormatter.string(from: self.base)
+        // let dateFormatter = DateFormatter()
+        jk_formatter.timeZone = TimeZone.autoupdatingCurrent
+        jk_formatter.dateFormat = formatter
+        return jk_formatter.string(from: self.base)
     }
     
     // MARK: 2.4、带格式的时间转 时间戳，支持返回 13位 和 10位的时间戳，时间字符串和时间格式必须保持一致
@@ -203,8 +205,8 @@ public extension JKPOP where Base == Date {
     ///   - timestampType: 返回的时间戳类型，默认是秒 10 为的时间戳字符串
     /// - Returns: 返回转化后的时间戳
     static func formatterTimeStringToTimestamp(timesString: String, formatter: String, timestampType: JKTimestampType = .second) -> String {
-        let dateFormatter = DateFormatter(format: formatter)
-        guard let date = dateFormatter.date(from: timesString) else {
+        // let dateFormatter = DateFormatter(format: formatter)
+        guard let date = jk_formatter.date(from: timesString) else {
             #if DEBUG
             fatalError("时间有问题")
             #else
@@ -224,8 +226,8 @@ public extension JKPOP where Base == Date {
     ///   - formatter: 格式
     /// - Returns: 返回 Date
     static func formatterTimeStringToDate(timesString: String, formatter: String) -> Date {
-        let dateFormatter = DateFormatter(format: formatter)
-        guard let date = dateFormatter.date(from: timesString) else {
+        // let dateFormatter = DateFormatter(format: formatter)
+        guard let date = jk_formatter.date(from: timesString) else {
             #if DEBUG
             fatalError("时间有问题")
             #else

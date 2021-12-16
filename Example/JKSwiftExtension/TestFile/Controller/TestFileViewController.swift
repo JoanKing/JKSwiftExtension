@@ -16,7 +16,7 @@ class TestFileViewController: BaseViewController {
         self.title = "TestFile"
         
         headDataArray = ["一、基本的使用"]
-        dataArray = [["实践戳的测试", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label"]]
+        dataArray = [["实践戳的测试", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label"]]
     }
 }
 
@@ -29,7 +29,7 @@ extension TestFileViewController {
     @objc func test14() {
         print("\(2989)".tradeAmountAddCommaString(maximumFractionDigits: 2, minimumFractionDigits: 2, roundingModel: .up))
         print(("\(2989)".tradeAmountAddCommaString(maximumFractionDigits: 2, minimumFractionDigits: 2, roundingModel: .up) as NSString).doubleValue)
-        print("\(10)".tradeAmountAddCommaString(maximumFractionDigits: 2, minimumFractionDigits: 2, roundingModel: .up) .jk.toDouble() ?? 0.0)
+        print("\(10)".tradeAmountAddCommaString(maximumFractionDigits: 2, minimumFractionDigits: 2, roundingModel: .up).jk.toDouble() ?? 0.0)
     }
     
     @objc func test13() {
