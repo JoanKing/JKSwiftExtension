@@ -209,7 +209,7 @@ public extension UITableView {
     /// - Returns: 返回自身
     @discardableResult
     func scroll(row: Int, section: Int = 0, at scrollPosition: UITableView.ScrollPosition = .middle, animated: Bool = true) -> Self {
-        return scroll(to: IndexPath.init(row: row, section: section), at: scrollPosition, animated: animated)
+        return scroll(to: IndexPath(row: row, section: section), at: scrollPosition, animated: animated)
     }
     
     // MARK: 2.14、滚动到最近选中的cell（选中的cell消失在屏幕中，触发事件可以滚动到选中的cell）

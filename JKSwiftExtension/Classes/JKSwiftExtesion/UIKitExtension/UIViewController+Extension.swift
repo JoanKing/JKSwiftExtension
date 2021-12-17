@@ -188,7 +188,7 @@ public extension JKPOP where Base: UIViewController {
     private func hook_present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
         if viewControllerToPresent.presentationController == nil {
             viewControllerToPresent.presentationController?.presentedViewController.dismiss(animated: false, completion: nil)
-            print("viewControllerToPresent.presentationController 不能为 nil")
+            JKPrint("viewControllerToPresent.presentationController 不能为 nil")
             return
         }
         hook_present(viewControllerToPresent, animated: flag, completion: completion)

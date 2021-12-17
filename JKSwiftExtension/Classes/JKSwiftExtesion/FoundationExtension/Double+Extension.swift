@@ -36,7 +36,7 @@ public extension JKPOP where Base == Double {
     
     // MARK: 1.7、转 NSNumber
     /// 转 NSNumber
-    var number: NSNumber { return NSNumber.init(value: self.base) }
+    var number: NSNumber { return NSNumber(value: self.base) }
     
     // MARK: 1.8、转 Double
     /// 转 Double

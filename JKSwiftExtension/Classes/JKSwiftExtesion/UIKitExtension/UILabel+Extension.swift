@@ -380,7 +380,7 @@ public extension JKPOP where Base: UILabel {
     /// 设置行间距
     /// - Parameter space: 行间距
     func setTextLineSpace(_ space: CGFloat) {
-        let attributedString = base.attributedText?.jk.setSpecificRangeTextLineSpace(lineSpace: space, alignment: base.textAlignment, range: NSRange.init(location: 0, length: base.text?.count ?? 0))
+        let attributedString = base.attributedText?.jk.setSpecificRangeTextLineSpace(lineSpace: space, alignment: base.textAlignment, range: NSRange(location: 0, length: base.text?.count ?? 0))
         base.attributedText = attributedString
     }
     

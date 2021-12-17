@@ -240,7 +240,7 @@ public extension JKDarkModeUtil {
     static func image(light: UIImage?, dark: UIImage?) -> UIImage? {
         if #available(iOS 13.0, *) {
             guard let weakLight = light, let weakDark = dark, let config = weakLight.configuration else { return light }
-            let lightImage = weakLight.withConfiguration(config.withTraitCollection(UITraitCollection.init(userInterfaceStyle: UIUserInterfaceStyle.light)))
+            let lightImage = weakLight.withConfiguration(config.withTraitCollection(UITraitCollection(userInterfaceStyle: UIUserInterfaceStyle.light)))
             lightImage.imageAsset?.register(weakDark, with: config.withTraitCollection(UITraitCollection(userInterfaceStyle: UIUserInterfaceStyle.dark)))
             return lightImage.imageAsset?.image(with: UITraitCollection.current) ?? light
         } else {

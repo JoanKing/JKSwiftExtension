@@ -1958,7 +1958,7 @@ public extension JKPOP where Base == String {
                 tempStr.append(Unicode.Scalar(v)!.escaped(asASCII: true))
                 continue
             }
-            let codeStr = String.init(v, radix: 16, uppercase: false)
+            let codeStr = String(v, radix: 16, uppercase: false)
             tempStr.append("\\u" + codeStr)
         }
         

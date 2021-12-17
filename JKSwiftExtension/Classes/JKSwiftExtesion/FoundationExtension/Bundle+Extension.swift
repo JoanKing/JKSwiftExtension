@@ -41,7 +41,7 @@ public extension JKPOP where Base: Bundle {
     /// - Returns: 资源路径
     static func getBundleResource(bundName: String, resourceName: String, ofType ext: String?, bundleType: BundleType = .currentBundle) -> String? {
         let resourcePath = bundleType == .otherBundle ? "Frameworks/\(bundName).framework/\(bundName)" : "\(bundName)"
-        guard let bundlePath = Bundle.main.path(forResource: resourcePath, ofType: "bundle"), let bundle = Bundle.init(path: bundlePath) else {
+        guard let bundlePath = Bundle.main.path(forResource: resourcePath, ofType: "bundle"), let bundle = Bundle(path: bundlePath) else {
             return nil
         }
         let imageStr = bundle.path(forResource: resourceName, ofType: ext)

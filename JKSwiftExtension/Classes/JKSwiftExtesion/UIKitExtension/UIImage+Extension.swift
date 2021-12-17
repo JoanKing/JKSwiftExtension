@@ -385,7 +385,7 @@ public extension JKPOP where Base: UIImage {
 fileprivate extension UIImage {
     
     private struct JKRuntimeKey {
-        static let saveBlockKey = UnsafeRawPointer.init(bitPattern: "saveBlock".hashValue)
+        static let saveBlockKey = UnsafeRawPointer(bitPattern: "saveBlock".hashValue)
     }
     private var saveBlock: ((Bool)->())? {
         set {
@@ -819,7 +819,7 @@ public enum CompressionMode {
             if resizeHeighth < CompressionMode.resolutionRule.min || resizeWidth < CompressionMode.resolutionRule.min {
                 return size
             } else {
-                return CGSize.init(width: resizeWidth, height: resizeHeighth)
+                return CGSize(width: resizeWidth, height: resizeHeighth)
             }
         }
     }
@@ -1605,7 +1605,7 @@ public extension JKPOP where Base: UIImage {
     static func image(light: UIImage?, dark: UIImage?) -> UIImage? {
         if #available(iOS 13.0, *) {
             guard let weakLight = light, let weakDark = dark, let config = weakLight.configuration else { return light }
-            let lightImage = weakLight.withConfiguration(config.withTraitCollection(UITraitCollection.init(userInterfaceStyle: UIUserInterfaceStyle.light)))
+            let lightImage = weakLight.withConfiguration(config.withTraitCollection(UITraitCollection(userInterfaceStyle: UIUserInterfaceStyle.light)))
             lightImage.imageAsset?.register(weakDark, with: config.withTraitCollection(UITraitCollection(userInterfaceStyle: UIUserInterfaceStyle.dark)))
             return lightImage.imageAsset?.image(with: UITraitCollection.current) ?? light
         } else {

@@ -38,7 +38,7 @@ public extension JKPOP where Base == Int64 {
     // MARK: 1.6、转 NSNumber
     /// 转 NSNumber
     var int64ToNumber: NSNumber {
-        return NSNumber.init(value: self.base)
+        return NSNumber(value: self.base)
     }
     // MARK: 1.7、转 Int64
     /// 转 Int64

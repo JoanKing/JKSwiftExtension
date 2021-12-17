@@ -44,8 +44,6 @@ class BaseNavigationViewController: UINavigationController {
         } else {
             navigationBar.barTintColor = navbarTintColor
         }
-        let c = UIColor.cBackViewColor.colorToRGBA()
-        print(c.r ?? 0, c.g ?? 0, c.b ?? 0)
         let dict: NSDictionary = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 18)]
         // 标题颜色
         navigationBar.titleTextAttributes = (dict as! [NSAttributedString.Key : Any])

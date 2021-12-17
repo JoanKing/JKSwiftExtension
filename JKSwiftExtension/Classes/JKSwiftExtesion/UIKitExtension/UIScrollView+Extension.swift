@@ -110,7 +110,7 @@ public extension UIScrollView {
     /// - Returns: 返回自身
     @discardableResult
     func contentOffset(x: CGFloat, y: CGFloat) -> Self {
-        contentOffset = CGPoint.init(x: x, y: y)
+        contentOffset = CGPoint(x: x, y: y)
         return self
     }
     
@@ -146,7 +146,7 @@ public extension UIScrollView {
     /// - Returns: 返回自身
     @discardableResult
     func contentInset(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat) -> Self {
-        contentInset = UIEdgeInsets.init(top: top, left: left, bottom: bottom, right: right)
+        contentInset = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
         return self
     }
     
@@ -254,7 +254,7 @@ public extension UIScrollView {
     /// - Returns: 返回自身
     @discardableResult
     func setContentOffsetX(_ horizontal: CGFloat, animated: Bool = true) -> Self {
-        setContentOffset(CGPoint.init(x: horizontal, y: self.contentOffset.y), animated: animated)
+        setContentOffset(CGPoint(x: horizontal, y: self.contentOffset.y), animated: animated)
         return self
     }
     
@@ -266,7 +266,7 @@ public extension UIScrollView {
     /// - Returns: 返回自身
     @discardableResult
     func setContentOffsetY( _ vertical: CGFloat, animated: Bool = true) -> Self {
-        setContentOffset(CGPoint.init(x: self.contentOffset.x, y: vertical), animated: animated)
+        setContentOffset(CGPoint(x: self.contentOffset.x, y: vertical), animated: animated)
         return self
     }
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-public protocol KeyboardAccessoryDelegate: class {
+public protocol KeyboardAccessoryDelegate: AnyObject {
     func keyboardAccessoryDone()
 }
 

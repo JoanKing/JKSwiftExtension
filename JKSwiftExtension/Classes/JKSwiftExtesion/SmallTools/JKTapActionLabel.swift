@@ -65,14 +65,14 @@ public class JKTapActionLabel: UIView {
         location.x = location.x - lineOrigin.x
         let index = CTLineGetStringIndexForPosition(line!, location)
         if let start = startIndex ,let end = endIndex {
-            if (CFIndex.init(start as String)! <= index && CFIndex.init(end as String)! >= index) {
+            if (CFIndex(start as String)! <= index && CFIndex(end as String)! >= index) {
                 reactfunc()
             }
         }
         for tapString:NSString in tapStringArray {
             let range = (attString.string as NSString).range(of: tapString as String)
             if range.length > 0 {
-                if index >= CFIndex.init(range.location) && index <= CFIndex.init(range.location + range.length) {
+                if index >= CFIndex(range.location) && index <= CFIndex(range.location + range.length) {
                     let stringIndex = tapStringArray.firstIndex(of: tapString)
                     let reactfunc:()->() = (reactFunctionArray as NSArray).object(at: stringIndex!) as! () -> ()
                     reactfunc()
