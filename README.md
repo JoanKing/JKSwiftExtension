@@ -36,7 +36,7 @@
 ## 讨论
 - 微信号: wangc2318151015
 - 邮箱: jkironman@163.com
-<img src="https://user-images.githubusercontent.com/19670000/147022327-54f815ee-6ba6-4373-97c0-31ef79e2b0ec.jpeg" width="150">
+<img src="https://user-images.githubusercontent.com/19670000/147022327-54f815ee-6ba6-4373-97c0-31ef79e2b0ec.jpeg" alt="微信交流群" width="150">
 
 ## 版本说明
    - 1.9.5、版本：DateFormatter耗时优化
