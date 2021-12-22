@@ -15,7 +15,7 @@
 ## 使用说明
 
    每一个 `Extension` 都会对应一个测试用例的类，如果没有的说明还没有完善，如： String 的分类 `String+Extension` 的测试用例在 `StringExtensionViewController.swift` 里面
-   ![WechatIMG160.jpeg](https://upload-images.jianshu.io/upload_images/1728484-f0bcaccd3f7d26b3.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/320)
+   ![WechatIMG160.jpeg](https://upload-images.jianshu.io/upload_images/1728484-f0bcaccd3f7d26b3.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1024)
 
 ## 导入方式
 
@@ -37,6 +37,7 @@
 - 微信号: wangc2318151015
 - 邮箱: jkironman@163.com
 ![微信交流群](https://user-images.githubusercontent.com/19670000/147022327-54f815ee-6ba6-4373-97c0-31ef79e2b0ec.jpeg)
+<p align="left"><img src="doc/wechat.JPG" alt="Wechat group" width="320px"></p>
 
 ## 版本说明
    - 1.9.5、版本：DateFormatter耗时优化
