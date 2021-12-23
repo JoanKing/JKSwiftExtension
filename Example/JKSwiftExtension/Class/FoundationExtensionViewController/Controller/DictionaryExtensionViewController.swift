@@ -7,16 +7,17 @@
 //
 
 import UIKit
+import JKSwiftExtension
 
 class DictionaryExtensionViewController: BaseViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         headDataArray = ["一、基本的扩展", "二、其他基本扩展"]
-        dataArray = [["检查字典里面是否有某个 key", "字典的key或者value组成的数组", "JSON字符串 -> 字典", "字典 -> JSON字符串", "字典里面所有的 key", "字典里面所有的 value"], ["字典转JSON"]]
+        dataArray = [["检查字典里面是否有某个 key", "字典的key或者value组成的数组", "JSON字符串 -> 字典", "字典 -> JSON字符串", "字典里面所有的 key", "字典里面所有的 value", "设置value1", "设置value2"], ["字典转JSON"]]
     }
-
+    
 }
 
 // MARK: - 二、其他基本扩展
@@ -32,7 +33,49 @@ extension DictionaryExtensionViewController {
 // MARK: - 一、基本的扩展
 extension DictionaryExtensionViewController {
     
-    // MARK: 1.5、字典里面所有的 values
+    // MARK: 1.8、设置value
+    @objc func test18() {
+        var japan: [String: Any] = [
+            "name": "Japan",
+            "capital": "Tokyo",
+            "population": 126_740_000,
+            "coordinates": [
+                "latitude": 35.0,
+                "longitude": 139.0,
+                "names": [
+                    "A": "a",
+                    "B": "b"
+                ]
+            ]
+        ]
+        // 优化后
+        japan.setValue(keys: ["capital"], newValue: "我是修改过的：capital")
+        japan.setValue(keys: ["coordinates", "latitude"], newValue: "我是修改过的：latitude")
+        japan.setValue(keys: ["coordinates", "names", "A"], newValue: "我是修改过的A")
+        JKPrint(japan)
+    }
+    
+    // MARK: 1.7、设置value
+    @objc func test17() {
+        var japan: [String: Any] = [
+            "name": "Japan",
+            "capital": "Tokyo",
+            "population": 126_740_000,
+            "coordinates": [
+                "latitude": 35.0,
+                "longitude": 139.0,
+                "names": [
+                    "A": "a",
+                    "B": "b"
+                ]
+            ]
+        ]
+        // 优化后
+        japan["coordinates", as: [String: Any].self]?["names", as: [String: Any].self]?["A"] = "我是修改过的A"
+        JKPrint(japan)
+    }
+    
+    // MARK: 1.6、字典里面所有的 values
     @objc func test16() {
         let dictionary = ["b": "2", "a": "1"]
         JKPrint("字典里面所有的 values", "字典：\(dictionary) 的所有values为：\(dictionary.allValues())")
@@ -55,7 +98,7 @@ extension DictionaryExtensionViewController {
     
     // MARK: 1.3、JSON字符串 -> 字典
     @objc func test13() {
-       let dictionary = ["a": "1", "b": "2"]
+        let dictionary = ["a": "1", "b": "2"]
         guard let json = dictionary.toJSON(), let newDictionary = json.jk.jsonStringToDictionary() else {
             return
         }

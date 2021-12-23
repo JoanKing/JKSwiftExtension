@@ -37,6 +37,22 @@ public extension Array {
         let JSONString = NSString(data:data as Data,encoding: String.Encoding.utf8.rawValue)
         return JSONString! as String
     }
+    
+    // MARK: 1.4、分隔数组
+    /// 分隔数组
+    /// - Parameter condition: condition description
+    /// - Returns: description
+    func split(where condition: (Element, Element) -> Bool) -> [[Element]] {
+        var result: [[Element]] = self.isEmpty ? [] : [[self[0]]]
+        for (previous, current) in zip(self, self.dropFirst()) {
+            if condition(previous, current) {
+                result.append([current])
+            } else {
+                result[result.endIndex - 1].append(current)
+            }
+        }
+        return result
+    }
 }
 
 // MARK: - 二、数组 有关索引 的扩展方法
