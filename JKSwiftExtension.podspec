@@ -35,7 +35,7 @@ Pod::Spec.new do |s|
   s.source_files = 'Sources/Classes/**/*'
   # 动态库所使用的资源文件存放位置，放在Resources文件夹中
   s.resource_bundles = {
-      'JKSwiftExtension' => ['JKSwiftExtension/Assets/*.png']
+      'JKSwiftExtension' => ['Sources/Assets/*.png']
   }
 
   # 在这个属性中声明过的.h文件能够使用<>方法联想调用（这个是可选属性）
