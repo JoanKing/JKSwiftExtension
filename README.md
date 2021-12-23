@@ -31,13 +31,18 @@
 
     Swift5.0+
     
-## JKSwiftExtension基础库的目的：快速开发，不重复再去查找资料，如果觉得此项目对您的Swift学习有帮助，欢迎点赞...
-    
+## JKSwiftExtension基础库的目的：快速开发，不重复再去查找资料，如果觉得此项目对您有帮助，欢迎点赞...
+
+## 讨论
+- 微信号: wangc2318151015
+- 邮箱: jkironman@163.com
+<img src="https://user-images.githubusercontent.com/19670000/147022327-54f815ee-6ba6-4373-97c0-31ef79e2b0ec.jpeg" alt="微信交流群" width="220">
+
 ## 版本说明
    - 1.9.5、版本：DateFormatter耗时优化
    - 1.9.2、版本：常量增加前缀`jk_`
    - 1.9.1、版本：mark注释更新
-   - 1.9.0、版本：1.9.0之后的版本去除JKEKEvent.swift和JKContactsKit.swift，原因是：对于日历和通讯录的API使用，苹果机身需要在：info.plist中添加对用的key和value
+   - 1.9.0、版本：1.9.0之后的版本去除JKEKEvent.swift和JKContactsKit.swift，原因是：对于日历和通讯录的API使用，苹果机审需要在：info.plist中添加对用的key和value
    - 1.8.9、版本：去除依赖库
    - 1.8.8、版本：kTabbatBottom 改为 kTabbarBottom
    - 1.8.7、版本：CALayer+Extension.swift中baseBasicAnimation动画repeatNumber: 重复的次数的使用
