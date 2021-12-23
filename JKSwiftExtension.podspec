@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
   # 要求是ARC
   s.requires_arc = true
   # 表示源文件的路径，这个路径是相对podspec文件而言的。（这属性下面单独讨论）
-  s.source_files = 'JKSwiftExtension/Classes/**/*'
+  s.source_files = 'Sources/Classes/**/*'
   # 动态库所使用的资源文件存放位置，放在Resources文件夹中
   s.resource_bundles = {
       'JKSwiftExtension' => ['JKSwiftExtension/Assets/*.png']
