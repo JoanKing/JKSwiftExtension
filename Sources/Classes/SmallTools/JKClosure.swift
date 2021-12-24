@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// View的闭包
 public typealias ViewClosure = ((UITapGestureRecognizer?, UIView, NSInteger) ->Void)

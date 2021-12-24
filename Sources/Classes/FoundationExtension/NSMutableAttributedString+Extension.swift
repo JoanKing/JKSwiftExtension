@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 // MARK: - 富文本属性介绍
 /**

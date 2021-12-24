@@ -7,6 +7,7 @@
 
 // MARK: - 相册操作工具类
 import Foundation
+import UIKit
 import Photos
 /**
  （1）保存时会先验证用户是否授权操作相册照片。

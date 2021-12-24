@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - JKThemeProvider协议
 public protocol JKThemeProvider: AnyObject {

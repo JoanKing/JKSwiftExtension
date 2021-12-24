@@ -4,6 +4,10 @@
 //
 //  Created by IronMan on 2020/12/31.
 //
+
+import Foundation
+import UIKit
+
 extension NSAttributedString: JKPOPCompatible {}
 
 // MARK: - 一、文本设置的基本扩展

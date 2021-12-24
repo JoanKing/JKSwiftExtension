@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 // 使用CoreTelephony获取运营商信息、网络制式（4G、3G、2G）
 import CoreTelephony
 

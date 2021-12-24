@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import UIKit
+
 public extension JKPOP where Base: UIPageControl {
 
     /// UIPageControl创建
