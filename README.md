@@ -22,7 +22,7 @@
 #### 方式一：Swift Package Manager
 
 - File > Swift Packages > Add Package Dependency
-- Add `https://github.com/onevcat/Kingfisher.git`
+- Add `https://github.com/JoanKing/JKSwiftExtension.git`
 - Select "Up to Next Major" with "7.0.0"
 
 #### 方式二：CocoaPods
