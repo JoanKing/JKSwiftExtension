@@ -19,13 +19,23 @@
 
 ## 导入方式
 
-     platform :ios, '9.0'
-     
-     target '项目名字' do
-       use_frameworks!
-       pod 'JKSwiftExtension'
+#### 方式一：Swift Package Manager
 
-     end
+- File > Swift Packages > Add Package Dependency
+- Add `https://github.com/JoanKing/JKSwiftExtension.git`
+- Select "Up to Next Major" with "2.0.0"
+
+#### 方式二：CocoaPods
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
+use_frameworks!
+
+target 'MyApp' do
+  pod 'JKSwiftExtension'
+end
+```
 
 ## Requirements
 
@@ -39,6 +49,7 @@
 <img src="https://user-images.githubusercontent.com/19670000/147022327-54f815ee-6ba6-4373-97c0-31ef79e2b0ec.jpeg" alt="微信交流群" width="220">
 
 ## 版本说明
+   - 2.0.0、版本：开始支持 SPM(Swift Package Manager)
    - 1.9.5、版本：DateFormatter耗时优化
    - 1.9.2、版本：常量增加前缀`jk_`
    - 1.9.1、版本：mark注释更新
