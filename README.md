@@ -19,13 +19,23 @@
 
 ## 导入方式
 
-     platform :ios, '9.0'
-     
-     target '项目名字' do
-       use_frameworks!
-       pod 'JKSwiftExtension'
+#### 方式一：Swift Package Manager
 
-     end
+- File > Swift Packages > Add Package Dependency
+- Add `https://github.com/onevcat/Kingfisher.git`
+- Select "Up to Next Major" with "7.0.0"
+
+#### 方式二：CocoaPods
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
+use_frameworks!
+
+target 'MyApp' do
+  pod 'JKSwiftExtension'
+end
+```
 
 ## Requirements
 
