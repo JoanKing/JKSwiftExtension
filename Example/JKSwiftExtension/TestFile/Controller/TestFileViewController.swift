@@ -16,12 +16,64 @@ extension Array {
     
 }
 
+class ScoreClass {
+    var home: Int
+    var guest: Int {
+        willSet {
+            print("willSet====")
+        }
+        didSet {
+            print("didSet====")
+        }
+    }
+    init(home: Int, guest: Int) {
+        self.home = home
+        self.guest = guest
+    }
+}
+
+struct ScoreStruct {
+    let home: Int
+    var guest: Int {
+        willSet {
+            print("willSet====")
+        }
+        didSet {
+            print("didSet====")
+        }
+    }
+}
+
+extension ScoreStruct {
+    mutating func scoreGuest() {
+        self.guest += 1
+    }
+}
+
 extension Array {
     func accumulate<Result>(_ initialResult: Result, _ nextPartialResult: (Result, Element) -> Result) -> [Result] {
         var running = initialResult
         return self.map { next in running = nextPartialResult(running, next)
             return running
         }
+    }
+}
+
+class Window {
+    weak var rootView: View?
+    var onRotate: (() -> ())? = nil
+    deinit {
+        print("Deinit Window")
+    }
+}
+
+class View {
+    var window: Window
+    init(window: Window) {
+        self.window = window
+    }
+    deinit {
+        print("Deinit View")
     }
 }
 
@@ -33,153 +85,34 @@ class TestFileViewController: BaseViewController {
         self.title = "TestFile"
         
         headDataArray = ["一、基本的使用"]
-        dataArray = [["设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "数组测试", "123", "新的", "集合", "range", "Optional", "12", "func", "func返回值", "115", "116"]]
+        dataArray = [["设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "数组测试", "struct"]]
     }
 }
-
-extension Dictionary {
-    
-}
-
 
 extension TestFileViewController {
-    @objc func test116() {
-        var japan: [String: Any] = [
-            "name": "Japan",
-            "capital": "Tokyo",
-            "population": 126_740_000,
-            "coordinates": [
-                "latitude": 35.0,
-                "longitude": 139.0,
-                "name": [
-                    "W": "w",
-                    "A": "a"
-                ]
-            ]
-        ]
-        japan["name"] = "名字改了"
-        // japan["coordinate"]?["latitude"] = 36.0
-        // (japan["coordinates"] as? [String: Double])?["coordinate"] = 36.0
-        // japan["coordinates", as: [String: Double].self]?["latitude"] = 29
-        japan["coordinates", as: [String: Any].self]?["name", as: [String: Any].self]?["W"] = "小王"
-        // japan["coordinates", as: [String: Any].self]?["latitude"] = 36.0
-        print(japan)
-    }
-    
-    func incref(pointer: UnsafeMutablePointer<Int>) -> () -> Int {
-        // 将指针的的复制存储在闭包中
-        return {
-            pointer.pointee += 1
-            return pointer.pointee
-        }
-    }
-    
-    @objc func test115() {
-        let fun: () -> Int
-        do {
-            var array = [0]
-            fun = incref(pointer: &array)
-        }
-        print(fun())
-    }
-    
-    func counterFunc() -> (Int) -> String {
-        var counter = 0
-        func innerFunc(i: Int) -> String {
-            counter += i
-            return "\(counter)"
-        }
-        return innerFunc
-    }
-    
-    @objc func test114() {
-        let f = counterFunc()
-        print(f(3))
-        print(f(4))
-        let g = counterFunc()
-        print(g(2))
-        print(g(3))
-        print(f(5))
-    }
-    
-    func printInt(i: Int) {
-        print("You passed \(i).")
-    }
-    
-    @objc func test113() {
-        
-        printInt(i: 20)
-
-        let funVar = printInt
-        funVar(20)
-       
-    }
-    
-    @objc func test112() {
-
-        var dictWithNils: [String: Int?] = ["one": 1, "two": 2, "none": nil]
-        // dictWithNils["two"] = Optional(Optional(nil))
-//        dictWithNils["two"] = .some(nil)
-//        dictWithNils["two"]? = nil
-        
-        dictWithNils["three"]? = .some(2345)
-        // dictWithNils.index(forKey: "three") // nil
-        print(dictWithNils)
-    }
-    
-    @objc func test111() {
-        var a: Int? = 5
-        a? = 10
-        print("a=\(a ?? 0)")
-        var b: Int? = nil
-        b? = 10
-        print("b=\(b ?? 0)")
-    }
-    
-    @objc func test110() {
-        let arr = [1, 2, 3, 4]
-        // [3, 4] arr[..<1] // [1] arr[1...2] // [2, 3]
-        print(arr[2...])
-    }
-    
-    @objc func test19() {
-        let iPods: Set = ["iPod touch", "iPod nano", "iPod mini", "iPod shuffe", "iPod Classic"]
-        let discontinuedIPods: Set = ["iPod mini", "iPod Classic", "iPod nano", "iPod shuffe"]
-        let currentIPods = iPods.subtracting(discontinuedIPods) // ["iPod touch"]
-        print(currentIPods)
-    }
-    
-   @objc func test18() {
-       let defaultSettings: [String: Any] = ["name": "王冲"]
-        var userSettings = defaultSettings
-        userSettings["name"] = "小可爱"
-        userSettings.updateValue(20, forKey: "age")
-        print("原数组：\(defaultSettings)")
-        print("新数组：\(userSettings)")
-    }
     
     @objc func test17() {
-        (1..<10).forEach { number in
-            print(number)
-            if number == 2 {
-                print("暂停")
-                return
-            }
-        }
-        print("---------------")
-        for number in 1..<10 {
-            print(number)
-            if number == 2 {
-                print("暂停")
-                return
-            }
-        }
-       
+
+    }
+    
+    func test1(a: Int) {
+        
+    }
+    
+    func test1(a: String) {
+        
+    }
+    
+    func scoreGuest(_ score: inout ScoreStruct) {
+        score.guest += 1
+        score.guest += 4
+        //print("guest：\(score.guest)")
+     // 错误：可变操作符的左边是不可变类型： // 'score' 是⼀个 'let' 常量。
     }
     
     @objc func test16() {
-      let result = [1,2,3,4].accumulate(0, +) // [1, 3, 6, 10]
-        print("结果：\(result)")
+      
+       
     }
     
     @objc func test15() {

@@ -703,21 +703,45 @@ public extension JKPOP where Base: UIImage {
     /// - Parameter maxSize: 最大数据大小
     /// - Returns: 压缩后数据
     func compressDataSize(maxSize: Int = 1024 * 1024 * 2) -> Data? {
-        let maxSize = maxSize
-        var quality: CGFloat = 0.8
-        var data = self.base.jpegData(compressionQuality: quality)
-        var dataCount = data?.count ?? 0
-        
-        while (data?.count ?? 0) > maxSize {
-            if quality <= 0.6 {
+        var compression: CGFloat = 1
+        guard var data = self.base.jpegData(compressionQuality: 1) else { return nil }
+        if data.count < maxSize {
+            return data
+        }
+        var max: CGFloat = 1
+        var min: CGFloat = 0
+        var count = 0
+        for _ in 0..<6 {
+            count = count + 1
+            compression = (max + min) / 2
+            data = self.base.jpegData(compressionQuality: compression)!
+            if CGFloat(data.count) < CGFloat(maxSize) * 0.9 {
+                min = compression
+            } else if data.count > maxSize {
+                max = compression
+            } else {
                 break
             }
-            quality  = quality - 0.05
-            data = self.base.jpegData(compressionQuality: quality)
-            if (data?.count ?? 0) <= dataCount {
-                break
-            }
-            dataCount = data?.count ?? 0
+        }
+        if data.count < maxSize {
+            return data
+        }
+        return cycleCompressDataSize(maxSize: maxSize)
+    }
+    
+    /// 循环压缩
+    /// - Parameter maxSize: 最大数据大小
+    /// - Returns: 压缩后数据
+    private func cycleCompressDataSize(maxSize: Int) -> Data? {
+        guard let oldData = self.base.jpegData(compressionQuality: 1) else { return nil }
+        if oldData.count < maxSize {
+            return oldData
+        }
+        var compress:CGFloat = 0.9
+        guard var data = self.base.jpegData(compressionQuality: compress) else { return nil }
+        while data.count > maxSize && compress > 0.01 {
+            compress -= 0.02
+            data = self.base.jpegData(compressionQuality: compress)!
         }
         return data
     }
@@ -735,8 +759,8 @@ public extension JKPOP where Base: UIImage {
         
         let maxPixelSize = max(base.size.width, base.size.height)
         let options = [kCGImageSourceCreateThumbnailWithTransform: true,
-                       kCGImageSourceCreateThumbnailFromImageIfAbsent: true,
-                       kCGImageSourceThumbnailMaxPixelSize: maxPixelSize]  as CFDictionary
+                   kCGImageSourceCreateThumbnailFromImageIfAbsent: true,
+                              kCGImageSourceThumbnailMaxPixelSize: maxPixelSize]  as CFDictionary
         
         let resizedImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options).flatMap{
             UIImage(cgImage: $0)
@@ -947,8 +971,8 @@ public extension JKPOP where Base: UIImage {
         guard let ciImage: CIImage = CIImage(image:qrcodeImg),
               let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: context, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh]),
               let features = detector.features(in: ciImage) as? [CIQRCodeFeature] else {
-            return []
-        }
+                  return []
+              }
         return features
     }
     
@@ -1029,9 +1053,9 @@ public extension JKPOP where Base: UIImage {
         // Check for existance of gif
         guard let bundleURL = Bundle.main
                 .url(forResource: name, withExtension: "gif") else {
-            JKPrint("SwiftGif: This image named \"\(name)\" does not exist")
-            return nil
-        }
+                    JKPrint("SwiftGif: This image named \"\(name)\" does not exist")
+                    return nil
+                }
         // Validate data
         guard let imageData = try? Data(contentsOf: bundleURL) else {
             JKPrint("SwiftGif: Cannot turn image named \"\(name)\" into NSData")
@@ -1080,9 +1104,9 @@ public extension JKPOP where Base: UIImage {
         // Check for existance of gif
         guard let bundleURL = Bundle.main
                 .url(forResource: name, withExtension: "gif") else {
-            JKPrint("SwiftGif: This image named \"\(name)\" does not exist")
-            return (nil, nil)
-        }
+                    JKPrint("SwiftGif: This image named \"\(name)\" does not exist")
+                    return (nil, nil)
+                }
         // Validate data
         guard let imageData = try? Data(contentsOf: bundleURL) else {
             JKPrint("SwiftGif: Cannot turn image named \"\(name)\" into NSData")
@@ -1544,15 +1568,15 @@ public extension JKPOP where Base: UIImage {
         let fullPixellatedImage = filter.outputImage
         // 检测人脸，并保存在faceFeatures中
         guard let detector = CIDetector(ofType: CIDetectorTypeFace,
-                                       context: context,
-                                       options: nil) else {
+                                        context: context,
+                                        options: nil) else {
             return nil
         }
         let faceFeatures = detector.features(in: inputImage)
         // 初始化蒙版图，并开始遍历检测到的所有人脸
         var maskImage: CIImage!
         for faceFeature in faceFeatures {
-            JKPrint(faceFeature.bounds)
+            // JKPrint(faceFeature.bounds)
             // 基于人脸的位置，为每一张脸都单独创建一个蒙版，所以要先计算出脸的中心点，对应为x、y轴坐标，
             // 再基于脸的宽度或高度给一个半径，最后用这些计算结果初始化一个CIRadialGradient滤镜
             let centerX = faceFeature.bounds.origin.x + faceFeature.bounds.size.width / 2
@@ -1560,14 +1584,14 @@ public extension JKPOP where Base: UIImage {
             let radius = min(faceFeature.bounds.size.width, faceFeature.bounds.size.height)
             guard let radialGradient = CIFilter(name: "CIRadialGradient",
                                                 parameters: [
-                                                  "inputRadius0" : radius,
-                                                  "inputRadius1" : radius + 1,
-                                                   "inputColor0" : CIColor(red: 0, green: 1, blue: 0, alpha: 1),
-                                                   "inputColor1" : CIColor(red: 0, green: 0, blue: 0, alpha: 0),
-                                               kCIInputCenterKey : CIVector(x: centerX, y: centerY)
+                                                    "inputRadius0" : radius,
+                                                    "inputRadius1" : radius + 1,
+                                                    "inputColor0" : CIColor(red: 0, green: 1, blue: 0, alpha: 1),
+                                                    "inputColor1" : CIColor(red: 0, green: 0, blue: 0, alpha: 0),
+                                                    kCIInputCenterKey : CIVector(x: centerX, y: centerY)
                                                 ]) else {
-                return nil
-            }
+                                                    return nil
+                                                }
             // 由于CIRadialGradient滤镜创建的是一张无限大小的图，所以在使用之前先对它进行裁剪
             let radialGradientOutputImage = radialGradient.outputImage!.cropped(to: inputImage.extent)
             if maskImage == nil {
@@ -1595,7 +1619,7 @@ public extension JKPOP where Base: UIImage {
 
 // MARK: - 九、动态图片的使用
 public extension JKPOP where Base: UIImage {
-
+    
     // MARK: 9.1、深色图片和浅色图片切换 （深色模式适配）
     /// 深色图片和浅色图片切换 （深色模式适配）
     /// - Parameters:

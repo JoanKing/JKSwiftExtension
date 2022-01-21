@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 class UIImageExtensionViewController: BaseViewController {
-
+    
     var gifImageView: UIImageView!
     
     override func viewDidLoad() {
@@ -26,7 +26,7 @@ extension UIImageExtensionViewController {
     
     // MARK: 9.1、深色图片和浅色图片切换 （深色模式适配）
     @objc func test91() {
-
+        
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
         imageView.image = UIImage.jk.image(light: UIImage(named: "tabbar_item_home"), dark: UIImage(named: "tabbar_item_home"))
         imageView.contentMode = .scaleAspectFit
@@ -73,7 +73,7 @@ extension UIImageExtensionViewController {
             return
         }
         print("人脸的rects：\(rects)")
-
+        
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
         imageView.image = image1
         imageView.contentMode = .scaleAspectFit
@@ -425,7 +425,7 @@ extension UIImageExtensionViewController {
     
     // MARK: 6.8、获取 网络 url 的 gif 图片的信息：包含分解后的图片和gif时间
     @objc func test68() {
-        let gifInfo = UIImage.jk.gifImages(url: "http://pic19.nipic.com/20120222/8072717_124734762000_2.gif")
+        let gifInfo = UIImage.jk.gifImages(url: "http://qq.yh31.com/tp/zjbq/201711092144541829.gif")
         guard let images = gifInfo.gifImages, let duration = gifInfo.duration else {
             return
         }
@@ -442,7 +442,7 @@ extension UIImageExtensionViewController {
         gifImageView.animationRepeatCount = 1
         // 开始播放
         gifImageView.startAnimating()
-
+        
         JKAsyncs.asyncDelay(5) {
         } _: {[weak self] in
             guard let weakSelf = self else { return }
@@ -469,7 +469,7 @@ extension UIImageExtensionViewController {
         gifImageView.animationRepeatCount = 1
         // 开始播放
         gifImageView.startAnimating()
-
+        
         JKAsyncs.asyncDelay(5) {
         } _: {[weak self] in
             guard let weakSelf = self else { return }
@@ -496,7 +496,7 @@ extension UIImageExtensionViewController {
         gifImageView.animationRepeatCount = 1
         // 开始播放
         gifImageView.startAnimating()
-
+        
         JKAsyncs.asyncDelay(5) {
         } _: {[weak self] in
             guard let weakSelf = self else { return }
@@ -538,14 +538,14 @@ extension UIImageExtensionViewController {
     
     // MARK: 6.3、加载网络 url 的 gif 图片
     @objc func test63() {
-        guard let image = UIImage.jk.gif(url: "http://pic19.nipic.com/20120222/8072717_124734762000_2.gif") else {
+        guard let image = UIImage.jk.gif(url: "http://qq.yh31.com/tp/zjbq/201711092144541829.gif") else {
             return
         }
         gifImageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
         gifImageView.image = image
         gifImageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(gifImageView)
-        JKAsyncs.asyncDelay(30) {
+        JKAsyncs.asyncDelay(5) {
         } _: {[weak self] in
             guard let weakSelf = self else { return }
             weakSelf.gifImageView.removeFromSuperview()
@@ -558,7 +558,7 @@ extension UIImageExtensionViewController {
         guard let path = Bundle.main.path(forResource: "pika2", ofType: "gif") else {
             return
         }
-
+        
         guard let imageData = try? Data(contentsOf: URL(fileURLWithPath: path)) else {
             return
         }
@@ -570,7 +570,7 @@ extension UIImageExtensionViewController {
         gifImageView.image = image
         gifImageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(gifImageView)
-        JKAsyncs.asyncDelay(30) {
+        JKAsyncs.asyncDelay(5) {
         } _: {[weak self] in
             guard let weakSelf = self else { return }
             weakSelf.gifImageView.removeFromSuperview()
@@ -601,7 +601,7 @@ extension UIImageExtensionViewController {
         imageView.contentMode = .scaleAspectFit
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
-    
+        
         let qrCodeFeatures = image!.jk.getImageQRImageInfo()
         JKPrint("获取图片每个二维码里面的信息数组：\(qrCodeFeatures)")
         
@@ -619,7 +619,7 @@ extension UIImageExtensionViewController {
         imageView.contentMode = .scaleAspectFit
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
-    
+        
         let qrCodeFeatures = image!.jk.getImageQRImage()
         JKPrint("图片中二维码数组：\(qrCodeFeatures)")
         
@@ -636,7 +636,7 @@ extension UIImageExtensionViewController {
         imageView.image = image
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
-    
+        
         JKAsyncs.asyncDelay(3) {
         } _: {
             imageView.removeFromSuperview()
@@ -683,12 +683,18 @@ extension UIImageExtensionViewController {
     
     // MARK: 4.3、压缩图片质量
     @objc func test43() {
-    
-        guard let imageData = UIImage(named: "testicon")!.jk.compressDataSize(maxSize: 500) else {
+        guard let image = UIImage(named: "testicon"), let oldData = image.jpegData(compressionQuality: 1.0), let newData = image.jk.compressDataSize(maxSize: 30 * 1024) else {
             return
         }
+        for i in (1...10).reversed() {
+            guard let newData1 = image.jk.compressDataSize(maxSize: i * 10 * 1024) else {
+                return
+            }
+            print("原图的大小: \(oldData.count / 1024) kb", "要求压缩到：\(i * 10) kb", "压缩后的图片大小：\(newData1.count / 1024) kb")
+        }
+        JKPrint("压缩图片质量", "原图的大小: \(oldData.count / 1024) kb", "压缩后的图片大小：\(newData.count / 1024) kb")
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 250, height: 300))
-        imageView.image = UIImage(data: imageData)
+        imageView.image = UIImage(data: newData)
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.jk.centerX = self.view.jk.centerX
@@ -953,7 +959,7 @@ extension UIImageExtensionViewController {
         } _: {
             // 像素化后的图片
             if let weakImage = image.jk.imageByRemoveBlackBg() {
-               imageView.image = weakImage
+                imageView.image = weakImage
             }
             JKAsyncs.asyncDelay(2) {
             } _: {
@@ -976,7 +982,7 @@ extension UIImageExtensionViewController {
         } _: {
             // 像素化后的图片
             if let weakImage = image.jk.imageByRemoveWhiteBg() {
-               imageView.image = weakImage
+                imageView.image = weakImage
             }
             JKAsyncs.asyncDelay(2) {
             } _: {
@@ -1077,7 +1083,7 @@ extension UIImageExtensionViewController {
     
     // MARK: 1.11、获取图片某一个位置像素的颜色
     @objc func test111() {
-
+        
         guard let image = UIImage.jk.image(color: .yellow, size: CGSize(width: 10, height: 10)) else {
             return
         }

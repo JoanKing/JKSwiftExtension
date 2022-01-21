@@ -9,7 +9,7 @@ import UIKit
  
 public class JKDrawSignatureView: UIView {
      
-    // 公共属性
+    /// 公共属性
     public var lineWidth: CGFloat = 2.0 {
         didSet {
             self.path.lineWidth = lineWidth
@@ -18,7 +18,7 @@ public class JKDrawSignatureView: UIView {
     public var strokeColor: UIColor = UIColor.black
     public var signatureBackgroundColor: UIColor = UIColor.white
      
-    // 私有属性
+    /// 私有属性
     fileprivate var path = UIBezierPath()
     fileprivate var pts = [CGPoint](repeating: CGPoint(), count: 5)
     fileprivate var ctr = 0
@@ -36,13 +36,13 @@ public class JKDrawSignatureView: UIView {
         self.path.lineWidth = self.lineWidth
     }
      
-    // Draw
+    /// Draw
     override open func draw(_ rect: CGRect) {
         self.strokeColor.setStroke()
         self.path.stroke()
     }
      
-    // 触摸签名相关方法
+    /// 触摸签名相关方法
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let firstTouch = touches.first{
             let touchPoint = firstTouch.location(in: self)
@@ -82,13 +82,13 @@ public class JKDrawSignatureView: UIView {
         }
     }
      
-    // 签名视图清空
+    /// 签名视图清空
     public func clearSignature() {
         self.path.removeAllPoints()
         self.setNeedsDisplay()
     }
      
-    // 将签名保存为UIImage
+    /// 将签名保存为UIImage
     public func getSignature() -> UIImage {
         UIGraphicsBeginImageContext(CGSize(width: self.bounds.size.width, height: self.bounds.size.height))
         self.layer.render(in: UIGraphicsGetCurrentContext()!)

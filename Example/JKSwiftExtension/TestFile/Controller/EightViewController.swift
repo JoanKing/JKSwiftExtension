@@ -30,7 +30,6 @@ class EightViewController: UIViewController {
         // 局部数组
         var sectionPartialArray: [String] = []
         var dataArray: [[String]] = []
-        var dataArray2: [[T]] = []
         for item in array {
             let dateString = Date.jk.timestampToFormatterTimeString(timestamp: item, format: "yyyy-MM-dd")
             if !sectionTimeArray.contains(dateString) {

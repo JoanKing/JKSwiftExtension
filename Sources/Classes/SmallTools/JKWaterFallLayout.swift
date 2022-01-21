@@ -8,7 +8,8 @@
 
 import UIKit
 
-public protocol JKWaterFallLayoutDataSoure: class {
+/// 在协议后面写上: AnyObject代表只有类能遵守这个协议
+public protocol JKWaterFallLayoutDataSoure: AnyObject {
     func waterfall(_ waterfall: JKWaterFallLayout, item: Int) -> CGFloat
 }
 

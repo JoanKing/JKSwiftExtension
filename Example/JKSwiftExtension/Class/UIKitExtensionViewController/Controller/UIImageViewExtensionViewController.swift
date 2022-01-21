@@ -25,7 +25,7 @@ extension UIImageViewExtensionViewController {
     // MARK: 1.3、加载网络 url 的 gif 图片
     @objc func test13() {
         gifImageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 100, height: 100))
-        gifImageView.jk.loadGif(url: "http://pic19.nipic.com/20120222/8072717_124734762000_2.gif")
+        gifImageView.jk.loadGif(url: "http://qq.yh31.com/tp/zjbq/201711092144541829.gif")
         gifImageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(gifImageView)
         JKAsyncs.asyncDelay(5) {

@@ -14,11 +14,11 @@ class TenViewController: UIViewController, UITextViewDelegate {
         let textView = UITextView(frame: CGRect(x: 100, y: 150, width: 200, height: 200))
         textView.backgroundColor = .brown
         textView.textColor = .white
-        textView.placeholdFont = UIFont.systemFont(ofSize: 16)
-        textView.placeholdColor = .green
-        textView.placeholderOrigin = CGPoint(x: 1, y: 7)
-        textView.font = UIFont.systemFont(ofSize: 16)
-        textView.placeholder = "请输入文字"
+//        textView.jk.placeholdFont = UIFont.systemFont(ofSize: 16)
+//        textView.jk.placeholdColor = .green
+//        textView.jk.placeholderOrigin = CGPoint(x: 1, y: 7)
+//        textView.font = UIFont.systemFont(ofSize: 16)
+//        textView.jk.placeholder = "请输入文字"
         textView.delegate = self
         return textView
     }()
@@ -99,14 +99,5 @@ class TenViewController: UIViewController, UITextViewDelegate {
         return adjustedFontSize
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

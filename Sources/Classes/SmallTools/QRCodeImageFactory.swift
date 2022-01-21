@@ -55,7 +55,7 @@ public struct QRCodeImageFactory {
         guard let qrFilter = CIFilter(name: "CIQRCodeGenerator") else {
             return nil
         }
-        //2、将filter所有属性设置为默认值
+        // 2、将filter所有属性设置为默认值
         qrFilter.setDefaults()
         // 3、将所需尽心转为UTF8的数据，并设置给filter
         guard let infoData = content.data(using: .utf8) else {
@@ -85,31 +85,31 @@ public struct QRCodeImageFactory {
     private static func clearQrCodeImage(with image: CIImage, size: CGSize) -> UIImage? {
         let extent = image.extent.integral
         let scale = min(size.width / extent.width, size.height / extent.height)
-        //1.创建bitmap
+        // 1.创建bitmap
         let width = extent.width * scale
         let height = extent.height * scale
         
-        //创建基于GPU的CIContext对象,性能和效果更好
+        // 创建基于GPU的CIContext对象,性能和效果更好
         let context = CIContext(options: nil)
-        //创建CoreGraphics image
+        // 创建CoreGraphics image
         guard let bitmapImage = context.createCGImage(image, from: extent) else { return nil }
         
         //创建一个DeviceGray颜色空间
         let cs = CGColorSpaceCreateDeviceGray()
-        //CGBitmapContextCreate(void * _Nullable data, size_t width, size_t height, size_t bitsPerComponent, size_t bytesPerRow, CGColorSpaceRef  _Nullable space, uint32_t bitmapInfo)
-        //width：图片宽度像素
-        //height：图片高度像素
-        //bitsPerComponent：每个颜色的比特值，例如在rgba-32模式下为8
-        //bitmapInfo：指定的位图应该包含一个alpha通道
+        // CGBitmapContextCreate(void * _Nullable data, size_t width, size_t height, size_t bitsPerComponent, size_t bytesPerRow, CGColorSpaceRef  _Nullable space, uint32_t bitmapInfo)
+        // width：图片宽度像素
+        // height：图片高度像素
+        // bitsPerComponent：每个颜色的比特值，例如在rgba-32模式下为8
+        // bitmapInfo：指定的位图应该包含一个alpha通道
         let bitmapRef = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow: 0, space: cs, bitmapInfo: CGImageAlphaInfo.none.rawValue) //图形上下文，画布
         bitmapRef?.interpolationQuality = CGInterpolationQuality.none //写入质量
         bitmapRef?.scaleBy(x: scale, y: scale) //调整“画布”的缩放
         bitmapRef?.draw(bitmapImage, in: extent) //绘制图片
         
-        //2.保存bitmap到图片
+        // 2.保存bitmap到图片
         guard let scaledImage = bitmapRef?.makeImage() else { return nil }
         
-        //清晰的二维码图片
+        // 清晰的二维码图片
         let outputImage = UIImage(cgImage: scaledImage)
         return outputImage
     }
@@ -125,36 +125,38 @@ public struct QRCodeImageFactory {
     static func getHDImgWithCIImage(with image: CIImage, size: CGSize, logoSize: CGSize?, waterImg: UIImage) -> UIImage? {
         let extent = image.extent.integral
         let scale = min(size.width / extent.width, size.height / extent.height)
-        //1.创建bitmap
+        // 1.创建bitmap
         let width = extent.width * scale
         let height = extent.height * scale
         
-        //创建基于GPU的CIContext对象,性能和效果更好
+        // 创建基于GPU的CIContext对象,性能和效果更好
         let context = CIContext(options: nil)
-        //创建CoreGraphics image
+        // 创建CoreGraphics image
         guard let bitmapImage = context.createCGImage(image, from: extent) else { return nil }
         
-        //创建一个DeviceGray颜色空间
+        // 创建一个DeviceGray颜色空间
         let cs = CGColorSpaceCreateDeviceGray()
-        //CGBitmapContextCreate(void * _Nullable data, size_t width, size_t height, size_t bitsPerComponent, size_t bytesPerRow, CGColorSpaceRef  _Nullable space, uint32_t bitmapInfo)
-        //width：图片宽度像素
-        //height：图片高度像素
-        //bitsPerComponent：每个颜色的比特值，例如在rgba-32模式下为8
-        //bitmapInfo：指定的位图应该包含一个alpha通道
+        // CGBitmapContextCreate(void * _Nullable data, size_t width, size_t height, size_t bitsPerComponent, size_t bytesPerRow, CGColorSpaceRef  _Nullable space, uint32_t bitmapInfo)
+        // width：图片宽度像素
+        // height：图片高度像素
+        // bitsPerComponent：每个颜色的比特值，例如在rgba-32模式下为8
+        // bitmapInfo：指定的位图应该包含一个alpha通道
         let bitmapRef = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow: 0, space: cs, bitmapInfo: CGImageAlphaInfo.none.rawValue) //图形上下文，画布
         bitmapRef?.interpolationQuality = CGInterpolationQuality.none //写入质量
         bitmapRef?.scaleBy(x: scale, y: scale) //调整“画布”的缩放
         bitmapRef?.draw(bitmapImage, in: extent) //绘制图片
         
-        //2.保存bitmap到图片
+        // 2.保存bitmap到图片
         guard let scaledImage = bitmapRef?.makeImage() else { return nil }
         
-        //清晰的二维码图片
+        // 清晰的二维码图片
         let outputImage = UIImage(cgImage: scaledImage)
-        //给二维码加 logo 图
+        // 给二维码加 logo 图
         UIGraphicsBeginImageContextWithOptions(outputImage.size, false, UIScreen.main.scale)
         outputImage.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        //把水印图片画到生成的二维码图片上，注意尺寸不要太大（根据上面生成二维码设置的纠错程度设置），否则有可能造成扫不出来
+        /*
+         把水印图片画到生成的二维码图片上，注意尺寸不要太大（根据上面生成二维码设置的纠错程度设置），否则有可能造成扫不出来
+         */
         let waterImgW = logoSize?.width ?? waterImg.size.width
         let waterImgH = logoSize?.height ?? waterImg.size.height
         let waterImgX = (size.width - waterImgW) * 0.5

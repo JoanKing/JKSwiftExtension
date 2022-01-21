@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JKSwiftExtension
 
 class UIStackViewExtensionViewController: BaseViewController {
     
@@ -38,6 +39,11 @@ extension UIStackViewExtensionViewController {
         testLabel2.text = "我是一只小小鸟2"
         testLabel2.backgroundColor = .randomColor
         stackView.addSubview(testLabel2)
+        
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            stackView.removeFromSuperview()
+        }
     }
     
     // MARK: 1.2、设置布局时是否以控件的LayoutMargins为标准，默认为false，是以控件的bounds为标准
@@ -58,6 +64,11 @@ extension UIStackViewExtensionViewController {
         testLabel2.text = "我是一只小小鸟2"
         testLabel2.backgroundColor = .randomColor
         stackView.addSubview(testLabel2)
+        
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            stackView.removeFromSuperview()
+        }
     }
     
     // MARK: 1.3、子控件布局方向(水平或者垂直),也就是轴方向
@@ -78,6 +89,11 @@ extension UIStackViewExtensionViewController {
         testLabel2.text = "我是一只小小鸟2"
         testLabel2.backgroundColor = .randomColor
         stackView.addSubview(testLabel2)
+        
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            stackView.removeFromSuperview()
+        }
     }
     
     // MARK: 1.4、子视图在轴向上的分布方式
@@ -98,6 +114,11 @@ extension UIStackViewExtensionViewController {
         testLabel2.text = "我是一只小小鸟2"
         testLabel2.backgroundColor = .randomColor
         stackView.addSubview(testLabel2)
+        
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            stackView.removeFromSuperview()
+        }
     }
     
     // MARK: 1.5、对齐模式
@@ -118,6 +139,11 @@ extension UIStackViewExtensionViewController {
         testLabel2.text = "我是一只小小鸟2"
         testLabel2.backgroundColor = .randomColor
         stackView.addSubview(testLabel2)
+        
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            stackView.removeFromSuperview()
+        }
     }
     // MARK: 1.6、设置子控件间距
     @objc func test16() {
@@ -134,12 +160,11 @@ extension UIStackViewExtensionViewController {
         testLabel2.text = "我是一只小小鸟2"
         testLabel2.backgroundColor = .randomColor
         stackView.addSubview(testLabel2)
-    }
-    
-    // MARK: 1.7、添加排列子视图
-    @objc func test17() {
         
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            stackView.removeFromSuperview()
+        }
+
     }
-    
-    
 }
