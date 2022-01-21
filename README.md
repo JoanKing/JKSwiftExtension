@@ -46,7 +46,7 @@ end
 ## 讨论
 - 微信号: wangc2318151015
 - 邮箱: jkironman@163.com
-<img src="https://user-images.githubusercontent.com/19670000/147022327-54f815ee-6ba6-4373-97c0-31ef79e2b0ec.jpeg" alt="微信交流群" width="220">
+<img src="https://user-images.githubusercontent.com/19670000/150451850-eb0ddf38-f426-4a5a-be6c-c9ea32773097.png" alt="微信交流群" width="220">
 
 ## 版本说明
    - 2.0.0、版本：开始支持 SPM(Swift Package Manager)
