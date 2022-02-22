@@ -87,6 +87,5 @@ extension JKWeakTimerViewController {
         timer = JKWeakTimer(timeInterval: 1, target: self, selector: #selector(click), userInfo: nil, repeats: true)
         timer?.fire()
     }
-    
 }
 

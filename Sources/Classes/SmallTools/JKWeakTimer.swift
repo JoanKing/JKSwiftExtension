@@ -96,6 +96,13 @@ extension JKWeakTimer {
         // 如果它已经失效，原子操作检查。防止dispatch_sync死锁。
         if !OSAtomicTestAndSetBarrier(7, pointer) {
             if let t = timer, _state != .invalidate {
+                /**
+                 dispatch_suspend 状态下直接释放定时器，会导致定时器崩溃。初始状态，挂起状态，都不能直接调用
+                 dispatch_source_cancel(timer);调用就会导致app闪退，先调用下 dispatch_resume后再cancel，然后再释放timer
+                 */
+                if _state != .executing {
+                    t.resume()
+                }
                 t.cancel()
                 timer = nil
                 timerCallBack = nil

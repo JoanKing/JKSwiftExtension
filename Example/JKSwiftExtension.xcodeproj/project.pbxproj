@@ -103,6 +103,8 @@
 		84B29411257747EF009E7760 /* UINavigationBarExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B29410257747EF009E7760 /* UINavigationBarExtensionViewController.swift */; };
 		84B4440A2575E8AD00D3DD1D /* DataExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B444092575E8AD00D3DD1D /* DataExtensionViewController.swift */; };
 		84B5BDAC260C7A2D00616143 /* RangeExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B5BDAB260C7A2D00616143 /* RangeExtensionViewController.swift */; };
+		84B84C3027BBF07F004F04B9 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B84C2F27BBF07F004F04B9 /* Person.swift */; };
+		84B84C3227BBF455004F04B9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B84C3127BBF455004F04B9 /* ProfileViewController.swift */; };
 		84B8FE3825A314FD00E7099E /* JKRegexHelperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B8FE3725A314FD00E7099E /* JKRegexHelperViewController.swift */; };
 		84BEA371254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BEA370254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift */; };
 		84BEA373254FAC6600CA8A75 /* UIFontExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BEA372254FAC6600CA8A75 /* UIFontExtensionViewController.swift */; };
@@ -129,6 +131,7 @@
 		84D9BDCD25652D8C00D92461 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BDCC25652D8C00D92461 /* TestView.swift */; };
 		84D9BDD125652D9900D92461 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D9BDD025652D9900D92461 /* TestView.xib */; };
 		84D9BDD525652FE500D92461 /* JKEmitterableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9BDD425652FE400D92461 /* JKEmitterableViewController.swift */; };
+		84E922AA27AE060D00BC4AA2 /* baby.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84E922A927AE060D00BC4AA2 /* baby.gif */; };
 		84E96DD925C7E2D300D76D5C /* CAGradientLayerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E96DD825C7E2D300D76D5C /* CAGradientLayerExtensionViewController.swift */; };
 		84EE8174257F8EFF00DDC56B /* Persons.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84EE8173257F8EFF00DDC56B /* Persons.plist */; };
 		84F11D6B25DE0DB500209B4C /* NSRangeExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F11D6A25DE0DB500209B4C /* NSRangeExtensionViewController.swift */; };
@@ -249,6 +252,8 @@
 		84B29410257747EF009E7760 /* UINavigationBarExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarExtensionViewController.swift; sourceTree = "<group>"; };
 		84B444092575E8AD00D3DD1D /* DataExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensionViewController.swift; sourceTree = "<group>"; };
 		84B5BDAB260C7A2D00616143 /* RangeExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeExtensionViewController.swift; sourceTree = "<group>"; };
+		84B84C2F27BBF07F004F04B9 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Person.swift; path = JKSwiftExtension/Class/SmallToolsViewController/Controller/Person.swift; sourceTree = SOURCE_ROOT; };
+		84B84C3127BBF455004F04B9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		84B8FE3725A314FD00E7099E /* JKRegexHelperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKRegexHelperViewController.swift; sourceTree = "<group>"; };
 		84BEA370254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensionViewController.swift; sourceTree = "<group>"; };
 		84BEA372254FAC6600CA8A75 /* UIFontExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensionViewController.swift; sourceTree = "<group>"; };
@@ -275,6 +280,7 @@
 		84D9BDCC25652D8C00D92461 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		84D9BDD025652D9900D92461 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
 		84D9BDD425652FE400D92461 /* JKEmitterableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKEmitterableViewController.swift; sourceTree = "<group>"; };
+		84E922A927AE060D00BC4AA2 /* baby.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = baby.gif; sourceTree = "<group>"; };
 		84E96DD825C7E2D300D76D5C /* CAGradientLayerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAGradientLayerExtensionViewController.swift; sourceTree = "<group>"; };
 		84EE8173257F8EFF00DDC56B /* Persons.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Persons.plist; sourceTree = "<group>"; };
 		84F11D6A25DE0DB500209B4C /* NSRangeExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRangeExtensionViewController.swift; sourceTree = "<group>"; };
@@ -358,6 +364,7 @@
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				84E922A927AE060D00BC4AA2 /* baby.gif */,
 				8410D02B25DBC98300700FDD /* mebubble@2x.png */,
 				8410D02C25DBC98300700FDD /* yoububble@2x.png */,
 				847DE9542573F0B60080EEC0 /* testFile.text */,
@@ -424,6 +431,7 @@
 				84D5B11625F4FA2400984F5A /* FBArrowLabel.swift */,
 				846ECCCA279AE609006215EF /* JKVVViewController.swift */,
 				8423F2E7269FF45200CACC47 /* FBGuidePage.swift */,
+				84B84C3127BBF455004F04B9 /* ProfileViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -447,6 +455,7 @@
 		844A634525664F4D000059EC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				84B84C2F27BBF07F004F04B9 /* Person.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -832,6 +841,7 @@
 				8423F2E4269FEDDB00CACC47 /* GuideX_2.png in Resources */,
 				8410D02E25DBC98300700FDD /* yoububble@2x.png in Resources */,
 				8423F2EA269FF62800CACC47 /* CashCow.bundle in Resources */,
+				84E922AA27AE060D00BC4AA2 /* baby.gif in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -958,6 +968,7 @@
 				84BF16C8251D9FB6002ACE76 /* UIKitExtensionViewController.swift in Sources */,
 				8415464525F5BD75007DE673 /* FBArrowTestLabel.swift in Sources */,
 				84F11D6B25DE0DB500209B4C /* NSRangeExtensionViewController.swift in Sources */,
+				84B84C3027BBF07F004F04B9 /* Person.swift in Sources */,
 				84D5B11725F4FA2400984F5A /* FBArrowLabel.swift in Sources */,
 				844A635425664F9B000059EC /* ThreeViewController.swift in Sources */,
 				8401537F2552B34A001AB2FD /* DictionaryExtensionViewController.swift in Sources */,
@@ -1002,6 +1013,7 @@
 				84F86FCC2564C66E00B74128 /* JKContentSizeViewController.swift in Sources */,
 				84F870012564F91600B74128 /* JKWaterFallLayoutViewController.swift in Sources */,
 				844A635125664F9B000059EC /* FourViewController.swift in Sources */,
+				84B84C3227BBF455004F04B9 /* ProfileViewController.swift in Sources */,
 				849D58F42537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift in Sources */,
 				8480280C255926120038748A /* CATextLayerExtensionViewController.swift in Sources */,
 				84C4BF5F25500E5C00B3705F /* CGFloatExtensionViewController.swift in Sources */,

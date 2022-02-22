@@ -8,12 +8,16 @@
 
 import UIKit
 
+enum Center: Int {
+    case one = 1
+    case two = 2
+}
+
 extension Array {
     subscript(guarded idx: Int) -> Element? {
         guard (startIndex..<endIndex).contains(idx) else { return nil }
         return self[idx]
     }
-    
 }
 
 class ScoreClass {
@@ -85,14 +89,22 @@ class TestFileViewController: BaseViewController {
         self.title = "TestFile"
         
         headDataArray = ["一、基本的使用"]
-        dataArray = [["设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "数组测试", "struct"]]
+        dataArray = [["设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "数组测试", "struct", "test"]]
+    }
+    
+    deinit {
+        print("----------")
     }
 }
 
 extension TestFileViewController {
     
+    @objc func test18() {
+        self.navigationController?.pushViewController(ProfileViewController(), animated: true)
+    }
+    
     @objc func test17() {
-
+        
     }
     
     func test1(a: Int) {
@@ -107,12 +119,12 @@ extension TestFileViewController {
         score.guest += 1
         score.guest += 4
         //print("guest：\(score.guest)")
-     // 错误：可变操作符的左边是不可变类型： // 'score' 是⼀个 'let' 常量。
+        // 错误：可变操作符的左边是不可变类型： // 'score' 是⼀个 'let' 常量。
     }
     
     @objc func test16() {
-      
-       
+        
+        
     }
     
     @objc func test15() {
@@ -132,7 +144,13 @@ extension TestFileViewController {
     }
     
     @objc func test11() {
-        self.navigationController?.pushViewController(EightViewController(), animated: true)
+        let person = Person()
+        person.number = 200
+        print("number：\(person.number)")
+        person.number = 30
+        print("number：\(person.number)")
+        
+        // self.navigationController?.pushViewController(EightViewController(), animated: true)
     }
 }
 

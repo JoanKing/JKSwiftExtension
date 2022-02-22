@@ -14,7 +14,7 @@ class JKGlobalToolsViewController: BaseViewController {
         super.viewDidLoad()
     
         headDataArray = ["一、基本的工具"]
-        dataArray = [["拨打电话", "App更新", "从 storyboard 中唤醒 viewcontroller", "传进某个版本号 个 当前app版本号作对比", "获取本机IP", "前往App Store进行评价", "获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information", "获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information", "打开设置界面"]]
+        dataArray = [["拨打电话", "App更新", "从 storyboard 中唤醒 viewcontroller", "传进某个版本号 个 当前app版本号作对比", "获取本机IP", "前往App Store进行评价", "获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information", "获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information", "打开设置界面", "退出app（类似点击home键盘）"]]
     }
     
     override func didReceiveMemoryWarning() {
@@ -24,6 +24,11 @@ class JKGlobalToolsViewController: BaseViewController {
 
 // MARK: - 一、基本的工具
 extension JKGlobalToolsViewController {
+    
+    // MARK: 1.10、退出app（类似点击home键盘）
+    @objc func test110() {
+        JKGlobalTools.exitApp()
+    }
     
     // MARK: 1.9、打开设置界面
     @objc func test19() {

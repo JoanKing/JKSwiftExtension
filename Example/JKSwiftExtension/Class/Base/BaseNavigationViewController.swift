@@ -44,9 +44,9 @@ class BaseNavigationViewController: UINavigationController {
         } else {
             navigationBar.barTintColor = navbarTintColor
         }
-        let dict: NSDictionary = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 18)]
+        let dict: [NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 18)]
         // 标题颜色
-        navigationBar.titleTextAttributes = (dict as! [NSAttributedString.Key : Any])
+        navigationBar.titleTextAttributes = dict
         // item颜色
         navigationBar.tintColor = UIColor.black
     }

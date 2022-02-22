@@ -218,8 +218,15 @@ public struct JKGlobalTools {
         openUrl(url: url) { (result) in
         }
     }
+    
+    // MARK: 1.10、退出app（类似点击home键盘）
+    /// 退出app（类似点击home键盘）
+    public static func exitApp() {
+        DispatchQueue.main.async {
+            UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+        }
+    }
 }
-
 
 private extension JKGlobalTools {
     // MARK: 版本号 version 分隔三个 Int 值
