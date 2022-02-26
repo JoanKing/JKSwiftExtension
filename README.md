@@ -49,6 +49,7 @@ end
 <img src="https://user-images.githubusercontent.com/19670000/150451850-eb0ddf38-f426-4a5a-be6c-c9ea32773097.png" alt="微信交流群" width="220">
 
 ## 版本说明
+   - 2.0.6、版本：修复Array+Extension 添加数组和 Int转CountableRange的问题
    - 2.0.5、版本：修复JKWeakTimer在未开启下的崩溃
    - 2.0.2、版本：新增JKMems辅助查看内存的小工具类和JKPlaceHolderTextView设置PlaceHolder
    - 2.0.0、版本：开始支持 SPM(Swift Package Manager)
