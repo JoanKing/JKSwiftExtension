@@ -14,7 +14,7 @@ class IntExtensionViewController: BaseViewController {
         super.viewDidLoad()
 
         headDataArray = ["一、CGFloat 的基本转换", "二、其他常用方法"]
-        dataArray = [["转 Double", "转 Float", "转 Int64", "转 CGFloat", "转 String", "转 UInt", "转 range"], ["取区间内的随机数，如取  0..<10 之间的随机数", "转换万单位", "计算大小"]]
+        dataArray = [["转 Double", "转 Float", "转 Int64", "转 CGFloat", "转 String", "转 UInt", "转 CountableRange(可数的开区间)"], ["取区间内的随机数，如取  0..<10 之间的随机数", "转换万单位", "计算大小"]]
     }
 }
 
@@ -96,9 +96,12 @@ extension IntExtensionViewController {
         JKPrint("转 UInt", "\(value) 转 UInt 后为 \(value.jk.intToUInt)")
     }
     
-    // MARK: 1.7、转 range
+    // MARK: 1.7、转 CountableRange(可数的开区间)
     @objc func test17() {
-        let value: Int = 2
-        JKPrint("转 range", "\(value) 转 range 后为 \(value.jk.intToRange)")
+        let value: Int = 5
+        guard let result = value.jk.intToCountableRange else {
+            return
+        }
+        JKPrint("转 CountableRange(可数的开区间)", "\(value) 转 CountableRange(可数的开区间) 后为 \(result)")
     }
 }

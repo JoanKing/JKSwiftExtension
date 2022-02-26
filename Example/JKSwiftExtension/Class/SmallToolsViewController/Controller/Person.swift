@@ -27,12 +27,12 @@ class Person: NSObject {
     }
     
     deinit {
-        print("---------")
+        print("----销毁-----")
     }
 }
 
 
-struct SonSon {
+class SonSon {
     var age = 10
 }
 

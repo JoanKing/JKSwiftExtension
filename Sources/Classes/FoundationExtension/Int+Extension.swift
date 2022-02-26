@@ -34,9 +34,24 @@ public extension JKPOP where Base == Int {
     /// 转 UInt
     var intToUInt: UInt { return UInt(self.base) }
 
-    // MARK: 1.7、转 range
-    /// 转 range
-    var intToRange: CountableRange<Int> { return 0..<self.base }
+    // MARK: 1.7、转 CountableRange(可数的开区间)
+    /// 转 CountableRange(可数的开区间)
+    ///
+    /// 分析一下：CountableClosedRange、CountableRange、ClosedRange、Range
+    /// CountableClosedRange：可数的闭区间  如：[0, 5]
+    ///  let rangeA = 0...5
+    /// CountableRange：可数的开区间 [0, 5)
+    ///  let rangeB = 0..<5
+    /// ClosedRange：不可数的闭区间 [0.1, 5.1]
+    ///  let rangeC = 0.1...5.1
+    /// Range：不可数的开居间 [0.1,5.1)
+    ///  let rangeD = 0.1..<5.1
+    var intToCountableRange: CountableRange<Int>? {
+        guard self.base > 0 else {
+            return nil
+        }
+        return 0..<self.base
+    }
 }
 
 // MARK: - 二、其他常用方法

@@ -18,13 +18,11 @@ public extension Array {
         return indices.contains(index) ? self[index] : nil
     }
     
-    // MARK: 1.2、数组新增元素(可转入一个数组)
+    // MARK: 1.2、数组添加数组
     /// 数组新增元素(可转入一个数组)
     /// - Parameter elements: 数组
-    mutating func append(_ elements: [Element]) {
-        for element in elements {
-            self.append(element)
-        }
+    mutating func appends(_ elements: [Element]) {
+        self.append(contentsOf: elements)
     }
     
     // MARK: 1.3、数组 -> JSON字符串

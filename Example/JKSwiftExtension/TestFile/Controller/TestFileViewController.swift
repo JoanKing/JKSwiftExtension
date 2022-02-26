@@ -144,11 +144,11 @@ extension TestFileViewController {
     }
     
     @objc func test11() {
-        let person = Person()
-        person.number = 200
-        print("number：\(person.number)")
-        person.number = 30
-        print("number：\(person.number)")
+//        let person = Person()
+//        person.number = 20
+//        print("number：\(person.number) 父类：\(person.superclass)")
+        let son = SonSon()
+        print("父类：\(son.age)")
         
         // self.navigationController?.pushViewController(EightViewController(), animated: true)
     }
