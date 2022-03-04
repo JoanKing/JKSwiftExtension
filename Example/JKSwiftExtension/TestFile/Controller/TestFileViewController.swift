@@ -65,7 +65,7 @@ extension Array {
 
 class Window {
     weak var rootView: View?
-    var onRotate: (() -> ())? = nil
+    var onRotate: (() -> (Void))? = nil
     deinit {
         print("Deinit Window")
     }
@@ -143,7 +143,7 @@ extension TestFileViewController {
         self.navigationController?.pushViewController(TenViewController(), animated: true)
     }
     
-    @objc func test11() {
+    @objc func test11()     {
 //        let person = Person()
 //        person.number = 20
 //        print("number：\(person.number) 父类：\(person.superclass)")

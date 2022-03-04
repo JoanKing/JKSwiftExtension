@@ -96,21 +96,20 @@ class QRTestViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                         didOutput metadataObjects: [AVMetadataObject],
                         from connection: AVCaptureConnection) {
         var stringValue:String?
-        if metadataObjects.count > 0 {
-            let metadataObject = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+        if !metadataObjects.isEmpty {
+            guard let metadataObject = metadataObjects[0] as? AVMetadataMachineReadableCodeObject else { return }
             stringValue = metadataObject.stringValue
-            
-            if stringValue != nil{
+
+            if stringValue != nil {
                 self.session.stopRunning()
             }
         }
         self.session.stopRunning()
-        //输出结果
+        // 输出结果
         let alertController = UIAlertController(title: "二维码",
                                                 message: stringValue,preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "确定", style: .default, handler: {
-            action in
-            //继续扫描
+        let okAction = UIAlertAction(title: "确定", style: .default, handler: { _ in
+            // 继续扫描
             self.session.startRunning()
         })
         alertController.addAction(okAction)

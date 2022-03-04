@@ -79,10 +79,10 @@ extension FileManagerExtensionViewController {
     @objc func test32() {
         // 添加录视频的缩略图
         let videoPath = FileManager.jk.DocumnetsDirectory() + "/video.mp4"
-        
-        let playImage = FileManager.jk.getLocalVideoImages(videoPaths: [videoPath])
-        if playImage.count > 0, let _ = playImage[0] {
-            
+        let playImages = FileManager.jk.getLocalVideoImages(videoPaths: [videoPath])
+    
+        if !playImages.isEmpty, let image = playImages[0] {
+            JKPrint("\(image)")
         }
     }
     
@@ -90,8 +90,8 @@ extension FileManagerExtensionViewController {
     @objc func test31() {
         // 添加录视频的缩略图
         let videoPath = FileManager.jk.DocumnetsDirectory() + "/video.mp4"
-        if let _ = FileManager.jk.getLocalVideoImage(videoPath: videoPath) {
-            
+        if let image = FileManager.jk.getLocalVideoImage(videoPath: videoPath) {
+            print("\(image)")
         }
     }
 }
@@ -130,7 +130,7 @@ extension FileManagerExtensionViewController {
         JKPrint("路径：\(path)", "文件大小：\(size)")
     }
     
-    // MARK:2.20、深度遍历，会递归遍历子文件夹（但不会递归符号链接）
+    // MARK: 2.20、深度遍历，会递归遍历子文件夹（但不会递归符号链接）
     @objc func test220() {
         let path = FileManager.jk.LibraryDirectory()
     
@@ -249,7 +249,7 @@ extension FileManagerExtensionViewController {
     
     // MARK: 2.7、从文件 读取 文字，图片，数组，字典
     @objc func test27() {
-        guard let contentArray = (FileManager.jk.readFromFile(readType: .ArrayType, readPath:  FileManager.jk.LibraryDirectory() + "/我是一个文件").content) as? Array<Any> else {
+        guard let contentArray = (FileManager.jk.readFromFile(readType: .ArrayType, readPath:  FileManager.jk.LibraryDirectory() + "/我是一个文件").content) as? [Any] else {
             print("文件没有内容")
             return
         }
@@ -296,7 +296,7 @@ extension FileManagerExtensionViewController {
 }
 
 // MARK: - 一、沙盒路径的获取
-@objc extension FileManagerExtensionViewController {
+extension FileManagerExtensionViewController {
     
     // MARK: 1.1、获取Home的完整路径名
     @objc func test11() {

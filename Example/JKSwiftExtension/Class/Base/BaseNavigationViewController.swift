@@ -31,7 +31,7 @@ class BaseNavigationViewController: UINavigationController {
             // 滑动后的背景
             let standardAppearance = UINavigationBarAppearance()
             standardAppearance.backgroundColor = navbarTintColor
-            navigationBar.standardAppearance = standardAppearance
+            navigationBar.standardAppearance = standardAppearance 
             /*
              navigationBar.standardAppearance = {
                 let appearance = UINavigationBarAppearance()

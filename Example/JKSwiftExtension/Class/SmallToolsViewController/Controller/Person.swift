@@ -8,13 +8,13 @@
 
 import UIKit
 
-class Person: NSObject {
+@objcMembers class Person: NSObject {
     /// 年龄
     @objc dynamic var age: Int = 0
     
     var number: Int = 20 {
         willSet {
-            self.number = 999
+            self.number = 999 
         }
         didSet {
             print("旧值：\(oldValue) 新值：\(self.number)")
@@ -32,7 +32,7 @@ class Person: NSObject {
 }
 
 
-class SonSon {
+@objcMembers class SonSon: NSObject {
     var age = 10
 }
 

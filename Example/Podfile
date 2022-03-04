@@ -8,4 +8,5 @@ target 'JKSwiftExtension_Example' do
   pod 'MJRefresh'
   pod 'SnapKit'
   pod 'Kingfisher'
+  pod 'SwiftLint', '0.46.3', configurations:['Debug']
 end

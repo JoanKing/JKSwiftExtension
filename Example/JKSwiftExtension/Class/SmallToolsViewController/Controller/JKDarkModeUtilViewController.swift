@@ -11,9 +11,9 @@ import UIKit
 // MARK: - 业务颜色的使用
 extension UIColor {
     /// 背景色
-    private(set) static var cA1 = JKDarkModeUtil.colorLightDark(lightColor: UIColor.yellow, darkColor: UIColor.green)
+    private(set) static var cA1Color = JKDarkModeUtil.colorLightDark(lightColor: UIColor.yellow, darkColor: UIColor.green)
     /// B1-品牌橙色 #FF4600
-    private(set) static var cB1_Orange: UIColor = JKDarkModeUtil.colorLightDark(lightColor: UIColor.hexStringColor(hexString: "#FF4600"), darkColor: UIColor.hexStringColor(hexString: "#FF4600").withAlphaComponent(0.8))
+    private(set) static var cB1Orange: UIColor = JKDarkModeUtil.colorLightDark(lightColor: UIColor.hexStringColor(hexString: "#FF4600"), darkColor: UIColor.hexStringColor(hexString: "#FF4600").withAlphaComponent(0.8))
 }
 
 class JKDarkModeUtilViewController: UIViewController {
@@ -170,9 +170,9 @@ extension JKDarkModeUtilViewController: UITableViewDelegate, UITableViewDataSour
         switchSetting.isOn = section == 0 ? JKDarkModeUtil.isSmartPeeling : JKDarkModeUtil.isFollowSystem
         switchSetting.tag = section == 0 ? 100 : 101
         if section == 0 {
-            switchSetting.onTintColor = JKDarkModeUtil.isSmartPeeling ? UIColor.cB1_Orange : UIColor.cN4
+            switchSetting.onTintColor = JKDarkModeUtil.isSmartPeeling ? UIColor.cB1Orange : UIColor.cN4
         } else {
-            switchSetting.onTintColor = JKDarkModeUtil.isFollowSystem ? UIColor.cB1_Orange : UIColor.cN4
+            switchSetting.onTintColor = JKDarkModeUtil.isFollowSystem ? UIColor.cB1Orange : UIColor.cN4
         }
         switchSetting.addTarget(self, action: #selector(switchClick), for: .touchUpInside)
         sectionView.addSubview(switchSetting)
@@ -196,7 +196,7 @@ extension JKDarkModeUtilViewController: UITableViewDelegate, UITableViewDataSour
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 0, indexPath.row == 2 {
             // 获取暗黑模式时间的区间，转为两个时间戳，取出当前的时间戳，看是否在区间内，在的话：黑色，否则白色
-            let timeIntervalValue = JKDarkModeUtil.SmartPeelingTimeIntervalValue.jk.separatedByString(with: "~") as! [String]
+            guard let timeIntervalValue = JKDarkModeUtil.SmartPeelingTimeIntervalValue.jk.separatedByString(with: "~") as? [String] else { return }
             let darkModePickerView = DarkModePickerView(startTime: timeIntervalValue[0], endTime: timeIntervalValue[1]) {[weak self] (startTime, endTime) in
                 guard let weakSelf = self else { return }
                 JKDarkModeUtil.setSmartPeelingTimeChange(startTime: startTime, endTime: endTime)
@@ -226,8 +226,8 @@ extension JKDarkModeUtilViewController {
             // 跟随系统
             print("跟随系统-------\(sender.isOn)")
             JKDarkModeUtil.setDarkModeFollowSystem(isFollowSystem: sender.isOn)
-            //label1.isHidden = sender.isOn
-            //switch1.isHidden = sender.isOn
+            // label1.isHidden = sender.isOn
+            // switch1.isHidden = sender.isOn
             sender.setOn(JKDarkModeUtil.isFollowSystem, animated: false)
             // 更新选择
             topHeadView.updateSelected()

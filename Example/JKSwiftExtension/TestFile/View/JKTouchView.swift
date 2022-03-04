@@ -11,17 +11,17 @@ import UIKit
 class JKTouchView: UIView {
     
     /// 范围 <= 0
-    var min_x: CGFloat = 0
+    var minX: CGFloat = 0
     /// 范围 <= 0
-    var min_y: CGFloat = 0
+    var minY: CGFloat = 0
     /// 范围  >=  0
-    var max_x: CGFloat = 0
+    var maxX: CGFloat = 0
     /// 范围  >= 0
-    var max_y: CGFloat = 0
+    var maxY: CGFloat = 0
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
       
-        guard point.x <= max_x && point.x >= min_x + self.frame.size.width && point.y <= max_y + self.frame.size.height && point.y >= min_y  else {
+        guard point.x <= maxX && point.x >= minX + self.frame.size.width && point.y <= maxY + self.frame.size.height && point.y >= minY  else {
             return super.hitTest(point, with: event)
         }
         return super.hitTest(CGPoint(x: 0, y: 0), with: event)

@@ -11,16 +11,16 @@ import UIKit
 class FBGuidePageVC: UIViewController, UIScrollViewDelegate {
     
     lazy var scrollView: UIScrollView = {
-        let sc = UIScrollView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: jk_kScreenH))
-        sc.backgroundColor = .randomColor
-        sc.isPagingEnabled = true
-        sc.bounces = false
-        sc.showsVerticalScrollIndicator = false
-        sc.showsHorizontalScrollIndicator = false
-        let width = CGFloat(GuideImages().count) * jk_kScreenW
-        sc.contentSize = CGSize(width: width, height: 0)
-        sc.delegate = self
-        return sc
+        let scrollViewS = UIScrollView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: jk_kScreenH))
+        scrollViewS.backgroundColor = .randomColor
+        scrollViewS.isPagingEnabled = true
+        scrollViewS.bounces = false
+        scrollViewS.showsVerticalScrollIndicator = false
+        scrollViewS.showsHorizontalScrollIndicator = false
+        let width = CGFloat(guideImages().count) * jk_kScreenW
+        scrollViewS.contentSize = CGSize(width: width, height: 0)
+        scrollViewS.delegate = self
+        return scrollViewS
     }()
     
     // pageControl
@@ -67,7 +67,7 @@ class FBGuidePageVC: UIViewController, UIScrollViewDelegate {
     }
     
     func addImage() {
-        let images = GuideImages()
+        let images = guideImages()
         for index in 0..<images.count {
             let imageName = images[index]
             let imageStr = Bundle.jk.getBundlePathResource(bundName: "CashCow", resourceName: imageName, bundleType: .currentBundle)
@@ -90,17 +90,17 @@ class FBGuidePageVC: UIViewController, UIScrollViewDelegate {
        
     }
     
-    func GuideImages() -> [String] {
+    func guideImages() -> [String] {
         var guide = "GuideP"
-        //if (jk_kScreenW == 414.0) && (jk_kScreenH == 736.0) {
+        // if (jk_kScreenW == 414.0) && (jk_kScreenH == 736.0) {
         //    guide = "GuideP"
-        //} else if (jk_kScreenW == 375.0) && (jk_kScreenH == 812.0) {
+        // } else if (jk_kScreenW == 375.0) && (jk_kScreenH == 812.0) {
             guide = "GuideX"
-        //} else if (jk_kScreenW == 414.0 ) && (jk_kScreenH == 896.0) {
+        // } else if (jk_kScreenW == 414.0 ) && (jk_kScreenH == 896.0) {
         //    guide = "GuideXsr"
-        //} else if (jk_kScreenW == 320.0 ) {
+        // } else if (jk_kScreenW == 320.0 ) {
         //    guide = "GuideM"
-        //}
+        // }
         var ret = [String]()
         for index in 1...3 {
             let str = guide + "_\(index)"

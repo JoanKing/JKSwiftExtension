@@ -1084,22 +1084,21 @@ extension StringExtensionViewController {
         let replacingString = "1"
         JKPrint("某个字符使用某个字符替换掉", "\(testString1) 中的 \(oldString) 被替换为 \(replacingString) 后为 ：\(testString1.jk.removeSomeStringUseSomeString(removeString: oldString, replacingString: replacingString))")
     }
-    
     // MARK: 3.11、使用正则表达式替换某些子串
     /// 使用正则表达式替换某些子串
     @objc func test311() {
-        //原始字符串
-        let str1:String = "qwer1234"
-        //判断的正则表达式
+        /// 原始字符串
+        let str1: String = "qwer1234"
+        /// 判断的正则表达式
         let pattern = "[a-zA-Z]"
-        //打印结果
+        /// 打印结果
         JKPrint("原字符串：\(str1)", "封装的新字符串：\(str1.jk.pregReplace(pattern: pattern, with: "😌"))")
     }
     
     // MARK: 3.12、删除指定的字符
     /// 删除指定的字符
     @objc func test312() {
-        //原始字符串
+        /// 原始字符串
         let str1 = "<<骆驼祥子>>"
         print("原字符串：\(str1)")
         print("新字符串：\(str1.jk.removeCharacter(characterString: "<>"))")

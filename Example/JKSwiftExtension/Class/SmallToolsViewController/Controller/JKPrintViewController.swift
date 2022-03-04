@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Point  {
+class Point {
     var x = 11
     var test = true
     var y = 22

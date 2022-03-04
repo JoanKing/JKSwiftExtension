@@ -162,9 +162,9 @@ private extension FBArrowLabel {
         var borderBounds = contentView.bounds
         switch arrowPosition {
         case .top, .bottom:
-            borderBounds.size.height = borderBounds.size.height - arrowSize.0
+            borderBounds.size.height -= arrowSize.0
         case .left, .right:
-            borderBounds.size.width = borderBounds.size.width - arrowSize.0
+            borderBounds.size.width -= arrowSize.0
         }
         
         let path = fetchPathWithRect(bounds: borderBounds)
@@ -223,8 +223,8 @@ private extension FBArrowLabel {
             $0.right.equalToSuperview().offset(arrowPosition == .right ? -arrowSize.0 + textOffset.right : 0)
             $0.bottom.equalTo(lblTips.snp.bottom).offset(arrowPosition == .bottom ? arrowSize.0 - textOffset.bottom : -textOffset.bottom)
             
-            //$0.top.equalTo(lblTips.snp.top).offset(arrowPosition == .bottom ? arrowSize.0 - textOffset.top : -textOffset.top)
-            //$0.bottom.equalToSuperview().offset(arrowPosition == .top ? arrowSize.0 + textOffset.top : 0)
+            // $0.top.equalTo(lblTips.snp.top).offset(arrowPosition == .bottom ? arrowSize.0 - textOffset.top : -textOffset.top)
+            // $0.bottom.equalToSuperview().offset(arrowPosition == .top ? arrowSize.0 + textOffset.top : 0)
         }
         
         lblTips.snp.updateConstraints {

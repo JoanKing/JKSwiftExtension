@@ -773,6 +773,7 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				4DFD7990C93C1C09CE2FC157 /* [CP] Embed Pods Frameworks */,
+				8404BD5A27D1C42E000508B2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -896,6 +897,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JKSwiftExtension_Example/Pods-JKSwiftExtension_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8404BD5A27D1C42E000508B2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1158,6 +1176,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SGVDL6B99N;
 				INFOPLIST_FILE = JKSwiftExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1168,7 +1187,7 @@
 				PRODUCT_NAME = "JKSwiftExtension扩展";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "JKSwiftExtension/JKSwiftExtension_Example-Bridging-Header.h";
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "JKSwiftExtension-Swift.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -1185,6 +1204,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SGVDL6B99N;
 				INFOPLIST_FILE = JKSwiftExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1195,7 +1215,7 @@
 				PRODUCT_NAME = "JKSwiftExtension扩展";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "JKSwiftExtension/JKSwiftExtension_Example-Bridging-Header.h";
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "JKSwiftExtension-Swift.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -64,14 +64,14 @@ extension JKWeakTimerViewController {
     
     // MARK: 1.4、类方法初始化定时器（有队列）- 自动开启定时器
     @objc func test14() {
-        timer = JKWeakTimer.scheduledTimer(timeInterval: 1, repeats: true, queue: DispatchQueue.global(), block: { timer in
+        timer = JKWeakTimer.scheduledTimer(timeInterval: 1, repeats: true, queue: DispatchQueue.global(), block: { _ in
             print("定时器打印中：🚀🚀🚀🚀🚀🚀", "当前的线程：\(Thread.current)")
         })
     }
     
     // MARK: 1.3、便利初始化定时器（有队列）
     @objc func test13() {
-        timer = JKWeakTimer(timeInterval: 1, repeats: true, queue: DispatchQueue.global(), block: { timer in
+        timer = JKWeakTimer(timeInterval: 1, repeats: true, queue: DispatchQueue.global(), block: { _ in
             print("定时器打印中：🚀🚀🚀🚀🚀🚀", "当前的线程：\(Thread.current)")
         })
         timer?.fire()
@@ -88,4 +88,3 @@ extension JKWeakTimerViewController {
         timer?.fire()
     }
 }
-

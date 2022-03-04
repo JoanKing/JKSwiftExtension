@@ -32,7 +32,7 @@ class SettingCustomViewCell: UITableViewCell {
     /// 有更新的红点
     var redView: UIView = {
         let view = UIView()
-        view.backgroundColor = .cB1_Orange
+        view.backgroundColor = .cB1Orange
         view.layer.cornerRadius = 3
         view.clipsToBounds = false
         return view

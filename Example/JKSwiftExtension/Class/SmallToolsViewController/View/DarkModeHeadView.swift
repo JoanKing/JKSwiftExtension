@@ -10,9 +10,9 @@ import UIKit
 
 extension UIImage {
     /// 选中
-    private(set) static var trade_validperiod_selected = UIImage(named: "trade_validperiod_selected")
+    private(set) static var tradeValidperiodSelected = UIImage(named: "trade_validperiod_selected")
     /// 没有选中
-    private(set) static var trade_validperiod = UIImage(named: "trade_validperiod")
+    private(set) static var tradeValidperiod = UIImage(named: "trade_validperiod")
 }
 
 /// 暗黑模式
@@ -24,7 +24,7 @@ enum DarkMode {
 class DarkModeHeadView: UIView {
     private var currentMode: DarkMode?
     /// 模式选择
-    var selectModeClosure: ((DarkMode)->Void)?
+    var selectModeClosure: ((DarkMode) -> Void)?
     /// 顶部标题
     lazy var topLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 15, y: 10, width: 100, height: 55))
@@ -124,23 +124,23 @@ class DarkModeHeadView: UIView {
     /// 更新控件的颜色，字体，背景色等等
     private func updateTheme() {
         if currentMode == .light {
-            lightSelectedImageView.image = UIImage.trade_validperiod_selected
-            darkSelectedImageView.image = UIImage.trade_validperiod
+            lightSelectedImageView.image = UIImage.tradeValidperiodSelected
+            darkSelectedImageView.image = UIImage.tradeValidperiod
         } else {
-            lightSelectedImageView.image = UIImage.trade_validperiod
-            darkSelectedImageView.image = UIImage.trade_validperiod_selected
+            lightSelectedImageView.image = UIImage.tradeValidperiod
+            darkSelectedImageView.image = UIImage.tradeValidperiodSelected
         }
     }
     
     // MARK: 按钮的点击事件
     @objc func click(sender: UIButton) {
         if sender.tag == 100 {
-            lightSelectedImageView.image = UIImage.trade_validperiod_selected
-            darkSelectedImageView.image = UIImage.trade_validperiod
+            lightSelectedImageView.image = UIImage.tradeValidperiodSelected
+            darkSelectedImageView.image = UIImage.tradeValidperiod
             selectModeClosure?(.light)
         } else {
-            lightSelectedImageView.image = UIImage.trade_validperiod
-            darkSelectedImageView.image = UIImage.trade_validperiod_selected
+            lightSelectedImageView.image = UIImage.tradeValidperiod
+            darkSelectedImageView.image = UIImage.tradeValidperiodSelected
             selectModeClosure?(.dark)
         }
     }
@@ -148,11 +148,11 @@ class DarkModeHeadView: UIView {
     /// 更新选择
     func updateSelected() {
         if JKDarkModeUtil.isLight {
-            lightSelectedImageView.image = UIImage.trade_validperiod_selected
-            darkSelectedImageView.image = UIImage.trade_validperiod
+            lightSelectedImageView.image = UIImage.tradeValidperiodSelected
+            darkSelectedImageView.image = UIImage.tradeValidperiod
         } else {
-            lightSelectedImageView.image = UIImage.trade_validperiod
-            darkSelectedImageView.image = UIImage.trade_validperiod_selected
+            lightSelectedImageView.image = UIImage.tradeValidperiod
+            darkSelectedImageView.image = UIImage.tradeValidperiodSelected
         }
     }
     
@@ -164,11 +164,11 @@ class DarkModeHeadView: UIView {
         super.traitCollectionDidChange(previousTraitCollection)
         if JKDarkModeUtil.isFollowSystem, #available(iOS 13.0, *) {
             if UITraitCollection.current.userInterfaceStyle == .light {
-                lightSelectedImageView.image = UIImage.trade_validperiod_selected
-                darkSelectedImageView.image = UIImage.trade_validperiod
+                lightSelectedImageView.image = UIImage.tradeValidperiodSelected
+                darkSelectedImageView.image = UIImage.tradeValidperiod
             } else {
-                lightSelectedImageView.image = UIImage.trade_validperiod
-                darkSelectedImageView.image = UIImage.trade_validperiod_selected
+                lightSelectedImageView.image = UIImage.tradeValidperiod
+                darkSelectedImageView.image = UIImage.tradeValidperiodSelected
             }
         }
     }

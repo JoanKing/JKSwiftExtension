@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class UIImageViewExtensionViewController: BaseViewController {
     var gifImageView: UIImageView!
     override func viewDidLoad() {
@@ -21,7 +20,6 @@ class UIImageViewExtensionViewController: BaseViewController {
 
 // MARK: - 一、加载 gif
 extension UIImageViewExtensionViewController {
-    
     // MARK: 1.3、加载网络 url 的 gif 图片
     @objc func test13() {
         gifImageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 100, height: 100))
@@ -65,4 +63,3 @@ extension UIImageViewExtensionViewController {
         }
     }
 }
-
