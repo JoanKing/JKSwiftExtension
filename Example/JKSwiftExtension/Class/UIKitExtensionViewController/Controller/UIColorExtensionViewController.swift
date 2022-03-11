@@ -94,11 +94,11 @@ extension UIColorExtensionViewController {
     @objc func test31() {
         // 春天的绿色：60,179,113 -> #3CB371
         let rgb = UIColor.hexStringToColorRGB(hexString: "#3CB371")
-        guard let r = rgb.r, let g = rgb.g, let b = rgb.b else {
+        guard let colorR = rgb.r, let colorG = rgb.g, let colorB = rgb.b else {
             JKPrint("颜值值有问题")
             return
         }
-        JKPrint("根据 十六进制颜色获取 RGB", "原始的十六进制颜色为：#3CB371", "原始的RGB为：60,179,113", "r = \(r)", "g = \(g)", "b = \(b)" )
+        JKPrint("根据 十六进制颜色获取 RGB", "原始的十六进制颜色为：#3CB371", "原始的RGB为：60,179,113", "r = \(colorR)", "g = \(colorG)", "b = \(colorB)" )
     }
     
     // MARK: 3.2、根据 十六进制值 颜色获取 RGB， 如：0x3CB371 -> 60,179,113

@@ -773,7 +773,6 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				4DFD7990C93C1C09CE2FC157 /* [CP] Embed Pods Frameworks */,
-				8404BD5A27D1C42E000508B2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -897,23 +896,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JKSwiftExtension_Example/Pods-JKSwiftExtension_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		8404BD5A27D1C42E000508B2 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

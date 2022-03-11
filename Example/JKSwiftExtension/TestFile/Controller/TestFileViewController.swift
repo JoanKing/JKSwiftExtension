@@ -65,7 +65,7 @@ extension Array {
 
 class Window {
     weak var rootView: View?
-    var onRotate: (() -> (Void))? = nil
+    var onRotate: (() -> Void)?
     deinit {
         print("Deinit Window")
     }
@@ -99,6 +99,28 @@ class TestFileViewController: BaseViewController {
 
 extension TestFileViewController {
     
+    /// 计算x的n次方
+    /// - Parameters:
+    ///   - x: 值
+    ///   - n: 次方
+    /// - Returns: 结果
+    func sum(x: Double, n: Int) -> Double {
+        if (n == 0) {
+            return 1
+        }
+        // 这里重复利用了t的资源
+        let t = sum(x: x, n: n / 2)
+        if (n % 2 == 1) {
+            // 如果n是奇数
+            // 这里多了一个x，因为：如果n是17，t的结果是8次后的，2个t就是16次，少了一次
+            return t * t * x
+        } else {
+            // n是偶数
+            // 如果n是16,t的结果是8次后的，2个t也就是16次，刚刚好
+            return t * t
+        }
+    }
+ 
     @objc func test18() {
         self.navigationController?.pushViewController(ProfileViewController(), animated: true)
     }
@@ -107,18 +129,18 @@ extension TestFileViewController {
         
     }
     
-    func test1(a: Int) {
+    func test1(number: Int) {
         
     }
     
-    func test1(a: String) {
+    func test1(number: String) {
         
     }
     
     func scoreGuest(_ score: inout ScoreStruct) {
         score.guest += 1
         score.guest += 4
-        //print("guest：\(score.guest)")
+        // print("guest：\(score.guest)")
         // 错误：可变操作符的左边是不可变类型： // 'score' 是⼀个 'let' 常量。
     }
     
@@ -143,13 +165,9 @@ extension TestFileViewController {
         self.navigationController?.pushViewController(TenViewController(), animated: true)
     }
     
-    @objc func test11()     {
-//        let person = Person()
-//        person.number = 20
-//        print("number：\(person.number) 父类：\(person.superclass)")
-        let son = SonSon()
-        print("父类：\(son.age)")
-        
+    @objc func test11() {
+
+        print(sum(x: 5, n: 3))
         // self.navigationController?.pushViewController(EightViewController(), animated: true)
     }
 }
