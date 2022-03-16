@@ -21,7 +21,7 @@ public extension JKPOP where Base: WKWebView {
     /// WKWebViewConfiguration默认配置
     static var confiDefault: WKWebViewConfiguration {
         get {
-            if let obj = objc_getAssociatedObject(self, &Base.WKWebViewAssociateKeys.confiDefault) as? WKWebViewConfiguration {
+            if let obj = objc_getAssociatedObject(self, &WKWebView.WKWebViewAssociateKeys.confiDefault) as? WKWebViewConfiguration {
                 return obj
             }
             let sender = WKWebViewConfiguration()
@@ -31,11 +31,11 @@ public extension JKPOP where Base: WKWebView {
             sender.preferences.javaScriptCanOpenWindowsAutomatically = false
             sender.preferences.javaScriptEnabled = true
             
-            objc_setAssociatedObject(self, &Base.WKWebViewAssociateKeys.confiDefault, sender, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &WKWebView.WKWebViewAssociateKeys.confiDefault, sender, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             return sender
         }
         set {
-            objc_setAssociatedObject(self, &Base.WKWebViewAssociateKeys.confiDefault, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &WKWebView.WKWebViewAssociateKeys.confiDefault, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
