@@ -205,7 +205,7 @@ public extension JKPOP where Base == Date {
     ///   - timestampType: 返回的时间戳类型，默认是秒 10 为的时间戳字符串
     /// - Returns: 返回转化后的时间戳
     static func formatterTimeStringToTimestamp(timesString: String, formatter: String, timestampType: JKTimestampType = .second) -> String {
-        // let dateFormatter = DateFormatter(format: formatter)
+        jk_formatter.dateFormat = formatter
         guard let date = jk_formatter.date(from: timesString) else {
             #if DEBUG
             fatalError("时间有问题")
@@ -226,7 +226,7 @@ public extension JKPOP where Base == Date {
     ///   - formatter: 格式
     /// - Returns: 返回 Date
     static func formatterTimeStringToDate(timesString: String, formatter: String) -> Date {
-        // let dateFormatter = DateFormatter(format: formatter)
+        jk_formatter.dateFormat = formatter
         guard let date = jk_formatter.date(from: timesString) else {
             #if DEBUG
             fatalError("时间有问题")
