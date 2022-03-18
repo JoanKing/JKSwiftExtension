@@ -8,79 +8,6 @@
 
 import UIKit
 
-enum Center: Int {
-    case one = 1
-    case two = 2
-}
-
-extension Array {
-    subscript(guarded idx: Int) -> Element? {
-        guard (startIndex..<endIndex).contains(idx) else { return nil }
-        return self[idx]
-    }
-}
-
-class ScoreClass {
-    var home: Int
-    var guest: Int {
-        willSet {
-            print("willSet====")
-        }
-        didSet {
-            print("didSet====")
-        }
-    }
-    init(home: Int, guest: Int) {
-        self.home = home
-        self.guest = guest
-    }
-}
-
-struct ScoreStruct {
-    let home: Int
-    var guest: Int {
-        willSet {
-            print("willSet====")
-        }
-        didSet {
-            print("didSet====")
-        }
-    }
-}
-
-extension ScoreStruct {
-    mutating func scoreGuest() {
-        self.guest += 1
-    }
-}
-
-extension Array {
-    func accumulate<Result>(_ initialResult: Result, _ nextPartialResult: (Result, Element) -> Result) -> [Result] {
-        var running = initialResult
-        return self.map { next in running = nextPartialResult(running, next)
-            return running
-        }
-    }
-}
-
-class Window {
-    weak var rootView: View?
-    var onRotate: (() -> Void)?
-    deinit {
-        print("Deinit Window")
-    }
-}
-
-class View {
-    var window: Window
-    init(window: Window) {
-        self.window = window
-    }
-    deinit {
-        print("Deinit View")
-    }
-}
-
 class TestFileViewController: BaseViewController {
     
     override func viewDidLoad() {
@@ -129,23 +56,7 @@ extension TestFileViewController {
         
     }
     
-    func test1(number: Int) {
-        
-    }
-    
-    func test1(number: String) {
-        
-    }
-    
-    func scoreGuest(_ score: inout ScoreStruct) {
-        score.guest += 1
-        score.guest += 4
-        // print("guest：\(score.guest)")
-        // 错误：可变操作符的左边是不可变类型： // 'score' 是⼀个 'let' 常量。
-    }
-    
     @objc func test16() {
-        
         
     }
     
@@ -166,9 +77,7 @@ extension TestFileViewController {
     }
     
     @objc func test11() {
-
-        print(sum(x: 5, n: 3))
-        // self.navigationController?.pushViewController(EightViewController(), animated: true)
+        self.navigationController?.pushViewController(EightViewController(), animated: true)
     }
 }
 
