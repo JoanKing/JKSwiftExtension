@@ -335,7 +335,7 @@ public extension JKPOP where Base: UIView {
     }
 }
 
-// MARK: - 四、继承于 UIView 视图的 平面、3D 旋转 以及 缩放
+// MARK: - 四、继承于 UIView 视图的 平面、3D 旋转 以及 缩放、位移
 /**
  从m11到m44定义的含义如下：
  m11：x轴方向进行缩放
@@ -426,6 +426,27 @@ extension JKPOP where Base: UIView {
         transform.m34 = 1.0 / -1000.0
         transform = CATransform3DScale(transform, x, y, 1)
         self.base.layer.transform = transform
+    }
+    
+    // MARK: 4.7、水平或垂直翻转
+    /// 水平或垂直翻转
+    public func flip(isHorizontal: Bool) {
+        if isHorizontal {
+            // 水平
+            self.base.transform = self.base.transform.scaledBy(x: -1.0, y: 1.0)
+        } else {
+            // 垂直
+            self.base.transform = self.base.transform.scaledBy(x: 1.0, y: -1.0)
+        }
+    }
+    
+    // MARK: 4.8、移动到指定中心点位置
+    /// 移动到指定中心点位置
+    public func moveToPoint(point: CGPoint) {
+        var center = self.base.center
+        center.x = point.x
+        center.y = point.y
+        self.base.center = center
     }
 }
 
@@ -644,6 +665,24 @@ public extension JKPOP where Base: UIView {
         maskLayer.path = someInnerPath
         shadowLayer.mask = maskLayer
         self.base.layer.addSublayer(shadowLayer)
+    }
+    
+    // MARK: 5.13、毛玻璃效果
+    /// 毛玻璃效果
+    /// - Parameters:
+    ///   - alpha: 可设置模糊的程度(0-1)，越大模糊程度越大
+    ///   - size: 毛玻璃的size
+    ///   - style: 模糊效果
+    func effectViewWithAlpha(alpha: CGFloat = 1.0, size: CGSize? = nil, style: UIBlurEffect.Style = .light) {
+        // 模糊视图的大小
+        var visualEffectViewSize = CGSize(width: 0, height: 0)
+        if let weakSize = size {
+            visualEffectViewSize = weakSize
+        } else {
+            visualEffectViewSize = self.size
+        }
+        let visualEffectView = UIVisualEffectView.jk.visualEffectView(size: visualEffectViewSize, alpha: alpha, style: style, isAddVibrancy: false)
+        self.base.addSubview(visualEffectView)
     }
 }
 

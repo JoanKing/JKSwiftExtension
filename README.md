@@ -49,6 +49,7 @@ end
 <img src="https://user-images.githubusercontent.com/19670000/150451850-eb0ddf38-f426-4a5a-be6c-c9ea32773097.png" alt="微信交流群" width="220">
 
 ## 版本说明
+   - 2.0.9、版本：修复DateFormatter问题
    - 2.0.8、版本：WKWebView 在Xcode13.3的bug修复
    - 2.0.6、版本：修复Array+Extension 添加数组和 Int转CountableRange的问题
    - 2.0.5、版本：修复JKWeakTimer在未开启下的崩溃

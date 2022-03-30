@@ -146,6 +146,7 @@
 		84FEC03325E8D1FE0074D207 /* JKPaddingLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEC03225E8D1FE0074D207 /* JKPaddingLabelViewController.swift */; };
 		84FFE29D2713D8C60001BDDC /* NineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFE29C2713D8C60001BDDC /* NineViewController.swift */; };
 		E26C272927E9CFD000012389 /* NotificationTetstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C272827E9CFD000012389 /* NotificationTetstViewController.m */; };
+		E21E3ABB27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21E3ABA27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -303,6 +304,7 @@
 		E26C272727E9CFD000012389 /* NotificationTetstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationTetstViewController.h; sourceTree = "<group>"; };
 		E26C272827E9CFD000012389 /* NotificationTetstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationTetstViewController.m; sourceTree = "<group>"; };
 		E292011027F1874E0032EA2F /* JKOCMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKOCMacro.h; sourceTree = "<group>"; };
+		E21E3ABA27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVisualEffectViewExtensionViewController.swift; sourceTree = "<group>"; };
 		FA3D0426FDCFDD919F4C3DCA /* Pods_JKSwiftExtension_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSwiftExtension_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -635,6 +637,7 @@
 				8480280B255926120038748A /* CATextLayerExtensionViewController.swift */,
 				848028092558E7940038748A /* UIScreenExtensionViewController.swift */,
 				84B16BDE268C481C003C8AF9 /* WKWebViewExtensionViewController.swift */,
+				E21E3ABA27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -984,6 +987,7 @@
 				844A635925664FE7000059EC /* JKTouchView.swift in Sources */,
 				8483C4CF255E94A30034A2F7 /* UITextFieldExtensionViewController.swift in Sources */,
 				8401537D2552A8C3001AB2FD /* URLExtensionViewController.swift in Sources */,
+				E21E3ABB27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift in Sources */,
 				847DFF2A2550F5D400EEE785 /* CharacterExtensionViewController.swift in Sources */,
 				84D8EC94255BFA3A001ACECA /* UIViewControllerExtensionViewController.swift in Sources */,
 				84F86FBD2564B4C400B74128 /* JKCommonToolViewController.swift in Sources */,
