@@ -145,6 +145,7 @@
 		84F937A0258A081700A35E77 /* UICollectionViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F9379F258A081700A35E77 /* UICollectionViewExtensionViewController.swift */; };
 		84FEC03325E8D1FE0074D207 /* JKPaddingLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEC03225E8D1FE0074D207 /* JKPaddingLabelViewController.swift */; };
 		84FFE29D2713D8C60001BDDC /* NineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFE29C2713D8C60001BDDC /* NineViewController.swift */; };
+		E26C272927E9CFD000012389 /* NotificationTetstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C272827E9CFD000012389 /* NotificationTetstViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -299,6 +300,9 @@
 		BB14143CC4D03081EA63A0FB /* Pods-JKSwiftExtension_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSwiftExtension_Tests.debug.xcconfig"; path = "Target Support Files/Pods-JKSwiftExtension_Tests/Pods-JKSwiftExtension_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C380DCAFA65374A7AABDDBAD /* Pods-JKSwiftExtension_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSwiftExtension_Example.release.xcconfig"; path = "Target Support Files/Pods-JKSwiftExtension_Example/Pods-JKSwiftExtension_Example.release.xcconfig"; sourceTree = "<group>"; };
 		D3AEFEB5263B3D64A7F08967 /* Pods-JKSwiftExtension_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSwiftExtension_Example.debug.xcconfig"; path = "Target Support Files/Pods-JKSwiftExtension_Example/Pods-JKSwiftExtension_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		E26C272727E9CFD000012389 /* NotificationTetstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationTetstViewController.h; sourceTree = "<group>"; };
+		E26C272827E9CFD000012389 /* NotificationTetstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationTetstViewController.m; sourceTree = "<group>"; };
+		E292011027F1874E0032EA2F /* JKOCMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKOCMacro.h; sourceTree = "<group>"; };
 		FA3D0426FDCFDD919F4C3DCA /* Pods_JKSwiftExtension_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSwiftExtension_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -365,6 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				84E922A927AE060D00BC4AA2 /* baby.gif */,
+				E292011027F1874E0032EA2F /* JKOCMacro.h */,
 				8410D02B25DBC98300700FDD /* mebubble@2x.png */,
 				8410D02C25DBC98300700FDD /* yoububble@2x.png */,
 				847DE9542573F0B60080EEC0 /* testFile.text */,
@@ -432,6 +437,8 @@
 				846ECCCA279AE609006215EF /* JKVVViewController.swift */,
 				8423F2E7269FF45200CACC47 /* FBGuidePage.swift */,
 				84B84C3127BBF455004F04B9 /* ProfileViewController.swift */,
+				E26C272727E9CFD000012389 /* NotificationTetstViewController.h */,
+				E26C272827E9CFD000012389 /* NotificationTetstViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -922,6 +929,7 @@
 				8485CC7E2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift in Sources */,
 				84E96DD925C7E2D300D76D5C /* CAGradientLayerExtensionViewController.swift in Sources */,
 				84ADDC3B25E3804500C8177C /* JKDrawSignatureViewViewController.swift in Sources */,
+				E26C272927E9CFD000012389 /* NotificationTetstViewController.m in Sources */,
 				8482AA082553F09900EB0A7A /* TimerExtensionViewController.swift in Sources */,
 				8423F2E0269FEBEA00CACC47 /* IntExtensionViewController.swift in Sources */,
 				8489F3E1265B6C0200BCEF5E /* TenViewController.swift in Sources */,

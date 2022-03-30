@@ -65,7 +65,7 @@ extension TestFileViewController {
     }
     
     @objc func test14() {
-        
+        self.navigationController?.pushViewController(NotificationTetstViewController(), animated: true)
     }
     
     @objc func test13() {
@@ -77,7 +77,28 @@ extension TestFileViewController {
     }
     
     @objc func test11() {
-        self.navigationController?.pushViewController(EightViewController(), animated: true)
+        test()
+    }
+}
+
+
+class TestB: Codable {
+    var isAero: Bool?
+}
+
+extension TestFileViewController {
+    func test() {
+        let product = getTestB()
+        if let isAero = product?.isAero {
+            print("------true-----: \(product?.isAero)")
+        } else {
+            print("------false-----")
+        }
+    }
+    
+    func getTestB() -> TestB? {
+        let testB = TestB()
+        return testB
     }
 }
 
