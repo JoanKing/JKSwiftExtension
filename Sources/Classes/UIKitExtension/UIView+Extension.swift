@@ -81,14 +81,14 @@ public func jk_isXsMax() -> Bool {
 /// 判断是不是 iPhone
 /// - Returns: bool
 public func jk_isIphone() -> Bool {
-    return UI_USER_INTERFACE_IDIOM() == .phone
+    return UIDevice.current.userInterfaceIdiom == .phone
 }
 
 // MARK: 1.7、判断是否是 pad
 /// 判断是否是 pad
 /// - Returns: bool
 public func jk_isPadDevice() -> Bool {
-    return UI_USER_INTERFACE_IDIOM() == .pad
+    return UIDevice.current.userInterfaceIdiom == .pad
 }
 
 // MARK: 1.8、判断是不是 4 4s

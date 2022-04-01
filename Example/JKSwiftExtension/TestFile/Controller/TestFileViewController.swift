@@ -9,7 +9,6 @@
 import UIKit
 
 class TestFileViewController: BaseViewController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -77,28 +76,7 @@ extension TestFileViewController {
     }
     
     @objc func test11() {
-        test()
-    }
-}
-
-
-class TestB: Codable {
-    var isAero: Bool?
-}
-
-extension TestFileViewController {
-    func test() {
-        let product = getTestB()
-        if let isAero = product?.isAero {
-            print("------true-----: \(product?.isAero)")
-        } else {
-            print("------false-----")
-        }
-    }
-    
-    func getTestB() -> TestB? {
-        let testB = TestB()
-        return testB
+        print("\(UIDevice.current.userInterfaceIdiom == .pad)")
     }
 }
 
@@ -124,6 +102,3 @@ extension String {
         return self
     }
 }
-
-
-

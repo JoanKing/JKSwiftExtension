@@ -144,14 +144,14 @@ public extension JKPOP where Base: UIDevice {
     /// 判断是否是 pad
     /// - Returns: bool
     static func isPadDevice() -> Bool {
-        return UI_USER_INTERFACE_IDIOM() == .pad
+        return UIDevice.current.userInterfaceIdiom == .pad
     }
     
     // MARK: 1.5、判断是否为 iphone
     /// 判断是否为 iphone
     /// - Returns: bool
     static func isIphone() -> Bool {
-        return UI_USER_INTERFACE_IDIOM() == .phone
+        return UIDevice.current.userInterfaceIdiom == .phone
     }
     
     // MARK: 1.6、判断是否是 iphone5
