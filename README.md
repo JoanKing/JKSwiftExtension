@@ -4,7 +4,7 @@
 [![Version](https://img.shields.io/cocoapods/v/JKSwiftExtension.svg?style=flat)](https://cocoapods.org/pods/JKSwiftExtension)
 [![License](https://img.shields.io/cocoapods/l/JKSwiftExtension.svg?style=flat)](https://cocoapods.org/pods/JKSwiftExtension)
 [![Platform](https://img.shields.io/cocoapods/p/JKSwiftExtension.svg?style=flat)](https://cocoapods.org/pods/JKSwiftExtension)
-
+![微信群](https://user-images.githubusercontent.com/19670000/161368406-5f917dfb-a5cf-40ff-b490-fe77adb5dc50.jpeg)
 ## 组成部分
 
     FoundationExtension：Foundation 类型的扩展
