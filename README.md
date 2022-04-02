@@ -4,7 +4,7 @@
 [![Version](https://img.shields.io/cocoapods/v/JKSwiftExtension.svg?style=flat)](https://cocoapods.org/pods/JKSwiftExtension)
 [![License](https://img.shields.io/cocoapods/l/JKSwiftExtension.svg?style=flat)](https://cocoapods.org/pods/JKSwiftExtension)
 [![Platform](https://img.shields.io/cocoapods/p/JKSwiftExtension.svg?style=flat)](https://cocoapods.org/pods/JKSwiftExtension)
-![微信群](https://user-images.githubusercontent.com/19670000/161368406-5f917dfb-a5cf-40ff-b490-fe77adb5dc50.jpeg)
+
 ## 组成部分
 
     FoundationExtension：Foundation 类型的扩展
@@ -46,7 +46,7 @@ end
 ## 讨论
 - 微信号: wangc2318151015
 - 邮箱: jkironman@163.com
-<img src="https://user-images.githubusercontent.com/19670000/150451850-eb0ddf38-f426-4a5a-be6c-c9ea32773097.png" alt="微信交流群" width="220">
+<img src="https://user-images.githubusercontent.com/19670000/161368406-5f917dfb-a5cf-40ff-b490-fe77adb5dc50.jpeg" alt="微信交流群" width="220">
 
 ## 版本说明
    - 2.1.0、版本：修复判断13.3上UI_USER_INTERFACE_IDIOM的archive的bug，使用UIDevice.current.userInterfaceIdiom代替
