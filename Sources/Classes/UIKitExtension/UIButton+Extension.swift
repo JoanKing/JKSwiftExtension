@@ -336,13 +336,13 @@ public extension JKPOP where Base: UIButton {
     private func alignHorizontal(spacing: CGFloat, imageFirst: Bool) {
         let edgeOffset = spacing / 2
         base.imageEdgeInsets = UIEdgeInsets(top: 0,
-                                       left: -edgeOffset,
-                                       bottom: 0,
-                                       right: edgeOffset)
+                                            left: -edgeOffset,
+                                            bottom: 0,
+                                            right: edgeOffset)
         base.titleEdgeInsets = UIEdgeInsets(top: 0,
-                                       left: edgeOffset,
-                                       bottom: 0,
-                                       right: -edgeOffset)
+                                            left: edgeOffset,
+                                            bottom: 0,
+                                            right: -edgeOffset)
         if !imageFirst {
             base.transform = CGAffineTransform(scaleX: -1, y: 1)
             base.imageView?.transform = CGAffineTransform(scaleX: -1, y: 1)
@@ -359,8 +359,8 @@ public extension JKPOP where Base: UIButton {
         guard let imageSize = self.base.imageView?.image?.size,
               let text = self.base.titleLabel?.text,
               let font = self.base.titleLabel?.font
-            else {
-                return
+        else {
+            return
         }
         let labelString = NSString(string: text)
         let titleSize = labelString.size(withAttributes: [NSAttributedString.Key.font: font])
@@ -372,13 +372,13 @@ public extension JKPOP where Base: UIButton {
         let sign: CGFloat = imageTop ? 1 : -1
         
         base.imageEdgeInsets = UIEdgeInsets(top: -imageVerticalOffset * sign,
-                                       left: imageHorizontalOffset,
-                                       bottom: imageVerticalOffset * sign,
-                                       right: -imageHorizontalOffset)
+                                            left: imageHorizontalOffset,
+                                            bottom: imageVerticalOffset * sign,
+                                            right: -imageHorizontalOffset)
         base.titleEdgeInsets = UIEdgeInsets(top: titleVerticalOffset * sign,
-                                       left: -titleHorizontalOffset,
-                                       bottom: -titleVerticalOffset * sign,
-                                       right: titleHorizontalOffset)
+                                            left: -titleHorizontalOffset,
+                                            bottom: -titleVerticalOffset * sign,
+                                            right: titleHorizontalOffset)
         // increase content height to avoid clipping
         let edgeOffset = (min(imageSize.height, titleSize.height) + spacing) / 2
         base.contentEdgeInsets = UIEdgeInsets(top: edgeOffset, left: 0, bottom: edgeOffset, right: 0)
@@ -548,29 +548,31 @@ public extension JKPOP where Base: UIButton {
 private var JKUIButtonExpandSizeKey = "JKUIButtonExpandSizeKey"
 public extension UIButton {
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-        let buttonRect = self.jk.expandRect()
-        if (buttonRect.equalTo(bounds)) {
-            return super.point(inside: point, with: event)
-        }else{
-            return buttonRect.contains(point)
+        if self.jk.touchExtendInset == .zero || isHidden || !isEnabled {
+            super.point(inside: point, with: event)
         }
+        var hitFrame = bounds.inset(by: self.jk.touchExtendInset)
+        hitFrame.size.width = max(hitFrame.size.width, 0)
+        hitFrame.size.height = max(hitFrame.size.height, 0)
+        return hitFrame.contains(point)
     }
 }
 public extension JKPOP where Base: UIButton {
-
+    
     // MARK: 6.1、扩大UIButton的点击区域，向四周扩展10像素的点击范围
-    /// 扩大UIButton的点击区域，向四周扩展10像素的点击范围
-    /// - Parameter size: 向四周扩展像素的点击范围
-    func expandSize(size: CGFloat) {
-        objc_setAssociatedObject(self.base, &JKUIButtonExpandSizeKey, size, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY)
-    }
-
-    fileprivate func expandRect() -> CGRect {
-        let expandSize = objc_getAssociatedObject(self.base, &JKUIButtonExpandSizeKey)
-        if (expandSize != nil) {
-            return CGRect(x: self.base.bounds.origin.x - (expandSize as! CGFloat), y: self.base.bounds.origin.y - (expandSize as! CGFloat), width: self.base.bounds.size.width + 2 * (expandSize as! CGFloat), height: self.base.bounds.size.height + 2 * (expandSize as! CGFloat))
-        } else {
-            return self.base.bounds
+    /// 扩大按钮点击区域 如UIEdgeInsets(top: -50, left: -50, bottom: -10, right: -10)将点击区域上下左右各扩充50
+    var touchExtendInset: UIEdgeInsets {
+        get {
+            if let value = objc_getAssociatedObject(self, &JKUIButtonExpandSizeKey) {
+                var edgeInsets: UIEdgeInsets = UIEdgeInsets.zero
+                (value as AnyObject).getValue(&edgeInsets)
+                return edgeInsets
+            } else {
+                return UIEdgeInsets.zero
+            }
+        }
+        set {
+            objc_setAssociatedObject(self, &JKUIButtonExpandSizeKey, NSValue(uiEdgeInsets: newValue), .OBJC_ASSOCIATION_COPY_NONATOMIC)
         }
     }
 }

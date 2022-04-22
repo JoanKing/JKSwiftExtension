@@ -24,12 +24,19 @@ extension JKPlaceHolderTextViewViewController {
     // MARK: 1.1、UITextView 设置PlaceHolder
     @objc func test11() {
     
-        let textView = JKPlaceHolderTextView(frame: CGRect(x: 50, y: 100, width: 250, height: 400))
+        let textView = JKPlaceHolderTextView()
         textView.backgroundColor = UIColor.brown
         textView.placeHolder = "这是placeHolder0123456789-9876543210-123456789"
         textView.placeHolderColor = UIColor.green
         textView.font = UIFont.systemFont(ofSize: 20)
         self.view.addSubview(textView)
+        
+        textView.snp.makeConstraints { make in
+            make.left.equalTo(30)
+            make.right.equalTo(-30)
+            make.height.equalTo(200)
+            make.centerY.equalToSuperview()
+        }
         
         JKAsyncs.asyncDelay(10) {
         } _: {

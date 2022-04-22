@@ -75,9 +75,9 @@ extension JKWeakTimer {
     // MARK: 启动定时器
     /// 启动定时器
     public func fire() {
-        if let _ = timer, (_state == .initialization || _state == .pause) {
+        if let t = timer, (_state == .initialization || _state == .pause) {
             _fireDate = Date()
-            timer?.resume()
+            t.resume()
             _state = .executing
         }
     }
@@ -85,8 +85,9 @@ extension JKWeakTimer {
     // MARK: 暂停定时器
     /// 暂停定时器
     public func pause() {
-        if let _ = timer, _state == .executing {
+        if let t = timer, _state == .executing {
             _state = .pause
+            t.suspend()
         }
     }
     

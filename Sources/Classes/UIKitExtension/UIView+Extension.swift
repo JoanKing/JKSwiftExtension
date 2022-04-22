@@ -466,7 +466,31 @@ public extension JKPOP where Base: UIView {
         self.base.layer.mask = maskLayer
     }
     
-    // MARK: 5.2、给继承于view的类添加阴影
+    // MARK: 5.2、添加圆角和边框
+    /// 添加圆角和边框
+    /// - Parameters:
+    ///   - conrners: 具体哪个圆角
+    ///   - radius: 圆角的大小
+    ///   - borderWidth: 边框的宽度
+    ///   - borderColor: 边框的颜色
+    func addCorner(conrners: UIRectCorner , radius: CGFloat, borderWidth: CGFloat, borderColor: UIColor) {
+        let maskPath = UIBezierPath(roundedRect: self.base.bounds, byRoundingCorners: conrners, cornerRadii: CGSize(width: radius, height: radius))
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = self.base.bounds
+        maskLayer.path = maskPath.cgPath
+        self.base.layer.mask = maskLayer
+        
+        // Add border
+        let borderLayer = CAShapeLayer()
+        borderLayer.path = maskLayer.path
+        borderLayer.fillColor = UIColor.clear.cgColor
+        borderLayer.strokeColor = borderColor.cgColor
+        borderLayer.lineWidth = borderWidth
+        borderLayer.frame =  self.base.bounds
+        self.base.layer.addSublayer(borderLayer)
+    }
+    
+    // MARK: 5.3、给继承于view的类添加阴影
     /// 给继承于view的类添加阴影
     /// - Parameters:
     ///   - shadowColor: 阴影的颜色
@@ -484,7 +508,7 @@ public extension JKPOP where Base: UIView {
         base.layer.shadowOffset = shadowOffset
     }
     
-    // MARK: 5.3、添加阴影和圆角并存
+    // MARK: 5.4、添加阴影和圆角并存
     /// 添加阴影和圆角并存
     ///
     /// - Parameter superview: 父视图
@@ -521,7 +545,7 @@ public extension JKPOP where Base: UIView {
         superview.layer.insertSublayer(subLayer, below: self.base.layer)
     }
     
-    // MARK: 5.4、添加边框
+    // MARK: 5.5、添加边框
     /// 添加边框
     /// - Parameters:
     ///   - width: 边框宽度
@@ -532,7 +556,7 @@ public extension JKPOP where Base: UIView {
         base.layer.masksToBounds = true
     }
     
-    // MARK: 5.5、添加顶部的 边框
+    // MARK: 5.6、添加顶部的 边框
     /// 添加顶部的 边框
     /// - Parameters:
     ///   - borderWidth: 边框宽度
@@ -541,7 +565,7 @@ public extension JKPOP where Base: UIView {
         base.addBorderUtility(x: 0, y: 0, width: base.frame.width, height: borderWidth, color: borderColor)
     }
     
-    // MARK: 5.6、添加顶部的 内边框
+    // MARK: 5.7、添加顶部的 内边框
     /// 添加顶部的 内边框
     /// - Parameters:
     ///   - borderWidth: 边框宽度
@@ -551,7 +575,7 @@ public extension JKPOP where Base: UIView {
         base.addBorderUtility(x: padding, y: 0, width: base.frame.width - padding * 2, height: borderWidth, color: borderColor)
     }
     
-    // MARK: 5.7、添加底部的 边框
+    // MARK: 5.8、添加底部的 边框
     /// 添加底部的 边框
     /// - Parameters:
     ///   - borderWidth: 边框宽度
@@ -560,7 +584,7 @@ public extension JKPOP where Base: UIView {
         base.addBorderUtility(x: 0, y: base.frame.height - borderWidth, width: base.frame.width, height: borderWidth, color: borderColor)
     }
     
-    // MARK: 5.8、添加左边的 边框
+    // MARK: 5.9、添加左边的 边框
     /// 添加左边的 边框
     /// - Parameters:
     ///   - borderWidth: 边框宽度
@@ -569,7 +593,7 @@ public extension JKPOP where Base: UIView {
         base.addBorderUtility(x: 0, y: 0, width: borderWidth, height: base.frame.height, color: borderColor)
     }
     
-    // MARK: 5.9、添加右边的 边框
+    // MARK: 5.10、添加右边的 边框
     /// 添加右边的 边框
     /// - Parameters:
     ///   - borderWidth: 边框宽度
@@ -578,7 +602,7 @@ public extension JKPOP where Base: UIView {
         base.addBorderUtility(x: base.frame.width - borderWidth, y: 0, width: borderWidth, height: base.frame.height, color: borderColor)
     }
     
-    // MARK: 5.10、画圆环
+    // MARK: 5.11、画圆环
     /// 画圆环
     /// - Parameters:
     ///   - fillColor: 内环的颜色
@@ -595,7 +619,7 @@ public extension JKPOP where Base: UIView {
         self.base.layer.addSublayer(shapeLayer)
     }
     
-    // MARK: 5.11、绘制虚线
+    // MARK: 5.12、绘制虚线
     /// 绘制虚线
     /// - Parameters:
     ///   - strokeColor: 虚线颜色
@@ -637,7 +661,7 @@ public extension JKPOP where Base: UIView {
         self.base.layer.addSublayer(shapeLayer)
     }
     
-    // MARK: 5.12、添加内阴影
+    // MARK: 5.13、添加内阴影
     /// 添加内阴影
     /// - Parameters:
     ///   - shadowColor: 阴影的颜色
@@ -667,7 +691,7 @@ public extension JKPOP where Base: UIView {
         self.base.layer.addSublayer(shadowLayer)
     }
     
-    // MARK: 5.13、毛玻璃效果
+    // MARK: 5.14、毛玻璃效果
     /// 毛玻璃效果
     /// - Parameters:
     ///   - alpha: 可设置模糊的程度(0-1)，越大模糊程度越大

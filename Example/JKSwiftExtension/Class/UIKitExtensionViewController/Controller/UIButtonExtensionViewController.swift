@@ -42,24 +42,26 @@ extension UIButtonExtensionViewController {
         testView1.backgroundColor = .randomColor
         self.view.addSubview(testView1)
         
-        let button1 = UIButton(frame: CGRect(x: 25, y: 115, width: 50, height: 50)).image(.brown).title("哈哈").jk.setImageTitleLayout(.imgLeft, spacing: 6)
+        var button1 = UIButton(frame: CGRect(x: 25, y: 115, width: 50, height: 50)).image(.brown).title("哈哈").jk.setImageTitleLayout(.imgLeft, spacing: 6)
         button1.backgroundColor = .randomColor
         button1.tag = 100
         button1.jk.setHandleClick { (btn) in
             guard let weakBtn = btn else { return }
             print("button的事件", "tag：\(weakBtn.tag)")
         }
-        button1.jk.expandSize(size: 15)
+        // button1.jk.expandSize(size: 15)
+        button1.jk.touchExtendInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         self.view.addSubview(button1)
         
         let testView2 = UIView(frame: CGRect(x: 130, y: 100, width: 80, height: 80))
         testView2.backgroundColor = .randomColor
         self.view.addSubview(testView2)
         
-        let button2 = UIButton(frame: CGRect(x: 145, y: 115, width: 50, height: 50)).image(.brown).title("哈哈").jk.setImageTitleLayout(.imgLeft, spacing: 6)
+        var button2 = UIButton(frame: CGRect(x: 145, y: 115, width: 50, height: 50)).image(.brown).title("哈哈").jk.setImageTitleLayout(.imgLeft, spacing: 6)
         button2.backgroundColor = .randomColor
         button2.tag = 150
-        button2.jk.expandSize(size: 7.5)
+        //  button2.jk.expandSize(size: 7.5)
+        button2.jk.touchExtendInset = UIEdgeInsets(top: 7.5, left: 7.5, bottom: 7.5, right: 7.5)
         button2.jk.setHandleClick { (btn) in
             guard let weakBtn = btn else { return }
             print("button的事件", "tag：\(weakBtn.tag)")

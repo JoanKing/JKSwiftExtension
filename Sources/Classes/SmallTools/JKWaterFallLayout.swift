@@ -28,6 +28,15 @@ public class JKWaterFallLayout: UICollectionViewFlowLayout {
 
 // MARK: - 准备布局
 public extension JKWaterFallLayout {
+    
+    //MARK: 重置布局数据
+    /// 重置布局数据
+    func restData() {
+        preCount = 0
+        cellAttributes = []
+        totalHeights = Array(repeating: sectionInset.top, count: self.cols)
+    }
+    
     /// 准备
     override func prepare() {
         super.prepare()

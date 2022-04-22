@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Dispatch
 class TestFileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +56,7 @@ extension TestFileViewController {
     }
     
     @objc func test16() {
-        
+        self.navigationController?.pushViewController(JKVVViewController(), animated: true)
     }
     
     @objc func test15() {
@@ -76,7 +76,39 @@ extension TestFileViewController {
     }
     
     @objc func test11() {
-        print("\(UIDevice.current.userInterfaceIdiom == .pad)")
+        // print("\(UIDevice.current.userInterfaceIdiom == .pad)")
+        uploadImageResurce()
+    }
+    
+    //MARK: 上传图片
+    /// 上传图片，压缩在内部统一处理
+    //MARK: 上传图片
+    /// 上传图片，压缩在内部统一处理
+    func uploadImageResurce() {
+        
+        // 创建调度组
+        let workingGroup = DispatchGroup()
+        // 创建多列
+        let workingQueue = DispatchQueue.global()
+        let images = [1, 2, 3, 4, 5, 6]
+        var a: Int = 0
+        for image in images {
+           
+            workingGroup.enter()
+            Thread.sleep(forTimeInterval: 1)
+            print("接口 \(image) 数据请求完成")
+            workingGroup.leave()
+            a = a + 1
+            // 入组
+            if a == 2 {
+                break
+            }
+        }
+        // 调度组里的任务都执行完毕
+        workingGroup.notify(queue: workingQueue, execute: {
+            // 全部
+            print("全部结束")
+        })
     }
 }
 

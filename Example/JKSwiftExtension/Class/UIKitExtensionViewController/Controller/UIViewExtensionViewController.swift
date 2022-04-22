@@ -14,7 +14,7 @@ class UIViewExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、UIView 有关 Frame 的扩展", "二、继承于 UIView 视图的 平面、3D 旋转 以及 缩放", "三、关于UIView的 圆角 和 阴影的设置", "四、自定义链式编程", "五、其他的方法", "六、试图调试", "七、手势的扩展", "八、颜色渐变"]
-        dataArray = [["x 的位置", "y 的位置", "height: 视图的高度", "width: 视图的宽度", "size: 视图的zize", "centerX: 视图的X中间位置", "centerX: 视图的Y中间位置", "center: 视图的中间位置", "top 上端横坐标(y)", "left 左端横坐标(x)", "bottom 底端纵坐标 (y + height)", "right 底端纵坐标 (x + width)"], ["平面旋转", "沿 X 轴方向旋转多少度(3D旋转)", "沿 Y 轴方向旋转多少度(3D旋转)", "沿 Z 轴方向旋转多少度(3D旋转)", "沿 X、Y、Z 轴方向同时旋转多少度(3D旋转)", "设置 x,y 缩放", "水平或垂直翻转", "移动到指定中心点位置"], ["设置圆角", "添加阴影", "添加阴影和圆角并存", "添加边框", "添加顶部的边框", "添加顶部的 内边框", "添加底部的 边框", "添加左边的 边框", "添加右边的 边框", "画圆环", "绘制虚线", "添加内阴影", "毛玻璃效果"], ["设置tag值", "设置圆角", "图片的模式", "设置背景色", "设置十六进制颜色", "设置 frame", "被添加到某个视图上", "设置是否支持触摸", "设置是否隐藏", "设置透明度", "设置tintColor", "链式编程的综合使用"], ["获取当前view的viewcontroller", "添加水印", "将 View 转换成图片", "添加点击事件", "键盘收起来", "视图抖动", "是否包含WKWebView"], ["图层调试", "寻找某个类型子视图", "移除所有的子视图", "移除layer"], ["通用响应添加方法", "手势 - 单击", "手势 - 长按", "手势 - 拖拽", "手势 - 屏幕边缘(靠近屏幕边缘的View类才支持)", "手势 - 屏幕边缘(闭包)", "手势 - 清扫", "手势 - 清扫(闭包)", "手势 - 捏合", "手势 - 旋转"], ["添加渐变色图层（棕色->绿色）", "colors 变化渐变动画"]]
+        dataArray = [["x 的位置", "y 的位置", "height: 视图的高度", "width: 视图的宽度", "size: 视图的zize", "centerX: 视图的X中间位置", "centerX: 视图的Y中间位置", "center: 视图的中间位置", "top 上端横坐标(y)", "left 左端横坐标(x)", "bottom 底端纵坐标 (y + height)", "right 底端纵坐标 (x + width)"], ["平面旋转", "沿 X 轴方向旋转多少度(3D旋转)", "沿 Y 轴方向旋转多少度(3D旋转)", "沿 Z 轴方向旋转多少度(3D旋转)", "沿 X、Y、Z 轴方向同时旋转多少度(3D旋转)", "设置 x,y 缩放", "水平或垂直翻转", "移动到指定中心点位置"], ["设置圆角", "添加圆角和边框", "给继承于view的类添加阴影", "添加阴影和圆角并存", "添加边框", "添加顶部的边框", "添加顶部的 内边框", "添加底部的 边框", "添加左边的 边框", "添加右边的 边框", "画圆环", "绘制虚线", "添加内阴影", "毛玻璃效果"], ["设置tag值", "设置圆角", "图片的模式", "设置背景色", "设置十六进制颜色", "设置 frame", "被添加到某个视图上", "设置是否支持触摸", "设置是否隐藏", "设置透明度", "设置tintColor", "链式编程的综合使用"], ["获取当前view的viewcontroller", "添加水印", "将 View 转换成图片", "添加点击事件", "键盘收起来", "视图抖动", "是否包含WKWebView"], ["图层调试", "寻找某个类型子视图", "移除所有的子视图", "移除layer"], ["通用响应添加方法", "手势 - 单击", "手势 - 长按", "手势 - 拖拽", "手势 - 屏幕边缘(靠近屏幕边缘的View类才支持)", "手势 - 屏幕边缘(闭包)", "手势 - 清扫", "手势 - 清扫(闭包)", "手势 - 捏合", "手势 - 旋转"], ["添加渐变色图层（棕色->绿色）", "colors 变化渐变动画"]]
     }
 }
 
@@ -293,7 +293,7 @@ extension UIViewExtensionViewController {
         } _: {
             testView.removeFromSuperview()
         }
-
+        
     }
     
     // MARK: 6.1、图层调试(兼容OC)
@@ -353,7 +353,7 @@ extension UIViewExtensionViewController {
     @objc func test55() {
         self.view.jk.keyboardEndEditing()
     }
-
+    
     // MARK: 5.4、添加点击事件
     @objc func test54() {
         let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
@@ -602,17 +602,32 @@ extension UIViewExtensionViewController {
         testView.textAlignment = .center
         testView.textColor = .randomColor
         testView.jk.centerX = self.view.jk.centerX
-        testView.jk.addShadow(shadowColor: UIColor.black.withAlphaComponent(0.48), shadowOffset: CGSize(width: 1.0, height: 1.0), shadowOpacity: 1, shadowRadius: 20)
         testView.jk.addCorner(conrners: [.topLeft], radius: 20)
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2, {
         }) {
-           testView.removeFromSuperview()
+            testView.removeFromSuperview()
         }
     }
     
-    // MARK: 3.2、添加阴影
+    //MARK: 3.2、添加圆角和边框
     @objc func test32() {
+        var testView = UILabel(frame: CGRect(x: 0, y: 100, width: 200, height: 100))
+        testView.backgroundColor = .randomColor
+        testView.text = "2秒后消失"
+        testView.textAlignment = .center
+        testView.textColor = .randomColor
+        testView.jk.centerX = self.view.jk.centerX
+        testView.jk.addCorner(conrners: [.topLeft, .bottomRight], radius: 50, borderWidth: 10, borderColor: .randomColor)
+        self.view.addSubview(testView)
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            testView.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 3.3、给继承于view的类添加阴影
+    @objc func test33() {
         var testView = UILabel(frame: CGRect(x: 0, y: 100, width: 200, height: 100))
         testView.backgroundColor = .randomColor
         testView.text = "2秒后消失"
@@ -623,12 +638,12 @@ extension UIViewExtensionViewController {
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2, {
         }) {
-           testView.removeFromSuperview()
+            testView.removeFromSuperview()
         }
     }
     
-    // MARK: 3.3、添加 圆角 和 阴影
-    @objc func test33() {
+    // MARK: 3.4、添加阴影和圆角并存
+    @objc func test34() {
         
         var testView = UIView(frame: CGRect(x: 0, y: 100, width: 300, height: 200))
         testView.backgroundColor = .randomColor
@@ -646,12 +661,12 @@ extension UIViewExtensionViewController {
         testView.addSubview(testLabel)
         JKAsyncs.asyncDelay(2, {
         }) {
-           testView.removeFromSuperview()
+            testView.removeFromSuperview()
         }
     }
     
-    // MARK: 3.4、添加边框
-    @objc func test34() {
+    // MARK: 3.5、添加边框
+    @objc func test35() {
         var testView = UILabel(frame: CGRect(x: 0, y: 100, width: 200, height: 100))
         testView.backgroundColor = .randomColor
         testView.text = "2秒后消失"
@@ -662,12 +677,12 @@ extension UIViewExtensionViewController {
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2, {
         }) {
-           testView.removeFromSuperview()
+            testView.removeFromSuperview()
         }
     }
     
-    // MARK: 3.5、添加顶部的边框
-    @objc func test35() {
+    // MARK: 3.6、添加顶部的边框
+    @objc func test36() {
         var testView = UILabel(frame: CGRect(x: 0, y: 100, width: 200, height: 100))
         testView.backgroundColor = .randomColor
         testView.text = "2秒后消失"
@@ -678,12 +693,12 @@ extension UIViewExtensionViewController {
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2, {
         }) {
-           testView.removeFromSuperview()
+            testView.removeFromSuperview()
         }
     }
     
-    // MARK: 3.6、添加顶部的 内边框
-    @objc func test36() {
+    // MARK: 3.7、添加顶部的 内边框
+    @objc func test37() {
         var testView = UILabel(frame: CGRect(x: 0, y: 100, width: 200, height: 100))
         testView.backgroundColor = .randomColor
         testView.text = "2秒后消失"
@@ -694,12 +709,12 @@ extension UIViewExtensionViewController {
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2, {
         }) {
-           testView.removeFromSuperview()
+            testView.removeFromSuperview()
         }
     }
     
-    // MARK: 3.7、添加底部的 边框
-    @objc func test37() {
+    // MARK: 3.8、添加底部的 边框
+    @objc func test38() {
         var testView = UILabel(frame: CGRect(x: 0, y: 100, width: 200, height: 100))
         testView.backgroundColor = .randomColor
         testView.text = "2秒后消失"
@@ -710,12 +725,12 @@ extension UIViewExtensionViewController {
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2, {
         }) {
-           testView.removeFromSuperview()
+            testView.removeFromSuperview()
         }
     }
     
-    // MARK: 3.8、添加左边的 边框
-    @objc func test38() {
+    // MARK: 3.9、添加左边的 边框
+    @objc func test39() {
         var testView = UILabel(frame: CGRect(x: 0, y: 100, width: 200, height: 100))
         testView.backgroundColor = .randomColor
         testView.text = "2秒后消失"
@@ -726,12 +741,12 @@ extension UIViewExtensionViewController {
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2, {
         }) {
-           testView.removeFromSuperview()
+            testView.removeFromSuperview()
         }
     }
     
     // MARK: 3.9、添加右边的 边框
-    @objc func test39() {
+    @objc func test310() {
         var testView = UILabel(frame: CGRect(x: 0, y: 100, width: 200, height: 100))
         testView.backgroundColor = .randomColor
         testView.text = "2秒后消失"
@@ -742,12 +757,12 @@ extension UIViewExtensionViewController {
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2, {
         }) {
-           testView.removeFromSuperview()
+            testView.removeFromSuperview()
         }
     }
     
     // MARK: 3.10、画圆环
-    @objc func test310() {
+    @objc func test311() {
         var testView = UILabel(frame: CGRect(x: 0, y: 100, width: 200, height: 100))
         testView.backgroundColor = .randomColor
         testView.text = "2秒后消失"
@@ -758,12 +773,12 @@ extension UIViewExtensionViewController {
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2, {
         }) {
-           testView.removeFromSuperview()
+            testView.removeFromSuperview()
         }
     }
     
     // MARK: 3.11、绘制虚线
-    @objc func test311() {
+    @objc func test312() {
         let backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 500))
         backgroundView.center = self.view.center
         backgroundView.backgroundColor = .brown
@@ -786,14 +801,13 @@ extension UIViewExtensionViewController {
     }
     
     // MARK: 3.12、添加内阴影
-    @objc func test312() {
+    @objc func test313() {
         let backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 500))
         backgroundView.center = self.view.center
         backgroundView.backgroundColor = .white
         backgroundView.layer.cornerRadius = 20
         backgroundView.clipsToBounds = true
         self.view.addSubview(backgroundView)
-        
         
         backgroundView.jk.addInnerShadowLayer(shadowColor: UIColor.brown, shadowOffset: CGSize(width: 0, height: 0), shadowOpacity: 0.5, shadowRadius: 10, insetBySize: CGSize(width: -42, height: -42))
         
@@ -804,7 +818,7 @@ extension UIViewExtensionViewController {
     }
     
     // MARK: 3.13、毛玻璃效果
-    @objc func test313() {
+    @objc func test314() {
         let image = UIImage(named: "testicon")
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
         imageView.image = image
@@ -978,38 +992,38 @@ extension UIViewExtensionViewController {
     
     // MARK: 1.2、y 的位置
     @objc func test12() {
-       var testView = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
-       testView.backgroundColor = .randomColor
-       self.view.addSubview(testView)
-       UIView.animate(withDuration: 2, animations: {
-           testView.jk.y = 150
-       }) { (result) in
-           testView.removeFromSuperview()
-       }
+        var testView = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
+        testView.backgroundColor = .randomColor
+        self.view.addSubview(testView)
+        UIView.animate(withDuration: 2, animations: {
+            testView.jk.y = 150
+        }) { (result) in
+            testView.removeFromSuperview()
+        }
     }
     
     // MARK: 1.3、height: 视图的高度
     @objc func test13() {
-       var testView = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
-       testView.backgroundColor = .randomColor
-       self.view.addSubview(testView)
-       UIView.animate(withDuration: 2, animations: {
-           testView.jk.height = 150
-       }) { (result) in
-           testView.removeFromSuperview()
-       }
+        var testView = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
+        testView.backgroundColor = .randomColor
+        self.view.addSubview(testView)
+        UIView.animate(withDuration: 2, animations: {
+            testView.jk.height = 150
+        }) { (result) in
+            testView.removeFromSuperview()
+        }
     }
     
     // MARK: 1.4、width: 视图的宽度
     @objc func test14() {
-       var testView = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
-       testView.backgroundColor = .randomColor
-       self.view.addSubview(testView)
-       UIView.animate(withDuration: 2, animations: {
-           testView.jk.width = 150
-       }) { (result) in
-           testView.removeFromSuperview()
-       }
+        var testView = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
+        testView.backgroundColor = .randomColor
+        self.view.addSubview(testView)
+        UIView.animate(withDuration: 2, animations: {
+            testView.jk.width = 150
+        }) { (result) in
+            testView.removeFromSuperview()
+        }
     }
     
     // MARK: 1.5、size: 视图的zize

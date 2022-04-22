@@ -16,7 +16,7 @@ class JKWeakTimerViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、初始化定时器方法(普通方式)", "二、延迟执行的定时器", "定时器的其他操作"]
-        dataArray = [["便利初始化器：初始化定时器", "类方法初始化定时器 - 自动开启定时器", "便利初始化定时器（有队列）", "类方法初始化定时器（有队列）- 自动开启定时器"], ["便利初始化定时器(可设置延迟执行日期)", "便利初始化定时器(有队列，可设置延迟执行日期)"], ["定时器销毁"]]
+        dataArray = [["便利初始化器：初始化定时器", "类方法初始化定时器 - 自动开启定时器", "便利初始化定时器（有队列）", "类方法初始化定时器（有队列）- 自动开启定时器"], ["便利初始化定时器(可设置延迟执行日期)", "便利初始化定时器(有队列，可设置延迟执行日期)"], ["定时器销毁", "定时器暂停", "定时器开始"]]
     }
     
     @objc func click() {
@@ -30,6 +30,16 @@ class JKWeakTimerViewController: BaseViewController {
 
 // MARK: - 定时器的其他操作
 extension JKWeakTimerViewController {
+    
+    // MARK: 3.3、定时器暂停
+    @objc func test33() {
+        timer?.fire()
+    }
+    
+    // MARK: 3.2、定时器暂停
+    @objc func test32() {
+        timer?.pause()
+    }
     
     // MARK: 3.1、定时器销毁
     @objc func test31() {
