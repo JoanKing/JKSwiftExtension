@@ -46,9 +46,10 @@ end
 ## 讨论
 - 微信号: wangc2318151015
 - 邮箱: jkironman@163.com
-<img src="https://user-images.githubusercontent.com/19670000/150451850-eb0ddf38-f426-4a5a-be6c-c9ea32773097.png" alt="微信交流群" width="220">
+<img src="https://user-images.githubusercontent.com/19670000/161368406-5f917dfb-a5cf-40ff-b490-fe77adb5dc50.jpeg" alt="微信交流群" width="220">
 
 ## 版本说明
+   - 2.1.0、版本：修复判断13.3上UI_USER_INTERFACE_IDIOM的archive的bug，使用UIDevice.current.userInterfaceIdiom代替
    - 2.0.9、版本：修复DateFormatter问题
    - 2.0.8、版本：WKWebView 在Xcode13.3的bug修复
    - 2.0.6、版本：修复Array+Extension 添加数组和 Int转CountableRange的问题
