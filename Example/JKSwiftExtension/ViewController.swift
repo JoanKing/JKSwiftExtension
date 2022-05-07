@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.title = "JKSwiftExtension"
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.cBackViewColor
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     private func initUI() {
         view.addSubview(tableView)
     }
-
+    
     /// 资源数组
     fileprivate var dataArray = [Any]()
     lazy var tableView : UITableView = {
@@ -57,7 +57,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataArray.count
     }
@@ -86,7 +86,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    
+        
         let cellName = dataArray[indexPath.row] as! String
         if cellName == "FoundationExtension" {
             let vc = FoundationExtensionViewController()
