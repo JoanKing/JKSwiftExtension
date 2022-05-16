@@ -1280,6 +1280,15 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return attributedString
     }
     
+    //MARK: 9.21、判断是否是视频链接
+    /// 判断是否是视频链接
+    public var isVideoUrl: Bool {
+        if (base as! String).hasSuffix("mp4") || (base as! String).hasSuffix("MP4") || (base as! String).hasSuffix("MOV") || (base as! String).hasSuffix("mov") || (base as! String).hasSuffix("mpg") || (base as! String).hasSuffix("mpeg") || (base as! String).hasSuffix("mpg4") || (base as! String).hasSuffix("wm") || (base as! String).hasSuffix("wmx") || (base as! String).hasSuffix("mkv") || (base as! String).hasSuffix("mkv2") || (base as! String).hasSuffix("3gp") || (base as! String).hasSuffix("3gpp") || (base as! String).hasSuffix("wv") || (base as! String).hasSuffix("wvx") || (base as! String).hasSuffix("avi") || (base as! String).hasSuffix("asf") || (base as! String).hasSuffix("fiv") || (base as! String).hasSuffix("swf") || (base as! String).hasSuffix("flv") || (base as! String).hasSuffix("f4v") || (base as! String).hasSuffix("m4u") || (base as! String).hasSuffix("m4v") || (base as! String).hasSuffix("mov") || (base as! String).hasSuffix("movie") || (base as! String).hasSuffix("pvx") || (base as! String).hasSuffix("qt") || (base as! String).hasSuffix("rv") || (base as! String).hasSuffix("vod") || (base as! String).hasSuffix("rm") || (base as! String).hasSuffix("ram") || (base as! String).hasSuffix("rmvb") {
+            return true
+        }
+        return false
+    }
+    
     // MARK: - private 方法
     // MARK: 是否是闰年
     /// 是否是闰年

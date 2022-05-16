@@ -76,8 +76,7 @@ extension TestFileViewController {
     }
     
     @objc func test11() {
-        // print("\(UIDevice.current.userInterfaceIdiom == .pad)")
-        uploadImageResurce()
+        
     }
     
     //MARK: 上传图片
@@ -91,23 +90,31 @@ extension TestFileViewController {
         // 创建多列
         let workingQueue = DispatchQueue.global()
         let images = [1, 2, 3, 4, 5, 6]
-        var a: Int = 0
-        for image in images {
+        var imageUrls = images.map { _ in
+            ""
+        }
+        // 最初的url数组
+        debugPrint("最初的url数组：\(imageUrls)")
+        // var a: Int = 0
+        for (index, image) in images.enumerated() {
            
             workingGroup.enter()
-            Thread.sleep(forTimeInterval: 1)
-            print("接口 \(image) 数据请求完成")
-            workingGroup.leave()
-            a = a + 1
-            // 入组
-            if a == 2 {
-                break
+            JKAsyncs.asyncDelay(index == 2 ? 4 : 1) {
+            } _: {
+                print("接口 \(index) 数据请求完成 值：\(image)")
+                imageUrls[index] = "\(image)"
+                workingGroup.leave()
             }
+//            a = a + 1
+//            // 入组
+//            if a == 2 {
+//                break
+//            }
         }
         // 调度组里的任务都执行完毕
         workingGroup.notify(queue: workingQueue, execute: {
             // 全部
-            print("全部结束")
+            debugPrint("全部结束, 生成的url：\(imageUrls)")
         })
     }
 }

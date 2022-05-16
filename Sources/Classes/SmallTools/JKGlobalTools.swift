@@ -140,7 +140,7 @@ public struct JKGlobalTools {
     // MARK: 1.7、跳转URL
     public static func openUrl(url: URL, complete: @escaping ((Bool) -> Void)) {
         // iOS 10.0 以前
-        guard #available(iOS 10.0, *)  else {
+        guard #available(iOS 10.0, *) else {
             let success = UIApplication.shared.openURL(url)
             if (success) {
                 JKPrint("10以前可以跳转")

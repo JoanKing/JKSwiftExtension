@@ -147,6 +147,10 @@
 		84FFE29D2713D8C60001BDDC /* NineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFE29C2713D8C60001BDDC /* NineViewController.swift */; };
 		E21E3ABB27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21E3ABA27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift */; };
 		E26C272927E9CFD000012389 /* NotificationTetstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C272827E9CFD000012389 /* NotificationTetstViewController.m */; };
+		E2B28D2828312C1B00DD7C9A /* JKRollingNoticeViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B28D2728312C1B00DD7C9A /* JKRollingNoticeViewViewController.swift */; };
+		E2B28D2A2831457800DD7C9A /* JKRollingNoticeViewCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B28D292831457800DD7C9A /* JKRollingNoticeViewCell1.swift */; };
+		E2B28D2C2831E15D00DD7C9A /* JKRollingNoticeViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B28D2B2831E15D00DD7C9A /* JKRollingNoticeViewCell2.swift */; };
+		E2B28D2E2831E17400DD7C9A /* JKRollingNoticeViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B28D2D2831E17400DD7C9A /* JKRollingNoticeViewCell2.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -305,6 +309,10 @@
 		E26C272727E9CFD000012389 /* NotificationTetstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationTetstViewController.h; sourceTree = "<group>"; };
 		E26C272827E9CFD000012389 /* NotificationTetstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationTetstViewController.m; sourceTree = "<group>"; };
 		E292011027F1874E0032EA2F /* JKOCMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKOCMacro.h; sourceTree = "<group>"; };
+		E2B28D2728312C1B00DD7C9A /* JKRollingNoticeViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKRollingNoticeViewViewController.swift; sourceTree = "<group>"; };
+		E2B28D292831457800DD7C9A /* JKRollingNoticeViewCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKRollingNoticeViewCell1.swift; sourceTree = "<group>"; };
+		E2B28D2B2831E15D00DD7C9A /* JKRollingNoticeViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKRollingNoticeViewCell2.swift; sourceTree = "<group>"; };
+		E2B28D2D2831E17400DD7C9A /* JKRollingNoticeViewCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JKRollingNoticeViewCell2.xib; sourceTree = "<group>"; };
 		FA3D0426FDCFDD919F4C3DCA /* Pods_JKSwiftExtension_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSwiftExtension_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -701,6 +709,8 @@
 		84BF16C2251D9EBC002ACE76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				84BF16CB251DA012002ACE76 /* SmallToolsViewController.swift */,
+				E2B28D2728312C1B00DD7C9A /* JKRollingNoticeViewViewController.swift */,
 				84D9BDA825651FA600D92461 /* JKWeakTimerViewController.swift */,
 				846ECCC8279AE137006215EF /* JKPlaceHolderTextViewViewController.swift */,
 				8468190C26A32BA1000B2607 /* JKDarkModeUtilViewController.swift */,
@@ -718,7 +728,6 @@
 				8485CC7D2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift */,
 				8483A731254C0D6200ACF6FD /* JKPrintViewController.swift */,
 				8483A736254C11C200ACF6FD /* JKRuntimeViewController.swift */,
-				84BF16CB251DA012002ACE76 /* SmallToolsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -737,6 +746,9 @@
 				84D7397226B16F2200A5538B /* DescriptionCustomViewCell.swift */,
 				84D7396C26B16C9400A5538B /* DarkModePickerView.swift */,
 				84D7396E26B16E4A00A5538B /* DarkModeHeadView.swift */,
+				E2B28D292831457800DD7C9A /* JKRollingNoticeViewCell1.swift */,
+				E2B28D2B2831E15D00DD7C9A /* JKRollingNoticeViewCell2.swift */,
+				E2B28D2D2831E17400DD7C9A /* JKRollingNoticeViewCell2.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -853,6 +865,7 @@
 				8423F2EA269FF62800CACC47 /* CashCow.bundle in Resources */,
 				84E922AA27AE060D00BC4AA2 /* baby.gif in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				E2B28D2E2831E17400DD7C9A /* JKRollingNoticeViewCell2.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -914,6 +927,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2B28D2828312C1B00DD7C9A /* JKRollingNoticeViewViewController.swift in Sources */,
 				84B29411257747EF009E7760 /* UINavigationBarExtensionViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				8457683B259DABD1006F93D4 /* NSAttributedStringExtensionViewController.swift in Sources */,
@@ -953,6 +967,7 @@
 				84BEA379254FD78E00CA8A75 /* FloatExtensionViewController.swift in Sources */,
 				8482AA062553EEFF00EB0A7A /* FileManagerExtensionViewController.swift in Sources */,
 				84BF16C6251D9F8D002ACE76 /* FoundationExtensionViewController.swift in Sources */,
+				E2B28D2C2831E15D00DD7C9A /* JKRollingNoticeViewCell2.swift in Sources */,
 				849D58F02536ADD300CCDF0F /* StringExtensionViewController.swift in Sources */,
 				84813774254A5EC100D9289C /* UIColorExtensionViewController.swift in Sources */,
 				84802814255948730038748A /* NSMutableAttributedStringExtensionViewController.swift in Sources */,
@@ -1027,6 +1042,7 @@
 				844A635125664F9B000059EC /* FourViewController.swift in Sources */,
 				84B84C3227BBF455004F04B9 /* ProfileViewController.swift in Sources */,
 				849D58F42537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift in Sources */,
+				E2B28D2A2831457800DD7C9A /* JKRollingNoticeViewCell1.swift in Sources */,
 				8480280C255926120038748A /* CATextLayerExtensionViewController.swift in Sources */,
 				84C4BF5F25500E5C00B3705F /* CGFloatExtensionViewController.swift in Sources */,
 				84CC32AF255D39F000F489F0 /* UITextViewExtensionViewController.swift in Sources */,
@@ -1177,7 +1193,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.1;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cocoapods.JKSwiftExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xcar.app;
 				PRODUCT_NAME = "JKSwiftExtension扩展";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "JKSwiftExtension/JKSwiftExtension_Example-Bridging-Header.h";
@@ -1205,7 +1221,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.1;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cocoapods.JKSwiftExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xcar.app;
 				PRODUCT_NAME = "JKSwiftExtension扩展";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "JKSwiftExtension/JKSwiftExtension_Example-Bridging-Header.h";

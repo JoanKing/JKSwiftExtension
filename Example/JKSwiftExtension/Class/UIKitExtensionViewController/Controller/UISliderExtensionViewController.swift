@@ -25,7 +25,7 @@ extension UISliderExtensionViewController {
     @objc func test11() {
         let slider = UISlider(frame: CGRect(x: 50, y: 100, width: 150, height: 50))
         slider.backgroundColor = .randomColor
-        slider.maximumValue = 1
+        slider.maximumValue = 10
         slider.minimumValue = 0
         slider.value = 0.2
         slider.jk.setHandle { (value) in
