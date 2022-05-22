@@ -19,9 +19,11 @@ public extension Timer {
     convenience init(safeTimerWithTimeInterval timeInterval: TimeInterval, repeats: Bool, block: @escaping ((Timer) -> Void)) {
         if #available(iOS 10.0, *) {
             self.init(timeInterval: timeInterval, repeats: repeats, block: block)
+            RunLoop.current.add(self, forMode: .default)
             return
         }
         self.init(timeInterval: timeInterval, target: Timer.self, selector: #selector(Timer.timerCB(timer:)), userInfo: block, repeats: repeats)
+        RunLoop.current.add(self, forMode: .default)
     }
     
     // MARK: 1.2、类方法创建定时器
@@ -32,13 +34,13 @@ public extension Timer {
     ///   - block: 执行代码的block
     /// - Returns: 返回 Timer
     @discardableResult
-    static func scheduledSafeTimer(timeInterval: TimeInterval, repeats: Bool, block: @escaping ((Timer) -> Void)) -> Timer {
+    static func scheduledTimer(timeInterval: TimeInterval, repeats: Bool, block: @escaping ((Timer) -> Void)) -> Timer {
         if #available(iOS 10.0, *) {
             return Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: repeats, block: block)
         }
         return Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(timerCB(timer:)), userInfo: block, repeats: repeats)
     }
-
+    
     // MARK: 1.3、C语言的形式创建定时器(创建后立即执行一次)
     /// C语言的形式创建定时器
     /// - Parameters:

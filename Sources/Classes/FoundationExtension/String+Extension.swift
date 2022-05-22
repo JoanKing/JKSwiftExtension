@@ -514,9 +514,10 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return nil
     }
     
-    // MARK: 4.2、字符串转 bool
-    /// 字符串转 bool
-    var bool: Bool? {
+    // MARK: 4.2、字符串转 Bool
+    /// 字符串转 Bool
+    /// - Returns: Bool
+    func toBool() -> Bool? {
         switch (base as! String).lowercased() {
         case "true", "t", "yes", "y", "1":
             return true
@@ -560,30 +561,19 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         }
     }
     
-    // MARK: 4.6、字符串转 Bool
-    /// 字符串转 Bool
-    /// - Returns: Bool
-    func toBool() -> Bool? {
-        let trimmedString = (base as! String).lowercased()
-        if trimmedString == "true" || trimmedString == "false" {
-            return (trimmedString as NSString).boolValue
-        }
-        return nil
-    }
-    
-    // MARK: 4.7、字符串转 NSString
+    // MARK: 4.6、字符串转 NSString
     /// 字符串转 NSString
     var toNSString: NSString {
         return (base as! String) as NSString
     }
     
-    // MARK: 4.8、字符串转 Int64
+    // MARK: 4.7、字符串转 Int64
     /// 字符串转 Int64
-    var toInt64Value: Int64 {
-        return Int64(base as! String) ?? 0
+    var toInt64Value: Int64? {
+        return Int64(base as! String)
     }
     
-    // MARK: 4.9、字符串转 NSNumber
+    // MARK: 4.8、字符串转 NSNumber
     /// 字符串转 NSNumber
     var toNumber: NSNumber? {
         return self.toDouble()?.jk.number
@@ -879,8 +869,8 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
  }
  */
 extension JKPOP where Base: ExpressibleByStringLiteral {
-    // MARK: 7.1、＋
-    /// ＋
+    // MARK: 7.1、(加：＋)
+    /// (加：＋)
     /// - Parameter strNumber: strNumber description
     /// - Returns: description
     public func adding(_ strNumber: String?) -> String {
@@ -896,8 +886,8 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return final.stringValue
     }
     
-    // MARK: 7.2、－
-    /// －
+    // MARK: 7.2、(减：-)
+    /// (减：-)
     /// - Parameter strNumber: strNumber description
     /// - Returns: description
     public func subtracting(_ strNumber: String?) -> String {
@@ -913,8 +903,8 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return final.stringValue
     }
     
-    // MARK: 7.3、*
-    /// ✖️
+    // MARK: 7.3、(乘：*)
+    /// (乘：*)
     /// - Parameter strNumber: strNumber description
     /// - Returns: description
     public func multiplying(_ strNumber: String?) -> String {
@@ -930,8 +920,8 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return final.stringValue
     }
     
-    // MARK: 7.4、/
-    /// ➗
+    // MARK: 7.4、(除：/)
+    /// (除：/)
     /// - Parameter strNumber: strNumber description
     /// - Returns: description
     public func dividing(_ strNumber: String?) -> String {
@@ -961,11 +951,11 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         for scalar in (base as! String).unicodeScalars {
             switch scalar.value {
             case 0x1F600...0x1F64F,
-                 0x1F300...0x1F5FF,
-                 0x1F680...0x1F6FF,
-                 0x2600...0x26FF,
-                 0x2700...0x27BF,
-                 0xFE00...0xFE0F:
+                0x1F300...0x1F5FF,
+                0x1F680...0x1F6FF,
+                0x2600...0x26FF,
+                0x2700...0x27BF,
+                0xFE00...0xFE0F:
                 return true
             default:
                 continue
@@ -1411,7 +1401,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     /// - Parameter index: 位置
     /// - Returns: 某个位置的字符串
     public func indexString(index: Int) -> String  {
-        return slice((index..<index + 1))
+        return slice((index ..< index + 1))
     }
     
     // MARK: 10.8、获取某个子串在父串中的范围->Range
@@ -1456,8 +1446,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     // MARK: 11.1、特殊字符编码处理urlEncoded
     /// url编码 默认urlQueryAllowed
     public func urlEncoding(characters: CharacterSet = .urlQueryAllowed) -> String {
-        let encodeUrlString = (base as! String).addingPercentEncoding(withAllowedCharacters:
-                                                                        characters)
+        let encodeUrlString = (base as! String).addingPercentEncoding(withAllowedCharacters: characters)
         return encodeUrlString ?? ""
     }
     
@@ -1760,17 +1749,17 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         CC_MD5(cCharArray, CC_LONG(cCharArray!.count - 1), &uint8Array)
         
         switch md5Type {
-        // 32位小写
+            // 32位小写
         case .lowercase32:
             return uint8Array.reduce("") { $0 + String(format: "%02x", $1)}
-        // 32位大写
+            // 32位大写
         case .uppercase32:
             return uint8Array.reduce("") { $0 + String(format: "%02X", $1)}
-        // 16位小写
+            // 16位小写
         case .lowercase16:
             let tempStr = uint8Array.reduce("") { $0 + String(format: "%02x", $1)}
             return tempStr.jk.slice(8..<24)
-        // 16位大写
+            // 16位大写
         case .uppercase16:
             let tempStr = uint8Array.reduce("") { $0 + String(format: "%02X", $1)}
             return tempStr.jk.slice(8..<24)
@@ -1789,7 +1778,6 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
             }
             return String(data: decryptionData, encoding: .utf8)
         }
-        
         // 2.编码
         guard let codingData = (self.base as! String).data(using: .utf8) else {
             return nil
@@ -1970,7 +1958,6 @@ public extension JKPOP where Base == String {
             let codeStr = String(v, radix: 16, uppercase: false)
             tempStr.append("\\u" + codeStr)
         }
-        
         return tempStr
     }
     
@@ -2012,7 +1999,7 @@ public extension JKPOP where Base == String {
     func toHtmlEncodedString() -> String {
         var result: String = ""
         for scalar in self.base.utf16 {
-            //将十进制转成十六进制，不足4位前面补0
+            // 将十进制转成十六进制，不足4位前面补0
             let tem = String().appendingFormat("%04x",scalar)
             result += "&#x\(tem);"
         }
@@ -2024,8 +2011,7 @@ public extension JKPOP where Base == String {
     /// - Parameter htmlEncodedString: 字符值引用
     /// - Returns: 普通字符串
     func htmlEncodedStringToString() -> String? {
-        let attributedOptions: [NSAttributedString.DocumentReadingOptionKey : Any] = [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html,
-                                                                                      NSAttributedString.DocumentReadingOptionKey.characterEncoding: String.Encoding.utf8.rawValue]
+        let attributedOptions: [NSAttributedString.DocumentReadingOptionKey : Any] = [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html, NSAttributedString.DocumentReadingOptionKey.characterEncoding: String.Encoding.utf8.rawValue]
         guard let encodedData = self.base.data(using: String.Encoding.utf8), let attributedString = try? NSAttributedString(data: encodedData, options: attributedOptions, documentAttributes: nil) else {
             return nil
         }
