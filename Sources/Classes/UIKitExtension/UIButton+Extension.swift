@@ -110,6 +110,24 @@ public extension JKPOP where Base: UIButton {
         UIGraphicsEndImageContext()
         return img
     }
+    
+    //MARK: 1.3、设置背景色
+    /// 设置背景色
+    /// - Parameters:
+    ///   - color: 背景色
+    ///   - forState: 状态
+    func setBackgroundColor(_ color: UIColor, forState: UIControl.State) {
+        self.base.setBackgroundImage(backgroundImage(color), for: forState)
+    }
+    
+    private func backgroundImage(_ color: UIColor) -> UIImage? {
+        UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
+        UIGraphicsGetCurrentContext()?.setFillColor(color.cgColor)
+        UIGraphicsGetCurrentContext()?.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
+        let colorImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return colorImage
+    }
 }
 
 // MARK: - 二、链式调用

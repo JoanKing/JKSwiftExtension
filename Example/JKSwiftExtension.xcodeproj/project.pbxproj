@@ -36,7 +36,6 @@
 		844A634F25664F9B000059EC /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A634725664F9B000059EC /* Notification+Extension.swift */; };
 		844A635025664F9B000059EC /* TwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A634825664F9B000059EC /* TwoViewController.swift */; };
 		844A635125664F9B000059EC /* FourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A634925664F9B000059EC /* FourViewController.swift */; };
-		844A635225664F9B000059EC /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A634A25664F9B000059EC /* TestViewController.swift */; };
 		844A635325664F9B000059EC /* SixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A634B25664F9B000059EC /* SixViewController.swift */; };
 		844A635425664F9B000059EC /* ThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A634C25664F9B000059EC /* ThreeViewController.swift */; };
 		844A635525664F9B000059EC /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A634D25664F9B000059EC /* OneViewController.swift */; };
@@ -189,7 +188,6 @@
 		844A634725664F9B000059EC /* Notification+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		844A634825664F9B000059EC /* TwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoViewController.swift; sourceTree = "<group>"; };
 		844A634925664F9B000059EC /* FourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourViewController.swift; sourceTree = "<group>"; };
-		844A634A25664F9B000059EC /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		844A634B25664F9B000059EC /* SixViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SixViewController.swift; sourceTree = "<group>"; };
 		844A634C25664F9B000059EC /* ThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeViewController.swift; sourceTree = "<group>"; };
 		844A634D25664F9B000059EC /* OneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
@@ -440,7 +438,6 @@
 				84ABF14226C26A960058E64A /* EightViewController.swift */,
 				84FFE29C2713D8C60001BDDC /* NineViewController.swift */,
 				844A634725664F9B000059EC /* Notification+Extension.swift */,
-				844A634A25664F9B000059EC /* TestViewController.swift */,
 				844A635C25665328000059EC /* TouchViewController.swift */,
 				8473D81D25E3432B0072AB0D /* QRTestViewController.swift */,
 				84D5B11625F4FA2400984F5A /* FBArrowLabel.swift */,
@@ -934,7 +931,6 @@
 				843303FB2578B80F00051867 /* JKGlobalToolsViewController.swift in Sources */,
 				847807B625F88FC800E2575B /* NumberFormatterExtensionViewController.swift in Sources */,
 				844A634E25664F9B000059EC /* FiveViewController.swift in Sources */,
-				844A635225664F9B000059EC /* TestViewController.swift in Sources */,
 				84BF16CA251D9FD3002ACE76 /* ProtocolViewController.swift in Sources */,
 				8483A737254C11C200ACF6FD /* JKRuntimeViewController.swift in Sources */,
 				84A6FB77255A655700057839 /* BaseNavigationViewController.swift in Sources */,

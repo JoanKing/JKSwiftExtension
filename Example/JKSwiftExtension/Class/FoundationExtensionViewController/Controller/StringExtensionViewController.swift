@@ -472,7 +472,7 @@ extension StringExtensionViewController {
         let testString2 = "he"
         let testString3 = "h5677ha"
         let testString4 = "18500652m880"
-        JKPrint("校验字符串位置是否合理，并返回String.Index", "校验 \(testString1) 是否合理：\(testString1.jk.validIndex(original: 7))", "校验 \(testString2) 是否合理：\(testString2.jk.validIndex(original: 2))", "校验 \(testString3) 是否合理：\(testString3.jk.validIndex(original: 0))", "校验 \(testString4) 是否合理：\(testString4.jk.validIndex(original: 2))")
+        JKPrint("校验字符串位置是否合理，并返回String.Index", "校验 \(testString1) 是否合理：\(testString1.jk.validIndex(original: 107))", "校验 \(testString2) 是否合理：\(testString2.jk.validIndex(original: 2))", "校验 \(testString3) 是否合理：\(testString3.jk.validIndex(original: 0))", "校验 \(testString4) 是否合理：\(testString4.jk.validIndex(original: 2))")
     }
     
     // MARK: 9.13、隐藏手机号中间的几位

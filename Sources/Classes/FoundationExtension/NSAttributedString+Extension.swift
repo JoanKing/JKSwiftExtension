@@ -12,7 +12,7 @@ extension NSAttributedString: JKPOPCompatible {}
 
 // MARK: - 一、文本设置的基本扩展
 public extension JKPOP where Base: NSAttributedString {
-
+    
     // MARK: 1.1、设置特定区域的字体大小
     /// 设置特定区域的字体大小
     /// - Parameters:
@@ -195,7 +195,7 @@ public extension JKPOP where Base: NSAttributedString {
         }
         return mutableAttributedString
     }
-
+    
     // MARK: 1.14、设置特定文字的多个字体属性
     /// 设置特定文字的多个字体属性
     /// - Parameters:
@@ -262,7 +262,7 @@ public extension JKPOP where Base: NSAttributedString {
         }
         return rangeArray
     }
-
+    
     // MARK: 加载网络图片
     /// 加载网络图片
     /// - Parameter imageName: 图片名
@@ -279,5 +279,39 @@ public extension JKPOP where Base: NSAttributedString {
             }
         }
         return UIImage(named: imageName)!
+    }
+}
+
+// MARK: - 二、富文本的一些计算
+public extension JKPOP where Base: NSAttributedString {
+    // 2.1、计算富文本的宽度
+    /// 计算富文本的宽度
+    /// - Parameters:
+    ///   - size: 最大size
+    ///   - options: options description
+    /// - Returns: 富文本的宽度
+    func widthOfAttributedString(size: CGSize, options: NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading]) -> CGFloat {
+        return sizeOfAttributedString(size: size, options: options).width
+    }
+    
+    // 2.2、计算富文本的高度
+    /// 计算富文本的高度
+    /// - Parameters:
+    ///   - size: 最大size
+    ///   - options: options description
+    /// - Returns: 富文本的高度
+    func heightOfAttributedString(size: CGSize, options: NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading]) -> CGFloat {
+        return sizeOfAttributedString(size: size, options: options).height
+    }
+    
+    // 2.3、计算富文本的Size
+    /// 计算富文本的Size
+    /// - Parameters:
+    ///   - size: 最大size
+    ///   - options: options description
+    /// - Returns: 富文本的size
+    func sizeOfAttributedString(size: CGSize, options: NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading]) -> CGSize {
+        let attributedStringSize = self.base.boundingRect(with: size, options: options, context: nil)
+        return CGSize(width: attributedStringSize.width, height: attributedStringSize.height)
     }
 }

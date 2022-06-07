@@ -18,8 +18,6 @@ import UIKit
         
         let tableView = UITableView(frame:CGRect(x:0, y: 0, width: jk_kScreenW, height: jk_kScreenH - CGFloat(jk_kNavFrameH)), style:.grouped)
         if #available(iOS 11, *) {
-            tableView.estimatedSectionFooterHeight = 0
-            tableView.estimatedSectionHeaderHeight = 0
             tableView.contentInsetAdjustmentBehavior = .never
         } else {
             automaticallyAdjustsScrollViewInsets = false
@@ -30,6 +28,8 @@ import UIKit
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 0.01))
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 0.01))
+        tableView.estimatedSectionFooterHeight = 0
+        tableView.estimatedSectionHeaderHeight = 0
         // 设置一个默认高度
         tableView.estimatedRowHeight = 80.0
         // 开启自适应

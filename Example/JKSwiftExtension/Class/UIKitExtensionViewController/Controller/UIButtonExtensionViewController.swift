@@ -14,7 +14,7 @@ class UIButtonExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、基本的扩展", "二、链式调用", "三、UIButton 图片 与 title 位置关系(提示：title和image要在设置布局关系之前设置)", "四、自带倒计时功能的 Button", "五、Button的基本事件", "六、Button扩大点击事件"]
-        dataArray = [["创建一个带颜色的 Button", "创建一个常规的 Button"], ["设置title", "设置文字颜色", "设置字体大小(UIFont)", "设置字体大小(CGFloat)", "设置字体粗体", "设置图片", "设置图片(通过Bundle加载)", "设置图片(通过Bundle加载)", "设置图片(纯颜色的图片)", "设置背景图片", "设置背景图片(通过Bundle加载)", "设置背景图片(通过Bundle加载)", "设置背景图片(纯颜色的图片)", "按钮点击的变化"], ["图片在左", "图片在右", "图片在上", "图片在下"], ["设置 Button 倒计时", "是否可以点击", "是否正在倒计时", "处于倒计时时，前缀文案，如：「再次获取」 + (xxxs)", "销毁定时器"], ["button的事件"], ["扩大UIButton的点击区域，向四周扩展10像素的点击范围"]]
+        dataArray = [["创建一个带颜色的 Button", "创建一个常规的 Button", "设置背景色"], ["设置title", "设置文字颜色", "设置字体大小(UIFont)", "设置字体大小(CGFloat)", "设置字体粗体", "设置图片", "设置图片(通过Bundle加载)", "设置图片(通过Bundle加载)", "设置图片(纯颜色的图片)", "设置背景图片", "设置背景图片(通过Bundle加载)", "设置背景图片(通过Bundle加载)", "设置背景图片(纯颜色的图片)", "按钮点击的变化"], ["图片在左", "图片在右", "图片在上", "图片在下"], ["设置 Button 倒计时", "是否可以点击", "是否正在倒计时", "处于倒计时时，前缀文案，如：「再次获取」 + (xxxs)", "销毁定时器"], ["button的事件"], ["扩大UIButton的点击区域，向四周扩展10像素的点击范围"]]
     }
     
     @objc func click() {
@@ -374,10 +374,37 @@ extension UIButtonExtensionViewController {
 
 // MARK: - 一、基本的扩展
 extension UIButtonExtensionViewController {
-    // MARK: 1.1、创建一个带颜色的 Button
-    @objc func test11() {
-        let button = UIButton.jk.small(type: .red, height: 200)
-        button.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+    
+    //MARK: 1.3、设置背景色
+    @objc func test13() {
+        let button = UIButton.jk.normal()
+        button.jk.setBackgroundColor(UIColor.brown, forState: .normal)
+        button.jk.setBackgroundColor(UIColor.green, forState: .disabled)
+        self.view.addSubview(button)
+        
+        button.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 100, height: 50))
+            make.center.equalToSuperview()
+        }
+        
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            button.isEnabled = true
+            JKAsyncs.asyncDelay(2, {
+            }) {
+                button.isEnabled = false
+                JKAsyncs.asyncDelay(2, {
+                }) {
+                    button.removeFromSuperview()
+                }
+            }
+        }
+    }
+    
+    // MARK: 1.2、创建一个常规的 Button
+    @objc func test12() {
+        let button = UIButton.jk.normal()
+        button.frame = CGRect(x: 0, y: 0, width: 100, height: 50)
         button.center = self.view.center
         self.view.addSubview(button)
         JKAsyncs.asyncDelay(3, {
@@ -386,10 +413,10 @@ extension UIButtonExtensionViewController {
         }
     }
     
-    // MARK: 1.2、创建一个常规的 Button
-    @objc func test12() {
-        let button = UIButton.jk.normal()
-        button.frame = CGRect(x: 0, y: 0, width: 100, height: 50)
+    // MARK: 1.1、创建一个带颜色的 Button
+    @objc func test11() {
+        let button = UIButton.jk.small(type: .red, height: 200)
+        button.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         button.center = self.view.center
         self.view.addSubview(button)
         JKAsyncs.asyncDelay(3, {
