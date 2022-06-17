@@ -46,7 +46,7 @@ end
 ## 讨论
 - 微信号: wangc2318151015
 - 邮箱: jkironman@163.com
-<img src="https://user-images.githubusercontent.com/19670000/172499146-6a70d6de-c2d1-49ce-8413-3fd2f37562b2.jpeg" alt="微信交流群" width="220">
+<img src="https://user-images.githubusercontent.com/19670000/174286196-a20713b4-d404-4f1e-8128-989593552c62.jpeg" alt="微信交流群" width="220">
 
 ## 版本说明
    - 2.1.7、版本：新增JKPanView(可拖动的卡片)，新增你一些扩展，修复一些bug
