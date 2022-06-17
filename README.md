@@ -46,9 +46,10 @@ end
 ## 讨论
 - 微信号: wangc2318151015
 - 邮箱: jkironman@163.com
-<img src="https://user-images.githubusercontent.com/19670000/161368406-5f917dfb-a5cf-40ff-b490-fe77adb5dc50.jpeg" alt="微信交流群" width="220">
+<img src="https://user-images.githubusercontent.com/19670000/172499146-6a70d6de-c2d1-49ce-8413-3fd2f37562b2.jpeg" alt="微信交流群" width="220">
 
 ## 版本说明
+   - 2.1.6、版本：NSAttributedString+Extension和UIButton+Extension扩展更新
    - 2.1.5、版本：部分扩展的优化
    - 2.1.2、版本：新增SmallTools：JKRollingNoticeView
    - 2.1.1、版本：新增扩展内容，优化部分代码，修复JKWeakTimer的fire()崩溃问题
