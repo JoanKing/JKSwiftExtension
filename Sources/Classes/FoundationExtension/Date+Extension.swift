@@ -298,45 +298,109 @@ public extension JKPOP where Base == Date {
     }
 }
 
-// MARK: - 三、前天、昨天、今天、明天、后天、是否同一年同一月同一天 的判断
+// MARK: - 三、本地化时间格式的转换（在日期及其文本表示形式之间进行转换的格式化）
 public extension JKPOP where Base == Date {
     
-    // MARK: 3.1、今天的日期
+    //MARK: 3.1、date使用DateFormatter.Style的形式格式化(传本地化字符串)
+    /// date使用DateFormatter.Style的形式格式化(传本地化字符串)
+    /// - Parameters:
+    ///   - localIdentifier: 本地化语言字符串
+    ///   - formatter: 格式
+    ///   - dateStyle: 日期格式
+    ///   - timeStyle: 时间格式
+    ///   - timeZone: 时区
+    /// - Returns: 返回对应的格式化后的时间
+    ///
+    ///  - Note：在向用户显示日期时，可以根据您的具体需要设置 date formatter 的dateStyle和timeStyle属性。例如，如果您想要显示月份、日期和年份而不显示时间，则可以将dateStyle属性设置为DateFormatter.Style.long 并且将timeStyle属性设置为DateFormatter. Style.none 。相反，如果您只想显示时间，您可以将dateStyle属性设置为DateFormatter.Style.none 并且将timeStyle属性设置为DateFormatter.Style.short。DateFormatter根据dateStyle和timeStyle属性的值，提供适合于给定语言环境的指定日期的表示
+    func toLocalDateFormatterStyleString(localIdentifier: String = "zh_CN" , formatter: String = "yyyyMMMd", dateStyle: DateFormatter.Style = .short, timeStyle: DateFormatter.Style = .none, timeZone: TimeZone = TimeZone.autoupdatingCurrent) -> String {
+        return toLocalDateFormatterStyleString(locale: Locale(identifier: localIdentifier), formatter: formatter, dateStyle: dateStyle, timeStyle: timeStyle, timeZone: timeZone)
+    }
+    
+    //MARK: 3.2、date使用DateFormatter.Style的形式格式化(传本地化Locale对象)
+    /// date使用DateFormatter.Style的形式格式化(传Locale对象)
+    /// - Parameters:
+    ///   - locale: 本地化Locale对象
+    ///   - formatter: 格式
+    ///   - dateStyle: 日期格式
+    ///   - timeStyle: 时间格式
+    ///   - timeZone: 时区
+    /// - Returns: 返回对应的格式化后的时间
+    func toLocalDateFormatterStyleString(locale: Locale = Locale.current, formatter: String = "yyyyMMMd", dateStyle: DateFormatter.Style = .short, timeStyle: DateFormatter.Style = .none, timeZone: TimeZone = TimeZone.autoupdatingCurrent) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = timeZone
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = timeStyle
+        dateFormatter.setLocalizedDateFormatFromTemplate(formatter)
+        dateFormatter.locale = locale
+        return dateFormatter.string(from: self.base)
+    }
+    
+    //MARK: 3.3、date使用locale和formatter的形式格式化(传本地化字符串)
+    /// date使用locale和formatter的形式格式化(传本地化字符串)
+    /// - Parameters:
+    ///   - localIdentifier: 本地化语言字符串
+    ///   - formatter: 格式
+    ///   - timeZone: 时区
+    /// - Returns: 返回对应的格式化后的时间
+    func toFormatterLocalTimeString(localIdentifier: String = "zh_CN", formatter: String = "yyyyMMMd", timeZone: TimeZone = TimeZone.autoupdatingCurrent) -> String {
+        return toformatterLocalTimeString(locale: Locale(identifier: localIdentifier), formatter: formatter, timeZone: timeZone)
+    }
+    
+    //MARK: 3.4、date使用locale和formatter的形式格式化(传本地化Locale对象)
+    /// date使用locale和formatter的形式格式化(传本地化Locale对象)
+    /// - Parameters:
+    ///   - locale: 本地化Locale对象
+    ///   - formatter: 格式
+    ///   - timeZone: 时区
+    /// - Returns: 返回对应的格式化后的时间
+    func toformatterLocalTimeString(locale: Locale = Locale.current, formatter: String = "yyyyMMMd", timeZone: TimeZone = TimeZone.autoupdatingCurrent) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = timeZone
+        dateFormatter.setLocalizedDateFormatFromTemplate(formatter)
+        dateFormatter.locale = locale
+        return dateFormatter.string(from: self.base)
+    }
+}
+
+// MARK: - 四、前天、昨天、今天、明天、后天、是否同一年同一月同一天 的判断
+public extension JKPOP where Base == Date {
+    
+    // MARK: 4.1、今天的日期
     /// 今天的日期
     static let todayDate: Date = Date()
     
-    // MARK: 3.2、昨天的日期（相对于date的昨天日期）
+    // MARK: 4.2、昨天的日期（相对于date的昨天日期）
     /// 昨天的日期
     static var yesterDayDate: Date? {
         return Calendar.current.date(byAdding: DateComponents(day: -1), to: Date())
     }
     
-    // MARK: 3.3、明天的日期
+    // MARK: 4.3、明天的日期
     /// 明天的日期
     static var tomorrowDate: Date? {
         return Calendar.current.date(byAdding: DateComponents(day: 1), to: Date())
     }
     
-    // MARK: 3.4、前天的日期
+    // MARK: 4.4、前天的日期
     /// 前天的日期
     static var theDayBeforYesterDayDate: Date? {
         return Calendar.current.date(byAdding: DateComponents(day: -2), to: Date())
     }
     
-    // MARK: 3.5、后天的日期
+    // MARK: 4.5、后天的日期
     /// 后天的日期
     static var theDayAfterYesterDayDate: Date? {
         return Calendar.current.date(byAdding: DateComponents(day: 2), to: Date())
     }
     
-    // MARK: 3.6、是否为今天（只比较日期，不比较时分秒）
+    // MARK: 4.6、是否为今天（只比较日期，不比较时分秒）
     /// 是否为今天（只比较日期，不比较时分秒）
     /// - Returns: bool
     var isToday: Bool {
         return Calendar.current.isDate(self.base, inSameDayAs: Date())
     }
     
-    // MARK: 3.7、是否为昨天
+    // MARK: 4.7、是否为昨天
     /// 是否为昨天
     var isYesterday: Bool {
         // 1.先拿到昨天的 date
@@ -347,7 +411,7 @@ public extension JKPOP where Base == Date {
         return Calendar.current.isDate(self.base, inSameDayAs: date)
     }
     
-    // MARK: 3.8、是否为前天
+    // MARK: 4.8、是否为前天
     /// 是否为前天
     var isTheDayBeforeYesterday: Bool  {
         // 1.先拿到前天的 date
@@ -358,7 +422,7 @@ public extension JKPOP where Base == Date {
         return Calendar.current.isDate(self.base, inSameDayAs: date)
     }
     
-    // MARK: 3.9、是否为今年
+    // MARK: 4.9、是否为今年
     /// 是否为今年
     var isThisYear: Bool  {
         let calendar = Calendar.current
@@ -368,14 +432,14 @@ public extension JKPOP where Base == Date {
         return result
     }
     
-    // MARK: 3.10、两个date是否为同一天
+    // MARK: 4.10、两个date是否为同一天
     /// 是否为  同一年  同一月 同一天
     /// - Returns: bool
     func isSameDay(date: Date) -> Bool {
         return Calendar.current.isDate(self.base, inSameDayAs: date)
     }
     
-    // MARK: 3.11、当前日期是不是润年
+    // MARK: 4.11、当前日期是不是润年
     /// 当前日期是不是润年
     var isLeapYear: Bool {
         let year = base.jk.year
@@ -400,7 +464,7 @@ public extension JKPOP where Base == Date {
             com.year == comToday.year )
     }
     
-    // MARK: 3.12、是否为本周
+    // MARK: 4.12、是否为本周
     /// 是否为本周
     /// - Returns: 是否为本周
     var isThisWeek: Bool {
@@ -413,10 +477,10 @@ public extension JKPOP where Base == Date {
     }
 }
 
-// MARK: - 四、相对的时间变化
+// MARK: - 五、相对的时间变化
 public extension JKPOP where Base == Date {
     
-    // MARK: 4.1、取得与当前时间的间隔差
+    // MARK: 5.1、取得与当前时间的间隔差
     /// 取得与当前时间的间隔差
     /// - Returns: 时间差
     func callTimeAfterNow() -> String {
@@ -455,7 +519,7 @@ public extension JKPOP where Base == Date {
         return time
     }
     
-    // MARK: 4.2、获取两个日期之间的数据
+    // MARK: 5.2、获取两个日期之间的数据
     /// 获取两个日期之间的数据
     /// - Parameters:
     ///   - date: 对比的日期
@@ -467,7 +531,7 @@ public extension JKPOP where Base == Date {
         return component
     }
     
-    // MARK: 4.3、获取两个日期之间的天数
+    // MARK: 5.3、获取两个日期之间的天数
     /// 获取两个日期之间的天数
     /// - Parameter date: 对比的日期
     /// - Returns: 两个日期之间的天数
@@ -475,7 +539,7 @@ public extension JKPOP where Base == Date {
        return componentCompare(from: date, unit: [.day]).day
     }
     
-    // MARK: 4.4、获取两个日期之间的小时
+    // MARK: 5.4、获取两个日期之间的小时
     /// 获取两个日期之间的小时
     /// - Parameter date: 对比的日期
     /// - Returns: 两个日期之间的小时
@@ -483,7 +547,7 @@ public extension JKPOP where Base == Date {
        return componentCompare(from: date, unit: [.hour]).hour
     }
     
-    // MARK: 4.5、获取两个日期之间的分钟
+    // MARK: 5.5、获取两个日期之间的分钟
     /// 获取两个日期之间的分钟
     /// - Parameter date: 对比的日期
     /// - Returns: 两个日期之间的分钟
@@ -491,7 +555,7 @@ public extension JKPOP where Base == Date {
        return componentCompare(from: date, unit: [.minute]).minute
     }
     
-    // MARK: 4.6、获取两个日期之间的秒数
+    // MARK: 5.6、获取两个日期之间的秒数
     /// 获取两个日期之间的秒数
     /// - Parameter date: 对比的日期
     /// - Returns: 两个日期之间的秒数
@@ -500,10 +564,10 @@ public extension JKPOP where Base == Date {
     }
 }
 
-// MARK: - 五、某年月份的天数获取
+// MARK: - 六、某年月份的天数获取
 public extension JKPOP where Base == Date {
     
-    // MARK: 5.1、获取某一年某一月的天数
+    // MARK: 6.1、获取某一年某一月的天数
     /// 获取某一年某一月的天数
     /// - Parameters:
     ///   - year: 年份
@@ -523,7 +587,7 @@ public extension JKPOP where Base == Date {
         }
     }
     
-    // MARK: 5.2、获取当前月的天数
+    // MARK: 6.2、获取当前月的天数
     /// 获取当前月的天数
     /// - Returns: 返回天数
     static func currentMonthDays() -> Int {

@@ -68,6 +68,76 @@ public extension JKPOP where Base: UITableView {
     func dequeueReusableCell<T: UITableViewCell>(cellType: T.Type, cellForRowAt indexPath: IndexPath) -> T {
         return base.dequeueReusableCell(withIdentifier: cellType.className, for: indexPath) as! T
     }
+    
+    // MARK: 1.8、给单个section整体cell加圆角
+    /// 给单个section整体cell加圆角
+    /// - Parameters:
+    ///   - radius: 圆角大小
+    ///   - fillColor: 整个cell的填充色
+    ///   - cell: 透传cell
+    ///   - indexPath: 透传indexPath
+    ///   - insetByDx: cell距离左边的距离
+    ///   - insetByDy: cell距离顶部的距离
+    func addSectionCellCornerRadius(radius: CGFloat, fillColor: UIColor, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath, insetByDx: CGFloat, insetByDy: CGFloat = 0) {
+        // 设置cell 背景色为透明
+        cell.backgroundColor = UIColor.clear
+        // 创建两个layer
+        let normalLayer = CAShapeLayer()
+        let selectLayer = CAShapeLayer()
+        // 获取显示区域大小
+        let bounds = cell.bounds.insetBy(dx: insetByDx, dy: insetByDy)
+        // 获取每组行数
+        let rowNum = self.base.numberOfRows(inSection: indexPath.section)
+        // 贝塞尔曲线
+        var bezierPath: UIBezierPath = UIBezierPath()
+        if rowNum == 1 {
+            bezierPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: radius, height: radius))
+        } else {
+            if (indexPath.row == 0) {
+                // 每组第一行（添加左上和右上的圆角）
+                bezierPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: radius, height: radius))
+            } else if (indexPath.row == rowNum - 1){
+                // 每组最后一行（添加左下和右下的圆角）
+                bezierPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: radius, height: radius))
+            } else {
+                // 每组不是首位的行不设置圆角
+                bezierPath = UIBezierPath(rect: bounds)
+            }
+        }
+        // 把已经绘制好的贝塞尔曲线路径赋值给图层，然后图层根据path进行图像渲染render
+        normalLayer.path = bezierPath.cgPath
+        selectLayer.path = bezierPath.cgPath
+        
+        let nomarBgView = UIView(frame: bounds)
+        // 设置填充颜色
+        normalLayer.fillColor = fillColor.cgColor
+        // 添加图层到nomarBgView中
+        nomarBgView.layer.insertSublayer(normalLayer, at: 0)
+        nomarBgView.backgroundColor = UIColor.clear
+        cell.backgroundView = nomarBgView
+        // 此时圆角显示就完成了，但是如果没有取消cell的点击效果，还是会出现一个灰色的长方形的形状，再用上面创建的selectLayer给cell添加一个selectedBackgroundView
+        let selectBgView = UIView(frame: bounds)
+        selectLayer.fillColor = fillColor.cgColor
+        selectBgView.layer.insertSublayer(selectLayer, at: 0)
+        selectBgView.backgroundColor = UIColor.clear
+        cell.selectedBackgroundView = selectBgView
+    }
+    
+    //MARK: 1.9、每段的cell数量
+    /// 每段的cell数量
+    /// - Parameter section: 段落
+    /// - Returns: cell数量
+    func sectionOfRowNumber(section: Int) -> Int {
+        return self.base.numberOfRows(inSection: section)
+    }
+    
+    //MARK: 1.10、是否是每个section的最后一个cell
+    /// 是否是每个section的最后一个cell
+    /// - Parameter indexPath: 透传indexPath
+    /// - Returns: 结果
+    func isLastCell(cellForRowAt indexPath: IndexPath) -> Bool {
+        return self.base.numberOfRows(inSection: indexPath.section) == indexPath.row + 1
+    }
 }
 
 // MARK: - 二、链式编程

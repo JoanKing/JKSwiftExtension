@@ -566,15 +566,19 @@ public extension JKPOP where Base: UIImage {
     /// - Parameter scale: 要缩放的 宽高比 系数
     /// - Returns: 等比缩放 后的图片
     func scaleTo(scale: CGFloat) -> UIImage? {
-        let w = self.base.size.width
-        let h = self.base.size.height
-        let scaledW = w * scale
-        let scaledH = h * scale
-        UIGraphicsBeginImageContext(base.size)
-        self.base.draw(in: CGRect(x: 0, y: 0, width: scaledW, height: scaledH))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        let reSize = CGSize(width: self.base.size.width * scale, height: self.base.size.height * scale)
+        // UIGraphicsBeginImageContext(reSize)
+        /**
+         UIGraphicsBeginImageContext：在截图或者处理图片是会出现模糊的情况，可以使用以下函数代替         UIGraphicsBeginImageContextWithOptions(CGSize size, BOOL opaque, CGFloat scale)
+         size：缩放后的 size
+         opaque：透明度，不透明设为true
+         scale： 缩放因子，设0时系统自动设置缩放比例图片清晰；设1.0时模糊
+         */
+        UIGraphicsBeginImageContextWithOptions(reSize, false, UIScreen.main.scale);
+        self.base.draw(in: CGRect(x: 0, y: 0, width: reSize.width, height: reSize.height))
+        let reSizeImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return newImage
+        return reSizeImage
     }
     
     // MARK: 3.3、按指定尺寸等比缩放

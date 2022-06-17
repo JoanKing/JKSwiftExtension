@@ -27,12 +27,27 @@ class UserDefaultsExtensionViewController: BaseViewController {
         super.viewDidLoad()
 
         headDataArray = ["一、基本的扩展", "二、模型持久化（复杂类型）"]
-        dataArray = [["存值", "取值", "移除单个值", "移除所有值"], ["存储模型", "取出模型"]]
+        dataArray = [["存值", "取值", "移除单个key存储的值", "移除所有值", "移除某个值"], ["存储模型", "取出模型", "保存模型数组", "读取模型数组"]]
     }
 
 }
 // MARK: - 二、模型持久化（复杂类型）
 extension UserDefaultsExtensionViewController {
+    
+    //MARK: 2.4、读取模型数组
+    @objc func test24() {
+        let models: [UserDefaultsModel] = UserDefaults.jk.getModelArray(forKey: "GoRideHistory")
+        for item in models {
+            print("uid：\(item.uid) name：\(item.name)")
+        }
+    }
+    //MARK: 2.3、保存模型数组
+    @objc func test23() {
+        let model1 = UserDefaultsModel(uid: 1, name: "A")
+        let model2 = UserDefaultsModel(uid: 2, name: "B")
+        let model3 = UserDefaultsModel(uid: 3, name: "C")
+        UserDefaults.jk.setModelArray(modelArrry: [model1, model2, model3], key: "GoRideHistory")
+    }
     
     // MARK: 2.2、取出模型
     @objc func test22() {
@@ -46,24 +61,19 @@ extension UserDefaultsExtensionViewController {
     
     // MARK: 2.1、存储模型
     @objc func test21() {
-        let  filePath: String? = Bundle.main.path(forResource: "", ofType: "plist")
-        guard let plistData = NSDictionary(contentsOfFile: filePath ?? "") else {
-            return
-        }
-        
-        let person = PersonItem(name: (plistData["Name"] as! String), age: (plistData["age"] as! String), height: (plistData["height"] as! String))
+        let person = PersonItem(name: "大帅", age: "19", height: "1.78")
         UserDefaults.jk.setItem(person, forKey: "plistData")
     }
 }
 // MARK: - 一、基本的扩展
 extension UserDefaultsExtensionViewController {
-    
+
     // MARK: 1.4、移除所有值
     @objc func test14() {
         UserDefaults.jk.removeAllKeyValue()
     }
     
-    // MARK: 1.3、移除单个值
+    // MARK: 1.3、移除单个key存储的值
     @objc func test13() {
         UserDefaults.jk.remove("a")
     }

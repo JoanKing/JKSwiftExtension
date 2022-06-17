@@ -545,7 +545,31 @@ public extension JKPOP where Base: UIView {
         superview.layer.insertSublayer(subLayer, below: self.base.layer)
     }
     
-    // MARK: 5.5、添加边框
+    // MARK: 5.5、通过贝塞尔曲线View添加阴影和圆角
+    /// 通过贝塞尔曲线View添加阴影和圆角
+    ///
+    /// - Parameter conrners: 具体哪个圆角
+    /// - Parameter radius: 圆角大小
+    /// - Parameter shadowColor: 阴影的颜色
+    /// - Parameter shadowOffset: 阴影的偏移度：CGSizeMake(X[正的右偏移,负的左偏移], Y[正的下偏移,负的上偏移])
+    /// - Parameter shadowOpacity: 阴影的透明度
+    /// - Parameter shadowRadius: 阴影半径，默认 3
+    ///
+    /// - Note: 提示：如果在异步布局(如：SnapKit布局)中使用，要在布局后先调用 layoutIfNeeded，再使用该方法
+    func addViewCornerAndShadow(conrners: UIRectCorner , radius: CGFloat = 3, shadowColor: UIColor, shadowOffset: CGSize, shadowOpacity: Float, shadowRadius: CGFloat = 3) {
+        base.layer.shadowColor = shadowColor.cgColor
+        base.layer.shadowOffset = shadowOffset
+        base.layer.shadowOpacity = shadowOpacity
+        base.layer.shadowRadius = shadowRadius
+        // 切圆角
+        base.layer.cornerRadius = radius
+        // 路径阴影
+        let path = UIBezierPath.init(roundedRect: base.bounds, byRoundingCorners: conrners, cornerRadii: CGSize.init(width: radius, height: radius))
+        // 设置阴影路径
+        base.layer.shadowPath = path.cgPath
+    }
+    
+    // MARK: 5.6、添加边框
     /// 添加边框
     /// - Parameters:
     ///   - width: 边框宽度
@@ -556,7 +580,7 @@ public extension JKPOP where Base: UIView {
         base.layer.masksToBounds = true
     }
     
-    // MARK: 5.6、添加顶部的 边框
+    // MARK: 5.7、添加顶部的 边框
     /// 添加顶部的 边框
     /// - Parameters:
     ///   - borderWidth: 边框宽度
@@ -565,7 +589,7 @@ public extension JKPOP where Base: UIView {
         base.addBorderUtility(x: 0, y: 0, width: base.frame.width, height: borderWidth, color: borderColor)
     }
     
-    // MARK: 5.7、添加顶部的 内边框
+    // MARK: 5.8、添加顶部的 内边框
     /// 添加顶部的 内边框
     /// - Parameters:
     ///   - borderWidth: 边框宽度
@@ -575,7 +599,7 @@ public extension JKPOP where Base: UIView {
         base.addBorderUtility(x: padding, y: 0, width: base.frame.width - padding * 2, height: borderWidth, color: borderColor)
     }
     
-    // MARK: 5.8、添加底部的 边框
+    // MARK: 5.9、添加底部的 边框
     /// 添加底部的 边框
     /// - Parameters:
     ///   - borderWidth: 边框宽度
@@ -584,7 +608,7 @@ public extension JKPOP where Base: UIView {
         base.addBorderUtility(x: 0, y: base.frame.height - borderWidth, width: base.frame.width, height: borderWidth, color: borderColor)
     }
     
-    // MARK: 5.9、添加左边的 边框
+    // MARK: 5.10、添加左边的 边框
     /// 添加左边的 边框
     /// - Parameters:
     ///   - borderWidth: 边框宽度
@@ -593,7 +617,7 @@ public extension JKPOP where Base: UIView {
         base.addBorderUtility(x: 0, y: 0, width: borderWidth, height: base.frame.height, color: borderColor)
     }
     
-    // MARK: 5.10、添加右边的 边框
+    // MARK: 5.11、添加右边的 边框
     /// 添加右边的 边框
     /// - Parameters:
     ///   - borderWidth: 边框宽度
@@ -602,7 +626,7 @@ public extension JKPOP where Base: UIView {
         base.addBorderUtility(x: base.frame.width - borderWidth, y: 0, width: borderWidth, height: base.frame.height, color: borderColor)
     }
     
-    // MARK: 5.11、画圆环
+    // MARK: 5.12、画圆环
     /// 画圆环
     /// - Parameters:
     ///   - fillColor: 内环的颜色
@@ -619,7 +643,7 @@ public extension JKPOP where Base: UIView {
         self.base.layer.addSublayer(shapeLayer)
     }
     
-    // MARK: 5.12、绘制虚线
+    // MARK: 5.13、绘制虚线
     /// 绘制虚线
     /// - Parameters:
     ///   - strokeColor: 虚线颜色
@@ -661,7 +685,7 @@ public extension JKPOP where Base: UIView {
         self.base.layer.addSublayer(shapeLayer)
     }
     
-    // MARK: 5.13、添加内阴影
+    // MARK: 5.14、添加内阴影
     /// 添加内阴影
     /// - Parameters:
     ///   - shadowColor: 阴影的颜色
@@ -691,7 +715,7 @@ public extension JKPOP where Base: UIView {
         self.base.layer.addSublayer(shadowLayer)
     }
     
-    // MARK: 5.14、毛玻璃效果
+    // MARK: 5.15、毛玻璃效果
     /// 毛玻璃效果
     /// - Parameters:
     ///   - alpha: 可设置模糊的程度(0-1)，越大模糊程度越大
@@ -707,6 +731,15 @@ public extension JKPOP where Base: UIView {
         }
         let visualEffectView = UIVisualEffectView.jk.visualEffectView(size: visualEffectViewSize, alpha: alpha, style: style, isAddVibrancy: false)
         self.base.addSubview(visualEffectView)
+    }
+
+    //MARK: 5.16、添加多个View子视图
+    /// 添加多个View子视图
+    /// - Parameter views: 子视图数组
+    func addSubviews(_ views: [UIView]) {
+        for view in views {
+            self.base.addSubview(view)
+        }
     }
 }
 

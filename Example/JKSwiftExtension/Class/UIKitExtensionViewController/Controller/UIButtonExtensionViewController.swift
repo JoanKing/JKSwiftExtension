@@ -143,13 +143,27 @@ extension UIButtonExtensionViewController {
     
     // MARK: 3.1、图片在左
     @objc func test31() {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).image(.brown).title("哈哈").jk.setImageTitleLayout(.imgLeft, spacing: 6)
-        button.backgroundColor = .randomColor
-        button.center = self.view.center
+        let button = UIButton().image(.brown).title("收藏")
+        button.backgroundColor = .brown
+        button.setImage(UIImage(named: "go_favorite_selected"), for: .normal)
+        button.setTitleColor(UIColor.red, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.jk.setImageTitleLayout(.imgLeft, spacing: 6)
         self.view.addSubview(button)
+        
+        button.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.size.equalTo(CGSize(width: 200, height: 40))
+        }
+        
         JKAsyncs.asyncDelay(3, {
         }) {
-            button.removeFromSuperview()
+            button.setTitle("我是一只小鸟", for: .normal)
+            JKAsyncs.asyncDelay(3, {
+            }) {
+                button.removeFromSuperview()
+            }
         }
     }
     

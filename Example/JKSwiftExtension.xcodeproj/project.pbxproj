@@ -146,10 +146,17 @@
 		84FFE29D2713D8C60001BDDC /* NineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFE29C2713D8C60001BDDC /* NineViewController.swift */; };
 		E21E3ABB27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21E3ABA27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift */; };
 		E26C272927E9CFD000012389 /* NotificationTetstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C272827E9CFD000012389 /* NotificationTetstViewController.m */; };
+		E289F90F2850262200D840B7 /* RadiusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E289F90E2850262200D840B7 /* RadiusViewController.swift */; };
+		E289F9112850279F00D840B7 /* RadiusViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E289F9102850279F00D840B7 /* RadiusViewCell.swift */; };
+		E289F9182850D19500D840B7 /* SpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E289F9172850D19500D840B7 /* SpeechViewController.swift */; };
+		E29AF0E1285C6161002D9B44 /* JKPanViewChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29AF0E0285C6161002D9B44 /* JKPanViewChildView.swift */; };
 		E2B28D2828312C1B00DD7C9A /* JKRollingNoticeViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B28D2728312C1B00DD7C9A /* JKRollingNoticeViewViewController.swift */; };
 		E2B28D2A2831457800DD7C9A /* JKRollingNoticeViewCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B28D292831457800DD7C9A /* JKRollingNoticeViewCell1.swift */; };
 		E2B28D2C2831E15D00DD7C9A /* JKRollingNoticeViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B28D2B2831E15D00DD7C9A /* JKRollingNoticeViewCell2.swift */; };
 		E2B28D2E2831E17400DD7C9A /* JKRollingNoticeViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B28D2D2831E17400DD7C9A /* JKRollingNoticeViewCell2.xib */; };
+		E2C465A62855E552008340BA /* UserDefaultsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C465A52855E552008340BA /* UserDefaultsModel.swift */; };
+		E2CFA13A28597E9000E342DE /* JKPanViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CFA13928597E9000E342DE /* JKPanViewViewController.swift */; };
+		E2CFA13C285993CE00E342DE /* JKPanViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CFA13B285993CE00E342DE /* JKPanViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -306,11 +313,18 @@
 		E21E3ABA27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVisualEffectViewExtensionViewController.swift; sourceTree = "<group>"; };
 		E26C272727E9CFD000012389 /* NotificationTetstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationTetstViewController.h; sourceTree = "<group>"; };
 		E26C272827E9CFD000012389 /* NotificationTetstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationTetstViewController.m; sourceTree = "<group>"; };
+		E289F90E2850262200D840B7 /* RadiusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiusViewController.swift; sourceTree = "<group>"; };
+		E289F9102850279F00D840B7 /* RadiusViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiusViewCell.swift; sourceTree = "<group>"; };
+		E289F9172850D19500D840B7 /* SpeechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechViewController.swift; sourceTree = "<group>"; };
 		E292011027F1874E0032EA2F /* JKOCMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKOCMacro.h; sourceTree = "<group>"; };
+		E29AF0E0285C6161002D9B44 /* JKPanViewChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPanViewChildView.swift; sourceTree = "<group>"; };
 		E2B28D2728312C1B00DD7C9A /* JKRollingNoticeViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKRollingNoticeViewViewController.swift; sourceTree = "<group>"; };
 		E2B28D292831457800DD7C9A /* JKRollingNoticeViewCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKRollingNoticeViewCell1.swift; sourceTree = "<group>"; };
 		E2B28D2B2831E15D00DD7C9A /* JKRollingNoticeViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKRollingNoticeViewCell2.swift; sourceTree = "<group>"; };
 		E2B28D2D2831E17400DD7C9A /* JKRollingNoticeViewCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JKRollingNoticeViewCell2.xib; sourceTree = "<group>"; };
+		E2C465A52855E552008340BA /* UserDefaultsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsModel.swift; sourceTree = "<group>"; };
+		E2CFA13928597E9000E342DE /* JKPanViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPanViewViewController.swift; sourceTree = "<group>"; };
+		E2CFA13B285993CE00E342DE /* JKPanViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPanViewCell.swift; sourceTree = "<group>"; };
 		FA3D0426FDCFDD919F4C3DCA /* Pods_JKSwiftExtension_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSwiftExtension_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -444,6 +458,8 @@
 				846ECCCA279AE609006215EF /* JKVVViewController.swift */,
 				8423F2E7269FF45200CACC47 /* FBGuidePage.swift */,
 				84B84C3127BBF455004F04B9 /* ProfileViewController.swift */,
+				E289F90E2850262200D840B7 /* RadiusViewController.swift */,
+				E289F9172850D19500D840B7 /* SpeechViewController.swift */,
 				E26C272727E9CFD000012389 /* NotificationTetstViewController.h */,
 				E26C272827E9CFD000012389 /* NotificationTetstViewController.m */,
 			);
@@ -462,6 +478,7 @@
 			children = (
 				844A635825664FE7000059EC /* JKTouchView.swift */,
 				8415464425F5BD75007DE673 /* FBArrowTestLabel.swift */,
+				E289F9102850279F00D840B7 /* RadiusViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -501,7 +518,7 @@
 			children = (
 				84BF16B3251D9EAB002ACE76 /* Controller */,
 				84BF16B2251D9EAB002ACE76 /* ViewModel */,
-				84BF16B4251D9EAB002ACE76 /* Model */,
+				E2C465A42855E508008340BA /* Model */,
 				84BF16B5251D9EAB002ACE76 /* View */,
 			);
 			path = FoundationExtensionViewController;
@@ -585,13 +602,6 @@
 				8488D0CC2689786000DADFE6 /* DispatchQueueExtensionViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		84BF16B4251D9EAB002ACE76 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		84BF16B5251D9EAB002ACE76 /* View */ = {
@@ -725,6 +735,7 @@
 				8485CC7D2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift */,
 				8483A731254C0D6200ACF6FD /* JKPrintViewController.swift */,
 				8483A736254C11C200ACF6FD /* JKRuntimeViewController.swift */,
+				E2CFA13928597E9000E342DE /* JKPanViewViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -746,6 +757,8 @@
 				E2B28D292831457800DD7C9A /* JKRollingNoticeViewCell1.swift */,
 				E2B28D2B2831E15D00DD7C9A /* JKRollingNoticeViewCell2.swift */,
 				E2B28D2D2831E17400DD7C9A /* JKRollingNoticeViewCell2.xib */,
+				E29AF0E0285C6161002D9B44 /* JKPanViewChildView.swift */,
+				E2CFA13B285993CE00E342DE /* JKPanViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -778,6 +791,14 @@
 				2FEA1C54E10568E8E6A827CF /* Pods_JKSwiftExtension_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E2C465A42855E508008340BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E2C465A52855E552008340BA /* UserDefaultsModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -974,6 +995,7 @@
 				8423F2E8269FF45200CACC47 /* FBGuidePage.swift in Sources */,
 				84ABF14326C26A960058E64A /* EightViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				E29AF0E1285C6161002D9B44 /* JKPanViewChildView.swift in Sources */,
 				844A635325664F9B000059EC /* SixViewController.swift in Sources */,
 				8457685C259DC085006F93D4 /* UITabBarControllerExtensionViewController.swift in Sources */,
 				84BEA371254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift in Sources */,
@@ -982,6 +1004,7 @@
 				84D7396D26B16C9400A5538B /* DarkModePickerView.swift in Sources */,
 				84D7397326B16F2200A5538B /* DescriptionCustomViewCell.swift in Sources */,
 				84F9375E2589D52F00A35E77 /* StoryboardTest1ViewController.swift in Sources */,
+				E289F9182850D19500D840B7 /* SpeechViewController.swift in Sources */,
 				844A635525664F9B000059EC /* OneViewController.swift in Sources */,
 				84A8FEFF2534598A00830EAF /* ArrayExtensionViewController.swift in Sources */,
 				84A5D2D62547B48E003D289C /* DateExtensionViewController.swift in Sources */,
@@ -991,6 +1014,7 @@
 				8415464525F5BD75007DE673 /* FBArrowTestLabel.swift in Sources */,
 				84F11D6B25DE0DB500209B4C /* NSRangeExtensionViewController.swift in Sources */,
 				84B84C3027BBF07F004F04B9 /* Person.swift in Sources */,
+				E289F9112850279F00D840B7 /* RadiusViewCell.swift in Sources */,
 				84D5B11725F4FA2400984F5A /* FBArrowLabel.swift in Sources */,
 				844A635425664F9B000059EC /* ThreeViewController.swift in Sources */,
 				8401537F2552B34A001AB2FD /* DictionaryExtensionViewController.swift in Sources */,
@@ -1014,10 +1038,12 @@
 				8457686C259DC2A7006F93D4 /* NSIndexPathExtensionViewController.swift in Sources */,
 				849523852679F7740004E983 /* ConrnersTableViewCell.swift in Sources */,
 				84B8FE3825A314FD00E7099E /* JKRegexHelperViewController.swift in Sources */,
+				E2CFA13A28597E9000E342DE /* JKPanViewViewController.swift in Sources */,
 				848028082558D5A70038748A /* CALayerExtensionViewController.swift in Sources */,
 				84CB0CA1260DD144003D2738 /* BaseViewCell.swift in Sources */,
 				847CCCF925B80D1E00928F5B /* AVAssetExportSessionExtensionViewController.swift in Sources */,
 				8488D0CD2689786000DADFE6 /* DispatchQueueExtensionViewController.swift in Sources */,
+				E2CFA13C285993CE00E342DE /* JKPanViewCell.swift in Sources */,
 				8418FB99255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift in Sources */,
 				847DFF262550F07600EEE785 /* Int64ExtensionViewController.swift in Sources */,
 				84A6FB73255A40E400057839 /* UIBarButtonItemExtensionViewController.swift in Sources */,
@@ -1028,10 +1054,12 @@
 				84FEC03325E8D1FE0074D207 /* JKPaddingLabelViewController.swift in Sources */,
 				84D9BDA925651FA600D92461 /* JKWeakTimerViewController.swift in Sources */,
 				84D9BDD525652FE500D92461 /* JKEmitterableViewController.swift in Sources */,
+				E2C465A62855E552008340BA /* UserDefaultsModel.swift in Sources */,
 				84F11DF825DE4A3400209B4C /* CLLocationExtensionViewController.swift in Sources */,
 				847DFF2C2550F8C100EEE785 /* BoolExtensionViewController.swift in Sources */,
 				84F937A0258A081700A35E77 /* UICollectionViewExtensionViewController.swift in Sources */,
 				8483A732254C0D6200ACF6FD /* JKPrintViewController.swift in Sources */,
+				E289F90F2850262200D840B7 /* RadiusViewController.swift in Sources */,
 				84D7397126B16F0C00A5538B /* SettingCustomViewCell.swift in Sources */,
 				84F86FCC2564C66E00B74128 /* JKContentSizeViewController.swift in Sources */,
 				84F870012564F91600B74128 /* JKWaterFallLayoutViewController.swift in Sources */,

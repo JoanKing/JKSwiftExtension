@@ -201,6 +201,7 @@
 		DFC3B8E7F14C2E3E05BB465DA2E4C686 /* MJRefreshAutoGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 76B11A5D7082A0BABA089805F14175E3 /* MJRefreshAutoGifFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E21E3AB927EF4989000A4CB5 /* UIVisualEffectView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21E3AB827EF4989000A4CB5 /* UIVisualEffectView+Extension.swift */; };
 		E24D51518E38AA5360A31077696BCDA3 /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B459CFE1CFFED9742A82FF0E6D812 /* MJRefreshNormalHeader.m */; };
+		E29AF0E3285C64BD002D9B44 /* JKPanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29AF0E2285C64BD002D9B44 /* JKPanView.swift */; };
 		E2B2F614280310E600C21EB7 /* JKRollingNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B2F613280310E600C21EB7 /* JKRollingNoticeView.swift */; };
 		E4BB405D74CFA5812B5ACEB61E351698 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A182B13CE1B7877844AAF0852AA89DAD /* UITextView+Extension.swift */; };
 		E5548314C0018D0E1AB69CE2C46DC93C /* CATextLayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D4DF58F56880A3DF3EFE9AF900655 /* CATextLayer+Extension.swift */; };
@@ -500,6 +501,7 @@
 		E1B44EF282995FD8CDEA3FAC3525CA57 /* MJRefreshConst.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshConst.h; path = MJRefresh/MJRefreshConst.h; sourceTree = "<group>"; };
 		E1CBE14F173601541936495C3A237960 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E21E3AB827EF4989000A4CB5 /* UIVisualEffectView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVisualEffectView+Extension.swift"; sourceTree = "<group>"; };
+		E29AF0E2285C64BD002D9B44 /* JKPanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKPanView.swift; sourceTree = "<group>"; };
 		E2B2F613280310E600C21EB7 /* JKRollingNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKRollingNoticeView.swift; sourceTree = "<group>"; };
 		E338A648550398043D47ACC934542A87 /* ConstraintPriority.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriority.swift; path = Source/ConstraintPriority.swift; sourceTree = "<group>"; };
 		E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MJRefresh; path = MJRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -670,6 +672,7 @@
 				83B3D477A4B10F17BD295A58EAC918D8 /* KeyboardAccessory.swift */,
 				74DDFFEC13D34AC511D1A6E42C1AB898 /* QRCodeImageFactory.swift */,
 				E2B2F613280310E600C21EB7 /* JKRollingNoticeView.swift */,
+				E29AF0E2285C64BD002D9B44 /* JKPanView.swift */,
 			);
 			name = SmallTools;
 			path = Sources/Classes/SmallTools;
@@ -1541,6 +1544,7 @@
 				C53EEC934A284C7683E685FBAB22FC79 /* NSDecimalNumberHandler+Extension.swift in Sources */,
 				008C29B67D258F8984F912C400BA0DB5 /* NSIndexPath+Extension.swift in Sources */,
 				FEA7A7E3C087FB6C6813FB030F57563C /* NSMutableAttributedString+Extension.swift in Sources */,
+				E29AF0E3285C64BD002D9B44 /* JKPanView.swift in Sources */,
 				09CD3DA0AC1AC09E6CFC4D259B801694 /* NSNumber+Extension.swift in Sources */,
 				C2C12C253CCB2AD015335A4355370F14 /* NSObject+Extension.swift in Sources */,
 				37FEF2A12986EF583CA4672BDFBAA1DE /* NSRange+Extension.swift in Sources */,

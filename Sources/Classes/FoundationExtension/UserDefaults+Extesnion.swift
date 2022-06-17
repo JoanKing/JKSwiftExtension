@@ -15,7 +15,6 @@ public extension JKPOP where Base: UserDefaults {
     /// - Parameters:
     ///   - value: 值
     ///   - key: 键
-    
     @discardableResult
     static func userDefaultsSetValue(value: Any?, key: String?) -> Bool {
         guard value != nil, key != nil else {
@@ -37,14 +36,23 @@ public extension JKPOP where Base: UserDefaults {
         return result
     }
     
-    // MARK: 1.3、移除单个值
-    /// 移除单个值
-    /// - Parameter key: 键名
+    // MARK: 1.3、移除单个key存储的值
+    /// 移除单个key存储的值
+    /// - Parameter key: key名
     static func remove(_ key: String) {
         guard let _ = Base.standard.value(forKey: key) else {
             return
         }
         Base.standard.removeObject(forKey: key)
+        
+        /**
+         let userDefaults = Base.standard
+         let dics = userDefaults.dictionaryRepresentation()
+         for dic in dics where dic.key == key {
+             userDefaults.removeObject(forKey: key)
+         }
+         userDefaults.synchronize()
+         */
     }
     
     // MARK: 1.4、移除所有值
@@ -52,6 +60,7 @@ public extension JKPOP where Base: UserDefaults {
     static func removeAllKeyValue() {
         if let bundleID = Bundle.main.bundleIdentifier {
             Base.standard.removePersistentDomain(forName: bundleID)
+            Base.standard.synchronize()
         }
     }
 }
@@ -90,5 +99,34 @@ public extension JKPOP where Base: UserDefaults {
             return nil
         }
         return object
+    }
+    
+    //MARK: 2.3、保存模型数组
+    /// 保存模型数组
+    /// - Returns: 返回保存的结果
+    @discardableResult
+    static func setModelArray<T: Decodable & Encodable>(modelArrry object: [T], key: String) -> Bool {
+        do {
+            let data = try JSONEncoder().encode(object)
+            Base.standard.set(data, forKey: key)
+            Base.standard.synchronize()
+            return true
+        } catch {
+           print(error)
+        }
+        return false
+    }
+    
+    //MARK: 2.4、读取模型数组
+    ///  读取模型数组
+    /// - Returns: 返回读取的模型数组
+    static func getModelArray<T: Decodable & Encodable>(forKey key : String) -> [T] {
+        guard let data = Base.standard.data(forKey: key) else { return [] }
+        do {
+            return try JSONDecoder().decode([T].self, from: data)
+        } catch {
+            print(error)
+        }
+        return []
     }
 }

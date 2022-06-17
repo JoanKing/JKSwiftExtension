@@ -76,7 +76,7 @@ extension TestFileViewController {
     }
     
     @objc func test11() {
-        
+        self.navigationController?.pushViewController(RadiusViewController(), animated: true)
     }
     
     //MARK: 上传图片

@@ -69,7 +69,7 @@ class JKDarkModeUtilViewController: UIViewController {
     
     /// 更新控件的颜色，字体，背景色等等
     private func updateTheme() {
-        
+        apply()
     }
     
     lazy var tableView : UITableView = {
