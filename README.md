@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/JKSwiftExtension.svg?style=flat)](https://cocoapods.org/pods/JKSwiftExtension)
 [![Platform](https://img.shields.io/cocoapods/p/JKSwiftExtension.svg?style=flat)](https://cocoapods.org/pods/JKSwiftExtension)
 
-## 组成部分
+## 组成部分  
 
     FoundationExtension：Foundation 类型的扩展
     UIKitExtension：UIKit类型的扩展
@@ -46,9 +46,15 @@ end
 ## 讨论
 - 微信号: wangc2318151015
 - 邮箱: jkironman@163.com
-<img src="https://user-images.githubusercontent.com/19670000/172499146-6a70d6de-c2d1-49ce-8413-3fd2f37562b2.jpeg" alt="微信交流群" width="220">
+<img src="https://user-images.githubusercontent.com/19670000/174286196-a20713b4-d404-4f1e-8128-989593552c62.jpeg" alt="微信交流群" width="220">
 
 ## 版本说明
+   - 2.1.7、版本：新增JKPanView(可拖动的卡片)，新增你一些扩展，修复一些bug
+      - (1)、新增可拖动的卡片视图(JKPanView)，只作为容器
+      - (2)、UITableView 新增扩展：切Section整体的cell和获取section的cell数量
+      - (3)、Date扩展新增Local本地化支持
+      - (4)、UserDefaults扩展新增对继承于Codable的模型，支持数组的存储
+      - (5)、修复UIImage扩展对图片的等比例缩放（scaleTo(scale: CGFloat) -> UIImage? ）有关新的size大小不对的问题
    - 2.1.6、版本：NSAttributedString+Extension和UIButton+Extension扩展更新
    - 2.1.5、版本：部分扩展的优化
    - 2.1.2、版本：新增SmallTools：JKRollingNoticeView
