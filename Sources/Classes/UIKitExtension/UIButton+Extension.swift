@@ -578,7 +578,7 @@ public extension UIButton {
 public extension JKPOP where Base: UIButton {
     
     // MARK: 6.1、扩大UIButton的点击区域，向四周扩展10像素的点击范围
-    /// 扩大按钮点击区域 如UIEdgeInsets(top: -50, left: -50, bottom: -10, right: -10)将点击区域上下左右各扩充50
+    /// 扩大按钮点击区域 如UIEdgeInsets(top: -50, left: -50, bottom: -50, right: -15)将点击区域上下左右各扩充50
     var touchExtendInset: UIEdgeInsets {
         get {
             if let value = objc_getAssociatedObject(self.base, &JKUIButtonExpandSizeKey) {
