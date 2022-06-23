@@ -334,8 +334,8 @@ extension StringExtensionViewController {
     
     // MARK: 10.8、获取某个子串在父串中的范围->Range
     @objc func test108() {
-        let testString1 = "0123456789"
-        let str = "234"
+        let testString1 = "01234567892"
+        let str = "2"
         guard let range = testString1.jk.range(of: str) else {
             return
         }
@@ -346,11 +346,8 @@ extension StringExtensionViewController {
     @objc func test109() {
         let testString1 = "01234567829"
         let str = "2"
-        guard let nsRange = testString1.jk.nsRange(of: str) else {
-            print("父字符串里面没有子串")
-            return
-        }
-        JKPrint("获取某个子串在父串中的范围->NSRange", "\(testString1) 中子串为：\(str) 在父串中的范围是：\(nsRange)")
+        let nsRanges = testString1.jk.nsRange(of: str)
+        JKPrint("获取某个子串在父串中的范围->NSRange", "\(testString1) 中子串为：\(str) 在父串中的范围是：\(nsRanges)")
     }
     
     // MARK: 10.10、在任意位置插入字符串
@@ -519,9 +516,9 @@ extension StringExtensionViewController {
     
     // MARK: 9.20、富文本匹配(某些关键词高亮)
     @objc func test920() {
-        let totalString = "我是一只小小鸟，一直感a觉飞不高， 飞飞，你鸟要飞的更高"
+        let totalString = "我是一只小小鸟，一直感a觉飞不高， 飞飞，你小鸟要飞的更高"
         let substring = "小鸟"
-        let attributedString = totalString.jk.stringWithHighLightSubstring(keyword: substring, normalColor: UIColor.brown, keywordCololor: UIColor.red, isSplit: true, options: [.caseInsensitive])
+        let attributedString = totalString.jk.stringWithHighLightSubstring(keyword: substring, font: UIFont.systemFont(ofSize: 20, weight: .medium), normalColor: UIColor.brown, keywordCololor: UIColor.red, isSplit: false, options: [.caseInsensitive])
         let testView1 = UILabel(frame: CGRect(x: 10, y: 100, width: jk_kScreenW - 20, height: 200))
         testView1.numberOfLines = 0
         testView1.backgroundColor = .yellow

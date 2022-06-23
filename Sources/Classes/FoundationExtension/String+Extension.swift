@@ -1249,22 +1249,22 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     ///   - isSplit: 是否分隔匹配
     ///   - options: 匹配规则
     /// - Returns: 返回匹配后的富文本
-    public func stringWithHighLightSubstring(keyword: String, normalColor: UIColor, keywordCololor: UIColor, isSplit: Bool = false, options: NSRegularExpression.Options = []) -> NSMutableAttributedString {
+    public func stringWithHighLightSubstring(keyword: String, font: UIFont, normalColor: UIColor, keywordCololor: UIColor, isSplit: Bool = false, options: NSRegularExpression.Options = []) -> NSMutableAttributedString {
         let totalString = (base as! String)
         let attributedString = NSMutableAttributedString(string: totalString)
-        attributedString.addAttributes([NSAttributedString.Key.foregroundColor: normalColor], range: NSRange(location: 0, length: totalString.count))
+        attributedString.addAttributes([.foregroundColor: normalColor, .font: font], range: NSRange(location: 0, length: totalString.count))
         if isSplit {
             for i in 0..<keyword.count {
                 let singleString = keyword.jk.sub(start: i, length: 1)
                 let ranges = JKRegexHelper.matchRange(totalString, pattern: singleString)
                 for range in ranges {
-                    attributedString.addAttributes([.foregroundColor: keywordCololor], range: range)
+                    attributedString.addAttributes([.foregroundColor: keywordCololor, .font: font], range: range)
                 }
             }
         } else {
             let ranges = JKRegexHelper.matchRange(totalString, pattern: keyword)
             for range in ranges {
-                attributedString.addAttributes([.foregroundColor: keywordCololor], range: range)
+                attributedString.addAttributes([.foregroundColor: keywordCololor, .font: font], range: range)
             }
         }
         return attributedString
@@ -1412,16 +1412,16 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return (base as! String).range(of: subString)
     }
     
-    // MARK: 10.9、获取某个子串在父串中的范围->NSRange
+    // MARK: 10.9、获取某个子串在父串中的范围->[NSRange]
     /// 获取某个子串在父串中的范围->NSRange
     /// - Parameter str: 子串
     /// - Returns: 某个子串在父串中的范围
-    public func nsRange(of subString: String) -> NSRange? {
+    public func nsRange(of subString: String) -> [NSRange] {
         guard (base as! String).jk.contains(find: subString) else {
-            return nil
+            return []
         }
-        let text = (base as! String) as NSString
-        return text.range(of: subString)
+        // return text.range(of: subString)
+        return JKRegexHelper.matchRange(base as! String, pattern: subString)
     }
     
     // MARK: 10.10、在任意位置插入字符串

@@ -157,6 +157,7 @@
 		E2C465A62855E552008340BA /* UserDefaultsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C465A52855E552008340BA /* UserDefaultsModel.swift */; };
 		E2CFA13A28597E9000E342DE /* JKPanViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CFA13928597E9000E342DE /* JKPanViewViewController.swift */; };
 		E2CFA13C285993CE00E342DE /* JKPanViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CFA13B285993CE00E342DE /* JKPanViewCell.swift */; };
+		E2D5FDA62861B876006D1AAB /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D5FDA52861B876006D1AAB /* AnimationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -325,6 +326,7 @@
 		E2C465A52855E552008340BA /* UserDefaultsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsModel.swift; sourceTree = "<group>"; };
 		E2CFA13928597E9000E342DE /* JKPanViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPanViewViewController.swift; sourceTree = "<group>"; };
 		E2CFA13B285993CE00E342DE /* JKPanViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPanViewCell.swift; sourceTree = "<group>"; };
+		E2D5FDA52861B876006D1AAB /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
 		FA3D0426FDCFDD919F4C3DCA /* Pods_JKSwiftExtension_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSwiftExtension_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -479,6 +481,7 @@
 				844A635825664FE7000059EC /* JKTouchView.swift */,
 				8415464425F5BD75007DE673 /* FBArrowTestLabel.swift */,
 				E289F9102850279F00D840B7 /* RadiusViewCell.swift */,
+				E2D5FDA52861B876006D1AAB /* AnimationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -977,6 +980,7 @@
 				84802818255957560038748A /* UIApplicationExtensionViewController.swift in Sources */,
 				844A634F25664F9B000059EC /* Notification+Extension.swift in Sources */,
 				846ECCCB279AE609006215EF /* JKVVViewController.swift in Sources */,
+				E2D5FDA62861B876006D1AAB /* AnimationView.swift in Sources */,
 				84B5BDAC260C7A2D00616143 /* RangeExtensionViewController.swift in Sources */,
 				844A635D25665328000059EC /* TouchViewController.swift in Sources */,
 				847DFF282550F43C00EEE785 /* UIntExtensionViewController.swift in Sources */,

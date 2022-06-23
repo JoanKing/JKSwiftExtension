@@ -101,7 +101,7 @@ extension RadiusViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.jk.dequeueReusableCell(cellType: RadiusViewCell.self, cellForRowAt: indexPath)
         cell.selectionStyle = .none
         let rows = dataArray[indexPath.section]
-        cell.setData(brand: rows[indexPath.row], isLastCell: tableView.numberOfRows(inSection: indexPath.section) == indexPath.row + 1)
+        cell.setData(brand: rows[indexPath.row], isLastCell: tableView.jk.isLastCell(cellForRowAt: indexPath))
         return cell
     }
     

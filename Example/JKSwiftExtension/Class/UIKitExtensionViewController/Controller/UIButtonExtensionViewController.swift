@@ -14,7 +14,7 @@ class UIButtonExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、基本的扩展", "二、链式调用", "三、UIButton 图片 与 title 位置关系(提示：title和image要在设置布局关系之前设置)", "四、自带倒计时功能的 Button", "五、Button的基本事件", "六、Button扩大点击事件"]
-        dataArray = [["创建一个带颜色的 Button", "创建一个常规的 Button", "设置背景色"], ["设置title", "设置文字颜色", "设置字体大小(UIFont)", "设置字体大小(CGFloat)", "设置字体粗体", "设置图片", "设置图片(通过Bundle加载)", "设置图片(通过Bundle加载)", "设置图片(纯颜色的图片)", "设置背景图片", "设置背景图片(通过Bundle加载)", "设置背景图片(通过Bundle加载)", "设置背景图片(纯颜色的图片)", "按钮点击的变化"], ["图片在左", "图片在右", "图片在上", "图片在下"], ["设置 Button 倒计时", "是否可以点击", "是否正在倒计时", "处于倒计时时，前缀文案，如：「再次获取」 + (xxxs)", "销毁定时器"], ["button的事件"], ["扩大UIButton的点击区域，向四周扩展10像素的点击范围"]]
+        dataArray = [["创建一个带颜色的 Button", "创建一个常规的 Button", "设置背景色"], ["设置title", "设置文字颜色", "设置字体大小(UIFont)", "设置字体大小(CGFloat)", "设置字体粗体", "设置图片", "设置图片(通过Bundle加载)", "设置图片(通过Bundle加载)", "设置图片(纯颜色的图片)", "设置背景图片", "设置背景图片(通过Bundle加载)", "设置背景图片(通过Bundle加载)", "设置背景图片(纯颜色的图片)", "按钮点击的变化"], ["图片在左", "图片在右", "图片在上", "图片在下"], ["设置 Button 倒计时", "是否可以点击", "是否正在倒计时", "处于倒计时时，前缀文案，如：「再次获取」 + (xxxs)", "销毁定时器"], ["button的事件"], ["扩大UIButton的点击区域，向四周扩展25像素的点击范围"]]
     }
     
     @objc func click() {
@@ -36,46 +36,39 @@ class UIButtonExtensionViewController: BaseViewController {
 
 // MARK: - 六、Button扩大点击事件
 extension UIButtonExtensionViewController {
-    // MARK: 6.1、扩大UIButton的点击区域，向四周扩展10像素的点击范围
+    // MARK: 6.1、扩大UIButton的点击区域，向四周扩展25像素的点击范围
     @objc func test61() {
-        let testView1 = UIView(frame: CGRect(x: 10, y: 100, width: 80, height: 80))
+        let testView1 = UIView()
         testView1.backgroundColor = .randomColor
+        testView1.center = self.view.center
         self.view.addSubview(testView1)
         
-        var button1 = UIButton(frame: CGRect(x: 25, y: 115, width: 50, height: 50)).image(.brown).title("哈哈").jk.setImageTitleLayout(.imgLeft, spacing: 6)
+        testView1.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(150)
+            make.size.equalTo(CGSize(width: 100, height: 100))
+        }
+        
+        var button1 = UIButton().image(.brown).title("哈哈").jk.setImageTitleLayout(.imgLeft, spacing: 6)
         button1.backgroundColor = .randomColor
         button1.tag = 100
         button1.jk.setHandleClick { (btn) in
             guard let weakBtn = btn else { return }
             print("button的事件", "tag：\(weakBtn.tag)")
         }
-        // button1.jk.expandSize(size: 15)
-        button1.jk.touchExtendInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
-        self.view.addSubview(button1)
+        button1.jk.touchExtendInset = UIEdgeInsets(top: -25, left: -25, bottom: -25, right: -25)
+        testView1.addSubview(button1)
         
-        let testView2 = UIView(frame: CGRect(x: 130, y: 100, width: 80, height: 80))
-        testView2.backgroundColor = .randomColor
-        self.view.addSubview(testView2)
-        
-        var button2 = UIButton(frame: CGRect(x: 145, y: 115, width: 50, height: 50)).image(.brown).title("哈哈").jk.setImageTitleLayout(.imgLeft, spacing: 6)
-        button2.backgroundColor = .randomColor
-        button2.tag = 150
-        //  button2.jk.expandSize(size: 7.5)
-        button2.jk.touchExtendInset = UIEdgeInsets(top: 7.5, left: 7.5, bottom: 7.5, right: 7.5)
-        button2.jk.setHandleClick { (btn) in
-            guard let weakBtn = btn else { return }
-            print("button的事件", "tag：\(weakBtn.tag)")
+        button1.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.size.equalTo(CGSize(width: 50, height: 50))
         }
-        self.view.addSubview(button2)
         
         JKAsyncs.asyncDelay(10, {
         }) {
             testView1.removeFromSuperview()
-            testView2.removeFromSuperview()
             button1.removeFromSuperview()
-            button2.removeFromSuperview()
         }
-        
     }
 }
 
@@ -436,6 +429,14 @@ extension UIButtonExtensionViewController {
         JKAsyncs.asyncDelay(3, {
         }) {
             button.removeFromSuperview()
+        }
+        
+        let familyFonts = UIFont.familyNames
+        for fontStr1 in familyFonts {
+            let fonts = UIFont.fontNames(forFamilyName: fontStr1)
+            for fontStr2 in fonts {
+                print(fontStr2)
+            }
         }
     }
 }

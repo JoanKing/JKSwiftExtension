@@ -52,13 +52,14 @@ class JKPanViewCell: UITableViewCell {
         let attributedString = NSMutableAttributedString(string: content)
 
         attributedString.addAttributes([.foregroundColor : UIColor.brown, .font : UIFont.systemFont(ofSize: 17, weight: .medium)], range: NSRange(location: 0, length: content.count))
-        if let range = content.jk.nsRange(of: minute) {
-            attributedString.addAttributes([.foregroundColor : UIColor.red, .font : UIFont.systemFont(ofSize: 28, weight: .bold), NSAttributedString.Key.obliqueness: 0.2], range: range)
+        let minuteRanges = content.jk.nsRange(of: minute)
+        if minuteRanges.count > 0 {
+            attributedString.addAttributes([.foregroundColor : UIColor.red, .font : UIFont.systemFont(ofSize: 28, weight: .bold), NSAttributedString.Key.obliqueness: 0.2], range: minuteRanges[0])
         }
-        if let range = content.jk.nsRange(of: distance) {
-            attributedString.addAttributes([.foregroundColor : UIColor.red, .font : UIFont.systemFont(ofSize: 28, weight: .bold), .obliqueness: 0.2], range: range)
+        let distanceRanges = content.jk.nsRange(of: distance)
+        if distanceRanges.count > 0 {
+            attributedString.addAttributes([.foregroundColor : UIColor.red, .font : UIFont.systemFont(ofSize: 28, weight: .bold), .obliqueness: 0.2], range: distanceRanges[0])
         }
-        
         topTitleLabel.attributedText = attributedString
         descLabel.text = desc
     }

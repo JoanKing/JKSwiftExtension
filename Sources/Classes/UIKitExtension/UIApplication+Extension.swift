@@ -150,6 +150,10 @@ public extension JKPOP where Base: UIApplication {
         let detailUrl = "http://itunes.apple.com/cn/lookup?id=\(appStoreID)"
         return detailUrl
     }
+    
+    static func isIdleTimerDisabled(isIdleTimerDisabled: Bool) {
+        UIApplication.shared.isIdleTimerDisabled = isIdleTimerDisabled
+    }
 }
 
 // MARK: - 二、APP权限的检测

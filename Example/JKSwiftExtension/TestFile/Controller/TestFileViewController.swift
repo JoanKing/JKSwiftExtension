@@ -8,6 +8,7 @@
 
 import UIKit
 import Dispatch
+import JKSwiftExtension
 class TestFileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,15 +69,38 @@ extension TestFileViewController {
     }
     
     @objc func test13() {
-        self.navigationController?.pushViewController(ThreeViewController(), animated: true)
+        
+       //  self.navigationController?.pushViewController(ThreeViewController(), animated: true)
     }
     
     @objc func test12() {
-        self.navigationController?.pushViewController(TenViewController(), animated: true)
+        self.navigationController?.pushViewController(SpeechViewController(), animated: true)
     }
     
     @objc func test11() {
-        self.navigationController?.pushViewController(RadiusViewController(), animated: true)
+        // self.navigationController?.pushViewController(RadiusViewController(), animated: true)
+        print("开始")
+        DispatchQueue.global().async {
+            /// 初始化值 S = 0
+            let semaphore = DispatchSemaphore(value: 1)
+            for index in 0..<4 {
+                /// S = 0 - 1，S = -1, 进程阻塞并进入等待队列
+                semaphore.wait()
+                DispatchQueue.global().async {
+                    print(index)
+                    Thread.sleep(forTimeInterval: 3)
+                    DispatchQueue.main.async {
+                        /// S = -1 + 1，S = 0, 唤醒对应的等待进程，并继续执行
+                        semaphore.signal()
+                    }
+                }
+               
+            }
+            DispatchQueue.main.async {
+                print("全部执行完毕")
+            }
+        }
+        print("结束")
     }
     
     //MARK: 上传图片

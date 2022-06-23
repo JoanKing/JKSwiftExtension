@@ -604,6 +604,11 @@ extension UIViewExtensionViewController {
         testView.jk.centerX = self.view.jk.centerX
         testView.jk.addCorner(conrners: [.topLeft], radius: 20)
         self.view.addSubview(testView)
+        
+        let childView = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        childView.backgroundColor = .randomColor
+        testView.addSubview(childView)
+        
         JKAsyncs.asyncDelay(2, {
         }) {
             testView.removeFromSuperview()
