@@ -49,6 +49,9 @@ end
 <img src="https://user-images.githubusercontent.com/19670000/174286196-a20713b4-d404-4f1e-8128-989593552c62.jpeg" alt="微信交流群" width="220">
 
 ## 版本说明
+   - 2.1.9、版本：
+      - (1)、UIButton扩展里面的扩大点击事件，做了修复，之前把self.base写成了self，导致扩大范围失效，在2.1.9分支做了修复
+      - (2)、新增字符串有关子串在父字符串range的范围，返回一个子串的范围数组
    - 2.1.7、版本：新增JKPanView(可拖动的卡片)，新增你一些扩展，修复一些bug
       - (1)、新增可拖动的卡片视图(JKPanView)，只作为容器
       - (2)、UITableView 新增扩展：切Section整体的cell和获取section的cell数量
