@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import simd
 
 class NSDecimalNumberHandlerExtensionViewController: BaseViewController {
     
@@ -14,19 +15,21 @@ class NSDecimalNumberHandlerExtensionViewController: BaseViewController {
         super.viewDidLoad()
 
         headDataArray = ["一、基本的扩展"]
-        dataArray = [["向下取整取倍数", "一个数字能否整除另外一个数字", "两个数字之间的计算", "测试"]]
+        dataArray = [["向下取整取倍数", "一个数字能否整除另外一个数字", "两个数字之间的计算", "一个数字四舍五入返回"]]
     }
 }
 
 // MARK: - 一、基本的扩展
 extension NSDecimalNumberHandlerExtensionViewController {
-    
-    @objc func test14() {
-        let value11 = 4.441
-        let value12 = 2.22
-        let result = value11.truncatingRemainder(dividingBy: value12)
 
-        JKPrint("result：\(result)")
+    // MARK:1.4、一个数字四舍五入返回
+    @objc func test14() {
+        let array: [Float] = [0.2000020, 0.3993930004, 0.382710002, 5.2000000009, 8.0040009, 1.0]
+        for (_, item) in array.enumerated() {
+            let result = NSDecimalNumberHandler.jk.rounding(value: item, scale: 2)
+            let floatValue = result.floatValue
+            print("原值：\(item) 四舍五入保留2位后的结果：\(result) 再转float后的值为：\(floatValue)")
+        }
     }
     
     // MARK: 1.3、两个数字之间的计算

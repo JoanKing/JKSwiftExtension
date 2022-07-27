@@ -1438,6 +1438,32 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         let str2 =  (base as! String).jk.sub(from: locat + 1)
         return str1 + content + str2
     }
+    
+    //MARK: 10.11、匹配两个字符之间的内容
+    /// 匹配两个字符之间的内容
+    /// - Parameters:
+    ///   - leftChar: 左边的字符
+    ///   - rightChar: 右边的字符
+    /// - Returns: 匹配后的字符串数组
+    public func matchesMiddleContentOfCharacters(leftChar: String, rightChar: String) -> [String] {
+        do {
+            let pattern: String = "(?<=\\\(leftChar)).*?(?=\\\(rightChar))"
+            /// 最初的额正则
+            // let pattern: ·String = "(?<=\\[).*?(?=\\])"
+            // let pattern: String = "(\\\(leftChar)[^\\]]*\\\(rightChar))"
+            let regex = try NSRegularExpression(pattern: pattern)
+            let nsString = (base as! String).jk.toNSString
+            let results = regex.matches(in: base as! String, range: NSRange(location: 0, length: nsString.length))
+            return results.map {
+                nsString.substring(with: $0.range)
+                // (base as! String).jk.sub(start: $0.range.location, length: $0.range.length)
+                // String(nsString.substring(with: $0.range(at: 1)).dropFirst().dropLast())
+            }
+        } catch let error {
+            debugPrint("invalid regex: \(error.localizedDescription)")
+            return []
+        }
+    }
 }
 
 // MARK: - 十一、字符串编码的处理

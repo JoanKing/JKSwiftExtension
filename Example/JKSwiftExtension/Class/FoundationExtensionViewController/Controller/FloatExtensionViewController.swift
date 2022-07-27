@@ -14,17 +14,25 @@ class FloatExtensionViewController: BaseViewController {
         super.viewDidLoad()
 
         headDataArray = ["一、Float 与其他类型的转换", "二、其他常用的方法"]
-        dataArray = [["转 Int", "Float四舍五入转Int", "转 CGFloat", "转 Int64", "转 Double", "转 String", "转 NSNumber", "转 Float"], ["浮点数四舍五入"]]
+        dataArray = [["转 Int", "Float四舍五入转Int", "转 CGFloat", "转 Int64", "转 Double", "转 String", "转 NSNumber", "转 Float"], ["浮点数四舍五入", "一个数字四舍五入返回(建议使用这个)"]]
     }
 }
 
 // MARK: - 二、其他常用的方法
 extension FloatExtensionViewController {
     
+    // MARK: 2.2、一个数字四舍五入返回(建议使用这个)
+    @objc func test22() {
+        let value: Float = 10.028384
+        let scale: Int16 = 3
+        let roundValue = value.jk.rounding(scale: scale)
+        JKPrint("一个数字四舍五入返回", "\(value)四舍五入返回，保留\(scale)后为：\(roundValue)")
+    }
+    
     // MARK: 2.1、浮点数四舍五入
     @objc func test21() {
-        let money: Float = 56789.654
-        let price = money.jk.roundTo(places: 3)
+        let money: Float = 0.37
+        let price = money.jk.roundTo(places: 2)
         JKPrint("浮点数四舍五入", "\(money) 浮点数四舍五入 后为：\(price)")
     }
 }

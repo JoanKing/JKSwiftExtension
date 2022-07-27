@@ -13,8 +13,20 @@ class CGFloatExtensionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        headDataArray = ["一、CGFloat 的基本转换", "二、角度和弧度相互转换"]
-        dataArray = [["转 Int", "转 CGFloat", "转 Int64", "转 Float", "转 String", "转 NSNumber", "转 Double"], ["角度转弧度", "弧度转角度"]]
+        headDataArray = ["一、CGFloat 的基本转换", "二、角度和弧度相互转换", "三、基本的扩展"]
+        dataArray = [["转 Int", "转 CGFloat", "转 Int64", "转 Float", "转 String", "转 NSNumber", "转 Double"], ["角度转弧度", "弧度转角度"], ["一个数字四舍五入返回"]]
+    }
+}
+
+//MARK: -三、基本的扩展
+extension CGFloatExtensionViewController {
+    
+    // MARK:3.1、一个数字四舍五入返回
+    @objc func test31() {
+        let value: CGFloat = 10.028384
+        let scale: Int16 = 3
+        let roundValue = value.jk.rounding(scale: scale)
+        JKPrint("一个数字四舍五入返回", "\(value)四舍五入返回，保留\(scale)后为：\(roundValue)")
     }
 }
 

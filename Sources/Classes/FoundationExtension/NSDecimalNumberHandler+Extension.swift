@@ -78,6 +78,15 @@ public extension JKPOP where Base: NSDecimalNumberHandler {
     static func calculation(type: DecimalNumberHandlerType, value1: Any, value2: Any) -> NSDecimalNumber {
         return decimalNumberHandlerValue(type: type, value1: value1, value2: value2, roundingMode: .down, scale: 30, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false)
     }
+    
+    // MARK:1.4、一个数字四舍五入返回
+    /// 一个数字四舍五入返回
+    /// - Parameters:
+    ///   - value: 值
+    /// - Returns:四舍五入返回结果
+    static func rounding(value: Any, scale: Int16 = 0) -> NSDecimalNumber {
+        return decimalNumberHandlerValue(type: .multiplying, value1: value, value2: "1", roundingMode: .plain, scale: scale, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false)
+    }
 }
 
 // MARK: - public 公有方法

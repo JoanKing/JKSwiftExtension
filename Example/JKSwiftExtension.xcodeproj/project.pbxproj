@@ -155,9 +155,11 @@
 		E2B28D2C2831E15D00DD7C9A /* JKRollingNoticeViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B28D2B2831E15D00DD7C9A /* JKRollingNoticeViewCell2.swift */; };
 		E2B28D2E2831E17400DD7C9A /* JKRollingNoticeViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B28D2D2831E17400DD7C9A /* JKRollingNoticeViewCell2.xib */; };
 		E2C465A62855E552008340BA /* UserDefaultsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C465A52855E552008340BA /* UserDefaultsModel.swift */; };
+		E2CB1A2E287093E800805F85 /* JKEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB1A2D287093E800805F85 /* JKEmptyView.swift */; };
 		E2CFA13A28597E9000E342DE /* JKPanViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CFA13928597E9000E342DE /* JKPanViewViewController.swift */; };
 		E2CFA13C285993CE00E342DE /* JKPanViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CFA13B285993CE00E342DE /* JKPanViewCell.swift */; };
 		E2D5FDA62861B876006D1AAB /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D5FDA52861B876006D1AAB /* AnimationView.swift */; };
+		E2E08F182871AD5300F722A9 /* JKEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E08F172871AD5300F722A9 /* JKEmptyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -324,9 +326,12 @@
 		E2B28D2B2831E15D00DD7C9A /* JKRollingNoticeViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKRollingNoticeViewCell2.swift; sourceTree = "<group>"; };
 		E2B28D2D2831E17400DD7C9A /* JKRollingNoticeViewCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JKRollingNoticeViewCell2.xib; sourceTree = "<group>"; };
 		E2C465A52855E552008340BA /* UserDefaultsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsModel.swift; sourceTree = "<group>"; };
+		E2CB1A2D287093E800805F85 /* JKEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKEmptyView.swift; sourceTree = "<group>"; };
+		E2CEBBA9286AD774002BE4BD /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		E2CFA13928597E9000E342DE /* JKPanViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPanViewViewController.swift; sourceTree = "<group>"; };
 		E2CFA13B285993CE00E342DE /* JKPanViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPanViewCell.swift; sourceTree = "<group>"; };
 		E2D5FDA52861B876006D1AAB /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
+		E2E08F172871AD5300F722A9 /* JKEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKEmptyViewController.swift; sourceTree = "<group>"; };
 		FA3D0426FDCFDD919F4C3DCA /* Pods_JKSwiftExtension_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSwiftExtension_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -407,6 +412,7 @@
 				8483A72F254C0A7F00ACF6FD /* testicon.png */,
 				84EE8173257F8EFF00DDC56B /* Persons.plist */,
 				846774172511FE9900DE8B44 /* JKSwiftExtension_Example-Bridging-Header.h */,
+				E2CEBBA9286AD774002BE4BD /* PrefixHeader.pch */,
 				84F937582589D49200A35E77 /* StoryboardTest */,
 			);
 			name = "Supporting Files";
@@ -464,6 +470,7 @@
 				E289F9172850D19500D840B7 /* SpeechViewController.swift */,
 				E26C272727E9CFD000012389 /* NotificationTetstViewController.h */,
 				E26C272827E9CFD000012389 /* NotificationTetstViewController.m */,
+				E2E08F172871AD5300F722A9 /* JKEmptyViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -762,6 +769,7 @@
 				E2B28D2D2831E17400DD7C9A /* JKRollingNoticeViewCell2.xib */,
 				E29AF0E0285C6161002D9B44 /* JKPanViewChildView.swift */,
 				E2CFA13B285993CE00E342DE /* JKPanViewCell.swift */,
+				E2CB1A2D287093E800805F85 /* JKEmptyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -955,6 +963,7 @@
 				843303FB2578B80F00051867 /* JKGlobalToolsViewController.swift in Sources */,
 				847807B625F88FC800E2575B /* NumberFormatterExtensionViewController.swift in Sources */,
 				844A634E25664F9B000059EC /* FiveViewController.swift in Sources */,
+				E2CB1A2E287093E800805F85 /* JKEmptyView.swift in Sources */,
 				84BF16CA251D9FD3002ACE76 /* ProtocolViewController.swift in Sources */,
 				8483A737254C11C200ACF6FD /* JKRuntimeViewController.swift in Sources */,
 				84A6FB77255A655700057839 /* BaseNavigationViewController.swift in Sources */,
@@ -1079,6 +1088,7 @@
 				8488026D256DF0DE007D41CA /* TestFileViewController.swift in Sources */,
 				84CC32AD255CDBB300F489F0 /* UIScrollViewExtensionViewController.swift in Sources */,
 				8418FB97255B8642000CB0B3 /* UILabelExtensionViewController.swift in Sources */,
+				E2E08F182871AD5300F722A9 /* JKEmptyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1221,7 +1231,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.1;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.xcar.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jk.com;
 				PRODUCT_NAME = "JKSwiftExtension扩展";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "JKSwiftExtension/JKSwiftExtension_Example-Bridging-Header.h";
@@ -1249,7 +1259,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.1;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.xcar.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jk.com;
 				PRODUCT_NAME = "JKSwiftExtension扩展";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "JKSwiftExtension/JKSwiftExtension_Example-Bridging-Header.h";

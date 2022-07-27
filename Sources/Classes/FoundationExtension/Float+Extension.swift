@@ -54,4 +54,15 @@ public extension JKPOP where Base == Float {
         let divisor = pow(10.0, Float(places))
         return (self.base * divisor).rounded() / divisor
     }
+    
+    // MARK:2.2、一个数字四舍五入返回(建议使用这个)
+    /// 一个数字四舍五入返回(建议使用这个)
+    /// - Parameters:
+    ///   - value: 值
+    ///   - scale: 保留小数的位数
+    /// - Returns: 四舍五入返回结果
+    func rounding(scale: Int16 = 1) -> Float {
+        let value = NSDecimalNumberHandler.jk.rounding(value: self.base, scale: scale)
+        return value.floatValue
+    }
 }

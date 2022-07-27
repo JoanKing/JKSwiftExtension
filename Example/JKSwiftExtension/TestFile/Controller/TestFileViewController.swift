@@ -69,12 +69,16 @@ extension TestFileViewController {
     }
     
     @objc func test13() {
-        
-       //  self.navigationController?.pushViewController(ThreeViewController(), animated: true)
+       self.navigationController?.pushViewController(JKEmptyViewController(), animated: true)
     }
     
     @objc func test12() {
-        self.navigationController?.pushViewController(SpeechViewController(), animated: true)
+        let a: Double = 0
+        if a == 0.0 {
+            print("true")
+        } else {
+            print("false")
+        }
     }
     
     @objc func test11() {
@@ -82,10 +86,9 @@ extension TestFileViewController {
         print("开始")
         DispatchQueue.global().async {
             /// 初始化值 S = 0
-            let semaphore = DispatchSemaphore(value: 1)
+            let semaphore = DispatchSemaphore(value: 0)
             for index in 0..<4 {
                 /// S = 0 - 1，S = -1, 进程阻塞并进入等待队列
-                semaphore.wait()
                 DispatchQueue.global().async {
                     print(index)
                     Thread.sleep(forTimeInterval: 3)
@@ -94,7 +97,7 @@ extension TestFileViewController {
                         semaphore.signal()
                     }
                 }
-               
+                semaphore.wait()
             }
             DispatchQueue.main.async {
                 print("全部执行完毕")
@@ -123,7 +126,7 @@ extension TestFileViewController {
         for (index, image) in images.enumerated() {
            
             workingGroup.enter()
-            JKAsyncs.asyncDelay(index == 2 ? 4 : 1) {
+            JKAsyncs.asyncDelay(index == 2 ? 5 : 1) {
             } _: {
                 print("接口 \(index) 数据请求完成 值：\(image)")
                 imageUrls[index] = "\(image)"
@@ -140,6 +143,87 @@ extension TestFileViewController {
             // 全部
             debugPrint("全部结束, 生成的url：\(imageUrls)")
         })
+    }
+    
+    //MARK: 上传图片
+    /// 上传图片，压缩在内部统一处理
+    //MARK: 上传图片
+    /// 上传图片，压缩在内部统一处理
+    func uploadImageResurce1() {
+        
+        // 创建调度组
+        let workingGroup = DispatchGroup()
+        // 创建多列
+        let workingQueue = DispatchQueue.global()
+
+        debugPrint("开始执行的代码")
+        
+        workingGroup.enter()
+        JKAsyncs.asyncDelay(5) {
+        } _: {
+            print("接口1执行结束")
+            workingGroup.leave()
+        }
+
+        workingGroup.enter()
+        JKAsyncs.asyncDelay(2) {
+            print("")
+        } _: {
+            print("接口2执行结束")
+            workingGroup.leave()
+        }
+
+        // 调度组里的任务都执行完毕
+        workingGroup.notify(queue: workingQueue, execute: {
+            // 全部
+            debugPrint("全部结束")
+        })
+        debugPrint("最后的代码")
+    }
+    
+    func uploadImageResurce2() {
+        
+        // 创建调度组
+        let workingGroup = DispatchGroup()
+        // 创建多列
+        let workingQueue = DispatchQueue.global()
+
+        var result: Bool = false
+        debugPrint("开始执行的代码")
+        workingGroup.enter()
+        netWork1 {
+            print("接口1执行结束")
+            result = false
+            workingGroup.leave()
+        }
+
+        workingGroup.enter()
+        netWork2 {
+            result = true
+            print("接口2执行结束")
+            workingGroup.leave()
+        }
+
+        // 调度组里的任务都执行完毕
+        workingGroup.notify(queue: workingQueue, execute: {
+            // 全部
+            debugPrint("全部结束: \(result)")
+        })
+        debugPrint("最后的代码")
+    }
+    
+    func netWork1(finishClosure: @escaping (() -> Void)) {
+        JKAsyncs.asyncDelay(10) {
+        } _: {
+            finishClosure()
+        }
+    }
+    
+    func netWork2(finishClosure: @escaping (() -> Void)) {
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            finishClosure()
+        }
     }
 }
 
