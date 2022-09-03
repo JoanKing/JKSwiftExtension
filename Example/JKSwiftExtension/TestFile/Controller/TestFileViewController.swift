@@ -65,7 +65,7 @@ extension TestFileViewController {
     }
     
     @objc func test14() {
-        self.navigationController?.pushViewController(NotificationTetstViewController(), animated: true)
+        
     }
     
     @objc func test13() {
@@ -73,12 +73,7 @@ extension TestFileViewController {
     }
     
     @objc func test12() {
-        let a: Double = 0
-        if a == 0.0 {
-            print("true")
-        } else {
-            print("false")
-        }
+        showAlertAgreement()
     }
     
     @objc func test11() {
@@ -249,3 +244,45 @@ extension String {
         return self
     }
 }
+
+extension TestFileViewController {
+    @objc func showAlertAgreement() {
+        let title = "用户协议和隐私政策"
+
+        let linkDic = ["《用户协议》": "http://*",
+                       "《隐私政策》": "http://*",]
+
+        let protocolPolicyContent = "\t用户协议和隐私政策请您务必审值阅读、充分理解 “用户协议” 和 隐私政策, 各项条款，包括但不限于：为了向您提供即时通讯、内容分享等服务，我们需要收集您的设备信息、操作日志等个人信息。\n\t您可阅读《用户协议》和《隐私政策》了解详细信息。如果您同意，请点击 “同意” 开始接受我们的服务;"
+    
+        let paraStyle = NSMutableParagraphStyle()
+        // 右对齐
+        paraStyle.alignment = .left
+        let attributedText = NSMutableAttributedString.createHighlightRichText(content: protocolPolicyContent, highlightRichTexts: linkDic.allKeys(), contentTextColor: UIColor.brown, contentFont: UIFont.systemFont(ofSize: 15), highlightRichTextColor: UIColor.blue, highlightRichTextFont: UIFont.systemFont(ofSize: 15), paraStyle: paraStyle)
+    
+        let alertVC = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+            .addActionTitles(["取消", "同意"]) { vc, action in
+                print(action.title)
+            }
+        
+        alertVC.setValue(attributedText, forKey: "attributedMessage")
+        alertVC.messageLabel?.jk.addGestureTap { reco in
+            (reco as? UITapGestureRecognizer)?.didTapLabelAttributedText(linkDic) {[weak self] text, url in
+                guard let weakSelf = self else {
+                    return
+                }
+                print("\(text), \(url ?? "_")")
+                alertVC.dismiss(animated: true, completion: nil)
+                let vc = JKVVViewController()
+                vc.backClosure = {
+                    weakSelf.present(alertVC, animated: true, completion: nil)
+                }
+                // vc.modalPresentationStyle = .overFullScreen
+                weakSelf.navigationController?.pushViewController(vc, animated: true)
+                //alertVC.present(UINavigationController(rootViewController: vc), animated: true, completion: nil)
+            }
+        }
+        self.present(alertVC, animated: true, completion: nil)
+    }
+}
+
+

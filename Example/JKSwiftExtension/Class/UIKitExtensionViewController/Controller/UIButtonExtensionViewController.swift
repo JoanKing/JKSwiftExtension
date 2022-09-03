@@ -18,7 +18,7 @@ class UIButtonExtensionViewController: BaseViewController {
     }
     
     @objc func click() {
-        testButton.countDown(10, timering: { (number) in
+        testButton.countDown(9, timering: { (number) in
             print("\(number)")
         }, complete: {
             print("完成")
@@ -32,6 +32,13 @@ class UIButtonExtensionViewController: BaseViewController {
         button.add(self, action: #selector(click))
         return button
     }()
+    
+    deinit {
+        debugPrint("-----deinit--------")
+        if testButton.isTiming {
+            testButton.invalidate()
+        }
+    }
 }
 
 // MARK: - 六、Button扩大点击事件

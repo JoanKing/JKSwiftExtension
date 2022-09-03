@@ -199,6 +199,7 @@
 		DE911CEE44D57BD0DB5323A6DAA89DC8 /* MJRefresh-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E63F0A7DEAA757D86A7FB7836B722DA1 /* MJRefresh-dummy.m */; };
 		DEFE002AB4B49142DB9D341F11CE8F47 /* JKThemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E138DEE67679EFA572F9FEF01DD4E /* JKThemeProvider.swift */; };
 		DFC3B8E7F14C2E3E05BB465DA2E4C686 /* MJRefreshAutoGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 76B11A5D7082A0BABA089805F14175E3 /* MJRefreshAutoGifFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E20237B028B6107300F65F61 /* UITapGestureRecognizer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20237AF28B6107300F65F61 /* UITapGestureRecognizer+Extension.swift */; };
 		E21E3AB927EF4989000A4CB5 /* UIVisualEffectView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21E3AB827EF4989000A4CB5 /* UIVisualEffectView+Extension.swift */; };
 		E24D51518E38AA5360A31077696BCDA3 /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B459CFE1CFFED9742A82FF0E6D812 /* MJRefreshNormalHeader.m */; };
 		E29AF0E3285C64BD002D9B44 /* JKPanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29AF0E2285C64BD002D9B44 /* JKPanView.swift */; };
@@ -500,6 +501,7 @@
 		DE4879ADD27D1E3BD117BB2B35416183 /* Kingfisher-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kingfisher-dummy.m"; sourceTree = "<group>"; };
 		E1B44EF282995FD8CDEA3FAC3525CA57 /* MJRefreshConst.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshConst.h; path = MJRefresh/MJRefreshConst.h; sourceTree = "<group>"; };
 		E1CBE14F173601541936495C3A237960 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E20237AF28B6107300F65F61 /* UITapGestureRecognizer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+Extension.swift"; sourceTree = "<group>"; };
 		E21E3AB827EF4989000A4CB5 /* UIVisualEffectView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVisualEffectView+Extension.swift"; sourceTree = "<group>"; };
 		E29AF0E2285C64BD002D9B44 /* JKPanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKPanView.swift; sourceTree = "<group>"; };
 		E2B2F613280310E600C21EB7 /* JKRollingNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKRollingNoticeView.swift; sourceTree = "<group>"; };
@@ -693,6 +695,7 @@
 				CD08C72296EE503D944B03711171AE46 /* UIColor+Extension.swift */,
 				67A1C89B574E89C75FB413BF2F7C1B40 /* UIControl+Extension.swift */,
 				5434BB2153ED8F04BF058F78D893EA60 /* UIGestureRecognizer+Extension.swift */,
+				E20237AF28B6107300F65F61 /* UITapGestureRecognizer+Extension.swift */,
 				F4D8724EE15B3E3A460F3BD11244C6F3 /* UIImage+Extension.swift */,
 				3C76F9B772AC2822BC03F5960CF2D3E7 /* UIImageView+Extension.swift */,
 				63738AC417504380B9E9C08FFA2C56DC /* UILabel+Extension.swift */,
@@ -1498,6 +1501,7 @@
 				399F2E1AC548A27FDD00486ADB2FF262 /* Bool+Extension.swift in Sources */,
 				E6216821E019E0362742AFD534E95B9C /* Bundle+Extension.swift in Sources */,
 				AE2D184B175C4E01B653BBC99D4F8E6D /* CAGradientLayer+Extension.swift in Sources */,
+				E20237B028B6107300F65F61 /* UITapGestureRecognizer+Extension.swift in Sources */,
 				CFFCCE1638A31808499E2E4D9C4DE562 /* CALayer+Extension.swift in Sources */,
 				E5548314C0018D0E1AB69CE2C46DC93C /* CATextLayer+Extension.swift in Sources */,
 				E2B2F614280310E600C21EB7 /* JKRollingNoticeView.swift in Sources */,

@@ -46,6 +46,7 @@ extension JKRegexHelperViewController {
     
     // MARK: 1.2、验证邮箱是否合法
     @objc func test13() {
+        // "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,20}$"
         let maybeMailAddress = "jkironman@163.com"
         let result = JKRegexHelper.validateEmail(maybeMailAddress)
         JKPrint("邮箱：\(maybeMailAddress) 是否是有效的邮箱地址：\(result)")

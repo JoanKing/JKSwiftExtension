@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - 一、基本的扩展
 public extension JKPOP where Base: UIVisualEffectView {

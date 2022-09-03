@@ -373,9 +373,9 @@ extension StringExtensionViewController {
         let rightChar2 = ")"
         let resultArray2 = testString2.jk.matchesMiddleContentOfCharacters(leftChar: leftChar2, rightChar: rightChar2)
         
-        let testString3 = "林尽水+?源，{便+得k一山，山有?小口，仿佛若有光}。便舍船，从口入"
-        let leftChar3 = "?"
-        let rightChar3 = "?"
+        let testString3 = "林尽水源，{便得}一山，山有{小{口}，仿佛若{有光}。便舍船，从口入"
+        let leftChar3 = "{"
+        let rightChar3 = "}"
         let resultArray3 = testString2.jk.matchesMiddleContentOfCharacters(leftChar: leftChar3, rightChar: rightChar3)
         
         JKPrint("匹配两个字符之间的内容", "匹配1--", "原字符串：\(testString)", "匹配左右字符为：\(leftChar)\(rightChar)", "匹配后的结果是：\(resultArray)", "--------", "匹配2--", "原字符串：\(testString2)", "匹配左右字符为：\(leftChar2)\(rightChar2)", "匹配后的结果是：\(resultArray2)", "--------", "匹配3--", "原字符串：\(testString3)", "匹配左右字符为：\(leftChar3)\(rightChar3)", "匹配后的结果是：\(resultArray3)", "--------")
@@ -1185,119 +1185,11 @@ extension StringExtensionViewController {
 
 // MARK: - 一、字符串基本的扩展
 extension StringExtensionViewController {
-    // MARK: 1.1、字符串的长度
-    @objc func test11() {
-        let string = "1234567"
-        JKPrint("字符串：\(string) 的长度是：\(string.jk.length)")
-    }
     
-    // MARK: 1.2、判断是否包含某个子串
-    @objc func test12() {
-        let string = "123哈哈567"
-        JKPrint("字符串：\(string) 是否包含：哈哈 ：\(string.jk.contains(find: "哈哈"))", "字符串：\(string) 是否包含：嘿嘿 ：\(string.jk.contains(find: "嘿嘿"))")
-    }
-    
-    // MARK: 1.3、判断是否包含某个子串 -- 忽略大小写
-    @objc func test13() {
-        let string = "abcdefg"
-        JKPrint("字符串：\(string) 是否包含：A ：\(string.jk.containsIgnoringCase(find: "A"))", "字符串：\(string) 是否包含：p ：\(string.jk.containsIgnoringCase(find: "p"))")
-    }
-    
-    // MARK: 1.4、字符串转 base64
-    @objc func test14() {
-        let oldString = "123456"
-        JKPrint("字符串转 base64", "\(oldString) 编码后的字符串：\(oldString.jk.base64Encode ?? "编码失败")")
-    }
-    
-    // MARK: 1.5、base64转字符串转
-    @objc func test15() {
-        let oldString = "123456"
-        let newString = oldString.jk.base64Encode ?? "编码失败"
-        JKPrint("base64转字符串转", "\(oldString) 编码后的字符串：\(newString)", "\(newString) 解码后为：\(newString.jk.base64Decode ?? "解码失败")")
-    }
-    
-    // MARK: 1.6、将16进制字符串转为Int
-    @objc func test16() {
-        
-    }
-    
-    // MARK: 1.7、判断是不是九宫格键盘
-    @objc func test17() {
-        
-    }
-    
-    // MARK: 1.8、字符串转 UIViewController
-    @objc func test18() {
-        let stringVC = "DateFormatterExtensionViewController"
-        let vc = stringVC.jk.toViewController()
-        JKPrint("字符串：\(stringVC) 转VC为：\(vc!)", "转控制器名为：\(vc!.className)")
-    }
-    
-    // MARK: 1.9、字符串转 AnyClass
-    @objc func test19() {
-        let stringContent = "FileManagerExtensionViewController"
-        let stringClass: AnyClass? = stringContent.jk.toClass()
-        JKPrint("字符串转 AnyClass：\(stringContent) 转AnyClass为：\(stringClass!)")
-    }
-    
-    // MARK: 1.10、字符串转数组
-    @objc func test110() {
-        
-    }
-    
-    // MARK: 1.11、JSON 字符串 -> Dictionary
-    @objc func test111() {
-        
-    }
-    
-    // MARK: 1.12、JSON 字符串 -> Array
-    @objc func test112() {
-        
-    }
-    
-    // MARK: 13、转成拼音
-    @objc func test113() {
-        let name1 = "我叫雷锋"
-        let name2 = "王冲"
-        let name3 = "潘滢"
-        JKPrint("\(name1) 转成拼音 后为：\(name1.jk.toPinyin())", "\(name2) 转成拼音 后为：\(name2.jk.toPinyin())", "\(name3) 转成拼音 后为：\(name3.jk.toPinyin(true))")
-    }
-    
-    // MARK: 14、提取首字母, "爱国" --> AG
-    @objc func test114() {
-        let name1 = "我叫雷锋"
-        let name2 = "王冲"
-        let name3 = "潘滢"
-        JKPrint("\(name1) 转成拼音 后为：\(name1.jk.toPinyin()) 提取首字母为：\(name1.jk.pinyinInitials(false))", "\(name2) 转成拼音 后为：\(name2.jk.toPinyin()) 提取首字母为：\(name2.jk.pinyinInitials(false))", "\(name3) 转成拼音 后为：\(name3.jk.toPinyin(true)) 提取首字母为：\(name3.jk.pinyinInitials(true))")
-    }
-    
-    // MARK: 1.15、字符串根据某个字符进行分隔成数组
-    @objc func test115() {
-        let string = "我爱祖国爱你呀"
-        JKPrint("\(string) 分隔后为：\(string.jk.separatedByString(with: "爱"))")
-    }
-    
-    // MARK: 1.16、设备的UUID
-    @objc func test116() {
-        guard let uuid = String.jk.stringWithUUID() else {
-            return
-        }
-        JKPrint("设备的UUID：\(uuid)")
-    }
-    
-    // MARK: 1.17、复制
-    @objc func test117() {
-        JKPrint("复制文字：我是一枚小可爱")
-        // "复制：我是一枚小可爱".toast()
-        "我是一枚小可爱".jk.copy()
-        print("复制的内容是：\(UIPasteboard.general.string ?? "没有内容")")
-        
-    }
-    
-    // MARK: 1.18、提取出字符串中所有的URL链接
-    @objc func test118() {
-        let str = "欢迎访问https://www.baidu.com，https://www.jianshu.com/u/8fed18ed70c9\n以及https://github.com/JoanKing"
-        JKPrint("测试字符串式：\(str)", "匹配到的链接：\(str.jk.getUrls() ?? [])")
+    // MARK: 1.20、计算字符个数（英文 = 1，数字 = 1，汉语 = 2）
+    @objc func test120() {
+        let name = "我是123&"
+        JKPrint("计算字符个数（英文 = 1，数字 = 1，汉语 = 2）", "\(name) 的字符的个数是：\(name.jk.countOfChars())")
     }
     
     // MARK: 1.19、String或者String HTML标签转富文本设置
@@ -1318,9 +1210,117 @@ extension StringExtensionViewController {
         }
     }
     
-    // MARK: 1.20、计算字符个数（英文 = 1，数字 = 1，汉语 = 2）
-    @objc func test120() {
-        let name = "我是123&"
-        JKPrint("计算字符个数（英文 = 1，数字 = 1，汉语 = 2）", "\(name) 的字符的个数是：\(name.jk.countOfChars())")
+    // MARK: 1.18、提取出字符串中所有的URL链接
+    @objc func test118() {
+        let str = "欢迎访问https://www.baidu.com，https://www.jianshu.com/u/8fed18ed70c9\n以及https://github.com/JoanKing"
+        JKPrint("测试字符串式：\(str)", "匹配到的链接：\(str.jk.getUrls() ?? [])")
+    }
+    
+    // MARK: 1.17、复制
+    @objc func test117() {
+        JKPrint("复制文字：我是一枚小可爱")
+        // "复制：我是一枚小可爱".toast()
+        "我是一枚小可爱".jk.copy()
+        print("复制的内容是：\(UIPasteboard.general.string ?? "没有内容")")
+    }
+    
+    // MARK: 1.16、设备的UUID
+    @objc func test116() {
+        guard let uuid = String.jk.stringWithUUID() else {
+            return
+        }
+        JKPrint("设备的UUID：\(uuid)")
+    }
+    
+    // MARK: 1.15、字符串根据某个字符进行分隔成数组
+    @objc func test115() {
+        let string = "我爱祖国爱你呀"
+        JKPrint("\(string) 分隔后为：\(string.jk.separatedByString(with: "爱"))")
+    }
+    
+    // MARK: 14、提取首字母, "爱国" --> AG
+    @objc func test114() {
+        let name1 = "我叫雷锋"
+        let name2 = "王冲"
+        let name3 = "潘滢"
+        JKPrint("\(name1) 转成拼音 后为：\(name1.jk.toPinyin()) 提取首字母为：\(name1.jk.pinyinInitials(false))", "\(name2) 转成拼音 后为：\(name2.jk.toPinyin()) 提取首字母为：\(name2.jk.pinyinInitials(false))", "\(name3) 转成拼音 后为：\(name3.jk.toPinyin(true)) 提取首字母为：\(name3.jk.pinyinInitials(true))")
+    }
+    
+    // MARK: 13、转成拼音
+    @objc func test113() {
+        let name1 = "我叫雷锋"
+        let name2 = "王冲"
+        let name3 = "潘滢"
+        JKPrint("\(name1) 转成拼音 后为：\(name1.jk.toPinyin())", "\(name2) 转成拼音 后为：\(name2.jk.toPinyin())", "\(name3) 转成拼音 后为：\(name3.jk.toPinyin(true))")
+    }
+    
+    // MARK: 1.12、JSON 字符串 -> Array
+    @objc func test112() {
+        
+    }
+    
+    // MARK: 1.11、JSON 字符串 -> Dictionary
+    @objc func test111() {
+        
+    }
+    
+    // MARK: 1.10、字符串转数组
+    @objc func test110() {
+        
+    }
+    
+    // MARK: 1.9、字符串转 AnyClass
+    @objc func test19() {
+        let stringContent = "FileManagerExtensionViewController"
+        let stringClass: AnyClass? = stringContent.jk.toClass()
+        JKPrint("字符串转 AnyClass：\(stringContent) 转AnyClass为：\(stringClass!)")
+    }
+    
+    // MARK: 1.8、字符串转 UIViewController
+    @objc func test18() {
+        let stringVC = "DateFormatterExtensionViewController"
+        let vc = stringVC.jk.toViewController()
+        JKPrint("字符串：\(stringVC) 转VC为：\(vc!)", "转控制器名为：\(vc!.className)")
+    }
+    
+    // MARK: 1.7、判断是不是九宫格键盘
+    @objc func test17() {
+        
+    }
+    
+    // MARK: 1.6、将16进制字符串转为Int
+    @objc func test16() {
+        
+    }
+    
+    // MARK: 1.5、base64转字符串转
+    @objc func test15() {
+        let oldString = "123456"
+        let newString = oldString.jk.base64Encode ?? "编码失败"
+        JKPrint("base64转字符串转", "\(oldString) 编码后的字符串：\(newString)", "\(newString) 解码后为：\(newString.jk.base64Decode ?? "解码失败")")
+    }
+    
+    // MARK: 1.4、字符串转 base64
+    @objc func test14() {
+        let oldString = "123456"
+        JKPrint("字符串转 base64", "\(oldString) 编码后的字符串：\(oldString.jk.base64Encode ?? "编码失败")")
+    }
+    
+    // MARK: 1.3、判断是否包含某个子串 -- 忽略大小写
+    @objc func test13() {
+        let string = "abcdefg"
+        JKPrint("字符串：\(string) 是否包含：A ：\(string.jk.containsIgnoringCase(find: "A"))", "字符串：\(string) 是否包含：p ：\(string.jk.containsIgnoringCase(find: "p"))")
+    }
+    
+    // MARK: 1.2、判断是否包含某个子串
+    @objc func test12() {
+        let string = "123哈哈567"
+        JKPrint("字符串：\(string) 是否包含：哈哈 ：\(string.jk.contains(find: "哈哈"))", "字符串：\(string) 是否包含：嘿嘿 ：\(string.jk.contains(find: "嘿嘿"))")
+    }
+    
+    // MARK: 1.1、字符串的长度
+    @objc func test11() {
+        let string = "1234567"
+        JKPrint("字符串：\(string) 的长度是：\(string.jk.length)")
     }
 }

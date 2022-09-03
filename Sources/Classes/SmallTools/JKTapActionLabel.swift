@@ -34,7 +34,7 @@ public class JKTapActionLabel: UIView {
         attString = textString
     }
     
-    @objc public func tap(string: String,with Action: @escaping ()->()) {
+    @objc public func tap(string: String, with Action: @escaping ()->()) {
         tapStringArray.append(string as NSString)
         reactFunctionArray.append(Action)
     }
@@ -44,17 +44,17 @@ public class JKTapActionLabel: UIView {
         var location = (touch as! UITouch).location(in: self)
         let lines = CTFrameGetLines(rectFrame!)
         let lineCounts = CFArrayGetCount(lines)
-        var lineOrigins = [CGPoint](repeating: CGPoint.zero,count: lineCounts)
-        CTFrameGetLineOrigins(rectFrame!, CFRangeMake(0, 0),&lineOrigins )
+        var lineOrigins = [CGPoint](repeating: CGPoint.zero, count: lineCounts)
+        CTFrameGetLineOrigins(rectFrame!, CFRangeMake(0, 0), &lineOrigins)
         var line: CTLine?
         var lineOrigin = CGPoint.zero
-        for j in 0 ... lineCounts-1 {
+        for j in 0...(lineCounts - 1) {
             let origin = lineOrigins[j]
             let path = CTFrameGetPath(rectFrame!)
             let rect = path.boundingBox
             let y = rect.origin.y + rect.size.height - origin.y
             if ((location.y <= y) && (location.x >= (origin.x))) {
-                line = unsafeBitCast( CFArrayGetValueAtIndex(lines, j) ,to: CTLine.self)
+                line = unsafeBitCast( CFArrayGetValueAtIndex(lines, j) , to: CTLine.self)
                 lineOrigin = origin
                 break
             }
@@ -64,12 +64,12 @@ public class JKTapActionLabel: UIView {
         }
         location.x = location.x - lineOrigin.x
         let index = CTLineGetStringIndexForPosition(line!, location)
-        if let start = startIndex ,let end = endIndex {
+        if let start = startIndex,let end = endIndex {
             if (CFIndex(start as String)! <= index && CFIndex(end as String)! >= index) {
                 reactfunc()
             }
         }
-        for tapString:NSString in tapStringArray {
+        for tapString: NSString in tapStringArray {
             let range = (attString.string as NSString).range(of: tapString as String)
             if range.length > 0 {
                 if index >= CFIndex(range.location) && index <= CFIndex(range.location + range.length) {
@@ -80,5 +80,4 @@ public class JKTapActionLabel: UIView {
             }
         }
     }
-
 }

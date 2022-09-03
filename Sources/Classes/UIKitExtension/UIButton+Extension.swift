@@ -487,7 +487,7 @@ public extension UIButton {
         }
     }
     
-    // MARK: 4.3、处于倒计时时，前缀文案，如：「再次获取」 + (xxxs)
+    // MARK: 4.4、处于倒计时时，前缀文案，如：「再次获取」 + (xxxs)
     /// 处于倒计时时，前缀文案，如：「再次获取」 + (xxxs)
     var timeringPrefix: String? {
         get {
@@ -501,10 +501,11 @@ public extension UIButton {
         }
     }
     
-    // MARK: 销毁定时器
+    // MARK: 4.5、销毁定时器
     /// 销毁定时器
     func invalidate() {
         if self.timer != nil {
+            isEnabled = true
             self.timer?.cancel()
             self.timer = nil
         }

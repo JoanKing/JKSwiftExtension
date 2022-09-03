@@ -144,6 +144,8 @@
 		84F937A0258A081700A35E77 /* UICollectionViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F9379F258A081700A35E77 /* UICollectionViewExtensionViewController.swift */; };
 		84FEC03325E8D1FE0074D207 /* JKPaddingLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEC03225E8D1FE0074D207 /* JKPaddingLabelViewController.swift */; };
 		84FFE29D2713D8C60001BDDC /* NineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFE29C2713D8C60001BDDC /* NineViewController.swift */; };
+		E20237AC28B5F4EC00F65F61 /* TGSLoginAgreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20237AB28B5F4EC00F65F61 /* TGSLoginAgreeView.swift */; };
+		E20237AE28B5F98E00F65F61 /* UIAlertController+Extension1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20237AD28B5F98E00F65F61 /* UIAlertController+Extension1.swift */; };
 		E21E3ABB27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21E3ABA27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift */; };
 		E26C272927E9CFD000012389 /* NotificationTetstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C272827E9CFD000012389 /* NotificationTetstViewController.m */; };
 		E289F90F2850262200D840B7 /* RadiusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E289F90E2850262200D840B7 /* RadiusViewController.swift */; };
@@ -313,6 +315,8 @@
 		BB14143CC4D03081EA63A0FB /* Pods-JKSwiftExtension_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSwiftExtension_Tests.debug.xcconfig"; path = "Target Support Files/Pods-JKSwiftExtension_Tests/Pods-JKSwiftExtension_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C380DCAFA65374A7AABDDBAD /* Pods-JKSwiftExtension_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSwiftExtension_Example.release.xcconfig"; path = "Target Support Files/Pods-JKSwiftExtension_Example/Pods-JKSwiftExtension_Example.release.xcconfig"; sourceTree = "<group>"; };
 		D3AEFEB5263B3D64A7F08967 /* Pods-JKSwiftExtension_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSwiftExtension_Example.debug.xcconfig"; path = "Target Support Files/Pods-JKSwiftExtension_Example/Pods-JKSwiftExtension_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		E20237AB28B5F4EC00F65F61 /* TGSLoginAgreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGSLoginAgreeView.swift; sourceTree = "<group>"; };
+		E20237AD28B5F98E00F65F61 /* UIAlertController+Extension1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension1.swift"; sourceTree = "<group>"; };
 		E21E3ABA27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVisualEffectViewExtensionViewController.swift; sourceTree = "<group>"; };
 		E26C272727E9CFD000012389 /* NotificationTetstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationTetstViewController.h; sourceTree = "<group>"; };
 		E26C272827E9CFD000012389 /* NotificationTetstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationTetstViewController.m; sourceTree = "<group>"; };
@@ -489,6 +493,8 @@
 				8415464425F5BD75007DE673 /* FBArrowTestLabel.swift */,
 				E289F9102850279F00D840B7 /* RadiusViewCell.swift */,
 				E2D5FDA52861B876006D1AAB /* AnimationView.swift */,
+				E20237AB28B5F4EC00F65F61 /* TGSLoginAgreeView.swift */,
+				E20237AD28B5F98E00F65F61 /* UIAlertController+Extension1.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1026,6 +1032,7 @@
 				84BF16C8251D9FB6002ACE76 /* UIKitExtensionViewController.swift in Sources */,
 				8415464525F5BD75007DE673 /* FBArrowTestLabel.swift in Sources */,
 				84F11D6B25DE0DB500209B4C /* NSRangeExtensionViewController.swift in Sources */,
+				E20237AE28B5F98E00F65F61 /* UIAlertController+Extension1.swift in Sources */,
 				84B84C3027BBF07F004F04B9 /* Person.swift in Sources */,
 				E289F9112850279F00D840B7 /* RadiusViewCell.swift in Sources */,
 				84D5B11725F4FA2400984F5A /* FBArrowLabel.swift in Sources */,
@@ -1036,6 +1043,7 @@
 				8483C4CF255E94A30034A2F7 /* UITextFieldExtensionViewController.swift in Sources */,
 				8401537D2552A8C3001AB2FD /* URLExtensionViewController.swift in Sources */,
 				E21E3ABB27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift in Sources */,
+				E20237AC28B5F4EC00F65F61 /* TGSLoginAgreeView.swift in Sources */,
 				847DFF2A2550F5D400EEE785 /* CharacterExtensionViewController.swift in Sources */,
 				84D8EC94255BFA3A001ACECA /* UIViewControllerExtensionViewController.swift in Sources */,
 				84F86FBD2564B4C400B74128 /* JKCommonToolViewController.swift in Sources */,
@@ -1227,7 +1235,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3MK2KJ67U7;
 				INFOPLIST_FILE = JKSwiftExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.1;
 				MODULE_NAME = ExampleApp;
@@ -1255,7 +1263,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3MK2KJ67U7;
 				INFOPLIST_FILE = JKSwiftExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.1;
 				MODULE_NAME = ExampleApp;

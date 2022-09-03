@@ -91,7 +91,8 @@ extension JKEmptyViewController {
     
     @objc func click1(sender: UIButton) {
         if sender.tag == 101 {
-            empty.emptyViewType = .noData
+            // empty.emptyViewType = .noData
+            self.dismiss(animated: true, completion: nil)
         } else if sender.tag == 102 {
             empty.emptyViewType = .noNetWork
         } else {

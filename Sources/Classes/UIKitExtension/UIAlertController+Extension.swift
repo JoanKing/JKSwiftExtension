@@ -70,4 +70,17 @@ public extension UIAlertController {
             weakSelf.dismiss(animated: true, completion: nil)
         }
     }
+    
+    //MARK: 1.6、添加多个 UIAlertAction
+    /// 添加多个 UIAlertAction
+    @discardableResult
+    func addActionTitles(_ titles: [String], handler: ((UIAlertController, UIAlertAction) -> Void)? = nil) -> Self {
+        titles.forEach({ (string) in
+            let style: UIAlertAction.Style = string == "取消" ? .cancel : .default
+            self.addAction(UIAlertAction(title: string, style: style, handler: { (action) in
+                handler?(self, action)
+            }))
+        })
+        return self
+    }
 }
