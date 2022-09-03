@@ -49,6 +49,9 @@ end
 <img src="https://user-images.githubusercontent.com/19670000/174286196-a20713b4-d404-4f1e-8128-989593552c62.jpeg" alt="微信交流群" width="220">
 
 ## 版本说明
+   - 2.1.11、版本
+      - (1)、UIVisualEffectView+Extension.swift 新增 import UIKit
+      - (2)、新增 UITapGestureRecognizer+Extension.swift 扩展
    - 2.1.10、版本
       - (1)、String+Extension.swift 新增 匹配两个字符之间的内容 matchesMiddleContentOfCharacters
       - (2)、CGFloat+Extension.swift、Float+Extension.swift 新增四舍五入方法：rounding(scale: Int16 = 1)
