@@ -49,6 +49,11 @@ end
 <img src="https://user-images.githubusercontent.com/19670000/174286196-a20713b4-d404-4f1e-8128-989593552c62.jpeg" alt="微信交流群" width="220">
 
 ## 版本说明
+   - 2.1.10、版本
+      - (1)、String+Extension.swift 新增 匹配两个字符之间的内容 matchesMiddleContentOfCharacters
+      - (2)、CGFloat+Extension.swift、Float+Extension.swift 新增四舍五入方法：rounding(scale: Int16 = 1)
+      - (3)、NSDecimalNumberHandler+Extension.swift 新增四舍五入方法：rounding(value: Any, scale: Int16 = 0)
+      - (4)、JKEmptyView.swift 空白视图，使用简单，方便去显示空白或者无网络的界面，有待完善
    - 2.1.9、版本：
       - (1)、UIButton扩展里面的扩大点击事件，做了修复，之前把self.base写成了self，导致扩大范围失效，在2.1.9分支做了修复
       - (2)、新增字符串有关子串在父字符串range的范围，返回一个子串的范围数组
