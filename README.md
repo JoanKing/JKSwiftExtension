@@ -58,9 +58,9 @@ end
          - 1、修复有关获取sim卡信息强制解包崩溃的问题 
          - 2、增加设备的震动相关方法，SystemSoundID、UINotificationFeedbackGenerator、UIImpactFeedbackGenerator
      - (3)、UITextView+Extension.swift
-         - 1、修复方法inputRestrictions中当有字数显示，在复制内容的时候，不可截取的问题
+         - 1、修复方法inputRestrictions中当有字数限制，在复制内容的时候，不可截取的问题
      - (4)、UITextField+Extension.swift
-         - 1、修复方法inputRestrictions中当有字数显示，在复制内容的时候，不可截取的问题
+         - 1、修复方法inputRestrictions中当有字数限制，在复制内容的时候，不可截取的问题
    - 2.1.12、版本
       - (1)、UIVisualEffectView+Extension.swift 新增 import UIKit
       - (2)、新增 UITapGestureRecognizer+Extension.swift 扩展
