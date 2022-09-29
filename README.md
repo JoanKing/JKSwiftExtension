@@ -50,16 +50,16 @@ end
 
 ## 版本说明
   - 2.2.1、版本
-      - (1)、String+Extension.swift 扩展
+      (1)、String+Extension.swift 扩展
        - 1、增加手机隐藏位数，可设置前后的隐藏位数，方法：hidePhone  
        - 2、增加邮箱隐藏位数，可设置前后的隐藏位数，方法：hideEmail  
        - 3、修复插入任意位置插入字符串的bug，方法：insertString
-      - (2)、UIDevice+Extension.swift 
+      (2)、UIDevice+Extension.swift 
        - 1、修复有关获取sim卡信息强制解包崩溃的问题 
        - 2、增加设备的震动相关方法，SystemSoundID、UINotificationFeedbackGenerator、UIImpactFeedbackGenerator
-      - (3)、UITextView+Extension.swift
+      (3)、UITextView+Extension.swift
        - 1、修复方法inputRestrictions中当有字数显示，在复制内容的时候，不可截取的问题
-      - (4)、UITextField+Extension.swift
+      (4)、UITextField+Extension.swift
        - 1、修复方法inputRestrictions中当有字数显示，在复制内容的时候，不可截取的问题
    - 2.1.12、版本
       - (1)、UIVisualEffectView+Extension.swift 新增 import UIKit
