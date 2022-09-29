@@ -51,7 +51,7 @@ end
 ## 版本说明
   - 2.2.1、版本
       - (1)、String+Extension.swift 扩展
-       1、增加手机隐藏位数，可设置前后的隐藏位数，方法：hidePhone
+       1、增加手机隐藏位数，可设置前后的隐藏位数，方法：hidePhone  
        2、增加邮箱隐藏位数，可设置前后的隐藏位数，方法：hideEmail
        3、修复插入任意位置插入字符串的bug，方法：insertString
       - (2)、UIDevice+Extension.swift 
