@@ -166,12 +166,14 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     /// 字符串根据某个字符进行分隔成数组
     /// - Parameter char: 分隔符
     /// - Returns: 分隔后的数组
-    func separatedByString(with char: String) -> Array<Any> {
-        return (base as! String).components(separatedBy: char)
+    func separatedByString(with char: String) -> Array<String> {
+        let arraySubstrings = (base as! String).components(separatedBy: char)
+        let arrayStrings: [String] = arraySubstrings.compactMap { "\($0)" }
+        return arrayStrings
     }
     
     // MARK: 1.16、设备的UUID
-    /// UUID
+    /// 设备的UUID
     static func stringWithUUID() -> String? {
         let uuid = CFUUIDCreate(kCFAllocatorDefault)
         let cfString = CFUUIDCreateString(kCFAllocatorDefault, uuid)
@@ -394,8 +396,8 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
  */
 public extension JKPOP where Base: ExpressibleByStringLiteral {
     
-    // MARK: 3.1、去除字符串前后的 空格
-    /// 去除字符串前后的换行和换行
+    // MARK: 3.1、去除字符串前后的 空格 
+    /// 去除字符串前后的 空格
     var removeBeginEndAllSapcefeed: String {
         let resultString = (base as! String).trimmingCharacters(in: CharacterSet.whitespaces)
         return resultString
@@ -1174,7 +1176,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     /// 隐藏手机号中间的几位
     /// - Parameter combine: 隐藏的字符串(替换的类型)
     /// - Returns: 返回隐藏的手机号
-    public func hidePhone(combine: String = "****") -> String {
+    public func hide12BitsPhone(combine: String = "****") -> String {
         if (base as! String).count >= 11 {
             let pre = self.sub(start: 0, length: 3)
             let post = self.sub(start: 7, length: 4)
@@ -1184,7 +1186,47 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         }
     }
     
-    // MARK: 9.14、检查字符串是否有特定前缀：hasPrefix
+    // MARK: 9.14、隐藏手机号中间的几位(保留前几位和后几位)
+    /// 隐藏手机号中间的几位(保留前几位和后几位)
+    /// - Parameters:
+    ///   - combine: 中间加密的符号
+    ///   - digitsBefore: 前面保留的位数
+    ///   - digitsAfter: 后面保留的位数
+    /// - Returns: 返回隐藏的手机号
+    public func hidePhone(combine: String = "*", digitsBefore: Int = 2, digitsAfter: Int = 2) -> String {
+        let phoneLength: Int = (base as! String).count
+        if phoneLength > digitsBefore + digitsAfter {
+            let combineCount: Int = phoneLength - digitsBefore - digitsAfter
+            var combineContent: String = ""
+            for _ in 0..<combineCount {
+                combineContent = combineContent + combine
+            }
+            let pre = self.sub(start: 0, length: digitsBefore)
+            let post = self.sub(start: phoneLength - digitsAfter, length: digitsAfter)
+            return pre + "\(combineContent)" + post
+        } else {
+            return (base as! String)
+        }
+    }
+    
+    // MARK: 9.15、隐藏邮箱中间的几位(保留前几位和后几位)
+    /// 隐藏邮箱中间的几位(保留前几位和后几位)
+    /// - Parameters:
+    ///   - combine: 加密的符号
+    ///   - digitsBefore: 前面保留几位
+    ///   - digitsAfter: 后面保留几位
+    /// - Returns: 返回加密后的字符串
+    public func hideEmail(combine: String = "*", digitsBefore: Int = 1, digitsAfter: Int = 1) -> String {
+        let emailArray = (base as! String).jk.separatedByString(with: "@")
+        if emailArray.count == 2 {
+            let fistContent = emailArray[0]
+            let encryptionContent = fistContent.jk.hidePhone(combine: "*", digitsBefore: 1, digitsAfter: 1)
+            return encryptionContent + "@" +  emailArray[1]
+        }
+        return (base as! String)
+    }
+    
+    // MARK: 9.16、检查字符串是否有特定前缀：hasPrefix
     /// 检查字符串是否有特定前缀：hasPrefix
     /// - Parameter prefix: 前缀字符串
     /// - Returns: 结果
@@ -1192,7 +1234,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return (base as! String).hasPrefix(prefix)
     }
     
-    // MARK: 9.15、检查字符串是否有特定后缀：hasSuffix
+    // MARK: 9.17、检查字符串是否有特定后缀：hasSuffix
     /// 检查字符串是否有特定后缀：hasSuffix
     /// - Parameter suffix: 后缀字符串
     /// - Returns: 结果
@@ -1200,7 +1242,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return (base as! String).hasSuffix(suffix)
     }
     
-    // MARK: 9.16、是否为0-9之间的数字(字符串的组成是：0-9之间的数字)
+    // MARK: 9.18、是否为0-9之间的数字(字符串的组成是：0-9之间的数字)
     /// 是否为0-9之间的数字(字符串的组成是：0-9之间的数字)
     /// - Returns: 返回结果
     public func isValidNumberValue() -> Bool {
@@ -1211,7 +1253,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return predicateValue(rgex: rgex)
     }
     
-    // MARK: 9.17、是否为数字或者小数点(字符串的组成是：0-9之间的数字或者小数点即可)
+    // MARK: 9.19、是否为数字或者小数点(字符串的组成是：0-9之间的数字或者小数点即可)
     /// 是否为数字或者小数点(字符串的组成是：0-9之间的数字或者小数点即可)
     /// - Returns: 返回结果
     public func isValidNumberAndDecimalPoint() -> Bool {
@@ -1222,7 +1264,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return predicateValue(rgex: rgex)
     }
     
-    // MARK: 9.18、验证URL格式是否正确
+    // MARK: 9.20、验证URL格式是否正确
     /// 验证URL格式是否正确
     /// - Returns: 结果
     public func verifyUrl() -> Bool {
@@ -1234,13 +1276,13 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return false
     }
     
-    // MARK: 9.19、是否是一个有效的文件URL, "file://Documents/file.txt".isValidFileUrl -> true
+    // MARK: 9.21、是否是一个有效的文件URL, "file://Documents/file.txt".isValidFileUrl -> true
     /// 是否是一个有效的文件URL
     public var isValidFileUrl: Bool {
         return URL(string: base as! String)?.isFileURL ?? false
     }
     
-    // MARK: 9.20、富文本匹配(某些关键词高亮)
+    // MARK: 9.22、富文本匹配(某些关键词高亮)
     /// 富文本匹配(某些关键词高亮)
     /// - Parameters:
     ///   - substring: 匹配的关键字
@@ -1270,7 +1312,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return attributedString
     }
     
-    //MARK: 9.21、判断是否是视频链接
+    //MARK: 9.23、判断是否是视频链接
     /// 判断是否是视频链接
     public var isVideoUrl: Bool {
         if (base as! String).hasSuffix("mp4") || (base as! String).hasSuffix("MP4") || (base as! String).hasSuffix("MOV") || (base as! String).hasSuffix("mov") || (base as! String).hasSuffix("mpg") || (base as! String).hasSuffix("mpeg") || (base as! String).hasSuffix("mpg4") || (base as! String).hasSuffix("wm") || (base as! String).hasSuffix("wmx") || (base as! String).hasSuffix("mkv") || (base as! String).hasSuffix("mkv2") || (base as! String).hasSuffix("3gp") || (base as! String).hasSuffix("3gpp") || (base as! String).hasSuffix("wv") || (base as! String).hasSuffix("wvx") || (base as! String).hasSuffix("avi") || (base as! String).hasSuffix("asf") || (base as! String).hasSuffix("fiv") || (base as! String).hasSuffix("swf") || (base as! String).hasSuffix("flv") || (base as! String).hasSuffix("f4v") || (base as! String).hasSuffix("m4u") || (base as! String).hasSuffix("m4v") || (base as! String).hasSuffix("mov") || (base as! String).hasSuffix("movie") || (base as! String).hasSuffix("pvx") || (base as! String).hasSuffix("qt") || (base as! String).hasSuffix("rv") || (base as! String).hasSuffix("vod") || (base as! String).hasSuffix("rm") || (base as! String).hasSuffix("ram") || (base as! String).hasSuffix("rmvb") {
@@ -1424,18 +1466,18 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return JKRegexHelper.matchRange(base as! String, pattern: subString)
     }
     
-    // MARK: 10.10、在任意位置插入字符串
-    /// 在任意位置插入字符串
+    // MARK: 10.10、在任意位置后面插入字符串
+    /// 在任意位置后面插入字符串
     /// - Parameters:
     ///   - content: 插入内容
     ///   - locat: 插入的位置
     /// - Returns: 添加后的字符串
     public func insertString(content: String, locat: Int) -> String {
-        guard locat < (base as! String).count else {
-            return (base as! String)
+        guard locat < (base as! String).count && locat > 0  else {
+            return locat <= 0 ? (content + (base as! String)) : ((base as! String) + content)
         }
         let str1 = (base as! String).jk.sub(to: locat)
-        let str2 =  (base as! String).jk.sub(from: locat + 1)
+        let str2 = (base as! String).jk.sub(from: locat)
         return str1 + content + str2
     }
     

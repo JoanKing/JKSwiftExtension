@@ -69,58 +69,6 @@ public extension JKPOP where Base: UITextField {
         let arrStr = NSMutableAttributedString(string: self.base.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: color, NSAttributedString.Key.font: font])
         self.base.attributedPlaceholder = arrStr
     }
-    
-    // MARK: 1.5、限制字数的输入(提示在：- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string; 里面调用)
-    /// 限制字数的输入
-    /// - Parameters:
-    ///   - range: 范围
-    ///   - text: 输入的文字
-    ///   - maxCharacters: 限制字数
-    ///   - regex: 可输入内容(正则)
-    /// - Returns: 返回是否可输入
-    func inputRestrictions(shouldChangeTextIn range: NSRange, replacementText text: String, maxCharacters: Int, regex: String?) -> Bool {
-        guard !text.isEmpty else {
-            return true
-        }
-        
-        guard let oldContent = self.base.text else {
-            return false
-        }
-        
-        if let _ = self.base.markedTextRange {
-             // 有高亮
-            if range.length == 0 {
-                // 联想中
-                return oldContent.count + 1 <= maxCharacters
-            } else {
-                // 正则的判断
-                if let weakRegex = regex, !JKRegexHelper.match(text, pattern: weakRegex) {
-                    return false
-                }
-                // 联想选中键盘
-                let allContent = oldContent.jk.sub(to: range.location) + text
-                if allContent.count > maxCharacters  {
-                    let newContent = allContent.jk.sub(to: maxCharacters)
-                    // print("content1：\(allContent) content2：\(newContent)")
-                    self.base.text = newContent
-                    return false
-                }
-            }
-        } else {
-            guard !text.jk.isNineKeyBoard() else {
-                return true
-            }
-            // 正则的判断
-            if let weakRegex = regex, !JKRegexHelper.match(text, pattern: weakRegex) {
-                return false
-            }
-            // 2、如果数字大于指定位数，不能输入
-            guard oldContent.count + text.count <= maxCharacters else {
-                return false
-            }
-        }
-        return true
-    }
 }
 
 // MARK: - 二、链式编程
@@ -233,5 +181,77 @@ public extension UITextField {
     func keyboardType(_ keyboardType: UIKeyboardType) -> Self {
         self.keyboardType = keyboardType
         return self
+    }
+}
+
+// MARK: - 三、输入内容以及正则的配置
+public extension JKPOP where Base: UITextField {
+    // MARK: 3.1、限制字数的输入(提示在：- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string; 里面调用)
+    /// 限制字数的输入
+    /// - Parameters:
+    ///   - range: 范围
+    ///   - text: 输入的文字
+    ///   - maxCharacters: 限制字数
+    ///   - regex: 可输入内容(正则)
+    ///   - isInterceptString: 复制文字进来，在字数限制的情况下，多余的字体是否截取掉，默认true
+    /// - Returns: 返回是否可输入
+    func inputRestrictions(shouldChangeTextIn range: NSRange, replacementText text: String, maxCharacters: Int, regex: String?, isInterceptString: Bool = true) -> Bool {
+        guard !text.isEmpty else {
+            return true
+        }
+        
+        guard let oldContent = self.base.text else {
+            return false
+        }
+        
+        if let _ = self.base.markedTextRange {
+             // 有高亮
+            if range.length == 0 {
+                // 联想中
+                return oldContent.count + 1 <= maxCharacters
+            } else {
+                // 正则的判断
+                if let weakRegex = regex, !JKRegexHelper.match(text, pattern: weakRegex) {
+                    return false
+                }
+                // 联想选中键盘
+                let allContent = oldContent.jk.sub(to: range.location) + text
+                if allContent.count > maxCharacters  {
+                    let newContent = allContent.jk.sub(to: maxCharacters)
+                    // print("content1：\(allContent) content2：\(newContent)")
+                    self.base.text = newContent
+                    return false
+                }
+            }
+        } else {
+            guard !text.jk.isNineKeyBoard() else {
+                return true
+            }
+            // 正则的判断
+            if let weakRegex = regex, !JKRegexHelper.match(text, pattern: weakRegex) {
+                return false
+            }
+            // 2、如果数字大于指定位数，不能输入
+            guard oldContent.count + text.count <= maxCharacters else {
+                if oldContent.count < maxCharacters {
+                    let remainingLength = maxCharacters - oldContent.count
+                    let copyString = text.jk.removeBeginEndAllSapcefeed
+                    // print("范围：\(range) copy的字符串：\(copyString) 长度：\(copyString.count)  截取的字符串：\(copyString.jk.sub(to: remainingLength))")
+                    let newString = oldContent.jk.insertString(content: copyString.jk.sub(to: remainingLength), locat: range.location)
+                    // print("老的字符串：\(oldContent) 新的的字符串：\(newString) 长度：\(newString.count)")
+                    self.base.text = newString
+                    // 异步改变
+                    JKAsyncs.asyncDelay(0.1) {} _: {
+                        if let selectedRange = self.base.selectedTextRange {
+                            if let newPosition = self.base.position(from: selectedRange.start, offset: remainingLength) {
+                                self.base.selectedTextRange = self.base.textRange(from: newPosition, to: newPosition)
+                            }
+                        }
+                    }
+                }
+                return false
+            }
+        }
+        return true
     }
 }

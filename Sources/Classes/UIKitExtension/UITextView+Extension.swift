@@ -107,17 +107,18 @@ public extension JKPOP where Base: UITextView {
     }
 }
 
-// MARK: - 三、其他的扩展
+// MARK: - 三、输入内容以及正则的配置
 public extension JKPOP where Base: UITextView {
-    // MARK: 3.1、限制字数的输入(提示在：- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;方法里面调用)
-    /// 限制字数的输入
+    // MARK: 3.1、限制字数的输入(可配置正则)(提示在：- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;方法里面调用)
+    /// 限制字数的输入(可配置正则)
     /// - Parameters:
     ///   - range: 范围
     ///   - text: 输入的文字
     ///   - maxCharacters: 限制字数
     ///   - regex: 可输入内容(正则)
+    ///   - isInterceptString: 复制文字进来，在字数限制的情况下，多余的字体是否截取掉，默认true
     /// - Returns: 返回是否可输入
-    func inputRestrictions(shouldChangeTextIn range: NSRange, replacementText text: String, maxCharacters: Int, regex: String?) -> Bool {
+    func inputRestrictions(shouldChangeTextIn range: NSRange, replacementText text: String, maxCharacters: Int, regex: String?, isInterceptString: Bool = true) -> Bool {
         guard !text.isEmpty else {
             return true
         }
@@ -171,6 +172,27 @@ public extension JKPOP where Base: UITextView {
             // print("没有range---------：NO 内容：\(oldContent) 长度：\(oldContent.count) 新的内容：\(text) 长度：\(text.count) range：\(range)")
             // 2、如果数字大于指定位数，不能输入
             guard oldContent.count + text.count <= maxCharacters else {
+                // 判断字符串是否要截取
+                guard isInterceptString else {
+                    // 不截取，也就是不让输入进去
+                    return false
+                }
+                if oldContent.count < maxCharacters {
+                    let remainingLength = maxCharacters - oldContent.count
+                    let copyString = text.jk.removeBeginEndAllSapcefeed
+                    // print("范围：\(range) copy的字符串：\(copyString) 长度：\(copyString.count)  截取的字符串：\(copyString.jk.sub(to: remainingLength))")
+                    let newString = oldContent.jk.insertString(content: copyString.jk.sub(to: remainingLength), locat: range.location)
+                    // print("老的字符串：\(oldContent) 新的的字符串：\(newString) 长度：\(newString.count)")
+                    self.base.text = newString
+                    // 异步改变
+                    JKAsyncs.asyncDelay(0.05) {} _: {
+                        if let selectedRange = self.base.selectedTextRange {
+                            if let newPosition = self.base.position(from: selectedRange.start, offset: remainingLength) {
+                                self.base.selectedTextRange = self.base.textRange(from: newPosition, to: newPosition)
+                            }
+                        }
+                    }
+                }
                 return false
             }
         }

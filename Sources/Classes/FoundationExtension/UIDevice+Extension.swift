@@ -4,11 +4,12 @@
 //
 //  Created by IronMan on 2020/10/30.
 //
-
+// link: https://www.theiphonewiki.com/wiki/Models#p-search
 import Foundation
 import UIKit
 // 使用CoreTelephony获取运营商信息、网络制式（4G、3G、2G）
 import CoreTelephony
+import AudioToolbox
 
 extension UIDevice: JKPOPCompatible {}
 // 这里只指屏幕类型
@@ -478,7 +479,7 @@ public extension JKPOP where Base: UIDevice {
         guard  let carriers = getCarriers(), carriers.count > 0 else {
             return nil
         }
-        return carriers.map{ $0.carrierName!}
+        return carriers.map{ $0.carrierName ?? ""}.filter{ $0.count > 0 }
     }
     
     // MARK: 3.5、移动国家码(MCC)
@@ -489,7 +490,7 @@ public extension JKPOP where Base: UIDevice {
         guard  let carriers = getCarriers(), carriers.count > 0 else {
             return nil
         }
-        return carriers.map{ $0.mobileCountryCode!}
+        return carriers.map{ $0.mobileCountryCode ?? ""}.filter{ $0.count > 0 }
     }
     
     // MARK: 3.6、移动网络码(MNC)
@@ -500,7 +501,7 @@ public extension JKPOP where Base: UIDevice {
         guard  let carriers = getCarriers(), carriers.count > 0 else {
             return nil
         }
-        return carriers.map{ $0.mobileNetworkCode!}
+        return carriers.map{ $0.mobileNetworkCode ?? ""}.filter{ $0.count > 0 }
     }
     
     // MARK: 3.7、ISO国家代码
@@ -511,7 +512,7 @@ public extension JKPOP where Base: UIDevice {
         guard  let carriers = getCarriers(), carriers.count > 0 else {
             return nil
         }
-        return carriers.map{ $0.isoCountryCode!}
+        return carriers.map{ $0.isoCountryCode ?? ""}.filter{ $0.count > 0 }
     }
     
     // MARK: 3.8、是否允许VoIP
@@ -522,7 +523,7 @@ public extension JKPOP where Base: UIDevice {
         guard let carriers = getCarriers(), carriers.count > 0 else {
             return nil
         }
-        return carriers.map{ $0.allowsVOIP}
+        return carriers.map{ $0.allowsVOIP }
     }
     
     /// 获取并输出运营商信息
@@ -583,5 +584,50 @@ public extension JKPOP where Base: UIDevice {
             break
         }
         return networkType
+    }
+}
+
+// MARK: - 四、设备的震动
+public enum SystemSoundIDShockType: Int64 {
+    /// 短振动，普通短震，3D Touch 中 Peek 震动反馈
+    case short3DTouchPeekVibration = 1519
+    /// 普通短震，3D Touch 中 Pop 震动反馈,home 键的振动
+    case short3DPopHomeVibration = 1520
+    /// 连续三次短震
+    case thereshortVibration = 1521
+}
+
+public extension JKPOP where Base: UIDevice {
+    //MARK: 4.1、SystemSoundID
+    /// 使用 SystemSoundID 产生的震动
+    /// - Parameter type: 震动的类型
+    static func systemSoundIDShock(type: SystemSoundIDShockType) {
+        let soundShort = SystemSoundID(type.rawValue)
+        AudioServicesPlaySystemSound(soundShort)
+    }
+    
+    //MARK: 4.2、UINotificationFeedbackGenerator 来设置的手机振动
+    /// UINotificationFeedbackGenerator 来设置的手机振动
+    @available(iOS 10.0, *)
+    static func notificationFeedbackGeneratorSuccess(_ notificationType: UINotificationFeedbackGenerator.FeedbackType) {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(notificationType)
+    }
+    
+    //MARK: 4.3、UIImpactFeedbackGenerator 来设置的手机振动
+    /// UIImpactFeedbackGenerator 来设置的手机振动
+    @available(iOS 10.0, *)
+    static func impactFeedbackGenerator(style: UIImpactFeedbackGenerator.FeedbackStyle) {
+        let generator = UIImpactFeedbackGenerator(style: style)
+        generator.impactOccurred()
+    }
+    
+    //MARK: 4.4、模拟选择滚轮一类控件时的震动
+    /// 模拟选择滚轮一类控件时的震动
+    ///
+    /// UISelectionFeedbackGenerator中只有一个类型，是用来模拟选择滚轮一类控件时的震动，比如计时器中的picker滚动时就有这个效果。
+    @available(iOS 10.0, *)
+    static func selectionFeedbackGeneratorChanged() {
+        UISelectionFeedbackGenerator().selectionChanged()
     }
 }

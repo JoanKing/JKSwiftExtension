@@ -13,8 +13,8 @@ class UITextViewExtensionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headDataArray = ["一、基本的扩展 ", "二、文本链接的扩展"]
-        dataArray = [["暂无"], ["添加链接文本（链接为空时则表示普通文本）", "转换特殊符号标签字段"]]
+        headDataArray = ["一、基本的扩展 ", "二、文本链接的扩展", "三、输入内容以及正则的配置"]
+        dataArray = [["暂无"], ["添加链接文本（链接为空时则表示普通文本）", "转换特殊符号标签字段"], ["限制字数的输入(可配置正则)(提示在：- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;方法里面调用)"]]
     }
     
     deinit {
@@ -22,6 +22,14 @@ class UITextViewExtensionViewController: BaseViewController {
     }
 }
 
+// MARK: - 三、输入内容以及正则的配置
+extension UITextViewExtensionViewController {
+    
+    // MARK: 3.1、限制字数的输入(可配置正则)(提示在：- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;方法里面调用)
+    @objc func test31() {
+        self.navigationController?.pushViewController(TextViewTestViewController(), animated: true)
+    }
+}
 // MARK: - 二、文本链接的扩展
 extension UITextViewExtensionViewController: UITextViewDelegate {
     
@@ -116,5 +124,49 @@ extension UITextViewExtensionViewController {
     // MARK: 1.1、设置占位符
     @objc func test11() {
         
+    }
+}
+
+
+//MARK: - 测试：输入内容以及正则的一个输入内容的限制
+class TextViewTestViewController: UIViewController, UITextViewDelegate {
+    
+    lazy var inputTextView: UITextView = {
+        let textView = UITextView()
+        textView.backgroundColor = .white
+        textView.delegate = self
+        textView.font = UIFont.systemFont(ofSize: 20)
+        return textView
+    }()
+    lazy var limitTipLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.text = "限制输入20个字符"
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 18)
+        return label
+    }()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .brown
+        
+        view.addSubview(limitTipLabel)
+        limitTipLabel.snp.makeConstraints { make in
+            make.top.equalTo(jk_kNavFrameH + 20)
+            make.left.equalTo(20)
+            make.right.equalTo(-20)
+            make.height.equalTo(22)
+        }
+        view.addSubview(inputTextView)
+        inputTextView.snp.makeConstraints { make in
+            make.top.equalTo(limitTipLabel.snp.bottom)
+            make.left.equalTo(20)
+            make.right.equalTo(-20)
+            make.height.equalTo(200)
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        textView.jk.inputRestrictions(shouldChangeTextIn: range, replacementText: text, maxCharacters: 20, regex: nil, isInterceptString: true)
     }
 }

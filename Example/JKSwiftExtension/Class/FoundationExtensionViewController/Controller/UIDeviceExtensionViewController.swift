@@ -13,8 +13,75 @@ class UIDeviceExtensionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headDataArray = ["一、基本的扩展", "二、设备的基本信息", "三、有关设备运营商的信息"]
-        dataArray = [["设备的名字", "获取设备类型", "判断是否为 iPad", "判断是否是 pad", "判断是否为 iphone", "判断是否是 iphone5", "判断是否是 iphone6", "是不是 x 系列", "是不是 xs系列", "当前设备是不是模拟器"], ["当前设备的系统版本", "当前系统更新时间", "当前设备的类型", "当前系统的名称", "当前设备的名称", "当前设备是否越狱", "当前硬盘的空间", "当前硬盘可用空间", "当前硬盘已经使用的空间", "获取总内存大小", "当前设备能否打电话", "当前设备语言", "设备区域化型号"], ["sim卡信息", "数据业务对应的通信技术", "设备网络制式", "运营商名字", "移动国家码(MCC)", "移动网络码(MNC)", "ISO国家代码", "是否允许VoIP"]]
+        headDataArray = ["一、基本的扩展", "二、设备的基本信息", "三、有关设备运营商的信息", "四、设备的震动"]
+        dataArray = [["设备的名字", "获取设备类型", "判断是否为 iPad", "判断是否是 pad", "判断是否为 iphone", "判断是否是 iphone5", "判断是否是 iphone6", "是不是 x 系列", "是不是 xs系列", "当前设备是不是模拟器"], ["当前设备的系统版本", "当前系统更新时间", "当前设备的类型", "当前系统的名称", "当前设备的名称", "当前设备是否越狱", "当前硬盘的空间", "当前硬盘可用空间", "当前硬盘已经使用的空间", "获取总内存大小", "当前设备能否打电话", "当前设备语言", "设备区域化型号"], ["sim卡信息", "数据业务对应的通信技术", "设备网络制式", "运营商名字", "移动国家码(MCC)", "移动网络码(MNC)", "ISO国家代码", "是否允许VoIP"], ["通过SystemSoundID震动", "UINotificationFeedbackGenerator 来设置的手机振动", "UIImpactFeedbackGenerator 来设置的手机振动", "模拟选择滚轮一类控件时的震动"]]
+    }
+}
+
+// MARK: - 四、设备的震动
+extension UIDeviceExtensionViewController {
+    
+    // MARK: 4.4、模拟选择滚轮一类控件时的震动
+    @available(iOS 10.0, *)
+    @objc func test44() {
+        JKPrint("模拟选择滚轮一类控件时的震动")
+        UIDevice.jk.selectionFeedbackGeneratorChanged()
+    }
+    
+    // MARK: 4.3、UIImpactFeedbackGenerator 来设置的手机振动
+    @available(iOS 10.0, *)
+    @objc func test43() {
+        JKPrint("UIImpactFeedbackGenerator 来设置的手机振动")
+        JKAsyncs.asyncDelay(1) {
+        } _: {
+            UIDevice.jk.impactFeedbackGenerator(style: .light)
+            JKAsyncs.asyncDelay(2) {
+            } _: {
+                UIDevice.jk.impactFeedbackGenerator(style: .medium)
+                JKAsyncs.asyncDelay(2) {
+                } _: {
+                    UIDevice.jk.impactFeedbackGenerator(style: .heavy)
+                }
+            }
+        }
+    }
+    
+    //MARK: 4.2、UINotificationFeedbackGenerator 来设置的手机振动
+    @available(iOS 10.0, *)
+    @objc func test42() {
+        JKPrint("UINotificationFeedbackGenerator 来设置的手机振动")
+        JKAsyncs.asyncDelay(1) {
+        } _: {
+            UIDevice.jk.notificationFeedbackGeneratorSuccess(.success)
+            JKAsyncs.asyncDelay(2) {
+            } _: {
+                UIDevice.jk.notificationFeedbackGeneratorSuccess(.error)
+                JKAsyncs.asyncDelay(2) {
+                } _: {
+                    UIDevice.jk.notificationFeedbackGeneratorSuccess(.warning)
+                }
+            }
+        }
+    }
+    
+    // MARK: 4.1、通过SystemSoundID震动
+    @objc func test41() {
+        JKPrint("通过SystemSoundID震动")
+        JKAsyncs.asyncDelay(1) {
+        } _: {
+            // 1、短振动，普通短震，3D Touch 中 Peek 震动反馈
+            UIDevice.jk.systemSoundIDShock(type: .short3DTouchPeekVibration)
+            JKAsyncs.asyncDelay(2) {
+            } _: {
+                // 2、普通短震，3D Touch 中 Pop 震动反馈,home 键的振动
+                UIDevice.jk.systemSoundIDShock(type: .short3DPopHomeVibration)
+                JKAsyncs.asyncDelay(2) {
+                } _: {
+                    // 3、连续三次短震
+                    UIDevice.jk.systemSoundIDShock(type: .thereshortVibration)
+                }
+            }
+        }
     }
 }
 
@@ -77,12 +144,12 @@ extension UIDeviceExtensionViewController {
         JKPrint("数据业务对应的通信技术：\(currentRadioAccessTechnology)")
     }
     
-    // MARK: 3.1、数据业务对应的通信技术
+    // MARK: 3.1、sim卡信息
     @objc func test31() {
-        guard let currentRadioAccessTechnology = UIDevice.jk.currentRadioAccessTechnologys() else {
+        guard let carriers = UIDevice.jk.simCardInfos() else {
             return
         }
-        JKPrint("数据业务对应的通信技术：\(currentRadioAccessTechnology)")
+        JKPrint("数据业务对应的通信技术：\(carriers)")
     }
 }
 

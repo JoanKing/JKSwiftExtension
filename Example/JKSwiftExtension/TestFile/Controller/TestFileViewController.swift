@@ -49,10 +49,15 @@ extension TestFileViewController {
     }
  
     @objc func test18() {
-        self.navigationController?.pushViewController(ProfileViewController(), animated: true)
+        self.navigationController?.pushViewController(PresetntOneViewController(), animated: true)
     }
     
     @objc func test17() {
+        //var array1 = ["a", "b", "c"]
+        // 也不可以越界
+        //array1.insert("yy", at: 0)
+        //print(array1)
+        let oldString = "12345678"
         
     }
     
@@ -65,7 +70,9 @@ extension TestFileViewController {
     }
     
     @objc func test14() {
-        
+        let numbers = [1,2, nil,4]
+        let result = numbers.compactMap{ $0 } //[16, 64, 4]
+        print(result)  // [3,4,5,6]
     }
     
     @objc func test13() {
