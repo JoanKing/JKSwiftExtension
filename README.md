@@ -46,9 +46,12 @@ end
 ## 讨论
 - 微信号: wangc2318151015
 - 邮箱: jkironman@163.com
-<img src="https://user-images.githubusercontent.com/19670000/192995983-fe6b1b95-336f-4985-8366-b96ed0ce4ab5.jpeg" alt="微信交流群" width="220">
+<img src="https://user-images.githubusercontent.com/19670000/200982257-a0a8644e-3162-4ee6-9ec8-83f6a095f9b4.jpeg" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.2.2、版本
+       - UIView+Extension.swift的圆角和阴影共存的bugfix
+       - 其他扩展的bugfix
   - 2.2.1、版本
       - (1)、String+Extension.swift 扩展
          - 1、增加手机隐藏位数，可设置前后的隐藏位数，方法：hidePhone  
