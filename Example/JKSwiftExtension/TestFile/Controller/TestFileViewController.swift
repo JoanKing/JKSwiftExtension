@@ -80,7 +80,13 @@ extension TestFileViewController {
     }
     
     @objc func test12() {
-        showAlertAgreement()
+        // showAlertAgreement()
+        var sectionModels = [[11, 12, 13], [21, 22, 23]]
+        print("数组：\(sectionModels)")
+        //var items = sectionModels[0]
+        // items.remove(at: 1)
+        sectionModels[0].removeAll(where: { $0  == 12 })
+        print("移除后数组：\(sectionModels)")
     }
     
     @objc func test11() {

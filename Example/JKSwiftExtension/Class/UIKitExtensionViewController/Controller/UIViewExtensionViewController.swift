@@ -651,18 +651,18 @@ extension UIViewExtensionViewController {
     @objc func test34() {
         
         var testView = UIView(frame: CGRect(x: 0, y: 100, width: 300, height: 200))
-        testView.backgroundColor = .randomColor
+        testView.backgroundColor = .yellow
         testView.jk.centerX = self.view.jk.centerX
-        testView.layer.cornerRadius = 6
+        // testView.layer.cornerRadius = 6
         testView.clipsToBounds = false
         self.view.addSubview(testView)
         
         let testLabel = UILabel(frame: CGRect(x: 50, y: 50, width: 200, height: 100))
-        testLabel.backgroundColor = .randomColor
+        testLabel.backgroundColor = .white
         testLabel.text = "2秒后消失"
         testLabel.textAlignment = .center
         testLabel.textColor = .randomColor
-        testLabel.jk.addCornerAndShadow(superview: testView, conrners: [.allCorners], radius: 6, shadowColor: UIColor.black.withAlphaComponent(0.48), shadowOffset: CGSize(width: 1.0, height: 1.0), shadowOpacity: 1, shadowRadius: 6)
+        testLabel.jk.addCornerAndShadow(superview: testView, conrners: [.topLeft, .bottomRight], radius: 8, shadowColor: UIColor.black.withAlphaComponent(0.48), shadowOffset: CGSize(width: 1.0, height: 1.0), shadowOpacity: 1, shadowRadius: 16)
         testView.addSubview(testLabel)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -675,7 +675,7 @@ extension UIViewExtensionViewController {
         var testView = UIView(frame: CGRect(x: 0, y: 100, width: 300, height: 200))
         testView.backgroundColor = .randomColor
         testView.jk.centerX = self.view.jk.centerX
-        testView.jk.addViewCornerAndShadow(conrners: .allCorners, radius: 10, shadowColor: UIColor.black.withAlphaComponent(0.48), shadowOffset: CGSize(width: 1, height: 1), shadowOpacity: 1.0, shadowRadius: 10)
+        testView.jk.addViewCornerAndShadow(conrners: .allCorners, radius: 20, shadowColor: UIColor.black.withAlphaComponent(0.48), shadowOffset: CGSize(width: 1, height: 1), shadowOpacity: 1.0, shadowRadius: 10)
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2, {
         }) {

@@ -519,7 +519,8 @@ public extension JKPOP where Base: UIView {
     /// - Parameter shadowOpacity: 阴影的透明度
     /// - Parameter shadowRadius: 阴影半径，默认 3
     ///
-    /// - Note: 提示：如果在异步布局(如：SnapKit布局)中使用，要在布局后先调用 layoutIfNeeded，再使用该方法
+    /// - Note1: 如果在异步布局(如：SnapKit布局)中使用，要在布局后先调用 layoutIfNeeded，再使用该方法
+    /// - Note2: 如果在添加阴影的视图被移除，底部插入的父视图的layer是不会被移除的⚠️
     func addCornerAndShadow(superview: UIView, conrners: UIRectCorner , radius: CGFloat = 3, shadowColor: UIColor, shadowOffset: CGSize, shadowOpacity: Float, shadowRadius: CGFloat = 3) {
         
         let maskPath = UIBezierPath(roundedRect: self.base.bounds, byRoundingCorners: conrners, cornerRadii: CGSize(width: radius, height: radius))
@@ -531,7 +532,7 @@ public extension JKPOP where Base: UIView {
         let subLayer = CALayer()
         let fixframe = self.base.frame
         subLayer.frame = fixframe
-        subLayer.cornerRadius = shadowRadius
+        subLayer.cornerRadius = radius
         subLayer.backgroundColor = shadowColor.cgColor
         subLayer.masksToBounds = false
         // shadowColor阴影颜色
@@ -542,13 +543,14 @@ public extension JKPOP where Base: UIView {
         subLayer.shadowOpacity = shadowOpacity
         // 阴影半径，默认3
         subLayer.shadowRadius = shadowRadius
+        subLayer.shadowPath = maskPath.cgPath
         superview.layer.insertSublayer(subLayer, below: self.base.layer)
     }
     
     // MARK: 5.5、通过贝塞尔曲线View添加阴影和圆角
     /// 通过贝塞尔曲线View添加阴影和圆角
     ///
-    /// - Parameter conrners: 具体哪个圆角
+    /// - Parameter conrners: 具体哪个圆角(暂时只支持：allCorners)
     /// - Parameter radius: 圆角大小
     /// - Parameter shadowColor: 阴影的颜色
     /// - Parameter shadowOffset: 阴影的偏移度：CGSizeMake(X[正的右偏移,负的左偏移], Y[正的下偏移,负的上偏移])
@@ -557,15 +559,15 @@ public extension JKPOP where Base: UIView {
     ///
     /// - Note: 提示：如果在异步布局(如：SnapKit布局)中使用，要在布局后先调用 layoutIfNeeded，再使用该方法
     func addViewCornerAndShadow(conrners: UIRectCorner , radius: CGFloat = 3, shadowColor: UIColor, shadowOffset: CGSize, shadowOpacity: Float, shadowRadius: CGFloat = 3) {
+        // 切圆角
         base.layer.shadowColor = shadowColor.cgColor
         base.layer.shadowOffset = shadowOffset
         base.layer.shadowOpacity = shadowOpacity
         base.layer.shadowRadius = shadowRadius
-        // 切圆角
         base.layer.cornerRadius = radius
+       
         // 路径阴影
         let path = UIBezierPath.init(roundedRect: base.bounds, byRoundingCorners: conrners, cornerRadii: CGSize.init(width: radius, height: radius))
-        // 设置阴影路径
         base.layer.shadowPath = path.cgPath
     }
     

@@ -199,11 +199,9 @@ public extension JKPOP where Base: UITextField {
         guard !text.isEmpty else {
             return true
         }
-        
         guard let oldContent = self.base.text else {
             return false
         }
-        
         if let _ = self.base.markedTextRange {
              // 有高亮
             if range.length == 0 {

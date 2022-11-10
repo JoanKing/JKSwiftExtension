@@ -122,11 +122,9 @@ public extension JKPOP where Base: UITextView {
         guard !text.isEmpty else {
             return true
         }
-        
         guard let oldContent = self.base.text else {
             return false
         }
-        
         if let _ = self.base.markedTextRange {
             /*
              let selectedRange = textView.markedTextRange
