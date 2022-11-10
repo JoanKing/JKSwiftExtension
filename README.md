@@ -46,9 +46,21 @@ end
 ## 讨论
 - 微信号: wangc2318151015
 - 邮箱: jkironman@163.com
-<img src="https://user-images.githubusercontent.com/19670000/174286196-a20713b4-d404-4f1e-8128-989593552c62.jpeg" alt="微信交流群" width="220">
+<img src="https://user-images.githubusercontent.com/19670000/192995983-fe6b1b95-336f-4985-8366-b96ed0ce4ab5.jpeg" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.2.1、版本
+      - (1)、String+Extension.swift 扩展
+         - 1、增加手机隐藏位数，可设置前后的隐藏位数，方法：hidePhone  
+         - 2、增加邮箱隐藏位数，可设置前后的隐藏位数，方法：hideEmail  
+         - 3、修复插入任意位置插入字符串的bug，方法：insertString
+     - (2)、UIDevice+Extension.swift 
+         - 1、修复有关获取sim卡信息强制解包崩溃的问题 
+         - 2、增加设备的震动相关方法，SystemSoundID、UINotificationFeedbackGenerator、UIImpactFeedbackGenerator
+     - (3)、UITextView+Extension.swift
+         - 1、修复方法inputRestrictions中当有字数限制，在复制内容的时候，不可截取的问题
+     - (4)、UITextField+Extension.swift
+         - 1、修复方法inputRestrictions中当有字数限制，在复制内容的时候，不可截取的问题
    - 2.1.12、版本
       - (1)、UIVisualEffectView+Extension.swift 新增 import UIKit
       - (2)、新增 UITapGestureRecognizer+Extension.swift 扩展
