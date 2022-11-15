@@ -478,7 +478,17 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return (base as! String).replacingOccurrences(of: removeString, with: replacingString)
     }
     
-    // MARK: 3.11、使用正则表达式替换某些子串
+    //MARK: 3.11、字符串指定range替换
+    /// 字符串指定range替换
+    /// - Parameters:
+    ///   - range: range
+    ///   - replacingString: 指定范围内新的字符串
+    /// - Returns: 返回新的字符串
+    func replacingCharacters(range: NSRange, replacingString: String = "") -> String {
+        return ((base as! String) as NSString).replacingCharacters(in: range, with: replacingString)
+    }
+    
+    // MARK: 3.12、使用正则表达式替换某些子串
     /// 使用正则表达式替换
     /// - Parameters:
     ///   - pattern: 正则
@@ -493,7 +503,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
                                               withTemplate: with)
     }
     
-    // MARK: 3.12、删除指定的字符
+    // MARK: 3.13、删除指定的字符
     /// 删除指定的字符
     /// - Parameter characterString: 指定的字符
     /// - Returns: 返回删除后的字符
@@ -1168,7 +1178,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         case (base as! String).endIndex.utf16Offset(in: base as! String)...:
             return (base as! String).endIndex
         default:
-            return (base as! String).index((base as! String).startIndex, offsetBy: original)
+            return (base as! String).index((base as! String).startIndex, offsetBy: original > (base as! String).count ? (base as! String).count : original)
         }
     }
     

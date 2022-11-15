@@ -257,13 +257,13 @@ extension UITextFieldExtensionViewController {
 //MARK: - 测试：输入内容以及正则的一个输入内容的限制
 class TextFildViewTestViewController: UIViewController {
     
-    /// "限制输入20个字符"
+    /// "限制输入10个字符"
     private var textFiledView1: TestTextFiledView = {
         let view = TestTextFiledView(frame: CGRect.zero, placeholderContent: "限制输入10个字符", maxCharacters: 10)
         return view
     }()
     
-    /// "限制输入60个字符"
+    /// "限制输入20个字符"
     private var textFiledView2: TestTextFiledView = {
         let view = TestTextFiledView(frame: CGRect.zero, placeholderContent: "限制输入20个字符", maxCharacters: 20)
         return view

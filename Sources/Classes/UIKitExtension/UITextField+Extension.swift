@@ -202,7 +202,7 @@ public extension JKPOP where Base: UITextField {
         guard let oldContent = self.base.text else {
             return false
         }
-        if let _ = self.base.markedTextRange {
+        if let markedTextRange = self.base.markedTextRange {
              // 有高亮
             if range.length == 0 {
                 // 联想中
@@ -212,8 +212,9 @@ public extension JKPOP where Base: UITextField {
                 if let weakRegex = regex, !JKRegexHelper.match(text, pattern: weakRegex) {
                     return false
                 }
+                let markedRange = rangeFromTextRange(textRange: markedTextRange)
                 // 联想选中键盘
-                let allContent = oldContent.jk.sub(to: range.location) + text
+                let allContent = oldContent.jk.replacingCharacters(range: markedRange) + text
                 if allContent.count > maxCharacters  {
                     let newContent = allContent.jk.sub(to: maxCharacters)
                     // print("content1：\(allContent) content2：\(newContent)")
@@ -235,11 +236,14 @@ public extension JKPOP where Base: UITextField {
                     let remainingLength = maxCharacters - oldContent.count
                     let copyString = text.jk.removeBeginEndAllSapcefeed
                     // print("范围：\(range) copy的字符串：\(copyString) 长度：\(copyString.count)  截取的字符串：\(copyString.jk.sub(to: remainingLength))")
-                    let newString = oldContent.jk.insertString(content: copyString.jk.sub(to: remainingLength), locat: range.location)
+                    // 可以插入字符串
+                    let replaceContent = copyString.jk.sub(to: remainingLength)
+                    // let newString = oldContent.jk.insertString(content: replaceContent), locat: range.location)
+                    let newString = oldContent.jk.replacingCharacters(range: range, replacingString: replaceContent)
                     // print("老的字符串：\(oldContent) 新的的字符串：\(newString) 长度：\(newString.count)")
                     self.base.text = newString
                     // 异步改变
-                    JKAsyncs.asyncDelay(0.1) {} _: {
+                    JKAsyncs.asyncDelay(0.5) {} _: {
                         if let selectedRange = self.base.selectedTextRange {
                             if let newPosition = self.base.position(from: selectedRange.start, offset: remainingLength) {
                                 self.base.selectedTextRange = self.base.textRange(from: newPosition, to: newPosition)
@@ -251,5 +255,14 @@ public extension JKPOP where Base: UITextField {
             }
         }
         return true
+    }
+    
+    /// UITextRange 转 NSRange
+    /// - Parameter textRange: UITextRange对象
+    /// - Returns: NSRange
+    private func rangeFromTextRange(textRange: UITextRange) -> NSRange {
+        let location: Int = self.base.offset(from: self.base.beginningOfDocument, to: textRange.start)
+        let length: Int = self.base.offset(from: textRange.start, to: textRange.end)
+        return NSMakeRange(location, length)
     }
 }
