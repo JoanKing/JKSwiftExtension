@@ -55,6 +55,15 @@ extension UIButtonExtensionViewController {
             make.top.equalTo(150)
             make.size.equalTo(CGSize(width: 100, height: 100))
         }
+        let testView2 = UIView()
+        testView2.backgroundColor = .randomColor
+        testView2.center = self.view.center
+        testView1.addSubview(testView2)
+        
+        testView2.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.size.equalTo(CGSize(width: 80, height: 80))
+        }
         
         var button1 = UIButton().image(.brown).title("哈哈").jk.setImageTitleLayout(.imgLeft, spacing: 6)
         button1.backgroundColor = .randomColor
@@ -63,8 +72,8 @@ extension UIButtonExtensionViewController {
             guard let weakBtn = btn else { return }
             print("button的事件", "tag：\(weakBtn.tag)")
         }
-        button1.jk.touchExtendInset = UIEdgeInsets(top: -25, left: -25, bottom: -25, right: -25)
-        testView1.addSubview(button1)
+        button1.jk.touchExtendInset = UIEdgeInsets(top: -25, left: -25, bottom: -100, right: -25)
+        testView2.addSubview(button1)
         
         button1.snp.makeConstraints { make in
             make.center.equalToSuperview()
@@ -74,6 +83,7 @@ extension UIButtonExtensionViewController {
         JKAsyncs.asyncDelay(10, {
         }) {
             testView1.removeFromSuperview()
+            testView2.removeFromSuperview()
             button1.removeFromSuperview()
         }
     }

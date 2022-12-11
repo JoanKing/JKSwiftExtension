@@ -17,7 +17,8 @@ public extension KeyboardAccessoryDelegate {
 
 public class KeyboardAccessory: UIView {
     public weak var delegate: KeyboardAccessoryDelegate?
-    public var doneBtn: UIButton = {
+    /// done
+    public lazy var doneBtn: UIButton = {
         let doneBtn = UIButton(type: .system).title("完成").font(UIFont.systemFont(ofSize: 13))
         doneBtn.addTarget(self, action: #selector(done), for: .touchUpInside)
         return doneBtn

@@ -363,7 +363,8 @@ extension JKPOP where Base: UIView {
     ///   - angle: 旋转多少度
     ///   - isInverted: 顺时针还是逆时针，默认是顺时针
     public func setRotation(_ angle: CGFloat, isInverted: Bool = false) {
-        self.base.transform = isInverted ? CGAffineTransform(rotationAngle: angle).inverted() : CGAffineTransform(rotationAngle: angle)
+        let radians = Double(angle) / 180 * Double.pi
+        self.base.transform = isInverted ? CGAffineTransform(rotationAngle: CGFloat(radians)).inverted() : CGAffineTransform(rotationAngle: CGFloat(radians))
     }
     
     // MARK: 4.2、沿X轴方向旋转多少度(3D旋转)

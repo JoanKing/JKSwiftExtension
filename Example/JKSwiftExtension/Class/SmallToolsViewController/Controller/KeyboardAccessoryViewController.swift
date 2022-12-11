@@ -19,7 +19,7 @@ class KeyboardAccessoryViewController: BaseViewController {
         super.viewDidLoad()
     
         headDataArray = ["一、键盘的 inputAccessoryView"]
-        dataArray = [[""]]
+        dataArray = [["done"]]
         
         let keyboardAccessory = KeyboardAccessory()
         keyboardAccessory.delegate = self

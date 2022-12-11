@@ -15,24 +15,24 @@ import UIKit
  2、在 UITableView 或者 UICollectionView 的- (void)scrollViewDidScroll:(UIScrollView *)scrollView;的方法里面设置 self.stop_y = scrollView.contentOffset.y
  }
  */
-
 @objcMembers
 open class JKPanView: UIView {
     /// 上滑后距离顶部的最小距离(相对父视图来说)
     public var topMinHeight: CGFloat = 0
-    
     /// 上滑后距离顶部的最大距离(相对父视图来说)
     public var topMaxHeight: CGFloat = 0
     /// UITableView 或者 UICollectionView滑动停止的位置
     ///
     /// - Note: 需要在 UITableView 或者 UICollectionView 的- (void)scrollViewDidScroll:(UIScrollView *)scrollView;
     public var stop_y: CGFloat = 0
-    
     /// 回到顶部
     public var goTopClosure: (() -> ())?
     /// 回到底部
     public var goBackClosure: (() -> ())?
-    
+    /// 滑动中
+    public var scrollViewDidClosure: ((_ contentOffsetY: CGFloat) -> ())?
+    /// 自定义滑动临界高度
+    public var customMiddleHeight: CGFloat?
     /// 最大距离和最小距离之间的距离(用来判断松后后卡片滑动的方向)
     private var middleHeight: CGFloat {
         return (topMinHeight + topMaxHeight) / 2.0
@@ -56,6 +56,7 @@ extension JKPanView {
     /// 回到顶部
     open func scrollViewDidToTop() {
     }
+    
     //MARK: 回到底部
     /// 回到底部
     open func scrollViewDidToBottom() {
@@ -64,7 +65,9 @@ extension JKPanView {
 
 //MARK: - 滑动相关的处理
 extension JKPanView {
-    
+    //MARK: 手势滑动代理
+    /// 手势滑动代理
+    /// - Parameter pan: 滑动手势
     @objc private func panHandle(pan: UIPanGestureRecognizer) {
         // 获取视图偏移量
         let translationPoint: CGPoint = pan.translation(in: self)
@@ -103,16 +106,19 @@ extension JKPanView {
                 pan.setTranslation(CGPoint(x: 0, y: 0), in: self)
                 return
             }
-            
-            if self.frame.origin.y > middleHeight {
+            if self.frame.origin.y >= (customMiddleHeight ?? middleHeight) {
                 goBack()
             } else {
                 goTop()
             }
+        } else if pan.state == .changed {
+            scrollViewDidClosure?(self.frame.origin.y)
         }
         pan.setTranslation(CGPoint(x: 0, y: 0), in: self)
     }
     
+    //MARK: 回到顶部
+    /// 回到顶部
     @objc private func goTop() {
         UIView.animate(withDuration: 0.5) {[weak self] in
             guard let weakSelf = self else { return }
@@ -126,6 +132,8 @@ extension JKPanView {
         }
     }
     
+    //MARK: 回到底部
+    /// 回到底部
     @objc private func goBack() {
         UIView.animate(withDuration: 0.5) {[weak self] in
             guard let weakSelf = self else { return }
@@ -134,7 +142,6 @@ extension JKPanView {
         } completion: {[weak self] finish in
             guard let weakSelf = self else { return }
             // weakSelf.tableView.isUserInteractionEnabled = false
-            
             weakSelf.scrollViewDidToBottom()
             weakSelf.goBackClosure?()
         }

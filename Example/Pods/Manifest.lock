@@ -1,6 +1,6 @@
 PODS:
   - FDFullscreenPopGesture (1.1)
-  - JKSwiftExtension (2.0.7)
+  - JKSwiftExtension (2.2.3)
   - Kingfisher (4.10.1)
   - MJRefresh (3.5.0)
   - SnapKit (4.2.0)
@@ -25,11 +25,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  JKSwiftExtension: 3c8f2d4dd03ede0d1da2cdfa969ef1fc146d3b77
+  JKSwiftExtension: c8bcd34bd01ac371c84629249ed7528d82162838
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 228ae2f9c363ffa09d596cf24a8bc6e1a8f92d37
+PODFILE CHECKSUM: fb881a9f09b98b5d57e9020cef4624ba55fae232
 
-COCOAPODS: 1.11.0
+COCOAPODS: 1.11.3

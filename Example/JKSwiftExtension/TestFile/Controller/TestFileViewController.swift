@@ -76,7 +76,7 @@ extension TestFileViewController {
     }
     
     @objc func test13() {
-       self.navigationController?.pushViewController(JKEmptyViewController(), animated: true)
+       self.navigationController?.pushViewController(ThreeViewController(), animated: true)
     }
     
     @objc func test12() {

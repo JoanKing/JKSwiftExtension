@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -147,6 +147,7 @@
 		E20237AC28B5F4EC00F65F61 /* TGSLoginAgreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20237AB28B5F4EC00F65F61 /* TGSLoginAgreeView.swift */; };
 		E20237AE28B5F98E00F65F61 /* UIAlertController+Extension1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20237AD28B5F98E00F65F61 /* UIAlertController+Extension1.swift */; };
 		E21E3ABB27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21E3ABA27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift */; };
+		E24BB3B92941875B0089A696 /* JKCircleProgressViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24BB3B82941875B0089A696 /* JKCircleProgressViewViewController.swift */; };
 		E26C272927E9CFD000012389 /* NotificationTetstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C272827E9CFD000012389 /* NotificationTetstViewController.m */; };
 		E277B95928DF014800DC0319 /* PresetntOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E277B95828DF014800DC0319 /* PresetntOneViewController.swift */; };
 		E277B95B28DF015600DC0319 /* PresetntTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E277B95A28DF015600DC0319 /* PresetntTwoViewController.swift */; };
@@ -166,6 +167,7 @@
 		E2CFA13C285993CE00E342DE /* JKPanViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CFA13B285993CE00E342DE /* JKPanViewCell.swift */; };
 		E2D5FDA62861B876006D1AAB /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D5FDA52861B876006D1AAB /* AnimationView.swift */; };
 		E2E08F182871AD5300F722A9 /* JKEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E08F172871AD5300F722A9 /* JKEmptyViewController.swift */; };
+		E2EAD536293F6095007D8AE0 /* JKPanViewCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EAD535293F6095007D8AE0 /* JKPanViewCustomView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -322,6 +324,7 @@
 		E20237AB28B5F4EC00F65F61 /* TGSLoginAgreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGSLoginAgreeView.swift; sourceTree = "<group>"; };
 		E20237AD28B5F98E00F65F61 /* UIAlertController+Extension1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension1.swift"; sourceTree = "<group>"; };
 		E21E3ABA27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVisualEffectViewExtensionViewController.swift; sourceTree = "<group>"; };
+		E24BB3B82941875B0089A696 /* JKCircleProgressViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKCircleProgressViewViewController.swift; sourceTree = "<group>"; };
 		E26C272727E9CFD000012389 /* NotificationTetstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationTetstViewController.h; sourceTree = "<group>"; };
 		E26C272827E9CFD000012389 /* NotificationTetstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationTetstViewController.m; sourceTree = "<group>"; };
 		E277B95828DF014800DC0319 /* PresetntOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetntOneViewController.swift; sourceTree = "<group>"; };
@@ -344,6 +347,7 @@
 		E2CFA13B285993CE00E342DE /* JKPanViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPanViewCell.swift; sourceTree = "<group>"; };
 		E2D5FDA52861B876006D1AAB /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
 		E2E08F172871AD5300F722A9 /* JKEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKEmptyViewController.swift; sourceTree = "<group>"; };
+		E2EAD535293F6095007D8AE0 /* JKPanViewCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPanViewCustomView.swift; sourceTree = "<group>"; };
 		FA3D0426FDCFDD919F4C3DCA /* Pods_JKSwiftExtension_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSwiftExtension_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -745,6 +749,7 @@
 			isa = PBXGroup;
 			children = (
 				84BF16CB251DA012002ACE76 /* SmallToolsViewController.swift */,
+				E24BB3B82941875B0089A696 /* JKCircleProgressViewViewController.swift */,
 				E2B28D2728312C1B00DD7C9A /* JKRollingNoticeViewViewController.swift */,
 				84D9BDA825651FA600D92461 /* JKWeakTimerViewController.swift */,
 				846ECCC8279AE137006215EF /* JKPlaceHolderTextViewViewController.swift */,
@@ -786,6 +791,7 @@
 				E2B28D2B2831E15D00DD7C9A /* JKRollingNoticeViewCell2.swift */,
 				E2B28D2D2831E17400DD7C9A /* JKRollingNoticeViewCell2.xib */,
 				E29AF0E0285C6161002D9B44 /* JKPanViewChildView.swift */,
+				E2EAD535293F6095007D8AE0 /* JKPanViewCustomView.swift */,
 				E2CFA13B285993CE00E342DE /* JKPanViewCell.swift */,
 				E2CB1A2D287093E800805F85 /* JKEmptyView.swift */,
 			);
@@ -871,7 +877,7 @@
 				};
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "JKSwiftExtension" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -946,21 +952,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JKSwiftExtension_Example/Pods-JKSwiftExtension_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
-				"${BUILT_PRODUCTS_DIR}/JKSwiftExtension/JKSwiftExtension.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JKSwiftExtension_Example/Pods-JKSwiftExtension_Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JKSwiftExtension.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JKSwiftExtension_Example/Pods-JKSwiftExtension_Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1007,6 +1004,7 @@
 				84802818255957560038748A /* UIApplicationExtensionViewController.swift in Sources */,
 				844A634F25664F9B000059EC /* Notification+Extension.swift in Sources */,
 				846ECCCB279AE609006215EF /* JKVVViewController.swift in Sources */,
+				E2EAD536293F6095007D8AE0 /* JKPanViewCustomView.swift in Sources */,
 				E2D5FDA62861B876006D1AAB /* AnimationView.swift in Sources */,
 				84B5BDAC260C7A2D00616143 /* RangeExtensionViewController.swift in Sources */,
 				844A635D25665328000059EC /* TouchViewController.swift in Sources */,
@@ -1022,6 +1020,7 @@
 				8468190D26A32BA1000B2607 /* JKDarkModeUtilViewController.swift in Sources */,
 				8418FB9B255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift in Sources */,
 				848A643F25A4517E00E9EC48 /* UISliderExtensionViewController.swift in Sources */,
+				E24BB3B92941875B0089A696 /* JKCircleProgressViewViewController.swift in Sources */,
 				84D9BDB825652C7200D92461 /* NibLoadableViewController.swift in Sources */,
 				8423F2E8269FF45200CACC47 /* FBGuidePage.swift in Sources */,
 				84ABF14326C26A960058E64A /* EightViewController.swift in Sources */,
@@ -1233,8 +1232,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "JKSwiftExtension-Swift.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1252,7 +1252,10 @@
 				DEVELOPMENT_TEAM = Q24HFFF5V3;
 				INFOPLIST_FILE = JKSwiftExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0.1;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jk.com;
@@ -1280,7 +1283,10 @@
 				DEVELOPMENT_TEAM = Q24HFFF5V3;
 				INFOPLIST_FILE = JKSwiftExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0.1;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jk.com;

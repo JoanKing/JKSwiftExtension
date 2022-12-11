@@ -16,7 +16,7 @@ class ThreeViewController: UIViewController {
         self.title = "Three"
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.randomColor
-        test12()
+        test13()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -26,6 +26,74 @@ class ThreeViewController: UIViewController {
 }
 
 extension ThreeViewController {
+    
+    func test13() {
+        let lineHight: CGFloat = 50
+        let fontSize: CGFloat = 12
+        let baselineOffset = (lineHight - fontSize) / 4.0 - 1
+        
+        let testView = UIView()
+        testView.backgroundColor = .brown
+        view.addSubview(testView)
+        testView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.equalTo(160)
+        }
+        
+        let testView2 = UIView()
+        testView2.backgroundColor = .yellow
+        testView.addSubview(testView2)
+        testView2.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(10)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(lineHight)
+        }
+        let testView21 = UIView()
+        testView21.backgroundColor = .blue
+        testView2.addSubview(testView21)
+        testView21.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.right.equalToSuperview()
+            make.height.equalTo(10)
+        }
+        
+        let testView22 = UIView()
+        testView22.backgroundColor = .blue
+        testView2.addSubview(testView22)
+        testView22.snp.makeConstraints { make in
+            make.bottom.equalToSuperview()
+            make.left.right.equalToSuperview()
+            make.height.equalTo(10)
+        }
+        
+        let testLabel = UILabel()
+        testLabel.font = UIFont.systemFont(ofSize: 36, weight: .regular)
+        testLabel.backgroundColor = .purple
+        testLabel.numberOfLines = 0
+        testView.addSubview(testLabel)
+        testLabel.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+        }
+        // 通过富文本来设置行间距
+        let paraph = NSMutableParagraphStyle()
+        // 将行间距设置为50
+        paraph.maximumLineHeight = lineHight
+        // 将行间距设置为50
+        paraph.minimumLineHeight = lineHight
+        // 将行间距设置为20
+        paraph.lineSpacing = 20
+        // 剧中显示
+        paraph.alignment = .left
+        // 样式属性集合
+        let string1 = "34’"
+        let string2 = "56’’"
+        let string = string1 + string2
+        // 正值上偏，负值下偏
+        let attributes = NSMutableAttributedString(string: string)
+        let attributes1 = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize, weight: .regular), NSAttributedString.Key.foregroundColor: UIColor.green] as [NSAttributedString.Key : Any]
+        attributes.addAttributes(attributes1, range: NSRange(location: string1.count, length: string2.count))
+        testLabel.attributedText = attributes
+    }
     
     func test12() {
         let testView1 = UIView()

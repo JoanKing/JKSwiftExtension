@@ -14,7 +14,7 @@ class JKPanViewViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.view.addSubview(tableView)
-        self.view.addSubview(panView)
+        self.view.addSubview(panView2)
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0))
         }
@@ -22,6 +22,14 @@ class JKPanViewViewController: UIViewController {
     
     lazy var panView: JKPanViewChildView = {
         let panview = JKPanViewChildView(frame: CGRect(x: 0, y: jk_kScreenH * 3 / 4.0, width: jk_kScreenW, height: jk_kScreenH / 2.0))
+        panview.jk.addViewCornerAndShadow(conrners: [.topLeft, .topRight], radius: 21, shadowColor: UIColor.black.withAlphaComponent(0.05), shadowOffset: CGSize(width: 0, height: -4), shadowOpacity: 1.0, shadowRadius: 20)
+        panview.topMaxHeight = jk_kScreenH * 3 / 4.0
+        panview.topMinHeight = jk_kScreenH * 1 / 2.0
+        return panview
+    }()
+    
+    lazy var panView2: JKPanViewCustomView = {
+        let panview = JKPanViewCustomView(frame: CGRect(x: 0, y: jk_kScreenH * 3 / 4.0, width: jk_kScreenW, height: jk_kScreenH / 2.0))
         panview.jk.addViewCornerAndShadow(conrners: [.topLeft, .topRight], radius: 21, shadowColor: UIColor.black.withAlphaComponent(0.05), shadowOffset: CGSize(width: 0, height: -4), shadowOpacity: 1.0, shadowRadius: 20)
         panview.topMaxHeight = jk_kScreenH * 3 / 4.0
         panview.topMinHeight = jk_kScreenH * 1 / 2.0

@@ -894,18 +894,39 @@ extension UIViewExtensionViewController {
 // MARK: - 二、继承于 UIView 视图的 平面、3D 旋转 以及 缩放
 extension UIViewExtensionViewController {
     
-    // MARK: 2.1、沿 X 轴方向旋转多少度
+    // MARK: 2.1、平面旋转
     @objc func test21() {
-        let testView = UIView(frame: CGRect(x: 200, y: 100, width: 100, height: 100))
+        let testView = UIView()
         testView.backgroundColor = .randomColor
-        let testView2 = UIView(frame: CGRect(x: 0, y: 80, width: 100, height: 20))
-        testView2.backgroundColor = .randomColor
-        testView.addSubview(testView2)
         self.view.addSubview(testView)
-        UIView.animate(withDuration: 2, animations: {
-            testView.jk.set3DRotationX(CGFloat.pi)
+        testView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-100)
+            make.size.equalTo(CGSize(width: 100, height: 100))
+        }
+        
+        let image1 = UIImage(named: "campass_light")
+        let imageView1 = UIImageView()
+        imageView1.image = image1
+        imageView1.contentMode = .scaleAspectFit
+        testView.addSubview(imageView1)
+        imageView1.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.size.equalTo(CGSize(width: 44, height: 44))
+        }
+        
+        UIView.animate(withDuration: 4, animations: {
+            testView.jk.setRotation(-180)
         }) { (result) in
-            testView.removeFromSuperview()
+            JKAsyncs.asyncDelay(2) {
+            } _: {
+                UIView.animate(withDuration: 4, animations: {
+                    testView.jk.setRotation(-270)
+                }) { (result) in
+                    // testView.removeFromSuperview()
+                }
+            }
+
         }
     }
     

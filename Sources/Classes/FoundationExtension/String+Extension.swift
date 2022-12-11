@@ -1899,9 +1899,10 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     /// - Parameters:
     ///   - cryptType: 加密类型
     ///   - key: 加密的key
-    ///   - encode: 是编码还是解码
+    ///   - encode: 编码还是解码
+    ///   - encryptIV: 偏移量
     /// - Returns: 编码或者解码后的字符串
-    func scaCrypt(cryptType: DDYSCAType, key: String?, encode: Bool) -> String? {
+    func scaCrypt(cryptType: DDYSCAType, key: String?, encode: Bool, encryptIV: String = "1") -> String? {
         
         let strData = encode ? (self.base as! String).data(using: .utf8) : Data(base64Encoded: (self.base as! String))
         // 创建数据编码后的指针

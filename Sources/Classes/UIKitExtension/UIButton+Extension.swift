@@ -580,6 +580,8 @@ public extension JKPOP where Base: UIButton {
     
     // MARK: 6.1、扩大UIButton的点击区域，向四周扩展10像素的点击范围
     /// 扩大按钮点击区域 如UIEdgeInsets(top: -50, left: -50, bottom: -50, right: -15)将点击区域上下左右各扩充50
+    ///
+    /// 提示：theView 扩展点击相应区域时，其扩展的区域不能超过 superView 的 frame ，否则不会相应改点击事件；如果需要响应点击事件，需要对其 superView 进行和 theView 进行同样的处理
     var touchExtendInset: UIEdgeInsets {
         get {
             if let value = objc_getAssociatedObject(self.base, &JKUIButtonExpandSizeKey) {
