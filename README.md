@@ -49,6 +49,10 @@ end
 <img src="https://user-images.githubusercontent.com/19670000/200982257-a0a8644e-3162-4ee6-9ec8-83f6a095f9b4.jpeg" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.2.4、版本(2022.12.11)
+      - (1)、新增JKCircleProgressView圆形进度条
+      - (2)、UIView+Extension.swift部分bug修复
+      - (3)、JKPanView完善
   - 2.2.3、版本
       - (1)、String+Extension.swift
          - 1、replacingCharacters 根据指定range替换内容
