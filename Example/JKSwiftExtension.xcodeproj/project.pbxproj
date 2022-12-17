@@ -173,7 +173,7 @@
 /* Begin PBXFileReference section */
 		2FEA1C54E10568E8E6A827CF /* Pods_JKSwiftExtension_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSwiftExtension_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		484863D9DD238F4FD5E44FEF /* JKSwiftExtension.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JKSwiftExtension.podspec; path = ../JKSwiftExtension.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		607FACD01AFB9204008FA782 /* JKSwiftExtension扩展.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JKSwiftExtension扩展.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD01AFB9204008FA782 /* JKSwiftExtensionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKSwiftExtensionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -389,7 +389,7 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD01AFB9204008FA782 /* JKSwiftExtension扩展.app */,
+				607FACD01AFB9204008FA782 /* JKSwiftExtensionDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -855,7 +855,7 @@
 			);
 			name = JKSwiftExtension_Example;
 			productName = JKSwiftExtension;
-			productReference = 607FACD01AFB9204008FA782 /* JKSwiftExtension扩展.app */;
+			productReference = 607FACD01AFB9204008FA782 /* JKSwiftExtensionDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1259,7 +1259,7 @@
 				MARKETING_VERSION = 1.0.1;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jk.com;
-				PRODUCT_NAME = "JKSwiftExtension扩展";
+				PRODUCT_NAME = JKSwiftExtensionDemo;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "JKSwiftExtension/JKSwiftExtension_Example-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
@@ -1290,7 +1290,7 @@
 				MARKETING_VERSION = 1.0.1;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jk.com;
-				PRODUCT_NAME = "JKSwiftExtension扩展";
+				PRODUCT_NAME = JKSwiftExtensionDemo;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "JKSwiftExtension/JKSwiftExtension_Example-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";

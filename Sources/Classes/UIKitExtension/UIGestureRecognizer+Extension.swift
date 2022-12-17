@@ -21,7 +21,6 @@ import UIKit
             if let obj = objc_getAssociatedObject(self, &AssociateKeys.funcName) as? String {
                 return obj
             }
- 
             let string = String(describing: self.classForCoder)
             objc_setAssociatedObject(self, &AssociateKeys.funcName, string, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             return string

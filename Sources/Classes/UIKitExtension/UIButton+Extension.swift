@@ -353,14 +353,10 @@ public extension JKPOP where Base: UIButton {
     ///   - imageFirst: 图片是否优先
     private func alignHorizontal(spacing: CGFloat, imageFirst: Bool) {
         let edgeOffset = spacing / 2
-        base.imageEdgeInsets = UIEdgeInsets(top: 0,
-                                            left: -edgeOffset,
-                                            bottom: 0,
-                                            right: edgeOffset)
-        base.titleEdgeInsets = UIEdgeInsets(top: 0,
-                                            left: edgeOffset,
-                                            bottom: 0,
-                                            right: -edgeOffset)
+        base.imageEdgeInsets = UIEdgeInsets(top: 0, left: -edgeOffset,
+                                            bottom: 0,right: edgeOffset)
+        base.titleEdgeInsets = UIEdgeInsets(top: 0, left: edgeOffset,
+                                            bottom: 0, right: -edgeOffset)
         if !imageFirst {
             base.transform = CGAffineTransform(scaleX: -1, y: 1)
             base.imageView?.transform = CGAffineTransform(scaleX: -1, y: 1)

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 /// setNeedsDisplay调用drawRect
 public class JKPlaceHolderTextView: UITextView {
     /// 占位符
@@ -15,42 +14,36 @@ public class JKPlaceHolderTextView: UITextView {
             self.setNeedsDisplay()
         }
     }
-    
     /// 占位符的颜色
     public var placeHolderColor: UIColor = UIColor.gray {
         didSet{
             self.setNeedsDisplay()
         }
     }
-    
     /// 富文本位置的调整
     public var placeholderOrigin: CGPoint = CGPoint(x: 5, y: 7) {
         didSet {
             self.setNeedsDisplay()
         }
     }
-    
     /// 字体的大小
     public override var font: UIFont? {
         didSet{
             self.setNeedsDisplay()
         }
     }
-    
     /// 文字
     public override var text: String! {
         didSet{
             self.setNeedsDisplay()
         }
     }
-    
     /// 富文本
     public override var attributedText: NSAttributedString! {
         didSet{
             self.setNeedsDisplay()
         }
     }
-    
     public override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
         /// 默认字号

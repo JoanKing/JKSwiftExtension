@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 // MARK: - 一、基本的扩展
 public extension JKPOP where Base: UINavigationController {
-    
     // MARK: 1.1、pop返回后再push进某个控制器
     /// pop返回后再push进某个控制器
     /// - Parameters:

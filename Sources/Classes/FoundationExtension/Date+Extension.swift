@@ -475,6 +475,21 @@ public extension JKPOP where Base == Date {
         let selfComponents = calendar.dateComponents([.weekday,.month,.year], from: self.base as Date)
         return (selfComponents.year == nowComponents.year) && (selfComponents.month == nowComponents.month) && (selfComponents.weekday == nowComponents.weekday)
     }
+    
+    // MARK: 4.13、是否为12小时制
+    /// 是否为12小时制
+    /// - Returns: true：12小时，否则24小时
+    static var isTwelve: Bool {
+        var isTwelve: Bool = false
+        if let formatString = DateFormatter.dateFormat(fromTemplate: "j", options: 0, locale: Locale.current), formatString.contains("a") {
+            // 12 小时制
+            isTwelve = true
+        } else {
+            // 24 小时制
+            isTwelve = false
+        }
+        return isTwelve
+    }
 }
 
 // MARK: - 五、相对的时间变化

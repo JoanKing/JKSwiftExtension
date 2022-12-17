@@ -10,7 +10,6 @@ import UIKit
 // MARK: - 一、基本的扩展
 public extension UITextView {
     
-    
 }
 
 // MARK: - 二、文本链接的扩展

@@ -655,11 +655,11 @@ public extension JKPOP where Base: UIImage {
         }
         switch base.imageOrientation {
         case .upMirrored, .downMirrored:
-            transform.translatedBy(x: base.size.width, y: 0)
-            transform.scaledBy(x: -1, y: 1)
+            transform = transform.translatedBy(x: base.size.width, y: 0)
+            transform = transform.scaledBy(x: -1, y: 1)
         case .leftMirrored, .rightMirrored:
-            transform.translatedBy(x: base.size.height, y: 0)
-            transform.scaledBy(x: -1, y: 1)
+            transform = transform.translatedBy(x: base.size.height, y: 0)
+            transform = transform.scaledBy(x: -1, y: 1)
         default:
             break
         }
@@ -741,7 +741,7 @@ public extension JKPOP where Base: UIImage {
         if oldData.count < maxSize {
             return oldData
         }
-        var compress:CGFloat = 0.9
+        var compress: CGFloat = 0.9
         guard var data = self.base.jpegData(compressionQuality: compress) else { return nil }
         while data.count > maxSize && compress > 0.01 {
             compress -= 0.02
@@ -769,7 +769,6 @@ public extension JKPOP where Base: UIImage {
         let resizedImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options).flatMap{
             UIImage(cgImage: $0)
         }
-        
         return resizedImage
     }
     
@@ -872,10 +871,8 @@ public enum CompressionMode {
     }
 }
 
-
 // MARK: - 五、二维码的处理
 public extension JKPOP where Base: UIImage {
-    
     // MARK: 5.1、生成二维码图片
     /// 生成二维码图片
     /// - Parameters:

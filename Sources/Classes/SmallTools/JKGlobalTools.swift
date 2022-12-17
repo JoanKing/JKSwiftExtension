@@ -62,20 +62,17 @@ public struct JKGlobalTools {
     /// - Parameter version: 传进来的版本号码
     /// - Returns: 返回对比加过，true：比当前的版本大，false：比当前的版本小
     public static func compareVersion(version: String) -> Bool {
-        
         // 1、传进来的版本号获取 三位Int值
         let newVersionResult = appVersion(version: version)
         guard newVersionResult.isSuccess else {
             return false
         }
-        
         // 2、当前版本的版本号获取 三位Int值
         let currentVersion = Bundle.jk.appVersion
         let currentVersionResult = appVersion(version: currentVersion)
         guard currentVersionResult.isSuccess else {
             return false
         }
-        
         if newVersionResult.versions[0] > currentVersionResult.versions[0] {
             return true
         } else if newVersionResult.versions[0] == currentVersionResult.versions[0] {
@@ -235,9 +232,12 @@ private extension JKGlobalTools {
     /// - Returns: 结果 和 版本号数组
     static func appVersion(version: String) -> (isSuccess: Bool, versions: [Int]) {
         let versionArray = version.jk.separatedByString(with: ".")
-        guard versionArray.count == 3, let versionString1 = versionArray[0] as? String, let versionString2 = versionArray[1] as? String, let versionString3 = versionArray[2] as? String else {
+        guard versionArray.count == 3 else {
             return (false, [])
         }
+        let versionString1 = versionArray[0]
+        let versionString2 = versionArray[1]
+        let versionString3 = versionArray[2]
         guard let versionValue1 = versionString1.jk.toInt(), let versionValue2 = versionString2.jk.toInt(), let versionValue3 = versionString3.jk.toInt() else {
             return (false, [])
         }

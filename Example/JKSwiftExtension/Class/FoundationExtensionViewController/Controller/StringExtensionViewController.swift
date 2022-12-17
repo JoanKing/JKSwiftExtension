@@ -1303,8 +1303,17 @@ extension StringExtensionViewController {
     // MARK: 1.8、字符串转 UIViewController
     @objc func test18() {
         let stringVC = "DateFormatterExtensionViewController"
-        let vc = stringVC.jk.toViewController()
-        JKPrint("字符串：\(stringVC) 转VC为：\(vc!)", "转控制器名为：\(vc!.className)")
+        if let vc1 = stringVC.jk.toViewController() {
+            JKPrint("字符串：\(stringVC) 转VC为：\(vc1) 转控制器名为：\(vc1.className)")
+        } else {
+            JKPrint("字符串：\(stringVC) 转VC为：nil，不存在\(stringVC))")
+        }
+        let testVC = "FalseViewController"
+        if let vc2 = testVC.jk.toViewController() {
+            JKPrint("字符串：\(testVC) 转VC为：\(vc2) 转控制器名为：\(vc2.className)")
+        } else {
+            JKPrint("字符串：\(testVC) 转VC为：nil，不存在\(testVC)")
+        }
     }
     
     // MARK: 1.7、判断是不是九宫格键盘

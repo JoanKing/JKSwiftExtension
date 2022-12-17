@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 public extension UITapGestureRecognizer {
     //MARK: UILabel 富文本点击(仅支持 lineBreakMode = .byWordWrapping)
     /// UILabel 富文本点击(仅支持 lineBreakMode = .byWordWrapping)

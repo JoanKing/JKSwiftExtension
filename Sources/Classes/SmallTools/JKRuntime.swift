@@ -16,7 +16,6 @@ public func jk_setRetainedAssociatedObject<T>(_ object: Any, _ key: UnsafeRawPoi
     objc_setAssociatedObject(object, key, value, policy)
 }
 
-
 // MARK: - 一、基本的方法
 public class JKRuntime: NSObject {
 
@@ -51,7 +50,6 @@ public class JKRuntime: NSObject {
         let intCount = Int(count)
         for i in 0 ..< intCount {
             let property: objc_property_t = properties![i]
-            
             guard let propertyName = NSString(utf8String: property_getName(property)) as String? else {
                 JKPrint("Couldn't unwrap property name for \(property)")
                 break

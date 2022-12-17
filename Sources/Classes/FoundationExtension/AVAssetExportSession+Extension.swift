@@ -80,5 +80,4 @@ public extension JKPOP where Base: AVAssetExportSession {
         })
         */
     }
-    
 }

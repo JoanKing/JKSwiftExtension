@@ -30,5 +30,4 @@ public extension JKPOP where Base: UITableViewCell {
             return classStr.components(separatedBy: ".").last!
         }
     }
-    
 }

@@ -31,7 +31,7 @@ public struct JKContentSize {
     ///   - font: 富文本字体的大小
     /// - Returns: CGSize
     @discardableResult
-    public static func attributedStringSize(attributedString: NSAttributedString ,width: CGFloat, height: CGFloat, font: UIFont) -> CGSize {
+    public static func attributedStringSize(attributedString: NSAttributedString, width: CGFloat, height: CGFloat, font: UIFont) -> CGSize {
         let tempLabel = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: height))
         tempLabel.font = font
         tempLabel.attributedText = attributedString

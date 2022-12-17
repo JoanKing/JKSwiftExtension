@@ -309,7 +309,7 @@ open class JKNoticeViewCell: UIView {
         self.backgroundColor = UIColor.white
     }
     
-    public required init?(coder aDecoder: NSCoder){
+    public required init?(coder aDecoder: NSCoder) {
         self.textLabelLeading = 10
         self.textLabelTrailing = 10
         super.init(coder: aDecoder)

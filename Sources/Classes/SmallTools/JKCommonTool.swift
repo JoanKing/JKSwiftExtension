@@ -16,8 +16,8 @@ public struct JKCommonTool {
     ///   - value1: 值一
     ///   - value2: 值二
     @discardableResult
-    public static func swapMe<T>(value1: inout T, value2: inout T) -> (T,T) {
-        (value1,value2) = (value2,value1)
+    public static func swapMe<T>(value1: inout T, value2: inout T) -> (T, T) {
+        (value1, value2) = (value2, value1)
         return (value1, value2)
     }
 }

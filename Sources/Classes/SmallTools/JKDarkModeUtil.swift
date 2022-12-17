@@ -148,7 +148,6 @@ public extension JKDarkModeUtil {
     // MARK: 智能换肤时间选择后
     /// 智能换肤时间选择后
     static func setSmartPeelingTimeChange(startTime: String, endTime: String) {
-        
         /// 是否是浅色
         var light: Bool = false
         if JKDarkModeUtil.isSmartPeelingTime(startTime: startTime, endTime: endTime), JKDarkModeUtil.isLight {
@@ -212,7 +211,7 @@ public extension JKDarkModeUtil {
         if startTime != nil && endTime != nil {
             timeIntervalValue = [startTime!, endTime!]
         } else {
-            timeIntervalValue = JKDarkModeUtil.SmartPeelingTimeIntervalValue.jk.separatedByString(with: "~") as! [String]
+            timeIntervalValue = JKDarkModeUtil.SmartPeelingTimeIntervalValue.jk.separatedByString(with: "~")
         }
         // 1、时间区间分隔为：开始时间 和 结束时间
         // 2、当前的时间转时间戳
@@ -230,7 +229,7 @@ public extension JKDarkModeUtil {
 
 // MARK: - 动态图片的使用
 public extension JKDarkModeUtil {
-
+    
     // MARK: 深色图片和浅色图片切换 （深色模式适配）
     /// 深色图片和浅色图片切换 （深色模式适配）
     /// - Parameters:

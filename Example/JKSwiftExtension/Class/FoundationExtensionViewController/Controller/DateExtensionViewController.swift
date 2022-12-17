@@ -13,7 +13,52 @@ class DateExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、Date 基本的扩展", "二、时间格式的转换", "三、本地化时间格式的转换", "四、前天、昨天、今天、明天、后天、是否同一年同一月同一天 的判断", "五、相对的时间变化", "六、某年月份的天数获取"]
-        dataArray = [["获取当前 秒级 时间戳 - 10 位", "获取当前 毫秒级 时间戳 - 13 位", "获取当前的时间 Date", "从 Date 获取年份", "从 Date 获取月份", "从 Date 获取 日", "从 Date 获取 小时", "从 Date 获取 分钟", "从 Date 获取 秒", "从 Date 获取 毫秒", "从日期获取 星期(英文)", "从日期获取 星期(中文)", "从日期获取 月(英文)"], ["时间戳(支持10位和13位)按照对应的格式 转化为 对应时间的字符串 如：1603849053 按照 yyyy-MM-dd HH:mm:ss 转化后为：2020-10-28 09:37:33", "时间戳(支持 10 位 和 13 位) 转 Date", "Date 转换为相应格式的字符串", "带格式的时间转 时间戳，支持返回 13位 和 10位的时间戳，时间字符串和时间格式必须保持一致", "带格式的时间转 Date", "秒转换成播放时间条的格式", "Date 转 时间戳"], ["date使用DateFormatter.Style的形式格式化(传本地化字符串)", "date使用DateFormatter.Style的形式格式化(传本地化Locale对象)", "date使用locale和formatter的形式格式化(传本地化字符串)", "date使用locale和formatter的形式格式化(传本地化Locale对象)"], ["今天的日期", "昨天的日期", "明天的日期", "前天的日期", "后天的日期", "是否为今天（只比较日期，不比较时分秒）", "是否为昨天", "是否为前天", "是否为今年", "两个date是否为同一年同一月的同一天", "当前日期是不是润年", "是否为本周"], ["取得与当前时间的间隔差", "获取两个日期之间的数据", "获取两个日期之间的天数", "获取两个日期之间的小时", "获取两个日期之间的分钟", "获取两个日期之间的秒数"], ["获取某一年某一月的天数", "获取当前月的天数"]]
+        dataArray = [["获取当前 秒级 时间戳 - 10 位", "获取当前 毫秒级 时间戳 - 13 位", "获取当前的时间 Date", "从 Date 获取年份", "从 Date 获取月份", "从 Date 获取 日", "从 Date 获取 小时", "从 Date 获取 分钟", "从 Date 获取 秒", "从 Date 获取 毫秒", "从日期获取 星期(英文)", "从日期获取 星期(中文)", "从日期获取 月(英文)"], ["时间戳(支持10位和13位)按照对应的格式 转化为 对应时间的字符串 如：1603849053 按照 yyyy-MM-dd HH:mm:ss 转化后为：2020-10-28 09:37:33", "时间戳(支持 10 位 和 13 位) 转 Date", "Date 转换为相应格式的字符串", "带格式的时间转 时间戳，支持返回 13位 和 10位的时间戳，时间字符串和时间格式必须保持一致", "带格式的时间转 Date", "秒转换成播放时间条的格式", "Date 转 时间戳"], ["date使用DateFormatter.Style的形式格式化(传本地化字符串)", "date使用DateFormatter.Style的形式格式化(传本地化Locale对象)", "date使用locale和formatter的形式格式化(传本地化字符串)", "date使用locale和formatter的形式格式化(传本地化Locale对象)"], ["今天的日期", "昨天的日期", "明天的日期", "前天的日期", "后天的日期", "是否为今天（只比较日期，不比较时分秒）", "是否为昨天", "是否为前天", "是否为今年", "两个date是否为同一年同一月的同一天", "当前日期是不是润年", "是否为本周", "是否为12小时制"], ["取得与当前时间的间隔差", "获取两个日期之间的数据", "获取两个日期之间的天数", "获取两个日期之间的小时", "获取两个日期之间的分钟", "获取两个日期之间的秒数"], ["获取某一年某一月的天数", "获取当前月的天数"]]
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en")
+        dateFormatter.dateFormat = "yyyy-MM-dd aa HH:mm"
+        // dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
+        print(dateFormatter.string(from: Date())) // --> Jun 28
+        
+        dateFormatter.locale = Locale(identifier: "zh-CN")
+        dateFormatter.dateFormat = "yyyy年MM-dd aa HH:mm"
+        // dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm aa")
+        print(dateFormatter.string(from: Date())) // --> Jun 28
+        
+        dateFormatter.locale = Locale(identifier: "zh-Hant")
+        dateFormatter.dateFormat = "aa HH:mm"
+        // dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm aa")
+        print(dateFormatter.string(from: Date())) // --> Jun 28
+    
+        dateFormatter.locale = Locale(identifier: "fr")
+        dateFormatter.dateFormat = "aa HH:mm"
+        print(dateFormatter.string(from: Date())) // --> 28 juin
+        
+        dateFormatter.locale = Locale(identifier: "es")
+        dateFormatter.dateFormat = "aa HH:mm"
+        print(dateFormatter.string(from: Date())) // --> 28 juin
+        
+        dateFormatter.locale = Locale(identifier: "de")
+        dateFormatter.dateFormat = "aa HH:mm"
+        print(dateFormatter.string(from: Date())) // --> 28 juin
+    
+        dateFormatter.locale = Locale(identifier: "it")
+        dateFormatter.dateFormat = "aa HH:mm"
+        print(dateFormatter.string(from: Date())) // --> 28 juin
+        
+        dateFormatter.locale = Locale(identifier: "nl")
+        dateFormatter.dateFormat = "aa HH:mm"
+        print(dateFormatter.string(from: Date())) // --> 28 juin
+        
+        dateFormatter.locale = Locale(identifier: "sv-SE")
+        dateFormatter.dateFormat = "aa HH:mm"
+        print(dateFormatter.string(from: Date())) // --> 28 juin
+        
+        dateFormatter.locale = Locale(identifier: "ko")
+        dateFormatter.dateFormat = "aa HH:mm"
+        print(dateFormatter.string(from: Date())) // --> 28 juin
+        
     }
 }
 
@@ -99,6 +144,12 @@ extension DateExtensionViewController {
 
 // MARK: - 四、前天、昨天、今天、明天、后天、是否同一年同一月同一天 的判断
 extension DateExtensionViewController {
+    
+    //MARK: 4.13、是否为12小时制
+    @objc func test413() {
+        let isTwelve = Date.jk.isTwelve
+        JKPrint("是否为12小时制：\(isTwelve)")
+    }
     
     // MARK: 4.12、是否为本周
     @objc func test412() {
@@ -209,7 +260,7 @@ extension DateExtensionViewController {
         let timeStr = "2020-05-28"
         let timestamp1Fomatter = "yyyy-MM-dd"
         let date = Date.jk.formatterTimeStringToDate(timesString: timeStr, formatter: timestamp1Fomatter)
-        JKPrint("当前的时间：\(date)", "date转 格式为：MMMMd 本地化类型：en_US 格式化后的时间为：\(date.jk.toLocalDateFormatterStyleString(locale: Locale(identifier: "en_US"), formatter: "MMMMd"))", "date转 格式为：MMMMd 本地化类型：zh_CN 格式化后的时间为：\(date.jk.toLocalDateFormatterStyleString(locale: Locale(identifier: "zh_CN"), formatter: "MMMMd"))")
+        JKPrint("当前的时间：\(date)", "date转 格式为：MMdd 本地化类型：en_US 格式化后的时间为：\(date.jk.toLocalDateFormatterStyleString(locale: Locale(identifier: "en_US"), formatter: "MMdd"))", "date转 格式为：MMdd 本地化类型：zh_CN 格式化后的时间为：\(date.jk.toLocalDateFormatterStyleString(locale: Locale(identifier: "zh_CN"), formatter: "MMdd"))")
     }
     
     // MARK: 3.3、date使用locale和formatter的形式格式化(传本地化字符串)
@@ -218,7 +269,7 @@ extension DateExtensionViewController {
         let timeStr = "2020-10-28 09:37:33"
         let timestamp1Fomatter = "yyyy-MM-dd HH:mm:ss"
         let date = Date.jk.formatterTimeStringToDate(timesString: timeStr, formatter: timestamp1Fomatter)
-        JKPrint("当前的时间：\(date)", "date转 格式为：MMMMd 本地化类型：en_US 格式化后的时间为：\(date.jk.toLocalDateFormatterStyleString(localIdentifier: "en_US", formatter: "MMMMd"))", "date转 格式为：MMMMd 本地化类型：zh_CN 格式化后的时间为：\(date.jk.toLocalDateFormatterStyleString(localIdentifier: "zh_CN", formatter: "MMMMd"))")
+        JKPrint("当前的时间：\(date)", "date转 格式为：MMdd 本地化类型：en_US 格式化后的时间为：\(date.jk.toLocalDateFormatterStyleString(localIdentifier: "en_US", formatter: "MMdd"))", "date转 格式为：MMdd 本地化类型：zh_CN 格式化后的时间为：\(date.jk.toLocalDateFormatterStyleString(localIdentifier: "zh_CN", formatter: "MMdd"))")
     }
     
     // MARK: 3.2、date使用DateFormatter.Style的形式格式化(传本地化字符串)
@@ -226,7 +277,7 @@ extension DateExtensionViewController {
         let timeStr = "2020-02-28"
         let timestamp1Fomatter = "yyyy-MM-dd"
         let date = Date.jk.formatterTimeStringToDate(timesString: timeStr, formatter: timestamp1Fomatter)
-        JKPrint("当前的时间：\(date)", "date转 格式为：MMMMd 本地化类型：en_US 格式化后的时间为：\(date.jk.toLocalDateFormatterStyleString(locale: Locale(identifier: "en_US"), formatter: "MMMMd", dateStyle: .long, timeStyle: .none))", "date转 格式为：MMMMd 本地化类型：fr_FR 格式化后的时间为：\(date.jk.toLocalDateFormatterStyleString(locale: Locale(identifier: "fr_FR"), formatter: "MMMMd", dateStyle: .long, timeStyle: .none))")
+        JKPrint("当前的时间：\(date)", "date转 格式为：MMdd 本地化类型：en_US 格式化后的时间为：\(date.jk.toLocalDateFormatterStyleString(locale: Locale(identifier: "en_US"), formatter: "MMdd", dateStyle: .long, timeStyle: .none))", "date转 格式为：MMdd 本地化类型：fr_FR 格式化后的时间为：\(date.jk.toLocalDateFormatterStyleString(locale: Locale(identifier: "fr_FR"), formatter: "MMdd", dateStyle: .long, timeStyle: .none))")
     }
     
     // MARK: 3.1、date使用DateFormatter.Style的形式格式化(传本地化字符串)
@@ -234,7 +285,7 @@ extension DateExtensionViewController {
         let timeStr = "2020-10-28 09:37:33"
         let timestamp1Fomatter = "yyyy-MM-dd HH:mm:ss"
         let date = Date.jk.formatterTimeStringToDate(timesString: timeStr, formatter: timestamp1Fomatter)
-        JKPrint("当前的时间：\(date)", "date转 格式为：MMMMd 本地化类型：en_US 格式化后的时间为：\(date.jk.toLocalDateFormatterStyleString(localIdentifier: "en_US", formatter: "MMMMd", dateStyle: .long, timeStyle: .none))", "date转 格式为：MMMMd 本地化类型：fr_FR 格式化后的时间为：\(date.jk.toLocalDateFormatterStyleString(localIdentifier: "fr_FR", formatter: "MMMMd", dateStyle: .long, timeStyle: .none))")
+        JKPrint("当前的时间：\(date)", "date转 格式为：yyyyMMMdd 本地化类型：en_US 格式化后的时间为：\(date.jk.toLocalDateFormatterStyleString(localIdentifier: "en_US", formatter: "yyyyMMMdd", dateStyle: .long, timeStyle: .none))", "date转 格式为：yyyyMMMdd 本地化类型：fr_FR 格式化后的时间为：\(date.jk.toLocalDateFormatterStyleString(localIdentifier: "fr_FR", formatter: "yyyyMMMdd", dateStyle: .long, timeStyle: .none))", "date转 格式为：yyyyMMMdd 本地化类型：zh-CN 格式化后的时间为：\(date.jk.toLocalDateFormatterStyleString(localIdentifier: "zh-CN", formatter: "yyyyMMMdd", dateStyle: .full, timeStyle: .none))")
     }
 }
 

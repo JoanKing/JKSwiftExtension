@@ -15,7 +15,6 @@ import Photos
  （3）如果不指定相簿名字，则保存到相机胶卷中。
  （4）保存后会有回调函数，可以用来判读是否保存成功、还是失败、或是没有操作照片相册的权限。
  */
-
 // 操作结果枚举
 public enum JKPhotoAlbumUtilResult {
     case success, error, denied
@@ -31,14 +30,12 @@ public class JKPhotoAlbumUtil: NSObject {
     ///   - isCustomPhotoAlbumName: 是否使用自定义的相册名字(默认是不使用，保存到相册交卷，相册名是app的名字)
     ///   - completion: 结果闭包
     public class func saveImageInAlbum(image: UIImage, isCustomPhotoAlbumName: Bool = false, completion: ((JKPhotoAlbumUtilResult) -> Void)?) {
-        
         // 权限验证
         if !isAuthorized() {
             completion?(.denied)
             return
         }
         var assetAlbum: PHAssetCollection?
-        
         // 如果指定的相册名称为空，则保存到相机胶卷。（否则保存到指定相册）
         if !isCustomPhotoAlbumName {
             let list = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)

@@ -62,7 +62,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     // MARK: 1.7、判断是不是九宫格键盘
     /// 判断是不是九宫格键盘
     func isNineKeyBoard() -> Bool {
-        let other : NSString = "➋➌➍➎➏➐➑➒"
+        let other: NSString = "➋➌➍➎➏➐➑➒"
         let len = (base as! String).count
         for _ in 0..<len {
             if !(other.range(of: base as! String).location != NSNotFound) {
@@ -78,12 +78,14 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     @discardableResult
     func toViewController() -> UIViewController? {
         // 1.获取类
-        guard let Class: AnyClass = self.toClass() else {
+        guard let trueClass: AnyClass = self.toClass() else {
             return nil
         }
         // 2.通过类创建对象
         // 2.1、将AnyClass 转化为指定的类
-        let vcClass = Class as! UIViewController.Type
+        guard let vcClass = trueClass as? UIViewController.Type else {
+            return nil
+        }
         // 2.2、通过class创建对象
         let vc = vcClass.init()
         return vc

@@ -61,7 +61,6 @@ public class JKDrawSignatureView: UIView {
                 self.path.move(to: self.pts[0])
                 self.path.addCurve(to: self.pts[3], controlPoint1:self.pts[1],
                     controlPoint2:self.pts[2])
-                 
                 self.setNeedsDisplay()
                 self.pts[0] = self.pts[3]
                 self.pts[1] = self.pts[4]

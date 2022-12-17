@@ -42,6 +42,5 @@ public extension JKPOP where Base: UIScreen {
             }
         }
     }
-
 }
 

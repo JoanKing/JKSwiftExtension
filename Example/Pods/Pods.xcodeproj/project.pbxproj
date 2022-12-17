@@ -174,7 +174,7 @@
 		BBA630B39E5B0ED4B7AD600BB3EC5D93 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01700DFD2FAB4483754FE2F4EA41B8F /* UIImage+Extension.swift */; };
 		BBF7B32FB70AEDE982CDA068ED3578BA /* SnapKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0029D0A51BD559D2A4699FA2E570979B /* SnapKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BC16696C43BE045C91B790800309FA19 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEADD0DE8DA47A4F92E8E895F5AA399 /* UIScrollView+MJRefresh.m */; };
-		BDD12B7B1EF239D2C958374A5BA48A7A /* JKSwiftExtension-JKSwiftExtension in Resources */ = {isa = PBXBuildFile; fileRef = 22EFCFAE2A2CE6D0338326CFB1F1DF8A /* JKSwiftExtension-JKSwiftExtension */; };
+		BDD12B7B1EF239D2C958374A5BA48A7A /* JKSwiftExtension.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 22EFCFAE2A2CE6D0338326CFB1F1DF8A /* JKSwiftExtension.bundle */; };
 		BFC890F8FF888CAE6A3830CF2695CF2A /* MJRefreshStateTrailer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BAF134A6F25055238C76474E8A81400 /* MJRefreshStateTrailer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0348D6A224152AEC0B087911AEE39B1 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9271FBE963E3A48D58C39C8B94B58B1 /* UINavigationController+Extension.swift */; };
 		C07CD77A27192E173EE9ACECA10D12C6 /* ImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16240FA30D0E5DD104F73EC067E3B8B /* ImageView+Kingfisher.swift */; };
@@ -311,7 +311,7 @@
 		20516CA8CAD454EEB396B7287158E7B9 /* MJRefreshStateHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshStateHeader.m; path = MJRefresh/Custom/Header/MJRefreshStateHeader.m; sourceTree = "<group>"; };
 		21488E356A3C64BF11701DC7084BBB77 /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Filter.swift; sourceTree = "<group>"; };
 		21A26BAF0A5F9714AB8ECA10A7494F74 /* JKNibLoadable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKNibLoadable.swift; sourceTree = "<group>"; };
-		22EFCFAE2A2CE6D0338326CFB1F1DF8A /* JKSwiftExtension-JKSwiftExtension */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "JKSwiftExtension-JKSwiftExtension"; path = JKSwiftExtension.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		22EFCFAE2A2CE6D0338326CFB1F1DF8A /* JKSwiftExtension.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JKSwiftExtension.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		232913A8D315E6DFF6165CC60DBB1BBC /* ConstraintRelation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelation.swift; path = Source/ConstraintRelation.swift; sourceTree = "<group>"; };
 		240ECCC245B81A149FF72CE867A40E7A /* Data+extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Data+extension.swift"; sourceTree = "<group>"; };
 		25085A31BC073950FCC0FCD7A6EFA24F /* Pods-JKSwiftExtension_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-JKSwiftExtension_Example.modulemap"; sourceTree = "<group>"; };
@@ -859,7 +859,7 @@
 			children = (
 				85D03BEC2CA9B2DB28398618379E7744 /* FDFullscreenPopGesture */,
 				68877A42BD63BB778BB23FFC0031B17A /* JKSwiftExtension */,
-				22EFCFAE2A2CE6D0338326CFB1F1DF8A /* JKSwiftExtension-JKSwiftExtension */,
+				22EFCFAE2A2CE6D0338326CFB1F1DF8A /* JKSwiftExtension.bundle */,
 				C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher */,
 				E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh */,
 				F0711B247CB2E3C02E5EB73F0A177687 /* Pods-JKSwiftExtension_Example */,
@@ -1223,7 +1223,7 @@
 			);
 			name = "JKSwiftExtension-JKSwiftExtension";
 			productName = JKSwiftExtension;
-			productReference = 22EFCFAE2A2CE6D0338326CFB1F1DF8A /* JKSwiftExtension-JKSwiftExtension */;
+			productReference = 22EFCFAE2A2CE6D0338326CFB1F1DF8A /* JKSwiftExtension.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		8FE0EB310F454719A11FBFEAAC09FE3E /* FDFullscreenPopGesture */ = {
@@ -1360,7 +1360,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDD12B7B1EF239D2C958374A5BA48A7A /* JKSwiftExtension-JKSwiftExtension in Resources */,
+				BDD12B7B1EF239D2C958374A5BA48A7A /* JKSwiftExtension.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2033,6 +2033,7 @@
 			baseConfigurationReference = 825B678A37C0700084E3B06D35F6184B /* JKSwiftExtension.debug.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/JKSwiftExtension";
+				DEVELOPMENT_TEAM = Q24HFFF5V3;
 				IBSC_MODULE = JKSwiftExtension;
 				INFOPLIST_FILE = "Target Support Files/JKSwiftExtension/ResourceBundle-JKSwiftExtension-JKSwiftExtension-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -2214,6 +2215,7 @@
 			baseConfigurationReference = CAF3CC852C48545EAE00703049AC6E3E /* JKSwiftExtension.release.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/JKSwiftExtension";
+				DEVELOPMENT_TEAM = Q24HFFF5V3;
 				IBSC_MODULE = JKSwiftExtension;
 				INFOPLIST_FILE = "Target Support Files/JKSwiftExtension/ResourceBundle-JKSwiftExtension-JKSwiftExtension-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
