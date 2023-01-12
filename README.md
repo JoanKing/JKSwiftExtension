@@ -46,7 +46,7 @@ end
 ## 讨论
 - 微信号: wangc2318151015
 - 邮箱: jkironman@163.com
-<img src="https://user-images.githubusercontent.com/19670000/208245981-9211d34a-1174-455f-bd1c-cc8a13a7b36d.jpeg" alt="微信交流群" width="220">
+<img src="https://user-images.githubusercontent.com/19670000/211969936-73f7824c-286c-4b83-8355-b6fb6989743a.jpeg" alt="微信交流群" width="220">
 
 ## 版本说明
   - 2.2.6、版本(2022.12.11)
