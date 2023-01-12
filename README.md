@@ -49,6 +49,12 @@ end
 <img src="https://user-images.githubusercontent.com/19670000/208245981-9211d34a-1174-455f-bd1c-cc8a13a7b36d.jpeg" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.2.6、版本(2022.12.11)
+      - (1)、UIFont扩展的优化
+         - 1、UIFont系统字体的扩展简化，例如regular的字体原来的UIFont.systemFont(ofSize: 20, weight: .regular)到UIFont.textR(20)
+         - 2、UIFont字体支持PingFangSC字体的优化使用，比如：PingFangSC-Regular使用方式为UIFont.pingFangR(20)
+         - 3、UIFont字体支持自定义字体，比如第三方字体的使用：UIFont.jk.customFont(26, fontName: "第三方字体的名字")
+      - (2)、NSAttributedString扩展增加测试用例
   - 2.2.5、版本(2022.12.17) 代码格式检查
   - 2.2.4、版本(2022.12.11)
       - (1)、新增JKCircleProgressView圆形进度条
