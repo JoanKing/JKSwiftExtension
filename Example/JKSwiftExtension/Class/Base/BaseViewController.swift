@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import JKSwiftExtension
 @objc class BaseViewController: UIViewController {
     static let BaseViewControllerCellIdentifier = "BaseViewControllerCellIdentifier"
     /// 资源数组

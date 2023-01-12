@@ -44,7 +44,7 @@ public extension JKPOP where Base: CAGradientLayer {
     ///   - direction: 渐变方向
     ///   - gradientColors: 渐变的颜色数组（颜色的数组）
     ///   - gradientLocations: 设置渐变颜色的终止位置，这些值必须是递增的，数组的长度和 colors 的长度最好一致
-    func gradientLayer(_ direction: JKViewGradientDirection = .horizontal, _ gradientColors: [Any], _ gradientLocations: [NSNumber]? = nil) -> CAGradientLayer {
+    func gradientLayer(_ direction: JKViewGradientDirection = .horizontal, _ gradientColors: [Any], _ gradientLocations: [NSNumber]? = nil, _ transform: CATransform3D? = nil) -> CAGradientLayer {
        
         // 设置渐变的颜色数组
         self.base.colors = gradientColors
@@ -53,6 +53,9 @@ public extension JKPOP where Base: CAGradientLayer {
         // 设置渲染的起始结束位置（渐变方向设置）
         self.base.startPoint = direction.point().0
         self.base.endPoint = direction.point().1
+        if let weakTransform = transform {
+            self.base.transform = weakTransform
+        }
         
         return self.base
     }

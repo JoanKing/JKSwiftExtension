@@ -64,7 +64,6 @@
 		8480280A2558E7940038748A /* UIScreenExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848028092558E7940038748A /* UIScreenExtensionViewController.swift */; };
 		8480280C255926120038748A /* CATextLayerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480280B255926120038748A /* CATextLayerExtensionViewController.swift */; };
 		8480280E255933DE0038748A /* UIControlExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480280D255933DE0038748A /* UIControlExtensionViewController.swift */; };
-		84802814255948730038748A /* NSMutableAttributedStringExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84802813255948730038748A /* NSMutableAttributedStringExtensionViewController.swift */; };
 		8480281625594C1E0038748A /* UIAlertControllerExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480281525594C1E0038748A /* UIAlertControllerExtensionViewController.swift */; };
 		84802818255957560038748A /* UIApplicationExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84802817255957560038748A /* UIApplicationExtensionViewController.swift */; };
 		8480281A255963610038748A /* UISwitchExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84802819255963610038748A /* UISwitchExtensionViewController.swift */; };
@@ -148,6 +147,8 @@
 		E20237AE28B5F98E00F65F61 /* UIAlertController+Extension1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20237AD28B5F98E00F65F61 /* UIAlertController+Extension1.swift */; };
 		E21E3ABB27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21E3ABA27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift */; };
 		E24BB3B92941875B0089A696 /* JKCircleProgressViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24BB3B82941875B0089A696 /* JKCircleProgressViewViewController.swift */; };
+		E24BE977296FA5E1002B5ADE /* NSMutableAttributedStringExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24BE976296FA5E1002B5ADE /* NSMutableAttributedStringExtensionViewController.swift */; };
+		E254825A295BEFE200BA49A5 /* niu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2548259295BEFE200BA49A5 /* niu.ttf */; };
 		E26C272927E9CFD000012389 /* NotificationTetstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C272827E9CFD000012389 /* NotificationTetstViewController.m */; };
 		E277B95928DF014800DC0319 /* PresetntOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E277B95828DF014800DC0319 /* PresetntOneViewController.swift */; };
 		E277B95B28DF015600DC0319 /* PresetntTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E277B95A28DF015600DC0319 /* PresetntTwoViewController.swift */; };
@@ -168,6 +169,8 @@
 		E2D5FDA62861B876006D1AAB /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D5FDA52861B876006D1AAB /* AnimationView.swift */; };
 		E2E08F182871AD5300F722A9 /* JKEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E08F172871AD5300F722A9 /* JKEmptyViewController.swift */; };
 		E2EAD536293F6095007D8AE0 /* JKPanViewCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EAD535293F6095007D8AE0 /* JKPanViewCustomView.swift */; };
+		E2F4323E2957F8C900ED97F2 /* DeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4323D2957F8C900ED97F2 /* DeleteViewController.swift */; };
+		E2F432402957FD8C00ED97F2 /* DeleteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4323F2957FD8C00ED97F2 /* DeleteViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -235,7 +238,6 @@
 		848028092558E7940038748A /* UIScreenExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtensionViewController.swift; sourceTree = "<group>"; };
 		8480280B255926120038748A /* CATextLayerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATextLayerExtensionViewController.swift; sourceTree = "<group>"; };
 		8480280D255933DE0038748A /* UIControlExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlExtensionViewController.swift; sourceTree = "<group>"; };
-		84802813255948730038748A /* NSMutableAttributedStringExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringExtensionViewController.swift; sourceTree = "<group>"; };
 		8480281525594C1E0038748A /* UIAlertControllerExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensionViewController.swift; sourceTree = "<group>"; };
 		84802817255957560038748A /* UIApplicationExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensionViewController.swift; sourceTree = "<group>"; };
 		84802819255963610038748A /* UISwitchExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISwitchExtensionViewController.swift; sourceTree = "<group>"; };
@@ -325,6 +327,8 @@
 		E20237AD28B5F98E00F65F61 /* UIAlertController+Extension1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension1.swift"; sourceTree = "<group>"; };
 		E21E3ABA27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVisualEffectViewExtensionViewController.swift; sourceTree = "<group>"; };
 		E24BB3B82941875B0089A696 /* JKCircleProgressViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKCircleProgressViewViewController.swift; sourceTree = "<group>"; };
+		E24BE976296FA5E1002B5ADE /* NSMutableAttributedStringExtensionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringExtensionViewController.swift; sourceTree = "<group>"; };
+		E2548259295BEFE200BA49A5 /* niu.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = niu.ttf; sourceTree = "<group>"; };
 		E26C272727E9CFD000012389 /* NotificationTetstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationTetstViewController.h; sourceTree = "<group>"; };
 		E26C272827E9CFD000012389 /* NotificationTetstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationTetstViewController.m; sourceTree = "<group>"; };
 		E277B95828DF014800DC0319 /* PresetntOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetntOneViewController.swift; sourceTree = "<group>"; };
@@ -348,6 +352,8 @@
 		E2D5FDA52861B876006D1AAB /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
 		E2E08F172871AD5300F722A9 /* JKEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKEmptyViewController.swift; sourceTree = "<group>"; };
 		E2EAD535293F6095007D8AE0 /* JKPanViewCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPanViewCustomView.swift; sourceTree = "<group>"; };
+		E2F4323D2957F8C900ED97F2 /* DeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteViewController.swift; sourceTree = "<group>"; };
+		E2F4323F2957FD8C00ED97F2 /* DeleteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteViewCell.swift; sourceTree = "<group>"; };
 		FA3D0426FDCFDD919F4C3DCA /* Pods_JKSwiftExtension_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSwiftExtension_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -413,6 +419,7 @@
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E2548258295BEFCC00BA49A5 /* font */,
 				84E922A927AE060D00BC4AA2 /* baby.gif */,
 				E292011027F1874E0032EA2F /* JKOCMacro.h */,
 				8410D02B25DBC98300700FDD /* mebubble@2x.png */,
@@ -481,9 +488,9 @@
 				84D5B11625F4FA2400984F5A /* FBArrowLabel.swift */,
 				846ECCCA279AE609006215EF /* JKVVViewController.swift */,
 				8423F2E7269FF45200CACC47 /* FBGuidePage.swift */,
-				84B84C3127BBF455004F04B9 /* ProfileViewController.swift */,
 				E289F90E2850262200D840B7 /* RadiusViewController.swift */,
 				E289F9172850D19500D840B7 /* SpeechViewController.swift */,
+				84B84C3127BBF455004F04B9 /* ProfileViewController.swift */,
 				E26C272727E9CFD000012389 /* NotificationTetstViewController.h */,
 				E26C272827E9CFD000012389 /* NotificationTetstViewController.m */,
 				E2E08F172871AD5300F722A9 /* JKEmptyViewController.swift */,
@@ -491,6 +498,7 @@
 				E277B95A28DF015600DC0319 /* PresetntTwoViewController.swift */,
 				E277B95C28DF016800DC0319 /* PresetntThreeViewController.swift */,
 				E277B95E28DF017700DC0319 /* PresetntFourViewController.swift */,
+				E2F4323D2957F8C900ED97F2 /* DeleteViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -511,6 +519,7 @@
 				E2D5FDA52861B876006D1AAB /* AnimationView.swift */,
 				E20237AB28B5F4EC00F65F61 /* TGSLoginAgreeView.swift */,
 				E20237AD28B5F98E00F65F61 /* UIAlertController+Extension1.swift */,
+				E2F4323F2957FD8C00ED97F2 /* DeleteViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -617,6 +626,7 @@
 				8457686B259DC2A7006F93D4 /* NSIndexPathExtensionViewController.swift */,
 				8457687B259DC3A3006F93D4 /* IndexPathExtensionViewController.swift */,
 				8457683A259DABD1006F93D4 /* NSAttributedStringExtensionViewController.swift */,
+				E24BE976296FA5E1002B5ADE /* NSMutableAttributedStringExtensionViewController.swift */,
 				84B444092575E8AD00D3DD1D /* DataExtensionViewController.swift */,
 				84BEA370254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift */,
 				8482AA072553F09900EB0A7A /* TimerExtensionViewController.swift */,
@@ -680,7 +690,6 @@
 				8418FB98255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift */,
 				84A6FB72255A40E400057839 /* UIBarButtonItemExtensionViewController.swift */,
 				8480281525594C1E0038748A /* UIAlertControllerExtensionViewController.swift */,
-				84802813255948730038748A /* NSMutableAttributedStringExtensionViewController.swift */,
 				8480280B255926120038748A /* CATextLayerExtensionViewController.swift */,
 				848028092558E7940038748A /* UIScreenExtensionViewController.swift */,
 				84B16BDE268C481C003C8AF9 /* WKWebViewExtensionViewController.swift */,
@@ -828,6 +837,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E2548258295BEFCC00BA49A5 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				E2548259295BEFE200BA49A5 /* niu.ttf */,
+			);
+			path = font;
+			sourceTree = "<group>";
+		};
 		E2C465A42855E508008340BA /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -907,6 +924,7 @@
 				8483A72C254BF0AD00ACF6FD /* JKBaseKit.bundle in Resources */,
 				8473AADA2562985B00707877 /* pika2.gif in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				E254825A295BEFE200BA49A5 /* niu.ttf in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				84F937622589E82100A35E77 /* MyStoryboard2.storyboard in Resources */,
 				8423F2E6269FEE8900CACC47 /* girl.jpg in Resources */,
@@ -989,6 +1007,7 @@
 				84A6FB79255A65EC00057839 /* UIButtonExtensionViewController.swift in Sources */,
 				8485CC7E2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift in Sources */,
 				84E96DD925C7E2D300D76D5C /* CAGradientLayerExtensionViewController.swift in Sources */,
+				E24BE977296FA5E1002B5ADE /* NSMutableAttributedStringExtensionViewController.swift in Sources */,
 				84ADDC3B25E3804500C8177C /* JKDrawSignatureViewViewController.swift in Sources */,
 				E26C272927E9CFD000012389 /* NotificationTetstViewController.m in Sources */,
 				8482AA082553F09900EB0A7A /* TimerExtensionViewController.swift in Sources */,
@@ -1000,6 +1019,7 @@
 				84BEA37B25500B8F00CA8A75 /* DoubleExtensionViewController.swift in Sources */,
 				8483C4C0255E799B0034A2F7 /* UIStackViewExtensionViewController.swift in Sources */,
 				8483A6CA254BC02B00ACF6FD /* BundleExtensionViewController.swift in Sources */,
+				E2F4323E2957F8C900ED97F2 /* DeleteViewController.swift in Sources */,
 				8483A735254C119700ACF6FD /* BaseViewController.swift in Sources */,
 				84802818255957560038748A /* UIApplicationExtensionViewController.swift in Sources */,
 				844A634F25664F9B000059EC /* Notification+Extension.swift in Sources */,
@@ -1016,7 +1036,6 @@
 				E2B28D2C2831E15D00DD7C9A /* JKRollingNoticeViewCell2.swift in Sources */,
 				849D58F02536ADD300CCDF0F /* StringExtensionViewController.swift in Sources */,
 				84813774254A5EC100D9289C /* UIColorExtensionViewController.swift in Sources */,
-				84802814255948730038748A /* NSMutableAttributedStringExtensionViewController.swift in Sources */,
 				8468190D26A32BA1000B2607 /* JKDarkModeUtilViewController.swift in Sources */,
 				8418FB9B255BD42A000CB0B3 /* UINavigationControllerExtensionViewController.swift in Sources */,
 				848A643F25A4517E00E9EC48 /* UISliderExtensionViewController.swift in Sources */,
@@ -1107,6 +1126,7 @@
 				84CC32AF255D39F000F489F0 /* UITextViewExtensionViewController.swift in Sources */,
 				847D4B9625611E50000DDA3C /* UIImageExtensionViewController.swift in Sources */,
 				E277B95F28DF017700DC0319 /* PresetntFourViewController.swift in Sources */,
+				E2F432402957FD8C00ED97F2 /* DeleteViewCell.swift in Sources */,
 				8473D81E25E3432B0072AB0D /* QRTestViewController.swift in Sources */,
 				8488026D256DF0DE007D41CA /* TestFileViewController.swift in Sources */,
 				84CC32AD255CDBB300F489F0 /* UIScrollViewExtensionViewController.swift in Sources */,
@@ -1186,7 +1206,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "JKSwiftExtension-Swift.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "JKSwiftExtensionDemo-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1233,7 +1253,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "JKSwiftExtension-Swift.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "JKSwiftExtensionDemo-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1262,7 +1282,7 @@
 				PRODUCT_NAME = JKSwiftExtensionDemo;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "JKSwiftExtension/JKSwiftExtension_Example-Bridging-Header.h";
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "JKSwiftExtensionDemo-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -1293,7 +1313,7 @@
 				PRODUCT_NAME = JKSwiftExtensionDemo;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "JKSwiftExtension/JKSwiftExtension_Example-Bridging-Header.h";
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "JKSwiftExtensionDemo-Swift.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

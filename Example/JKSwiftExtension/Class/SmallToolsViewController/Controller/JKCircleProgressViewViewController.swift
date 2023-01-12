@@ -13,12 +13,13 @@ class JKCircleProgressViewViewController: UIViewController {
     /// 进度条
     lazy var progressView: JKCircleProgressView = {
         let circleProgressView = JKCircleProgressView()
+        circleProgressView.backgroundColor = .red
         return circleProgressView
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.view.backgroundColor = .white
         
         view.addSubview(progressView)

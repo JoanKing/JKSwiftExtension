@@ -23,22 +23,22 @@ class ProfileViewController: UIViewController {
         person.setValue(5, forKey: "age")
         // 3、手动触发KVO
         // person.willChangeValue(forKey: "age")
-        print("----------")
+        debugPrint("----------")
         person.addValue()
         // person.didChangeValue(forKey: "age")
     }
     
     deinit {
-        print("----------")
+        debugPrint("----------")
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        print(keyPath ?? "")
+        debugPrint(keyPath ?? "")
         if let old = change?[NSKeyValueChangeKey.oldKey] {
-            print(old)
+            debugPrint(old)
         }
         if let new = change?[NSKeyValueChangeKey.newKey] {
-            print(new)
+            debugPrint(new)
         }
     }
 }

@@ -7,7 +7,8 @@
 
 import UIKit
 extension UIFont: JKPOPCompatible {}
-// MARK: - 一、常用的基本字体扩展
+
+// MARK: - 一、常用的系统基本字体扩展
 public extension JKPOP where Base: UIFont {
     
     // MARK: 1.1、默认字体
@@ -95,15 +96,19 @@ public extension JKPOP where Base: UIFont {
     }
 }
 
-// MARK: - 二、自定义字体
+// MARK: - 二、PingFangSC-字体使用
 fileprivate enum UIFontWeight: String {
     /// 常规
     case Regular = "Regular"
-    /// 中等
+    /// 中等的字体(介于Regular和Semibold之间)
     case Medium = "Medium"
-    /// 加粗
-    case Bold = "Bold"
-    /// 半粗体
+    /// 纤细的字体
+    case Thin = "Thin"
+    /// 亮字体
+    case Light = "Light"
+    /// 超细的字体
+    case Ultralight = "Ultralight"
+    /// 半粗体的字体
     case Semibold = "Semibold"
 }
 
@@ -113,46 +118,96 @@ public extension JKPOP where Base: UIFont {
     /// 常规字体
     /// - Parameter ofSize: 字体大小
     /// - Returns: 字体
-    static func customFontR(_ ofSize: CGFloat) -> UIFont {
-        return text(ofSize, W: .Regular)
+    static func pingFangR(_ ofSize: CGFloat) -> UIFont {
+        return pingFangText(ofSize, W: .Regular)
     }
     
-    // MARK: 2.2、中等的字体
+    // MARK: 2.2、中等的字体(介于Regular和Semibold之间)
+    /// 中等的字体(介于Regular和Semibold之间)
     /// - Parameter ofSize: 字体大小
     /// - Returns: 字体
-    static func customFontM(_ ofSize: CGFloat) -> UIFont {
-        return text(ofSize, W: .Medium)
+    static func pingFangM(_ ofSize: CGFloat) -> UIFont {
+        return pingFangText(ofSize, W: .Medium)
     }
     
-    // MARK: 2.3、加粗的字体
-    /// 加粗的字体
+    // MARK: 2.3、纤细的字体
+    /// 纤细的字体
     /// - Parameter ofSize: 字体大小
     /// - Returns: 字体
-    static func customFontB(_ ofSize: CGFloat) -> UIFont {
-        return text(ofSize, W: .Bold)
+    static func pingFangT(_ ofSize: CGFloat) -> UIFont {
+        return pingFangText(ofSize, W: .Thin)
     }
     
-    // MARK: 2.4、半粗体的字体
+    // MARK: 2.4、亮字体
+    /// 亮字体
+    /// - Parameter ofSize: 字体大小
+    /// - Returns: 字体
+    static func pingFangL(_ ofSize: CGFloat) -> UIFont {
+        return pingFangText(ofSize, W: .Light)
+    }
+    
+    // MARK: 2.5、超细的字体
+    /// 超细的字体
+    /// - Parameter ofSize: 字体大小
+    /// - Returns: 字体
+    static func pingFangUL(_ ofSize: CGFloat) -> UIFont {
+        return pingFangText(ofSize, W: .Ultralight)
+    }
+    
+    // MARK: 2.6、半粗体的字体
     /// 半粗体的字体
     /// - Parameter ofSize: 字体大小
     /// - Returns: 字体
-    static func customFontSB(_ ofSize: CGFloat) -> UIFont {
-        return text(ofSize, W: .Semibold)
+    static func pingFangSB(_ ofSize: CGFloat) -> UIFont {
+        return pingFangText(ofSize, W: .Semibold)
     }
     
     /// 文字字体
-    private static func text(_ ofSize: CGFloat, W Weight: UIFontWeight) -> UIFont {
+    private static func pingFangText(_ ofSize: CGFloat, W Weight: UIFontWeight) -> UIFont {
         let fontName = "PingFangSC-" + Weight.rawValue
-        return appFont(fontName: fontName, ofSize: ofSize, Weight: Weight)
+        return appCustomFont(fontName: fontName, ofSize: ofSize)
+    }
+}
+
+// MARK: - 三、加载自定义的字体
+/*
+ 使用自定义自提注意事项
+ 1、添加自定义字体到项目，保证TARGETS->Build Phases里面有对应的字体资源
+ 2、在info.plist添加字体资源 Fonts provided by application(数组类型，存放自定义字体名字)
+ 3、调用下面方法使用：UIFont.jk.customFont(26, fontName: "字体的名字")
+ */
+public extension JKPOP where Base: UIFont {
+    //MARK: 3.1、自定义字体
+    /// 自定义字体
+    static func customFont(_ ofSize: CGFloat, fontName: String) -> UIFont {
+        return appCustomFont(fontName: fontName, ofSize: ofSize)
     }
     
-    private static func appFont(fontName: String, ofSize: CGFloat, Weight: UIFontWeight = .Regular) -> UIFont {
+    // MARK: 3.2、查看所有字体的名字
+    static func showAllFont() {
+        var i = 0
+        for family in UIFont.familyNames {
+            debugPrint("\(i)---项目字体---\(family)")
+            for names in UIFont.fontNames(forFamilyName: family) {
+                debugPrint("== \(names)")
+            }
+            i += 1
+        }
+    }
+}
+
+//MARK: - private
+private extension JKPOP where Base: UIFont {
+    /// 自定义的字体
+    /// - Parameters:
+    ///   - fontName: 字体的名字
+    ///   - ofSize: 字体大小
+    /// - Returns: 对应的字体
+    private static func appCustomFont(fontName: String, ofSize: CGFloat) -> UIFont {
         if let font = UIFont(name: fontName, size: ofSize) {
             return font
-        } else if Weight == .Regular {
-            return UIFont.systemFont(ofSize: ofSize)
         } else {
-            return UIFont.boldSystemFont(ofSize: ofSize)
+            return UIFont.systemFont(ofSize: ofSize)
         }
     }
 }

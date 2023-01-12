@@ -8,13 +8,14 @@
 
 import UIKit
 import WebKit
+import JKSwiftExtension
 class UIViewExtensionViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         headDataArray = ["一、UIView 有关 Frame 的扩展", "二、继承于 UIView 视图的 平面、3D 旋转 以及 缩放", "三、关于UIView的 圆角 和 阴影的设置", "四、自定义链式编程", "五、其他的方法", "六、试图调试", "七、手势的扩展", "八、颜色渐变"]
-        dataArray = [["x 的位置", "y 的位置", "height: 视图的高度", "width: 视图的宽度", "size: 视图的zize", "centerX: 视图的X中间位置", "centerX: 视图的Y中间位置", "center: 视图的中间位置", "top 上端横坐标(y)", "left 左端横坐标(x)", "bottom 底端纵坐标 (y + height)", "right 底端纵坐标 (x + width)"], ["平面旋转", "沿 X 轴方向旋转多少度(3D旋转)", "沿 Y 轴方向旋转多少度(3D旋转)", "沿 Z 轴方向旋转多少度(3D旋转)", "沿 X、Y、Z 轴方向同时旋转多少度(3D旋转)", "设置 x,y 缩放", "水平或垂直翻转", "移动到指定中心点位置"], ["设置圆角", "添加圆角和边框", "给继承于view的类添加阴影", "添加阴影和圆角并存", "通过贝塞尔曲线View添加阴影和圆角", "添加边框", "添加顶部的边框", "添加顶部的 内边框", "添加底部的 边框", "添加左边的 边框", "添加右边的 边框", "画圆环", "绘制虚线", "添加内阴影", "毛玻璃效果", "添加多个View子视图"], ["设置tag值", "设置圆角", "图片的模式", "设置背景色", "设置十六进制颜色", "设置 frame", "被添加到某个视图上", "设置是否支持触摸", "设置是否隐藏", "设置透明度", "设置tintColor", "链式编程的综合使用"], ["获取当前view的viewcontroller", "添加水印", "将 View 转换成图片", "添加点击事件", "键盘收起来", "视图抖动", "是否包含WKWebView"], ["图层调试", "寻找某个类型子视图", "移除所有的子视图", "移除layer"], ["通用响应添加方法", "手势 - 单击", "手势 - 长按", "手势 - 拖拽", "手势 - 屏幕边缘(靠近屏幕边缘的View类才支持)", "手势 - 屏幕边缘(闭包)", "手势 - 清扫", "手势 - 清扫(闭包)", "手势 - 捏合", "手势 - 旋转"], ["添加渐变色图层（棕色->绿色）", "colors 变化渐变动画"]]
+        dataArray = [["x 的位置", "y 的位置", "height: 视图的高度", "width: 视图的宽度", "size: 视图的zize", "centerX: 视图的X中间位置", "centerX: 视图的Y中间位置", "center: 视图的中间位置", "top 上端横坐标(y)", "left 左端横坐标(x)", "bottom 底端纵坐标 (y + height)", "right 底端纵坐标 (x + width)"], ["平面旋转", "沿 X 轴方向旋转多少度(3D旋转)", "沿 Y 轴方向旋转多少度(3D旋转)", "沿 Z 轴方向旋转多少度(3D旋转)", "沿 X、Y、Z 轴方向同时旋转多少度(3D旋转)", "设置 x,y 缩放", "水平或垂直翻转", "移动到指定中心点位置"], ["设置圆角", "添加圆角和边框", "给继承于view的类添加阴影", "添加阴影和圆角并存", "通过贝塞尔曲线View添加阴影和圆角", "添加边框", "添加顶部的边框", "添加顶部的 内边框", "添加底部的 边框", "添加左边的 边框", "添加右边的 边框", "画圆环", "绘制虚线", "添加内阴影", "毛玻璃效果", "添加多个View子视图"], ["设置tag值", "设置圆角", "图片的模式", "设置背景色", "设置十六进制颜色", "设置 frame", "被添加到某个视图上", "设置是否支持触摸", "设置是否隐藏", "设置透明度", "设置tintColor", "链式编程的综合使用"], ["获取当前view的viewcontroller", "添加水印", "将 View 转换成图片", "添加点击事件", "键盘收起来", "视图抖动", "是否包含WKWebView"], ["图层调试", "UIResponder.Type寻找某个类型子视图", "T.Type寻找某个类型子视图", "根据类名寻找某个类型子视图", "移除所有的子视图", "移除layer"], ["通用响应添加方法", "手势 - 单击", "手势 - 长按", "手势 - 拖拽", "手势 - 屏幕边缘(靠近屏幕边缘的View类才支持)", "手势 - 屏幕边缘(闭包)", "手势 - 清扫", "手势 - 清扫(闭包)", "手势 - 捏合", "手势 - 旋转"], ["添加渐变色图层（棕色->绿色）", "colors 变化渐变动画"]]
     }
 }
 
@@ -28,6 +29,7 @@ extension UIViewExtensionViewController {
         testView.center.x = self.view.center.x
         testView.clipsToBounds = true
         self.view.addSubview(testView)
+        
         testView.jk.gradientColorAnimation(startGradientColors: [UIColor.brown.cgColor, UIColor.green.cgColor], endGradientColors: [UIColor.yellow.cgColor, UIColor.purple.cgColor])
         JKAsyncs.asyncDelay(3) {
         } _: {
@@ -37,6 +39,8 @@ extension UIViewExtensionViewController {
     
     // MARK: 8.1、添加渐变色图层（棕色->绿色）
     @objc func test81() {
+        
+       
         let testView = UIView(frame: CGRect(x: 0, y: 200, width: 260, height: 60))
         testView.backgroundColor = .randomColor
         testView.center.x = self.view.center.x
@@ -225,8 +229,8 @@ extension UIViewExtensionViewController {
 // MARK: - 六、试图调试
 extension UIViewExtensionViewController {
     
-    // MARK: 6.4、移除layer
-    @objc func test64() {
+    // MARK: 6.6、移除layer
+    @objc func test66() {
         let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
         testView.backgroundColor = .randomColor
         testView.center.x = self.view.center.x
@@ -245,8 +249,8 @@ extension UIViewExtensionViewController {
         }
     }
     
-    // MARK: 6.3、移除所有的子视图
-    @objc func test63() {
+    // MARK: 6.5、移除所有的子视图
+    @objc func test65() {
         let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
         testView.backgroundColor = .randomColor
         testView.center.x = self.view.center.x
@@ -268,8 +272,59 @@ extension UIViewExtensionViewController {
             }
         }
     }
+    //MARK: 6.4、根据类名寻找某个类型子视图
+    @objc func test64() {
+        let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
+        testView.backgroundColor = .randomColor
+        testView.center.x = self.view.center.x
+        testView.clipsToBounds = true
+        self.view.addSubview(testView)
+        
+        let testView1 = UIView(frame: CGRect(x: 0, y: 10, width: 20, height: 20))
+        testView1.backgroundColor = .randomColor
+        testView.addSubview(testView1)
+        let testView2 = UIView(frame: CGRect(x: 100, y: 100, width: 20, height: 20))
+        testView2.backgroundColor = .randomColor
+        testView.addSubview(testView2)
+        if let resultView = testView.jk.findSubView(childViewClassName: "UIView") {
+            JKPrint("寻找子视图:\(testView) 结果是：\(resultView)")
+        } else {
+            JKPrint("寻找子视图:\(testView) 结果是：false")
+        }
+        JKAsyncs.asyncDelay(2) {
+            
+        } _: {
+            testView.removeFromSuperview()
+        }
+    }
     
-    // MARK: 6.2、寻找某个类型子视图
+    //MARK: 6.3、T.Type寻找某个类型子视图
+    @objc func test63() {
+        let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
+        testView.backgroundColor = .randomColor
+        testView.center.x = self.view.center.x
+        testView.clipsToBounds = true
+        self.view.addSubview(testView)
+        
+        let testView1 = UIView(frame: CGRect(x: 0, y: 10, width: 20, height: 20))
+        testView1.backgroundColor = .randomColor
+        testView.addSubview(testView1)
+        let testView2 = UIView(frame: CGRect(x: 100, y: 100, width: 20, height: 20))
+        testView2.backgroundColor = .randomColor
+        testView.addSubview(testView2)
+        if let resultView = testView.jk.findSubView(childViewType: UIView.self) {
+            JKPrint("寻找子视图:\(testView) 结果是：\(resultView)")
+        } else {
+            JKPrint("寻找子视图:\(testView) 结果是：false")
+        }
+        JKAsyncs.asyncDelay(2) {
+            
+        } _: {
+            testView.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 6.2、UIResponder.Type寻找某个类型子视图
     @objc func test62() {
         let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
         testView.backgroundColor = .randomColor

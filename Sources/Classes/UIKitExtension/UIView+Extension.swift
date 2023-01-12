@@ -1036,7 +1036,7 @@ public extension JKPOP where Base: UIView {
         #endif
     }
     
-    // MARK: 8.2、寻找某个类型子视图
+    // MARK: 8.2、UIResponder.Type寻找某个类型子视图
     /// 寻找某个类型子视图
     /// - Parameters:
     ///   - type: 子视图类型
@@ -1062,7 +1062,40 @@ public extension JKPOP where Base: UIView {
         return nil
     }
     
-    // MARK: 8.3、移除所有的子视图
+    //MARK: 8.3、T.Type寻找某个类型子视图
+    /// 寻找某个类型子视图
+    /// - Parameter childViewType: 子视图类型
+    /// - Returns: 返回这个类型对象
+    func findSubView<T>(childViewType: T.Type) -> T? {
+        if let subView = self.base as? T {
+            return subView
+        }
+        for subview in self.base.subviews {
+            if let view = subview.jk.findSubView(childViewType: childViewType) {
+                return view
+            }
+        }
+        return nil
+    }
+    
+    //MARK: 8.4、根据类名寻找某] 类型子视图
+    /// 寻找某个类型子视图
+    /// - Parameter childViewType: 子视图类型
+    /// - Returns: 返回这个类型对象
+    func findSubView(childViewClassName: String) -> UIView? {
+        // print("className：\(self.base.className)")
+        if self.base.className == childViewClassName {
+            return self.base
+        }
+        for subview in self.base.subviews {
+            if let view = subview.jk.findSubView(childViewClassName: childViewClassName) {
+                return view
+            }
+        }
+        return nil
+    }
+    
+    // MARK: 8.5、移除所有的子视图
     /// 移除所有的子视图
     func removeAllSubViews() {
         for subView in self.base.subviews {
@@ -1070,7 +1103,7 @@ public extension JKPOP where Base: UIView {
         }
     }
     
-    // MARK: 8.4、移除layer
+    // MARK: 8.6、移除layer
     /// 移除layer
     /// - Returns: 返回自身
     @discardableResult
@@ -1283,9 +1316,9 @@ public extension JKPOP where Base : UIView {
     ///   - direction: 渐变方向
     ///   - gradientColors: 渐变的颜色数组（颜色的数组是）
     ///   - gradientLocations: 决定每个渐变颜色的终止位置，这些值必须是递增的，数组的长度和 colors 的长度最好一致
-    func gradientColor(_ direction: JKViewGradientDirection = .horizontal, _ gradientColors: [Any], _ gradientLocations: [NSNumber]? = nil) {
+    func gradientColor(_ direction: JKViewGradientDirection = .horizontal, _ gradientColors: [Any], _ gradientLocations: [NSNumber]? = nil, _ transform: CATransform3D? = nil) {
         // 获取渐变对象
-        let gradientLayer = CAGradientLayer().jk.gradientLayer(direction, gradientColors, gradientLocations)
+        let gradientLayer = CAGradientLayer().jk.gradientLayer(direction, gradientColors, gradientLocations, transform)
         // 设置其CAGradientLayer对象的frame，并插入view的layer
         gradientLayer.frame = CGRect(x: 0, y: 0, width: self.base.jk.width, height: self.base.jk.height)
         self.base.layer.insertSublayer(gradientLayer, at: 0)

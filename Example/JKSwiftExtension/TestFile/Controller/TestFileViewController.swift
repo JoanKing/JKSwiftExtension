@@ -24,6 +24,13 @@ class TestFileViewController: BaseViewController {
     }
 }
 
+enum Rank: String, CaseIterable {
+    case One = "11"
+    case Two = "22"
+    static let allValues = Rank.allCases.map { $0.rawValue }
+}
+
+
 extension TestFileViewController {
     
     /// 计算x的n次方
@@ -76,17 +83,21 @@ extension TestFileViewController {
     }
     
     @objc func test13() {
-       self.navigationController?.pushViewController(ThreeViewController(), animated: true)
+       self.navigationController?.pushViewController(DeleteViewController(), animated: true)
     }
     
     @objc func test12() {
         // showAlertAgreement()
+        /*
         var sectionModels = [[11, 12, 13], [21, 22, 23]]
         print("数组：\(sectionModels)")
         //var items = sectionModels[0]
         // items.remove(at: 1)
         sectionModels[0].removeAll(where: { $0  == 12 })
         print("移除后数组：\(sectionModels)")
+         */
+        let colors = Rank.allValues
+        print(colors)
     }
     
     @objc func test11() {
