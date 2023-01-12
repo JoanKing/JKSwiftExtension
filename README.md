@@ -46,9 +46,10 @@ end
 ## 讨论
 - 微信号: wangc2318151015
 - 邮箱: jkironman@163.com
-<img src="https://user-images.githubusercontent.com/19670000/200982257-a0a8644e-3162-4ee6-9ec8-83f6a095f9b4.jpeg" alt="微信交流群" width="220">
+<img src="https://user-images.githubusercontent.com/19670000/208245981-9211d34a-1174-455f-bd1c-cc8a13a7b36d.jpeg" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.2.5、版本(2022.12.17) 代码格式检查
   - 2.2.4、版本(2022.12.11)
       - (1)、新增JKCircleProgressView圆形进度条
       - (2)、UIView+Extension.swift部分bug修复
