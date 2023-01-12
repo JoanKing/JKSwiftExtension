@@ -50,7 +50,7 @@ end
 <img src="https://user-images.githubusercontent.com/19670000/211969936-73f7824c-286c-4b83-8355-b6fb6989743a.jpeg" alt="微信交流群" width="220">
 
 ## 版本说明
-  - 2.2.6、版本(2022.12.11)
+  - 2.2.6、版本(2023.01.12)
       - (1)、UIFont扩展的优化
          - 1、UIFont系统字体的扩展简化，例如regular的字体原来的UIFont.systemFont(ofSize: 20, weight: .regular)到UIFont.textR(20)
          - 2、UIFont字体支持PingFangSC字体的优化使用，比如：PingFangSC-Regular使用方式为UIFont.pingFangR(20)
