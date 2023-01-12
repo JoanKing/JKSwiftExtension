@@ -1,9 +1,10 @@
 ![](https://user-images.githubusercontent.com/19670000/114378430-45129480-9bba-11eb-9051-74d89c3e15f3.png)
 
-[![CI Status](https://img.shields.io/travis/JoanKing/JKSwiftExtension.svg?style=flat)](https://travis-ci.org/JoanKing/JKSwiftExtension)
-[![Version](https://img.shields.io/cocoapods/v/JKSwiftExtension.svg?style=flat)](https://cocoapods.org/pods/JKSwiftExtension)
-[![License](https://img.shields.io/cocoapods/l/JKSwiftExtension.svg?style=flat)](https://cocoapods.org/pods/JKSwiftExtension)
-[![Platform](https://img.shields.io/cocoapods/p/JKSwiftExtension.svg?style=flat)](https://cocoapods.org/pods/JKSwiftExtension)
+<p align="center">
+<a href="https://cocoapods.org/pods/JKSwiftExtension"><img src="https://img.shields.io/cocoapods/v/JKSwiftExtension.svg?style=flat"></a>
+<a href="https://github.com/JoanKing/JKSwiftExtension/blob/master/LICENSE"><img src="https://img.shields.io/cocoapods/l/JKSwiftExtension.svg?style=flat"></a>
+<a href="https://cocoapods.org/pods/JKSwiftExtension"><img src="https://img.shields.io/cocoapods/p/JKSwiftExtension.svg?style=flat"></a>
+</p>
 
 ## 组成部分  
 
