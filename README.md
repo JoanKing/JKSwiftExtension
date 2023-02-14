@@ -1,9 +1,10 @@
 ![](https://user-images.githubusercontent.com/19670000/114378430-45129480-9bba-11eb-9051-74d89c3e15f3.png)
 
-[![CI Status](https://img.shields.io/travis/JoanKing/JKSwiftExtension.svg?style=flat)](https://travis-ci.org/JoanKing/JKSwiftExtension)
-[![Version](https://img.shields.io/cocoapods/v/JKSwiftExtension.svg?style=flat)](https://cocoapods.org/pods/JKSwiftExtension)
-[![License](https://img.shields.io/cocoapods/l/JKSwiftExtension.svg?style=flat)](https://cocoapods.org/pods/JKSwiftExtension)
-[![Platform](https://img.shields.io/cocoapods/p/JKSwiftExtension.svg?style=flat)](https://cocoapods.org/pods/JKSwiftExtension)
+<p align="center">
+<a href="https://cocoapods.org/pods/JKSwiftExtension"><img src="https://img.shields.io/cocoapods/v/JKSwiftExtension.svg?style=flat"></a>
+<a href="https://github.com/JoanKing/JKSwiftExtension/blob/master/LICENSE"><img src="https://img.shields.io/cocoapods/l/JKSwiftExtension.svg?style=flat"></a>
+<a href="https://cocoapods.org/pods/JKSwiftExtension"><img src="https://img.shields.io/cocoapods/p/JKSwiftExtension.svg?style=flat"></a>
+</p>
 
 ## 组成部分  
 
@@ -16,7 +17,7 @@
 
    每一个 `Extension` 都会对应一个测试用例的类，如果没有的说明还没有完善，如： String 的分类 `String+Extension` 的测试用例在 `StringExtensionViewController.swift` 里面
    ![WechatIMG160.jpeg](https://upload-images.jianshu.io/upload_images/1728484-f0bcaccd3f7d26b3.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1024)
-
+   
 ## 导入方式
 
 #### 方式一：Swift Package Manager
@@ -46,10 +47,10 @@ end
 ## 讨论
 - 微信号: wangc2318151015
 - 邮箱: jkironman@163.com
-<img src="https://user-images.githubusercontent.com/19670000/208245981-9211d34a-1174-455f-bd1c-cc8a13a7b36d.jpeg" alt="微信交流群" width="220">
+<img src="https://user-images.githubusercontent.com/19670000/211969936-73f7824c-286c-4b83-8355-b6fb6989743a.jpeg" alt="微信交流群" width="220">
 
 ## 版本说明
-  - 2.2.6、版本(2022.12.11)
+  - 2.2.6、版本(2023.01.12)
       - (1)、UIFont扩展的优化
          - 1、UIFont系统字体的扩展简化，例如regular的字体原来的UIFont.systemFont(ofSize: 20, weight: .regular)到UIFont.textR(20)
          - 2、UIFont字体支持PingFangSC字体的优化使用，比如：PingFangSC-Regular使用方式为UIFont.pingFangR(20)
