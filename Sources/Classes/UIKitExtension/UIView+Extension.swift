@@ -91,8 +91,8 @@ public func jk_isPadDevice() -> Bool {
     return UIDevice.current.userInterfaceIdiom == .pad
 }
 
-// MARK: 1.8、判断是不是 4 4s
-/// 4 4s
+// MARK: 1.8、判断是不是 4or4s
+/// 判断是不是 4or4s
 /// - Returns: description
 public func jk_is4OrLess() -> Bool {
     return jk_isIphone() && jk_kScreenH < 568
@@ -158,8 +158,8 @@ public let jk_kPixel = 1.0 / UIScreen.main.scale
 // MARK: 2.8、身份证宽高比
 /// 身份证宽高比
 public let jk_kRatioIDCard: CGFloat = 0.63
-// MARK: 2.9、适配比例
-/// 适配比例
+// MARK: 2.9、375尺寸适配比例
+/// 375尺寸适配比例
 public let jk_scaleIphone = jk_kScreenW / CGFloat(375.0)
 
 // MARK: - 屏幕16:9比例系数下的宽高

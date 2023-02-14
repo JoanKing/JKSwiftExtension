@@ -203,7 +203,7 @@ extension DeleteViewController: UITableViewDelegate, UITableViewDataSource {
         //删除事件按钮
         let deleteEvent = UIContextualAction(style: .normal, title: nil) {[weak self]
             (action, view, completionHandler) in
-            guard let weakSelf = self else {
+            guard let _ = self else {
                 return
             }
             //weakSelf.deleteFavoriteData(forRowAt: indexPath)

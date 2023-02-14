@@ -15,31 +15,39 @@ class NSDecimalNumberHandlerExtensionViewController: BaseViewController {
         super.viewDidLoad()
 
         headDataArray = ["一、基本的扩展"]
-        dataArray = [["向下取整取倍数", "一个数字能否整除另外一个数字", "两个数字之间的计算", "一个数字四舍五入返回"]]
+        dataArray = [["向下取整取倍数", "一个数字能否整除另外一个数字", "两个数字之间的计算", "一个数字四舍五入返回", "数字取舍以及位数的处理"]]
     }
 }
 
 // MARK: - 一、基本的扩展
 extension NSDecimalNumberHandlerExtensionViewController {
 
+    //MARK: 1.5、数字取舍以及位数的处理
+    @objc func test15() {
+        let array: [Float] = [12.971, 0.291, 3.111]
+        for (_, item) in array.enumerated() {
+            let result = NSDecimalNumberHandler.jk.digitalTradeOff(value1: item, roundingMode: .up, scale: 2)
+            print("原值：\(item) —> 处理后的值为：\(result)")
+        }
+    }
+    
     // MARK:1.4、一个数字四舍五入返回
     @objc func test14() {
         let array: [Float] = [0.2000020, 0.3993930004, 0.382710002, 5.2000000009, 8.0040009, 1.0]
         for (_, item) in array.enumerated() {
             let result = NSDecimalNumberHandler.jk.rounding(value: item, scale: 2)
-            let floatValue = result.floatValue
-            print("原值：\(item) 四舍五入保留2位后的结果：\(result) 再转float后的值为：\(floatValue)")
+            print("原值：\(item) 四舍五入保留2位后的结果：\(result) 再转float后的值为：\(result)")
         }
     }
     
     // MARK: 1.3、两个数字之间的计算
     @objc func test13() {
-        let value1: Double = 12.9999999999
-        let value2: Double = 0.01
-        let result = NSDecimalNumberHandler.jk.calculation(type: .subtracting, value1: value1, value2: value2)
+        let value1 = 12.971
+        let value2 = 1
+        let result = NSDecimalNumberHandler.jk.calculation(type: .multiplying, value1: value1, value2: value2, roundingMode: .up, scale: 2)
         let stringValue = result.stringValue
         
-        JKPrint("两个数字之间的计算：Float: \(value1) - \(value2) = \(result.floatValue)", "两个数字之间的计算：Double: \(value1) - \(value2) = \(result.doubleValue)", "两个数字之间的计算：stringValue: \(stringValue)")
+        JKPrint("结果：\(result)", "两个数字之间的计算：Float: \(value1) * \(value2) = \(result.floatValue)", "两个数字之间的计算：Double: \(value1) * \(value2) = \(result.doubleValue)", "两个数字之间的计算：stringValue: \(stringValue)")
     }
     
     

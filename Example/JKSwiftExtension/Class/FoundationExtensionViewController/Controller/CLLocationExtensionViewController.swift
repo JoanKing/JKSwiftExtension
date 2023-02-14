@@ -15,12 +15,19 @@ class CLLocationExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、基本的扩展"]
-        dataArray = [["地理信息反编码", "地理信息编码"]]
+        dataArray = [["地理信息反编码", "地理信息编码", "点与点之间的距离"]]
     }
 }
 
 // MARK: - 一、基本的扩展
 extension CLLocationExtensionViewController {
+    
+    //MARK: 1.3、点与点之间的距离
+    /// 点与点之间的距离
+    @objc func test13() {
+        let distance = CLLocation.jk.distanePointToPoint(startLocationCoordinate2D: CLLocationCoordinate2D(latitude: 220972926.67721075, longitude: 101545204.78064685), endLocationCoordinate2D: CLLocationCoordinate2D(latitude: 220923262.3887309, longitude: 101626139.60786556))
+        JKPrint("点与点之间的距离：\(distance)")
+    }
     
     // MARK: 1.2、地理信息编码
     @objc func test12() {

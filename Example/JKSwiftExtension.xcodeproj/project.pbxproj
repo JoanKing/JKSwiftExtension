@@ -171,6 +171,7 @@
 		E2EAD536293F6095007D8AE0 /* JKPanViewCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EAD535293F6095007D8AE0 /* JKPanViewCustomView.swift */; };
 		E2F4323E2957F8C900ED97F2 /* DeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4323D2957F8C900ED97F2 /* DeleteViewController.swift */; };
 		E2F432402957FD8C00ED97F2 /* DeleteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4323F2957FD8C00ED97F2 /* DeleteViewCell.swift */; };
+		E2FA6872299B8FC300535471 /* JKCustomPickViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA6871299B8FC300535471 /* JKCustomPickViewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -354,6 +355,7 @@
 		E2EAD535293F6095007D8AE0 /* JKPanViewCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPanViewCustomView.swift; sourceTree = "<group>"; };
 		E2F4323D2957F8C900ED97F2 /* DeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteViewController.swift; sourceTree = "<group>"; };
 		E2F4323F2957FD8C00ED97F2 /* DeleteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteViewCell.swift; sourceTree = "<group>"; };
+		E2FA6871299B8FC300535471 /* JKCustomPickViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKCustomPickViewViewController.swift; sourceTree = "<group>"; };
 		FA3D0426FDCFDD919F4C3DCA /* Pods_JKSwiftExtension_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSwiftExtension_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -758,6 +760,7 @@
 			isa = PBXGroup;
 			children = (
 				84BF16CB251DA012002ACE76 /* SmallToolsViewController.swift */,
+				E2FA6871299B8FC300535471 /* JKCustomPickViewViewController.swift */,
 				E24BB3B82941875B0089A696 /* JKCircleProgressViewViewController.swift */,
 				E2B28D2728312C1B00DD7C9A /* JKRollingNoticeViewViewController.swift */,
 				84D9BDA825651FA600D92461 /* JKWeakTimerViewController.swift */,
@@ -1005,6 +1008,7 @@
 				8480280E255933DE0038748A /* UIControlExtensionViewController.swift in Sources */,
 				8480281625594C1E0038748A /* UIAlertControllerExtensionViewController.swift in Sources */,
 				84A6FB79255A65EC00057839 /* UIButtonExtensionViewController.swift in Sources */,
+				E2FA6872299B8FC300535471 /* JKCustomPickViewViewController.swift in Sources */,
 				8485CC7E2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift in Sources */,
 				84E96DD925C7E2D300D76D5C /* CAGradientLayerExtensionViewController.swift in Sources */,
 				E24BE977296FA5E1002B5ADE /* NSMutableAttributedStringExtensionViewController.swift in Sources */,

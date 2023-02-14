@@ -205,6 +205,7 @@
 		DFEB13684BCF4777887B58896549B16A /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7048874AA2DF5816BF3EA4A3D27233D0 /* UITableView+Extension.swift */; };
 		E24BB3B7294180570089A696 /* JKCircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24BB3B6294180570089A696 /* JKCircleProgressView.swift */; };
 		E24D51518E38AA5360A31077696BCDA3 /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B459CFE1CFFED9742A82FF0E6D812 /* MJRefreshNormalHeader.m */; };
+		E2A9DAED299A5E34004E331C /* JKCustomPickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A9DAEC299A5E34004E331C /* JKCustomPickView.swift */; };
 		E35E47E5262E2C1644485EBF1D5ED2D7 /* UITabBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E49F1301951B846FB034A2177BEAF7 /* UITabBar+Extension.swift */; };
 		E43893A7E5FF8831EF7E0EBDF84ED507 /* Int64+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4E60C52356E3DB45B1EB865E0BB91 /* Int64+Extension.swift */; };
 		E4830DD3E35CC5215A329D3023C077DB /* JKPlaceHolderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEEA23DEE957A6D7A86DD3383315CC2 /* JKPlaceHolderTextView.swift */; };
@@ -508,6 +509,7 @@
 		E05028D4BBD95899B278E0897A0D6353 /* Date+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		E1B44EF282995FD8CDEA3FAC3525CA57 /* MJRefreshConst.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshConst.h; path = MJRefresh/MJRefreshConst.h; sourceTree = "<group>"; };
 		E24BB3B6294180570089A696 /* JKCircleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKCircleProgressView.swift; sourceTree = "<group>"; };
+		E2A9DAEC299A5E34004E331C /* JKCustomPickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKCustomPickView.swift; sourceTree = "<group>"; };
 		E338A648550398043D47ACC934542A87 /* ConstraintPriority.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriority.swift; path = Source/ConstraintPriority.swift; sourceTree = "<group>"; };
 		E369FE71718CE9666FDE10B9BE7A6A27 /* NSRange+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSRange+Extension.swift"; sourceTree = "<group>"; };
 		E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MJRefresh; path = MJRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1069,6 +1071,7 @@
 				C3978C6DD6708080E02AC2A0589ABAD7 /* KeyboardAccessory.swift */,
 				A99A52E1B31DDF962F71341123C506FC /* QRCodeImageFactory.swift */,
 				E24BB3B6294180570089A696 /* JKCircleProgressView.swift */,
+				E2A9DAEC299A5E34004E331C /* JKCustomPickView.swift */,
 			);
 			name = SmallTools;
 			path = Sources/Classes/SmallTools;
@@ -1410,6 +1413,7 @@
 				E6AA8268676F22AC1B451FB382AC4BDB /* JKClosure.swift in Sources */,
 				19390294BC8A4EC47E3231354C23694F /* JKCommonTool.swift in Sources */,
 				E923B3A9076D449B1DF547BA53B8249F /* JKContentSize.swift in Sources */,
+				E2A9DAED299A5E34004E331C /* JKCustomPickView.swift in Sources */,
 				16803DA83FC95D36EC5D4F8D9ACF55A3 /* JKDarkModeUtil.swift in Sources */,
 				B4E27F824E4673CA75BCA7DE7D6E53F8 /* JKDrawSignatureView.swift in Sources */,
 				FE395AED6C4F9406B316774DC07BA307 /* JKEmitterable.swift in Sources */,

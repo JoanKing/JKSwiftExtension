@@ -36,7 +36,7 @@ class JKVVViewController: UIViewController {
         label.attributedText = attributedText
         label.jk.addGestureTap { reco in
             (reco as? UITapGestureRecognizer)?.didTapLabelAttributedText(linkDic) {[weak self] text, url in
-                guard let weakSelf = self else {
+                guard let _ = self else {
                     return
                 }
                 print("\(text), \(url ?? "_")")

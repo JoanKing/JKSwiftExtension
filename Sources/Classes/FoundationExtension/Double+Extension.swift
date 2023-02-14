@@ -54,3 +54,21 @@ public extension JKPOP where Base == Double {
         return (self.base * divisor).rounded() / divisor
     }
 }
+
+// MARK: - 三、角度和弧度相互转换
+public extension JKPOP where Base == Double {
+    
+    // MARK: 角度转弧度
+    /// 角度转弧度
+    /// - Returns: 弧度
+    func degreesToRadians() -> Double {
+        return (.pi * self.base) / 180.0
+    }
+    
+    // MARK: 弧度转角度
+    /// 角弧度转角度
+    /// - Returns: 角度
+    func radiansToDegrees() -> Double {
+        return (self.base * 180.0) / .pi
+    }
+}
