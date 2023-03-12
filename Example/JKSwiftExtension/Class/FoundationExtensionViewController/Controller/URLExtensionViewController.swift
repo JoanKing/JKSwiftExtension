@@ -7,20 +7,31 @@
 //
 
 import UIKit
-
+import JKSwiftExtension
 class URLExtensionViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         headDataArray = ["一、基本的扩展"]
-        dataArray = [["提取链接中的参数以字典像是显示", "属性说明", "检测应用是否能打开这个URL实例"]]
+        dataArray = [["提取链接中的参数以字典像是显示", "属性说明", "检测应用是否能打开这个URL实例", "从url中获取后缀 例：mp3/mp4等等"]]
     }
 
 }
 
 // MARK: - 一、基本的扩展
 extension URLExtensionViewController {
+    
+    //MARK: 1.4、从url中获取后缀 例：mp3/mp4等等
+    @objc func test14() {
+        guard let url1 = URL(string: "https://download.niucache.com/78.rm") else {
+            return
+        }
+        guard let url2 = URL(string: "https://download.niucache.com/76.mp4") else {
+            return
+        }
+        JKPrint("\(url1)链接的后缀是：\(url1.jk.pathExtension)", "\(url2)链接的后缀是：\(url2.jk.pathExtension)")
+    }
     
     // MARK: 1.3、检测应用是否能打开这个URL实例
     @objc func test13() {

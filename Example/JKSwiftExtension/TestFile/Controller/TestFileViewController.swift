@@ -56,7 +56,7 @@ extension TestFileViewController {
     }
  
     @objc func test18() {
-        self.navigationController?.pushViewController(PresetntOneViewController(), animated: true)
+        self.navigationController?.pushViewController(RateLimitViewController(), animated: true)
     }
     
     @objc func test17() {
@@ -64,8 +64,34 @@ extension TestFileViewController {
         // 也不可以越界
         //array1.insert("yy", at: 0)
         //print(array1)
-        let oldString = "12345678"
+        //let oldString = "12345678"
         
+        //
+//        let value1 = 2 << 0b0001 // 0100
+//        let value2 = 4 << 0b0001 // 1000
+//        let value3 = value1 & value2
+//        let value4 = value1 | value2
+//        let value5 = 0o120
+//        debugPrint("value5:\(value5)")
+        
+//        let value1 = 0b0001 << 1 //  0010
+//        let value2 = 0b0001 << 2 //  0100
+//        let value3 = 0b0001 << 3 //  1000
+//        let value4 = 0b0001 << 4 // 10000
+        
+//        let value1 = 3 << 1 //  0010  0011 -> 0110    = 6
+//        let value2 = 3 << 2 //  0100       -> 1100    = 12
+//        let value3 = 3 << 3 //  1000       -> 11000   = 24
+//        let value4 = 3 << 4 // 10000       -> 110000  = 48
+        
+        // debugPrint("value1: \(value1)", "value2: \(value2)", "value3: \(value3)", "value4: \(value4)")
+//        let numberData = 4096
+//        let value = numberData & 0x1100
+//        debugPrint("结果：\(value)")
+        let status: UInt8 = ~(1 << 3)         // 00001000 11110111
+        let x: Int = 0b10001001 & Int(status) // 10001001 10001001  10000001
+        // 1101  841
+        print("x:\(x) status:\(status)")
     }
     
     @objc func test16() {
@@ -83,7 +109,7 @@ extension TestFileViewController {
     }
     
     @objc func test13() {
-       self.navigationController?.pushViewController(DeleteViewController(), animated: true)
+       self.navigationController?.pushViewController(JKWheelPickerViewController(), animated: true)
     }
     
     @objc func test12() {

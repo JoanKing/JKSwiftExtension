@@ -35,6 +35,8 @@ extension UIColor {
     private(set) static var cN3: UIColor = JKDarkModeUtil.colorLightDark(lightColor: UIColor.hexStringColor(hexString: "#666666"), darkColor: UIColor.hexStringColor(hexString: "#FFFFFF").withAlphaComponent(0.4))
     /// 横线颜色
     private(set) static var cN4: UIColor = UIColor.darkModeColor(lightColor: UIColor.hexStringColor(hexString: "#EBEBEB"), darkColor: UIColor.hexStringColor(hexString: "#FFFFFF").withAlphaComponent(0.10))
+    /// 横线颜色
+    private(set) static var cN5: UIColor = UIColor.darkModeColor(lightColor: UIColor.white, darkColor: UIColor.red)
 }
     
 // MARK: 六、暗黑模式颜色处理类

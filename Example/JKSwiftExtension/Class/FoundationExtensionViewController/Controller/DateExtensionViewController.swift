@@ -12,8 +12,8 @@ class DateExtensionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headDataArray = ["一、Date 基本的扩展", "二、时间格式的转换", "三、本地化时间格式的转换", "四、前天、昨天、今天、明天、后天、是否同一年同一月同一天 的判断", "五、相对的时间变化", "六、某年月份的天数获取"]
-        dataArray = [["获取当前 秒级 时间戳 - 10 位", "获取当前 毫秒级 时间戳 - 13 位", "获取当前的时间 Date", "从 Date 获取年份", "从 Date 获取月份", "从 Date 获取 日", "从 Date 获取 小时", "从 Date 获取 分钟", "从 Date 获取 秒", "从 Date 获取 毫秒", "从日期获取 星期(英文)", "从日期获取 星期(中文)", "从日期获取 月(英文)"], ["时间戳(支持10位和13位)按照对应的格式 转化为 对应时间的字符串 如：1603849053 按照 yyyy-MM-dd HH:mm:ss 转化后为：2020-10-28 09:37:33", "时间戳(支持 10 位 和 13 位) 转 Date", "Date 转换为相应格式的字符串", "带格式的时间转 时间戳，支持返回 13位 和 10位的时间戳，时间字符串和时间格式必须保持一致", "带格式的时间转 Date", "秒转换成播放时间条的格式", "Date 转 时间戳"], ["date使用DateFormatter.Style的形式格式化(传本地化字符串)", "date使用DateFormatter.Style的形式格式化(传本地化Locale对象)", "date使用locale和formatter的形式格式化(传本地化字符串)", "date使用locale和formatter的形式格式化(传本地化Locale对象)"], ["今天的日期", "昨天的日期", "明天的日期", "前天的日期", "后天的日期", "是否为今天（只比较日期，不比较时分秒）", "是否为昨天", "是否为前天", "是否为今年", "两个date是否为同一年同一月的同一天", "当前日期是不是润年", "是否为本周", "是否为12小时制"], ["取得与当前时间的间隔差", "获取两个日期之间的数据", "获取两个日期之间的天数", "获取两个日期之间的小时", "获取两个日期之间的分钟", "获取两个日期之间的秒数"], ["获取某一年某一月的天数", "获取当前月的天数"]]
+        headDataArray = ["一、Date 基本的扩展", "二、时间格式的转换", "三、本地化时间格式的转换", "四、前天、昨天、今天、明天、后天、是否同一年同一月同一天 的判断", "五、相对的时间变化", "六、年/月/日 的一些判断"]
+        dataArray = [["获取当前 秒级 时间戳 - 10 位", "获取当前 毫秒级 时间戳 - 13 位", "获取当前的时间 Date", "从 Date 获取年份", "从 Date 获取月份", "从 Date 获取 日", "从 Date 获取 小时", "从 Date 获取 分钟", "从 Date 获取 秒", "从 Date 获取 毫秒", "从日期获取 星期(英文)", "从日期获取 星期(中文)", "从日期获取 月(英文)"], ["时间戳(支持10位和13位)按照对应的格式 转化为 对应时间的字符串 如：1603849053 按照 yyyy-MM-dd HH:mm:ss 转化后为：2020-10-28 09:37:33", "时间戳(支持 10 位 和 13 位) 转 Date", "Date 转换为相应格式的字符串", "带格式的时间转 时间戳，支持返回 13位 和 10位的时间戳，时间字符串和时间格式必须保持一致", "带格式的时间转 Date", "秒转换成播放时间条的格式", "Date 转 时间戳"], ["date使用DateFormatter.Style的形式格式化(传本地化字符串)", "date使用DateFormatter.Style的形式格式化(传本地化Locale对象)", "date使用locale和formatter的形式格式化(传本地化字符串)", "date使用locale和formatter的形式格式化(传本地化Locale对象)"], ["今天的日期", "昨天的日期", "明天的日期", "前天的日期", "后天的日期", "是否为今天（只比较日期，不比较时分秒）", "是否为昨天", "是否为前天", "是否为今年", "两个date是否为同一年同一月的同一天", "当前日期是不是润年", "是否为本周", "是否为12小时制"], ["取得与当前时间的间隔差", "获取两个日期之间的数据", "获取两个日期之间的天数", "获取两个日期之间的小时", "获取两个日期之间的分钟", "获取两个日期之间的秒数"], ["获取当前的年", "今年是不是闰年", "某年是不是闰年", "当前的月份", "获取当前月的天数", "获取当前某月的天数"]]
         
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en")
@@ -62,17 +62,37 @@ class DateExtensionViewController: BaseViewController {
     }
 }
 
-// MARK: - 六、某年月份的天数获取
+// MARK: - 六、年/月/日 的一些判断
 extension DateExtensionViewController {
     
-    // MARK: 6.2、获取当前月的天数
-    @objc func test62() {
-        JKPrint("获取当前月的天数是：\(Date.jk.currentMonthDays())")
+    // MARK: 6.6、获取当前某月的天数
+    @objc func test66() {
+        JKPrint("获取当前某2月的天数：\(Date.jk.monthOfDays(month: 2))", "获取当前某6月的天数：\(Date.jk.monthOfDays(month: 6))")
     }
     
-    // MARK: 6.1、获取某一年某一月的天数
+    // MARK: 6.5、获取当前月的天数
+    @objc func test65() {
+        JKPrint("获取当前月的天数：\(Date.jk.currentMonthDays)")
+    }
+    
+    // MARK: 6.4、当前的月份
+    @objc func test64() {
+        JKPrint("当前的月份：\(Date.jk.currentMonth)")
+    }
+    
+    // MARK: 6.3、某年是不是闰年
+    @objc func test63() {
+        JKPrint("2026年是不是闰年：\(Date.jk.yearIsLeapYear(year: 2026))")
+    }
+    
+    // MARK: 6.2、今年是不是闰年
+    @objc func test62() {
+        JKPrint("今年是不是闰年：\(Date.jk.currentYearIsLeapYear)")
+    }
+    
+    // MARK: 6.1、获取当前的年
     @objc func test61() {
-        JKPrint("获取某一年某一月的天数", "1992年2月的天数是：\(Date.jk.daysCount(year: 1992, month: 2))")
+        JKPrint("获取当前的年：\(Date.jk.currentYear)")
     }
 }
 
@@ -124,13 +144,13 @@ extension DateExtensionViewController {
     
     // MARK: 5.2、获取两个日期之间的数据
     @objc func test52() {
-        // 2021-06-23 14:09:06
-        let timestamp1 = "1624428546"
+        // 2023-03-12 11:11:53
+        let timestamp1 = "1678590713000"
         let date1 = Date.jk.timestampToFormatterDate(timestamp: timestamp1)
-        // 2021-06-21 10:00:00
-        let timestamp2 = "1624240800"
+        // 2023-03-18 02:03:12
+        let timestamp2 = "1679076192000" 
         let date2 = Date.jk.timestampToFormatterDate(timestamp: timestamp2)
-        JKPrint("获取两个日期之间的数据", "时间：\(date1)", "时间：\(date1) ", "两个日期之间的数据：\(date1.jk.componentCompare(from: date2))")
+        JKPrint("获取两个日期之间的数据", "时间：\(date1)", "时间：\(date1) ", "两个日期之间的数据：\(date2.jk.componentCompare(from: date1))")
     }
     
     // MARK: 5.1、取得与当前时间的间隔差

@@ -151,8 +151,17 @@ public extension JKPOP where Base: UIApplication {
         return detailUrl
     }
     
+    //MARK: 1.10、APP是否常亮
+    /// APP是否常亮
     static func isIdleTimerDisabled(isIdleTimerDisabled: Bool) {
         UIApplication.shared.isIdleTimerDisabled = isIdleTimerDisabled
+    }
+    
+    //MARK: 1.11、APP主动崩溃
+    /// APP主动崩溃
+    static func exitApp() {
+        // 默认的程序结束函数
+        abort()
     }
 }
 

@@ -654,8 +654,8 @@ public extension JKPOP where Base: UIView {
     ///   - lineSpacing: 每段虚线的间隔
     ///   - direction: 虚线的方向
     func drawDashLine(strokeColor: UIColor,
-                       lineLength: Int = 4,
-                      lineSpacing: Int = 4,
+                       lineLength: CGFloat = 4,
+                      lineSpacing: CGFloat = 4,
                         direction: JKDashLineDirection = .horizontal) {
         // 线粗
         let lineWidth = direction == .horizontal ? self.base.jk.height : self.base.jk.width

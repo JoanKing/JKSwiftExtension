@@ -540,7 +540,7 @@ public extension JKPOP where Base == Date {
     ///   - date: 对比的日期
     ///   - unit: 对比的类型
     /// - Returns: 两个日期之间的数据
-    func componentCompare(from date: Date, unit: Set<Calendar.Component> = [.year,.month,.day]) -> DateComponents {
+    func componentCompare(from date: Date, unit: Set<Calendar.Component> = [.year, .month, .day, .hour, .minute]) -> DateComponents {
         let calendar = Calendar.current
         let component = calendar.dateComponents(unit, from: date, to: base)
         return component
@@ -579,33 +579,53 @@ public extension JKPOP where Base == Date {
     }
 }
 
-// MARK: - 六、某年月份的天数获取
+// MARK: - 六、年/月/日 的一些判断
 public extension JKPOP where Base == Date {
     
-    // MARK: 6.1、获取某一年某一月的天数
-    /// 获取某一年某一月的天数
-    /// - Parameters:
-    ///   - year: 年份
-    ///   - month: 月份
+    // MARK: 6.1、获取当前的年
+    /// 获取当前的年
+    static var currentYear : Int {
+        return currentDate.jk.year
+    }
+    
+    // MARK: 6.2、今年是不是闰年
+    /// 1.16、今年是不是闰年
+    static var currentYearIsLeapYear: Bool {
+        return todayDate.jk.isLeapYear
+    }
+    
+    // MARK: 6.3、某年是不是闰年
+    /// 6.3、某年是不是闰年
+    static func yearIsLeapYear(year: Int) -> Bool {
+        return ((year % 400 == 0) || ((year % 100 != 0) && (year % 4 == 0)))
+    }
+    
+    // MARK: 6.4、当前的月份
+    /// 当前的月份
+    static var currentMonth: Int {
+        return currentDate.jk.month
+    }
+    
+    // MARK: 6.5、获取当前月的天数
+    /// 获取当前月的天数
     /// - Returns: 返回天数
-    static func daysCount(year: Int, month: Int) -> Int {
+    static var currentMonthDays: Int {
+        return monthOfDays(month: currentMonth)
+    }
+    
+    // MARK: 6.6、获取当前某月的天数
+    /// 获取当前某月的天数
+    /// - Returns: 返回天数
+    static func monthOfDays(month: Int) -> Int {
         switch month {
         case 1, 3, 5, 7, 8, 10, 12:
             return 31
         case 4, 6, 9, 11:
             return 30
         case 2:
-            let isLeapYear = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)
-            return isLeapYear ? 29 : 28
+            return currentYearIsLeapYear ? 29 : 28
         default:
             fatalError("非法的月份:\(month)")
         }
-    }
-    
-    // MARK: 6.2、获取当前月的天数
-    /// 获取当前月的天数
-    /// - Returns: 返回天数
-    static func currentMonthDays() -> Int {
-        return daysCount(year: Date.jk.currentDate.jk.year, month: Date.jk.currentDate.jk.month)
     }
 }

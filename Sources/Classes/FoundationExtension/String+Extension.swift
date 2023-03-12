@@ -1327,10 +1327,8 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     //MARK: 9.23、判断是否是视频链接
     /// 判断是否是视频链接
     public var isVideoUrl: Bool {
-        if (base as! String).hasSuffix("mp4") || (base as! String).hasSuffix("MP4") || (base as! String).hasSuffix("MOV") || (base as! String).hasSuffix("mov") || (base as! String).hasSuffix("mpg") || (base as! String).hasSuffix("mpeg") || (base as! String).hasSuffix("mpg4") || (base as! String).hasSuffix("wm") || (base as! String).hasSuffix("wmx") || (base as! String).hasSuffix("mkv") || (base as! String).hasSuffix("mkv2") || (base as! String).hasSuffix("3gp") || (base as! String).hasSuffix("3gpp") || (base as! String).hasSuffix("wv") || (base as! String).hasSuffix("wvx") || (base as! String).hasSuffix("avi") || (base as! String).hasSuffix("asf") || (base as! String).hasSuffix("fiv") || (base as! String).hasSuffix("swf") || (base as! String).hasSuffix("flv") || (base as! String).hasSuffix("f4v") || (base as! String).hasSuffix("m4u") || (base as! String).hasSuffix("m4v") || (base as! String).hasSuffix("mov") || (base as! String).hasSuffix("movie") || (base as! String).hasSuffix("pvx") || (base as! String).hasSuffix("qt") || (base as! String).hasSuffix("rv") || (base as! String).hasSuffix("vod") || (base as! String).hasSuffix("rm") || (base as! String).hasSuffix("ram") || (base as! String).hasSuffix("rmvb") {
-            return true
-        }
-        return false
+        let videoUrls = ["mp4", "MP4", "MOV", "mov", "mpg", "mpeg", "mpg4", "wm", "wmx", "mkv", "mkv2", "3gp", "3gpp", "wv", "wvx", "avi", "asf", "fiv", "swf", "flv", "f4v", "m4u", "m4v", "mov", "movie", "pvx", "qt", "rv", "vod", "rm", "ram", "rmvb"]
+        return videoUrls.contains { (base as! String).hasSuffix($0) }
     }
     
     // MARK: - private 方法
@@ -1339,22 +1337,13 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     /// - Parameter year: 年份
     /// - Returns: 返回是否是闰年
     private func isLeapYear(year: Int) -> Bool {
-        if year % 400 == 0 {
-            return true
-        } else if year % 100 == 0 {
-            return false
-        } else if year % 4 == 0 {
-            return true
-        } else {
-            return false
-        }
+        return ((year % 400 == 0) || ((year % 100 != 0) && (year % 4 == 0)))
     }
     
     private func predicateValue(rgex: String) -> Bool {
         let checker: NSPredicate = NSPredicate(format: "SELF MATCHES %@", rgex)
         return checker.evaluate(with: (base as! String))
     }
-    
 }
 
 // MARK: - 十、字符串截取的操作

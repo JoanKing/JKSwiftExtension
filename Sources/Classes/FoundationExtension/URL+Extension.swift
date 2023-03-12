@@ -35,4 +35,10 @@ public extension JKPOP where Base == URL {
     func verifyUrl() -> Bool {
         return UIApplication.shared.canOpenURL(self.base)
     }
+    
+    //MARK: 1.4、从url中获取后缀 例：mp3/mp4等等
+    /// 从url中获取后缀 例：mp3/mp4等等
+    var pathExtension: String {
+        return self.base.pathExtension.isEmpty ? "" : "\(self.base.pathExtension)"
+    }
 }

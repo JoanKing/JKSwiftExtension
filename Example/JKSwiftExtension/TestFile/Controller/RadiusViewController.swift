@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import JKSwiftExtension
 @objcMembers class RadiusViewController: UIViewController {
     lazy var dataArray: [[String]] = [["噫吁嚱，危乎高哉！蜀道之难，难于上青天！蚕丛及鱼凫，开国何茫然！尔来四万八千岁，不与秦塞通人烟。", "白云依静渚，春草闭闲门。", "予独爱莲之出淤泥而不染，濯清涟而不妖，中通外直，不蔓不枝，香远益清，亭亭净植，可远观而不可亵玩焉。"], ["一路经行处，莓苔见履痕。"], ["水陆草木之花，可爱者甚蕃。晋陶渊明独爱菊。自李唐来，世人甚爱牡丹。", "地崩山摧壮士死，然后天梯石栈相钩连。上有六龙回日之高标，下有冲波逆折之回川。"]]
     
@@ -67,6 +67,13 @@ extension RadiusViewController {
     
     private func loadData() {
         
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        // cgColor 颜色适配
+        debugPrint("cgColor 颜色适配")
+        tableView.reloadData()
     }
 }
 
@@ -136,7 +143,7 @@ extension RadiusViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        tableView.jk.addSectionCellCornerRadius(radius: 10, fillColor: UIColor.white, willDisplay: cell, forRowAt: indexPath, insetByDx: 16)
+        tableView.jk.addSectionCellCornerRadius(radius: 10, fillColor: UIColor.cN5, willDisplay: cell, forRowAt: indexPath, insetByDx: 16)
     }
 }
 

@@ -268,7 +268,8 @@ extension StringExtensionViewController {
     
     // MARK: 12.12、十六进制 -> 十进制
     @objc func test1212() {
-        let number = "a"
+        let number = "01d530d8c930000"
+        // 8254091982733312
         JKPrint("十六进制 转 十进制", "十六进制：\(number) 转 十进制 为：\(number.jk.hexadecimalToDecimal())")
     }
 }
@@ -569,7 +570,7 @@ extension StringExtensionViewController {
     
     //MARK: 9.23、判断是否是视频链接
     @objc func test923() {
-        let urlString = "https://download.niucache.com/static/upload/20220426/b3068da0-809a-401c-b4f7-a73269ebee78.mp4"
+        let urlString = "https://download.niucache.com/static/upload/20220426/b3068da0-809a-401c-b4f7-a73269ebee78.rm"
         JKPrint("判断是否是视频链接", "\(urlString) 是否是视频链接：\(urlString.jk.isVideoUrl)")
     }
 }
@@ -1040,11 +1041,12 @@ extension StringExtensionViewController {
     // MARK: 4.3、字符串转 Int
     /// 字符串转 Int
     @objc func test43() {
-        let str = "20"
+        let str = "123456"
         guard let value = str.jk.toInt() else {
+            JKPrint("字符串: \(str) 转 Int 后为：失败")
             return
         }
-        JKPrint("字符串: \(value) 转 Int 后为：\(value)")
+        JKPrint("字符串: \(str) 转 Int 后为：\(value)")
     }
     
     // MARK: 4.2、字符串转 Bool
