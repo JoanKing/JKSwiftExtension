@@ -50,6 +50,11 @@ end
 <img src="https://user-images.githubusercontent.com/19670000/211969936-73f7824c-286c-4b83-8355-b6fb6989743a.jpeg" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.2.7、版本(2023.02.14) 
+      - (1)、 NSDecimalNumberHandler扩展的优化
+         - 1、两个数字之间的计算增加参数：roundingMode(舍入方式)和 scale(保留小数的位数)
+         - 2、数字取舍以及位数的处理
+      - (2)、新增JKCustomPickView
   - 2.2.6、版本(2023.01.12)
       - (1)、UIFont扩展的优化
          - 1、UIFont系统字体的扩展简化，例如regular的字体原来的UIFont.systemFont(ofSize: 20, weight: .regular)到UIFont.textR(20)
