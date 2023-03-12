@@ -50,6 +50,7 @@ end
 <img src="https://user-images.githubusercontent.com/19670000/211969936-73f7824c-286c-4b83-8355-b6fb6989743a.jpeg" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.2.8、版本(2023.03.12) : 更新部分extension
   - 2.2.7、版本(2023.02.14) 
       - (1)、 NSDecimalNumberHandler扩展的优化
          - 1、两个数字之间的计算增加参数：roundingMode(舍入方式)和 scale(保留小数的位数)
