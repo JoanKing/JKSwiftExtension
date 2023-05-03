@@ -50,6 +50,9 @@ end
 <img src="https://user-images.githubusercontent.com/19670000/211969936-73f7824c-286c-4b83-8355-b6fb6989743a.jpeg" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.2.9、版本(2023.05.03) : 新增单位转换的类：JKUnitConverter和优化并修复部分问题
+      - (1)、新增单位转换的类：JKUnitConverter，支持：距离、质量、温度的基本单位转换
+      - (2)、修复部分问题，Date在12小时制问题的修复
   - 2.2.8、版本(2023.03.12) : 更新部分extension
   - 2.2.7、版本(2023.02.14) 
       - (1)、 NSDecimalNumberHandler扩展的优化
