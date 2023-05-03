@@ -105,7 +105,7 @@ public extension UIStackView {
             case .vertical:
                 separatorView.heightAnchor.constraint(equalToConstant: spacing).isActive = true
             default:
-                JKPrint("为未知")
+                JKPrint("未知")
             }
             if let index = self.arrangedSubviews.firstIndex(of: arrangedSubview) {
                 insertArrangedSubview(separatorView, at: index + 1)

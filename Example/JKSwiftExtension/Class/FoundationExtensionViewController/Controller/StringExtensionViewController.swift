@@ -580,14 +580,15 @@ extension StringExtensionViewController {
     
     // MARK: 8.2、去除字符串中的Emoji表情
     @objc func test82() {
-        let testString = "我是一只小小鸟😝"
+        let testString = "我是一只😝小小鸟"
         JKPrint("去除字符串中的Emoji表情, 如：\(testString) 去除后为：\(testString.jk.deleteEmoji())")
     }
     
     // MARK: 8.1、检查字符串是否包含 Emoji 表情
     @objc func test81() {
-        let testString = "我是一只小小鸟😝"
-        JKPrint("第1种方式：\(testString.jk.containsEmoji())", "第2种方式：\(testString.jk.includesEmoji())")
+        let testString1 = "我是一😝只小小鸟"
+        let testString2 = "我是一只小小鸟"
+        JKPrint("检查字符串: \(testString1) 是否包含Emoji 表情：\(testString1.jk.includesEmoji())", "检查字符串: \(testString2) 是否包含Emoji 表情：\(testString2.jk.includesEmoji())")
     }
 }
 

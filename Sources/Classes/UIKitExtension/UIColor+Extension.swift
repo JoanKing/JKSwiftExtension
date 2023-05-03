@@ -107,7 +107,7 @@ public extension UIColor {
         // 检查字符串是否拥有特定后缀。
         // hasSuffix(suffix: String)
         // 3、判断开头： 0x/#/##
-        if tempHex.hasPrefix("0x") || tempHex.hasPrefix("##") {
+        if tempHex.hasPrefix("0x") || tempHex.hasPrefix("0X") || tempHex.hasPrefix("##") {
             tempHex = String(tempHex[tempHex.index(tempHex.startIndex, offsetBy: 2)..<tempHex.endIndex])
         }
         if tempHex.hasPrefix("#") {

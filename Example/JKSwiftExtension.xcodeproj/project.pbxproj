@@ -101,7 +101,6 @@
 		84B29411257747EF009E7760 /* UINavigationBarExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B29410257747EF009E7760 /* UINavigationBarExtensionViewController.swift */; };
 		84B4440A2575E8AD00D3DD1D /* DataExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B444092575E8AD00D3DD1D /* DataExtensionViewController.swift */; };
 		84B5BDAC260C7A2D00616143 /* RangeExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B5BDAB260C7A2D00616143 /* RangeExtensionViewController.swift */; };
-		84B84C3027BBF07F004F04B9 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B84C2F27BBF07F004F04B9 /* Person.swift */; };
 		84B84C3227BBF455004F04B9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B84C3127BBF455004F04B9 /* ProfileViewController.swift */; };
 		84B8FE3825A314FD00E7099E /* JKRegexHelperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B8FE3725A314FD00E7099E /* JKRegexHelperViewController.swift */; };
 		84BEA371254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BEA370254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift */; };
@@ -151,6 +150,8 @@
 		E24BB3B92941875B0089A696 /* JKCircleProgressViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24BB3B82941875B0089A696 /* JKCircleProgressViewViewController.swift */; };
 		E24BE977296FA5E1002B5ADE /* NSMutableAttributedStringExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24BE976296FA5E1002B5ADE /* NSMutableAttributedStringExtensionViewController.swift */; };
 		E254825A295BEFE200BA49A5 /* niu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2548259295BEFE200BA49A5 /* niu.ttf */; };
+		E2696C9429C00B3D0058D2B9 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2696C9329C00B3D0058D2B9 /* Person.swift */; };
+		E2696CB629C022A70058D2B9 /* SoundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2696CB529C022A70058D2B9 /* SoundModel.swift */; };
 		E26C272927E9CFD000012389 /* NotificationTetstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C272827E9CFD000012389 /* NotificationTetstViewController.m */; };
 		E277B95928DF014800DC0319 /* PresetntOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E277B95828DF014800DC0319 /* PresetntOneViewController.swift */; };
 		E277B95B28DF015600DC0319 /* PresetntTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E277B95A28DF015600DC0319 /* PresetntTwoViewController.swift */; };
@@ -160,6 +161,7 @@
 		E289F9112850279F00D840B7 /* RadiusViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E289F9102850279F00D840B7 /* RadiusViewCell.swift */; };
 		E289F9182850D19500D840B7 /* SpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E289F9172850D19500D840B7 /* SpeechViewController.swift */; };
 		E29AF0E1285C6161002D9B44 /* JKPanViewChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29AF0E0285C6161002D9B44 /* JKPanViewChildView.swift */; };
+		E29EF19329F2AD63009BB4DC /* JKUnitConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EF19229F2AD63009BB4DC /* JKUnitConverterViewController.swift */; };
 		E2B28D2828312C1B00DD7C9A /* JKRollingNoticeViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B28D2728312C1B00DD7C9A /* JKRollingNoticeViewViewController.swift */; };
 		E2B28D2A2831457800DD7C9A /* JKRollingNoticeViewCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B28D292831457800DD7C9A /* JKRollingNoticeViewCell1.swift */; };
 		E2B28D2C2831E15D00DD7C9A /* JKRollingNoticeViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B28D2B2831E15D00DD7C9A /* JKRollingNoticeViewCell2.swift */; };
@@ -171,6 +173,7 @@
 		E2CB1A2E287093E800805F85 /* JKEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB1A2D287093E800805F85 /* JKEmptyView.swift */; };
 		E2CFA13A28597E9000E342DE /* JKPanViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CFA13928597E9000E342DE /* JKPanViewViewController.swift */; };
 		E2CFA13C285993CE00E342DE /* JKPanViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CFA13B285993CE00E342DE /* JKPanViewCell.swift */; };
+		E2D447BE29E80CCC00199BCD /* herf.html in Resources */ = {isa = PBXBuildFile; fileRef = E2D447BD29E80CCC00199BCD /* herf.html */; };
 		E2D5FDA62861B876006D1AAB /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D5FDA52861B876006D1AAB /* AnimationView.swift */; };
 		E2E00C1429B980D300A95A31 /* RateLimitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E00C1329B980D300A95A31 /* RateLimitViewController.swift */; };
 		E2E00C1629B9AB2600A95A31 /* SliderDashLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E00C1529B9AB2600A95A31 /* SliderDashLineView.swift */; };
@@ -284,7 +287,6 @@
 		84B29410257747EF009E7760 /* UINavigationBarExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarExtensionViewController.swift; sourceTree = "<group>"; };
 		84B444092575E8AD00D3DD1D /* DataExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensionViewController.swift; sourceTree = "<group>"; };
 		84B5BDAB260C7A2D00616143 /* RangeExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeExtensionViewController.swift; sourceTree = "<group>"; };
-		84B84C2F27BBF07F004F04B9 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Person.swift; path = JKSwiftExtension/Class/SmallToolsViewController/Controller/Person.swift; sourceTree = SOURCE_ROOT; };
 		84B84C3127BBF455004F04B9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		84B8FE3725A314FD00E7099E /* JKRegexHelperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKRegexHelperViewController.swift; sourceTree = "<group>"; };
 		84BEA370254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensionViewController.swift; sourceTree = "<group>"; };
@@ -339,6 +341,8 @@
 		E24BB3B82941875B0089A696 /* JKCircleProgressViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKCircleProgressViewViewController.swift; sourceTree = "<group>"; };
 		E24BE976296FA5E1002B5ADE /* NSMutableAttributedStringExtensionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringExtensionViewController.swift; sourceTree = "<group>"; };
 		E2548259295BEFE200BA49A5 /* niu.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = niu.ttf; sourceTree = "<group>"; };
+		E2696C9329C00B3D0058D2B9 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		E2696CB529C022A70058D2B9 /* SoundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundModel.swift; sourceTree = "<group>"; };
 		E26C272727E9CFD000012389 /* NotificationTetstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationTetstViewController.h; sourceTree = "<group>"; };
 		E26C272827E9CFD000012389 /* NotificationTetstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationTetstViewController.m; sourceTree = "<group>"; };
 		E277B95828DF014800DC0319 /* PresetntOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetntOneViewController.swift; sourceTree = "<group>"; };
@@ -350,6 +354,7 @@
 		E289F9172850D19500D840B7 /* SpeechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechViewController.swift; sourceTree = "<group>"; };
 		E292011027F1874E0032EA2F /* JKOCMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKOCMacro.h; sourceTree = "<group>"; };
 		E29AF0E0285C6161002D9B44 /* JKPanViewChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPanViewChildView.swift; sourceTree = "<group>"; };
+		E29EF19229F2AD63009BB4DC /* JKUnitConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKUnitConverterViewController.swift; sourceTree = "<group>"; };
 		E2B28D2728312C1B00DD7C9A /* JKRollingNoticeViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKRollingNoticeViewViewController.swift; sourceTree = "<group>"; };
 		E2B28D292831457800DD7C9A /* JKRollingNoticeViewCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKRollingNoticeViewCell1.swift; sourceTree = "<group>"; };
 		E2B28D2B2831E15D00DD7C9A /* JKRollingNoticeViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKRollingNoticeViewCell2.swift; sourceTree = "<group>"; };
@@ -362,6 +367,7 @@
 		E2CEBBA9286AD774002BE4BD /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		E2CFA13928597E9000E342DE /* JKPanViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPanViewViewController.swift; sourceTree = "<group>"; };
 		E2CFA13B285993CE00E342DE /* JKPanViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPanViewCell.swift; sourceTree = "<group>"; };
+		E2D447BD29E80CCC00199BCD /* herf.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = herf.html; sourceTree = "<group>"; };
 		E2D5FDA52861B876006D1AAB /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
 		E2E00C1329B980D300A95A31 /* RateLimitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateLimitViewController.swift; sourceTree = "<group>"; };
 		E2E00C1529B9AB2600A95A31 /* SliderDashLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderDashLineView.swift; sourceTree = "<group>"; };
@@ -443,6 +449,7 @@
 				847DE9542573F0B60080EEC0 /* testFile.text */,
 				8473AAD82562985A00707877 /* pika2.gif */,
 				840F883E256637BE009B73DA /* huaban1.png */,
+				E2D447BD29E80CCC00199BCD /* herf.html */,
 				8423F2E5269FEE8900CACC47 /* girl.jpg */,
 				8423F2E3269FEDDB00CACC47 /* GuideX_2.png */,
 				8423F2E9269FF62800CACC47 /* CashCow.bundle */,
@@ -542,14 +549,6 @@
 				E2BBEDDB29B1EBDA005FB04B /* JKWheelPicker */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		844A634525664F4D000059EC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				84B84C2F27BBF07F004F04B9 /* Person.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		8483A733254C118200ACF6FD /* Base */ = {
@@ -778,6 +777,7 @@
 			isa = PBXGroup;
 			children = (
 				84BF16CB251DA012002ACE76 /* SmallToolsViewController.swift */,
+				E29EF19229F2AD63009BB4DC /* JKUnitConverterViewController.swift */,
 				E2FA6871299B8FC300535471 /* JKCustomPickViewViewController.swift */,
 				E24BB3B82941875B0089A696 /* JKCircleProgressViewViewController.swift */,
 				E2B28D2728312C1B00DD7C9A /* JKRollingNoticeViewViewController.swift */,
@@ -833,8 +833,8 @@
 			isa = PBXGroup;
 			children = (
 				844A634225664F4D000059EC /* Controller */,
-				844A634525664F4D000059EC /* Model */,
 				844A634425664F4D000059EC /* View */,
+				E2696C9229C00B3D0058D2B9 /* Model */,
 				844A634325664F4D000059EC /* ViewModel */,
 			);
 			path = TestFile;
@@ -866,6 +866,16 @@
 			);
 			path = font;
 			sourceTree = "<group>";
+		};
+		E2696C9229C00B3D0058D2B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E2696C9329C00B3D0058D2B9 /* Person.swift */,
+				E2696CB529C022A70058D2B9 /* SoundModel.swift */,
+			);
+			name = Model;
+			path = JKSwiftExtension/Class/SmallToolsViewController/Model;
+			sourceTree = SOURCE_ROOT;
 		};
 		E2BBEDDB29B1EBDA005FB04B /* JKWheelPicker */ = {
 			isa = PBXGroup;
@@ -919,7 +929,6 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = Q24HFFF5V3;
 						LastSwiftMigration = 1160;
 						ProvisioningStyle = Automatic;
 					};
@@ -956,6 +965,7 @@
 				8483A72C254BF0AD00ACF6FD /* JKBaseKit.bundle in Resources */,
 				8473AADA2562985B00707877 /* pika2.gif in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				E2D447BE29E80CCC00199BCD /* herf.html in Resources */,
 				E254825A295BEFE200BA49A5 /* niu.ttf in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				84F937622589E82100A35E77 /* MyStoryboard2.storyboard in Resources */,
@@ -1058,7 +1068,9 @@
 				8483A735254C119700ACF6FD /* BaseViewController.swift in Sources */,
 				84802818255957560038748A /* UIApplicationExtensionViewController.swift in Sources */,
 				844A634F25664F9B000059EC /* Notification+Extension.swift in Sources */,
+				E29EF19329F2AD63009BB4DC /* JKUnitConverterViewController.swift in Sources */,
 				846ECCCB279AE609006215EF /* JKVVViewController.swift in Sources */,
+				E2696C9429C00B3D0058D2B9 /* Person.swift in Sources */,
 				E2EAD536293F6095007D8AE0 /* JKPanViewCustomView.swift in Sources */,
 				E233A77729B18BBF003A5C3D /* JKSoundPickView.swift in Sources */,
 				E2D5FDA62861B876006D1AAB /* AnimationView.swift in Sources */,
@@ -1102,7 +1114,6 @@
 				8415464525F5BD75007DE673 /* FBArrowTestLabel.swift in Sources */,
 				84F11D6B25DE0DB500209B4C /* NSRangeExtensionViewController.swift in Sources */,
 				E20237AE28B5F98E00F65F61 /* UIAlertController+Extension1.swift in Sources */,
-				84B84C3027BBF07F004F04B9 /* Person.swift in Sources */,
 				E289F9112850279F00D840B7 /* RadiusViewCell.swift in Sources */,
 				84D5B11725F4FA2400984F5A /* FBArrowLabel.swift in Sources */,
 				E2BBEDDF29B1ED8E005FB04B /* JKWheelPicker.swift in Sources */,
@@ -1146,6 +1157,7 @@
 				84D7396F26B16E4A00A5538B /* DarkModeHeadView.swift in Sources */,
 				8483A739254EC47E00ACF6FD /* NSObjectExtensionViewController.swift in Sources */,
 				84FEC03325E8D1FE0074D207 /* JKPaddingLabelViewController.swift in Sources */,
+				E2696CB629C022A70058D2B9 /* SoundModel.swift in Sources */,
 				84D9BDA925651FA600D92461 /* JKWeakTimerViewController.swift in Sources */,
 				84D9BDD525652FE500D92461 /* JKEmitterableViewController.swift in Sources */,
 				E2C465A62855E552008340BA /* UserDefaultsModel.swift in Sources */,

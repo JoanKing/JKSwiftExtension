@@ -45,7 +45,7 @@ extension URLExtensionViewController {
     // MARK: 1.2、属性说明
     @objc func test12() {
         
-        guard let url = URL(string: "huacai://com.huacai.stock/hah/?type=1&id=2") else {
+        guard let url = URL(string: "huacai://com.huacai.stock/v5/detail?type=1&id=2") else {
             return
         }
         url.jk.propertyDescription()
@@ -53,10 +53,10 @@ extension URLExtensionViewController {
     
     // MARK: 1.1、提取链接中的参数以字典像是显示
     @objc func test11() {
-        
-        guard let url = URL(string: "huacai://com.huacai.stock/hah/?type=1&id=2&info={name: 你好}"), let query = url.jk.queryParameters else {
+        let encodeUrlString = "http://apitest.com/wx_hyqr?transport_sn=H20230307143536112330&transport_id=2647&time=2023-03-31 07:07:00&use_type=11".jk.urlEncode()
+        guard let url = URL(string: encodeUrlString), let query = url.jk.queryParameters else {
             return
         }
-        JKPrint("内容", "\(url) 取后为 \(query)")
+        JKPrint("内容", "\(url) 取后参数为 \(query)")
     }
 }

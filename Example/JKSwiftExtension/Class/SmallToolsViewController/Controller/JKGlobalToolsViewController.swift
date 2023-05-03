@@ -14,7 +14,7 @@ class JKGlobalToolsViewController: BaseViewController {
         super.viewDidLoad()
     
         headDataArray = ["一、基本的工具"]
-        dataArray = [["拨打电话", "App更新", "从 storyboard 中唤醒 viewcontroller", "传进某个版本号 个 当前app版本号作对比", "获取本机IP", "前往App Store进行评价", "获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information", "获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information", "打开设置界面", "退出app（类似点击home键盘）"]]
+        dataArray = [["拨打电话", "App更新", "从 storyboard 中唤醒 viewcontroller", "传进某个版本号 个 当前app版本号作对比", "获取本机IP", "前往App Store进行评价", "跳转URL", "获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information", "获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information", "打开设置界面", "退出app（类似点击home键盘）"]]
     }
     
     override func didReceiveMemoryWarning() {
@@ -25,24 +25,31 @@ class JKGlobalToolsViewController: BaseViewController {
 // MARK: - 一、基本的工具
 extension JKGlobalToolsViewController {
     
-    // MARK: 1.10、退出app（类似点击home键盘）
-    @objc func test110() {
+    // MARK: 1.11、退出app（类似点击home键盘）
+    @objc func test111() {
         JKGlobalTools.exitApp()
     }
     
-    // MARK: 1.9、打开设置界面
-    @objc func test19() {
+    // MARK: 1.10、打开设置界面
+    @objc func test110() {
         JKGlobalTools.openSetting()
     }
     
-    // MARK: 1.8、获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information
-    @objc func test18() {
+    // MARK: 1.9、获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information
+    @objc func test19() {
         JKPrint("获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information", "连接wifi的名字：\(JKGlobalTools.getWifiNameWithMac().wifiName ?? "没有获取到")", "连接wifi的mac地址：\(JKGlobalTools.getWifiNameWithMac().macIP ?? "没有获取到")")
     }
     
-    // MARK: 1.7、获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information
-    @objc func test17() {
+    // MARK: 1.8、获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information
+    @objc func test18() {
         JKPrint("获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information", "连接wifi的ip地址：\(JKGlobalTools.getWiFiIP() ?? "没有获取到")")
+    }
+    
+    // MARK: 1.6、跳转URL
+    @objc func test17() {
+        JKPrint("跳转URL")
+        JKGlobalTools.openUrl(url: URL(string: "https://app-applinks.niu.com/qq_conn/1104695483")!) { _ in
+        }
     }
     
     // MARK: 1.6、前往App Store进行评价

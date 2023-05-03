@@ -16,7 +16,7 @@ class JKWheelPickerViewController: UIViewController {
         picker.dataSource = self
         picker.delegate = self
         
-        picker.interitemSpacing = 15.0
+        picker.interitemSpacing = 7.0
         picker.style = .styleFlat
         picker.isMaskDisabled = true
         picker.scrollDirection = .vertical
@@ -28,12 +28,30 @@ class JKWheelPickerViewController: UIViewController {
         return picker
     }()
     
-    fileprivate var months = ["1", "2", "3", "4", "5", "6", "7", "8"]
+    fileprivate var months = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"]
+    
+    lazy var button1: UIButton = {
+        let button = UIButton(frame: CGRect(x: 20, y: 300, width: 150, height: 100))
+        button.backgroundColor = .brown
+        button.tag = 101
+        button.addTarget(self, action: #selector(click1), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var button2: UIButton = {
+        let button = UIButton(frame: CGRect(x: button1.jk.right + 100, y: 300, width: 150, height: 100))
+        button.backgroundColor = .brown
+        button.tag = 102
+        button.addTarget(self, action: #selector(click1), for: .touchUpInside)
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.view.addSubview(monthPicker)
+        self.view.addSubview(button1)
+        self.view.addSubview(button2)
         
         var weeks = ["1", "6", "3"]
             // .sorted(by: { $0 > $1 })
@@ -58,9 +76,17 @@ class JKWheelPickerViewController: UIViewController {
             guard let weakSelf = self else {
                 return
             }
-            weakSelf.monthPicker.select(3, animated: false)
+            // weakSelf.monthPicker.select(3, animated: false)
         }
         
+    }
+    
+    @objc func click1(sender: UIButton) {
+        if sender.tag == 101 {
+            monthPicker.select(3, animated: false)
+        } else {
+            monthPicker.select(8, animated: false)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

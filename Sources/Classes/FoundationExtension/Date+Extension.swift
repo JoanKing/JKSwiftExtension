@@ -206,6 +206,7 @@ public extension JKPOP where Base == Date {
     /// - Returns: 返回转化后的时间戳
     static func formatterTimeStringToTimestamp(timesString: String, formatter: String, timestampType: JKTimestampType = .second) -> String {
         jk_formatter.dateFormat = formatter
+        jk_formatter.locale = NSLocale.system
         guard let date = jk_formatter.date(from: timesString) else {
             #if DEBUG
             fatalError("时间有问题")

@@ -42,14 +42,14 @@ open class JKWheelPickerCell : UICollectionViewCell {
     
     override open var isSelected: Bool {
         didSet {
-            //if oldValue == false {
+            if oldValue == false {
                 let transition = CATransition()
                 transition.duration = 0.15
                 transition.type = CATransitionType(rawValue: kCATransition)
                 label.layer.add(transition, forKey: nil)
                 label.font = isSelected ? highlightedFont : font
                 debugPrint("是否选中：\(isSelected)")
-            //}
+            }
         }
     }
     

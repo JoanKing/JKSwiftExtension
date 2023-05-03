@@ -1,6 +1,6 @@
 //
 //  MJRefreshNormalTrailer.m
-//  MJRefreshExample
+//  MJRefresh
 //
 //  Created by kinarobin on 2020/5/3.
 //  Copyright © 2020 小码哥. All rights reserved.
@@ -8,6 +8,7 @@
 
 #import "MJRefreshNormalTrailer.h"
 #import "NSBundle+MJRefresh.h"
+#import "UIView+MJExtension.h"
 
 @interface MJRefreshNormalTrailer() {
     __unsafe_unretained UIImageView *_arrowView;
@@ -57,18 +58,18 @@
     // 根据状态做事情
     if (state == MJRefreshStateIdle) {
         if (oldState == MJRefreshStateRefreshing) {
-            [UIView animateWithDuration:MJRefreshFastAnimationDuration animations:^{
+            [UIView animateWithDuration:self.fastAnimationDuration animations:^{
                 self.arrowView.transform = CGAffineTransformMakeRotation(M_PI);
             } completion:^(BOOL finished) {
                 self.arrowView.transform = CGAffineTransformIdentity;
             }];
         } else {
-            [UIView animateWithDuration:MJRefreshFastAnimationDuration animations:^{
+            [UIView animateWithDuration:self.fastAnimationDuration animations:^{
                 self.arrowView.transform = CGAffineTransformIdentity;
             }];
         }
     } else if (state == MJRefreshStatePulling) {
-        [UIView animateWithDuration:MJRefreshFastAnimationDuration animations:^{
+        [UIView animateWithDuration:self.fastAnimationDuration animations:^{
             self.arrowView.transform = CGAffineTransformMakeRotation(M_PI);
         }];
     }

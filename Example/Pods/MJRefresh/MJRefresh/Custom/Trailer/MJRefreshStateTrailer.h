@@ -1,12 +1,16 @@
 //
 //  MJRefreshStateTrailer.h
-//  MJRefreshExample
+//  MJRefresh
 //
 //  Created by kinarobin on 2020/5/3.
 //  Copyright © 2020 小码哥. All rights reserved.
 //
 
+#if __has_include(<MJRefresh/MJRefreshTrailer.h>)
+#import <MJRefresh/MJRefreshTrailer.h>
+#else
 #import "MJRefreshTrailer.h"
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 显示刷新状态的label */
 @property (weak, nonatomic, readonly) UILabel *stateLabel;
 /** 设置state状态下的文字 */
-- (void)setTitle:(NSString *)title forState:(MJRefreshState)state;
+- (instancetype)setTitle:(NSString *)title forState:(MJRefreshState)state;
 
 @end
 

@@ -16,7 +16,7 @@ class TestFileViewController: BaseViewController {
         self.title = "TestFile"
         
         headDataArray = ["一、基本的使用"]
-        dataArray = [["设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "数组测试", "struct", "test"]]
+        dataArray = [["设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "数组测试", "struct", "test", "9"]]
     }
     
     deinit {
@@ -54,6 +54,19 @@ extension TestFileViewController {
             return t * t
         }
     }
+    
+    func isMultiple(_ a: Int, of b: Int) -> Bool {
+        return a.isMultiple(of: b)
+    }
+    
+    @objc func test19() {
+        debugPrint(isMultiple(10, of: 5))
+        debugPrint(isMultiple(0, of: 1))
+        debugPrint(isMultiple(1, of: 3))
+        debugPrint(isMultiple(5, of: 10))
+        debugPrint(isMultiple(8, of: 16))
+    }
+    
  
     @objc func test18() {
         self.navigationController?.pushViewController(RateLimitViewController(), animated: true)

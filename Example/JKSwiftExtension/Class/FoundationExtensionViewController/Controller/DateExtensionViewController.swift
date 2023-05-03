@@ -14,51 +14,6 @@ class DateExtensionViewController: BaseViewController {
         
         headDataArray = ["一、Date 基本的扩展", "二、时间格式的转换", "三、本地化时间格式的转换", "四、前天、昨天、今天、明天、后天、是否同一年同一月同一天 的判断", "五、相对的时间变化", "六、年/月/日 的一些判断"]
         dataArray = [["获取当前 秒级 时间戳 - 10 位", "获取当前 毫秒级 时间戳 - 13 位", "获取当前的时间 Date", "从 Date 获取年份", "从 Date 获取月份", "从 Date 获取 日", "从 Date 获取 小时", "从 Date 获取 分钟", "从 Date 获取 秒", "从 Date 获取 毫秒", "从日期获取 星期(英文)", "从日期获取 星期(中文)", "从日期获取 月(英文)"], ["时间戳(支持10位和13位)按照对应的格式 转化为 对应时间的字符串 如：1603849053 按照 yyyy-MM-dd HH:mm:ss 转化后为：2020-10-28 09:37:33", "时间戳(支持 10 位 和 13 位) 转 Date", "Date 转换为相应格式的字符串", "带格式的时间转 时间戳，支持返回 13位 和 10位的时间戳，时间字符串和时间格式必须保持一致", "带格式的时间转 Date", "秒转换成播放时间条的格式", "Date 转 时间戳"], ["date使用DateFormatter.Style的形式格式化(传本地化字符串)", "date使用DateFormatter.Style的形式格式化(传本地化Locale对象)", "date使用locale和formatter的形式格式化(传本地化字符串)", "date使用locale和formatter的形式格式化(传本地化Locale对象)"], ["今天的日期", "昨天的日期", "明天的日期", "前天的日期", "后天的日期", "是否为今天（只比较日期，不比较时分秒）", "是否为昨天", "是否为前天", "是否为今年", "两个date是否为同一年同一月的同一天", "当前日期是不是润年", "是否为本周", "是否为12小时制"], ["取得与当前时间的间隔差", "获取两个日期之间的数据", "获取两个日期之间的天数", "获取两个日期之间的小时", "获取两个日期之间的分钟", "获取两个日期之间的秒数"], ["获取当前的年", "今年是不是闰年", "某年是不是闰年", "当前的月份", "获取当前月的天数", "获取当前某月的天数"]]
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en")
-        dateFormatter.dateFormat = "yyyy-MM-dd aa HH:mm"
-        // dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
-        print(dateFormatter.string(from: Date())) // --> Jun 28
-        
-        dateFormatter.locale = Locale(identifier: "zh-CN")
-        dateFormatter.dateFormat = "yyyy年MM-dd aa HH:mm"
-        // dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm aa")
-        print(dateFormatter.string(from: Date())) // --> Jun 28
-        
-        dateFormatter.locale = Locale(identifier: "zh-Hant")
-        dateFormatter.dateFormat = "aa HH:mm"
-        // dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm aa")
-        print(dateFormatter.string(from: Date())) // --> Jun 28
-    
-        dateFormatter.locale = Locale(identifier: "fr")
-        dateFormatter.dateFormat = "aa HH:mm"
-        print(dateFormatter.string(from: Date())) // --> 28 juin
-        
-        dateFormatter.locale = Locale(identifier: "es")
-        dateFormatter.dateFormat = "aa HH:mm"
-        print(dateFormatter.string(from: Date())) // --> 28 juin
-        
-        dateFormatter.locale = Locale(identifier: "de")
-        dateFormatter.dateFormat = "aa HH:mm"
-        print(dateFormatter.string(from: Date())) // --> 28 juin
-    
-        dateFormatter.locale = Locale(identifier: "it")
-        dateFormatter.dateFormat = "aa HH:mm"
-        print(dateFormatter.string(from: Date())) // --> 28 juin
-        
-        dateFormatter.locale = Locale(identifier: "nl")
-        dateFormatter.dateFormat = "aa HH:mm"
-        print(dateFormatter.string(from: Date())) // --> 28 juin
-        
-        dateFormatter.locale = Locale(identifier: "sv-SE")
-        dateFormatter.dateFormat = "aa HH:mm"
-        print(dateFormatter.string(from: Date())) // --> 28 juin
-        
-        dateFormatter.locale = Locale(identifier: "ko")
-        dateFormatter.dateFormat = "aa HH:mm"
-        print(dateFormatter.string(from: Date())) // --> 28 juin
-        
     }
 }
 
@@ -148,9 +103,9 @@ extension DateExtensionViewController {
         let timestamp1 = "1678590713000"
         let date1 = Date.jk.timestampToFormatterDate(timestamp: timestamp1)
         // 2023-03-18 02:03:12
-        let timestamp2 = "1679076192000" 
+        let timestamp2 = "2147483647000"
         let date2 = Date.jk.timestampToFormatterDate(timestamp: timestamp2)
-        JKPrint("获取两个日期之间的数据", "时间：\(date1)", "时间：\(date1) ", "两个日期之间的数据：\(date2.jk.componentCompare(from: date1))")
+        JKPrint("获取两个日期之间的数据", "时间：\(date1)", "时间：\(date1) ", "两个日期之间的数据：\(date2.jk.componentCompare(from: Date()))")
     }
     
     // MARK: 5.1、取得与当前时间的间隔差
@@ -479,5 +434,81 @@ extension DateExtensionViewController {
     // MARK: 1.1、获取当前 秒级 时间戳 - 10 位
     @objc func test11() {
         JKPrint("获取当前 秒级 时间戳 - 10 位：\(Date.jk.secondStamp)")
+    }
+}
+
+// MARK: - 其他测试
+extension DateExtensionViewController {
+    
+    @objc func test03() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en")
+        dateFormatter.dateFormat = "yyyy-MM-dd aa HH:mm"
+        // dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
+        print(dateFormatter.string(from: Date())) // --> Jun 28
+        
+        dateFormatter.locale = Locale(identifier: "zh-CN")
+        dateFormatter.dateFormat = "yyyy年MM-dd aa HH:mm"
+        // dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm aa")
+        print(dateFormatter.string(from: Date())) // --> Jun 28
+        
+        dateFormatter.locale = Locale(identifier: "zh-Hant")
+        dateFormatter.dateFormat = "aa HH:mm"
+        // dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm aa")
+        print(dateFormatter.string(from: Date())) // --> Jun 28
+    
+        dateFormatter.locale = Locale(identifier: "fr")
+        dateFormatter.dateFormat = "aa HH:mm"
+        print(dateFormatter.string(from: Date())) // --> 28 juin
+        
+        dateFormatter.locale = Locale(identifier: "es")
+        dateFormatter.dateFormat = "aa HH:mm"
+        print(dateFormatter.string(from: Date())) // --> 28 juin
+        
+        dateFormatter.locale = Locale(identifier: "de")
+        dateFormatter.dateFormat = "aa HH:mm"
+        print(dateFormatter.string(from: Date())) // --> 28 juin
+    
+        dateFormatter.locale = Locale(identifier: "it")
+        dateFormatter.dateFormat = "aa HH:mm"
+        print(dateFormatter.string(from: Date())) // --> 28 juin
+        
+        dateFormatter.locale = Locale(identifier: "nl")
+        dateFormatter.dateFormat = "aa HH:mm"
+        print(dateFormatter.string(from: Date())) // --> 28 juin
+        
+        dateFormatter.locale = Locale(identifier: "sv-SE")
+        dateFormatter.dateFormat = "aa HH:mm"
+        print(dateFormatter.string(from: Date())) // --> 28 juin
+        
+        dateFormatter.locale = Locale(identifier: "ko")
+        dateFormatter.dateFormat = "aa HH:mm"
+        print(dateFormatter.string(from: Date())) // --> 28 juin
+    }
+    
+    // MARK: YYYY与yyyy的区别测
+    @objc func test02() {
+        // 2019-12-31 20:00:35
+        let timestamp1 = "1640956657"
+        let date = Date.jk.timestampToFormatterDate(timestamp: timestamp1)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        print("小写的yyyy：\(dateFormatter.string(from: date))")
+        
+        let dateFormatter2 = DateFormatter()
+        dateFormatter2.dateFormat = "YYYY-MM-dd"
+        print("大写的YYYY：\(dateFormatter2.string(from: date))")
+    }
+    
+    func test01() {
+        let timeString = "2022-11-20"
+        let fromDateFormatter = DateFormatter()
+        fromDateFormatter.dateFormat = "YYYY-MM-dd"
+        if let date = fromDateFormatter.date(from: timeString) {
+            debugPrint("success:\(date)")
+        } else {
+            debugPrint("fail")
+        }
     }
 }

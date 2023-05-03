@@ -89,6 +89,28 @@ public extension NSMutableAttributedString {
         addAttributes([.font: font], range: range)
         return self
     }
+    
+    // MARK: 1.6、设置富文本文字的间距
+    /// 设置富文本文字的间距
+    /// - Parameter wordSpaceing: 字体之间的间距
+    /// - Returns: 返回自身
+    @discardableResult
+    func kern(_ wordSpaceing: CGFloat) -> Self {
+        let range = NSMakeRange(0, length)
+        addAttributes([.kern: wordSpaceing], range: range)
+        return self
+    }
+    
+    // MARK: 1.7、设置段落的样式
+    /// 设置段落的样式
+    /// - Parameter style: 样式
+    /// - Returns: 返回自身
+    @discardableResult
+    func paragraphStyle(_ style: NSMutableParagraphStyle) -> Self {
+        let range = NSMakeRange(0, length)
+        addAttributes([.paragraphStyle: style], range: range)
+        return self
+    }
 }
 
 // MARK: - 二、其他的扩展

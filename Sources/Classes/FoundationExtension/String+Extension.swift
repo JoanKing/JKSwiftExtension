@@ -982,13 +982,15 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     /// 检查字符串是否包含 Emoji 表情
     /// - Returns: bool
     public func includesEmoji() -> Bool {
-        for i in 0...length {
+        var isInClude: Bool = false
+        for i in 0..<length {
             let c: unichar = ((base as! String) as NSString).character(at: i)
             if (0xD800 <= c && c <= 0xDBFF) || (0xDC00 <= c && c <= 0xDFFF) {
-                return true
+                isInClude = true
+                break
             }
         }
-        return false
+        return isInClude
     }
     
     // MARK: 8.3、去除字符串中的Emoji表情

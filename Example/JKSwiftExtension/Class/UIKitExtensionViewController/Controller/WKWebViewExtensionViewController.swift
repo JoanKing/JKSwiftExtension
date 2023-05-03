@@ -151,13 +151,18 @@ extension WKWebViewExtensionViewController {
         let wkWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: jk_kScreenH - jk_kNavFrameH), configuration: configuration)
         wkWebView.navigationDelegate = self
         let url = URL(string:("https://mbd.baidu.com/newspage/data/landingsuper?context=%7B%22nid%22%3A%22news_9743234139645720408%22%7D&n_type=0&p_from=1"))
-        let request = URLRequest(url: url!)
+        // let request = URLRequest(url: url!)
+        // wkWebView.load(request)
+        /** 加载本地html文件 */
+        //从主Bundle获取 HTML 文件的 url
+        let bundleStr = Bundle.main.url(forResource: "herf", withExtension: "html")
+        let request = URLRequest(url: bundleStr!)
         wkWebView.load(request)
         self.view.addSubview(wkWebView)
         
         JKAsyncs.asyncDelay(5) {
         } _: {
-            wkWebView.removeFromSuperview()
+            // wkWebView.removeFromSuperview()
         }
     }
 }

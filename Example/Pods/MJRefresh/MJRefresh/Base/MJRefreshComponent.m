@@ -1,7 +1,6 @@
 //  代码地址: https://github.com/CoderMJLee/MJRefresh
-//  代码地址: http://code4app.com/ios/%E5%BF%AB%E9%80%9F%E9%9B%86%E6%88%90%E4%B8%8B%E6%8B%89%E4%B8%8A%E6%8B%89%E5%88%B7%E6%96%B0/52326ce26803fabc46000000
 //  MJRefreshComponent.m
-//  MJRefreshExample
+//  MJRefresh
 //
 //  Created by MJ Lee on 15/3/4.
 //  Copyright (c) 2015年 小码哥. All rights reserved.
@@ -9,6 +8,11 @@
 
 #import "MJRefreshComponent.h"
 #import "MJRefreshConst.h"
+#import "MJRefreshConfig.h"
+#import "UIView+MJExtension.h"
+#import "UIScrollView+MJExtension.h"
+#import "UIScrollView+MJRefresh.h"
+#import "NSBundle+MJRefresh.h"
 
 @interface MJRefreshComponent()
 @property (strong, nonatomic) UIPanGestureRecognizer *pan;
@@ -24,6 +28,8 @@
         
         // 默认是普通状态
         self.state = MJRefreshStateIdle;
+        self.fastAnimationDuration = 0.25;
+        self.slowAnimationDuration = 0.4;
     }
     return self;
 }
@@ -91,6 +97,8 @@
     [self.scrollView addObserver:self forKeyPath:MJRefreshKeyPathContentSize options:options context:nil];
     self.pan = self.scrollView.panGestureRecognizer;
     [self.pan addObserver:self forKeyPath:MJRefreshKeyPathPanState options:options context:nil];
+    
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(i18nDidChange) name:MJRefreshDidChangeLanguageNotification object:MJRefreshConfig.defaultConfig];
 }
 
 - (void)removeObservers
@@ -124,6 +132,10 @@
 - (void)scrollViewContentSizeDidChange:(NSDictionary *)change{}
 - (void)scrollViewPanStateDidChange:(NSDictionary *)change{}
 
+- (void)i18nDidChange {
+    [self placeSubviews];
+}
+
 #pragma mark - 公共方法
 #pragma mark 设置回调对象和回调方法
 - (void)setRefreshingTarget:(id)target refreshingAction:(SEL)action
@@ -143,7 +155,7 @@
 #pragma mark 进入刷新状态
 - (void)beginRefreshing
 {
-    [UIView animateWithDuration:MJRefreshFastAnimationDuration animations:^{
+    [UIView animateWithDuration:self.fastAnimationDuration animations:^{
         self.alpha = 1.0;
     }];
     self.pullingPercent = 1.0;
@@ -225,17 +237,23 @@
 #pragma mark - 内部方法
 - (void)executeRefreshingCallback
 {
-    MJRefreshDispatchAsyncOnMainQueue({
-        if (self.refreshingBlock) {
-            self.refreshingBlock();
-        }
-        if ([self.refreshingTarget respondsToSelector:self.refreshingAction]) {
-            MJRefreshMsgSend(MJRefreshMsgTarget(self.refreshingTarget), self.refreshingAction, self);
-        }
-        if (self.beginRefreshingCompletionBlock) {
-            self.beginRefreshingCompletionBlock();
-        }
-    })
+    if (self.refreshingBlock) {
+        self.refreshingBlock();
+    }
+    if ([self.refreshingTarget respondsToSelector:self.refreshingAction]) {
+        MJRefreshMsgSend(MJRefreshMsgTarget(self.refreshingTarget), self.refreshingAction, self);
+    }
+    if (self.beginRefreshingCompletionBlock) {
+        self.beginRefreshingCompletionBlock();
+    }
+}
+
+#pragma mark - 刷新动画时间控制
+- (instancetype)setAnimationDisabled {
+    self.fastAnimationDuration = 0;
+    self.slowAnimationDuration = 0;
+    
+    return self;
 }
 
 #pragma mark - <<< Deprecation compatible function >>> -
@@ -275,4 +293,31 @@
     }
     return stringWidth;
 }
+@end
+
+
+#pragma mark - <<< 为 Swift 扩展链式语法 >>> -
+@implementation MJRefreshComponent (ChainingGrammar)
+
+- (instancetype)autoChangeTransparency:(BOOL)isAutoChange {
+    self.automaticallyChangeAlpha = isAutoChange;
+    return self;
+}
+- (instancetype)afterBeginningAction:(MJRefreshComponentAction)action {
+    self.beginRefreshingCompletionBlock = action;
+    return self;
+}
+- (instancetype)endingAnimationBeginningAction:(MJRefreshComponentAction)action {
+    self.endRefreshingAnimationBeginAction = action;
+    return self;
+}
+- (instancetype)afterEndingAction:(MJRefreshComponentAction)action {
+    self.endRefreshingCompletionBlock = action;
+    return self;
+}
+
+- (instancetype)linkTo:(UIScrollView *)scrollView {
+    return self;
+}
+
 @end

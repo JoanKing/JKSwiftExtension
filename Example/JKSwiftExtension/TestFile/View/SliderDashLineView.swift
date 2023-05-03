@@ -50,6 +50,7 @@ class SliderDashLineView: UIView {
     
     lazy var bgView: UIView = {
         let view = UIView()
+        view.backgroundColor = .brown
         return view
     }()
     
@@ -59,7 +60,7 @@ class SliderDashLineView: UIView {
         slider.maximumValue = 1
         slider.minimumTrackTintColor = .clear
         slider.maximumTrackTintColor = .clear
-        slider.addTarget(self, action: #selector(changeValue), for: .valueChanged)
+        slider.addTarget(self, action: #selector(sliderChange(_:_:)), for: .valueChanged)
         return slider
     }()
     
@@ -83,7 +84,25 @@ extension SliderDashLineView {
         }
         sliderClosure?(sender.value)
     }
-    
+            
+    @objc func sliderChange(_ slider: UISlider, _ event: UIEvent) {
+        let value = slider.value
+        print(value)
+        
+        if let touchEvent = event.allTouches?.first {
+            switch touchEvent.phase {
+            case .began:
+                print("开始拖动")
+            case .moved:
+                print("正在拖动")
+            case .ended:
+                print("结束拖动")
+            default:
+                break
+            }
+        }
+    }
+            
     func setValue(value: Float) {
         rateLimitSlider.setValue(value , animated: false)
         leftView.snp.updateConstraints { make in
@@ -136,8 +155,8 @@ extension SliderDashLineView {
         }
         rateLimitSlider.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalToSuperview()
-            make.right.equalToSuperview()
+            make.left.equalToSuperview().offset(-10)
+            make.right.equalToSuperview().offset(10)
             make.height.equalTo(20)
         }
     }

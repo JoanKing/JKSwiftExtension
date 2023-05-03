@@ -1,12 +1,16 @@
 //
 //  MJRefreshStateHeader.m
-//  MJRefreshExample
+//  MJRefresh
 //
 //  Created by MJ Lee on 15/4/24.
 //  Copyright (c) 2015年 小码哥. All rights reserved.
 //
 
 #import "MJRefreshStateHeader.h"
+#import "MJRefreshConst.h"
+#import "NSBundle+MJRefresh.h"
+#import "UIView+MJExtension.h"
+#import "UIScrollView+MJExtension.h"
 
 @interface MJRefreshStateHeader()
 {
@@ -45,12 +49,19 @@
     return _lastUpdatedTimeLabel;
 }
 
+- (void)setLastUpdatedTimeText:(NSString * _Nonnull (^)(NSDate * _Nullable))lastUpdatedTimeText{
+    _lastUpdatedTimeText = lastUpdatedTimeText;
+    // 重新设置key（重新显示时间）
+    self.lastUpdatedTimeKey = self.lastUpdatedTimeKey;
+}
+
 #pragma mark - 公共方法
-- (void)setTitle:(NSString *)title forState:(MJRefreshState)state
+- (instancetype)setTitle:(NSString *)title forState:(MJRefreshState)state
 {
-    if (title == nil) return;
+    if (title == nil) return self;
     self.stateTitles[@(state)] = title;
     self.stateLabel.text = self.stateTitles[@(self.state)];
+    return self;
 }
 
 #pragma mark key的处理
@@ -101,6 +112,15 @@
     }
 }
 
+
+- (void)textConfiguration {
+    // 初始化文字
+    [self setTitle:[NSBundle mj_localizedStringForKey:MJRefreshHeaderIdleText] forState:MJRefreshStateIdle];
+    [self setTitle:[NSBundle mj_localizedStringForKey:MJRefreshHeaderPullingText] forState:MJRefreshStatePulling];
+    [self setTitle:[NSBundle mj_localizedStringForKey:MJRefreshHeaderRefreshingText] forState:MJRefreshStateRefreshing];
+    self.lastUpdatedTimeKey = MJRefreshHeaderLastUpdatedTimeKey;
+}
+
 #pragma mark - 覆盖父类的方法
 - (void)prepare
 {
@@ -108,11 +128,13 @@
     
     // 初始化间距
     self.labelLeftInset = MJRefreshLabelLeftInset;
+    [self textConfiguration];
+}
+
+- (void)i18nDidChange {
+    [self textConfiguration];
     
-    // 初始化文字
-    [self setTitle:[NSBundle mj_localizedStringForKey:MJRefreshHeaderIdleText] forState:MJRefreshStateIdle];
-    [self setTitle:[NSBundle mj_localizedStringForKey:MJRefreshHeaderPullingText] forState:MJRefreshStatePulling];
-    [self setTitle:[NSBundle mj_localizedStringForKey:MJRefreshHeaderRefreshingText] forState:MJRefreshStateRefreshing];
+    [super i18nDidChange];
 }
 
 - (void)placeSubviews
@@ -156,4 +178,14 @@
     // 重新设置key（重新显示时间）
     self.lastUpdatedTimeKey = self.lastUpdatedTimeKey;
 }
+@end
+
+#pragma mark - <<< 为 Swift 扩展链式语法 >>> -
+@implementation MJRefreshStateHeader (ChainingGrammar)
+
+- (instancetype)modifyLastUpdatedTimeText:(NSString * _Nonnull (^)(NSDate * _Nullable))handler {
+    self.lastUpdatedTimeText = handler;
+    return self;
+}
+
 @end
