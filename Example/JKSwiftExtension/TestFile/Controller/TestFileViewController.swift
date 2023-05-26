@@ -9,6 +9,7 @@
 import UIKit
 import Dispatch
 import JKSwiftExtension
+import CoreTelephony
 class TestFileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,11 +17,11 @@ class TestFileViewController: BaseViewController {
         self.title = "TestFile"
         
         headDataArray = ["一、基本的使用"]
-        dataArray = [["设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "数组测试", "struct", "test", "9"]]
+        dataArray = [["设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "数组测试", "struct", "test", "9", "网络权限的判断"]]
     }
     
     deinit {
-        print("----------")
+        debugPrint("----------")
     }
 }
 
@@ -57,6 +58,32 @@ extension TestFileViewController {
     
     func isMultiple(_ a: Int, of b: Int) -> Bool {
         return a.isMultiple(of: b)
+    }
+    
+    
+    @objc func test110() {
+        debugPrint("开始----")
+        let isNetworkPermissions = isNetworkPermissions()
+        debugPrint("是否有网络的权限：\(isNetworkPermissions)")
+        debugPrint("结束----")
+    }
+    
+    /// 判断网络是否有权限
+    private func isNetworkPermissions() -> Bool {
+        var isNetworkPermissions:Bool = false
+        let cellularData = CTCellularData()
+        /// 线程信号量
+        let semaphore = DispatchSemaphore(value: 0)
+        cellularData.cellularDataRestrictionDidUpdateNotifier = { state in
+            if state == .notRestricted {
+                isNetworkPermissions = true
+            } else  {
+                isNetworkPermissions = false
+            }
+            semaphore.signal()
+        }
+        semaphore.wait()
+        return isNetworkPermissions
     }
     
     @objc func test19() {

@@ -171,6 +171,7 @@ public extension JKPOP where Base: UILabel {
         let attributedString = NSMutableAttributedString(string: text!)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = space
+        paragraphStyle.alignment = self.base.textAlignment
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: .init(location: 0, length: text!.count))
         self.base.attributedText = attributedString
         self.base.sizeToFit()
@@ -186,6 +187,7 @@ public extension JKPOP where Base: UILabel {
         let text = self.base.text
         let attributedString = NSMutableAttributedString(string: text!, attributes: [NSAttributedString.Key.kern:space])
         let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = self.base.textAlignment
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: .init(location: 0, length: text!.count))
         self.base.attributedText = attributedString
         self.base.sizeToFit()
@@ -203,6 +205,7 @@ public extension JKPOP where Base: UILabel {
         let text = self.base.text
         let attributedString = NSMutableAttributedString(string: text!, attributes: [NSAttributedString.Key.kern:wordSpace])
         let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = self.base.textAlignment
         paragraphStyle.lineSpacing = lineSpace
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: .init(location: 0, length: text!.count))
         self.base.attributedText = attributedString

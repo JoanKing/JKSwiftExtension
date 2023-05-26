@@ -1377,7 +1377,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     /// - Returns: 截取后的字符串
     public func sub(start: Int, length: Int = -1) -> String {
         var len = length
-        if len == -1 {
+        if len == -1 || (start + length) > (base as! String).count {
             len = (base as! String).count - start
         }
         let st = (base as! String).index((base as! String).startIndex, offsetBy: start)

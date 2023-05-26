@@ -147,6 +147,7 @@
 		E21E3ABB27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21E3ABA27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift */; };
 		E233A77729B18BBF003A5C3D /* JKSoundPickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E233A77629B18BBF003A5C3D /* JKSoundPickView.swift */; };
 		E233A77B29B1DE45003A5C3D /* JKWheelPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E233A77A29B1DE45003A5C3D /* JKWheelPickerViewController.swift */; };
+		E24692AD2A1F062700C8B2C8 /* JKAlertViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24692AC2A1F062700C8B2C8 /* JKAlertViewControllerViewController.swift */; };
 		E24BB3B92941875B0089A696 /* JKCircleProgressViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24BB3B82941875B0089A696 /* JKCircleProgressViewViewController.swift */; };
 		E24BE977296FA5E1002B5ADE /* NSMutableAttributedStringExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24BE976296FA5E1002B5ADE /* NSMutableAttributedStringExtensionViewController.swift */; };
 		E254825A295BEFE200BA49A5 /* niu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2548259295BEFE200BA49A5 /* niu.ttf */; };
@@ -338,6 +339,7 @@
 		E21E3ABA27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVisualEffectViewExtensionViewController.swift; sourceTree = "<group>"; };
 		E233A77629B18BBF003A5C3D /* JKSoundPickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKSoundPickView.swift; sourceTree = "<group>"; };
 		E233A77A29B1DE45003A5C3D /* JKWheelPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKWheelPickerViewController.swift; sourceTree = "<group>"; };
+		E24692AC2A1F062700C8B2C8 /* JKAlertViewControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKAlertViewControllerViewController.swift; sourceTree = "<group>"; };
 		E24BB3B82941875B0089A696 /* JKCircleProgressViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKCircleProgressViewViewController.swift; sourceTree = "<group>"; };
 		E24BE976296FA5E1002B5ADE /* NSMutableAttributedStringExtensionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringExtensionViewController.swift; sourceTree = "<group>"; };
 		E2548259295BEFE200BA49A5 /* niu.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = niu.ttf; sourceTree = "<group>"; };
@@ -777,6 +779,7 @@
 			isa = PBXGroup;
 			children = (
 				84BF16CB251DA012002ACE76 /* SmallToolsViewController.swift */,
+				E24692AC2A1F062700C8B2C8 /* JKAlertViewControllerViewController.swift */,
 				E29EF19229F2AD63009BB4DC /* JKUnitConverterViewController.swift */,
 				E2FA6871299B8FC300535471 /* JKCustomPickViewViewController.swift */,
 				E24BB3B82941875B0089A696 /* JKCircleProgressViewViewController.swift */,
@@ -1150,6 +1153,7 @@
 				E2CFA13C285993CE00E342DE /* JKPanViewCell.swift in Sources */,
 				E2BBEDDD29B1EC20005FB04B /* JKWheelPickerCollectionViewLayout.swift in Sources */,
 				8418FB99255BBCE3000CB0B3 /* UITableViewExtensionViewController.swift in Sources */,
+				E24692AD2A1F062700C8B2C8 /* JKAlertViewControllerViewController.swift in Sources */,
 				847DFF262550F07600EEE785 /* Int64ExtensionViewController.swift in Sources */,
 				84A6FB73255A40E400057839 /* UIBarButtonItemExtensionViewController.swift in Sources */,
 				8480280A2558E7940038748A /* UIScreenExtensionViewController.swift in Sources */,
