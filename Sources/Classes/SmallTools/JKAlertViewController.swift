@@ -7,6 +7,7 @@
 
 import UIKit
 
+//MARK: - JKAlertActionStyle(弹框按钮样式)
 @objc public enum JKAlertActionStyle : Int {
     
     case `default` = 0
@@ -28,40 +29,6 @@ import UIKit
 
 //MARK: - JKAlertAction
 public class JKAlertAction: NSObject {
-    
-    /// 初始化事件
-    /// - Parameters:
-    ///   - title: 事件名字
-    ///   - alertActionStyle: 样式
-    ///   - handler: 事件回调
-    @objc public convenience init(title: String?, alertActionStyle: JKAlertActionStyle, handler: ((JKAlertAction) -> Void)? = nil){
-        switch alertActionStyle {
-        case .cancel:
-            self.init(title: title, style: .cancel, handler: handler)
-        case .destructive:
-            self.init(title: title, style: .destructive, handler: handler)
-        case .suggestsive:
-            self.init(title: title, style: .suggestsive, handler: handler)
-        case .blue:
-            self.init(title: title, style: .blue, handler: handler)
-        case .gray:
-            self.init(title: title, style: .gray, handler: handler)
-        case .red:
-            self.init(title: title, style: .suggestsive, handler: handler)
-        case .niucancel:
-            self.init(title: title, style: .niucancel, handler: handler)
-        default:
-            self.init(title: title, style: .default, handler: handler)
-        }
-    }
-    
-    public init(title: String?, style: JKAlertActionStyle, handler: ((JKAlertAction) -> Void)? = nil){
-        
-        self.title = title
-        self.style = style
-        self.handler = handler
-        super.init()
-    }
     /// 事件名字
     @objc var title: String?
     /// 样式
@@ -70,60 +37,55 @@ public class JKAlertAction: NSObject {
     @objc var handler: ((JKAlertAction) -> Void)?
     /// 是否可点击
     var isEnabled: Bool = true
+    
+    /// 初始化事件
+    /// - Parameters:
+    ///   - title: 事件名字
+    ///   - style: 样式
+    ///   - handler: 事件回调
+    public init(title: String?, style: JKAlertActionStyle, handler: ((JKAlertAction) -> Void)? = nil){
+        self.title = title
+        self.style = style
+        self.handler = handler
+        super.init()
+    }
 }
 
 //MARK: - JKAlertViewController
 public class JKAlertViewController: UIViewController {
-    
+    //MARK: 弹出方式
+    /// 弹出方式
     public enum Style : Int {
-        
-        case actionSheet = 0
-        
-        case alert = 1
+        /// 中间弹出
+        case alert = 0
+        /// 底部弹出
+        case actionSheet = 1
     }
     
-    @objc public convenience init(title: String, message: String, backgroundDismissHandler: (() -> Void)? = nil) {
-        self.init(title: title, message: message, preferredStyle: .alert, backgroundDismissHandler: backgroundDismissHandler)
+    /// 空白视图
+    @objc public var backgroundTouchIsEnabled: Bool = true {
+        didSet{
+            self.backgroundMaskView.isEnabled = backgroundTouchIsEnabled
+        }
     }
     
-    init(title: String, attributedMessage: NSMutableAttributedString, preferredStyle: JKAlertViewController.Style = .alert, backgroundDismissHandler: (() -> Void)? = nil) {
+    //MARK: 描述基本文本初始化
+    /// 描述基本文本初始化
+    /// - Parameters:
+    ///   - title: 弹框标题
+    ///   - message:  弹框描述信息
+    ///   - preferredStyle: 样式
+    ///   - textAlignment: 文本对齐方式
+    ///   - backgroundDismissHandler: backgroundDismissHandler description
+    public init(title: String = "", message: String = "", preferredStyle: JKAlertViewController.Style = .alert,textAlignment:NSTextAlignment = .center, backgroundDismissHandler: (() -> Void)? = nil) {
         
         self.preferredStyle = preferredStyle
         self.backgroundDismissHandler = backgroundDismissHandler
         
         super.init(nibName: nil, bundle: nil)
         
-        self.modalPresentationStyle = .custom
+        self.modalPresentationStyle = .overFullScreen
         self.modalTransitionStyle = .crossDissolve
-        
-        do {
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.maximumLineHeight = 27
-            paragraphStyle.minimumLineHeight = 27
-            paragraphStyle.alignment = .center
-            
-            let attr = [NSAttributedString.Key.font: UIFont.jk.textSB(18),
-                        NSAttributedString.Key.paragraphStyle: paragraphStyle]
-            let attributedText = NSMutableAttributedString(string: title, attributes: attr)
-            self.titleLab.textColor = UIColor.black
-            self.titleLab.attributedText = attributedText
-        }
-        
-        do {
-            self.messageLab.textColor = UIColor.black
-            self.messageLab.attributedText = attributedMessage
-        }
-    }
-    
-    public init(title: String = "", message: String = "", preferredStyle: JKAlertViewController.Style = .alert, backgroundDismissHandler: (() -> Void)? = nil,textAlignment:NSTextAlignment = .center) {
-        
-        self.preferredStyle = preferredStyle
-        self.backgroundDismissHandler = backgroundDismissHandler
-        
-        super.init(nibName: nil, bundle: nil)
-        
-        self.modalPresentationStyle = .overFullScreen;
-        self.modalTransitionStyle = .crossDissolve;
         
         // 标题的样式
         let titleParagraphStyle = NSMutableParagraphStyle()
@@ -163,86 +125,52 @@ public class JKAlertViewController: UIViewController {
         }
     }
     
-    init(niutitle: String = "", message: String = "", preferredStyle: JKAlertViewController.Style = .alert, backgroundDismissHandler: (() -> Void)? = nil,textAlignment: NSTextAlignment = .center) {
+    //MARK: 富文本描述基本文本初始化
+    /// 富文本描述基本文本初始化
+    /// - Parameters:
+    ///   - title: 弹框标题
+    ///   - attributedMessage: 富文本描描述信息
+    ///   - preferredStyle: 样式
+    ///   - backgroundDismissHandler: backgroundDismissHandler description
+    public init(title: String, attributedMessage: NSMutableAttributedString, preferredStyle: JKAlertViewController.Style = .alert, backgroundDismissHandler: (() -> Void)? = nil) {
         
         self.preferredStyle = preferredStyle
         self.backgroundDismissHandler = backgroundDismissHandler
         
         super.init(nibName: nil, bundle: nil)
         
-        self.modalPresentationStyle = .custom;
-        self.modalTransitionStyle = .crossDissolve;
+        self.modalPresentationStyle = .overFullScreen
+        self.modalTransitionStyle = .crossDissolve
         
-        if !niutitle.jk.isBlank {
+        do {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.maximumLineHeight = 27
             paragraphStyle.minimumLineHeight = 27
-            paragraphStyle.alignment = textAlignment
+            paragraphStyle.alignment = .center
             
-            let attr = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium),
+            let attr = [NSAttributedString.Key.font: UIFont.jk.textSB(18),
                         NSAttributedString.Key.paragraphStyle: paragraphStyle]
-            
-            let attributedText = NSMutableAttributedString(string: niutitle, attributes: attr)
+            let attributedText = NSMutableAttributedString(string: title, attributes: attr)
             self.titleLab.textColor = UIColor.black
             self.titleLab.attributedText = attributedText
         }
-        if !message.jk.isBlank {
-            
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.alignment = textAlignment
-            paragraphStyle.maximumLineHeight = 21
-            paragraphStyle.minimumLineHeight = 21
-            
-            var attr: [NSAttributedString.Key: Any] = [:]
-            
-            attr[NSAttributedString.Key.font] =  UIFont.systemFont(ofSize: 14)
-            attr[NSAttributedString.Key.paragraphStyle] =  paragraphStyle
-            let attributedText = NSMutableAttributedString(string: message, attributes: attr)
-            self.messageLab.textColor = UIColor.gray
-            self.messageLab.attributedText = attributedText
+        
+        do {
+            self.messageLab.textColor = UIColor.black
+            self.messageLab.attributedText = attributedMessage
         }
-        self.contentView.layer.cornerRadius = 10
     }
     
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
+    /// 添加事件
+    /// - Parameter action: 事件
     @objc public func addAction(_ action: JKAlertAction){
-        
         actions.append(action)
         updateActionBtnLayout()
     }
-    /// 事件
-    var actions: [JKAlertAction] = []
-    /// 弹出方式
-    var preferredStyle: JKAlertViewController.Style
-    /// 视图消失
-    var backgroundDismissHandler: (() -> Void)?
-    /// 空白视图
-    @objc public var backgroundTouchIsEnabled: Bool = true {
-        didSet{
-            self.backgroundMaskView.isEnabled = backgroundTouchIsEnabled
-        }
-    }
-    
-    lazy var contentView: UIView = {
-        let contentView = UIView(frame: CGRect.zero)
-        contentView.backgroundColor = UIColor.white
-        contentView.layer.cornerRadius = 10
-        contentView.layer.masksToBounds = true
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        return contentView
-    }()
-    
-    lazy var backgroundMaskView : UIControl = {
-        let btn = UIControl(frame: CGRect.zero)
-        btn.backgroundColor = UIColor(white: 0, alpha: 0.5)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.addTarget(self, action: #selector(closeBtnDidClicked), for: .touchUpInside)
-        return btn
-    }()
     /// 标题
     lazy var titleLab : UILabel = {
         let lab = UILabel(frame: CGRect.zero)
@@ -257,6 +185,29 @@ public class JKAlertViewController: UIViewController {
         lab.translatesAutoresizingMaskIntoConstraints = false
         return lab
     }()
+    /// 事件数组
+    var actions: [JKAlertAction] = []
+    /// 弹出方式
+    var preferredStyle: JKAlertViewController.Style
+    /// 视图消失
+    var backgroundDismissHandler: (() -> Void)?
+    /// 弹框试图
+    lazy var contentView: UIView = {
+        let contentView = UIView(frame: CGRect.zero)
+        contentView.backgroundColor = UIColor.white
+        contentView.layer.cornerRadius = 10
+        contentView.layer.masksToBounds = true
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        return contentView
+    }()
+    /// 弹框整体背景
+    lazy var backgroundMaskView : UIControl = {
+        let btn = UIControl(frame: CGRect.zero)
+        btn.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(closeBtnDidClicked), for: .touchUpInside)
+        return btn
+    }()
     /// 分割线
     lazy var separator: UIView = {
         let separator = UIView(frame: CGRect.zero)
@@ -264,7 +215,7 @@ public class JKAlertViewController: UIViewController {
         separator.translatesAutoresizingMaskIntoConstraints = false
         return separator
     }()
-    ///
+    /// 按钮试图容器，如：确定/取消等等
     lazy var actionStackView : UIStackView = {
         let stackView = UIStackView(frame: CGRect.zero)
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -279,7 +230,6 @@ public class JKAlertViewController: UIViewController {
     }
     
     func setupInterface() {
-        
         do {
             contentView.addSubview(titleLab)
             contentView.addSubview(messageLab)
@@ -287,14 +237,12 @@ public class JKAlertViewController: UIViewController {
             contentView.addSubview(separator)
             view.addSubview(contentView)
         }
-        
         do {
             backgroundMaskView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
             backgroundMaskView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
             backgroundMaskView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
             backgroundMaskView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         }
-        
         do {
             titleLab.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 25).isActive = true
             titleLab.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30).isActive = true
@@ -322,6 +270,10 @@ public class JKAlertViewController: UIViewController {
         }
     }
     
+    //MARK: 按钮的设置
+    /// 按钮的设置
+    /// - Parameter action: 事件
+    /// - Returns: description
     func btnWitAction(action: JKAlertAction) -> UIView {
         
         let paragraphStyle = NSMutableParagraphStyle()
@@ -395,7 +347,6 @@ public class JKAlertViewController: UIViewController {
         lab.bottomAnchor.constraint(equalTo: btn.bottomAnchor, constant: -10).isActive = true
         lab.trailingAnchor.constraint(equalTo: btn.trailingAnchor, constant: -8).isActive = true
         
-        
         btn.isEnabled = action.isEnabled
         btn.addTarget(self, action: #selector(actionBtnDidClicked), for: .touchUpInside)
         
@@ -409,27 +360,19 @@ public class JKAlertViewController: UIViewController {
             actionStackView.removeArrangedSubview(btn)
             btn.removeFromSuperview()
         }
-        
         let btnCount = actions.count
-        
         if btnCount > 2 {
-            
             actionStackView.distribution = .fill
             actionStackView.axis = .vertical
-            
             for idx in 0..<btnCount {
-                
                 let btn = btnWitAction(action: actions[idx])
                 btn.tag = idx + 2000
                 actionStackView.addArrangedSubview(btn)
                 if idx != 0 {
                     let separator = UIView(frame: CGRect.zero)
-                    
                     separator.backgroundColor = UIColor.hexStringColor(hexString: "#c8c8c8")
-                    
                     separator.translatesAutoresizingMaskIntoConstraints = false
                     btn.addSubview(separator)
-                    
                     do {
                         separator.topAnchor.constraint(equalTo: btn.topAnchor).isActive = true
                         separator.centerXAnchor.constraint(equalTo: btn.leadingAnchor).isActive = true
@@ -441,19 +384,15 @@ public class JKAlertViewController: UIViewController {
         } else {
             actionStackView.distribution = .fillEqually
             actionStackView.axis = .horizontal
-            
             for idx in 0..<btnCount {
-                
                 let btn = btnWitAction(action: actions[idx])
                 btn.tag = idx + 2000
                 actionStackView.addArrangedSubview(btn)
-                
                 if idx != 0 {
                     let separator = UIView(frame: CGRect.zero)
                     separator.backgroundColor = UIColor.hexStringColor(hexString: "#c8c8c8")
                     separator.translatesAutoresizingMaskIntoConstraints = false
                     btn.addSubview(separator)
-                    
                     do {
                         separator.topAnchor.constraint(equalTo: btn.topAnchor).isActive = true
                         separator.centerXAnchor.constraint(equalTo: btn.leadingAnchor).isActive = true
@@ -504,9 +443,9 @@ extension JKAlertViewController {
 }
 
 /*
-class FFVerAlertViewController: FFAlertViewController {
+public class JKVerAlertViewController: JKAlertViewController {
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
     }
     
@@ -531,7 +470,7 @@ class FFVerAlertViewController: FFAlertViewController {
         
         do {
             
-            let hasNoTitle = NiuStringIsEmpty(titleLab.text)
+            let hasNoTitle = (titleLab.text ?? "").jk.isBlank
             
             titleLab.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 25).isActive = true
             titleLab.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
@@ -552,14 +491,14 @@ class FFVerAlertViewController: FFAlertViewController {
         }
         
     }
-    override func viewWillLayoutSubviews() {
+    public override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         view.layoutIfNeeded()
         for (idx, action) in actions.enumerated() {
             if action.style == .suggestsive {
                 let container = actionStackView.arrangedSubviews[idx]
                 let btn = container.subviews.first
-                btn?.layer.cornerRadius = (btn?.height ?? 0) * 0.5
+                btn?.layer.cornerRadius = (btn?.jk.height ?? 0) * 0.5
                 btn?.layer.masksToBounds = true
                 
             }
@@ -603,7 +542,7 @@ class FFVerAlertViewController: FFAlertViewController {
         switch action.style {
         case .destructive: do {
             attr[NSAttributedString.Key.font] = UIFont.boldSystemFont(ofSize: 17)
-            attr[NSAttributedString.Key.foregroundColor] = NiuGetColorWithRGBValue(252, 42, 48)
+            attr[NSAttributedString.Key.foregroundColor] = UIColor.hexStringColor(hexString: "#FC2A30")
             
             darkAttr[NSAttributedString.Key.font] = UIFont.boldSystemFont(ofSize: 17)
             darkAttr[NSAttributedString.Key.foregroundColor] = UIColor(white: 1, alpha: 0.8)
@@ -628,14 +567,14 @@ class FFVerAlertViewController: FFAlertViewController {
             break
         case .gray: do {
             attr[NSAttributedString.Key.font] = UIFont.systemFont(ofSize: 17, weight: .regular)
-            attr[NSAttributedString.Key.foregroundColor] = UIColor.lGray()
+            attr[NSAttributedString.Key.foregroundColor] = UIColor.gray
             
             darkAttr[NSAttributedString.Key.font] = UIFont.boldSystemFont(ofSize: 17)
-            darkAttr[NSAttributedString.Key.foregroundColor] = UIColor.lGray()
+            darkAttr[NSAttributedString.Key.foregroundColor] = UIColor.gray
         }
         case .niucancel: do {
             attr[NSAttributedString.Key.font] = UIFont.systemFont(ofSize: 17, weight: .regular)
-            attr[NSAttributedString.Key.foregroundColor] = UIColor.lBlack()
+            attr[NSAttributedString.Key.foregroundColor] = UIColor.black
             
             darkAttr[NSAttributedString.Key.font] = UIFont.boldSystemFont(ofSize: 17)
             darkAttr[NSAttributedString.Key.foregroundColor] = UIColor(white: 1, alpha: 0.8)
@@ -647,10 +586,10 @@ class FFVerAlertViewController: FFAlertViewController {
             paragraphStyle.minimumLineHeight = 22.5
             
             attr[NSAttributedString.Key.font] = UIFont.systemFont(ofSize: 15)
-            attr[NSAttributedString.Key.foregroundColor] = UIColor.lGray()
+            attr[NSAttributedString.Key.foregroundColor] = UIColor.gray
             
             darkAttr[NSAttributedString.Key.font] = UIFont.systemFont(ofSize: 15)
-            darkAttr[NSAttributedString.Key.foregroundColor] = UIColor.lGray()
+            darkAttr[NSAttributedString.Key.foregroundColor] = UIColor.gray
         }
         }
         
@@ -659,7 +598,7 @@ class FFVerAlertViewController: FFAlertViewController {
         
         let lab = UILabel(frame: CGRect.zero)
         lab.numberOfLines = 2
-        lab.setAttributedText(attributedText, darkAttribute: darkAttributedText)
+        lab.attributedText = attributedText
         lab.translatesAutoresizingMaskIntoConstraints = false
         
         btn.addSubview(lab)
@@ -672,10 +611,6 @@ class FFVerAlertViewController: FFAlertViewController {
         btn.isEnabled = action.isEnabled
         btn.addTarget(self, action: #selector(actionBtnDidClicked(btn:)), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
-        if action.style == .suggestsive {
-            btn.setBackgroundColorWithTintColor(UIColor.lBlack(), darkColor: UIColor(hex: 0x426bf2), autoColor: UIColor.lBlack())
-        }
-        
         container.addSubview(btn)
         btn.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
         btn.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
@@ -718,5 +653,4 @@ class FFVerAlertViewController: FFAlertViewController {
         }
     }
 }
-
 */
