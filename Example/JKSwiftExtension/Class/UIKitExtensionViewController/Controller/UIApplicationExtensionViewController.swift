@@ -18,157 +18,237 @@ class UIApplicationExtensionViewController: BaseViewController {
     }
 }
 
+/// 第三方app
+public enum JKThirdPartyAppType: String {
+    /// 微信
+    case weixin = "weixin://"
+    /// QQ
+    case qq = "mqq://"
+    /// 腾讯微博
+    case tencentWeibo = "TencentWeibo://"
+    /// 淘宝
+    case taobao = "taobao://"
+    /// 支付宝
+    case alipay = "alipay://"
+    /// 微博
+    case weico = "weico://"
+    /// QQ浏览器
+    case mqqbrowser = "mqqbrowser://"
+    /// uc浏览器
+    case ucbrowser = " ucbrowser://"
+    /// 海豚浏览器
+    case dolphin = "dolphin://"
+    /// 欧朋浏览器
+    case ohttp = "ohttp://"
+    /// 搜狗浏览器
+    case sogouMSE = "SogouMSE://"
+    ///  百度地图
+    case baidumap = "baidumap://"
+    /// 谷歌Chrome浏览器
+    case googlechrome = "googlechrome://"
+    ///  优酷
+    case youku = "youku://"
+    /// 京东
+    case jd = "openapp.jdmoble://"
+    /// 人人
+    case renren = "renren://"
+    /// 美团
+    case meituan = "imeituan://"
+    /// 1号店
+    case wccbyihaodian = "wccbyihaodian://"
+    /// 我查查
+    case wcc = " wcc://"
+    /// 有道词典
+    case yddictproapp = "yddictproapp://"
+    /// 知乎
+    case zhihu = "zhihu://"
+    /// 点评
+    case dianping = "dianping://"
+    /// 微盘
+    case sinavdisk = "sinavdisk://"
+    /// 豆瓣fm
+    case doubanradio = "doubanradio://"
+    /// 网易公开课
+    case ntesopen = "ntesopen://"
+    /// 名片全能王
+    case camcard = "camcard://"
+    /// QQ音乐
+    case qqmusic = "qqmusic://"
+    /// 腾讯视频
+    case tenvideo = "envideo://"
+    /// 豆瓣电影
+    case doubanmovie = "doubanmovie://"
+    /// 网易云音乐
+    case orpheus = "orpheus://"
+    /// 网易新闻
+    case newsapp = "newsapp://"
+    /// 网易应用
+    case apper = "apper://"
+    /// 网易彩票
+    case ntescaipiao = "ntescaipiao://"
+    /// 有道云笔记
+    case youdaonote = "youdaonote://"
+    /// 多看
+    case duokan = "duokan-reader://"
+    /// 全国空气质量指数
+    case dirtybeijing = "dirtybeijing://"
+    /// 百度音乐
+    case baidumusic = "baidumusic://"
+    /// 下厨房
+    case xcfapp = " xcfapp://"
+}
+
 // MARK: - 三、打开系统应用和第三方APP
 extension UIApplicationExtensionViewController {
     
     // MARK: 3.48、下厨房
     @objc func test348() {
-        UIApplication.jk.openThirdPartyApp(type: .xcfapp) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.xcfapp.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     // MARK: 3.47、百度音乐
     @objc func test347() {
-        UIApplication.jk.openThirdPartyApp(type: .baidumusic) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.baidumusic.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.46、全国空气质量指数
     @objc func test346() {
-        UIApplication.jk.openThirdPartyApp(type: .dirtybeijing) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.dirtybeijing.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     // MARK: 3.45、打开多看
     @objc func test345() {
-        UIApplication.jk.openThirdPartyApp(type: .duokan) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.duokan.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.44、打开有道云笔记
     @objc func test344() {
-        UIApplication.jk.openThirdPartyApp(type: .youdaonote) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.youdaonote.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.43、打开网易彩票
     @objc func test343() {
-        UIApplication.jk.openThirdPartyApp(type: .ntescaipiao) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.ntescaipiao.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.42、打开网易应用
     @objc func test342() {
-        UIApplication.jk.openThirdPartyApp(type: .apper) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.apper.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.41、打开网易新闻
     @objc func test341() {
-        UIApplication.jk.openThirdPartyApp(type: .newsapp) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.newsapp.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.40、打开网易云音乐
     @objc func test340() {
-        UIApplication.jk.openThirdPartyApp(type: .orpheus) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.orpheus.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.39、打开豆瓣电影
     @objc func test339() {
-        UIApplication.jk.openThirdPartyApp(type: .doubanmovie) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.doubanmovie.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.38、打开腾讯视频
     @objc func test338() {
-        UIApplication.jk.openThirdPartyApp(type: .tenvideo) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.tenvideo.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.37、QQ音乐
     @objc func test337() {
-        UIApplication.jk.openThirdPartyApp(type: .qqmusic) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.qqmusic.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.36、打开名片全能王
     @objc func test336() {
-        UIApplication.jk.openThirdPartyApp(type: .camcard) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.camcard.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.35、打开网易公开课
     @objc func test335() {
-        UIApplication.jk.openThirdPartyApp(type: .ntesopen) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.ntesopen.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.34、打开豆瓣fm
     @objc func test334() {
-        UIApplication.jk.openThirdPartyApp(type: .doubanradio) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.doubanradio.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.33、打开微盘
     @objc func test333() {
-        UIApplication.jk.openThirdPartyApp(type: .sinavdisk) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.sinavdisk.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.32、打开点评
     @objc func test332() {
-        UIApplication.jk.openThirdPartyApp(type: .dianping) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.dianping.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.31、打开知乎
     @objc func test331() {
-        UIApplication.jk.openThirdPartyApp(type: .zhihu) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.zhihu.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.30、打开有道词典
     @objc func test330() {
-        UIApplication.jk.openThirdPartyApp(type: .youdaonote) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.youdaonote.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.29、打开我查查
     @objc func test329() {
-        UIApplication.jk.openThirdPartyApp(type: .wcc) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.wcc.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.28、打开1号店
     @objc func test328() {
-        UIApplication.jk.openThirdPartyApp(type: .wccbyihaodian) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.wccbyihaodian.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.27、打开美团
     @objc func test327() {
-        UIApplication.jk.openThirdPartyApp(type: .meituan) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.meituan.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
@@ -180,112 +260,112 @@ extension UIApplicationExtensionViewController {
     
     // MARK: 3.25、打开人人
     @objc func test325() {
-        UIApplication.jk.openThirdPartyApp(type: .renren) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.renren.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.24、打开京东
     @objc func test324() {
-        UIApplication.jk.openThirdPartyApp(type: .jd) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.jd.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.23、打开优酷
     @objc func test323() {
-        UIApplication.jk.openThirdPartyApp(type: .youku) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.youku.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.22、打开谷歌Chrome浏览器
     @objc func test322() {
-        UIApplication.jk.openThirdPartyApp(type: .googlechrome) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.googlechrome.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.21、打开百度地图
     @objc func test321() {
-        UIApplication.jk.openThirdPartyApp(type: .baidumap) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.baidumap.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.20、打开搜狗浏览器
     @objc func test320() {
-        UIApplication.jk.openThirdPartyApp(type: .sogouMSE) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.sogouMSE.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.19、打开欧朋浏览器
     @objc func test319() {
-        UIApplication.jk.openThirdPartyApp(type: .ohttp) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.ohttp.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.18、打开海豚浏览器
     @objc func test318() {
-        UIApplication.jk.openThirdPartyApp(type: .dolphin) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.dolphin.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.17、打开UC浏览器
     @objc func test317() {
-        UIApplication.jk.openThirdPartyApp(type: .ucbrowser) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.ucbrowser.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.16、打开QQ浏览器
     @objc func test316() {
-        UIApplication.jk.openThirdPartyApp(type: .mqqbrowser) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.mqqbrowser.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.15、打开微博
     @objc func test315() {
-        UIApplication.jk.openThirdPartyApp(type: .weico) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.weico.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.14、打开支付宝
     @objc func test314() {
-        UIApplication.jk.openThirdPartyApp(type: .alipay) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.alipay.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.13、打开淘宝
     @objc func test313() {
-        UIApplication.jk.openThirdPartyApp(type: .taobao) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.taobao.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.12、打开腾讯微博
     @objc func test312() {
-        UIApplication.jk.openThirdPartyApp(type: .tencentWeibo) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.tencentWeibo.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.11、打开QQ
     @objc func test311() {
-        UIApplication.jk.openThirdPartyApp(type: .qq) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.qq.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
     // MARK: 3.10、打开微信
     @objc func test310() {
-        UIApplication.jk.openThirdPartyApp(type: .weixin) { (result) in
+        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.weixin.rawValue) { (result) in
             JKPrint("结果：\(result)")
         }
     }
