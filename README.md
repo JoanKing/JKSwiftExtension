@@ -50,7 +50,7 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/c4cbd321-3803-424b-892e-9bd27431351a" alt="微信交流群" width="220">
 
 ## 版本说明
-  - 2.3.1、版本(2023.06.01)：JKThirdPartyAppType放在库外部(因为涉及到支付宝等敏感第三方)
+  - 2.3.3、版本(2023.06.01)：JKThirdPartyAppType放在库外部(因为涉及到支付宝等敏感第三方)
      UIApplication+Extension.swift中打开第三方的方法之前传类型，改为传第三方的deeplink
   - 2.3.0、版本(2023.05.29) : 新增JKAlertViewController弹框和修复字符串截取有表情崩溃的问题
   - 2.2.9、版本(2023.05.03) : 新增单位转换的类：JKUnitConverter和优化并修复部分问题
