@@ -51,7 +51,7 @@ end
 
 ## 版本说明
   - 2.3.1、版本(2023.06.01)：JKThirdPartyAppType放在库外部(因为涉及到支付宝等敏感第三方)
-     UIApplication+Extension.swift中的打开第三方的方法之前传类型，改为传第三方的deeplink
+     UIApplication+Extension.swift中打开第三方的方法之前传类型，改为传第三方的deeplink
   - 2.3.0、版本(2023.05.29) : 新增JKAlertViewController弹框和修复字符串截取有表情崩溃的问题
   - 2.2.9、版本(2023.05.03) : 新增单位转换的类：JKUnitConverter和优化并修复部分问题
       - (1)、新增单位转换的类：JKUnitConverter，支持：距离、质量、温度的基本单位转换
