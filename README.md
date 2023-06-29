@@ -50,6 +50,23 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/c4cbd321-3803-424b-892e-9bd27431351a" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.3.4、版本(2023.06.30)：放在库外部(因为涉及到支付宝等敏感第三方)
+      - (1)、String+Extension.swift新增枚举StringTypeLength来获取中字符串的长度方式
+        /// 字符串取类型的长度
+        ```swift
+        public enum StringTypeLength {
+            /// Unicode字符个数
+            case count
+            /// utf8
+            case utf8
+            /// utf16获取长度对应NSString的.length方法
+            case utf16
+            /// unicodeScalars
+            case unicodeScalars
+        }
+        func typeLengh(_ type: StringTypeLength) -> Int {}获取类型长度
+        ```
+      - (2)、UITextField+Extension.swift和UITextView+Extension.swift的输入限制方法inputRestrictions新增lenghType: StringTypeLength = .count参数
   - 2.3.3、版本(2023.06.01)：JKThirdPartyAppType放在库外部(因为涉及到支付宝等敏感第三方)
      UIApplication+Extension.swift中打开第三方的方法之前传类型，改为传第三方的deeplink
   - 2.3.0、版本(2023.05.29) : 新增JKAlertViewController弹框和修复字符串截取有表情崩溃的问题
