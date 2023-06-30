@@ -257,32 +257,61 @@ extension UITextFieldExtensionViewController {
 //MARK: - 测试：输入内容以及正则的一个输入内容的限制
 class TextFildViewTestViewController: UIViewController {
     
-    /// "限制输入10个字符"
-    private var textFiledView1: TestTextFiledView = {
-        let view = TestTextFiledView(frame: CGRect.zero, placeholderContent: "限制输入10个字符", maxCharacters: 10)
-        return view
+    lazy var limitTipLabel1: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.text = "限制输入10个字符-使用utf16来计算长度"
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 18)
+        return label
     }()
     
+    /// "限制输入10个字符"
+    private var textFiledView1: TestTextFiledView = {
+        let view = TestTextFiledView(frame: CGRect.zero, placeholderContent: "限制输入10个字符", maxCharacters: 10, lenghType: .utf16)
+        return view
+    }()
+    lazy var limitTipLabel2: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.text = "限制输入20个字符-使用count来计算长度"
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 18)
+        return label
+    }()
     /// "限制输入20个字符"
     private var textFiledView2: TestTextFiledView = {
-        let view = TestTextFiledView(frame: CGRect.zero, placeholderContent: "限制输入20个字符", maxCharacters: 20)
+        let view = TestTextFiledView(frame: CGRect.zero, placeholderContent: "限制输入20个字符", maxCharacters: 20, lenghType: .count)
         return view
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .brown
-        
+        view.addSubview(limitTipLabel1)
+        limitTipLabel1.snp.makeConstraints { make in
+            make.top.equalTo(jk_kNavFrameH + 20)
+            make.left.equalTo(0)
+            make.right.equalTo(0)
+            make.height.equalTo(30)
+        }
         view.addSubview(textFiledView1)
         textFiledView1.snp.makeConstraints { make in
-            make.top.equalTo(jk_kNavFrameH + 20)
+            make.top.equalTo(limitTipLabel1.snp.bottom).offset(20)
+            make.left.equalTo(0)
+            make.right.equalTo(0)
+            make.height.equalTo(30)
+        }
+        view.addSubview(limitTipLabel2)
+        limitTipLabel2.snp.makeConstraints { make in
+            make.top.equalTo(textFiledView1.snp.bottom).offset(20)
             make.left.equalTo(0)
             make.right.equalTo(0)
             make.height.equalTo(30)
         }
         view.addSubview(textFiledView2)
         textFiledView2.snp.makeConstraints { make in
-            make.top.equalTo(textFiledView1.snp.bottom).offset(50)
+            make.top.equalTo(limitTipLabel2.snp.bottom).offset(20)
             make.left.equalTo(0)
             make.right.equalTo(0)
             make.height.equalTo(30)
@@ -296,6 +325,8 @@ class TestTextFiledView: UIView {
     private var placeholderContent: String
     /// 信息最多是40个字
     private var maxCharacters: Int = 40
+    /// 长度类型
+    private var lenghType: StringTypeLength
     /// 前缀：*
     lazy var prefixLabel: UILabel = {
         let label = UILabel()
@@ -322,9 +353,10 @@ class TestTextFiledView: UIView {
     /// 输入的内容发生变化
     var inputChangeClosure: ((String) -> Void)?
     
-    init(frame: CGRect, placeholderContent: String = "", maxCharacters: Int = 100) {
+    init(frame: CGRect, placeholderContent: String = "", maxCharacters: Int = 100, lenghType: StringTypeLength = .count) {
         self.placeholderContent = placeholderContent
         self.maxCharacters = maxCharacters
+        self.lenghType = lenghType
         super.init(frame: frame)
         initUI()
         commonInit()
@@ -384,7 +416,7 @@ extension TestTextFiledView: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return textField.jk.inputRestrictions(shouldChangeTextIn: range, replacementText: string, maxCharacters: maxCharacters, regex: nil)
+        return textField.jk.inputRestrictions(shouldChangeTextIn: range, replacementText: string, maxCharacters: maxCharacters, regex: nil, lenghType: lenghType)
     }
     
     /// 获得焦点

@@ -195,7 +195,7 @@ public extension JKPOP where Base: UITextField {
     ///   - regex: 可输入内容(正则)
     ///   - isInterceptString: 复制文字进来，在字数限制的情况下，多余的字体是否截取掉，默认true
     /// - Returns: 返回是否可输入
-    func inputRestrictions(shouldChangeTextIn range: NSRange, replacementText text: String, maxCharacters: Int, regex: String?, isInterceptString: Bool = true) -> Bool {
+    func inputRestrictions(shouldChangeTextIn range: NSRange, replacementText text: String, maxCharacters: Int, regex: String?, isInterceptString: Bool = true, lenghType: StringTypeLength = .count) -> Bool {
         guard !text.isEmpty else {
             return true
         }
@@ -206,7 +206,7 @@ public extension JKPOP where Base: UITextField {
              // 有高亮
             if range.length == 0 {
                 // 联想中
-                return oldContent.count + 1 <= maxCharacters
+                return oldContent.jk.typeLengh(lenghType) + 1 <= maxCharacters
             } else {
                 // 正则的判断
                 if let weakRegex = regex, !JKRegexHelper.match(text, pattern: weakRegex) {
@@ -215,9 +215,9 @@ public extension JKPOP where Base: UITextField {
                 let markedRange = rangeFromTextRange(textRange: markedTextRange)
                 // 联想选中键盘
                 let allContent = oldContent.jk.replacingCharacters(range: markedRange) + text
-                if allContent.count > maxCharacters  {
+                if allContent.jk.typeLengh(lenghType) > maxCharacters  {
                     let newContent = allContent.jk.sub(to: maxCharacters)
-                    // print("content1：\(allContent) content2：\(newContent)")
+                    // debugPrint("content1：\(allContent) content2：\(newContent)")
                     self.base.text = newContent
                     return false
                 }
@@ -231,16 +231,16 @@ public extension JKPOP where Base: UITextField {
                 return false
             }
             // 2、如果数字大于指定位数，不能输入
-            guard oldContent.count + text.count <= maxCharacters else {
-                if oldContent.count < maxCharacters {
-                    let remainingLength = maxCharacters - oldContent.count
+            guard oldContent.jk.typeLengh(lenghType) + text.jk.typeLengh(lenghType) <= maxCharacters else {
+                if oldContent.jk.typeLengh(lenghType) < maxCharacters {
+                    let remainingLength = maxCharacters - oldContent.jk.typeLengh(lenghType)
                     let copyString = text.jk.removeBeginEndAllSapcefeed
-                    // print("范围：\(range) copy的字符串：\(copyString) 长度：\(copyString.count)  截取的字符串：\(copyString.jk.sub(to: remainingLength))")
+                    // debugPrint("范围：\(range) copy的字符串：\(copyString) 长度：\(copyString.count)  截取的字符串：\(copyString.jk.sub(to: remainingLength))")
                     // 可以插入字符串
                     let replaceContent = copyString.jk.sub(to: remainingLength)
                     // let newString = oldContent.jk.insertString(content: replaceContent), locat: range.location)
                     let newString = oldContent.jk.replacingCharacters(range: range, replacingString: replaceContent)
-                    // print("老的字符串：\(oldContent) 新的的字符串：\(newString) 长度：\(newString.count)")
+                    // debugPrint("老的字符串：\(oldContent) 新的的字符串：\(newString) 长度：\(newString.count)")
                     self.base.text = newString
                     // 异步改变
                     JKAsyncs.asyncDelay(0.5) {} _: {

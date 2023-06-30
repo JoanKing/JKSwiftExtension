@@ -10,6 +10,18 @@ import Foundation
 import UIKit
 import CommonCrypto
 
+/// 字符串取类型的长度
+public enum StringTypeLength {
+    /// Unicode字符个数
+    case count
+    /// utf8
+    case utf8
+    /// utf16获取长度对应NSString的.length方法
+    case utf16
+    /// unicodeScalars
+    case unicodeScalars
+}
+
 // MARK: - 一：字符串基本的扩展
 public extension JKPOP where Base: ExpressibleByStringLiteral {
     
@@ -17,6 +29,20 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     /// 字符串的长度
     var length: Int {
         let string = base as! String
+        return string.count
+    }
+    
+    // MARK: 1.2、字符串取类型的长度
+    /// 字符串取类型的长度
+    func typeLengh(_ type: StringTypeLength) -> Int {
+        let string = base as! String
+        if type == .utf8 {
+            return string.utf8.count
+        } else if type == .utf16 {
+            return string.utf16.count
+        } else if type == .unicodeScalars {
+            return string.unicodeScalars.count
+        }
         return string.count
     }
     

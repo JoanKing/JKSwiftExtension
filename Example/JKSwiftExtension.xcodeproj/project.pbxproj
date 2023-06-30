@@ -358,7 +358,6 @@
 		E289F90E2850262200D840B7 /* RadiusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiusViewController.swift; sourceTree = "<group>"; };
 		E289F9102850279F00D840B7 /* RadiusViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiusViewCell.swift; sourceTree = "<group>"; };
 		E289F9172850D19500D840B7 /* SpeechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechViewController.swift; sourceTree = "<group>"; };
-		E292011027F1874E0032EA2F /* JKOCMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKOCMacro.h; sourceTree = "<group>"; };
 		E29AF0E0285C6161002D9B44 /* JKPanViewChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPanViewChildView.swift; sourceTree = "<group>"; };
 		E29EF19229F2AD63009BB4DC /* JKUnitConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKUnitConverterViewController.swift; sourceTree = "<group>"; };
 		E2B28D2728312C1B00DD7C9A /* JKRollingNoticeViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKRollingNoticeViewViewController.swift; sourceTree = "<group>"; };
@@ -449,7 +448,6 @@
 			children = (
 				E2548258295BEFCC00BA49A5 /* font */,
 				84E922A927AE060D00BC4AA2 /* baby.gif */,
-				E292011027F1874E0032EA2F /* JKOCMacro.h */,
 				8410D02B25DBC98300700FDD /* mebubble@2x.png */,
 				8410D02C25DBC98300700FDD /* yoububble@2x.png */,
 				847DE9542573F0B60080EEC0 /* testFile.text */,

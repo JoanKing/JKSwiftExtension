@@ -8,5 +8,3 @@
 #import "UINavigationController+FDFullscreenPopGesture.h"
 
 #import "NotificationTetstViewController.h"
-
-#import "JKOCMacro.h"

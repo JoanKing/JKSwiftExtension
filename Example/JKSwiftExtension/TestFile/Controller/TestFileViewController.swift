@@ -10,6 +10,7 @@ import UIKit
 import Dispatch
 import JKSwiftExtension
 import CoreTelephony
+
 class TestFileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,28 @@ class TestFileViewController: BaseViewController {
         
         headDataArray = ["一、基本的使用"]
         dataArray = [["设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "数组测试", "struct", "test", "9", "网络权限的判断"]]
+        if #available(iOS 11.0, *) {
+            let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+            let topPadding = window?.safeAreaInsets.top
+            
+            //状态栏高度
+            let statusBarHeight = UIApplication.shared.statusBarFrame.height;
+            debugPrint("顶部距离：\(topPadding ?? 0) 状态栏高度：\(statusBarHeight)")
+        }
+        
+        /*
+         var userInfo: [String: Any] = ["firstName": "大帅",
+         "school": "St. Primary School"]
+         print("Original User Info: \(userInfo)")
+         // creating a new dictionary with other info
+         let otherInfo: [String: Any] = ["country": "USA",
+         "school": "河南",
+         "pincode": 6783456]
+         userInfo = userInfo.merging(otherInfo, uniquingKeysWith: { current, _ in
+         return current
+         })
+         print("Updated User Info: \(userInfo)")
+         */
     }
     
     deinit {
@@ -94,7 +117,7 @@ extension TestFileViewController {
         debugPrint(isMultiple(8, of: 16))
     }
     
- 
+    
     @objc func test18() {
         self.navigationController?.pushViewController(RateLimitViewController(), animated: true)
     }
@@ -107,27 +130,27 @@ extension TestFileViewController {
         //let oldString = "12345678"
         
         //
-//        let value1 = 2 << 0b0001 // 0100
-//        let value2 = 4 << 0b0001 // 1000
-//        let value3 = value1 & value2
-//        let value4 = value1 | value2
-//        let value5 = 0o120
-//        debugPrint("value5:\(value5)")
+        //        let value1 = 2 << 0b0001 // 0100
+        //        let value2 = 4 << 0b0001 // 1000
+        //        let value3 = value1 & value2
+        //        let value4 = value1 | value2
+        //        let value5 = 0o120
+        //        debugPrint("value5:\(value5)")
         
-//        let value1 = 0b0001 << 1 //  0010
-//        let value2 = 0b0001 << 2 //  0100
-//        let value3 = 0b0001 << 3 //  1000
-//        let value4 = 0b0001 << 4 // 10000
+        //        let value1 = 0b0001 << 1 //  0010
+        //        let value2 = 0b0001 << 2 //  0100
+        //        let value3 = 0b0001 << 3 //  1000
+        //        let value4 = 0b0001 << 4 // 10000
         
-//        let value1 = 3 << 1 //  0010  0011 -> 0110    = 6
-//        let value2 = 3 << 2 //  0100       -> 1100    = 12
-//        let value3 = 3 << 3 //  1000       -> 11000   = 24
-//        let value4 = 3 << 4 // 10000       -> 110000  = 48
+        //        let value1 = 3 << 1 //  0010  0011 -> 0110    = 6
+        //        let value2 = 3 << 2 //  0100       -> 1100    = 12
+        //        let value3 = 3 << 3 //  1000       -> 11000   = 24
+        //        let value4 = 3 << 4 // 10000       -> 110000  = 48
         
         // debugPrint("value1: \(value1)", "value2: \(value2)", "value3: \(value3)", "value4: \(value4)")
-//        let numberData = 4096
-//        let value = numberData & 0x1100
-//        debugPrint("结果：\(value)")
+        //        let numberData = 4096
+        //        let value = numberData & 0x1100
+        //        debugPrint("结果：\(value)")
         let status: UInt8 = ~(1 << 3)         // 00001000 11110111
         let x: Int = 0b10001001 & Int(status) // 10001001 10001001  10000001
         // 1101  841
@@ -149,21 +172,25 @@ extension TestFileViewController {
     }
     
     @objc func test13() {
-       self.navigationController?.pushViewController(JKWheelPickerViewController(), animated: true)
+        self.navigationController?.pushViewController(NotificationTetstViewController(), animated: true)
     }
     
     @objc func test12() {
         // showAlertAgreement()
         /*
-        var sectionModels = [[11, 12, 13], [21, 22, 23]]
-        print("数组：\(sectionModels)")
-        //var items = sectionModels[0]
-        // items.remove(at: 1)
-        sectionModels[0].removeAll(where: { $0  == 12 })
-        print("移除后数组：\(sectionModels)")
+         var sectionModels = [[11, 12, 13], [21, 22, 23]]
+         print("数组：\(sectionModels)")
+         //var items = sectionModels[0]
+         // items.remove(at: 1)
+         sectionModels[0].removeAll(where: { $0  == 12 })
+         print("移除后数组：\(sectionModels)")
          */
-        let colors = Rank.allValues
-        print(colors)
+        //        let colors = Rank.allValues
+        //        print(colors)
+        
+        let string1 = "😄😄"
+        let string2 = "哈哈"
+        debugPrint("\(string1)-字符串的长度：\(string1.utf16.count)", "\(string2)-字符串的长度：\(string2.utf16.count)")
     }
     
     @objc func test11() {
@@ -209,7 +236,7 @@ extension TestFileViewController {
         debugPrint("最初的url数组：\(imageUrls)")
         // var a: Int = 0
         for (index, image) in images.enumerated() {
-           
+            
             workingGroup.enter()
             JKAsyncs.asyncDelay(index == 2 ? 5 : 1) {
             } _: {
@@ -217,11 +244,11 @@ extension TestFileViewController {
                 imageUrls[index] = "\(image)"
                 workingGroup.leave()
             }
-//            a = a + 1
-//            // 入组
-//            if a == 2 {
-//                break
-//            }
+            //            a = a + 1
+            //            // 入组
+            //            if a == 2 {
+            //                break
+            //            }
         }
         // 调度组里的任务都执行完毕
         workingGroup.notify(queue: workingQueue, execute: {
@@ -240,7 +267,7 @@ extension TestFileViewController {
         let workingGroup = DispatchGroup()
         // 创建多列
         let workingQueue = DispatchQueue.global()
-
+        
         debugPrint("开始执行的代码")
         
         workingGroup.enter()
@@ -249,7 +276,7 @@ extension TestFileViewController {
             print("接口1执行结束")
             workingGroup.leave()
         }
-
+        
         workingGroup.enter()
         JKAsyncs.asyncDelay(2) {
             print("")
@@ -257,7 +284,7 @@ extension TestFileViewController {
             print("接口2执行结束")
             workingGroup.leave()
         }
-
+        
         // 调度组里的任务都执行完毕
         workingGroup.notify(queue: workingQueue, execute: {
             // 全部
@@ -272,7 +299,7 @@ extension TestFileViewController {
         let workingGroup = DispatchGroup()
         // 创建多列
         let workingQueue = DispatchQueue.global()
-
+        
         var result: Bool = false
         debugPrint("开始执行的代码")
         workingGroup.enter()
@@ -281,14 +308,14 @@ extension TestFileViewController {
             result = false
             workingGroup.leave()
         }
-
+        
         workingGroup.enter()
         netWork2 {
             result = true
             print("接口2执行结束")
             workingGroup.leave()
         }
-
+        
         // 调度组里的任务都执行完毕
         workingGroup.notify(queue: workingQueue, execute: {
             // 全部
@@ -338,17 +365,17 @@ extension String {
 extension TestFileViewController {
     @objc func showAlertAgreement() {
         let title = "用户协议和隐私政策"
-
+        
         let linkDic = ["《用户协议》": "http://*",
                        "《隐私政策》": "http://*",]
-
+        
         let protocolPolicyContent = "\t用户协议和隐私政策请您务必审值阅读、充分理解 “用户协议” 和 隐私政策, 各项条款，包括但不限于：为了向您提供即时通讯、内容分享等服务，我们需要收集您的设备信息、操作日志等个人信息。\n\t您可阅读《用户协议》和《隐私政策》了解详细信息。如果您同意，请点击 “同意” 开始接受我们的服务;"
-    
+        
         let paraStyle = NSMutableParagraphStyle()
         // 右对齐
         paraStyle.alignment = .left
         let attributedText = NSMutableAttributedString.createHighlightRichText(content: protocolPolicyContent, highlightRichTexts: linkDic.allKeys(), contentTextColor: UIColor.brown, contentFont: UIFont.systemFont(ofSize: 15), highlightRichTextColor: UIColor.blue, highlightRichTextFont: UIFont.systemFont(ofSize: 15), paraStyle: paraStyle)
-    
+        
         let alertVC = UIAlertController(title: title, message: nil, preferredStyle: .alert)
             .addActionTitles(["取消", "同意"]) { vc, action in
                 print(action.title)
