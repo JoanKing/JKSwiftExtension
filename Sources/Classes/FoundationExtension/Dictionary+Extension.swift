@@ -18,7 +18,15 @@ public extension Dictionary {
         return index(forKey: key) != nil
     }
     
-    // MARK: 1.2、字典的key或者value组成的数组
+    // MARK: 1.2、检验 Dictionary 中是否存在某个key的值
+    /// 检验 Dictionary 中是否存在某个key的值
+    /// - Parameter key: 待检验的 key
+    /// - Returns: 检验结果的布尔值
+    func hasValue(key: Key) -> Bool {
+        return self[key] != nil
+    }
+    
+    // MARK: 1.3、字典的key或者value组成的数组
     /// 字典的key或者value组成的数组
     /// - Parameter map: map
     /// - Returns: 数组
@@ -26,7 +34,7 @@ public extension Dictionary {
         return self.map(map)
     }
     
-    // MARK: 1.3、JSON字符串 -> 字典
+    // MARK: 1.4、JSON字符串 -> 字典
     /// JsonString转为字典
     /// - Parameter json: JSON字符串
     /// - Returns: 字典
@@ -40,7 +48,7 @@ public extension Dictionary {
         }
     }
     
-    // MARK: 1.4、字典 -> JSON字符串
+    // MARK: 1.5、字典 -> JSON字符串
     /// 字典转换为JSONString
     func toJSON() -> String? {
         if let jsonData = try? JSONSerialization.data(withJSONObject: self, options: JSONSerialization.WritingOptions()) {
@@ -50,7 +58,7 @@ public extension Dictionary {
         return nil
     }
     
-    // MARK: 1.5、字典里面所有的 key
+    // MARK: 1.6、字典里面所有的 key
     /// 字典里面所有的key
     /// - Returns: key 数组
     func allKeys() -> [Key] {
@@ -60,14 +68,14 @@ public extension Dictionary {
         return self.keys.shuffled()
     }
     
-    // MARK: 1.6、字典里面所有的 value
+    // MARK: 1.7、字典里面所有的 value
     /// 字典里面所有的value
     /// - Returns: value 数组
     func allValues() -> [Value] {
         return self.values.shuffled()
     }
     
-    // MARK: 1.7、设置value
+    // MARK: 1.8、设置value
     subscript<Result>(key: Key, as type: Result.Type) -> Result? {
         get {
             return self[key] as? Result
@@ -86,7 +94,7 @@ public extension Dictionary {
         }
     }
     
-    // MARK: 1.8、设置value
+    // MARK: 1.9、设置value
     /// 设置value
     /// - Parameters:
     ///   - keys: key链

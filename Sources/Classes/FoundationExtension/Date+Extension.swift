@@ -368,7 +368,9 @@ public extension JKPOP where Base == Date {
     
     // MARK: 4.1、今天的日期
     /// 今天的日期
-    static let todayDate: Date = Date()
+    static var todayDate: Date {
+        return Date()
+    }
     
     // MARK: 4.2、昨天的日期（相对于date的昨天日期）
     /// 昨天的日期
