@@ -50,6 +50,12 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/c4cbd321-3803-424b-892e-9bd27431351a" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.3.5、版本(2023.07.12)：修复Date+Extension取今天一直不杀死app无法更新日期的问题
+        ```swift
+        static var todayDate: Date {
+            return Date()
+        }
+        ```
   - 2.3.4、版本(2023.06.30)：放在库外部(因为涉及到支付宝等敏感第三方)
       - (1)、String+Extension.swift新增枚举StringTypeLength来获取中字符串的长度方式
         /// 字符串取类型的长度
