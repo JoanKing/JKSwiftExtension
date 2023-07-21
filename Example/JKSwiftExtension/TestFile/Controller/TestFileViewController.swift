@@ -176,16 +176,7 @@ extension TestFileViewController {
     }
     
     @objc func test13() {
-        let person1 = Person()
-        person1.name = "A"
-        person1.age = 20
-        
-        let person2 = Person()
-        person2.name = "B"
-        person2.age = 1
-        let params = JKCommonTool.diffBetween(bleModel: person1, netModel: person2, ignores: ["name"])
-        debugPrint("param：\(params)")
-        // self.navigationController?.pushViewController(NotificationTetstViewController(), animated: true)
+        self.navigationController?.pushViewController(NotificationTetstViewController(), animated: true)
     }
     
     @objc func test12() {

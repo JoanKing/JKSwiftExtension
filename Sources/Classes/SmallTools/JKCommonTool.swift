@@ -21,20 +21,26 @@ public struct JKCommonTool {
         return (value1, value2)
     }
     
-    //MARK: 模型对比返回差异
-    public static func diffBetween<T: Equatable>(bleModel: T, netModel: T, ignores: [String] = []) -> [String: AnyHashable] {
+    //MARK: 1.2、模型对比返回差异
+    /// 模型对比返回差异
+    /// - Parameters:
+    ///   - firstModel: 模型一
+    ///   - secondModel: 模型二
+    ///   - ignores: 忽略的字段
+    /// - Returns: 不同的部分
+    public static func diffBetween<T: Equatable>(firstModel: T, secondModel: T, ignores: [String] = []) -> [String: AnyHashable] {
         var differences: [String: AnyHashable] = [:]
-        let bleMirror = Mirror(reflecting: bleModel)
-        let netMirror = Mirror(reflecting: netModel)
-        for (bleLabel, bleValue) in bleMirror.children {
-            guard let bleLabel = bleLabel else {
+        let firstMirror = Mirror(reflecting: firstModel)
+        let secondMirror = Mirror(reflecting: secondModel)
+        for (firstLabel, firstValue) in firstMirror.children {
+            guard let firstLabel = firstLabel else {
                 continue
             }
-            if ignores.contains(where: { $0 == bleLabel }) {
+            if ignores.contains(where: { $0 == firstLabel }) {
                 continue
             }
-            if let netValue = netMirror.children.first(where: { $0.label == bleLabel })?.value, let weakBleValue = bleValue as? AnyHashable, weakBleValue != netValue as? AnyHashable {
-                differences[bleLabel] = weakBleValue
+            if let secondValue = secondMirror.children.first(where: { $0.label == firstLabel })?.value, let weakFirstValue = firstValue as? AnyHashable, weakFirstValue != secondValue as? AnyHashable {
+                differences[firstLabel] = weakFirstValue
             }
         }
         return differences
