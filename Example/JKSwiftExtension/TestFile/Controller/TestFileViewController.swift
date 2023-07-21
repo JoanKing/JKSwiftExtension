@@ -162,6 +162,10 @@ extension TestFileViewController {
     }
     
     @objc func test15() {
+        let numbers1 = ["1", "2", "4"]
+        let numbers2 = ["1", "2", "3"]
+        let numbers3 = ["1", "2", "3"]
+        debugPrint("numbers1是否等于numbers2：\(numbers1 == numbers2)\n numbers2是否等于numbers3：\(numbers2 == numbers3)")
         self.navigationController?.pushViewController(NineViewController(), animated: true)
     }
     
@@ -172,7 +176,16 @@ extension TestFileViewController {
     }
     
     @objc func test13() {
-        self.navigationController?.pushViewController(NotificationTetstViewController(), animated: true)
+        let person1 = Person()
+        person1.name = "A"
+        person1.age = 20
+        
+        let person2 = Person()
+        person2.name = "B"
+        person2.age = 1
+        let params = JKCommonTool.diffBetween(bleModel: person1, netModel: person2, ignores: ["name"])
+        debugPrint("param：\(params)")
+        // self.navigationController?.pushViewController(NotificationTetstViewController(), animated: true)
     }
     
     @objc func test12() {

@@ -20,4 +20,23 @@ public struct JKCommonTool {
         (value1, value2) = (value2, value1)
         return (value1, value2)
     }
+    
+    //MARK: 模型对比返回差异
+    public static func diffBetween<T: Equatable>(bleModel: T, netModel: T, ignores: [String] = []) -> [String: AnyHashable] {
+        var differences: [String: AnyHashable] = [:]
+        let bleMirror = Mirror(reflecting: bleModel)
+        let netMirror = Mirror(reflecting: netModel)
+        for (bleLabel, bleValue) in bleMirror.children {
+            guard let bleLabel = bleLabel else {
+                continue
+            }
+            if ignores.contains(where: { $0 == bleLabel }) {
+                continue
+            }
+            if let netValue = netMirror.children.first(where: { $0.label == bleLabel })?.value, let weakBleValue = bleValue as? AnyHashable, weakBleValue != netValue as? AnyHashable {
+                differences[bleLabel] = weakBleValue
+            }
+        }
+        return differences
+    }
 }

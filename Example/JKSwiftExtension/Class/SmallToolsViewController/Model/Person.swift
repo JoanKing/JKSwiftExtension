@@ -12,6 +12,8 @@ import UIKit
     /// 年龄
     @objc dynamic var age: Int = 0
     
+    var name: String = ""
+    
     var number: Int = 20 {
         willSet {
             self.number = 999 
@@ -19,6 +21,13 @@ import UIKit
         didSet {
             print("旧值：\(oldValue) 新值：\(self.number)")
         }
+    }
+    
+    var height: Int {
+        if age > 10 {
+            return 100
+        }
+        return 0
     }
     
     /// 修改成员变量的值
