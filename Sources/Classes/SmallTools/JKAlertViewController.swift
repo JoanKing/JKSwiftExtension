@@ -42,16 +42,20 @@ public class JKAlertAction: NSObject {
     /// 点击回调
     @objc var handler: ((JKAlertAction) -> Void)?
     /// 是否可点击
-    var isEnabled: Bool = true
+    @objc public var isEnabled: Bool = true
     
     /// 初始化事件
     /// - Parameters:
     ///   - title: 事件名字
     ///   - style: 样式
     ///   - handler: 事件回调
-    public init(title: String?, style: JKAlertActionStyle, handler: ((JKAlertAction) -> Void)? = nil) {
+    @objc public convenience init(title: String?, style: JKAlertActionStyle, handler: ((JKAlertAction) -> Void)? = nil) {
+        self.init(title: title, alertActionStyle: style, handler: handler)
+    }
+    
+    private init(title: String?, alertActionStyle: JKAlertActionStyle, handler: ((JKAlertAction) -> Void)? = nil) {
         self.title = title
-        self.style = style
+        self.style = alertActionStyle
         self.handler = handler
         super.init()
     }
@@ -63,7 +67,7 @@ public class JKAlertViewController: UIViewController {
     fileprivate var alertStyle: JKAlertStyle = .card
     //MARK: 排列方式
     /// 排列方式
-    public enum ArrangementDirectionStyle: Int {
+    @objc public enum ArrangementDirectionStyle: Int {
         /// 水平(超过两个垂直排列)
         case horizontal = 0
         /// 垂直
@@ -72,20 +76,111 @@ public class JKAlertViewController: UIViewController {
     
     /// 空白视图
     @objc public var backgroundTouchIsEnabled: Bool = true {
-        didSet{
+        didSet {
             self.backgroundMaskView.isEnabled = backgroundTouchIsEnabled
         }
+    }
+    /// 添加事件
+    /// - Parameter action: 事件
+    @objc public func addAction(_ action: JKAlertAction) {
+        actions.append(action)
+        updateActionBtnLayout()
     }
     
     //MARK: 描述基本文本初始化
     /// 描述基本文本初始化
     /// - Parameters:
     ///   - title: 弹框标题
-    ///   - message:  弹框描述信息
-    ///   - preferredStyle: 样式
+    ///   - message: 弹框描述信息
+    ///   - arrangementDirectionStyle: 排列样式
     ///   - textAlignment: 文本对齐方式
+    ///   - alertStyle: 弹框样式
     ///   - backgroundDismissHandler: backgroundDismissHandler description
-    public init(title: String = "", message: String = "", arrangementDirectionStyle: JKAlertViewController.ArrangementDirectionStyle = .horizontal, textAlignment: NSTextAlignment = .center, alertStyle: JKAlertStyle = .card, backgroundDismissHandler: (() -> Void)? = nil) {
+    @objc public convenience init(title: String = "", message: String = "", arrangementDirectionStyle: JKAlertViewController.ArrangementDirectionStyle = .horizontal, textAlignment: NSTextAlignment = .center, alertStyle: JKAlertStyle = .card, backgroundDismissHandler: (() -> Void)? = nil) {
+        self.init(titleString: title, message: message, arrangementDirectionStyle: arrangementDirectionStyle, textAlignment: textAlignment, alertStyle: alertStyle, backgroundDismissHandler: backgroundDismissHandler)
+    }
+    
+    //MARK: 富文本描述基本文本初始化
+    /// 富文本描述基本文本初始化
+    /// - Parameters:
+    ///   - titleString: 弹框标题
+    ///   - attributedMessage: 富文本描描述信息
+    ///   - arrangementDirectionStyle: 排列样式
+    ///   - alertStyle: 弹框样式
+    ///   - backgroundDismissHandler: backgroundDismissHandler description
+    @objc public convenience init(title: String = "", attributedMessage: NSMutableAttributedString, arrangementDirectionStyle: JKAlertViewController.ArrangementDirectionStyle = .horizontal, alertStyle: JKAlertStyle = .card, backgroundDismissHandler: (() -> Void)? = nil) {
+        self.init(titleString:title, attributedMessage: attributedMessage, arrangementDirectionStyle: arrangementDirectionStyle, alertStyle: alertStyle, backgroundDismissHandler: backgroundDismissHandler)
+    }
+    
+    required public init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    /// 标题
+    fileprivate lazy var titleLab: UILabel = {
+        let lab = UILabel(frame: CGRect.zero)
+        lab.numberOfLines = 2
+        lab.translatesAutoresizingMaskIntoConstraints = false
+        return lab
+    }()
+    /// 描述
+    fileprivate lazy var messageLab: UILabel = {
+        let lab = UILabel(frame: CGRect.zero)
+        lab.numberOfLines = 0
+        lab.translatesAutoresizingMaskIntoConstraints = false
+        return lab
+    }()
+    /// 事件数组
+    fileprivate var actions: [JKAlertAction] = []
+    /// 弹出方式
+    fileprivate var arrangementDirectionStyle: JKAlertViewController.ArrangementDirectionStyle
+    /// 视图消失
+    fileprivate var backgroundDismissHandler: (() -> Void)?
+    /// 弹框试图
+    fileprivate lazy var contentView: UIView = {
+        let contentView = UIView(frame: CGRect.zero)
+        contentView.backgroundColor = UIColor.darkModeColor(lightColor: UIColor.hexStringColor(hexString: "#F2F4F7"), darkColor: UIColor.hexStringColor(hexString: "#222222"))
+        contentView.layer.cornerRadius = 10
+        contentView.layer.masksToBounds = true
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        return contentView
+    }()
+    /// 弹框整体背景
+    fileprivate lazy var backgroundMaskView : UIControl = {
+        let btn = UIControl(frame: CGRect.zero)
+        btn.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(closeBtnDidClicked), for: .touchUpInside)
+        return btn
+    }()
+    /// 分割线
+    fileprivate lazy var separator: UIView = {
+        let separator = UIView(frame: CGRect.zero)
+        separator.backgroundColor = UIColor.darkModeColor(lightColor: UIColor.hexStringColor(hexString: "#C8C8C8"), darkColor: UIColor(white: 0, alpha: 0.2))
+        separator.translatesAutoresizingMaskIntoConstraints = false
+        return separator
+    }()
+    /// 按钮试图容器，如：确定/取消等等
+    fileprivate lazy var actionStackView: UIStackView = {
+        let stackView = UIStackView(frame: CGRect.zero)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        view.addSubview(backgroundMaskView)
+        setupInterface()
+    }
+    
+    /// 描述基本文本初始化
+    /// - Parameters:
+    ///   - titleString: 弹框标题
+    ///   - message: 弹框描述信息
+    ///   - arrangementDirectionStyle: 排列样式
+    ///   - textAlignment: 文本对齐方式
+    ///   - alertStyle: 弹框样式
+    ///   - backgroundDismissHandler: backgroundDismissHandler description
+    private init(titleString: String = "", message: String = "", arrangementDirectionStyle: JKAlertViewController.ArrangementDirectionStyle = .horizontal, textAlignment: NSTextAlignment = .center, alertStyle: JKAlertStyle = .card, backgroundDismissHandler: (() -> Void)? = nil) {
         self.alertStyle = alertStyle
         self.arrangementDirectionStyle = arrangementDirectionStyle
         self.backgroundDismissHandler = backgroundDismissHandler
@@ -107,9 +202,9 @@ public class JKAlertViewController: UIViewController {
         descParagraphStyle.maximumLineHeight = 21
         descParagraphStyle.minimumLineHeight = 21
         let descAttr = [NSAttributedString.Key.font: UIFont.jk.textR(14), NSAttributedString.Key.paragraphStyle: descParagraphStyle, NSAttributedString.Key.foregroundColor: UIColor.hexStringColor(hexString: "#7C828C")]
-        if title.jk.isBlank || message.jk.isBlank {
-            if title.count > 0 {
-                let attributedText = NSMutableAttributedString(string: title, attributes: titleAttr)
+        if titleString.jk.isBlank || message.jk.isBlank {
+            if titleString.count > 0 {
+                let attributedText = NSMutableAttributedString(string: titleString, attributes: titleAttr)
                 self.titleLab.attributedText = attributedText
             } else if message.count > 0 {
                 let attributedText = NSMutableAttributedString(string: message, attributes: descAttr)
@@ -119,21 +214,21 @@ public class JKAlertViewController: UIViewController {
                 self.messageLab.attributedText = attributedText
             }
         } else {
-            let attributedText = NSMutableAttributedString(string: title, attributes: titleAttr)
+            let attributedText = NSMutableAttributedString(string: titleString, attributes: titleAttr)
             self.titleLab.attributedText = attributedText
             let messageAttributedText = NSMutableAttributedString(string: message, attributes: descAttr)
             self.messageLab.attributedText = messageAttributedText
         }
     }
     
-    //MARK: 富文本描述基本文本初始化
     /// 富文本描述基本文本初始化
     /// - Parameters:
-    ///   - title: 弹框标题
+    ///   - titleString: 弹框标题
     ///   - attributedMessage: 富文本描描述信息
-    ///   - preferredStyle: 样式
+    ///   - arrangementDirectionStyle: 排列样式
+    ///   - alertStyle: 弹框样式
     ///   - backgroundDismissHandler: backgroundDismissHandler description
-    public init(title: String = "", attributedMessage: NSMutableAttributedString, arrangementDirectionStyle: JKAlertViewController.ArrangementDirectionStyle = .horizontal, alertStyle: JKAlertStyle = .card, backgroundDismissHandler: (() -> Void)? = nil) {
+    private init(titleString: String = "", attributedMessage: NSMutableAttributedString, arrangementDirectionStyle: JKAlertViewController.ArrangementDirectionStyle = .horizontal, alertStyle: JKAlertStyle = .card, backgroundDismissHandler: (() -> Void)? = nil) {
         self.alertStyle = alertStyle
         self.arrangementDirectionStyle = arrangementDirectionStyle
         self.backgroundDismissHandler = backgroundDismissHandler
@@ -151,82 +246,19 @@ public class JKAlertViewController: UIViewController {
             
             let attr = [NSAttributedString.Key.font: UIFont.jk.textSB(20),
                         NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.foregroundColor: UIColor.darkModeColor(lightColor: UIColor.hexStringColor(hexString: "#2C2D2E"), darkColor: UIColor.hexStringColor(hexString: "#FFFFFF"))]
-            let attributedText = NSMutableAttributedString(string: title, attributes: attr)
+            let attributedText = NSMutableAttributedString(string: titleString, attributes: attr)
             self.titleLab.attributedText = attributedText
         }
         do {
             self.messageLab.attributedText = attributedMessage
         }
     }
-    
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    /// 添加事件
-    /// - Parameter action: 事件
-    @objc public func addAction(_ action: JKAlertAction){
-        actions.append(action)
-        updateActionBtnLayout()
-    }
-    /// 标题
-    lazy var titleLab : UILabel = {
-        let lab = UILabel(frame: CGRect.zero)
-        lab.numberOfLines = 2
-        lab.translatesAutoresizingMaskIntoConstraints = false
-        return lab
-    }()
-    /// 描述
-    lazy var messageLab : UILabel = {
-        let lab = UILabel(frame: CGRect.zero)
-        lab.numberOfLines = 0
-        lab.translatesAutoresizingMaskIntoConstraints = false
-        return lab
-    }()
-    /// 事件数组
-    var actions: [JKAlertAction] = []
-    /// 弹出方式
-    var arrangementDirectionStyle: JKAlertViewController.ArrangementDirectionStyle
-    /// 视图消失
-    var backgroundDismissHandler: (() -> Void)?
-    /// 弹框试图
-    lazy var contentView: UIView = {
-        let contentView = UIView(frame: CGRect.zero)
-        contentView.backgroundColor = UIColor.darkModeColor(lightColor: UIColor.hexStringColor(hexString: "#F2F4F7"), darkColor: UIColor.hexStringColor(hexString: "#222222"))
-        contentView.layer.cornerRadius = 10
-        contentView.layer.masksToBounds = true
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        return contentView
-    }()
-    /// 弹框整体背景
-    lazy var backgroundMaskView : UIControl = {
-        let btn = UIControl(frame: CGRect.zero)
-        btn.backgroundColor = UIColor(white: 0, alpha: 0.5)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.addTarget(self, action: #selector(closeBtnDidClicked), for: .touchUpInside)
-        return btn
-    }()
-    /// 分割线
-    lazy var separator: UIView = {
-        let separator = UIView(frame: CGRect.zero)
-        separator.backgroundColor = UIColor.darkModeColor(lightColor: UIColor.hexStringColor(hexString: "#C8C8C8"), darkColor: UIColor(white: 0, alpha: 0.2))
-        separator.translatesAutoresizingMaskIntoConstraints = false
-        return separator
-    }()
-    /// 按钮试图容器，如：确定/取消等等
-    lazy var actionStackView : UIStackView = {
-        let stackView = UIStackView(frame: CGRect.zero)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
-    public override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        view.addSubview(backgroundMaskView)
-        setupInterface()
-    }
-    
+}
+
+//MARK: - UI布局和添加
+public extension JKAlertViewController {
+    //MARK: 布局
+    /// 布局
     func setupInterface() {
         do {
             contentView.addSubview(titleLab)
@@ -288,7 +320,9 @@ public class JKAlertViewController: UIViewController {
         }
     }
     
-    func updateActionBtnLayout() {
+    //MARK: 按钮的布局
+    /// 按钮的布局
+    @objc func updateActionBtnLayout() {
         for btn in actionStackView.arrangedSubviews {
             actionStackView.removeArrangedSubview(btn)
             btn.removeFromSuperview()
@@ -399,7 +433,6 @@ extension JKAlertViewController {
         lab.attributedText = attributedText
         lab.translatesAutoresizingMaskIntoConstraints = false
         btn.addSubview(lab)
-        
         lab.heightAnchor.constraint(equalToConstant: 44).isActive = true
         lab.topAnchor.constraint(equalTo: btn.topAnchor, constant: 0).isActive = true
         lab.leadingAnchor.constraint(equalTo: btn.leadingAnchor, constant: index == 0 ? 16 : 8).isActive = true
@@ -407,9 +440,7 @@ extension JKAlertViewController {
         lab.trailingAnchor.constraint(equalTo: btn.trailingAnchor, constant: index == 1 ? -16 : -8).isActive = true
         btn.isEnabled = action.isEnabled
         btn.addTarget(self, action: #selector(actionBtnDidClicked(btn:)), for: .touchUpInside)
-        
         btn.translatesAutoresizingMaskIntoConstraints = false
-        
         return btn
     }
     
@@ -497,7 +528,7 @@ public class JKVerAlertViewController: JKAlertViewController {
         super.viewDidLoad()
     }
     
-    override func updateActionBtnLayout() {
+    public override func updateViewConstraints() {
         for btn in actionStackView.arrangedSubviews {
             actionStackView.removeArrangedSubview(btn)
             btn.removeFromSuperview()
