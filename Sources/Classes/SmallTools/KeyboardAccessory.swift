@@ -38,7 +38,7 @@ public class KeyboardAccessory: UIView {
         if let _delegate = delegate {
             _delegate.keyboardAccessoryDone()
         } else {
-            UIApplication.shared.keyWindow?.endEditing(true)
+            UIApplication.jk.keyWindow?.endEditing(true)
         }
     }
     

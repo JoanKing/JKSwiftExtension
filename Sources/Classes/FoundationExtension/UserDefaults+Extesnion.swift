@@ -44,18 +44,21 @@ public extension JKPOP where Base: UserDefaults {
             return
         }
         Base.standard.removeObject(forKey: key)
-        
-        /**
-         let userDefaults = Base.standard
-         let dics = userDefaults.dictionaryRepresentation()
-         for dic in dics where dic.key == key {
-             userDefaults.removeObject(forKey: key)
-         }
-         userDefaults.synchronize()
-         */
     }
     
-    // MARK: 1.4、移除所有值
+    // MARK: 1.4、移除包含某个key存储的值
+    /// 移除包含某个key存储的值
+    /// - Parameter key: key名
+    static func removeContainKey(_ key: String) {
+        let userDefaults = Base.standard
+        let dics = userDefaults.dictionaryRepresentation()
+        for dic in dics where dic.key.jk.contains(find: key) == true {
+            userDefaults.removeObject(forKey: key)
+        }
+        userDefaults.synchronize()
+    }
+    
+    // MARK: 1.5、移除所有值
     /// 移除所有值
     static func removeAllKeyValue() {
         if let bundleID = Bundle.main.bundleIdentifier {

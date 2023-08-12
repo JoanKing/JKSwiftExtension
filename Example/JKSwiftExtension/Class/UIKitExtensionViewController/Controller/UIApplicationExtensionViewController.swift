@@ -7,14 +7,14 @@
 //
 
 import UIKit
-
+import JKSwiftExtension
 class UIApplicationExtensionViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         headDataArray = ["一、基本的扩展", "二、APP权限的检测", "三、打开系统应用和第三方APP"]
-        dataArray = [["获取屏幕的方向", "获取根控制器", "设备信息的获取", "app定位区域", "网络状态是否可用", "消息推送是否可用", "注册APNs远程推送", "app商店链接", "app详情链接", "APP是否常亮", "APP主动崩溃"], ["判断是否拥有权限，目前支持 照相机、相册、麦克风、定位，提示：这里判断是这些权限有没有被用户手动关闭", "打开淘宝"], ["打开 safari", "打开googleMaps", "打开打电话Phone", "打开SMS", "打开Mail", "打开iBooks", "打开AppStore", "打开Music", "打开Videos", "打开微信", "打开QQ", "打开腾讯微博", "打开淘宝", "打开支付宝", "打开微博","打开QQ浏览器", "打开UC浏览器", "打开海豚浏览器", "打开欧朋浏览器", "打开搜狗浏览器", "打开百度地图", "打开谷歌Chrome浏览器", "打开优酷", "打开京东", "打开人人", "打开美团", "打开1号店", "打开我查查", "打开有道词典", "打开知乎", "打开点评", "打开微盘", "打开豆瓣fm", "打开网易公开课", "打开名片全能王", "打开QQ音乐", "打开腾讯视频", "打开豆瓣电影", "打开网易云音乐", "打开网易新闻", "打开网易应用", "打开网易彩票", "打开有道云笔记", "打开多看", "打开全国空气质量指数", "打开百度音乐", "打开下厨房"]]
+        dataArray = [["获取当前的keyWindow", "获取屏幕的方向", "获取根控制器", "设备信息的获取", "app定位区域", "网络状态是否可用", "消息推送是否可用", "注册APNs远程推送", "app商店链接", "app详情链接", "APP是否常亮", "APP主动崩溃"], ["判断是否拥有权限，目前支持 照相机、相册、麦克风、定位，提示：这里判断是这些权限有没有被用户手动关闭", "打开淘宝"], ["打开 safari", "打开googleMaps", "打开打电话Phone", "打开SMS", "打开Mail", "打开iBooks", "打开AppStore", "打开Music", "打开Videos", "打开微信", "打开QQ", "打开腾讯微博", "打开淘宝", "打开支付宝", "打开微博","打开QQ浏览器", "打开UC浏览器", "打开海豚浏览器", "打开欧朋浏览器", "打开搜狗浏览器", "打开百度地图", "打开谷歌Chrome浏览器", "打开优酷", "打开京东", "打开人人", "打开美团", "打开1号店", "打开我查查", "打开有道词典", "打开知乎", "打开点评", "打开微盘", "打开豆瓣fm", "打开网易公开课", "打开名片全能王", "打开QQ音乐", "打开腾讯视频", "打开豆瓣电影", "打开网易云音乐", "打开网易新闻", "打开网易应用", "打开网易彩票", "打开有道云笔记", "打开多看", "打开全国空气质量指数", "打开百度音乐", "打开下厨房"]]
     }
 }
 
@@ -456,61 +456,69 @@ extension UIApplicationExtensionViewController {
 // MARK: - 一、基本的扩展
 extension UIApplicationExtensionViewController {
 
-    // MARK: 1.11、APP主动崩溃
-    @objc func test111() {
+    // MARK: 1.12、APP主动崩溃
+    @objc func test112() {
         JKPrint("app详情链接：\(UIApplication.jk.exitApp())")
     }
     
-    // MARK: 1.10、APP是否常亮
-    @objc func test110() {
+    // MARK: 1.11、APP是否常亮
+    @objc func test111() {
         JKPrint("APP是否常亮：\(UIApplication.jk.isIdleTimerDisabled(isIdleTimerDisabled: true))")
     }
     
-    // MARK: 1.9、app详情链接
-    @objc func test19() {
+    // MARK: 1.10、app详情链接
+    @objc func test110() {
         JKPrint("app详情链接：\(UIApplication.jk.appDetailUrlWithID(""))")
     }
     
-    // MARK: 1.8、app商店链接
-    @objc func test18() {
+    // MARK: 1.9、app商店链接
+    @objc func test19() {
         JKPrint("app商店链接：\(UIApplication.jk.appUrlWithID(""))")
     }
     
-    // MARK: 1.7、注册APNs远程推送
-    @objc func test17() {
+    // MARK: 1.8、注册APNs远程推送
+    @objc func test18() {
         JKPrint("注册APNs远程推送：\(UIApplication.jk.registerAPNsWithDelegate(self))")
     }
     
-    // MARK: 1.6、消息推送是否可用
-    @objc func test16() {
-        JKPrint("消息推送是否可用：\(UIApplication.jk.hasRightOfPush())")
+    // MARK: 1.7、消息推送是否可用
+    @objc func test17() {
+        UIApplication.jk.checkPushNotification { authorized in
+            JKPrint("消息推送是否可用：\(authorized)")
+        }
     }
     
-    // MARK: 1.5、网络状态是否可用
-    @objc func test15() {
+    // MARK: 1.6、网络状态是否可用
+    @objc func test16() {
         JKPrint("网络状态是否可用：\(UIApplication.jk.reachable())")
     }
     
-    // MARK: 1.4、app定位区域
-    @objc func test14() {
+    // MARK: 1.5、app定位区域
+    @objc func test15() {
         JKPrint("app定位区域", "\(UIApplication.jk.localizations ?? "")")
     }
     
-    // MARK: 1.3、设备信息的获取
-    @objc func test13() {
+    // MARK: 1.4、设备信息的获取
+    @objc func test14() {
         JKPrint("设备信息的获取", "\(UIApplication.jk.userAgent)")
     }
     
-    // MARK: 1.2、获取根控制器
-    @objc func test12() {
+    // MARK: 1.3、获取根控制器
+    @objc func test13() {
         guard let vc = UIApplication.jk.topViewController() else {
             return
         }
         JKPrint("获取屏幕的方向", "\(vc.className)")
     }
     
-    // MARK: 1.1、获取屏幕的方向
-    @objc func test11() {
+    // MARK: 1.2、获取屏幕的方向
+    @objc func test12() {
         JKPrint("获取屏幕的方向", "\(UIApplication.jk.screenOrientation.rawValue)")
+    }
+    
+    //MARK: 1.1、获取当前的keyWindow
+    @objc func test11() {
+        guard let window = UIApplication.jk.keyWindow else{return}
+        JKPrint("获取当前的keyWindow", "\(window)")
     }
 }

@@ -130,18 +130,24 @@ public func jk_isSimulator() -> Bool {
 // MARK: 2.1、屏幕的宽
 /// 屏幕的宽
 public let jk_kScreenW: CGFloat = UIScreen.main.bounds.width
+
 // MARK: 2.2、屏幕的高
 /// 屏幕的高
 public let jk_kScreenH: CGFloat = UIScreen.main.bounds.height
+
 // MARK: 2.3、获取statusBar的高度
 /// 获取statusBar的高度
 public var jk_kStatusBarFrameH: CGFloat {
-    guard isIPhoneX else {
-        return 20
+    if #available(iOS 13.0, *) {
+        let window: UIWindow? = UIApplication.shared.windows.first
+        let statusBarHeight = (window?.windowScene?.statusBarManager?.statusBarFrame.height) ?? 0
+        return statusBarHeight
+    } else {
+        // 防止界面没有出来获取为0的情况
+        return UIApplication.shared.statusBarFrame.height > 0 ? UIApplication.shared.statusBarFrame.height : 44
     }
-    // 防止界面没有出来获取为0的情况
-    return UIApplication.shared.statusBarFrame.height > 0 ? UIApplication.shared.statusBarFrame.height : 44
 }
+
 // MARK: 2.4、获取导航栏的高度
 /// 获取导航栏的高度
 public let jk_kNavFrameH: CGFloat = 44 + jk_kStatusBarFrameH
@@ -149,15 +155,19 @@ public let jk_kNavFrameH: CGFloat = 44 + jk_kStatusBarFrameH
 // MARK: 2.5、屏幕底部Tabbar高度
 /// 屏幕底部Tabbar高度
 public var jk_kTabbarFrameH: CGFloat { return isIPhoneX ? 83 : 49 }
+
 // MARK: 2.6、屏幕底部刘海高度
 /// 屏幕底部刘海高度
 public var jk_kTabbarBottom: CGFloat { return isIPhoneX ? 34 : 0 }
+
 // MARK: 2.7、屏幕比例
 /// 屏幕比例
 public let jk_kPixel = 1.0 / UIScreen.main.scale
+
 // MARK: 2.8、身份证宽高比
 /// 身份证宽高比
 public let jk_kRatioIDCard: CGFloat = 0.63
+
 // MARK: 2.9、375尺寸适配比例
 /// 375尺寸适配比例
 public let jk_scaleIphone = jk_kScreenW / CGFloat(375.0)

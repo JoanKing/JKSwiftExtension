@@ -27,7 +27,7 @@ class UserDefaultsExtensionViewController: BaseViewController {
         super.viewDidLoad()
 
         headDataArray = ["一、基本的扩展", "二、模型持久化（复杂类型）"]
-        dataArray = [["存值", "取值", "移除单个key存储的值", "移除所有值", "移除某个值"], ["存储模型", "取出模型", "保存模型数组", "读取模型数组"]]
+        dataArray = [["存值", "取值", "移除单个key存储的值", "移除包含某个key存储的值", "移除所有值"], ["存储模型", "取出模型", "保存模型数组", "读取模型数组"]]
     }
 
 }
@@ -68,9 +68,21 @@ extension UserDefaultsExtensionViewController {
 // MARK: - 一、基本的扩展
 extension UserDefaultsExtensionViewController {
 
-    // MARK: 1.4、移除所有值
-    @objc func test14() {
+    // MARK: 1.5、移除所有值
+    @objc func test15() {
         UserDefaults.jk.removeAllKeyValue()
+    }
+    
+    // MARK: 1.4、移除包含某个key存储的值
+    @objc func test14() {
+        UserDefaults.jk.userDefaultsSetValue(value: "1", key: "1_key_test")
+        UserDefaults.jk.userDefaultsSetValue(value: "2", key: "2_key_test")
+        UserDefaults.jk.userDefaultsSetValue(value: "3", key: "3_key_tes")
+        JKAsyncs.asyncDelay(3) {
+            debugPrint("异步------")
+        } _: {
+            UserDefaults.jk.removeContainKey("_key_test")
+        }
     }
     
     // MARK: 1.3、移除单个key存储的值

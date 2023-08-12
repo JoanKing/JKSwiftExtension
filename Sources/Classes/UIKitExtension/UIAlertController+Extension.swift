@@ -49,7 +49,7 @@ public extension UIAlertController {
     // MARK: 1.4、跳转 UIAlertController
     /// UIAlertController
     func show() {
-        UIApplication.shared.keyWindow?.rootViewController?.present(self, animated: true, completion: nil)
+        UIApplication.jk.keyWindow?.rootViewController?.present(self, animated: true, completion: nil)
     }
 
     // MARK: 1.5、跳转 UIAlertController，不做操作自动返回

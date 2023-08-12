@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CommonCrypto
+import CryptoKit
 
 /// 字符串取类型的长度
 public enum StringTypeLength {
@@ -1829,37 +1830,57 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     /// - Parameter md5Type: 加密类型
     /// - Returns: MD5加密后的字符串
     func md5Encrypt(_ md5Type: MD5EncryptType = .lowercase32) -> String {
-        guard (self.base as! String).count > 0 else {
+        guard let content = self.base as? String, content.count > 0 else {
             JKPrint("⚠️⚠️⚠️md5加密无效的字符串⚠️⚠️⚠️")
             return ""
         }
-        // 1.把待加密的字符串转成char类型数据 因为MD5加密是C语言加密
-        let cCharArray = (self.base as! String).cString(using: .utf8)
-        // 2.创建一个字符串数组接受MD5的值
-        var uint8Array = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
-        // 3.计算MD5的值
-        /*
-         第一个参数:要加密的字符串
-         第二个参数: 获取要加密字符串的长度
-         第三个参数: 接收结果的数组
-         */
-        CC_MD5(cCharArray, CC_LONG(cCharArray!.count - 1), &uint8Array)
-        
-        switch md5Type {
-            // 32位小写
-        case .lowercase32:
-            return uint8Array.reduce("") { $0 + String(format: "%02x", $1)}
-            // 32位大写
-        case .uppercase32:
-            return uint8Array.reduce("") { $0 + String(format: "%02X", $1)}
-            // 16位小写
-        case .lowercase16:
-            let tempStr = uint8Array.reduce("") { $0 + String(format: "%02x", $1)}
-            return tempStr.jk.slice(8..<24)
-            // 16位大写
-        case .uppercase16:
-            let tempStr = uint8Array.reduce("") { $0 + String(format: "%02X", $1)}
-            return tempStr.jk.slice(8..<24)
+        if #available(iOS 13, *) {
+            let md5String = Insecure.MD5.hash(data: content.data(using: .utf8)!)
+            switch md5Type {
+                // 32位小写
+            case .lowercase32:
+                return md5String.map {String(format: "%02x", $0)}.joined()
+                // 32位大写
+            case .uppercase32:
+                return md5String.map {String(format: "%02X", $0)}.joined()
+                // 16位小写
+            case .lowercase16:
+                let tempStr = md5String.map {String(format: "%02x", $0)}.joined()
+                return tempStr.jk.slice(8..<24)
+                // 16位大写
+            case .uppercase16:
+                let tempStr = md5String.map {String(format: "%02X", $0)}.joined()
+                return tempStr.jk.slice(8..<24)
+            }
+        } else {
+            // 1.把待加密的字符串转成char类型数据 因为MD5加密是C语言加密
+            let cCharArray = content.cString(using: .utf8)
+            // 2.创建一个字符串数组接受MD5的值
+            var uint8Array = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
+            // 3.计算MD5的值
+            /*
+             第一个参数:要加密的字符串
+             第二个参数: 获取要加密字符串的长度
+             第三个参数: 接收结果的数组
+             */
+            CC_MD5(cCharArray, CC_LONG(cCharArray!.count - 1), &uint8Array)
+            
+            switch md5Type {
+                // 32位小写
+            case .lowercase32:
+                return uint8Array.reduce("") { $0 + String(format: "%02x", $1)}
+                // 32位大写
+            case .uppercase32:
+                return uint8Array.reduce("") { $0 + String(format: "%02X", $1)}
+                // 16位小写
+            case .lowercase16:
+                let tempStr = uint8Array.reduce("") { $0 + String(format: "%02x", $1)}
+                return tempStr.jk.slice(8..<24)
+                // 16位大写
+            case .uppercase16:
+                let tempStr = uint8Array.reduce("") { $0 + String(format: "%02X", $1)}
+                return tempStr.jk.slice(8..<24)
+            }
         }
     }
     

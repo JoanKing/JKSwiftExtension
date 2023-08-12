@@ -36,7 +36,8 @@ class KeyboardAccessoryViewController: BaseViewController {
 extension KeyboardAccessoryViewController: KeyboardAccessoryDelegate {
     
     func keyboardAccessoryDone() {
-        print("点击了 done")
+        debugPrint("点击了 done")
+        UIApplication.jk.keyWindow?.endEditing(true)
     }
 }
 

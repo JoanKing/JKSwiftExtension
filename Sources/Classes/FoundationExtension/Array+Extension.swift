@@ -89,6 +89,26 @@ public extension Array where Element : Equatable {
         let indexs = indexes(item)
         return indexs.last
     }
+    
+    //MARK: 2.4、获取两个数组的相同元素
+    /// 获取两个元素的相同元素
+    /// - Parameter array: 数组元素
+    /// - Returns: 返回相同的元素
+    func sameElement(array: [Element]) -> [Element] {
+        var dict1: [String: Int] = [:]
+        self.forEach({
+            dict1["\($0)"] = 1
+        })
+        var sameElements: [Element] = []
+        array.forEach({
+            if 1 == dict1["\($0)"] {
+                // 此处便可取到相同元素
+                debugPrint("相同的元素：\($0)")
+                sameElements.append($0)
+            }
+        })
+        return sameElements
+    }
 }
 
 // MARK: - 三、遵守 Equatable 协议的数组 (增删改查) 扩展

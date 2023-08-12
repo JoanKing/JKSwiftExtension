@@ -1315,7 +1315,7 @@ extension UIViewExtensionViewController {
     //MARK: 2.3、获取statusBar的高度
     /// 获取statusBar的高度
     @objc func test23() {
-        JKPrint("获取statusBar的高度：\(jk_kScreenH)")
+        JKPrint("获取statusBar的高度：\(jk_kStatusBarFrameH)")
     }
     
     //MARK: 2.2、屏幕的高

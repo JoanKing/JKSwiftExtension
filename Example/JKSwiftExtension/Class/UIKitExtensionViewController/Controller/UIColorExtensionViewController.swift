@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JKSwiftExtension
 
 class UIColorExtensionViewController: BaseViewController {
     

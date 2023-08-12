@@ -764,9 +764,9 @@ public extension JKPOP where Base: UIImage {
         let maxPixelSize = max(base.size.width, base.size.height)
         let options = [kCGImageSourceCreateThumbnailWithTransform: true,
                    kCGImageSourceCreateThumbnailFromImageIfAbsent: true,
-                              kCGImageSourceThumbnailMaxPixelSize: maxPixelSize]  as CFDictionary
+                              kCGImageSourceThumbnailMaxPixelSize: maxPixelSize] as [CFString : Any]
         
-        let resizedImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options).flatMap{
+        let resizedImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options as CFDictionary).flatMap {
             UIImage(cgImage: $0)
         }
         return resizedImage

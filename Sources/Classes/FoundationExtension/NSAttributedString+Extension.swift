@@ -124,8 +124,6 @@ public extension JKPOP where Base: NSAttributedString {
         let version = UIDevice.jk.currentSystemVersion as NSString
         if version.floatValue >= 10.3 {
             attributes[NSAttributedString.Key.baselineOffset] = 0
-        } else if version.floatValue <= 9.0 {
-            attributes[NSAttributedString.Key.strikethroughStyle] = []
         }
         return setSpecificRangeTextMoreAttributes(attributes: attributes, range: range)
     }
@@ -146,9 +144,7 @@ public extension JKPOP where Base: NSAttributedString {
         let version = UIDevice.jk.currentSystemVersion as NSString
         if version.floatValue >= 10.3 {
             attributes[NSAttributedString.Key.baselineOffset] = 0
-        } else if version.floatValue <= 9.0 {
-            attributes[NSAttributedString.Key.strikethroughStyle] = []
-        }
+        } 
         return setSpecificTextMoreAttributes(text, attributes: attributes)
     }
     

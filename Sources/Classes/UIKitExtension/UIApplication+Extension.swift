@@ -11,18 +11,31 @@ import Photos
 extension UIApplication: JKPOPCompatible {}
 // MARK: - 一、基本的扩展
 public extension JKPOP where Base: UIApplication {
-    
-    // MARK: 1.1、获取屏幕的方向
-    /// 获取屏幕的方向
-    static var screenOrientation: UIInterfaceOrientation {
-        return UIApplication.shared.statusBarOrientation
+    //MARK: 1.1、获取当前的keyWindow
+    /// 获取当前的keyWindow
+    static var keyWindow: UIWindow? {
+        if #available(iOS 13, *) {
+            return UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+        } else {
+            return UIApplication.shared.keyWindow
+        }
     }
     
-    // MARK: 1.2、获取根控制器
+    // MARK: 1.2、获取屏幕的方向
+    /// 获取屏幕的方向
+    static var screenOrientation: UIInterfaceOrientation {
+        if #available(iOS 13, *) {
+            return UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.windowScene?.interfaceOrientation ?? .landscapeLeft
+        } else {
+            return UIApplication.shared.statusBarOrientation
+        }
+    }
+    
+    // MARK: 1.3、获取根控制器
     /// 获取根控制器
     /// - Parameter base: 哪个控制器为基准
     /// - Returns: 返回 UIViewController
-    static func topViewController(_ base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+    static func topViewController(_ base: UIViewController? = UIApplication.jk.keyWindow?.rootViewController) -> UIViewController? {
         if let nav = base as? UINavigationController {
             return topViewController(nav.visibleViewController)
         }
@@ -37,7 +50,7 @@ public extension JKPOP where Base: UIApplication {
         return base
     }
     
-    // MARK: 1.3、设备信息的获取
+    // MARK: 1.4、设备信息的获取
     /// 设备信息的获取
     static var userAgent: String {
         if let info = Bundle.main.infoDictionary {
@@ -59,7 +72,7 @@ public extension JKPOP where Base: UIApplication {
         return "JK" + Bundle.jk.appVersion
     }
     
-    // MARK: 1.4、app定位区域
+    // MARK: 1.5、app定位区域
     /// app定位区域
     static var localizations: String? {
         guard let weakInfoDictionary = Bundle.jk.infoDictionary, let content = weakInfoDictionary[String(kCFBundleLocalizationsKey)] else {
@@ -68,21 +81,32 @@ public extension JKPOP where Base: UIApplication {
         return (content as! String)
     }
     
-    // MARK: 1.5、网络状态是否可用
+    // MARK: 1.6、网络状态是否可用
     /// 网络状态是否可用
     static func reachable() -> Bool {
         let data = NSData(contentsOf: URL(string: "https://www.baidu.com/")!)
         return (data != nil)
     }
     
-    // MARK: 1.6、消息推送是否可用
-    /// 消息推送是否可用
-    static func hasRightOfPush() -> Bool {
-        let notOpen = UIApplication.shared.currentUserNotificationSettings?.types == UIUserNotificationType(rawValue: 0)
-        return !notOpen
+    // MARK: 1.7、检查用户是否打开系统推送权限
+    /// 检查用户是否打开系统推送权限
+    // 判断用户是否允许推送
+    static func checkPushNotification(completion: @escaping (_ authorized: Bool) -> ()) {
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+                if (settings.authorizationStatus == .authorized){
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+            }
+        } else {
+            let _autorized = UIApplication.shared.currentUserNotificationSettings?.types.contains(.alert) ?? false
+            completion(_autorized)
+        }
     }
     
-    // MARK: 1.7、注册APNs远程推送
+    // MARK: 1.8、注册APNs远程推送
     /// 注册APNs远程推送
     static func registerAPNsWithDelegate(_ delegate: Any) {
         if #available(iOS 10.0, *) {
@@ -135,7 +159,7 @@ public extension JKPOP where Base: UIApplication {
         }
     }
     
-    // MARK: 1.8、app商店链接
+    // MARK: 1.9、app商店链接
     /// app商店链接
     @discardableResult
     static func appUrlWithID(_ appStoreID: String) -> String {
@@ -143,7 +167,7 @@ public extension JKPOP where Base: UIApplication {
         return appStoreUrl
     }
     
-    // MARK: 1.9、app详情链接
+    // MARK: 1.10、app详情链接
     /// app详情链接
     @discardableResult
     static func appDetailUrlWithID(_ appStoreID: String) -> String {
@@ -151,13 +175,13 @@ public extension JKPOP where Base: UIApplication {
         return detailUrl
     }
     
-    //MARK: 1.10、APP是否常亮
+    //MARK: 1.11、APP是否常亮
     /// APP是否常亮
     static func isIdleTimerDisabled(isIdleTimerDisabled: Bool) {
         UIApplication.shared.isIdleTimerDisabled = isIdleTimerDisabled
     }
     
-    //MARK: 1.11、APP主动崩溃
+    //MARK: 1.12、APP主动崩溃
     /// APP主动崩溃
     static func exitApp() {
         // 默认的程序结束函数

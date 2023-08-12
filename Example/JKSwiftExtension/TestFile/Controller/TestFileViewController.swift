@@ -119,7 +119,7 @@ extension TestFileViewController {
     
     
     @objc func test18() {
-        self.navigationController?.pushViewController(RateLimitViewController(), animated: true)
+        self.navigationController?.pushViewController(PresetntFourViewController(), animated: true)
     }
     
     @objc func test17() {
@@ -158,7 +158,22 @@ extension TestFileViewController {
     }
     
     @objc func test16() {
-        self.navigationController?.pushViewController(JKVVViewController(), animated: true)
+        // self.navigationController?.pushViewController(JKVVViewController(), animated: true)
+        let array1 = [1, 2, 2, 5]
+        let array2 = [1, 6, 2]
+        print("-1--start-:\(CFAbsoluteTimeGetCurrent())")
+        var dict1: [String:Int] = [:]
+        array1.forEach({
+            dict1["\($0)"] = 1
+        })
+        array2.forEach({
+            if 1 == dict1["\($0)"] {
+                //此处便可取到相同元素
+                debugPrint("相同的元素：\($0)")
+            }
+        })
+        print("-1--end-:\(CFAbsoluteTimeGetCurrent())")
+        
     }
     
     @objc func test15() {

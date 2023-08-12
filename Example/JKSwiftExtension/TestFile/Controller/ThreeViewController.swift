@@ -15,8 +15,8 @@ class ThreeViewController: UIViewController {
 
         self.title = "Three"
         self.edgesForExtendedLayout = []
-        self.view.backgroundColor = UIColor.randomColor
-        test13()
+        self.view.backgroundColor = UIColor.green
+        test14()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -26,6 +26,26 @@ class ThreeViewController: UIViewController {
 }
 
 extension ThreeViewController {
+    
+    func test14() {
+        // Auto layout, variables, and unit scale are not yet supported
+        var view1 = UIView()
+        view1.frame = CGRect(x: 0, y: 150, width: jk_kScreenW, height: 200)
+        //view1.backgroundColor = .red
+        let layer0 = CALayer()
+        layer0.backgroundColor = UIColor.white.withAlphaComponent(0.75).cgColor
+        layer0.frame = CGRect(x: 0, y: 0, width: view1.frame.size.width, height: view1.frame.size.height)
+        view1.layer.addSublayer(layer0)
+
+        let layer1 = CALayer()
+        layer1.backgroundColor = UIColor(red: 0.549, green: 0.549, blue: 0.549, alpha: 1).cgColor
+        layer1.compositingFilter = "overlayBlendMode"
+        layer1.frame = CGRect(x: 0, y: 0, width: view1.frame.size.width, height: view1.frame.size.height)
+        //view1.layer.addSublayer(layer1)
+
+        self.view.addSubview(view1)
+        
+    }
     
     func test13() {
         let lineHight: CGFloat = 50

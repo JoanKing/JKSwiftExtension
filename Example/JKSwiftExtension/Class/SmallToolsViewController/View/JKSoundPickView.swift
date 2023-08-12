@@ -64,12 +64,7 @@ public class JKSoundPickView : UIView {
         self.backgroundColor = UIColor.black.withAlphaComponent(0.47)
         self.jk.addTapGestureRecognizerAction(self, #selector(hide))
         if (keyWindow == nil) {
-            self.keyWindow = UIApplication.shared.keyWindow
-            if #available(iOS 13, *) {
-                self.keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-            } else {
-                self.keyWindow = UIApplication.shared.keyWindow
-            }
+            self.keyWindow = UIApplication.jk.keyWindow
         }
         addSubview(bgView)
         bgView.addSubview(cancelButton)
@@ -113,11 +108,7 @@ public class JKSoundPickView : UIView {
 public extension JKSoundPickView {
     //MARK: 弹出视图
     func show() {
-        if #available(iOS 13, *) {
-            UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.addSubview(self)
-        } else {
-            UIApplication.shared.keyWindow?.addSubview(self)
-        }
+        keyWindow?.addSubview(self)
         UIView.animate(withDuration: 0.25, animations: {
             self.alpha = 1.0
             self.bgView.alpha = 1.0

@@ -17,7 +17,7 @@ class ArrayExtensionViewController: BaseViewController {
         self.view.backgroundColor = UIColor.green
         
         headDataArray = ["一、数组 的基本扩展", "二、数组 有关索引 的扩展方法", "三、遵守 Equatable 协议的数组 (增删改查) 扩展", "四、遵守 NSObjectProtocol 协议对应数组的扩展方法", "五、针对数组元素是 String 的扩展"]
-        dataArray = [["安全的取某个索引的值", "数组添加数组", "数组 -> JSON字符串", "分隔数组"], ["获取数组中的指定元素的索引值", "获取元素首次出现的位置", "获取元素最后出现的位置"], ["删除数组的中的元素(可删除第一个出现的或者删除全部出现的)", "从删除数组中删除一个数组中出现的元素，支持是否重复删除, 否则只删除第一次出现的元素"], ["删除数组中遵守NSObjectProtocol协议的元素，是否删除重复的元素", "删除一个遵守NSObjectProtocol的数组中的元素，支持重复删除"], ["数组转字符转（数组的元素是 字符串），如：[1, 2, 3] 连接器为 - ，那么转化后为 1-2-3"]]
+        dataArray = [["安全的取某个索引的值", "数组添加数组", "数组 -> JSON字符串", "分隔数组"], ["获取数组中的指定元素的索引值", "获取元素首次出现的位置", "获取元素最后出现的位置", "获取两个数组的相同元素"], ["删除数组的中的元素(可删除第一个出现的或者删除全部出现的)", "从删除数组中删除一个数组中出现的元素，支持是否重复删除, 否则只删除第一次出现的元素"], ["删除数组中遵守NSObjectProtocol协议的元素，是否删除重复的元素", "删除一个遵守NSObjectProtocol的数组中的元素，支持重复删除"], ["数组转字符转（数组的元素是 字符串），如：[1, 2, 3] 连接器为 - ，那么转化后为 1-2-3"]]
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,15 +38,6 @@ extension ArrayExtensionViewController {
 // MARK: - 四、遵守 NSObjectProtocol 协议对应数组的扩展方法
 extension ArrayExtensionViewController {
     
-    // MARK: 4.1、删除数组中遵守NSObjectProtocol协议的元素，是否删除重复的元素
-    @objc func test41() {
-        var testArray = ["1".jk.toNSString, "2".jk.toNSString, "3".jk.toNSString, "2".jk.toNSString]
-        let oldArray = testArray
-        let element = "2".jk.toNSString
-        let newArray = testArray.remove(object: element, isRepeat: false)
-        JKPrint("删除数组中遵守NSObjectProtocol协议的元素，是否删除重复的元素)", "原数组为：\(oldArray) 删除其中的值：\(element) 后数组为：\(newArray)")
-    }
-    
     // MARK: 4.2、删除一个遵守NSObjectProtocol的数组中的元素，支持重复删除
     @objc func test42() {
         var testArray = ["1".jk.toNSString, "2".jk.toNSString, "3".jk.toNSString, "2".jk.toNSString]
@@ -55,19 +46,19 @@ extension ArrayExtensionViewController {
         let newArray = testArray.removeArray(objects: removeArray, isRepeat: true)
         JKPrint("删除一个遵守NSObjectProtocol的数组中的元素，支持重复删除", "原数组为：\(oldArray) 删除的数组是：\(removeArray) 后数组为：\(newArray)")
     }
+    
+    // MARK: 4.1、删除数组中遵守NSObjectProtocol协议的元素，是否删除重复的元素
+    @objc func test41() {
+        var testArray = ["1".jk.toNSString, "2".jk.toNSString, "3".jk.toNSString, "2".jk.toNSString]
+        let oldArray = testArray
+        let element = "2".jk.toNSString
+        let newArray = testArray.remove(object: element, isRepeat: false)
+        JKPrint("删除数组中遵守NSObjectProtocol协议的元素，是否删除重复的元素)", "原数组为：\(oldArray) 删除其中的值：\(element) 后数组为：\(newArray)")
+    }
 }
 
 // MARK: - 三、遵守 Equatable 协议的数组 (增删改查) 扩展
 extension ArrayExtensionViewController {
-    
-    // MARK: 3.1、删除数组的中的元素(可删除第一个出现的或者删除全部出现的)
-    @objc func test31() {
-        var testArray = ["1", "2", "3", "2"]
-        let oldArray = testArray
-        let element = "2"
-        let newArray = testArray.remove(element, isRepeat: false)
-        JKPrint("删除数组的中的元素(可删除第一个出现的或者删除全部出现的)", "原数组为：\(oldArray) 删除其中的值：\(element) 后数组为：\(newArray)")
-    }
     
     // MARK: 3.2、从删除数组中删除一个数组中出现的元素，支持是否重复删除, 否则只删除第一次出现的元素
     @objc func test32() {
@@ -77,23 +68,25 @@ extension ArrayExtensionViewController {
         let newArray = testArray.removeArray(removeArray, isRepeat: false)
         JKPrint("从删除数组中删除一个数组中出现的元素，支持是否重复删除, 否则只删除第一次出现的元素", "原数组为：\(oldArray) 删除的数组是：\(removeArray) 后数组为：\(newArray)")
     }
+    
+    // MARK: 3.1、删除数组的中的元素(可删除第一个出现的或者删除全部出现的)
+    @objc func test31() {
+        var testArray = ["1", "2", "3", "2"]
+        let oldArray = testArray
+        let element = "2"
+        let newArray = testArray.remove(element, isRepeat: false)
+        JKPrint("删除数组的中的元素(可删除第一个出现的或者删除全部出现的)", "原数组为：\(oldArray) 删除其中的值：\(element) 后数组为：\(newArray)")
+    }
 }
 // MARK: - 二、数组 有关索引 的扩展方法
 extension ArrayExtensionViewController {
     
-    // MARK: 2.1、获取数组中的指定元素的索引值
-    @objc func test21() {
-        let testArray = ["1", "2", "3", "2"]
-        let element = "2"
-        JKPrint("获取数组中的指定元素的索引值", "查找 \(testArray) 中的 \(element) 的索引为：\(testArray.indexes(element))")
-    }
-    
-    // MARK: 2.2、获取元素首次出现的位置
-    @objc func test22() {
-        let testArray = ["1", "2", "3", "2"]
-        let element = "2"
-        JKPrint("获取元素首次出现的位置", "\(element) 在数组：\(testArray) 首次出现的索引是：\(testArray.firstIndex(element) ?? 0)")
-        // testArray.firstIndex(of: element) ?? 0
+    //MARK: 2.4、获取两个数组的相同元素
+    @objc func test24() {
+        let array1 = [1, 2, 3, 2]
+        let array2 = [0, 2, 4, 9]
+        let sameElements = array1.sameElement(array: array2)
+        JKPrint("获取\(array1)与\(array2) 两个数组的相同元素是：\(sameElements)")
     }
     
     // MARK: 2.3、获取元素最后出现的位置
@@ -103,7 +96,21 @@ extension ArrayExtensionViewController {
        JKPrint("获取元素最后出现的位置", "\(element) 在数组：\(testArray) 最后出现的索引是：\(testArray.lastIndex(element) ?? 0)")
         // testArray.lastIndex(of: element) ?? 0
     }
+    
+    // MARK: 2.2、获取元素首次出现的位置
+    @objc func test22() {
+        let testArray = ["1", "2", "3", "2"]
+        let element = "2"
+        JKPrint("获取元素首次出现的位置", "\(element) 在数组：\(testArray) 首次出现的索引是：\(testArray.firstIndex(element) ?? 0)")
+        // testArray.firstIndex(of: element) ?? 0
+    }
 
+    // MARK: 2.1、获取数组中的指定元素的索引值
+    @objc func test21() {
+        let testArray = ["1", "2", "3", "2"]
+        let element = "2"
+        JKPrint("获取数组中的指定元素的索引值", "查找 \(testArray) 中的 \(element) 的索引为：\(testArray.indexes(element))")
+    }
 }
 
 // MARK: - 一、数组 的基本扩
