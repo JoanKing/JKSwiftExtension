@@ -50,6 +50,7 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/c4cbd321-3803-424b-892e-9bd27431351a" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.3.9、版本(2023.08.12)：iOS13适配
   - 2.3.8、版本(2023.07.22)：JKAlertViewControllerView增加card样式与JKCommonTool增加模型差异对比方法
   - 2.3.5、版本(2023.07.12)：修复Date+Extension取今天一直不杀死app无法更新日期的问题
         ```swift
