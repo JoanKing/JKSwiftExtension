@@ -54,7 +54,6 @@ enum Rank: String, CaseIterable {
     static let allValues = Rank.allCases.map { $0.rawValue }
 }
 
-
 extension TestFileViewController {
     
     /// 计算x的n次方
@@ -85,10 +84,12 @@ extension TestFileViewController {
     
     
     @objc func test110() {
+        /*
         debugPrint("开始----")
         let isNetworkPermissions = isNetworkPermissions()
         debugPrint("是否有网络的权限：\(isNetworkPermissions)")
         debugPrint("结束----")
+         */
     }
     
     /// 判断网络是否有权限
@@ -110,16 +111,21 @@ extension TestFileViewController {
     }
     
     @objc func test19() {
+        /*
         debugPrint(isMultiple(10, of: 5))
         debugPrint(isMultiple(0, of: 1))
         debugPrint(isMultiple(1, of: 3))
         debugPrint(isMultiple(5, of: 10))
         debugPrint(isMultiple(8, of: 16))
+         */
+        if #available(iOS 13, *) {
+            self.navigationController?.pushViewController(SegmentViewController(), animated: true)
+        }
     }
     
     
     @objc func test18() {
-        self.navigationController?.pushViewController(PresetntFourViewController(), animated: true)
+        self.navigationController?.pushViewController(UIBezierPathViewController(), animated: true)
     }
     
     @objc func test17() {

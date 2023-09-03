@@ -17,7 +17,7 @@ class ArrayExtensionViewController: BaseViewController {
         self.view.backgroundColor = UIColor.green
         
         headDataArray = ["一、数组 的基本扩展", "二、数组 有关索引 的扩展方法", "三、遵守 Equatable 协议的数组 (增删改查) 扩展", "四、遵守 NSObjectProtocol 协议对应数组的扩展方法", "五、针对数组元素是 String 的扩展"]
-        dataArray = [["安全的取某个索引的值", "数组添加数组", "数组 -> JSON字符串", "分隔数组"], ["获取数组中的指定元素的索引值", "获取元素首次出现的位置", "获取元素最后出现的位置", "获取两个数组的相同元素"], ["删除数组的中的元素(可删除第一个出现的或者删除全部出现的)", "从删除数组中删除一个数组中出现的元素，支持是否重复删除, 否则只删除第一次出现的元素"], ["删除数组中遵守NSObjectProtocol协议的元素，是否删除重复的元素", "删除一个遵守NSObjectProtocol的数组中的元素，支持重复删除"], ["数组转字符转（数组的元素是 字符串），如：[1, 2, 3] 连接器为 - ，那么转化后为 1-2-3"]]
+        dataArray = [["安全的取某个索引的值", "数组添加数组", "数组 -> JSON字符串", "分隔数组", "随机取出数组"], ["获取数组中的指定元素的索引值", "获取元素首次出现的位置", "获取元素最后出现的位置", "获取两个数组的相同元素"], ["删除数组的中的元素(可删除第一个出现的或者删除全部出现的)", "从删除数组中删除一个数组中出现的元素，支持是否重复删除, 否则只删除第一次出现的元素"], ["删除数组中遵守NSObjectProtocol协议的元素，是否删除重复的元素", "删除一个遵守NSObjectProtocol的数组中的元素，支持重复删除"], ["数组转字符转（数组的元素是 字符串），如：[1, 2, 3] 连接器为 - ，那么转化后为 1-2-3"]]
     }
 
     override func didReceiveMemoryWarning() {
@@ -115,6 +115,42 @@ extension ArrayExtensionViewController {
 
 // MARK: - 一、数组 的基本扩
 extension ArrayExtensionViewController {
+    
+    
+    // MARK: 1.4、分隔数组
+    @objc func test15() {
+        /*
+        // 十进制 48 - 57 代表 0-9；65-90代表 A-Z； 97-122代表 a-z
+        let digits = Array(48...57) + Array(65...90) + Array(97...122)
+        // 转字16进制字符串数组
+        let stringArray = digits.compactMap { "\($0)".jk.decimalToHexadecimal() }
+        // 16进制字符串转UInt16
+        let hexStringArray = stringArray.compactMap({ UInt16($0, radix: 16) })
+        // UInt16转Unicode字符串
+        let resultArray = hexStringArray.compactMap { element in
+            let array = [element]
+            return String(utf16CodeUnits: array, count: array.count)
+        }
+        let pick3digits = resultArray[randomPick: 3]  // [8, 9, 0]
+        JKPrint("原数组：\(resultArray)", "随机随机取出3个为：\(pick3digits)")
+        
+        // 十进制 48 - 57 代表 0-9；65-90代表 A-Z； 97-122代表 a-z
+        let digits = Array(48...57) + Array(65...90) + Array(97...122)
+        // 转字16进制字符串数组
+        let resultArray = digits.compactMap {
+            // 转字16进制字符串数组
+            let hexString = "\($0)".jk.decimalToHexadecimal()
+            // 16进制字符串转UInt16
+            let hexadecimal = UInt16(hexString, radix: 16) ?? 0
+            // UInt16转Unicode字符串
+            let array = [hexadecimal]
+            return String(utf16CodeUnits: array, count: array.count)
+        }
+         */
+        let resultArray = ["1", "2", "3", "4", "5", "6", "7", "8"]
+        let pick3digits = resultArray[randomPick: 3]
+        JKPrint("原数组：\(resultArray)", "随机随机取出3个为：\(pick3digits)")
+    }
     
     // MARK: 1.4、分隔数组
     @objc func test14() {

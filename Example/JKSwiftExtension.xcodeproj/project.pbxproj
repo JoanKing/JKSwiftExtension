@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55A815D42A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A815D32A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift */; };
+		55CBC9C72A9C74A000EE88FC /* SegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CBC9C62A9C74A000EE88FC /* SegmentViewController.swift */; };
+		55E467492A8A4521008D79B7 /* UIBezierPathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E467482A8A4521008D79B7 /* UIBezierPathViewController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -190,6 +193,9 @@
 /* Begin PBXFileReference section */
 		2FEA1C54E10568E8E6A827CF /* Pods_JKSwiftExtension_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSwiftExtension_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		484863D9DD238F4FD5E44FEF /* JKSwiftExtension.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JKSwiftExtension.podspec; path = ../JKSwiftExtension.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		55A815D32A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingSpecialConfigurationSegmentView.swift; sourceTree = "<group>"; };
+		55CBC9C62A9C74A000EE88FC /* SegmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentViewController.swift; sourceTree = "<group>"; };
+		55E467482A8A4521008D79B7 /* UIBezierPathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathViewController.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* JKSwiftExtensionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKSwiftExtensionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -529,6 +535,8 @@
 				E233A77A29B1DE45003A5C3D /* JKWheelPickerViewController.swift */,
 				E2E00C1329B980D300A95A31 /* RateLimitViewController.swift */,
 				E203A4752A4032D400F19FE2 /* BleViewController.swift */,
+				55E467482A8A4521008D79B7 /* UIBezierPathViewController.swift */,
+				55CBC9C62A9C74A000EE88FC /* SegmentViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -551,6 +559,7 @@
 				E20237AD28B5F98E00F65F61 /* UIAlertController+Extension1.swift */,
 				E2F4323F2957FD8C00ED97F2 /* DeleteViewCell.swift */,
 				E2E00C1529B9AB2600A95A31 /* SliderDashLineView.swift */,
+				55A815D32A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift */,
 				E2BBEDDB29B1EBDA005FB04B /* JKWheelPicker */,
 			);
 			path = View;
@@ -1151,6 +1160,7 @@
 				849523852679F7740004E983 /* ConrnersTableViewCell.swift in Sources */,
 				84B8FE3825A314FD00E7099E /* JKRegexHelperViewController.swift in Sources */,
 				E2CFA13A28597E9000E342DE /* JKPanViewViewController.swift in Sources */,
+				55E467492A8A4521008D79B7 /* UIBezierPathViewController.swift in Sources */,
 				848028082558D5A70038748A /* CALayerExtensionViewController.swift in Sources */,
 				84CB0CA1260DD144003D2738 /* BaseViewCell.swift in Sources */,
 				847CCCF925B80D1E00928F5B /* AVAssetExportSessionExtensionViewController.swift in Sources */,
@@ -1186,6 +1196,7 @@
 				8480280C255926120038748A /* CATextLayerExtensionViewController.swift in Sources */,
 				84C4BF5F25500E5C00B3705F /* CGFloatExtensionViewController.swift in Sources */,
 				84CC32AF255D39F000F489F0 /* UITextViewExtensionViewController.swift in Sources */,
+				55CBC9C72A9C74A000EE88FC /* SegmentViewController.swift in Sources */,
 				847D4B9625611E50000DDA3C /* UIImageExtensionViewController.swift in Sources */,
 				E277B95F28DF017700DC0319 /* PresetntFourViewController.swift in Sources */,
 				E2F432402957FD8C00ED97F2 /* DeleteViewCell.swift in Sources */,
@@ -1194,6 +1205,7 @@
 				84CC32AD255CDBB300F489F0 /* UIScrollViewExtensionViewController.swift in Sources */,
 				8418FB97255B8642000CB0B3 /* UILabelExtensionViewController.swift in Sources */,
 				E2E08F182871AD5300F722A9 /* JKEmptyViewController.swift in Sources */,
+				55A815D42A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

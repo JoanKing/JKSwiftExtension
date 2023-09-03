@@ -1536,6 +1536,43 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
             return []
         }
     }
+    
+    //MARK: 10.12、字符串按照步长拆分为字符串数组
+    /// 字符串拆分为字符串数组
+    /// - Parameter length: 步长
+    /// - Returns: description
+    public func splitStringArray(length: Int) -> [String] {
+        let string = (base as! String)
+        var subStrings: [String] = []
+        guard string.count > length else {
+            return subStrings
+        }
+        // 当前截取的位置
+        var currentLength = 0
+        while currentLength < string.count {
+            if (currentLength + length) > string.count {
+                subStrings.append(string.jk.sub(from: currentLength))
+            } else {
+                let value = string.jk.sub(start: currentLength, length: length)
+                subStrings.append(value)
+            }
+            currentLength = currentLength + 2
+        }
+        return subStrings
+    }
+    
+    // MARK: 10.13、字符串长度不足前面补0
+    /// 字符串长度不足前面补0
+    public func prefixAddZero(_ length: Int) -> String {
+        let string = base as! String
+        guard string.count < length else {
+            return string
+        }
+        let zeros = [Int](0..<(length - 1)).reduce("") { item1, item2 in
+            return item1 + "0"
+        }
+        return zeros + string
+    }
 }
 
 // MARK: - 十一、字符串编码的处理

@@ -129,11 +129,11 @@ public func jk_isSimulator() -> Bool {
 // MARK: - 二、屏幕尺寸常用的常量
 // MARK: 2.1、屏幕的宽
 /// 屏幕的宽
-public let jk_kScreenW: CGFloat = UIScreen.main.bounds.width
+public var jk_kScreenW: CGFloat { return UIScreen.main.bounds.width }
 
 // MARK: 2.2、屏幕的高
 /// 屏幕的高
-public let jk_kScreenH: CGFloat = UIScreen.main.bounds.height
+public var jk_kScreenH: CGFloat { return UIScreen.main.bounds.height }
 
 // MARK: 2.3、获取statusBar的高度
 /// 获取statusBar的高度
@@ -150,7 +150,7 @@ public var jk_kStatusBarFrameH: CGFloat {
 
 // MARK: 2.4、获取导航栏的高度
 /// 获取导航栏的高度
-public let jk_kNavFrameH: CGFloat = 44 + jk_kStatusBarFrameH
+public var jk_kNavFrameH: CGFloat { return 44 + jk_kStatusBarFrameH }
     
 // MARK: 2.5、屏幕底部Tabbar高度
 /// 屏幕底部Tabbar高度
@@ -170,13 +170,13 @@ public let jk_kRatioIDCard: CGFloat = 0.63
 
 // MARK: 2.9、375尺寸适配比例
 /// 375尺寸适配比例
-public let jk_scaleIphone = jk_kScreenW / CGFloat(375.0)
+public var jk_scaleIphone: CGFloat { return jk_kScreenW / CGFloat(375.0) }
 
 // MARK: - 屏幕16:9比例系数下的宽高
 // 宽
-public let jk_kScreenW16_9: CGFloat = jk_kScreenW * 9.0 / 16.0
+public var jk_kScreenW16_9: CGFloat { return jk_kScreenW * 9.0 / 16.0 }
 // 高
-public let jk_kScreenH16_9: CGFloat = jk_kScreenH * 16.0 / 9.0
+public var jk_kScreenH16_9: CGFloat { return jk_kScreenH * 16.0 / 9.0 }
 
 // MARK: - 三、UIView 有关 Frame 的扩展
 public extension JKPOP where Base: UIView {
