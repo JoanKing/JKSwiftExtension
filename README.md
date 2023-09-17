@@ -50,6 +50,13 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/c4cbd321-3803-424b-892e-9bd27431351a" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.4.1、版本(2023.09.17)：String+Extension.swift新增枚举StringTypeLength新增lengthOfBytesUtf8和customCountOfChars
+    ```/// utf8编码通过字节判断长度
+       case lengthOfBytesUtf8
+       /// 英文 = 1，数字 = 1，汉语 = 2
+       case customCountOfChars
+    ```
+    修复限制文字长度的漏洞
   - 2.4.0、版本(2023.08.12)：修改jk_kScreenW等属性为计算属性
   - 2.3.9、版本(2023.08.12)：iOS13适配
   - 2.3.8、版本(2023.07.22)：JKAlertViewControllerView增加card样式与JKCommonTool增加模型差异对比方法
