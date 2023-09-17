@@ -51,10 +51,11 @@ end
 
 ## 版本说明
   - 2.4.1、版本(2023.09.17)：String+Extension.swift新增枚举StringTypeLength新增lengthOfBytesUtf8和customCountOfChars
-    ```/// utf8编码通过字节判断长度
-       case lengthOfBytesUtf8
-       /// 英文 = 1，数字 = 1，汉语 = 2
-       case customCountOfChars
+    ```swift
+    /// utf8编码通过字节判断长度
+    case lengthOfBytesUtf8
+    /// 英文 = 1，数字 = 1，汉语 = 2
+    case customCountOfChars
     ```
     修复限制文字长度的漏洞
   - 2.4.0、版本(2023.08.12)：修改jk_kScreenW等属性为计算属性
