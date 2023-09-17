@@ -169,4 +169,8 @@ class TextViewTestViewController: UIViewController, UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         textView.jk.inputRestrictions(shouldChangeTextIn: range, replacementText: text, maxCharacters: 20, regex: nil, isInterceptString: true)
     }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        debugPrint("内容的变化：\(textView.text ?? "")")
+    }
 }

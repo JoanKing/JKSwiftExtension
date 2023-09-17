@@ -412,6 +412,7 @@ extension TestTextFiledView: UITextFieldDelegate {
     /// 邮箱发生变化
     @objc func textDidChange(textField: UITextField) {
         guard let str = textField.text else { return }
+        debugPrint("内容：\(str)")
         inputChangeClosure?(str)
     }
     

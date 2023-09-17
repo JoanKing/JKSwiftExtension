@@ -90,6 +90,20 @@ extension TestFileViewController {
         debugPrint("是否有网络的权限：\(isNetworkPermissions)")
         debugPrint("结束----")
          */
+        let text = "哈哈 😄"
+        var count = 0
+        var endString: String = ""
+        for i in 0...text.count - 1 {
+            let c: unichar = (text as NSString).character(at: i)
+            var cLength = 0
+            endString = endString + "\(c)"
+            debugPrint("c：\(c)")
+        }
+
+        for character in text {
+            print("character:\(character)")
+        }
+        debugPrint("endString：\(endString)")
     }
     
     /// 判断网络是否有权限
@@ -212,10 +226,11 @@ extension TestFileViewController {
          */
         //        let colors = Rank.allValues
         //        print(colors)
-        
-        let string1 = "😄😄"
-        let string2 = "哈哈"
-        debugPrint("\(string1)-字符串的长度：\(string1.utf16.count)", "\(string2)-字符串的长度：\(string2.utf16.count)")
+        let value1 = 0b0
+        let value2 = 0b10 << 1
+        let value3 = 0b10 << 3
+        let value4 = value1 | value2 | value3
+        debugPrint("value4：\(value4)")
     }
     
     @objc func test11() {

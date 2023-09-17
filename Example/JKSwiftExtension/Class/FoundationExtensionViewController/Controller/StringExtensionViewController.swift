@@ -1232,8 +1232,8 @@ extension StringExtensionViewController {
     
     // MARK: 1.20、计算字符个数（英文 = 1，数字 = 1，汉语 = 2）
     @objc func test120() {
-        let name = "我是123&"
-        JKPrint("计算字符个数（英文 = 1，数字 = 1，汉语 = 2）", "\(name) 的字符的个数是：\(name.jk.countOfChars())")
+        let name = "我是123hh"
+        JKPrint("计算字符个数（英文 = 1，数字 = 1，汉语 = 2）", "\(name) 的字符的个数是：\(name.jk.customCountOfChars())")
     }
     
     // MARK: 1.19、String或者String HTML标签转富文本设置
@@ -1373,7 +1373,11 @@ extension StringExtensionViewController {
     
     // MARK: 1.1、字符串的长度
     @objc func test11() {
-        let string = "1234567"
-        JKPrint("字符串：\(string) 的长度是：\(string.jk.length)")
+        /*
+        let string = "abc"
+        JKPrint("字符串：\(string) 的长度是：\(string.jk.typeLengh(.utf16))")
+         */
+        let string = "我 试"
+        debugPrint("字符串：\(string) 的字节长度为：\(string.lengthOfBytes(using: .utf8))")
     }
 }

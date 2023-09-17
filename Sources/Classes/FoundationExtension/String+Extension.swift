@@ -21,6 +21,10 @@ public enum StringTypeLength {
     case utf16
     /// unicodeScalars
     case unicodeScalars
+    /// utf8编码通过字节判断长度
+    case lengthOfBytesUtf8
+    /// 英文 = 1，数字 = 1，汉语 = 2
+    case customCountOfChars
 }
 
 // MARK: - 一：字符串基本的扩展
@@ -43,6 +47,10 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
             return string.utf16.count
         } else if type == .unicodeScalars {
             return string.unicodeScalars.count
+        } else if type == .lengthOfBytesUtf8 {
+            return string.lengthOfBytes(using: .utf8)
+        }  else if type == .customCountOfChars {
+            return string.jk.customCountOfChars()
         }
         return string.count
     }
@@ -274,7 +282,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     // MARK: 1.20、计算字符个数（英文 = 1，数字 = 1，汉语 = 2）
     /// 计算字符个数（英文 = 1，数字 = 1，汉语 = 2）
     /// - Returns: 返回字符的个数
-    func countOfChars() -> Int {
+    func customCountOfChars() -> Int {
         var count = 0
         guard (self.base as! String).count > 0 else { return 0 }
         for i in 0...(self.base as! String).count - 1 {

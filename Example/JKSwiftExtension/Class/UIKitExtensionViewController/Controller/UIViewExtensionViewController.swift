@@ -721,7 +721,7 @@ extension UIViewExtensionViewController {
         testLabel.text = "2秒后消失"
         testLabel.textAlignment = .center
         testLabel.textColor = .randomColor
-        testLabel.jk.addCornerAndShadow(superview: testView, conrners: [.topLeft, .bottomRight], radius: 8, shadowColor: UIColor.black.withAlphaComponent(0.48), shadowOffset: CGSize(width: 1.0, height: 1.0), shadowOpacity: 1, shadowRadius: 16)
+        testLabel.jk.addCornerAndShadow(superview: testView, conrners: [.topLeft, .bottomRight], radius: 30, shadowColor: UIColor.black.withAlphaComponent(0.48), shadowOffset: CGSize(width: 1.0, height: 1.0), shadowOpacity: 1, shadowRadius: 16)
         testView.addSubview(testLabel)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -734,7 +734,7 @@ extension UIViewExtensionViewController {
         var testView = UIView(frame: CGRect(x: 0, y: 100, width: 300, height: 200))
         testView.backgroundColor = .randomColor
         testView.jk.centerX = self.view.jk.centerX
-        testView.jk.addViewCornerAndShadow(conrners: .allCorners, radius: 20, shadowColor: UIColor.black.withAlphaComponent(0.48), shadowOffset: CGSize(width: 1, height: 1), shadowOpacity: 1.0, shadowRadius: 10)
+        testView.jk.addViewCornerAndShadow(conrners: [.topLeft, .bottomRight], radius: 20, shadowColor: UIColor.black.withAlphaComponent(0.48), shadowOffset: CGSize(width: 1, height: 1), shadowOpacity: 1.0, shadowRadius: 10)
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2, {
         }) {
