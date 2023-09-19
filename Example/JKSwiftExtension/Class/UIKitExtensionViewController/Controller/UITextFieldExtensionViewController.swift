@@ -18,6 +18,12 @@ class UITextFieldExtensionViewController: BaseViewController {
         
         headDataArray = ["一、基本的扩展", "二、链式编程", "三、输入内容以及正则的配置"]
         dataArray = [["添加左边的内边距", "添加左边的图片", "是否都是数字", "设置富文本的占位符"], ["设置文字", "设置富文本", "设置占位符", "设置富文本占位符", "设置文本格式", "设置文本颜色", "设置文本颜色（十六进制字符串）", "设置文本字体大小(UIFont)", "设置文本字体大小(CGFloat)", "设置代理","设置键盘样式"], ["限制字数的输入(提示在：- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string; 里面调用)"]]
+        
+        let originalString = "\n\n这是一段带有\n换行符的文本\n\n"
+        let trimmedString = originalString.jk.removeBeginEndAllSapceAndLinefeed
+        // let newString = trimmedString.replacingOccurrences(of: "\n", with: "替换后的字符")
+        print("newString：\(trimmedString)")
+
     }
 }
 
@@ -417,7 +423,7 @@ extension TestTextFiledView: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return textField.jk.inputRestrictions(shouldChangeTextIn: range, replacementText: string, maxCharacters: maxCharacters, regex: nil, lenghType: lenghType)
+        return textField.jk.inputRestrictions(shouldChangeTextIn: range, replacementText: string, maxCharacters: maxCharacters, regex: "^[A-Za-z0-9]+$", lenghType: lenghType, isRemovePasteboardNewlineCharacters: true)
     }
     
     /// 获得焦点
