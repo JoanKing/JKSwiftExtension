@@ -50,6 +50,7 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/c4cbd321-3803-424b-892e-9bd27431351a" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.4.2、版本(2023.09.20)：UITextField+Extension.swift和UITextView+Extension.swift的复制内容输入限制正则判断位置调整
   - 2.4.1、版本(2023.09.17)：String+Extension.swift新增枚举StringTypeLength新增lengthOfBytesUtf8和customCountOfChars
     ```swift
     /// utf8编码通过字节判断长度
