@@ -210,10 +210,10 @@ public extension JKPOP where Base: UITextField {
             // 判断是否是复制操作，是复制操作做过滤处理
             let pastedText = (pasteboard.string ?? "").jk.removeSomeStringUseSomeString(removeString: "\n", replacingString: " ").jk.removeAllSapce
             inputingContent = inputingContent.jk.removeAllSapce
-            if let weakRegex = regex, !JKRegexHelper.match(inputingContent, pattern: weakRegex) {
-                return false
-            }
             if pastedText == inputingContent {
+                if let weakRegex = regex, !JKRegexHelper.match(inputingContent, pattern: weakRegex) {
+                    return false
+                }
                 let remainingLength = maxCharacters - oldContent.jk.typeLengh(lenghType)
                 // 可以插入字符串
                 let endString = getInputText(inputingContent: inputingContent, remainingLength: remainingLength, lenghType: lenghType)
@@ -228,6 +228,8 @@ public extension JKPOP where Base: UITextField {
                     }
                 }
                 return false
+            } else {
+                inputingContent = text
             }
         }
         
