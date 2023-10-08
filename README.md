@@ -50,6 +50,7 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/520a15e4-970c-43e6-9f6a-aa0fc308abb5" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.4.3、版本(2023.10.08)：UITextFiled和UITextView在高亮状态下可以设置属性isMarkedTextRangeCanInput输入(非高亮字数在限制范围内)
   - 2.4.2、版本(2023.09.20)：UITextField+Extension.swift和UITextView+Extension.swift的复制内容输入限制正则判断位置调整
   - 2.4.1、版本(2023.09.17)：String+Extension.swift新增枚举StringTypeLength新增lengthOfBytesUtf8和customCountOfChars
     ```swift
