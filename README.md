@@ -47,7 +47,7 @@ end
 ## 讨论
 - 微信号: wangc2318151015
 - 邮箱: jkironman@163.com
-<img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/c4cbd321-3803-424b-892e-9bd27431351a" alt="微信交流群" width="220">
+<img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/520a15e4-970c-43e6-9f6a-aa0fc308abb5" alt="微信交流群" width="220">
 
 ## 版本说明
   - 2.4.2、版本(2023.09.20)：UITextField+Extension.swift和UITextView+Extension.swift的复制内容输入限制正则判断位置调整
