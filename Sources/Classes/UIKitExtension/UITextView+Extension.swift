@@ -116,8 +116,10 @@ public extension JKPOP where Base: UITextView {
     ///   - maxCharacters: 限制字数
     ///   - regex: 可输入内容(正则)
     ///   - isInterceptString: 复制文字进来，在字数限制的情况下，多余的字体是否截取掉，默认true
+    ///   - isRemovePasteboardNewlineCharacters: 复制的内容是否移除前后的换行符
+    ///   - isMarkedTextRangeCanInput: 高亮状态，原始数据如果小于限制字数，默认不可以继续输入
     /// - Returns: 返回是否可输入
-    func inputRestrictions(shouldChangeTextIn range: NSRange, replacementText text: String, maxCharacters: Int, regex: String?, isInterceptString: Bool = true, lenghType: StringTypeLength = .count, isRemovePasteboardNewlineCharacters: Bool = false) -> Bool {
+    func inputRestrictions(shouldChangeTextIn range: NSRange, replacementText text: String, maxCharacters: Int, regex: String?, isInterceptString: Bool = true, lenghType: StringTypeLength = .count, isRemovePasteboardNewlineCharacters: Bool = false, isMarkedTextRangeCanInput: Bool = false) -> Bool {
         guard !text.isEmpty else {
             return true
         }
@@ -129,9 +131,10 @@ public extension JKPOP where Base: UITextView {
         if isRemovePasteboardNewlineCharacters {
             let pasteboard = UIPasteboard.general
             // 判断是否是复制操作，是复制操作做过滤处理
-            let pastedText = (pasteboard.string ?? "").jk.removeSomeStringUseSomeString(removeString: "\n", replacingString: " ").jk.removeAllSapce
-            inputingContent = inputingContent.jk.removeAllSapce
+            let pastedText = (pasteboard.string ?? "")
             if pastedText == inputingContent {
+                // 复制内容，只处理前后的空格和换行
+                inputingContent = pastedText.jk.removeBeginEndAllSapceAndLinefeed
                 if let weakRegex = regex, !JKRegexHelper.match(inputingContent, pattern: weakRegex) {
                     return false
                 }
@@ -156,14 +159,14 @@ public extension JKPOP where Base: UITextView {
         if let markedTextRange = self.base.markedTextRange {
             // 有高亮
             if range.length == 0 {
-                let markedRange = rangeFromTextRange(textRange: markedTextRange)
-                // let markedRangeContent = oldContent.jk.replacingCharacters(range: markedRange)
                 let oldContentLength = oldContent.jk.typeLengh(lenghType)
-                /*
-                 if markedRangeContent.jk.typeLengh(lenghType) < maxCharacters{
-                 return true
-                 }
-                 */
+                if isMarkedTextRangeCanInput {
+                    let markedRange = rangeFromTextRange(textRange: markedTextRange)
+                    let markedRangeContent = oldContent.jk.replacingCharacters(range: markedRange)
+                    if markedRangeContent.jk.typeLengh(lenghType) < maxCharacters {
+                        return true
+                    }
+                }
                 // 联想中
                 return oldContentLength + 1 <= maxCharacters
             } else {
