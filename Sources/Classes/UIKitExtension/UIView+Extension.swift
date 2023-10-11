@@ -1122,6 +1122,12 @@ public extension JKPOP where Base: UIView {
         base.layer.borderWidth = 0
         return self
     }
+    
+    // MARK: 8.7 自适应布局是否警告
+    /// - Parameter isHidden: 是否隐藏
+    func autolayoutWaring(isHidden: Bool) {
+        UserDefaults.standard.set(!isHidden, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+    }
 }
 
 // MARK: 九、手势的扩展
