@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		555C223B2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C223A2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift */; };
 		55A815D42A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A815D32A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift */; };
 		55CBC9C72A9C74A000EE88FC /* SegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CBC9C62A9C74A000EE88FC /* SegmentViewController.swift */; };
 		55E467492A8A4521008D79B7 /* UIBezierPathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E467482A8A4521008D79B7 /* UIBezierPathViewController.swift */; };
@@ -193,6 +194,7 @@
 /* Begin PBXFileReference section */
 		2FEA1C54E10568E8E6A827CF /* Pods_JKSwiftExtension_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSwiftExtension_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		484863D9DD238F4FD5E44FEF /* JKSwiftExtension.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JKSwiftExtension.podspec; path = ../JKSwiftExtension.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		555C223A2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabbarExtensionViewController.swift; sourceTree = "<group>"; };
 		55A815D32A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingSpecialConfigurationSegmentView.swift; sourceTree = "<group>"; };
 		55CBC9C62A9C74A000EE88FC /* SegmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentViewController.swift; sourceTree = "<group>"; };
 		55E467482A8A4521008D79B7 /* UIBezierPathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathViewController.swift; sourceTree = "<group>"; };
@@ -713,6 +715,7 @@
 				84802819255963610038748A /* UISwitchExtensionViewController.swift */,
 				848A643E25A4517E00E9EC48 /* UISliderExtensionViewController.swift */,
 				8457685B259DC085006F93D4 /* UITabBarControllerExtensionViewController.swift */,
+				555C223A2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift */,
 				84CEDD63258B62EE00D22735 /* UITableViewCellExtensionViewController.swift */,
 				84F9379F258A081700A35E77 /* UICollectionViewExtensionViewController.swift */,
 				84B29410257747EF009E7760 /* UINavigationBarExtensionViewController.swift */,
@@ -1086,6 +1089,7 @@
 				84802818255957560038748A /* UIApplicationExtensionViewController.swift in Sources */,
 				844A634F25664F9B000059EC /* Notification+Extension.swift in Sources */,
 				E29EF19329F2AD63009BB4DC /* JKUnitConverterViewController.swift in Sources */,
+				555C223B2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift in Sources */,
 				846ECCCB279AE609006215EF /* JKVVViewController.swift in Sources */,
 				E2696C9429C00B3D0058D2B9 /* Person.swift in Sources */,
 				E2EAD536293F6095007D8AE0 /* JKPanViewCustomView.swift in Sources */,

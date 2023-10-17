@@ -10,7 +10,7 @@ import WebKit
 
 extension WKWebView {
     fileprivate struct WKWebViewAssociateKeys {
-        static var confiDefault = "WKWebView" + "confiDefault"
+        static var confiDefault = UnsafeRawPointer("WKWebViewConfiDefault".withCString { $0 })
     }
 }
 

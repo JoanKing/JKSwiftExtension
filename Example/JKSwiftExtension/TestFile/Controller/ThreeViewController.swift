@@ -29,7 +29,7 @@ extension ThreeViewController {
     
     func test14() {
         // Auto layout, variables, and unit scale are not yet supported
-        var view1 = UIView()
+        let view1 = UIView()
         view1.frame = CGRect(x: 0, y: 150, width: jk_kScreenW, height: 200)
         //view1.backgroundColor = .red
         let layer0 = CALayer()

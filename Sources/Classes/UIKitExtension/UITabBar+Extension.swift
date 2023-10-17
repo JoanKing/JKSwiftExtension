@@ -7,14 +7,14 @@
 
 import UIKit
 
-public extension UITabBar {
+//MARK: - 一、基本的扩展
+public extension JKPOP where Base: UITabBar {
     
-    // MARK: 让图片和文字在iOS11下仍然保持上下排列
-    /// 让图片和文字在iOS11下仍然保持上下排列
-    override var traitCollection: UITraitCollection {
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            return UITraitCollection(horizontalSizeClass: .compact)
-        }
-        return super.traitCollection
+    // MARK: 1.1、设置透明背景
+    /// 设置透明背景
+    func setTransparentBackground() {
+        self.base.backgroundImage = UIImage()
+        self.base.shadowImage = UIImage()
+        self.base.isTranslucent = true
     }
 }

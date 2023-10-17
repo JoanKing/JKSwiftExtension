@@ -344,8 +344,8 @@ class TestTextFiledView: UIView {
     }()
     
     /// 请输入信息
-    lazy var infoTextField: UITextField = {
-        let textField = UITextField()
+    lazy var infoTextField: JKPastedTextField = {
+        let textField = JKPastedTextField()
         textField.textColor = UIColor.hexStringColor(hexString: "#2C2D2E")
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         textField.rightViewMode = .always
@@ -423,6 +423,12 @@ extension TestTextFiledView: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        if infoTextField.isPasting {
+            debugPrint("✅复制----：\(string)")
+        } else {
+            debugPrint("💣不是复制----：\(string)")
+        }
         return textField.jk.inputRestrictions(shouldChangeTextIn: range, replacementText: string, maxCharacters: maxCharacters, regex: "^[A-Za-z0-9]+$", lenghType: lenghType, isRemovePasteboardNewlineCharacters: true)
     }
     

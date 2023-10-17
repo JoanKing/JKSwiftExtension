@@ -116,7 +116,7 @@ extension DictionaryExtensionViewController {
     
     // MARK: 1.2、检验 Dictionary 中是否存在某个key的值
     @objc func test12() {
-        var japan: [String: Any] = [
+        let japan: [String: Any] = [
             "name": "Japan",
             "capital": "Tokyo",
             "population": 126_740_000,

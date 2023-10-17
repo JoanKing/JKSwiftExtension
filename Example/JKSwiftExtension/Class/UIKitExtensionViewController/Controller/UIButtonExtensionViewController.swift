@@ -15,6 +15,8 @@ class UIButtonExtensionViewController: BaseViewController {
         
         headDataArray = ["一、基本的扩展", "二、链式调用", "三、UIButton 图片 与 title 位置关系(提示：title和image要在设置布局关系之前设置)", "四、自带倒计时功能的 Button", "五、Button的基本事件", "六、Button扩大点击事件"]
         dataArray = [["创建一个带颜色的 Button", "创建一个常规的 Button", "设置背景色"], ["设置title", "设置文字颜色", "设置字体大小(UIFont)", "设置字体大小(CGFloat)", "设置字体粗体", "设置图片", "设置图片(通过Bundle加载)", "设置图片(通过Bundle加载)", "设置图片(纯颜色的图片)", "设置背景图片", "设置背景图片(通过Bundle加载)", "设置背景图片(通过Bundle加载)", "设置背景图片(纯颜色的图片)", "按钮点击的变化"], ["图片在左", "图片在右", "图片在上", "图片在下"], ["设置 Button 倒计时", "是否可以点击", "是否正在倒计时", "处于倒计时时，前缀文案，如：「再次获取」 + (xxxs)", "销毁定时器"], ["button的事件"], ["扩大UIButton的点击区域，向四周扩展25像素的点击范围"]]
+        // deinit 防止崩溃
+        _ = testButton
     }
     
     @objc func click() {
@@ -32,6 +34,10 @@ class UIButtonExtensionViewController: BaseViewController {
         button.add(self, action: #selector(click))
         return button
     }()
+
+    func autolayoutWaring(isHidden: Bool) {
+            UserDefaults.standard.set(!isHidden, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+        }
     
     deinit {
         debugPrint("-----deinit--------")
@@ -53,7 +59,7 @@ extension UIButtonExtensionViewController {
         testView1.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(150)
-            make.size.equalTo(CGSize(width: 100, height: 100))
+            make.size.equalTo(CGSize(width: 280, height: 280))
         }
         let testView2 = UIView()
         testView2.backgroundColor = .randomColor
@@ -62,7 +68,7 @@ extension UIButtonExtensionViewController {
         
         testView2.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.size.equalTo(CGSize(width: 80, height: 80))
+            make.size.equalTo(CGSize(width: 200, height: 200))
         }
         
         var button1 = UIButton().image(.brown).title("哈哈").jk.setImageTitleLayout(.imgLeft, spacing: 6)
@@ -72,7 +78,7 @@ extension UIButtonExtensionViewController {
             guard let weakBtn = btn else { return }
             print("button的事件", "tag：\(weakBtn.tag)")
         }
-        button1.jk.touchExtendInset = UIEdgeInsets(top: -25, left: -25, bottom: -100, right: -25)
+        button1.jk.touchExtendInset = UIEdgeInsets(top: -50, left: -50, bottom: -50, right: -50)
         testView2.addSubview(button1)
         
         button1.snp.makeConstraints { make in

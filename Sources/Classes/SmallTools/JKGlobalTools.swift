@@ -225,6 +225,16 @@ public struct JKGlobalTools {
     }
 }
 
+//MARK: - 二、控制台的操作
+public extension JKGlobalTools {
+    // MARK: 2.1 是否隐藏控制台autolayout约束内容的输出
+    /// 是否隐藏控制台autolayout约束内容的输出
+    /// - Parameter isHidden: 是否隐藏
+    static func autolayoutWaring(isHidden: Bool) {
+        UserDefaults.standard.set(!isHidden, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+    }
+}
+
 private extension JKGlobalTools {
     // MARK: 版本号 version 分隔三个 Int 值
     /// 分隔版本号

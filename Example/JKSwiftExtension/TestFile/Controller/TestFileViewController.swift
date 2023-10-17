@@ -234,6 +234,7 @@ extension TestFileViewController {
     }
     
     @objc func test11() {
+        /*
         // self.navigationController?.pushViewController(RadiusViewController(), animated: true)
         print("开始")
         DispatchQueue.global().async {
@@ -256,6 +257,7 @@ extension TestFileViewController {
             }
         }
         print("结束")
+         */
     }
     
     //MARK: 上传图片

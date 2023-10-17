@@ -511,6 +511,7 @@ public extension UIButton {
     /// 时间对象
     var timer: DispatchSourceTimer? {
         get {
+            debugPrint("时间打印：\(&JKUIButtonExpandSizeKey)")
             if let value = objc_getAssociatedObject(self, &TimerKey.timer_key) {
                 return value as? DispatchSourceTimer
             }
@@ -524,10 +525,10 @@ public extension UIButton {
     typealias TimeringBlock = (Int) -> ()
     typealias CompletionBlock = () -> ()
     private struct TimerKey {
-        static var timer_key = "timer_key"
-        static var running_key = "running_key"
-        static var timeringPrefix_key = "timering_prefix_key"
-        static var reEnableCond_key = "re_enable_cond_key"
+        static var timer_key = UnsafeRawPointer("timer_key".withCString { $0 })
+        static var running_key = UnsafeRawPointer("running_key".withCString { $0 })
+        static var timeringPrefix_key = UnsafeRawPointer("timering_prefix_key".withCString { $0 })
+        static var reEnableCond_key = UnsafeRawPointer("re_enable_cond_key".withCString { $0 })
     }
 }
 
@@ -560,7 +561,7 @@ public extension JKPOP where Base: UIButton {
 }
 
 // MARK: - 六、Button扩大点击事件
-private var JKUIButtonExpandSizeKey = "JKUIButtonExpandSizeKey"
+private var JKUIButtonExpandSizeKey = UnsafeRawPointer("JKUIButtonExpandSizeKey".withCString { $0 })
 public extension UIButton {
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         if self.jk.touchExtendInset == .zero || isHidden || !isEnabled {

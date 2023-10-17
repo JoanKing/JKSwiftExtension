@@ -53,7 +53,7 @@ class JKWheelPickerViewController: UIViewController {
         self.view.addSubview(button1)
         self.view.addSubview(button2)
         
-        var weeks = ["1", "6", "3"]
+        let weeks = ["1", "6", "3"]
             // .sorted(by: { $0 > $1 })
         let newWeeks = weeks.sorted { $0 < $1 }
         debugPrint("newWeeks：\(newWeeks)")
@@ -73,10 +73,10 @@ class JKWheelPickerViewController: UIViewController {
        // monthPicker.select(3, animated: false)
         JKAsyncs.asyncDelay(0) {
         } _: {[weak self] in
-            guard let weakSelf = self else {
+            guard let self else {
                 return
             }
-            // weakSelf.monthPicker.select(3, animated: false)
+            // self.monthPicker.select(3, animated: false)
         }
         
     }

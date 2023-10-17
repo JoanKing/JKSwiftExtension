@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: - 一、基本的扩展
-fileprivate var JKStateBarViewKey = "JKStateBarViewKey"
+fileprivate var JKStateBarViewKey = UnsafeRawPointer("JKStateBarViewKey".withCString { $0 })
 public extension UINavigationBar {
     
     // MARK: 1.1、通过 Runtime 的属性关联添加自定义 View

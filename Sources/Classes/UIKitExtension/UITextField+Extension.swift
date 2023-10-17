@@ -197,6 +197,8 @@ public extension JKPOP where Base: UITextField {
     ///   - isRemovePasteboardNewlineCharacters: 复制的内容是否移除前后的换行符
     ///   - isMarkedTextRangeCanInput: 高亮状态，原始数据如果小于限制字数，默认不可以继续输入
     /// - Returns: 返回是否可输入
+    ///
+    /// 提示：注入想要处理复制的内容：使用的UITextField继承JKPastedTextField，也可以自己按照我的这种方式自己个性化处理
     func inputRestrictions(shouldChangeTextIn range: NSRange, replacementText text: String, maxCharacters: Int, regex: String?, isInterceptString: Bool = true, lenghType: StringTypeLength = .count, isRemovePasteboardNewlineCharacters: Bool = false, isMarkedTextRangeCanInput: Bool = false) -> Bool {
         guard !text.isEmpty else {
             return true
@@ -206,35 +208,27 @@ public extension JKPOP where Base: UITextField {
         }
         // 输入新的内容
         var inputingContent = text
-        if isRemovePasteboardNewlineCharacters {
-            let pasteboard = UIPasteboard.general
-            // 判断是否是复制操作，是复制操作做过滤处理
-            let pasteboardString = (pasteboard.string ?? "")
-            let content = pasteboardString.jk.removeSomeStringUseSomeString(removeString: "\n", replacingString: " ").jk.removeBeginEndAllSapcefeed
-            // 移除前后空格是因为 string复制的内容即使没有空格，系统也会给加上
-            if content == inputingContent.jk.removeBeginEndAllSapcefeed {
-                // 复制内容，只处理前后的空格和换行
-                inputingContent = pasteboardString.jk.removeBeginEndAllSapceAndLinefeed
-                if let weakRegex = regex, !JKRegexHelper.match(inputingContent, pattern: weakRegex) {
-                    return false
-                }
-                let remainingLength = maxCharacters - oldContent.jk.typeLengh(lenghType)
-                // 可以插入字符串
-                let endString = getInputText(inputingContent: inputingContent, remainingLength: remainingLength, lenghType: lenghType)
-                let newString = oldContent.jk.insertString(content: endString, locat: range.location)
-                self.base.text = newString
-                self.base.sendActions(for: .editingChanged)
-                // 异步改变
-                JKAsyncs.asyncDelay(0.1) {} _: {
-                    let endPosition = self.base.position(from: self.base.beginningOfDocument, offset: range.location + endString.count)
-                    if let endPosition = endPosition {
-                        self.base.selectedTextRange = self.base.textRange(from: endPosition, to: endPosition)
-                    }
-                }
+        if let pastedTextField = self.base as? JKPastedTextField, isRemovePasteboardNewlineCharacters, pastedTextField.isPasting {
+            // 复制内容，只处理前后的空格和换行
+            inputingContent = inputingContent.jk.removeAllLineAndSapcefeed
+            pastedTextField.isPasting = false
+            if let weakRegex = regex, !JKRegexHelper.match(inputingContent, pattern: weakRegex) {
                 return false
-            } else {
-                inputingContent = text
             }
+            let remainingLength = maxCharacters - oldContent.jk.typeLengh(lenghType)
+            // 可以插入字符串
+            let endString = getInputText(inputingContent: inputingContent, remainingLength: remainingLength, lenghType: lenghType)
+            let newString = oldContent.jk.insertString(content: endString, locat: range.location)
+            self.base.text = newString
+            self.base.sendActions(for: .editingChanged)
+            // 异步改变
+            JKAsyncs.asyncDelay(0.1) {} _: {
+                let endPosition = self.base.position(from: self.base.beginningOfDocument, offset: range.location + endString.count)
+                if let endPosition = endPosition {
+                    self.base.selectedTextRange = self.base.textRange(from: endPosition, to: endPosition)
+                }
+            }
+            return false
         }
         
         if let markedTextRange = self.base.markedTextRange {

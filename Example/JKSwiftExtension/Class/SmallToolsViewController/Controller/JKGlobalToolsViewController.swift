@@ -13,12 +13,21 @@ class JKGlobalToolsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        headDataArray = ["一、基本的工具"]
-        dataArray = [["拨打电话", "App更新", "从 storyboard 中唤醒 viewcontroller", "传进某个版本号 个 当前app版本号作对比", "获取本机IP", "前往App Store进行评价", "跳转URL", "获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information", "获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information", "打开设置界面", "退出app（类似点击home键盘）"]]
+        headDataArray = ["一、基本的工具", "二、控制台的操作"]
+        dataArray = [["拨打电话", "App更新", "从 storyboard 中唤醒 viewcontroller", "传进某个版本号 个 当前app版本号作对比", "获取本机IP", "前往App Store进行评价", "跳转URL", "获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information", "获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information", "打开设置界面", "退出app（类似点击home键盘）"], ["autolayout自适应布局是否警告"]]
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+}
+
+// MARK: - 二、控制台的操作
+extension JKGlobalToolsViewController {
+    
+    // MARK: 2.1、autolayout自适应布局是否警告
+    @objc func test21() {
+        JKGlobalTools.autolayoutWaring(isHidden: false)
     }
 }
 

@@ -82,6 +82,8 @@
 		522AE8AA5279ED3A1869CDB3053496FC /* UITapGestureRecognizer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA9F96C4B3F570104D3A07F97DC3A52 /* UITapGestureRecognizer+Extension.swift */; };
 		525E445D6A1EF6B67EF4D0455FC5AAFA /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C57EDCE67CFC63CA5ED621034274F3 /* Debugging.swift */; };
 		5427DBACB1D189B22A74A5F95ECC6F7C /* MJRefreshBackNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 99678FAAF1B470AD9CDAFBA94C536135 /* MJRefreshBackNormalFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		551C663A2AD94A6400972EA4 /* JKPastedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C66392AD94A6400972EA4 /* JKPastedTextView.swift */; };
+		551D61922AD7EDE20094C8AF /* JKPastedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D61912AD7EDE20094C8AF /* JKPastedTextField.swift */; };
 		560CE8E0BC774EDE28CA47711A94AB00 /* JKPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6FF40DC04C2D79B7C5FB827AF096C5 /* JKPrint.swift */; };
 		569C9596A1EE66A0867C2F27DB4434FD /* MJRefreshComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B2AAE60FA49E589F3150078A9496D1D /* MJRefreshComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		572DBDC37429318F768FD7A21F1C0B70 /* MJRefreshBackStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = A2AE51FCC24837E8F305433BF716F932 /* MJRefreshBackStateFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -371,6 +373,8 @@
 		5116B88D6C9B1B9E51E760512E026759 /* Character+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Character+Extension.swift"; sourceTree = "<group>"; };
 		52A605B7F8435A7C5D9CB1EE074CC3F6 /* MJRefreshConst.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshConst.m; path = MJRefresh/MJRefreshConst.m; sourceTree = "<group>"; };
 		536E131A969E123758F19346BED21708 /* ImageTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageTransition.swift; path = Sources/ImageTransition.swift; sourceTree = "<group>"; };
+		551C66392AD94A6400972EA4 /* JKPastedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPastedTextView.swift; sourceTree = "<group>"; };
+		551D61912AD7EDE20094C8AF /* JKPastedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPastedTextField.swift; sourceTree = "<group>"; };
 		55A2F7D581F9DB315F57E8522D5E18D9 /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConstantTarget.swift; path = Source/ConstraintConstantTarget.swift; sourceTree = "<group>"; };
 		56D7B1C80DA21ABFD03CA2D3120361D6 /* NSMutableAttributedString+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extension.swift"; sourceTree = "<group>"; };
 		58023DA1E06624DC235E536B61D4D02C /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Box.swift; path = Sources/Box.swift; sourceTree = "<group>"; };
@@ -1014,6 +1018,8 @@
 			children = (
 				A829B2EB27D785BB92F9905DFBF0B756 /* JKAsyncs.swift */,
 				F7280D8EAFD364BC38A44C559024B66B /* JKCircleProgressView.swift */,
+				551D61912AD7EDE20094C8AF /* JKPastedTextField.swift */,
+				551C66392AD94A6400972EA4 /* JKPastedTextView.swift */,
 				30D6AA11A8F6C881DEF686A83C717744 /* JKClosure.swift */,
 				B993B67A20E65CC84F88FE8478F619F5 /* JKCommonTool.swift */,
 				2361D1735034F0DBEC1DC5BFB4D179CA /* JKContentSize.swift */,
@@ -1411,6 +1417,7 @@
 				4245A84BABD9302580382158CD0E0DD3 /* CATextLayer+Extension.swift in Sources */,
 				04D0D42D73432D509D9EECA4DBA6B902 /* CGFloat+Extension.swift in Sources */,
 				048860E4904C888AB8AF2729EEC3C9E8 /* Character+Extension.swift in Sources */,
+				551D61922AD7EDE20094C8AF /* JKPastedTextField.swift in Sources */,
 				A87CF916C393A6F3332CE3EC53FBF39F /* CLLocation+Extension.swift in Sources */,
 				CA448A68254608B08E9E8966E3CF6895 /* Data+extension.swift in Sources */,
 				423DF4CB417B5139C3F16C738FEF5880 /* Date+Extension.swift in Sources */,
@@ -1488,6 +1495,7 @@
 				CAE1224A1BEA62886E8125B8B94E24FD /* UISlider+Extension.swift in Sources */,
 				8BCD2AAD05FA824ADE7CA235B318A40E /* UIStackView+Extension.swift in Sources */,
 				C88FF5AE31DBC5CE53F684EB574553FE /* UISwitch+Extension.swift in Sources */,
+				551C663A2AD94A6400972EA4 /* JKPastedTextView.swift in Sources */,
 				763CC04401D23FCF14055AC45EF30B62 /* UITabBar+Extension.swift in Sources */,
 				43C9730776DDB2B9981238F4E0F17531 /* UITabBarController+Extension.swift in Sources */,
 				D26AE74CD14FF20E869C3F021BCE9365 /* UITableView+Extension.swift in Sources */,

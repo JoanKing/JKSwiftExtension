@@ -249,13 +249,12 @@ extension StringExtensionViewController {
     // MARK: 12.9、十进制 -> 十六进制
     @objc func test129() {
         let number = "10"
-        let hex = String(format: "%04@", number.jk.decimalToHexadecimal())
         JKPrint("十进制转 十六进制", "十进制：\(number) 转 十六进制 为：\(number.jk.decimalToHexadecimal())")
-        JKPrint("哈哈：\(hex)")
     }
     
     // MARK: 12.10、十六进制 -> 二进制
     @objc func test1210() {
+        
         let number = "a"
         JKPrint("十六进制 转 二进制", "十六进制：\(number) 转 二进制 为：\(number.jk.hexadecimalToBinary())")
     }

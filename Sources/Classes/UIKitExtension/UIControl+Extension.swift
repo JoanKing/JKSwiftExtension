@@ -89,7 +89,8 @@ public extension UIControl {
 
 //MARK:- 二、基本的扩展
 private struct AssociateKeys {
-    static var closure = "UIControl" + "closure"
+    // 使用 ptr 进行操作
+    static var closure = UnsafeRawPointer("UIControlclosure".withCString { $0 })
 }
 
 public extension JKPOP where Base: UIControl {

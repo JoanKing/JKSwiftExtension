@@ -11,8 +11,8 @@ import UIKit
 @objc public extension UIGestureRecognizer {
     
     private struct AssociateKeys {
-        static var funcName = "UIGestureRecognizer" + "funcName"
-        static var closure = "UIGestureRecognizer" + "closure"
+        static var funcName = UnsafeRawPointer("UIGestureRecognizerFuncName".withCString { $0 })
+        static var closure = UnsafeRawPointer("UIGestureRecognizerClosure".withCString { $0 })
     }
     
     /// 方法名称(用于自定义)

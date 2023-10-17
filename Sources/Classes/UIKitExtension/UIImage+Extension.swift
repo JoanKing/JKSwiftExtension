@@ -385,14 +385,14 @@ public extension JKPOP where Base: UIImage {
 fileprivate extension UIImage {
     
     private struct JKRuntimeKey {
-        static let saveBlockKey = UnsafeRawPointer(bitPattern: "saveBlock".hashValue)
+        static var saveBlockKey = UnsafeRawPointer("saveBlock".withCString { $0 })
     }
     private var saveBlock: ((Bool)->())? {
         set {
-            objc_setAssociatedObject(self, JKRuntimeKey.saveBlockKey!, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+            objc_setAssociatedObject(self, &JKRuntimeKey.saveBlockKey, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
         }
         get {
-            return objc_getAssociatedObject(self, JKRuntimeKey.saveBlockKey!) as? (Bool) -> ()
+            return objc_getAssociatedObject(self, &JKRuntimeKey.saveBlockKey) as? (Bool) -> ()
         }
     }
     

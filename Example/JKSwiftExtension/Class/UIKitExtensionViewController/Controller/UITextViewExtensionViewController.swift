@@ -131,8 +131,8 @@ extension UITextViewExtensionViewController {
 //MARK: - 测试：输入内容以及正则的一个输入内容的限制
 class TextViewTestViewController: UIViewController, UITextViewDelegate {
     
-    lazy var inputTextView: UITextView = {
-        let textView = UITextView()
+    lazy var inputTextView: JKPastedTextView = {
+        let textView = JKPastedTextView()
         textView.backgroundColor = .white
         textView.delegate = self
         textView.font = UIFont.systemFont(ofSize: 20)
@@ -167,7 +167,12 @@ class TextViewTestViewController: UIViewController, UITextViewDelegate {
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        textView.jk.inputRestrictions(shouldChangeTextIn: range, replacementText: text, maxCharacters: 20, regex: nil, isInterceptString: true)
+        if inputTextView.isPasting {
+            debugPrint("✅复制----：\(text)")
+        } else {
+            debugPrint("💣不是复制----：\(text)")
+        }
+        return textView.jk.inputRestrictions(shouldChangeTextIn: range, replacementText: text, maxCharacters: 20, regex: nil, isInterceptString: true, isRemovePasteboardNewlineCharacters: true, isMarkedTextRangeCanInput: true)
     }
     
     func textViewDidChange(_ textView: UITextView) {
