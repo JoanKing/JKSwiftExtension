@@ -565,7 +565,7 @@ private var JKUIButtonExpandSizeKey = UnsafeRawPointer("JKUIButtonExpandSizeKey"
 public extension UIButton {
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         if self.jk.touchExtendInset == .zero || isHidden || !isEnabled {
-            super.point(inside: point, with: event)
+            return super.point(inside: point, with: event)
         }
         var hitFrame = bounds.inset(by: self.jk.touchExtendInset)
         hitFrame.size.width = max(hitFrame.size.width, 0)
