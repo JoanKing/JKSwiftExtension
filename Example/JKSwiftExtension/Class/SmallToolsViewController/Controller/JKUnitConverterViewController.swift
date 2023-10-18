@@ -20,15 +20,15 @@ class JKUnitConverterViewController: BaseViewController {
 //MARK: - 三、温度
 extension JKUnitConverterViewController {
     
-    //MARK: 3.2、华氏度(℉) => 摄氏度(℃)
-    @objc func test32() {
+    //MARK: 3.02、华氏度(℉) => 摄氏度(℃)
+    @objc func test302() {
         let fValue = 1
         let cValue = JKUnitConverter.temperatureFToC(temperatureF: "\(fValue)", isNeedUint: true, scale: 1, roundingMode: .plain)
         JKPrint("\(cValue)华氏度(℉)转为摄氏度(℃)：\(cValue)")
     }
     
-    //MARK: 3.1、摄氏度(℃) <=> 华氏度(℉)
-    @objc func test31() {
+    //MARK: 3.01、摄氏度(℃) <=> 华氏度(℉)
+    @objc func test301() {
         let cValue = 1
         let fValue = JKUnitConverter.temperatureCToF(temperatureC: "\(cValue)", isNeedUint: true, scale: 1, roundingMode: .plain)
         JKPrint("\(cValue)摄氏度(℃)转为华氏度(℉)：\(fValue)")
@@ -37,15 +37,15 @@ extension JKUnitConverterViewController {
 
 // MARK: - 二、重量
 extension JKUnitConverterViewController {
-    //MARK: 2.2、磅(lb) => 千克(kg)
-    @objc func test22() {
+    //MARK: 2.02、磅(lb) => 千克(kg)
+    @objc func test202() {
         let lbValue = 2
         let kgValue = JKUnitConverter.lbToKg(lb: "\(lbValue)", isNeedUint: true, scale: 1, roundingMode: .plain)
         JKPrint("\(lbValue)磅(lb)转为千克(kg)：\(kgValue)")
     }
     
-    //MARK: 2.1、千克(kg) => 磅(lb)
-    @objc func test21() {
+    //MARK: 2.01、千克(kg) => 磅(lb)
+    @objc func test201() {
         let kgValue = 2
         let lbValue = JKUnitConverter.kgToLb(kg: "\(kgValue)", isNeedUint: true, scale: 1, roundingMode: .plain)
         JKPrint("\(kgValue)千克(kg)转磅(lb)为：\(lbValue)")
@@ -55,15 +55,15 @@ extension JKUnitConverterViewController {
 // MARK: - 一、距离
 extension JKUnitConverterViewController {
     
-    // MARK: 1.6、英里(mi) => 公里(km)
-    @objc func test16() {
+    // MARK: 1.06、英里(mi) => 公里(km)
+    @objc func test106() {
         let mile = 1
         let kilometer = JKUnitConverter.mileTokilometer(mile: "\(mile)", isNeedUint: true, scale: 1, roundingMode: .plain)
         JKPrint("\(mile)英里(mi)转公里(km)为：\(kilometer)")
     }
     
-    // MARK: 1.5、公里(km) => 英里(mi)
-    @objc func test15() {
+    // MARK: 1.05、公里(km) => 英里(mi)
+    @objc func test105() {
         let kilometer = 1
         let mile = JKUnitConverter.kilometerToMile(kilometer: "\(kilometer)", isNeedUint: true, scale: 1, roundingMode: .plain)
         JKPrint("\(kilometer)公里(km)转英里(mi)为：\(mile)")
@@ -76,22 +76,22 @@ extension JKUnitConverterViewController {
         JKPrint("\(mile)英里(mi)转英尺(ft)为：\(foot)")
     }
     
-    // MARK: 1.3、英尺(ft) => 英里(mi)
-    @objc func test13() {
+    // MARK: 1.03、英尺(ft) => 英里(mi)
+    @objc func test103() {
         let foot = 5288
         let mile = JKUnitConverter.footToMile(foot: "\(foot)", isNeedUint: true, scale: 1, roundingMode: .plain)
         JKPrint("\(foot)英尺(ft)转英里(mi)为：\(mile)")
     }
     
-    // MARK: 1.2、公里(km) => 米(m)
-    @objc func test12() {
+    // MARK: 1.02、公里(km) => 米(m)
+    @objc func test102() {
         let kilometer = 3
         let meter = JKUnitConverter.kilometerToMeter(kilometer: "\(kilometer)", isNeedUint: true, scale: 1, roundingMode: .plain)
         JKPrint("\(kilometer)公里(km)转米(m)为：\(meter)")
     }
     
-    // MARK: 1.1、米(m) => 公里(km)
-    @objc func test11() {
+    // MARK: 1.01、米(m) => 公里(km)
+    @objc func test101() {
         let meter = 80
         let kilometer = JKUnitConverter.meterToKilometer(meter: "\(meter)", isNeedUint: true, scale: 1, roundingMode: .plain)
         JKPrint("\(meter)米(m)转公里(km)为：\(kilometer)")

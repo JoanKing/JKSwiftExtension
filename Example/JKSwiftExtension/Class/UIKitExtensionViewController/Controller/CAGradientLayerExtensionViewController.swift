@@ -21,8 +21,8 @@ class CAGradientLayerExtensionViewController: BaseViewController {
 // MARK: - 一、基本的颜色扩展
 extension CAGradientLayerExtensionViewController {
     
-    // MARK: 1.1、背景的渐变设置
-    @objc func test11() {
+    // MARK: 1.01、背景的渐变设置
+    @objc func test101() {
         // 获取彩虹渐变层
         let gradientLayer = CAGradientLayer().jk.gradientLayer(.horizontal, [UIColor.red.cgColor, UIColor.green.cgColor], nil)
         

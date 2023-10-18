@@ -370,64 +370,64 @@ extension UIApplicationExtensionViewController {
         }
     }
     
-    // MARK: 3.9、打开Videos
-    @objc func test39() {
+    // MARK: 3.09、打开Videos
+    @objc func test309() {
         UIApplication.jk.openSystemApp(type: .Videos) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
-    // MARK: 3.8、打开Music
-    @objc func test38() {
+    // MARK: 3.08、打开Music
+    @objc func test308() {
         UIApplication.jk.openSystemApp(type: .Music) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
-    // MARK: 3.7、打开AppStore
-    @objc func test37() {
+    // MARK: 3.07、打开AppStore
+    @objc func test307() {
         UIApplication.jk.openSystemApp(type: .AppStore) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
-    // MARK: 3.6、打开iBooks
-    @objc func test36() {
+    // MARK: 3.06、打开iBooks
+    @objc func test306() {
         UIApplication.jk.openSystemApp(type: .iBooks) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
-    // MARK: 3.5、打开Mail
-    @objc func test35() {
+    // MARK: 3.05、打开Mail
+    @objc func test305() {
         UIApplication.jk.openSystemApp(type: .Mail) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
-    // MARK: 3.4、打开SMS
-    @objc func test34() {
+    // MARK: 3.04、打开SMS
+    @objc func test304() {
         UIApplication.jk.openSystemApp(type: .SMS) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
-    // MARK: 3.3、打开 打电话Phone
-    @objc func test33() {
+    // MARK: 3.03、打开 打电话Phone
+    @objc func test303() {
         UIApplication.jk.openSystemApp(type: .Phone) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
-    // MARK: 3.2、打开 googleMaps
-    @objc func test32() {
+    // MARK: 3.02、打开 googleMaps
+    @objc func test302() {
         UIApplication.jk.openSystemApp(type: .googleMaps) { (result) in
             JKPrint("结果：\(result)")
         }
     }
     
-    // MARK: 3.1、打开 safari
-    @objc func test31() {
+    // MARK: 3.01、打开 safari
+    @objc func test301() {
         UIApplication.jk.openSystemApp(type: .safari) { (result) in
             JKPrint("结果：\(result)")
         }
@@ -437,15 +437,15 @@ extension UIApplicationExtensionViewController {
 // MARK: - 二、APP权限的检测
 extension UIApplicationExtensionViewController {
     
-    @objc func test22() {
+    @objc func test202() {
         let urlString = "itms-apps://itunes.apple.com/gb/app/yi-dong-cai-bian/id336141475?mt=8"
         JKGlobalTools.openUrl(url: URL(string: urlString)!) { (result) in
             
         }
     }
     
-    // MARK: 2.1、判断是否拥有权限，目前支持 照相机、相册、麦克风、定位，提示：这里判断是这些权限有没有被用户手动关闭
-    @objc func test21() {
+    // MARK: 2.01、判断是否拥有权限，目前支持 照相机、相册、麦克风、定位，提示：这里判断是这些权限有没有被用户手动关闭
+    @objc func test201() {
         let result1 = UIApplication.jk.isOpenPermission(.camera)
         let result2 = UIApplication.jk.isOpenPermission(.album)
         let result3 = UIApplication.jk.isOpenPermission(.audio)
@@ -471,53 +471,53 @@ extension UIApplicationExtensionViewController {
         JKPrint("app详情链接：\(UIApplication.jk.appDetailUrlWithID(""))")
     }
     
-    // MARK: 1.9、app商店链接
-    @objc func test19() {
+    // MARK: 1.09、app商店链接
+    @objc func test109() {
         JKPrint("app商店链接：\(UIApplication.jk.appUrlWithID(""))")
     }
     
-    // MARK: 1.8、注册APNs远程推送
-    @objc func test18() {
+    // MARK: 1.08、注册APNs远程推送
+    @objc func test108() {
         JKPrint("注册APNs远程推送：\(UIApplication.jk.registerAPNsWithDelegate(self))")
     }
     
-    // MARK: 1.7、消息推送是否可用
-    @objc func test17() {
+    // MARK: 1.07、消息推送是否可用
+    @objc func test107() {
         UIApplication.jk.checkPushNotification { authorized in
             JKPrint("消息推送是否可用：\(authorized)")
         }
     }
     
-    // MARK: 1.6、网络状态是否可用
-    @objc func test16() {
+    // MARK: 1.06、网络状态是否可用
+    @objc func test106() {
         JKPrint("网络状态是否可用：\(UIApplication.jk.reachable())")
     }
     
-    // MARK: 1.5、app定位区域
-    @objc func test15() {
+    // MARK: 1.05、app定位区域
+    @objc func test105() {
         JKPrint("app定位区域", "\(UIApplication.jk.localizations ?? "")")
     }
     
-    // MARK: 1.4、设备信息的获取
-    @objc func test14() {
+    // MARK: 1.04、设备信息的获取
+    @objc func test104() {
         JKPrint("设备信息的获取", "\(UIApplication.jk.userAgent)")
     }
     
-    // MARK: 1.3、获取根控制器
-    @objc func test13() {
+    // MARK: 1.03、获取根控制器
+    @objc func test103() {
         guard let vc = UIApplication.jk.topViewController() else {
             return
         }
         JKPrint("获取屏幕的方向", "\(vc.className)")
     }
     
-    // MARK: 1.2、获取屏幕的方向
-    @objc func test12() {
+    // MARK: 1.02、获取屏幕的方向
+    @objc func test102() {
         JKPrint("获取屏幕的方向", "\(UIApplication.jk.screenOrientation.rawValue)")
     }
     
-    //MARK: 1.1、获取当前的keyWindow
-    @objc func test11() {
+    //MARK: 1.01、获取当前的keyWindow
+    @objc func test101() {
         guard let window = UIApplication.jk.keyWindow else{return}
         JKPrint("获取当前的keyWindow", "\(window)")
     }

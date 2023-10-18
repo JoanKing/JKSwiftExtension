@@ -24,8 +24,8 @@ class NibLoadableViewController: BaseViewController {
 // MARK: - 一、继承于UIView的才可以使用该协议的扩展
 extension NibLoadableViewController {
     
-    // MARK: 1.1、加载xib视图
-    @objc func test11() {
+    // MARK: 1.01、加载xib视图
+    @objc func test101() {
         var testView = TestView.loadFromNib().frame(CGRect(x: 0, y: 100, width: 100, height: 100))
         testView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(testView)

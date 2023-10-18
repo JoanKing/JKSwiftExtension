@@ -21,8 +21,8 @@ class UISwitchExtensionViewController: BaseViewController {
 // MARK: - 一、一、基本的扩展
 extension UISwitchExtensionViewController {
     
-    // MARK: 1.2、开关事件
-    @objc func test12() {
+    // MARK: 1.02、开关事件
+    @objc func test102() {
         let sh = UISwitch(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
         sh.backgroundColor = .brown
         sh.jk.setHandle { (result) in
@@ -37,8 +37,8 @@ extension UISwitchExtensionViewController {
         }
     }
     
-    // MARK: 1.1、开关切换
-    @objc func test11() {
+    // MARK: 1.01、开关切换
+    @objc func test101() {
         let sh = UISwitch(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
         sh.backgroundColor = .brown
         sh.addTo(self.view)
@@ -51,7 +51,5 @@ extension UISwitchExtensionViewController {
                 sh.removeFromSuperview()
             }
         }
-        
     }
-    
 }

@@ -22,8 +22,8 @@ class UIStackViewExtensionViewController: BaseViewController {
 // MARK: - 一、链式编程
 extension UIStackViewExtensionViewController {
     
-    // MARK: 1.7、测试
-    @objc func test17() {
+    // MARK: 1.07、测试
+    @objc func test107() {
         let stackView = UIStackView(frame: CGRect(x: 16, y: 100, width: jk_kScreenW - 32, height: 100))
         stackView.backgroundColor = .randomColor
         stackView.spacing = 10
@@ -75,8 +75,8 @@ extension UIStackViewExtensionViewController {
         }
     }
     
-    // MARK: 1.6、设置子控件间距
-    @objc func test16() {
+    // MARK: 1.06、设置子控件间距
+    @objc func test106() {
         let stackView = UIStackView(frame: CGRect(x: 50, y: 100, width: 200, height: 100)).set(spacing: 20)
         stackView.backgroundColor = .randomColor
         self.view.addSubview(stackView)
@@ -97,8 +97,8 @@ extension UIStackViewExtensionViewController {
         }
     }
     
-    // MARK: 1.5、对齐模式
-    @objc func test15() {
+    // MARK: 1.05、对齐模式
+    @objc func test105() {
         JKPrint("子视图在轴向上的分布方式")
         
         let stackView = UIStackView(frame: CGRect(x: 50, y: 100, width: 200, height: 100)).set(distribution: UIStackView.Distribution.fill)
@@ -122,8 +122,8 @@ extension UIStackViewExtensionViewController {
         }
     }
     
-    // MARK: 1.4、子视图在轴向上的分布方式
-    @objc func test14() {
+    // MARK: 1.04、子视图在轴向上的分布方式
+    @objc func test104() {
         JKPrint("子视图在轴向上的分布方式")
         
         let stackView = UIStackView(frame: CGRect(x: 50, y: 100, width: 200, height: 100)).set(distribution: UIStackView.Distribution.fill)
@@ -147,8 +147,8 @@ extension UIStackViewExtensionViewController {
         }
     }
     
-    // MARK: 1.3、子控件布局方向(水平或者垂直),也就是轴方向
-    @objc func test13() {
+    // MARK: 1.03、子控件布局方向(水平或者垂直),也就是轴方向
+    @objc func test103() {
         JKPrint("子控件布局方向(水平或者垂直),也就是轴方向")
         
         let stackView = UIStackView(frame: CGRect(x: 50, y: 100, width: 200, height: 100)).set(axis: NSLayoutConstraint.Axis.horizontal)
@@ -172,8 +172,8 @@ extension UIStackViewExtensionViewController {
         }
     }
     
-    // MARK: 1.2、设置布局时是否以控件的LayoutMargins为标准，默认为false，是以控件的bounds为标准
-    @objc func test12() {
+    // MARK: 1.02、设置布局时是否以控件的LayoutMargins为标准，默认为false，是以控件的bounds为标准
+    @objc func test102() {
         JKPrint("设置布局时是否以控件的LayoutMargins为标准，默认为false，是以控件的bounds为标准")
         
         let stackView = UIStackView(frame: CGRect(x: 50, y: 100, width: 200, height: 100)).set(layoutMarginsRelative: true)
@@ -197,8 +197,8 @@ extension UIStackViewExtensionViewController {
         }
     }
     
-    // MARK: 1.1、布局时是否参照基准线，默认是 false（决定了垂直轴如果是文本的话，是否按照 baseline 来参与布局）
-    @objc func test11() {
+    // MARK: 1.01、布局时是否参照基准线，默认是 false（决定了垂直轴如果是文本的话，是否按照 baseline 来参与布局）
+    @objc func test101() {
         JKPrint("布局时是否参照基准线，默认是 false（决定了垂直轴如果是文本的话，是否按照 baseline 来参与布局）")
         let stackView = UIStackView(frame: CGRect(x: 50, y: 100, width: 200, height: 100)).set(baselineRelative: true)
         stackView.backgroundColor = .randomColor

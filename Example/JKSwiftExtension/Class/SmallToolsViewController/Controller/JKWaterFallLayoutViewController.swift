@@ -27,14 +27,14 @@ class JKWaterFallLayoutViewController: BaseViewController {
 // MARK: - 一、CollectionView流水布局
 extension JKWaterFallLayoutViewController {
     
-    // MARK: 1.2、随机高度
-    @objc func test12() {
+    // MARK: 1.02、随机高度
+    @objc func test102() {
         let number = Int(arc4random()%150).jk.intToCGFloat
         print("\(number)")
     }
     
-    // MARK: 1.1、弹出布局
-    @objc func test11() {
+    // MARK: 1.01、弹出布局
+    @objc func test101() {
         let layout = JKWaterFallLayout()
         layout.dataSource = self
         layout.cols = 3

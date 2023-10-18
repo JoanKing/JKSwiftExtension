@@ -23,8 +23,8 @@ class DictionaryExtensionViewController: BaseViewController {
 // MARK: - 二、其他基本扩展
 extension DictionaryExtensionViewController {
     
-    // MARK: 2.1、字典转JSON
-    @objc func test21() {
+    // MARK: 2.01、字典转JSON
+    @objc func test201() {
         let dictionary: Dictionary<String, Any> = ["b": "2", "a": "1"]
         JKPrint("字典转JSON", "字典：\(dictionary) 转JSON为：\(dictionary.jk.dictionaryToJson() ?? "无法解析")")
     }
@@ -33,8 +33,8 @@ extension DictionaryExtensionViewController {
 // MARK: - 一、基本的扩展
 extension DictionaryExtensionViewController {
     
-    // MARK: 1.9、设置value
-    @objc func test19() {
+    // MARK: 1.09、设置value
+    @objc func test109() {
         var japan: [String: Any] = [
             "name": "Japan",
             "capital": "Tokyo",
@@ -55,8 +55,8 @@ extension DictionaryExtensionViewController {
         JKPrint(japan)
     }
     
-    // MARK: 1.8、设置value
-    @objc func test18() {
+    // MARK: 1.08、设置value
+    @objc func test108() {
         var japan: [String: Any] = [
             "name": "Japan",
             "capital": "Tokyo",
@@ -75,20 +75,20 @@ extension DictionaryExtensionViewController {
         JKPrint(japan)
     }
     
-    // MARK: 1.7、字典里面所有的 values
-    @objc func test17() {
+    // MARK: 1.07、字典里面所有的 values
+    @objc func test107() {
         let dictionary = ["b": "2", "a": "1"]
         JKPrint("字典里面所有的 values", "字典：\(dictionary) 的所有values为：\(dictionary.allValues())")
     }
     
-    // MARK: 1.6、字典里面所有的 key
-    @objc func test16() {
+    // MARK: 1.06、字典里面所有的 key
+    @objc func test106() {
         let dictionary = ["b": "2", "a": "1"]
         JKPrint("字典里面所有的 keys", "字典：\(dictionary) 的所有keys为：\(dictionary.allKeys())")
     }
     
-    // MARK: 1.5、字典 -> JSON字符串
-    @objc func test15() {
+    // MARK: 1.05、字典 -> JSON字符串
+    @objc func test105() {
         let dictionary = ["a": "1", "b": "2"]
         guard let json = dictionary.toJSON() else {
             return
@@ -96,8 +96,8 @@ extension DictionaryExtensionViewController {
         JKPrint("字典 -> JSON字符串", "字典：\(dictionary) 转JSON字符串后为：\(json)")
     }
     
-    // MARK: 1.4、JSON字符串 -> 字典
-    @objc func test14() {
+    // MARK: 1.04、JSON字符串 -> 字典
+    @objc func test104() {
         let dictionary = ["a": "1", "b": "2"]
         guard let json = dictionary.toJSON(), let newDictionary = json.jk.jsonStringToDictionary() else {
             return
@@ -105,8 +105,8 @@ extension DictionaryExtensionViewController {
         JKPrint("JSON字符串 -> 字典", "JSON字符串：\(json) 转为字典为：\(newDictionary)")
     }
     
-    // MARK: 1.3、字典的key或者value组成的数组
-    @objc func test13() {
+    // MARK: 1.03、字典的key或者value组成的数组
+    @objc func test103() {
         let dictionary = ["a": "1", "b": "2"]
         let array = dictionary.toArray { (key, value) -> String in
             return key
@@ -114,8 +114,8 @@ extension DictionaryExtensionViewController {
         JKPrint("字典的key或者value组成的数组", "字典 \(dictionary) 的key组成的数组是：\(array)")
     }
     
-    // MARK: 1.2、检验 Dictionary 中是否存在某个key的值
-    @objc func test12() {
+    // MARK: 1.02、检验 Dictionary 中是否存在某个key的值
+    @objc func test102() {
         let japan: [String: Any] = [
             "name": "Japan",
             "capital": "Tokyo",
@@ -134,8 +134,8 @@ extension DictionaryExtensionViewController {
         debugPrint("检验 Dictionary 中是否存在某个key的值：\(value)")
     }
     
-    // MARK: 1.1、检查字典里面是否有某个 key
-    @objc func test11() {
+    // MARK: 1.01、检查字典里面是否有某个 key
+    @objc func test101() {
         let dictionary = ["a": "1", "b": "2"]
         let key = "c"
         JKPrint("检查字典里面是否有某个 key", "检查字典\(dictionary) 里面有没有键：\(key) ，结果是：\(dictionary.has(key))")

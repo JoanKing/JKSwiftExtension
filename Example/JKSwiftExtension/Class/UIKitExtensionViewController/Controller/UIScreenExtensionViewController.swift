@@ -20,21 +20,21 @@ class UIScreenExtensionViewController: BaseViewController {
 // MARK: - 一、基本的扩展
 extension UIScreenExtensionViewController {
     
-    // MARK: 1.1、获取宽度
-    @objc func test11() {
-        JKPrint("获取宽度：\(UIScreen.jk.width)")
-    }
-    
-    // MARK: 1.2、获取高度
-    @objc func test12() {
-        JKPrint("获取高度：\(UIScreen.jk.height)")
-    }
-    
-    // MARK: 1.3、截屏通知
-    @objc func test13() {
+    // MARK: 1.03、截屏通知
+    @objc func test103() {
         UIScreen.jk.detectScreenShot { (result) in
             JKPrint("\(result)")
         }
+    }
+    
+    // MARK: 1.02、获取高度
+    @objc func test102() {
+        JKPrint("获取高度：\(UIScreen.jk.height)")
+    }
+    
+    // MARK: 1.01、获取宽度
+    @objc func test101() {
+        JKPrint("获取宽度：\(UIScreen.jk.width)")
     }
 }
 

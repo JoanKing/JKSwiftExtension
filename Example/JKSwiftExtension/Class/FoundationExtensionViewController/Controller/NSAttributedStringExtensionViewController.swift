@@ -24,8 +24,8 @@ class NSAttributedStringExtensionViewController: BaseViewController {
 // MARK: - 二、富文本的一些计算
 extension NSAttributedStringExtensionViewController {
     
-    // MARK: 2.3、计算富文本的size
-    @objc func test23() {
+    // MARK: 2.03、计算富文本的size
+    @objc func test203() {
         // 通过富文本来设置行间距
         let paraph = NSMutableParagraphStyle()
         // 将行间距设置为20
@@ -49,8 +49,8 @@ extension NSAttributedStringExtensionViewController {
         }
     }
     
-    // MARK: 2.2、计算富文本的高度
-    @objc func test22() {
+    // MARK: 2.02、计算富文本的高度
+    @objc func test202() {
         // 通过富文本来设置行间距
         let paraph = NSMutableParagraphStyle()
         // 将行间距设置为20
@@ -69,8 +69,8 @@ extension NSAttributedStringExtensionViewController {
         self.view.addSubview(testLabel)
     }
     
-    // MARK: 2.1、计算富文本的宽度
-    @objc func test21() {
+    // MARK: 2.01、计算富文本的宽度
+    @objc func test201() {
         // 通过富文本来设置行间距
         let paraph = NSMutableParagraphStyle()
         // 将行间距设置为20
@@ -200,9 +200,9 @@ extension NSAttributedStringExtensionViewController {
         }
     }
     
-    // MARK: 1.9、插入设置特定文字的删除线
+    // MARK: 1.09、插入设置特定文字的删除线
     /// 插入设置特定文字的删除线
-    @objc func test19() {
+    @objc func test109() {
         let content = "我是一个小可爱"
         let attributesContent = NSAttributedString(string: content)
         // 插入设置特定文字的删除线
@@ -220,9 +220,9 @@ extension NSAttributedStringExtensionViewController {
         }
     }
     
-    // MARK: 1.8、设置特定文字的下划线
+    // MARK: 1.08、设置特定文字的下划线
     /// 设置特定文字的下划线
-    @objc func test18() {
+    @objc func test108() {
         let content = "我是一个小可爱"
         let attributesContent = NSAttributedString(string: content)
         // 设置特定文字的下划线
@@ -240,9 +240,9 @@ extension NSAttributedStringExtensionViewController {
         }
     }
     
-    // MARK: 1.7、设置特定区域的下划线
+    // MARK: 1.07、设置特定区域的下划线
     /// 设置特定区域的下划线
-    @objc func test17() {
+    @objc func test107() {
         let content = "我是一个小可爱"
         let attributesContent = NSAttributedString(string: content)
         // 设置特定区域的下划线
@@ -260,9 +260,9 @@ extension NSAttributedStringExtensionViewController {
         }
     }
     
-    // MARK: 1.6、设置特定文字行间距
+    // MARK: 1.06、设置特定文字行间距
     /// 设置特定文字行间距
-    @objc func test16() {
+    @objc func test106() {
         let content = "十五从军征，八十始得归。道逢乡里人：家中有阿谁？遥看是君家，松柏冢累累。兔从狗窦入，雉从梁上飞。中庭生旅谷，井上生旅葵。舂谷持作饭，采葵持作羹。"
         let attributesContent = NSAttributedString(string: content)
         // 设置特定文字行间距
@@ -280,9 +280,9 @@ extension NSAttributedStringExtensionViewController {
         }
     }
     
-    // MARK: 1.5、设置特定区域行行间距
+    // MARK: 1.05、设置特定区域行行间距
     /// 设置特定区域行间距
-    @objc func test15() {
+    @objc func test105() {
         let content = "十五从军征，八十始得归。道逢乡里人：家中有阿谁？遥看是君家，松柏冢累累。兔从狗窦入，雉从梁上飞。中庭生旅谷，井上生旅葵。舂谷持作饭，采葵持作羹。"
         let attributesContent = NSAttributedString(string: content)
         // 设置特定区域行间距
@@ -300,9 +300,9 @@ extension NSAttributedStringExtensionViewController {
         }
     }
     
-    // MARK: 1.4、设置特定文字的字体颜色
+    // MARK: 1.04、设置特定文字的字体颜色
     /// 设置特定文字的字体颜色
-    @objc func test14() {
+    @objc func test104() {
         let content = "十五从军征，八十始得归。道逢乡里人：家中有阿谁？遥看是君家，松柏冢累累。兔从狗窦入，雉从梁上飞。中庭生旅谷，井上生旅葵。舂谷持作饭，采葵持作羹。"
         let attributesContent = NSAttributedString(string: content)
         // 设置特定文字的字体颜色
@@ -320,9 +320,9 @@ extension NSAttributedStringExtensionViewController {
         }
     }
     
-    // MARK: 1.3、设置特定区域的字体颜色
+    // MARK: 1.03、设置特定区域的字体颜色
     /// 设置特定区域的字体颜色
-    @objc func test13() {
+    @objc func test103() {
         let content = "春宵一刻值千金，花有清香月有阴。歌管楼台声细细，秋千院落夜沉沉。"
         let attributesContent = NSAttributedString(string: content)
         // 设置特定区域的字体颜色
@@ -340,9 +340,9 @@ extension NSAttributedStringExtensionViewController {
         }
     }
     
-    // MARK: 1.2、设置特定文字的字体大小
+    // MARK: 1.02、设置特定文字的字体大小
     /// 设置特定文字的字体大小
-    @objc func test12() {
+    @objc func test102() {
         let content = "春宵一刻值千金，花有清香月有阴。歌管楼台声细细，秋千院落夜沉沉。"
         let attributesContent = NSAttributedString(string: content)
         // 设置特定区域的字体颜色
@@ -360,9 +360,9 @@ extension NSAttributedStringExtensionViewController {
         }
     }
     
-    // MARK: 1.1、设置特定区域的字体大小
+    // MARK: 1.01、设置特定区域的字体大小
     /// 设置特定区域的字体大小
-    @objc func test11() {
+    @objc func test101() {
         let content = "春宵一刻值千金，花有清香月有阴。歌管楼台声细细，秋千院落夜沉沉。"
         let attributesContent = NSAttributedString(string: content)
         // 设置特定区域的字体大小

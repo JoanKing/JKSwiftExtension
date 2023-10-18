@@ -305,7 +305,7 @@ public extension JKPOP where Base: UITextField {
         return true
     }
     
-    func getInputText(inputingContent: String, remainingLength: Int, lenghType: StringTypeLength) -> String {
+    private func getInputText(inputingContent: String, remainingLength: Int, lenghType: StringTypeLength) -> String {
         // 在此就需要遍历要输入的内容
         var count = 0
         var endString: String = ""

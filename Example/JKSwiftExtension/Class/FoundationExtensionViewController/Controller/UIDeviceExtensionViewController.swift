@@ -21,16 +21,16 @@ class UIDeviceExtensionViewController: BaseViewController {
 // MARK: - 四、设备的震动
 extension UIDeviceExtensionViewController {
     
-    // MARK: 4.4、模拟选择滚轮一类控件时的震动
+    // MARK: 4.04、模拟选择滚轮一类控件时的震动
     @available(iOS 10.0, *)
-    @objc func test44() {
+    @objc func test404() {
         JKPrint("模拟选择滚轮一类控件时的震动")
         UIDevice.jk.selectionFeedbackGeneratorChanged()
     }
     
-    // MARK: 4.3、UIImpactFeedbackGenerator 来设置的手机振动
+    // MARK: 4.03、UIImpactFeedbackGenerator 来设置的手机振动
     @available(iOS 10.0, *)
-    @objc func test43() {
+    @objc func test403() {
         JKPrint("UIImpactFeedbackGenerator 来设置的手机振动")
         JKAsyncs.asyncDelay(1) {
         } _: {
@@ -46,9 +46,9 @@ extension UIDeviceExtensionViewController {
         }
     }
     
-    //MARK: 4.2、UINotificationFeedbackGenerator 来设置的手机振动
+    //MARK: 4.02、UINotificationFeedbackGenerator 来设置的手机振动
     @available(iOS 10.0, *)
-    @objc func test42() {
+    @objc func test402() {
         JKPrint("UINotificationFeedbackGenerator 来设置的手机振动")
         JKAsyncs.asyncDelay(1) {
         } _: {
@@ -64,8 +64,8 @@ extension UIDeviceExtensionViewController {
         }
     }
     
-    // MARK: 4.1、通过SystemSoundID震动
-    @objc func test41() {
+    // MARK: 4.01、通过SystemSoundID震动
+    @objc func test401() {
         JKPrint("通过SystemSoundID震动")
         JKAsyncs.asyncDelay(1) {
         } _: {
@@ -88,64 +88,64 @@ extension UIDeviceExtensionViewController {
 // MARK: - 三、有关设备运营商的信息
 extension UIDeviceExtensionViewController {
     
-    // MARK: 3.8、是否允许VoIP
-    @objc func test38() {
+    // MARK: 3.08、是否允许VoIP
+    @objc func test308() {
         guard let isAllows = UIDevice.jk.isAllowsVOIPs() else {
             return
         }
         JKPrint("是否允许VoIP：\(isAllows)")
     }
     
-    // MARK: 3.7、ISO国家代码
-    @objc func test37() {
+    // MARK: 3.07、ISO国家代码
+    @objc func test307() {
         guard let isoCountryCode = UIDevice.jk.isoCountryCodes() else {
             return
         }
         JKPrint("ISO国家代码：\(isoCountryCode)")
     }
     
-    // MARK: 3.6、移动网络码(MNC)
-    @objc func test36() {
+    // MARK: 3.06、移动网络码(MNC)
+    @objc func test306() {
         guard let mobileNetworkCode = UIDevice.jk.mobileNetworkCodes() else {
             return
         }
         JKPrint("移动网络码(MNC)：\(mobileNetworkCode)")
     }
     
-    // MARK: 3.5、移动国家码(MCC)
-    @objc func test35() {
+    // MARK: 3.05、移动国家码(MCC)
+    @objc func test305() {
         guard let mobileCountryCode = UIDevice.jk.mobileCountryCodes() else {
             return
         }
         JKPrint("移动国家码：\(mobileCountryCode)")
     }
     
-    // MARK: 3.4、运营商名字
-    @objc func test34() {
+    // MARK: 3.04、运营商名字
+    @objc func test304() {
         guard let carrierName = UIDevice.jk.carrierNames() else {
             return
         }
         JKPrint("运营商名字：\(carrierName)")
     }
     
-    // MARK: 3.3、设备网络制式
-    @objc func test33() {
+    // MARK: 3.03、设备网络制式
+    @objc func test303() {
         guard let networkType = UIDevice.jk.networkTypes() else {
             return
         }
         JKPrint("设备网络制式：\(networkType)")
     }
     
-    // MARK: 3.2、数据业务对应的通信技术
-    @objc func test32() {
+    // MARK: 3.02、数据业务对应的通信技术
+    @objc func test302() {
         guard let currentRadioAccessTechnology = UIDevice.jk.currentRadioAccessTechnologys() else {
             return
         }
         JKPrint("数据业务对应的通信技术：\(currentRadioAccessTechnology)")
     }
     
-    // MARK: 3.1、sim卡信息
-    @objc func test31() {
+    // MARK: 3.01、sim卡信息
+    @objc func test301() {
         guard let carriers = UIDevice.jk.simCardInfos() else {
             return
         }
@@ -176,101 +176,101 @@ extension UIDeviceExtensionViewController {
         JKPrint("获取总内存大小", "\(FileManager.jk.covertUInt64ToString(with: UInt64(UIDevice.jk.memoryTotal)))")
     }
     
-    // MARK: 2.9、当前硬盘已经使用的空间
-    @objc func test29() {
+    // MARK: 2.09、当前硬盘已经使用的空间
+    @objc func test209() {
         JKPrint("当前硬盘已经使用的空间", "\(FileManager.jk.covertUInt64ToString(with: UInt64(UIDevice.jk.diskSpaceUsed)))")
     }
     
-    // MARK: 2.8、当前硬盘可用空间
-    @objc func test28() {
+    // MARK: 2.08、当前硬盘可用空间
+    @objc func test208() {
         JKPrint("当前硬盘可用空间", "\(FileManager.jk.covertUInt64ToString(with: UInt64(UIDevice.jk.diskSpaceFree)))")
     }
     
-    // MARK: 2.7、当前硬盘的空间
-    @objc func test27() {
+    // MARK: 2.07、当前硬盘的空间
+    @objc func test207() {
         JKPrint("当前硬盘的空间", "\(FileManager.jk.covertUInt64ToString(with: UInt64(UIDevice.jk.diskSpace)))")
     }
     
-    // MARK: 2.6、当前设备是否越狱
-    @objc func test26() {
+    // MARK: 2.06、当前设备是否越狱
+    @objc func test206() {
         JKPrint("当前设备是否越狱", "\(UIDevice.jk.isJailbroken)")
     }
     
-    // MARK: 2.5、当前设备的名称
-    @objc func test25() {
+    // MARK: 2.05、当前设备的名称
+    @objc func test205() {
         JKPrint("当前设备的名称", "\(UIDevice.jk.currentDeviceName)")
     }
     
-    // MARK: 2.4、当前系统的名称
-    @objc func test24() {
+    // MARK: 2.04、当前系统的名称
+    @objc func test204() {
         JKPrint("当前系统的名称", "\(UIDevice.jk.currentSystemName)")
     }
     
-    // MARK: 2.3、当前设备的类型
-    @objc func test23() {
+    // MARK: 2.03、当前设备的类型
+    @objc func test203() {
         JKPrint("当前系统的类型", "\(UIDevice.jk.deviceType)")
     }
-    // MARK: 2.2、当前系统更新时间
-    @objc func test22() {
+    // MARK: 2.02、当前系统更新时间
+    @objc func test202() {
         JKPrint("当前系统更新时间", "\(UIDevice.jk.systemUptime)")
     }
     
-    // MARK: 2.1、当前设备的系统版本
-    @objc func test21() {
+    // MARK: 2.01、当前设备的系统版本
+    @objc func test201() {
         JKPrint("当前设备的系统版本", "\(UIDevice.jk.currentSystemVersion)")
     }
 }
 // MARK: - 一、基本的扩展
 extension UIDeviceExtensionViewController {
-    
-    // MARK: 1.1、设备的名字
-    @objc func test11() {
-        JKPrint("设备的名字", "\(UIDevice.jk.modelName)")
+
+    // MARK: 1.10、当前设备是不是模拟器
+    @objc func test110() {
+        JKPrint("当前设备是不是模拟器", "\(UIDevice.jk.isSimulator())")
     }
     
-    // MARK: 1.2、获取设备类型
-    @objc func test12() {
+    // MARK: 1.09、是不是 xs系列
+    @objc func test109() {
+        JKPrint("是不是 xs系列", "\(UIDevice.jk.isIphoneXSScreen())")
+    }
+    
+    // MARK: 1.08、是不是 x 系列
+    @objc func test108() {
+        JKPrint("是不是 x 系列", "\(UIDevice.jk.isIphoneXScreen())")
+    }
+    
+    // MARK: 1.07、判断是否是 iphone6
+    @objc func test107() {
+        JKPrint("判断是否是 iphone6", "\(UIDevice.jk.isIphone6Screen())")
+    }
+    
+    // MARK: 1.06、判断是否是 iphone5
+    @objc func test106() {
+        JKPrint("判断是否是 iphone5", "\(UIDevice.jk.isIphone5Screen())")
+    }
+    
+    // MARK: 1.05、判断是否为 iphone
+    @objc func test105() {
+        JKPrint("判断是否为 iphone", "\(UIDevice.jk.isIphone())")
+    }
+    
+    // MARK: 1.04、判断是否是 pad
+    @objc func test104() {
+        JKPrint("判断是否是 pad", "\(UIDevice.jk.isPadDevice())")
+    }
+    
+    // MARK: 1.03、判断是否为 iPad
+    @objc func test103() {
+        JKPrint("判断是否为 iPad", "\(UIDevice.jk.isIpad())")
+    }
+    
+    // MARK: 1.02、获取设备类型
+    @objc func test102() {
         let screenType = UIDevice.jk.screenType
         JKPrint("获取设备类型", "\(String(describing: screenType))")
     }
     
-    // MARK: 1.3、判断是否为 iPad
-    @objc func test13() {
-        JKPrint("判断是否为 iPad", "\(UIDevice.jk.isIpad())")
-    }
-    
-    // MARK: 1.4、判断是否是 pad
-    @objc func test14() {
-        JKPrint("判断是否是 pad", "\(UIDevice.jk.isPadDevice())")
-    }
-    
-    // MARK: 1.5、判断是否为 iphone
-    @objc func test15() {
-        JKPrint("判断是否为 iphone", "\(UIDevice.jk.isIphone())")
-    }
-    
-    // MARK: 1.6、判断是否是 iphone5
-    @objc func test16() {
-        JKPrint("判断是否是 iphone5", "\(UIDevice.jk.isIphone5Screen())")
-    }
-    
-    // MARK: 1.7、判断是否是 iphone6
-    @objc func test17() {
-        JKPrint("判断是否是 iphone6", "\(UIDevice.jk.isIphone6Screen())")
-    }
-    
-    // MARK: 1.8、是不是 x 系列
-    @objc func test18() {
-        JKPrint("是不是 x 系列", "\(UIDevice.jk.isIphoneXScreen())")
-    }
-    
-    // MARK: 1.9、是不是 xs系列
-    @objc func test19() {
-        JKPrint("是不是 xs系列", "\(UIDevice.jk.isIphoneXSScreen())")
-    }
-    
-    // MARK: 1.10、当前设备是不是模拟器
-    @objc func test110() {
-        JKPrint("当前设备是不是模拟器", "\(UIDevice.jk.isSimulator())")
+    // MARK: 1.01、设备的名字
+    @objc func test101() {
+        JKPrint("设备的名字", "\(UIDevice.jk.modelName)")
     }
 }

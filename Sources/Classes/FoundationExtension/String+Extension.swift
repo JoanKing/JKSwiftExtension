@@ -107,75 +107,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return true
     }
     
-    // MARK: 1.8、字符串转 UIViewController
-    /// 字符串转 UIViewController
-    /// - Returns: 对应的控制器
-    @discardableResult
-    func toViewController() -> UIViewController? {
-        // 1.获取类
-        guard let trueClass: AnyClass = self.toClass() else {
-            return nil
-        }
-        // 2.通过类创建对象
-        // 2.1、将AnyClass 转化为指定的类
-        guard let vcClass = trueClass as? UIViewController.Type else {
-            return nil
-        }
-        // 2.2、通过class创建对象
-        let vc = vcClass.init()
-        return vc
-    }
-    
-    // MARK: 1.9、字符串转 AnyClass
-    /// 字符串转 AnyClass
-    /// - Returns: 对应的 Class
-    @discardableResult
-    func toClass() -> AnyClass? {
-        // 1.动态获取命名空间
-        let namespace = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
-        // 2.将字符串转换为类
-        // 2.1.默认情况下命名空间就是项目的名称，但是命名空间的名称是可以更改的
-        guard let Class: AnyClass = NSClassFromString(namespace.jk.removeSomeStringUseSomeString(removeString: " ", replacingString: "_") + "." + (base as! String)) else {
-            return nil
-        }
-        return Class
-    }
-    
-    // MARK: 1.10、字符串转数组
-    /// 字符串转数组
-    /// - Returns: 转化后的数组
-    func toArray() -> Array<Any> {
-        let a = Array(base as! String)
-        return a
-    }
-    
-    // MARK: 1.11、JSON 字符串 ->  Dictionary
-    /// JSON 字符串 ->  Dictionary
-    /// - Returns: Dictionary
-    func jsonStringToDictionary() -> Dictionary<String, Any>? {
-        let jsonString = self.base as! String
-        let jsonData: Data = jsonString.data(using: .utf8)!
-        let dict = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
-        if dict != nil {
-            return (dict as! Dictionary<String, Any>)
-        }
-        return nil
-    }
-    
-    // MARK: 1.12、JSON 字符串 -> Array
-    /// JSON 字符串 ->  Array
-    /// - Returns: Array
-    func jsonStringToArray() -> Array<Any>? {
-        let jsonString = self.base as! String
-        let jsonData:Data = jsonString.data(using: .utf8)!
-        let array = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
-        if array != nil {
-            return (array as! Array<Any>)
-        }
-        return nil
-    }
-    
-    // MARK: 1.13、转成拼音
+    // MARK: 1.8、转成拼音
     /// 转成拼音
     /// - Parameter isLatin: true：带声调，false：不带声调，默认 false
     /// - Returns: 拼音
@@ -189,7 +121,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return mutableString as String
     }
     
-    // MARK: 1.14、提取首字母, "爱国" --> AG
+    // MARK: 1.9、提取首字母, "爱国" --> AG
     /// 提取首字母, "爱国" --> AG
     /// - Parameter isUpper:  true：大写首字母，false: 小写首字母，默认 true
     /// - Returns: 字符串的首字母
@@ -199,7 +131,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return isUpper ? initials.joined().uppercased() : initials.joined()
     }
     
-    // MARK: 1.15、字符串根据某个字符进行分隔成数组
+    // MARK: 1.110、字符串根据某个字符进行分隔成数组
     /// 字符串根据某个字符进行分隔成数组
     /// - Parameter char: 分隔符
     /// - Returns: 分隔后的数组
@@ -209,7 +141,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return arrayStrings
     }
     
-    // MARK: 1.16、设备的UUID
+    // MARK: 1.11、设备的UUID
     /// 设备的UUID
     static func stringWithUUID() -> String? {
         let uuid = CFUUIDCreate(kCFAllocatorDefault)
@@ -217,13 +149,13 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return cfString as String?
     }
     
-    // MARK: 1.17、复制
+    // MARK: 1.12、复制
     /// 复制
     func copy() {
         UIPasteboard.general.string = (self.base as! String)
     }
     
-    // MARK: 1.18、提取出字符串中所有的URL链接
+    // MARK: 1.13、提取出字符串中所有的URL链接
     /// 提取出字符串中所有的URL链接
     /// - Returns: URL链接数组
     func getUrls() -> [String]? {
@@ -241,7 +173,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return urls
     }
     
-    // MARK: 1.19、String或者String HTML标签转富文本设置
+    // MARK: 1.14、String或者String HTML标签转富文本设置
     /// String 或者String HTML标签 转 html 富文本设置
     /// - Parameters:
     ///   - font: 设置字体
@@ -279,7 +211,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return htmlString ?? NSMutableAttributedString(string: self.base as! String)
     }
     
-    // MARK: 1.20、计算字符个数（英文 = 1，数字 = 1，汉语 = 2）
+    // MARK: 1.15、计算字符个数（英文 = 1，数字 = 1，汉语 = 2）
     /// 计算字符个数（英文 = 1，数字 = 1，汉语 = 2）
     /// - Returns: 返回字符的个数
     func customCountOfChars() -> Int {
@@ -294,6 +226,78 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
             }
         }
         return count
+    }
+}
+
+// MARK: - 二、字符串与其他类型(字符串转 UIViewController、AnyClass、数组、字典等)的转换
+public extension JKPOP where Base: ExpressibleByStringLiteral {
+    
+    // MARK: 2.1、字符串转 UIViewController
+    /// 字符串转 UIViewController
+    /// - Returns: 对应的控制器
+    @discardableResult
+    func toViewController() -> UIViewController? {
+        // 1.获取类
+        guard let trueClass: AnyClass = self.toClass() else {
+            return nil
+        }
+        // 2.通过类创建对象
+        // 2.1、将AnyClass 转化为指定的类
+        guard let vcClass = trueClass as? UIViewController.Type else {
+            return nil
+        }
+        // 2.2、通过class创建对象
+        let vc = vcClass.init()
+        return vc
+    }
+    
+    // MARK: 2.2、字符串转 AnyClass
+    /// 字符串转 AnyClass
+    /// - Returns: 对应的 Class
+    @discardableResult
+    func toClass() -> AnyClass? {
+        // 1.动态获取命名空间
+        let namespace = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
+        // 2.将字符串转换为类
+        // 2.1.默认情况下命名空间就是项目的名称，但是命名空间的名称是可以更改的
+        guard let Class: AnyClass = NSClassFromString(namespace.jk.removeSomeStringUseSomeString(removeString: " ", replacingString: "_") + "." + (base as! String)) else {
+            return nil
+        }
+        return Class
+    }
+    
+    // MARK: 2.3、字符串转数组
+    /// 字符串转数组
+    /// - Returns: 转化后的数组
+    func toArray() -> Array<Any> {
+        let a = Array(base as! String)
+        return a
+    }
+    
+    // MARK: 2.4、JSON 字符串 ->  Dictionary
+    /// JSON 字符串 ->  Dictionary
+    /// - Returns: Dictionary
+    func jsonStringToDictionary() -> Dictionary<String, Any>? {
+        let jsonString = self.base as! String
+        let jsonData: Data = jsonString.data(using: .utf8)!
+        let dict = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
+        if dict != nil {
+            return (dict as! Dictionary<String, Any>)
+        }
+        return nil
+    }
+    
+    // MARK: 2.5、JSON 字符串 -> Array
+    /// JSON 字符串 ->  Array
+    /// - Returns: Array
+    func jsonStringToArray() -> Array<Any>? {
+        let jsonString = self.base as! String
+        let jsonData:Data = jsonString.data(using: .utf8)!
+        let array = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
+        if array != nil {
+            return (array as! Array<Any>)
+        }
+        return nil
     }
 }
 
@@ -1576,10 +1580,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         guard string.count < length else {
             return string
         }
-        let zeros = [Int](0..<(length - 1)).reduce("") { item1, item2 in
-            return item1 + "0"
-        }
-        return zeros + string
+        return String(repeating: "0", count: length - string.count) + string
     }
 }
 

@@ -124,7 +124,7 @@ extension TestFileViewController {
         return isNetworkPermissions
     }
     
-    @objc func test19() {
+    @objc func test109() {
         /*
         debugPrint(isMultiple(10, of: 5))
         debugPrint(isMultiple(0, of: 1))
@@ -138,11 +138,11 @@ extension TestFileViewController {
     }
     
     
-    @objc func test18() {
+    @objc func test108() {
         self.navigationController?.pushViewController(FiveViewController(), animated: true)
     }
     
-    @objc func test17() {
+    @objc func test107() {
         //var array1 = ["a", "b", "c"]
         // 也不可以越界
         //array1.insert("yy", at: 0)
@@ -174,14 +174,14 @@ extension TestFileViewController {
         let status: UInt8 = ~(1 << 3)         // 00001000 11110111
         let x: Int = 0b10001001 & Int(status) // 10001001 10001001  10000001
         // 1101  841
-        print("x:\(x) status:\(status)")
+        debugPrint("x:\(x) status:\(status)")
     }
     
-    @objc func test16() {
+    @objc func test106() {
         // self.navigationController?.pushViewController(JKVVViewController(), animated: true)
         let array1 = [1, 2, 2, 5]
         let array2 = [1, 6, 2]
-        print("-1--start-:\(CFAbsoluteTimeGetCurrent())")
+        debugPrint("-1--start-:\(CFAbsoluteTimeGetCurrent())")
         var dict1: [String:Int] = [:]
         array1.forEach({
             dict1["\($0)"] = 1
@@ -192,11 +192,10 @@ extension TestFileViewController {
                 debugPrint("相同的元素：\($0)")
             }
         })
-        print("-1--end-:\(CFAbsoluteTimeGetCurrent())")
-        
+        debugPrint("-1--end-:\(CFAbsoluteTimeGetCurrent())")
     }
     
-    @objc func test15() {
+    @objc func test105() {
         let numbers1 = ["1", "2", "4"]
         let numbers2 = ["1", "2", "3"]
         let numbers3 = ["1", "2", "3"]
@@ -204,17 +203,17 @@ extension TestFileViewController {
         self.navigationController?.pushViewController(NineViewController(), animated: true)
     }
     
-    @objc func test14() {
+    @objc func test104() {
         let numbers = [1,2, nil,4]
         let result = numbers.compactMap{ $0 } //[16, 64, 4]
         print(result)  // [3,4,5,6]
     }
     
-    @objc func test13() {
+    @objc func test103() {
         self.navigationController?.pushViewController(NotificationTetstViewController(), animated: true)
     }
     
-    @objc func test12() {
+    @objc func test102() {
         // showAlertAgreement()
         /*
          var sectionModels = [[11, 12, 13], [21, 22, 23]]
@@ -233,7 +232,7 @@ extension TestFileViewController {
         debugPrint("value4：\(value4)")
     }
     
-    @objc func test11() {
+    @objc func test101() {
         /*
         // self.navigationController?.pushViewController(RadiusViewController(), animated: true)
         print("开始")
@@ -258,6 +257,13 @@ extension TestFileViewController {
         }
         print("结束")
          */
+        
+        let originalString = "123"
+        let targetLength = 20
+        let paddingCharacter = "0"
+
+        let paddedString = String(repeating: paddingCharacter, count: targetLength - originalString.count) + originalString
+        debugPrint(paddedString) // 输出结果：00000000000000000123
     }
     
     //MARK: 上传图片
@@ -282,7 +288,7 @@ extension TestFileViewController {
             workingGroup.enter()
             JKAsyncs.asyncDelay(index == 2 ? 5 : 1) {
             } _: {
-                print("接口 \(index) 数据请求完成 值：\(image)")
+                debugPrint("接口 \(index) 数据请求完成 值：\(image)")
                 imageUrls[index] = "\(image)"
                 workingGroup.leave()
             }
@@ -315,15 +321,15 @@ extension TestFileViewController {
         workingGroup.enter()
         JKAsyncs.asyncDelay(5) {
         } _: {
-            print("接口1执行结束")
+            debugPrint("接口1执行结束")
             workingGroup.leave()
         }
         
         workingGroup.enter()
         JKAsyncs.asyncDelay(2) {
-            print("")
+            debugPrint("")
         } _: {
-            print("接口2执行结束")
+            debugPrint("接口2执行结束")
             workingGroup.leave()
         }
         
@@ -346,7 +352,7 @@ extension TestFileViewController {
         debugPrint("开始执行的代码")
         workingGroup.enter()
         netWork1 {
-            print("接口1执行结束")
+            debugPrint("接口1执行结束")
             result = false
             workingGroup.leave()
         }
@@ -354,7 +360,7 @@ extension TestFileViewController {
         workingGroup.enter()
         netWork2 {
             result = true
-            print("接口2执行结束")
+            debugPrint("接口2执行结束")
             workingGroup.leave()
         }
         

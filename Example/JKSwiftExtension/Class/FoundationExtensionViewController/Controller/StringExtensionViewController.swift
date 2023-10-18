@@ -18,8 +18,8 @@ class StringExtensionViewController: BaseViewController {
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green
         
-        headDataArray = ["一、字符串基本的扩展", "二、沙盒路径的获取", "三、iOS CharacterSet（字符集）", "四、字符串的转换", "五、字符串UI的处理", "六、字符串有关数字方面的扩展", "七、苹果针对浮点类型计算精度问题提供出来的计算类", "八、字符串包含表情的处理", "九、字符串的一些正则校验", "十、字符串截取的操作", "十一、字符串编码的处理", "十二、进制之间的转换", "十三、String -> NSMutableAttributedString", "十四、MD5 加密 和 Base64 编解码", "十五、AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密", "十六、SHA1, SHA224, SHA256, SHA384, SHA512", "十七、unicode编码和解码", "字符值引用 (numeric character reference, NCR)与普通字符串的转换"]
-        dataArray = [["字符串的长度", "判断是否包含某个子串", "判断是否包含某个子串 -- 忽略大小写", "字符串转 base64", "base64转字符串转", "将16进制字符串转为Int", "判断是不是九宫格键盘", "字符串转 UIViewController", "字符串转 AnyClass", "字符串转数组", "JSON 字符串 -> Dictionary", "JSON 字符串 -> Array", "转成拼音", "提取首字母：爱国->AG", "字符串根据某个字符进行分隔成数组", "设备的UUID", "复制", "提取出字符串中所有的URL链接", "String或者String HTML标签转富文本设置", "计算字符个数（英文 = 1，数字 = 1，汉语 = 2）"], ["获取Home的完整路径名", "获取Documnets的完整路径名", "获取Library的完整路径名", "获取/Library/Cache的完整路径名", "获取Library/Preferences的完整路径名", "获取Tmp的完整路径名"],["去除字符串前后的 空格", "去除字符串前后的 换行", "去除字符串前后的 换行和换行", "去掉所有 空格", "去掉所有 换行", "去掉所有空格 和 换行", "是否是 0-9的数字，也不包含小数点", "url进行编码", "url进行解码", "某个字符使用某个字符替换掉", "字符串指定range替换", "使用正则表达式替换某些子串", "删除指定的字符"], ["字符串 转 CGFloat", "字符串转 Bool", "字符串转 Int", "字符串转 Double", "字符串转 Float", "字符串转 NSString", "字符串转 Int64", "字符串转 NSNumber"], ["对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)", "对字符串(多行)指定字体及Size，获取 (高度)", "对字符串(多行)指定字体及Size，获取 (宽度)", "对字符串(单行)指定字体，获取 (Size)", "对字符串(单行)指定字体，获取 (width)", "对字符串(单行)指定字体，获取 (Height)", "字符串通过 label 根据高度&字体—>Size", "字符串通过 label 根据高度&字体—>Width", "字符串通过 label 根据宽度&字体—>height", "字符串根据宽度 & 字体&行间距->Size", "字符串根据宽度 & 字体 & 行间距->width", "字符串根据宽度&字体&行间距->height"], ["将金额字符串转化为带逗号的金额 按照千分位划分，如 1234567 => 1,234,567", "字符串差不多精确转换成Double——之所以差不多，是因为有精度损失", "去掉小数点后多余的 0", "将数字的字符串处理成  几位 位小数的情况"], ["(加) ＋", "(减) -", "(乘) *", "(除) /"], ["检查字符串是否包含 Emoji 表情", "去除字符串中的Emoji表情"], ["判断是否全是空白,包括空白字符和换行符号，长度为0返回true", "判断是否全十进制数字，长度为0返回false", "判断是否是整数", "判断是否是Float,此处Float是包含Int的，即Int是特殊的Float", "判断是否全是字母，长度为0返回false", "判断是否是中文, 这里的中文不包括数字及标点符号", "是否是有效昵称，即允许“中文”、“英文”、“数字”", "判断是否是有效的手机号码", "判断是否是有效的电子邮件地址", "判断是否有效的身份证号码，不是太严格", "严格判断是否有效的身份证号码,检验了省份，生日，校验位，不过没检查市县的编码", "校验字符串位置是否合理，并返回String.Index", "隐藏手机号中间的几位", "隐藏手机号中间的几位(保留前几位和后几位)", "隐藏邮箱中间的几位(保留前几位和后几位)", "检查字符串是否有特定前缀", "检查字符串是否有特定后缀", "是否为0-9之间的数字(字符串的组成是：0-9之间的数字)", "是否为数字或者小数点(字符串的组成是：0-9之间的数字或者小数点即可)", "验证URL格式是否正确", "是否是一个有效的文件URL", "富文本匹配(某些关键词高亮)", "判断是否是视频链接"], ["截取字符串从开始到 index", "截取字符串从index到结束", "获取指定位置和长度的字符串", "切割字符串(区间范围 前闭后开)", "子字符串第一次出现的位置", "子字符串最后一次出现的位置", "获取某个位置的字符串", "获取某个子串在父串中的范围->Range", "获取某个子串在父串中的范围->NSRange", "在任意位置插入字符串", "匹配两个字符之间的内容", "字符串按照步长拆分为字符串数组", "字符串长度不足前面补0"], [""], ["二进制 -> 八进制", "二进制 -> 十进制", "二进制 -> 十六进制", "八进制 -> 二进制", "八进制 -> 十进制", "八进制 -> 十六进制", "十进制 -> 二进制", "十进制 -> 八进制", "十进制 -> 十六进制", "十六进制 -> 二进制", "十六进制 -> 八进制", "十六进制 -> 十进制"], ["String 添加颜色后转 NSMutableAttributedString", "String 添加 font 后转 NSMutableAttributedString", "String 添加 font 后转 NSMutableAttributedString", "String 添加 text 后转 NSMutableAttributedString", "String 添加 删除线 后转 NSMutableAttributedString"], ["MD5加密 默认是32位小写加密", "Base64 编解码"], ["字符串 AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密"], ["SHA1, SHA224, SHA256, SHA384, SHA512 加密"], ["unicode编码", "unicode解码"], ["将普通字符串转为字符值引用", "字符值引用转普通字符串"]]
+        headDataArray = ["一、字符串基本的扩展", "二、字符串与其他类型(字符串转 UIViewController、AnyClass、数组、字典等)的转换", "三、沙盒路径的获取", "四、iOS CharacterSet（字符集）", "五、字符串的转换", "六、字符串UI的处理", "七、字符串有关数字方面的扩展", "八、苹果针对浮点类型计算精度问题提供出来的计算类", "九、字符串包含表情的处理", "十、字符串的一些正则校验", "十一、字符串截取的操作", "十二、字符串编码的处理", "十三、进制之间的转换", "十四、String -> NSMutableAttributedString", "十五、MD5 加密 和 Base64 编解码", "十六、AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密", "十七、SHA1, SHA224, SHA256, SHA384, SHA512", "十八、unicode编码和解码", "十九、字符值引用 (numeric character reference, NCR)与普通字符串的转换"]
+        dataArray = [["字符串的长度", "判断是否包含某个子串", "判断是否包含某个子串 -- 忽略大小写", "字符串转 base64", "base64转字符串转", "将16进制字符串转为Int", "判断是不是九宫格键盘", "转成拼音", "提取首字母：爱国->AG", "字符串根据某个字符进行分隔成数组", "设备的UUID", "复制", "提取出字符串中所有的URL链接", "String或者String HTML标签转富文本设置", "计算字符个数（英文 = 1，数字 = 1，汉语 = 2）"], ["字符串转 UIViewController", "字符串转 AnyClass", "字符串转数组", "JSON 字符串 -> Dictionary", "JSON 字符串 -> Array"], ["获取Home的完整路径名", "获取Documnets的完整路径名", "获取Library的完整路径名", "获取/Library/Cache的完整路径名", "获取Library/Preferences的完整路径名", "获取Tmp的完整路径名"],["去除字符串前后的 空格", "去除字符串前后的 换行", "去除字符串前后的 换行和换行", "去掉所有 空格", "去掉所有 换行", "去掉所有空格 和 换行", "是否是 0-9的数字，也不包含小数点", "url进行编码", "url进行解码", "某个字符使用某个字符替换掉", "字符串指定range替换", "使用正则表达式替换某些子串", "删除指定的字符"], ["字符串 转 CGFloat", "字符串转 Bool", "字符串转 Int", "字符串转 Double", "字符串转 Float", "字符串转 NSString", "字符串转 Int64", "字符串转 NSNumber"], ["对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)", "对字符串(多行)指定字体及Size，获取 (高度)", "对字符串(多行)指定字体及Size，获取 (宽度)", "对字符串(单行)指定字体，获取 (Size)", "对字符串(单行)指定字体，获取 (width)", "对字符串(单行)指定字体，获取 (Height)", "字符串通过 label 根据高度&字体—>Size", "字符串通过 label 根据高度&字体—>Width", "字符串通过 label 根据宽度&字体—>height", "字符串根据宽度 & 字体&行间距->Size", "字符串根据宽度 & 字体 & 行间距->width", "字符串根据宽度&字体&行间距->height"], ["将金额字符串转化为带逗号的金额 按照千分位划分，如 1234567 => 1,234,567", "字符串差不多精确转换成Double——之所以差不多，是因为有精度损失", "去掉小数点后多余的 0", "将数字的字符串处理成  几位 位小数的情况"], ["(加) ＋", "(减) -", "(乘) *", "(除) /"], ["检查字符串是否包含 Emoji 表情", "去除字符串中的Emoji表情"], ["判断是否全是空白,包括空白字符和换行符号，长度为0返回true", "判断是否全十进制数字，长度为0返回false", "判断是否是整数", "判断是否是Float,此处Float是包含Int的，即Int是特殊的Float", "判断是否全是字母，长度为0返回false", "判断是否是中文, 这里的中文不包括数字及标点符号", "是否是有效昵称，即允许“中文”、“英文”、“数字”", "判断是否是有效的手机号码", "判断是否是有效的电子邮件地址", "判断是否有效的身份证号码，不是太严格", "严格判断是否有效的身份证号码,检验了省份，生日，校验位，不过没检查市县的编码", "校验字符串位置是否合理，并返回String.Index", "隐藏手机号中间的几位", "隐藏手机号中间的几位(保留前几位和后几位)", "隐藏邮箱中间的几位(保留前几位和后几位)", "检查字符串是否有特定前缀", "检查字符串是否有特定后缀", "是否为0-9之间的数字(字符串的组成是：0-9之间的数字)", "是否为数字或者小数点(字符串的组成是：0-9之间的数字或者小数点即可)", "验证URL格式是否正确", "是否是一个有效的文件URL", "富文本匹配(某些关键词高亮)", "判断是否是视频链接"], ["截取字符串从开始到 index", "截取字符串从index到结束", "获取指定位置和长度的字符串", "切割字符串(区间范围 前闭后开)", "子字符串第一次出现的位置", "子字符串最后一次出现的位置", "获取某个位置的字符串", "获取某个子串在父串中的范围->Range", "获取某个子串在父串中的范围->NSRange", "在任意位置插入字符串", "匹配两个字符之间的内容", "字符串按照步长拆分为字符串数组", "字符串长度不足前面补0"], [""], ["二进制 -> 八进制", "二进制 -> 十进制", "二进制 -> 十六进制", "八进制 -> 二进制", "八进制 -> 十进制", "八进制 -> 十六进制", "十进制 -> 二进制", "十进制 -> 八进制", "十进制 -> 十六进制", "十六进制 -> 二进制", "十六进制 -> 八进制", "十六进制 -> 十进制"], ["String 添加颜色后转 NSMutableAttributedString", "String 添加 font 后转 NSMutableAttributedString", "String 添加 font 后转 NSMutableAttributedString", "String 添加 text 后转 NSMutableAttributedString", "String 添加 删除线 后转 NSMutableAttributedString"], ["MD5加密 默认是32位小写加密", "Base64 编解码"], ["字符串 AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密"], ["SHA1, SHA224, SHA256, SHA384, SHA512 加密"], ["unicode编码", "unicode解码"], ["将普通字符串转为字符值引用", "字符值引用转普通字符串"]]
     }
     
     override func didReceiveMemoryWarning() {
@@ -27,11 +27,11 @@ class StringExtensionViewController: BaseViewController {
     }
 }
 
-// MARK: - 十八、字符值引用 (numeric character reference, NCR)与普通字符串的转换
+// MARK: - 十九、字符值引用 (numeric character reference, NCR)与普通字符串的转换
 extension StringExtensionViewController {
     
-    // MARK: 18.2、字符值引用转普通字符串
-    @objc func test182() {
+    // MARK: 19.02、字符值引用转普通字符串
+    @objc func test1902() {
         let str = "潘美丽，最美丽"
         let newString = str.jk.toHtmlEncodedString()
         guard let newString2 = newString.jk.htmlEncodedStringToString() else {
@@ -41,37 +41,37 @@ extension StringExtensionViewController {
         JKPrint("字符值引用转普通字符串", "原始字符串：\(str) 转为字符值引用：\(newString)", "字符值引用：\(newString) 转为普通字符串为：\(newString2)")
     }
     
-    // MARK: 18.1、将普通字符串转为字符值引用
-    @objc func test181() {
+    // MARK: 19.01、将普通字符串转为字符值引用
+    @objc func test1901() {
         let str = "潘美丽，最美丽"
         let newString = str.jk.toHtmlEncodedString()
         JKPrint("将普通字符串转为字符值引用", "原始字符串：\(str) 转为字符值引用：\(newString)")
     }
 }
 
-// MARK: - 十七、unicode编码和解码
+// MARK: - 十八、unicode编码和解码
 extension StringExtensionViewController {
     
-    // MARK: 17.2、unicode解码
-    @objc func test172() {
+    // MARK: 18.02、unicode解码
+    @objc func test1802() {
         let str = "我是一只小小鸟"
         let newString = str.jk.unicodeEncode()
         JKPrint("unicode编码", "原始字符串：\(str)", "unicode编码后的字符串为：\(newString)", "unicode解码后的字符串为：\(newString.jk.unicodeDecode())")
     }
     
-    // MARK: 17.1、unicode编码
-    @objc func test171() {
+    // MARK: 18.01、unicode编码
+    @objc func test1801() {
         let str = "我是一只小小鸟"
         let newString = str.jk.unicodeEncode()
         JKPrint("unicode编码", "原始字符串：\(str)", "unicode编码后的字符串为：\(newString)")
     }
 }
 
-// MARK: - 十六、SHA1, SHA224, SHA256, SHA384, SHA512
+// MARK: - 十七、SHA1, SHA224, SHA256, SHA384, SHA512
 extension StringExtensionViewController {
     
-    // MARK: 16.1、SHA1, SHA224, SHA256, SHA384, SHA512 加密
-    @objc func test161() {
+    // MARK: 17.01、SHA1, SHA224, SHA256, SHA384, SHA512 加密
+    @objc func test1701() {
         let str = "我是一只小小鸟"
         let key = "123456"
         let newString = str.jk.shaCrypt(cryptType: .SHA1, key: key, lower: true) ?? "加密失败"
@@ -80,11 +80,11 @@ extension StringExtensionViewController {
         print("加密后的字符串：\(newString)")
     }
 }
-// MARK: - 十五、AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
+// MARK: - 十六、AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
 extension StringExtensionViewController {
     
-    // MARK: 15.1、字符串 AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
-    @objc func test151() {
+    // MARK: 16.01、字符串 AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
+    @objc func test1601() {
         let str = "welcome to hangge.com"
         let key = "123456"
         let newString = str.jk.scaCrypt(cryptType: .DES, key: key, encode: true) ?? "加密失败"
@@ -94,19 +94,19 @@ extension StringExtensionViewController {
     }
     
 }
-// MARK: - 十四、MD5 加密 和 Base64 编解码
+// MARK: - 十五、MD5 加密 和 Base64 编解码
 extension StringExtensionViewController {
     
-    // MARK: 14.2、Base64 编解码
-    @objc func test142() {
+    // MARK: 15.02、Base64 编解码
+    @objc func test1502() {
         let oldString = "123456"
         let newString = oldString.jk.base64String(encode: true) ?? "转码失败"
         let newString2 = newString.jk.base64String(encode: false) ?? "解码失败"
         JKPrint("原始字符串：\(oldString)", "\(oldString) 编码后的字符串：\(newString)", "\(newString) 解码后为：\(newString2)", "最后：\(oldString.jk.base64Encode!)")
     }
     
-    // MARK: 14.1、MD5加密 默认是32位小写加密
-    @objc func test141() {
+    // MARK: 15.01、MD5加密 默认是32位小写加密
+    @objc func test1501() {
         print("32 位小写：\("123456".jk.md5Encrypt())")
         print("32 位大写：\("123456".jk.md5Encrypt(.uppercase32))")
         print("16 位小写：\("123456".jk.md5Encrypt(.lowercase16))")
@@ -120,11 +120,11 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK: - 十三、String -> NSMutableAttributedString
+// MARK: - 十四、String -> NSMutableAttributedString
 extension StringExtensionViewController {
     
-    // MARK: 13.1、String 添加颜色后转 NSMutableAttributedString
-    @objc func test131() {
+    // MARK: 14.01、String 添加颜色后转 NSMutableAttributedString
+    @objc func test1401() {
         
         let attributedString = "2秒后消失".jk.color(UIColor.red)
         
@@ -138,8 +138,8 @@ extension StringExtensionViewController {
         }
     }
     
-    // MARK: 13.2、String 添加 font 后转 NSMutableAttributedString
-    @objc func test132() {
+    // MARK: 14.02、String 添加 font 后转 NSMutableAttributedString
+    @objc func test1402() {
         
         let attributedString = "2秒后消失".jk.font(30)
         
@@ -153,8 +153,8 @@ extension StringExtensionViewController {
         }
     }
     
-    // MARK: 13.3、String 添加 UIFont 后转 NSMutableAttributedString
-    @objc func test133() {
+    // MARK: 14.03、String 添加 UIFont 后转 NSMutableAttributedString
+    @objc func test1403() {
         let attributedString = "2秒后消失".jk.font(UIFont.systemFont(ofSize: 28))
         
         let testView1 = UILabel(frame: CGRect(x: 200, y: 100, width: 100, height: 100))
@@ -167,8 +167,8 @@ extension StringExtensionViewController {
         }
     }
     
-    // MARK: 13.4、String 添加 text 后转 NSMutableAttributedString
-    @objc func test134() {
+    // MARK: 14.04、String 添加 text 后转 NSMutableAttributedString
+    @objc func test1404() {
         let attributedString = "2秒后消失".jk.text()
         
         let testView1 = UILabel(frame: CGRect(x: 200, y: 100, width: 100, height: 100))
@@ -181,8 +181,8 @@ extension StringExtensionViewController {
         }
     }
     
-    // MARK: 13.5、String 添加 删除线 后转 NSMutableAttributedString
-    @objc func test135() {
+    // MARK: 14.05、String 添加 删除线 后转 NSMutableAttributedString
+    @objc func test1405() {
         let attributedString = "2秒后消失".jk.strikethrough()
         
         let testView1 = UILabel(frame: CGRect(x: 200, y: 100, width: 100, height: 100))
@@ -196,146 +196,146 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK: - 十二、进制之间的转换
+// MARK: - 十三、进制之间的转换
 extension StringExtensionViewController {
-    // MARK: 12.1、二进制 -> 八进制
-    @objc func test121() {
+    // MARK: 13.01、二进制 -> 八进制
+    @objc func test1301() {
         let number = "1010"
         JKPrint("二进制 转 八进制", "二进制：\(number) 转 八进制 为：\(number.jk.binaryToOctal())")
     }
     
-    // MARK: 12.2、二进制 -> 十进制
-    @objc func test122() {
+    // MARK: 13.02、二进制 -> 十进制
+    @objc func test1302() {
         let number = "1010"
         JKPrint("二进制 转 十进制", "二进制：\(number) 转 十进制 为：\(number.jk.binaryTodecimal())")
     }
     
-    // MARK: 12.3、二进制 -> 十六进制
-    @objc func test123() {
+    // MARK: 13.03、二进制 -> 十六进制
+    @objc func test1303() {
         let number = "1010"
         JKPrint("二进制 转 十六进制", "二进制：\(number) 转 十六进制 为：\(number.jk.binaryToHexadecimal())")
     }
     
-    // MARK: 12.4、八进制 -> 二进制
-    @objc func test124() {
+    // MARK: 13.4、八进制 -> 二进制
+    @objc func test134() {
         let number = "12"
         JKPrint("八进制 -> 二进制", "八进制：\(number) 转 二进制 为：\(number.jk.octalTobinary())")
     }
     
-    // MARK: 12.5、八进制 -> 十进制
-    @objc func test125() {
+    // MARK: 13.05、八进制 -> 十进制
+    @objc func test1305() {
         let number = "12"
         JKPrint("八进制 -> 十进制", "八进制：\(number) 转 十进制 为：\(number.jk.octalTodecimal())")
     }
     
-    // MARK: 12.6、八进制 -> 十六进制
-    @objc func test126() {
+    // MARK: 13.06、八进制 -> 十六进制
+    @objc func test1306() {
         let number = "12"
         JKPrint("八进制 -> 十六进制", "八进制：\(number) 转 十六进制 为：\(number.jk.octalToHexadecimal())")
     }
     
-    // MARK: 12.7、十进制 -> 二进制
-    @objc func test127() {
+    // MARK: 13.07、十进制 -> 二进制
+    @objc func test1307() {
         let number = "10"
         JKPrint("十进制 转 二进制", "十进制：\(number) 转 二进制 为：\(number.jk.decimalToBinary())")
     }
     
-    // MARK: 12.8、十进制 -> 八进制
-    @objc func test128() {
+    // MARK: 13.08、十进制 -> 八进制
+    @objc func test1308() {
         let number = "10"
         JKPrint("十进制转 八进制", "十进制：\(number) 转 八进制 为：\(number.jk.decimalToOctal())")
     }
     
-    // MARK: 12.9、十进制 -> 十六进制
-    @objc func test129() {
+    // MARK: 13.09、十进制 -> 十六进制
+    @objc func test1309() {
         let number = "10"
         JKPrint("十进制转 十六进制", "十进制：\(number) 转 十六进制 为：\(number.jk.decimalToHexadecimal())")
     }
     
-    // MARK: 12.10、十六进制 -> 二进制
-    @objc func test1210() {
+    // MARK: 13.10、十六进制 -> 二进制
+    @objc func test1310() {
         
         let number = "a"
         JKPrint("十六进制 转 二进制", "十六进制：\(number) 转 二进制 为：\(number.jk.hexadecimalToBinary())")
     }
     
-    // MARK: 12.11、十六进制 -> 八进制
-    @objc func test1211() {
+    // MARK: 13.11、十六进制 -> 八进制
+    @objc func test1311() {
         let number = "a"
         JKPrint("十六进制 转 八进制", "十六进制：\(number) 转 八进制 为：\(number.jk.hexadecimalToOctal())")
     }
     
-    // MARK: 12.12、十六进制 -> 十进制
-    @objc func test1212() {
+    // MARK: 13.12、十六进制 -> 十进制
+    @objc func test1312() {
         let number = "01d530d8c930000"
         // 8254091982733312
         JKPrint("十六进制 转 十进制", "十六进制：\(number) 转 十进制 为：\(number.jk.hexadecimalToDecimal())")
     }
 }
 
-// MARK: - 十一、字符串编码的处理
+// MARK: - 十二、字符串编码的处理
 extension StringExtensionViewController {
-    // MARK: 11.1、
-    @objc func test100() {
+    // MARK: 12.01、
+    @objc func test1201() {
         
     }
 }
 
-// MARK: - 十、字符串截取的操作
+// MARK: - 十一、字符串截取的操作
 extension StringExtensionViewController {
-    // MARK: 10.1、截取字符串从开始到 index
+    // MARK: 11.01、截取字符串从开始到 index
     ///  截取字符串从开始到 index
-    @objc func test101() {
+    @objc func test1101() {
         let testString1 = "😄1😄"
         JKPrint("字符串截取的操作x", "\(testString1) 从开头截取到index=4 后为：\(testString1.jk.sub(to: 4))")
     }
     
-    // MARK: 10.2、截取字符串从index到结束
+    // MARK: 11.02、截取字符串从index到结束
     ///  截取字符串从index到结束
-    @objc func test102() {
+    @objc func test1102() {
         let testString1 = "0😄123456789"
         JKPrint("截取字符串从index到结束", "\(testString1) 截取字符串从index=4到结束后为：\(testString1.jk.sub(from: 4))")
     }
     
-    // MARK: 10.3、获取指定位置和长度的字符串
+    // MARK: 11.03、获取指定位置和长度的字符串
     ///  获取指定位置和长度的字符串
-    @objc func test103() {
+    @objc func test1103() {
         let testString1 = "0123456789"
         JKPrint("获取指定位置和长度的字符串", "\(testString1) 截取字符串从index=2到长度为2后为：\(testString1.jk.sub(start: 2, length: 2))")
     }
     
-    // MARK: 10.4、切割字符串(区间范围 前闭后开)
+    // MARK: 11.04、切割字符串(区间范围 前闭后开)
     ///  切割字符串(区间范围 前闭后开)
-    @objc func test104() {
+    @objc func test1104() {
         let testString1 = "0123456789"
         JKPrint("切割字符串(区间范围 前闭后开)", "\(testString1) 截取字符串 2..<4 后为：\(testString1.jk.slice(2..<4))")
     }
     
-    // MARK: 10.5、子字符串第一次出现的位置
+    // MARK: 11.05、子字符串第一次出现的位置
     /// 子字符串第一次出现的位置
-    @objc func test105() {
+    @objc func test1105() {
         let str = "2"
         let testString1 = "01234567289"
         JKPrint("子字符串第一次出现的位置", "\(testString1) 中字符串 \(str) 第一次出现的位置：\(testString1.jk.positionFirst(of: str))")
     }
     
-    // MARK: 10.6、子字符串最后一次出现的位置
+    // MARK: 11.06、子字符串最后一次出现的位置
     /// 子字符串最后一次出现的位置
-    @objc func test106() {
+    @objc func test1106() {
         let str = "2"
         let testString1 = "01234567289"
         JKPrint("子字符串最后一次出现的位置", "\(testString1) 中字符串 \(str) 最后一次出现的位置：\(testString1.jk.positionLast(of: str))")
     }
     
-    // MARK: 10.7、获取某个位置的字符串
-    @objc func test107() {
+    // MARK: 11.07、获取某个位置的字符串
+    @objc func test1107() {
         let testString1 = "0123456789"
         let index: Int = 5
         JKPrint("获取某个位置的字符串", "\(testString1) 中字符串位置为：\(index) 的字符是：\(testString1.jk.indexString(index: index))")
     }
     
-    // MARK: 10.8、获取某个子串在父串中的范围->Range
-    @objc func test108() {
+    // MARK: 11.08、获取某个子串在父串中的范围->Range
+    @objc func test1108() {
         let testString1 = "01234567892"
         let str = "2"
         guard let range = testString1.jk.range(of: str) else {
@@ -344,16 +344,16 @@ extension StringExtensionViewController {
         JKPrint("获取某个子串在父串中的范围->Range", "\(testString1) 中子串为：\(str) 在父串中的范围是：\(range)")
     }
     
-    // MARK: 10.9、获取某个子串在父串中的范围->NSRange
-    @objc func test109() {
+    // MARK: 11.09、获取某个子串在父串中的范围->NSRange
+    @objc func test1109() {
         let testString1 = "01234567829"
         let str = "2"
         let nsRanges = testString1.jk.nsRange(of: str)
         JKPrint("获取某个子串在父串中的范围->NSRange", "\(testString1) 中子串为：\(str) 在父串中的范围是：\(nsRanges)")
     }
     
-    // MARK: 10.10、在任意位置插入字符串
-    @objc func test1010() {
+    // MARK: 11.10、在任意位置插入字符串
+    @objc func test1110() {
         let testString = "01234567829"
         let str = "我爱祖国"
         let location = 10
@@ -361,9 +361,9 @@ extension StringExtensionViewController {
         JKPrint("在任意位置插入字符串", "父字符串：\(testString)", "子字符串：\(str)", "在\(location)的位置插入字符串：\(str) 后新的字符串为：\(newString)")
     }
     
-    //MARK: 10.11、匹配两个字符之间的内容
+    //MARK: 11.11、匹配两个字符之间的内容
     /// 匹配两个字符之间的内容
-    @objc func test1011() {
+    @objc func test1111() {
         let testString = "晋太元中，武[陵人[捕鱼]为业。缘[溪行]，忘路之远近。忽逢[桃花]林]，夹岸数百步，"
         let leftChar = "["
         let rightChar = "]"
@@ -382,17 +382,17 @@ extension StringExtensionViewController {
         JKPrint("匹配两个字符之间的内容", "匹配1--", "原字符串：\(testString)", "匹配左右字符为：\(leftChar)\(rightChar)", "匹配后的结果是：\(resultArray)", "--------", "匹配2--", "原字符串：\(testString2)", "匹配左右字符为：\(leftChar2)\(rightChar2)", "匹配后的结果是：\(resultArray2)", "--------", "匹配3--", "原字符串：\(testString3)", "匹配左右字符为：\(leftChar3)\(rightChar3)", "匹配后的结果是：\(resultArray3)", "--------")
     }
     
-    //MARK: 10.12、字符串按照步长拆分为字符串数组
+    //MARK: 11.12、字符串按照步长拆分为字符串数组
     /// 字符串按照步长拆分为字符串数组
-    @objc func test1012() {
+    @objc func test1112() {
         let testString = "晋太元捕鱼为"
         let arrray = testString.jk.splitStringArray(length: 20)
         JKPrint("\(testString)--拆分为：\(arrray)")
     }
     
-    //MARK: 10.13、字符串长度不足前面补0
+    //MARK: 11.13、字符串长度不足前面补0
     /// 字符串长度不足前面补0
-    @objc func test1013() {
+    @objc func test1113() {
         let testString = "A"
         let length = 2
         let string = testString.jk.prefixAddZero(length)
@@ -400,62 +400,62 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK: - 九、字符串的一些正则校验
+// MARK: - 十、字符串的一些正则校验
 extension StringExtensionViewController {
     
-    // MARK: 9.1、判断是否全是空白,包括空白字符和换行符号，长度为0返回true
+    // MARK: 10.01、判断是否全是空白,包括空白字符和换行符号，长度为0返回true
     /// 判断是否全是空白,包括空白字符和换行符号，长度为0返回true
-    @objc func test91() {
+    @objc func test1001() {
         let testString = " \n \n"
         JKPrint("\(testString.jk.isBlank)")
     }
     
-    // MARK: 9.2、判断是否全十进制数字，长度为0返回false
+    // MARK: 10.02、判断是否全十进制数字，长度为0返回false
     /// 判断是否全十进制数字，长度为0返回false
-    @objc func test92() {
+    @objc func test1002() {
         let testString = "f"
         JKPrint("\(testString.jk.isDecimalDigits)")
     }
     
-    // MARK: 9.3、判断是否是整数
+    // MARK: 10.03、判断是否是整数
     /// 判断是否是整数
-    @objc func test93() {
+    @objc func test1003() {
         let testString1 = "32"
         let testString2 = "e"
         let testString3 = "1.0"
         JKPrint("判断 \(testString1) 是否是整数：\(testString1.jk.isPureInt)", "判断 \(testString1) 是否是整数：\(testString2.jk.isPureInt)", "判断 \(testString1) 是否是整数：\(testString3.jk.isPureInt)")
     }
     
-    // MARK: 9.4、判断是否是Float,此处Float是包含Int的，即Int是特殊的Float
+    // MARK: 10.04、判断是否是Float,此处Float是包含Int的，即Int是特殊的Float
     /// 判断是否是Float,此处Float是包含Int的，即Int是特殊的Float
-    @objc func test94() {
+    @objc func test1004() {
         let testString1 = "32"
         let testString2 = "e"
         let testString3 = "1.0"
         JKPrint("判断是否是Float,此处Float是包含Int的，即Int是特殊的Float", "判断 \(testString1) 是否是Float：\(testString1.jk.isPureFloat)", "判断 \(testString2) 是否是Float：\(testString2.jk.isPureFloat)", "判断 \(testString3) 是否是Float：\(testString3.jk.isPureFloat)")
     }
     
-    // MARK: 9.5、判断是否全是字母，长度为0返回false
+    // MARK: 10.05、判断是否全是字母，长度为0返回false
     /// 判断是否全是字母，长度为0返回false
-    @objc func test95() {
+    @objc func test1005() {
         let testString1 = "34fgt"
         let testString2 = "e"
         let testString3 = "ABC"
         JKPrint("判断是否全是字母，长度为0返回false，即Int是特殊的Float", "判断 \(testString1) 是否全是字母：\(testString1.jk.isLetters)", "判断 \(testString2) 是否全是字母：\(testString2.jk.isLetters)", "判断 \(testString3) 是否全是字母：\(testString3.jk.isLetters)")
     }
     
-    // MARK: 9.6、判断是否是中文, 这里的中文不包括数字及标点符号
+    // MARK: 10.06、判断是否是中文, 这里的中文不包括数字及标点符号
     /// 判断是否是中文, 这里的中文不包括数字及标点符号
-    @objc func test96() {
+    @objc func test1006() {
         let testString1 = "我爱中国"
         let testString2 = "e"
         let testString3 = "I am a boy"
         JKPrint("判断是否是中文, 这里的中文不包括数字及标点符号", "判断 \(testString1) 是否是中文：\(testString1.jk.isChinese)", "判断 \(testString2) 是否是中文：\(testString2.jk.isChinese)", "判断 \(testString3) 是否是中文：\(testString3.jk.isChinese)")
     }
     
-    // MARK: 9.7、是否是有效昵称，即允许“中文”、“英文”、“数字”
+    // MARK: 10.07、是否是有效昵称，即允许“中文”、“英文”、“数字”
     /// 是否是有效昵称，即允许“中文”、“英文”、“数字”
-    @objc func test97() {
+    @objc func test1007() {
         let testString1 = "我爱中国--"
         let testString2 = "12"
         let testString3 = "Iloveyou"
@@ -463,9 +463,9 @@ extension StringExtensionViewController {
         JKPrint("是否是有效昵称，即允许 中文 、 英文 、 数字 ", "判断 \(testString1) 是否是有效昵称：\(testString1.jk.isValidNickName)", "判断 \(testString2) 是否是有效昵称：\(testString2.jk.isValidNickName)", "判断 \(testString3) 是否是有效昵称：\(testString3.jk.isValidNickName)", "判断 \(testString4) 是否是有效昵称：\(testString4.jk.isValidNickName)")
     }
     
-    // MARK: 9.8、判断是否是有效的手机号码
+    // MARK: 10.08、判断是否是有效的手机号码
     /// 判断是否是有效的手机号码
-    @objc func test98() {
+    @objc func test1008() {
         let testString1 = "123"
         let testString2 = "18500652880"
         let testString3 = "87689022"
@@ -473,9 +473,9 @@ extension StringExtensionViewController {
         JKPrint("判断是否是有效的手机号码", "判断 \(testString1) 是否是有效的手机号码：\(testString1.jk.isValidMobile)", "判断 \(testString2) 是否是有效的手机号码：\(testString2.jk.isValidMobile)", "判断 \(testString3) 是否是有效的手机号码：\(testString3.jk.isValidMobile)", "判断 \(testString4) 是否是有效的手机号码：\(testString4.jk.isValidMobile)")
     }
     
-    // MARK: 9.9、判断是否是有效的电子邮件地址
+    // MARK: 10.09、判断是否是有效的电子邮件地址
     /// 判断是否是有效的电子邮件地址
-    @objc func test99() {
+    @objc func test1009() {
         let testString1 = "123"
         let testString2 = "jkironman@163.com"
         let testString3 = "29388387@163.com"
@@ -483,9 +483,9 @@ extension StringExtensionViewController {
         JKPrint("判断是否是有效的电子邮件地址", "判断 \(testString1) 是否是有效的电子邮件地址：\(testString1.jk.isValidEmail)", "判断 \(testString2) 是否是有效的电子邮件地址：\(testString2.jk.isValidEmail)", "判断 \(testString3) 是否是有效的电子邮件地址：\(testString3.jk.isValidEmail)", "判断 \(testString4) 是否是有效的电子邮件地址：\(testString4.jk.isValidEmail)")
     }
     
-    // MARK: 9.10、判断是否有效的身份证号码，不是太严格
+    // MARK: 10.10、判断是否有效的身份证号码，不是太严格
     /// 判断是否有效的身份证号码，不是太严格
-    @objc func test910() {
+    @objc func test1010() {
         let testString1 = "411423199202026036"
         let testString2 = "411423199"
         let testString3 = "411423199993993j"
@@ -493,9 +493,9 @@ extension StringExtensionViewController {
         JKPrint("判断是否有效的身份证号码，不是太严格", "判断 \(testString1) 是否是有效的身份证号码：\(testString1.jk.isValidIDCardNumber)", "判断 \(testString2) 是否是有效的身份证号码：\(testString2.jk.isValidIDCardNumber)", "判断 \(testString3) 是否是有效的身份证号码：\(testString3.jk.isValidIDCardNumber)", "判断 \(testString4) 是否是有效的身份证号码：\(testString4.jk.isValidIDCardNumber)")
     }
     
-    // MARK: 9.11、严格判断是否有效的身份证号码,检验了省份，生日，校验位，不过没检查市县的编码
+    // MARK: 10.11、严格判断是否有效的身份证号码,检验了省份，生日，校验位，不过没检查市县的编码
     /// 严格判断是否有效的身份证号码,检验了省份，生日，校验位，不过没检查市县的编码
-    @objc func test911() {
+    @objc func test1011() {
         let testString1 = "411423199202026036"
         let testString2 = "411423199"
         let testString3 = "411423199993993j"
@@ -503,9 +503,9 @@ extension StringExtensionViewController {
         JKPrint("严格判断是否有效的身份证号码,检验了省份，生日，校验位，不过没检查市县的编码", "严格判断 \(testString1) 是否是有效的身份证号码：\(testString1.jk.isValidIDCardNumStrict)", "严格判断 \(testString2) 是否是有效的身份证号码：\(testString2.jk.isValidIDCardNumStrict)", "严格判断 \(testString3) 是否是有效的身份证号码：\(testString3.jk.isValidIDCardNumStrict)", "严格判断 \(testString4) 是否是有效的身份证号码：\(testString4.jk.isValidIDCardNumStrict)")
     }
     
-    // MARK: 9.12、校验字符串位置是否合理，并返回String.Index
+    // MARK: 10.12、校验字符串位置是否合理，并返回String.Index
     /// 校验字符串位置是否合理，并返回String.Index
-    @objc func test912() {
+    @objc func test1012() {
         let testString1 = "4114231she02026036"
         let testString2 = "he"
         let testString3 = "h5677ha"
@@ -513,62 +513,62 @@ extension StringExtensionViewController {
         JKPrint("校验字符串位置是否合理，并返回String.Index", "校验 \(testString1) 是否合理：\(testString1.jk.validIndex(original: 107))", "校验 \(testString2) 是否合理：\(testString2.jk.validIndex(original: 2))", "校验 \(testString3) 是否合理：\(testString3.jk.validIndex(original: 0))", "校验 \(testString4) 是否合理：\(testString4.jk.validIndex(original: 2))")
     }
     
-    // MARK: 9.13、隐藏手机号中间的几位
-    @objc func test913() {
+    // MARK: 10.13、隐藏手机号中间的几位
+    @objc func test1013() {
         let phoneNumber = "18500652880"
         JKPrint("隐藏手机号中间的几位", "手机号：\(phoneNumber) 隐藏后为：\(phoneNumber.jk.hide12BitsPhone(combine: "xxxx"))")
     }
     
-    // MARK: 9.14、隐藏手机号中间的几位(保留前几位和后几位)
-    @objc func test914() {
+    // MARK: 10.14、隐藏手机号中间的几位(保留前几位和后几位)
+    @objc func test1014() {
         let phoneNumber = "123456"
         JKPrint("隐藏手机号中间的几位", "手机号：\(phoneNumber) 隐藏后为：\(phoneNumber.jk.hidePhone(combine: "*", digitsBefore: 2, digitsAfter: 2))")
     }
     
-    // MARK: 9.15、隐藏邮箱中间的几位(保留前几位和后几位)
-    @objc func test915() {
+    // MARK: 10.15、隐藏邮箱中间的几位(保留前几位和后几位)
+    @objc func test1015() {
         let email = "123456@qq.com"
         JKPrint("隐藏邮箱中间的几位", "手机号：\(email) 隐藏后为：\(email.jk.hideEmail(combine: "*", digitsBefore: 1, digitsAfter: 1))")
     }
     
-    // MARK: 9.16、检查字符串是否有特定前缀：hasPrefix
-    @objc func test916() {
+    // MARK: 10.16、检查字符串是否有特定前缀：hasPrefix
+    @objc func test1016() {
         let testString = "com.ironman"
         JKPrint("检查字符串是否有特定前缀：hasPrefix", "\(testString) 是否有 com 前缀：\(testString.jk.isHasPrefix(prefix: "com"))", "\(testString) 是否有 cm 前缀：\(testString.jk.isHasPrefix(prefix: "cm"))")
     }
     
-    // MARK: 9.17、检查字符串是否有特定后缀：hasPrefix
-    @objc func test917() {
+    // MARK: 10.17、检查字符串是否有特定后缀：hasPrefix
+    @objc func test1017() {
         let testString = "ironman.cn"
         JKPrint("检查字符串是否有特定前缀：hasPrefix", "\(testString) 是否有 cn 后缀：\(testString.jk.isHasSuffix(suffix: "cn"))", "\(testString) 是否有 con 后缀：\(testString.jk.isHasSuffix(suffix: "con"))")
     }
     
-    // MARK: 9.18、是否为0-9之间的数字(字符串的组成是：0-9之间的数字)
-    @objc func test918() {
+    // MARK: 10.18、是否为0-9之间的数字(字符串的组成是：0-9之间的数字)
+    @objc func test1018() {
         let testString = "123456"
         JKPrint("是否为0-9之间的数字(字符串的组成是：0-9之间的数字)", "\(testString) 是否为0-9之间的数字：\(testString.jk.isValidNumberValue())")
     }
     
-    // MARK: 9.19、是否为数字或者小数点(字符串的组成是：0-9之间的数字或者小数点即可)
-    @objc func test919() {
+    // MARK: 10.19、是否为数字或者小数点(字符串的组成是：0-9之间的数字或者小数点即可)
+    @objc func test1019() {
         let testString = "1."
         JKPrint("是否为数字或者小数点(字符串的组成是：0-9之间的数字或者小数点即可)", "\(testString) 是否为数字或者小数点：\(testString.jk.isValidNumberAndDecimalPoint())")
     }
     
-    // MARK: 9.20、验证URL格式是否正确
-    @objc func test920() {
+    // MARK: 10.20、验证URL格式是否正确
+    @objc func test1020() {
         let testString = "http://wwww.baidu"
         JKPrint("验证URL格式是否正确", "\(testString) 验证URL格式是否正确：\(testString.jk.verifyUrl())")
     }
     
-    // MARK: 9.21、是否是一个有效的文件URL, "file://Documents/file.txt".isValidFileUrl -> true
-    @objc func test921() {
+    // MARK: 10.21、是否是一个有效的文件URL, "file://Documents/file.txt".isValidFileUrl -> true
+    @objc func test1021() {
         let testString = "file://Documents/file"
         JKPrint("是否是一个有效的文件URL", "\(testString) 是否是一个有效的文件URL：\(testString.jk.isValidFileUrl)")
     }
     
-    // MARK: 9.22、富文本匹配(某些关键词高亮)
-    @objc func test922() {
+    // MARK: 10.22、富文本匹配(某些关键词高亮)
+    @objc func test1022() {
         let totalString = "我是一只小小鸟，一直感a觉飞不高， 飞飞，你小鸟要飞的更高"
         let substring = "小鸟"
         let attributedString = totalString.jk.stringWithHighLightSubstring(keyword: substring, font: UIFont.systemFont(ofSize: 20, weight: .medium), normalColor: UIColor.brown, keywordCololor: UIColor.red, isSplit: false, options: [.caseInsensitive])
@@ -584,80 +584,80 @@ extension StringExtensionViewController {
         }
     }
     
-    //MARK: 9.23、判断是否是视频链接
-    @objc func test923() {
+    //MARK: 10.23、判断是否是视频链接
+    @objc func test1023() {
         let urlString = "https://download.niucache.com/static/upload/20220426/b3068da0-809a-401c-b4f7-a73269ebee78.rm"
         JKPrint("判断是否是视频链接", "\(urlString) 是否是视频链接：\(urlString.jk.isVideoUrl)")
     }
 }
 
-// MARK: - 八、字符串包含表情的处理
+// MARK: - 九、字符串包含表情的处理
 extension StringExtensionViewController {
     
-    // MARK: 8.2、去除字符串中的Emoji表情
-    @objc func test82() {
+    // MARK: 9.02、去除字符串中的Emoji表情
+    @objc func test902() {
         let testString = "我是一只😝小小鸟"
         JKPrint("去除字符串中的Emoji表情, 如：\(testString) 去除后为：\(testString.jk.deleteEmoji())")
     }
     
-    // MARK: 8.1、检查字符串是否包含 Emoji 表情
-    @objc func test81() {
+    // MARK: 9.01、检查字符串是否包含 Emoji 表情
+    @objc func test901() {
         let testString1 = "我是一😝只小小鸟"
         let testString2 = "我是一只小小鸟"
         JKPrint("检查字符串: \(testString1) 是否包含Emoji 表情：\(testString1.jk.includesEmoji())", "检查字符串: \(testString2) 是否包含Emoji 表情：\(testString2.jk.includesEmoji())")
     }
 }
 
-// MARK: - 七、苹果针对浮点类型计算精度问题提供出来的计算类
+// MARK: - 八、苹果针对浮点类型计算精度问题提供出来的计算类
 extension StringExtensionViewController {
     
-    // MARK: 7.4、(除)/
-    @objc func test74() {
+    // MARK: 8.04、(除)/
+    @objc func test804() {
         let num1 = "1.21"
         let num2 = "1.35"
         JKPrint("\(num1) / \(num2) = \(num1.jk.dividing(num2))")
     }
     
-    // MARK: 7.3、(乘)*
-    @objc func test73() {
+    // MARK: 8.03、(乘)*
+    @objc func test803() {
         let num1 = "1.21"
         let num2 = "1.35"
         JKPrint("\(num1) * \(num2) = \(num1.jk.multiplying(num2))")
     }
     
-    // MARK: 7.2、(减-)
-    @objc func test72() {
+    // MARK: 8.02、(减-)
+    @objc func test802() {
         let num1 = "1.39"
         let num2 = "1.35"
         JKPrint("\(num1) - \(num2) = \(num1.jk.subtracting(num2))")
     }
     
-    // MARK: 7.1、(加)＋
-    @objc func test71() {
+    // MARK: 8.01、(加)＋
+    @objc func test801() {
         let num1 = "1.21"
         let num2 = "1.35"
         JKPrint("\(num1) + \(num2) = \(num1.jk.adding(num2))")
     }
 }
 
-// MARK: - 六、字符串有关数字方面的扩展
+// MARK: - 七、字符串有关数字方面的扩展
 extension StringExtensionViewController {
-    // MARK: 6.1、将金额字符串转化为带逗号的金额 按照千分位划分，如  "1234567" => 1,234,567   1234567.56 => 1,234,567.56
+    // MARK: 7.01、将金额字符串转化为带逗号的金额 按照千分位划分，如  "1234567" => 1,234,567   1234567.56 => 1,234,567.56
     /// 将金额字符串转化为带逗号的金额 按照千分位划分，如  "1234567" => 1,234,567   1234567.56 => 1,234,567.56
-    @objc func test61() {
+    @objc func test701() {
         JKPrint(" 将金额字符串转化为带逗号的金额 按照千分位划分，如1234567 转化后为：\("1234567".jk.toThousands() ?? "无效")")
     }
     
-    // MARK: 6.2、字符串差不多精确转换成Double——之所以差不多，是因为有精度损失
+    // MARK: 7.02、字符串差不多精确转换成Double——之所以差不多，是因为有精度损失
     /// 字符串差不多精确转换成Double——之所以差不多，是因为有精度损失
-    @objc func test62() {
+    @objc func test702() {
         let testStrinig = "1.3403"
         JKPrint("字符串差不多精确转换成Double——之所以差不多，是因为有精度损失：\(testStrinig.jk.accuraterDouble() ?? 0)")
     }
     
-    // MARK: 6.3、去掉小数点后多余的 0
+    // MARK: 7.03、去掉小数点后多余的 0
     /// 去掉小数点后多余的0
-    @objc func test63() {
+    @objc func test703() {
         let testStrinig1 = "1.3400"
         let testStrinig2 = "1.00"
         let testStrinig3 = "1.20"
@@ -666,19 +666,19 @@ extension StringExtensionViewController {
         JKPrint("去掉小数点后多余的 0：\n\(testStrinig1) -> \(testStrinig1.jk.cutLastZeroAfterDot())", "\(testStrinig2) -> \(testStrinig2.jk.cutLastZeroAfterDot())", "\(testStrinig3) -> \(testStrinig3.jk.cutLastZeroAfterDot())", "\(testStrinig4) -> \(testStrinig4.jk.cutLastZeroAfterDot())", "\(testStrinig5) -> \(testStrinig5.jk.cutLastZeroAfterDot())")
     }
     
-    // MARK: 6.4、将数字的字符串处理成  几位 位小数的情况
+    // MARK: 7.4、将数字的字符串处理成  几位 位小数的情况
     /// 将数字的字符串处理成  几位 位小数的情况
-    @objc func test64() {
+    @objc func test74() {
         let testStrinig1 = "6.123456789"
         JKPrint("保留 1 位小数 \(testStrinig1.jk.saveNumberDecimal(numberDecimal: 1))", "保留 2 位小数 \(testStrinig1.jk.saveNumberDecimal(numberDecimal: 2))", "保留 3 位小数 \(testStrinig1.jk.saveNumberDecimal(numberDecimal: 3))", "保留 4 位小数 \(testStrinig1.jk.saveNumberDecimal(numberDecimal: 4))", "保留 5 位小数 \(testStrinig1.jk.saveNumberDecimal(numberDecimal: 5))")
     }
 }
 
-// MARK: - 五、字符串UI的处理
+// MARK: - 六、字符串UI的处理
 extension StringExtensionViewController {
-    // MARK: 5.1、对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)
+    // MARK: 6.01、对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)
     /// 对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)
-    @objc func test51() {
+    @objc func test601() {
         let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
         let font = UIFont.systemFont(ofSize: 22)
         
@@ -701,9 +701,9 @@ extension StringExtensionViewController {
         }
     }
     
-    // MARK: 5.2、对字符串(多行)指定字体及Size，获取 (高度)
+    // MARK: 6.02、对字符串(多行)指定字体及Size，获取 (高度)
     /// 对字符串(多行)指定字体及Size，获取 (高度)
-    @objc func test52() {
+    @objc func test602() {
         
         let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
         let font = UIFont.systemFont(ofSize: 22)
@@ -727,9 +727,9 @@ extension StringExtensionViewController {
         }
     }
     
-    // MARK: 5.3、对字符串(多行)指定字体及Size，获取 (宽度)
+    // MARK: 6.03、对字符串(多行)指定字体及Size，获取 (宽度)
     /// 对字符串(多行)指定字体及Size，获取 (宽度)
-    @objc func test53() {
+    @objc func test603() {
         
         let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
         let font = UIFont.systemFont(ofSize: 22)
@@ -753,9 +753,9 @@ extension StringExtensionViewController {
         }
     }
     
-    // MARK: 5.4、对字符串(单行)指定字体，获取 (Size)
+    // MARK: 6.04、对字符串(单行)指定字体，获取 (Size)
     /// 对字符串(单行)指定字体，获取 (Size)
-    @objc func test54() {
+    @objc func test604() {
         
         let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
         let font = UIFont.systemFont(ofSize: 22)
@@ -779,9 +779,9 @@ extension StringExtensionViewController {
         }
     }
     
-    // MARK: 5.5、对字符串(单行)指定字体，获取 (width)
+    // MARK: 6.05、对字符串(单行)指定字体，获取 (width)
     /// 对字符串(单行)指定字体，获取 (width)
-    @objc func test55() {
+    @objc func test605() {
         
         let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
         let font = UIFont.systemFont(ofSize: 22)
@@ -805,9 +805,9 @@ extension StringExtensionViewController {
         }
     }
     
-    // MARK: 5.6、对字符串(单行)指定字体，获取 (Height)
+    // MARK: 6.06、对字符串(单行)指定字体，获取 (Height)
     /// 对字符串(单行)指定字体，获取 (Height)
-    @objc func test56() {
+    @objc func test606() {
         
         let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
         let font = UIFont.systemFont(ofSize: 22)
@@ -831,9 +831,9 @@ extension StringExtensionViewController {
         }
     }
     
-    // MARK: 5.7、字符串通过 label 根据高度&字体——> Size
+    // MARK: 6.07、字符串通过 label 根据高度&字体——> Size
     /// 对字符串(单行)指定字体，获取 (Height)
-    @objc func test57() {
+    @objc func test607() {
         
         let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
         let font = UIFont.systemFont(ofSize: 22)
@@ -857,8 +857,8 @@ extension StringExtensionViewController {
         }
     }
     
-    // MARK: 5.8、字符串通过 label 根据高度&字体 ——> Width
-    @objc func test58() {
+    // MARK: 6.08、字符串通过 label 根据高度&字体 ——> Width
+    @objc func test608() {
         let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
         let font = UIFont.systemFont(ofSize: 22)
         
@@ -881,8 +881,8 @@ extension StringExtensionViewController {
         }
     }
     
-    // MARK: 5.9、字符串通过 label 根据宽度&字体 ——> height
-    @objc func test59() {
+    // MARK: 6.09、字符串通过 label 根据宽度&字体 ——> height
+    @objc func test609() {
         let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
         let font = UIFont.systemFont(ofSize: 22)
         
@@ -905,9 +905,9 @@ extension StringExtensionViewController {
         }
     }
     
-    // MARK: 5.10、字符串根据宽度 & 字体 & 行间距 —> Size
+    // MARK: 6.10、字符串根据宽度 & 字体 & 行间距 —> Size
     /// 字符串根据宽度 & 字体 & 行间距 —> Size
-    @objc func test510() {
+    @objc func test610() {
         
         let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
         let font = UIFont.systemFont(ofSize: 22)
@@ -939,9 +939,9 @@ extension StringExtensionViewController {
         }
     }
     
-    // MARK: 5.11、字符串根据宽度 & 字体 & 行间距 —> width
+    // MARK: 6.11、字符串根据宽度 & 字体 & 行间距 —> width
     /// 字符串根据宽度 & 字体 & 行间距 —> width
-    @objc func test511() {
+    @objc func test611() {
         
         let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
         let font = UIFont.systemFont(ofSize: 22)
@@ -971,9 +971,9 @@ extension StringExtensionViewController {
         }
     }
     
-    // MARK: 5.12、字符串根据宽度 & 字体 & 行间距 —> height
+    // MARK: 6.12、字符串根据宽度 & 字体 & 行间距 —> height
     /// 字符串根据宽度 & 字体 & 行间距 —> height
-    @objc func test512() {
+    @objc func test612() {
         
         let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
         let font = UIFont.systemFont(ofSize: 22)
@@ -1004,12 +1004,12 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK: - 四、字符串的转换
+// MARK: - 五、字符串的转换
 extension StringExtensionViewController {
     
-    // MARK: 4.8、字符串转 NSNumber
+    // MARK: 5.08、字符串转 NSNumber
     /// 字符串转 NSNumber
-    @objc func test48() {
+    @objc func test508() {
         let str = "19"
         guard let value = str.jk.toNumber else {
             return
@@ -1017,9 +1017,9 @@ extension StringExtensionViewController {
         JKPrint("字符串: \(value) 转 NSNumber 后为：\(value)")
     }
     
-    // MARK: 4.7、字符串转 Int64
+    // MARK: 5.07、字符串转 Int64
     /// 字符串转 Int64
-    @objc func test47() {
+    @objc func test507() {
         let str = "19"
         guard let value = str.jk.toInt64Value else {
             return
@@ -1027,17 +1027,17 @@ extension StringExtensionViewController {
         JKPrint("字符串: \(value) 转 Int64 后为：\(value)")
     }
     
-    // MARK: 4.6、字符串转 NSString
+    // MARK: 5.06、字符串转 NSString
     /// 字符串转 NSString
-    @objc func test46() {
+    @objc func test506() {
         let str = "您好"
         let value = str.jk.toNSString
         JKPrint("字符串: \(value) 转 NSString 后为：\(value)")
     }
     
-    // MARK: 4.5、字符串转 Float
+    // MARK: 5.05、字符串转 Float
     /// 字符串转 Float
-    @objc func test45() {
+    @objc func test505() {
         let str = "5.89"
         guard let value = str.jk.toFloat() else {
             return
@@ -1045,9 +1045,9 @@ extension StringExtensionViewController {
         JKPrint("字符串: \(value) 转 Float 后为：\(value)")
     }
     
-    // MARK: 4.4、字符串转 Double
+    // MARK: 5.04、字符串转 Double
     /// 字符串转 Double
-    @objc func test44() {
+    @objc func test504() {
         let str = "20.8"
         guard let value = str.jk.toDouble() else {
             return
@@ -1055,9 +1055,9 @@ extension StringExtensionViewController {
         JKPrint("字符串: \(value) 转 Double 后为：\(value)")
     }
     
-    // MARK: 4.3、字符串转 Int
+    // MARK: 5.03、字符串转 Int
     /// 字符串转 Int
-    @objc func test43() {
+    @objc func test503() {
         let str = "123456"
         guard let value = str.jk.toInt() else {
             JKPrint("字符串: \(str) 转 Int 后为：失败")
@@ -1066,9 +1066,9 @@ extension StringExtensionViewController {
         JKPrint("字符串: \(str) 转 Int 后为：\(value)")
     }
     
-    // MARK: 4.2、字符串转 Bool
+    // MARK: 5.02、字符串转 Bool
     /// 字符串转 Bool
-    @objc func test42() {
+    @objc func test502() {
         let str = "1"
         guard let value = str.jk.toBool() else {
             return
@@ -1076,9 +1076,9 @@ extension StringExtensionViewController {
         JKPrint("字符串: \(value) 转 Bool 后为：\(value)")
     }
     
-    // MARK: 4.1、字符串 转 CGFloat
+    // MARK: 5.01、字符串 转 CGFloat
     /// 字符串 转 CGFloat
-    @objc func test41() {
+    @objc func test501() {
         let str = "3.2"
         guard let value = str.jk.toCGFloat() else {
             return
@@ -1090,51 +1090,51 @@ extension StringExtensionViewController {
 // MARK: - 三、iOS CharacterSet（字符集）
 extension StringExtensionViewController {
     
-    // MARK: 3.1、去除字符串前后的 空格
+    // MARK: 4.01、去除字符串前后的 空格
     /// 去除字符串前后的 空格
-    @objc func test31() {
+    @objc func test401() {
         let str = " 123 456 \n 789 "
         JKPrint("原字符串=\(str) \n处理后的字符串=\(str.jk.removeBeginEndAllSapcefeed)")
     }
     
-    // MARK: 3.2、去除字符串前后的 换行
+    // MARK: 4.02、去除字符串前后的 换行
     /// 去除字符串前后的 换行
-    @objc func test32() {
+    @objc func test402() {
         let str = " 123 456 \n 789 "
         JKPrint("原字符串=\(str) \n处理后的字符串=\(str.jk.removeBeginEndAllLinefeed)")
     }
     
-    // MARK: 3.3、去除字符串前后的 换行和换行
+    // MARK: 4.03、去除字符串前后的 换行和换行
     /// 去除字符串前后的 换行和换行
-    @objc func test33() {
+    @objc func test403() {
         let str = " 123 456 \n 789 "
         JKPrint("原字符串=\(str)  \n处理后的字符串=\(str.jk.removeBeginEndAllSapceAndLinefeed)")
     }
     
-    // MARK: 3.4、去掉所有 空格
+    // MARK: 4.04、去掉所有 空格
     /// 去掉所有 空格
-    @objc func test34() {
+    @objc func test404() {
         let str = " 123 456 \n 789 "
         JKPrint("原字符串=\(str)  \n处理后的字符串=\(str.jk.removeAllSapce)")
     }
     
-    // MARK: 3.5、去掉所有 换行
+    // MARK: 4.05、去掉所有 换行
     /// 去掉所有 换行
-    @objc func test35() {
+    @objc func test405() {
         let str = " 123 456 \n 789 "
         JKPrint("原字符串=\(str)  \n处理后的字符串=\(str.jk.removeAllLinefeed)")
     }
     
-    // MARK: 3.6、去掉所有空格 和 换行
+    // MARK: 4.06、去掉所有空格 和 换行
     /// 去掉所有空格 和 换行
-    @objc func test36() {
+    @objc func test406() {
         let str = " 123 456 \n 789 "
         JKPrint("原字符串=\(str)  \n处理后的字符串=\(str.jk.removeAllLineAndSapcefeed)")
     }
     
-    // MARK: 3.7、是否是 0-9 的数字，也不包含小数点
+    // MARK: 4.07、是否是 0-9 的数字，也不包含小数点
     /// 是否是 0-9 的数字，也不包含小数点
-    @objc func test37() {
+    @objc func test407() {
         let testString1 = "4114"
         let testString2 = "he"
         let testString3 = "h5677ha"
@@ -1142,33 +1142,33 @@ extension StringExtensionViewController {
         JKPrint("是否是 0-9的数字，也不包含小数点", "判断 \(testString1) 是否是 0-9的数字：\(testString1.jk.isValidNumber())", "判断 \(testString2) 是否是 0-9的数字：\(testString2.jk.isValidNumber())", "判断 \(testString3) 是否是 0-9的数字：\(testString3.jk.isValidNumber())", "判断 \(testString4) 是否是 0-9的数字：\(testString4.jk.isValidNumber())")
     }
     
-    // MARK: 3.8、url进行编码
+    // MARK: 4.08、url进行编码
     /// 是否是 0-9 的数字，也不包含小数点
-    @objc func test38() {
+    @objc func test408() {
         let testString1 = "https://www.baidu.com"
         let encode = testString1.jk.urlEncode()
         JKPrint("url进行编码", "\(testString1) 编码后为：\(encode)")
     }
     
-    // MARK: 3.9、url进行解码
-    @objc func test39() {
+    // MARK: 4.09、url进行解码
+    @objc func test409() {
         let testString1 = "https://www.baidu.com"
         let encode = testString1.jk.urlEncode()
         JKPrint("url进行编码", "\(testString1) 编码后为：\(encode)", "\(testString1) 解码后后为：\(encode.jk.urlDecode())")
     }
     
-    // MARK: 3.10、某个字符使用某个字符替换掉
+    // MARK: 4.10、某个字符使用某个字符替换掉
     /// 某个字符使用某个字符替换掉
-    @objc func test310() {
+    @objc func test410() {
         let testString1 = "我爱我的祖国，我爱我的家人"
         let oldString = "爱"
         let replacingString = "1"
         JKPrint("某个字符使用某个字符替换掉", "\(testString1) 中的 \(oldString) 被替换为 \(replacingString) 后为 ：\(testString1.jk.removeSomeStringUseSomeString(removeString: oldString, replacingString: replacingString))")
     }
     
-    // MARK: 3.11、字符串指定range替换
+    // MARK: 4.11、字符串指定range替换
     /// 字符串指定range替换
-    @objc func test311() {
+    @objc func test411() {
         /// 原始字符串
         let str1: String = "qwer1234"
         let range = NSRange(location: 2, length: 2)
@@ -1176,9 +1176,9 @@ extension StringExtensionViewController {
         JKPrint("原字符串：\(str1)", "range：\(range)", "替换后的字符串：\(str1.jk.replacingCharacters(range: range, replacingString: "测试"))")
     }
     
-    // MARK: 3.12、使用正则表达式替换某些子串
+    // MARK: 4.12、使用正则表达式替换某些子串
     /// 使用正则表达式替换某些子串
-    @objc func test312() {
+    @objc func test412() {
         /// 原始字符串
         let str1: String = "qwer1234"
         /// 判断的正则表达式
@@ -1187,9 +1187,9 @@ extension StringExtensionViewController {
         JKPrint("原字符串：\(str1)", "封装的新字符串：\(str1.jk.pregReplace(pattern: pattern, with: "😌"))")
     }
     
-    // MARK: 3.13、删除指定的字符
+    // MARK: 4.13、删除指定的字符
     /// 删除指定的字符
-    @objc func test313() {
+    @objc func test413() {
         /// 原始字符串
         let str1 = "哈哈:嘿嘿:呵呵"
         print("原字符串：\(str1)")
@@ -1198,45 +1198,86 @@ extension StringExtensionViewController {
     }
 }
 
-// MARK: - 二、沙盒路径的获取
+// MARK: - 三、沙盒路径的获取
 extension StringExtensionViewController {
-    // MARK: 获取Home的完整路径名
-    @objc func test21() {
-        JKPrint("获取 Home 的完整路径名:\(String.jk.homeDirectory())")
+    // MARK: 3.06、获取Tmp的完整路径名
+    @objc func test306() {
+        JKPrint("获取 Tmp 的完整路径名:\(String.jk.TmpDirectory())")
     }
-    // MARK: 获取Documnets的完整路径名
-    @objc func test22() {
-        JKPrint("获取 Documnets 的完整路径名:\(String.jk.DocumnetsDirectory())")
-    }
-    // MARK: "获取Library的完整路径名"
-    @objc func test23() {
-        JKPrint("获取 Library 的完整路径名:\(String.jk.LibraryDirectory())")
-    }
-    // MARK: 获取/Library/Cache的完整路径名
-    @objc func test24() {
-        JKPrint("获取 /Library/Cache 的完整路径名:\(String.jk.CachesDirectory())")
-    }
-    // MARK: 获取/Library/Preferences的完整路径名
-    @objc func test25() {
+    // MARK: 3.05、获取/Library/Preferences的完整路径名
+    @objc func test305() {
         JKPrint("获取 /Library/Preferences 的完整路径名:\(String.jk.PreferencesDirectory())")
     }
-    // MARK: "获取Tmp的完整路径名"
-    @objc func test26() {
-        JKPrint("获取 Tmp 的完整路径名:\(String.jk.TmpDirectory())")
+    // MARK: 3.04、获取/Library/Cache的完整路径名
+    @objc func test304() {
+        JKPrint("获取 /Library/Cache 的完整路径名:\(String.jk.CachesDirectory())")
+    }
+    // MARK: 3.03、获取Library的完整路径名
+    @objc func test303() {
+        JKPrint("获取 Library 的完整路径名:\(String.jk.LibraryDirectory())")
+    }
+    // MARK: 3.02、获取Documnets的完整路径名
+    @objc func test302() {
+        JKPrint("获取 Documnets 的完整路径名:\(String.jk.DocumnetsDirectory())")
+    }
+    // MARK: 3.01、获取Home的完整路径名
+    @objc func test301() {
+        JKPrint("获取 Home 的完整路径名:\(String.jk.homeDirectory())")
+    }
+}
+
+// MARK: - 二、二、字符串与其他类型(字符串转 UIViewController、AnyClass、数组、字典等)的转换
+extension StringExtensionViewController {
+    // MARK: 2.05、JSON 字符串 -> Array
+    @objc func test205() {
+        
+    }
+    
+    // MARK: 2.04、JSON 字符串 -> Dictionary
+    @objc func test204() {
+        
+    }
+    
+    // MARK: 2.03、字符串转数组
+    @objc func test203() {
+        
+    }
+    
+    // MARK: 2.02、字符串转 AnyClass
+    @objc func test202() {
+        let stringContent = "FileManagerExtensionViewController"
+        let stringClass: AnyClass? = stringContent.jk.toClass()
+        JKPrint("字符串转 AnyClass：\(stringContent) 转AnyClass为：\(stringClass!)")
+    }
+    
+    // MARK: 2.01、字符串转 UIViewController
+    @objc func test201() {
+        let stringVC = "DateFormatterExtensionViewController"
+        if let vc1 = stringVC.jk.toViewController() {
+            JKPrint("字符串：\(stringVC) 转VC为：\(vc1) 转控制器名为：\(vc1.className)")
+        } else {
+            JKPrint("字符串：\(stringVC) 转VC为：nil，不存在\(stringVC))")
+        }
+        let testVC = "FalseViewController"
+        if let vc2 = testVC.jk.toViewController() {
+            JKPrint("字符串：\(testVC) 转VC为：\(vc2) 转控制器名为：\(vc2.className)")
+        } else {
+            JKPrint("字符串：\(testVC) 转VC为：nil，不存在\(testVC)")
+        }
     }
 }
 
 // MARK: - 一、字符串基本的扩展
 extension StringExtensionViewController {
     
-    // MARK: 1.20、计算字符个数（英文 = 1，数字 = 1，汉语 = 2）
-    @objc func test120() {
+    // MARK: 1.15、计算字符个数（英文 = 1，数字 = 1，汉语 = 2）
+    @objc func test115() {
         let name = "我是123hh"
         JKPrint("计算字符个数（英文 = 1，数字 = 1，汉语 = 2）", "\(name) 的字符的个数是：\(name.jk.customCountOfChars())")
     }
     
-    // MARK: 1.19、String或者String HTML标签转富文本设置
-    @objc func test119() {
+    // MARK: 1.14、String或者String HTML标签转富文本设置
+    @objc func test114() {
         let strHtml = "<font color=\"#666666\">账号或密码错误次数达到10次，您的账号已被冻结</font><font color=\"#FF4600\">30分钟</font><font color=\"#666666\">，忘记密码请尝试找回，如有问题请</font><font color=\"#447EFF\">联系客服</font>"
         let attributedText = strHtml.jk.setHtmlAttributedString(font: UIFont.systemFont(ofSize: 20), lineSpacing: 10)
         let textSize = attributedText.boundingRect(with: CGSize(width: jk_kScreenW - 40, height: CGFloat.greatestFiniteMagnitude), options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil).size
@@ -1253,125 +1294,87 @@ extension StringExtensionViewController {
         }
     }
     
-    // MARK: 1.18、提取出字符串中所有的URL链接
-    @objc func test118() {
+    // MARK: 1.13、提取出字符串中所有的URL链接
+    @objc func test113() {
         let str = "欢迎访问https://www.baidu.com，https://www.jianshu.com/u/8fed18ed70c9\n以及https://github.com/JoanKing"
         JKPrint("测试字符串式：\(str)", "匹配到的链接：\(str.jk.getUrls() ?? [])")
     }
     
-    // MARK: 1.17、复制
-    @objc func test117() {
+    // MARK: 1.12、复制
+    @objc func test112() {
         JKPrint("复制文字：我是一枚小可爱")
         // "复制：我是一枚小可爱".toast()
         "我是一枚小可爱".jk.copy()
         print("复制的内容是：\(UIPasteboard.general.string ?? "没有内容")")
     }
     
-    // MARK: 1.16、设备的UUID
-    @objc func test116() {
+    // MARK: 1.11、设备的UUID
+    @objc func test111() {
         guard let uuid = String.jk.stringWithUUID() else {
             return
         }
         JKPrint("设备的UUID：\(uuid)")
     }
     
-    // MARK: 1.15、字符串根据某个字符进行分隔成数组
-    @objc func test115() {
+    // MARK: 1.10、字符串根据某个字符进行分隔成数组
+    @objc func test110() {
         let string = "我爱祖国爱你呀"
         JKPrint("\(string) 分隔后为：\(string.jk.separatedByString(with: "爱"))")
     }
     
-    // MARK: 14、提取首字母, "爱国" --> AG
-    @objc func test114() {
+    // MARK: 1.09、提取首字母, "爱国" --> AG
+    @objc func test109() {
         let name1 = "我叫雷锋"
         let name2 = "王冲"
         let name3 = "潘滢"
         JKPrint("\(name1) 转成拼音 后为：\(name1.jk.toPinyin()) 提取首字母为：\(name1.jk.pinyinInitials(false))", "\(name2) 转成拼音 后为：\(name2.jk.toPinyin()) 提取首字母为：\(name2.jk.pinyinInitials(false))", "\(name3) 转成拼音 后为：\(name3.jk.toPinyin(true)) 提取首字母为：\(name3.jk.pinyinInitials(true))")
     }
     
-    // MARK: 13、转成拼音
-    @objc func test113() {
+    // MARK: 1.08、转成拼音
+    @objc func test108() {
         let name1 = "我叫雷锋"
         let name2 = "王冲"
         let name3 = "潘滢"
         JKPrint("\(name1) 转成拼音 后为：\(name1.jk.toPinyin())", "\(name2) 转成拼音 后为：\(name2.jk.toPinyin())", "\(name3) 转成拼音 后为：\(name3.jk.toPinyin(true))")
     }
     
-    // MARK: 1.12、JSON 字符串 -> Array
-    @objc func test112() {
+    // MARK: 1.07、判断是不是九宫格键盘
+    @objc func test107() {
         
     }
     
-    // MARK: 1.11、JSON 字符串 -> Dictionary
-    @objc func test111() {
+    // MARK: 1.06、将16进制字符串转为Int
+    @objc func test106() {
         
     }
     
-    // MARK: 1.10、字符串转数组
-    @objc func test110() {
-        
-    }
-    
-    // MARK: 1.9、字符串转 AnyClass
-    @objc func test19() {
-        let stringContent = "FileManagerExtensionViewController"
-        let stringClass: AnyClass? = stringContent.jk.toClass()
-        JKPrint("字符串转 AnyClass：\(stringContent) 转AnyClass为：\(stringClass!)")
-    }
-    
-    // MARK: 1.8、字符串转 UIViewController
-    @objc func test18() {
-        let stringVC = "DateFormatterExtensionViewController"
-        if let vc1 = stringVC.jk.toViewController() {
-            JKPrint("字符串：\(stringVC) 转VC为：\(vc1) 转控制器名为：\(vc1.className)")
-        } else {
-            JKPrint("字符串：\(stringVC) 转VC为：nil，不存在\(stringVC))")
-        }
-        let testVC = "FalseViewController"
-        if let vc2 = testVC.jk.toViewController() {
-            JKPrint("字符串：\(testVC) 转VC为：\(vc2) 转控制器名为：\(vc2.className)")
-        } else {
-            JKPrint("字符串：\(testVC) 转VC为：nil，不存在\(testVC)")
-        }
-    }
-    
-    // MARK: 1.7、判断是不是九宫格键盘
-    @objc func test17() {
-        
-    }
-    
-    // MARK: 1.6、将16进制字符串转为Int
-    @objc func test16() {
-        
-    }
-    
-    // MARK: 1.5、base64转字符串转
-    @objc func test15() {
+    // MARK: 1.05、base64转字符串转
+    @objc func test105() {
         let oldString = "123456"
         let newString = oldString.jk.base64Encode ?? "编码失败"
         JKPrint("base64转字符串转", "\(oldString) 编码后的字符串：\(newString)", "\(newString) 解码后为：\(newString.jk.base64Decode ?? "解码失败")")
     }
     
-    // MARK: 1.4、字符串转 base64
-    @objc func test14() {
+    // MARK: 1.04、字符串转 base64
+    @objc func test104() {
         let oldString = "123456"
         JKPrint("字符串转 base64", "\(oldString) 编码后的字符串：\(oldString.jk.base64Encode ?? "编码失败")")
     }
     
-    // MARK: 1.3、判断是否包含某个子串 -- 忽略大小写
-    @objc func test13() {
+    // MARK: 1.03、判断是否包含某个子串 -- 忽略大小写
+    @objc func test103() {
         let string = "abcdefg"
         JKPrint("字符串：\(string) 是否包含：A ：\(string.jk.containsIgnoringCase(find: "A"))", "字符串：\(string) 是否包含：p ：\(string.jk.containsIgnoringCase(find: "p"))")
     }
     
-    // MARK: 1.2、判断是否包含某个子串
-    @objc func test12() {
+    // MARK: 1.02、判断是否包含某个子串
+    @objc func test102() {
         let string = "123哈哈567"
         JKPrint("字符串：\(string) 是否包含：哈哈 ：\(string.jk.contains(find: "哈哈"))", "字符串：\(string) 是否包含：嘿嘿 ：\(string.jk.contains(find: "嘿嘿"))")
     }
     
-    // MARK: 1.1、字符串的长度
-    @objc func test11() {
+    // MARK: 1.01、字符串的长度
+    @objc func test101() {
         /*
         let string = "abc"
         JKPrint("字符串：\(string) 的长度是：\(string.jk.typeLengh(.utf16))")

@@ -21,8 +21,8 @@ class UITabBarControllerExtensionViewController: BaseViewController {
 // MARK: - 一、基本扩展
 extension UITabBarControllerExtensionViewController {
     
-    // MARK: 1.1、当前选择索引
-    @objc func test11() {
+    // MARK: 1.01、当前选择索引
+    @objc func test101() {
         JKPrint("当前选择索引：\(UITabBarController.jk.selectedIdx)")
     }
 }

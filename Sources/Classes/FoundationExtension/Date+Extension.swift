@@ -102,7 +102,7 @@ public extension JKPOP where Base == Date {
     // MARK: 1.13、从日期获取 月(英文)
     /// 从日期获取 月(英文)
     var monthAsString: String {
-        jk_formatter.dateFormat = "MMMM"
+        jk_formatter.dateFormat = "MM"
         return jk_formatter.string(from: self.base)
     }
 }

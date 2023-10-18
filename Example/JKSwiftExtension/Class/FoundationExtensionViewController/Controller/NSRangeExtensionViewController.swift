@@ -21,8 +21,8 @@ class NSRangeExtensionViewController: BaseViewController {
 // MARK: - 一、基本的扩展
 extension NSRangeExtensionViewController {
     
-    // MARK: 1.1、NSRange转换成Range的方法
-    @objc func test11() {
+    // MARK: 1.01、NSRange转换成Range的方法
+    @objc func test101() {
         let string = "123456Hello World !!!"
         let nsRange = NSRange(location: 2, length: 2)
         

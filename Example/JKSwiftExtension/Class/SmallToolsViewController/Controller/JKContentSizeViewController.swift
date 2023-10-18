@@ -23,8 +23,8 @@ class JKContentSizeViewController: BaseViewController {
 }
 
 extension JKContentSizeViewController {
-    // MARK: 2.1、行数和每行的内容
-    @objc func test21() {
+    // MARK: 2.01、行数和每行的内容
+    @objc func test201() {
         self.navigationController?.pushViewController(TenViewController(), animated: true)
     }
 }
@@ -32,8 +32,27 @@ extension JKContentSizeViewController {
 // MARK: - 一、文字内容的计算
 extension JKContentSizeViewController {
     
-    // MARK: 1.1、返回文字的 size
-    @objc func test11() {
+    // MARK: 1.02、计算富文本的 size
+    @objc func test102() {
+        
+        let font = UIFont.systemFont(ofSize: 16)
+        
+        let attributedString = NSMutableAttributedString(string: "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。").color(.green).font(font)
+        let size = JKContentSize.attributedStringSize(attributedString: attributedString, width: jk_kScreenW - 100, height: CGFloat(MAXFLOAT), font: font)
+        
+        let testView1 = UILabel(frame: CGRect(x: 50, y: 100, width: jk_kScreenW - 100, height: size.height))
+        testView1.backgroundColor = .brown
+        testView1.numberOfLines = 0
+        testView1.attributedText = attributedString
+        testView1.addTo(self.view)
+        JKAsyncs.asyncDelay(5, {
+        }) {
+            testView1.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 1.01、返回文字的 size
+    @objc func test101() {
         let testString = "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。"
         let font = UIFont.systemFont(ofSize: 22)
         let size = JKContentSize.textStringSize(string: testString, size: CGSize(width: 300, height: CGFloat(MAXFLOAT)), font: font)
@@ -53,24 +72,4 @@ extension JKContentSizeViewController {
             testLabel.removeFromSuperview()
         }
     }
-    
-    // MARK: 1.2、计算富文本的 size
-    @objc func test12() {
-        
-        let font = UIFont.systemFont(ofSize: 16)
-        
-        let attributedString = NSMutableAttributedString(string: "无论怎样，都要在生活里，学会看远，心怀鸿鹄之志;学会看细，识遍世间美丑;学会看透，保持对万物的敬畏;学会看淡，让心返璞归真;笑看生活，一生幸福快乐。").color(.green).font(font)
-        let size = JKContentSize.attributedStringSize(attributedString: attributedString, width: jk_kScreenW - 100, height: CGFloat(MAXFLOAT), font: font)
-        
-        let testView1 = UILabel(frame: CGRect(x: 50, y: 100, width: jk_kScreenW - 100, height: size.height))
-        testView1.backgroundColor = .brown
-        testView1.numberOfLines = 0
-        testView1.attributedText = attributedString
-        testView1.addTo(self.view)
-        JKAsyncs.asyncDelay(5, {
-        }) {
-            testView1.removeFromSuperview()
-        }
-    }
-    
 }

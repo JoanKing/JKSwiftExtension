@@ -22,16 +22,15 @@ class UITextFieldExtensionViewController: BaseViewController {
         let originalString = "\n\n这是一段带有\n换行符的文本\n\n"
         let trimmedString = originalString.jk.removeBeginEndAllSapceAndLinefeed
         // let newString = trimmedString.replacingOccurrences(of: "\n", with: "替换后的字符")
-        print("newString：\(trimmedString)")
-
+        debugPrint("newString：\(trimmedString)")
     }
 }
 
 // MARK: - 三、输入内容以及正则的配置
 extension UITextFieldExtensionViewController {
     
-    // MARK: 3.1、限制字数的输入(提示在：- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string; 里面调用)
-    @objc func test31() {
+    // MARK: 3.01、限制字数的输入(提示在：- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string; 里面调用)
+    @objc func test301() {
         self.navigationController?.pushViewController(TextFildViewTestViewController(), animated: true)
     }
 }
@@ -39,106 +38,15 @@ extension UITextFieldExtensionViewController {
 // MARK: - 二、链式编程
 extension UITextFieldExtensionViewController {
     
-    // MARK: 2.1、设置文字
-    @objc func test21() {
-        let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).text("我是一只小小鸟")
-        textFiled.backgroundColor = .randomColor
-        self.view.addSubview(textFiled)
-        JKAsyncs.asyncDelay(3) {
-        } _: {
-            textFiled.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 2.2、设置富文本
-    @objc func test22() {
-        let testString = "我是富文本"
-        let attributedString = NSMutableAttributedString(string: testString)
-        attributedString.addAttributes([NSAttributedString.Key.foregroundColor : UIColor.red], range: NSRange(location: 0, length: testString.count))
-        let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).attributedText(attributedString)
-        textFiled.backgroundColor = .randomColor
-        self.view.addSubview(textFiled)
-        JKAsyncs.asyncDelay(3) {
-        } _: {
-            textFiled.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 2.3、设置占位符
-    @objc func test23() {
-        let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).placeholder("我是占位符")
-        textFiled.backgroundColor = .randomColor
-        self.view.addSubview(textFiled)
-        JKAsyncs.asyncDelay(3) {
-        } _: {
-            textFiled.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 2.4、设置占位符
-    @objc func test24() {
-        let attributedString = NSMutableAttributedString(string: "占位符富文本", attributes: [NSAttributedString.Key.foregroundColor: UIColor.randomColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)])
-        let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).attributedPlaceholder(attributedString)
-        textFiled.backgroundColor = .randomColor
-        self.view.addSubview(textFiled)
-        JKAsyncs.asyncDelay(3) {
-        } _: {
-            textFiled.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 2.5、设置文本格式
-    @objc func test25() {
-        let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).text("我是一只小小鸟").alignment(.right)
-        textFiled.backgroundColor = .randomColor
-        self.view.addSubview(textFiled)
-        JKAsyncs.asyncDelay(3) {
-        } _: {
-            textFiled.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 2.6、设置文本颜色
-    @objc func test26() {
-        let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).text("我是一只小小鸟").alignment(.right).color(.brown)
-        textFiled.backgroundColor = .randomColor
-        self.view.addSubview(textFiled)
-        JKAsyncs.asyncDelay(3) {
-        } _: {
-            textFiled.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 2.7、设置文本颜色（十六进制字符串）
-    @objc func test27() {
-        let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).text("我是一只小小鸟").alignment(.right).color("#FF1493")
-        textFiled.backgroundColor = .randomColor
-        self.view.addSubview(textFiled)
-        JKAsyncs.asyncDelay(3) {
-        } _: {
-            textFiled.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 2.8、设置文本字体大小(UIFont)
-    @objc func test28() {
-        let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).text("我是一只小小鸟").alignment(.right).color("#FF1493").font(UIFont.systemFont(ofSize: 18))
-        textFiled.backgroundColor = .randomColor
-        self.view.addSubview(textFiled)
-        JKAsyncs.asyncDelay(3) {
-        } _: {
-            textFiled.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 2.9、设置文本字体大小(CGFloat)
-    @objc func test29() {
-        let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).text("我是一只小小鸟").alignment(.right).color("#FF1493").font(22)
-        textFiled.backgroundColor = .randomColor
-        self.view.addSubview(textFiled)
-        JKAsyncs.asyncDelay(3) {
-        } _: {
-            textFiled.removeFromSuperview()
+    // MARK: 2.11、键盘样式设置
+    @objc func test211() {
+        testTextFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).placeholder("我是一只小小鸟").color("#FF1493").font(22).delegate(self).keyboardType(.decimalPad)
+        testTextFiled.backgroundColor = .randomColor
+        self.view.addSubview(testTextFiled)
+        JKAsyncs.asyncDelay(300) {
+        } _: { [weak self] in
+            guard let weakSelf = self else { return }
+            weakSelf.testTextFiled.removeFromSuperview()
         }
     }
     
@@ -153,15 +61,107 @@ extension UITextFieldExtensionViewController {
             weakSelf.testTextFiled.removeFromSuperview()
         }
     }
-    // MARK: 2.11、键盘样式设置
-    @objc func test211() {
-        testTextFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).placeholder("我是一只小小鸟").color("#FF1493").font(22).delegate(self).keyboardType(.decimalPad)
-        testTextFiled.backgroundColor = .randomColor
-        self.view.addSubview(testTextFiled)
-        JKAsyncs.asyncDelay(300) {
-        } _: { [weak self] in
-            guard let weakSelf = self else { return }
-            weakSelf.testTextFiled.removeFromSuperview()
+    
+    // MARK: 2.09、设置文本字体大小(CGFloat)
+    @objc func test209() {
+        let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).text("我是一只小小鸟").alignment(.right).color("#FF1493").font(22)
+        textFiled.backgroundColor = .randomColor
+        self.view.addSubview(textFiled)
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            textFiled.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 2.08、设置文本字体大小(UIFont)
+    @objc func test208() {
+        let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).text("我是一只小小鸟").alignment(.right).color("#FF1493").font(UIFont.systemFont(ofSize: 18))
+        textFiled.backgroundColor = .randomColor
+        self.view.addSubview(textFiled)
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            textFiled.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 2.07、设置文本颜色（十六进制字符串）
+    @objc func test207() {
+        let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).text("我是一只小小鸟").alignment(.right).color("#FF1493")
+        textFiled.backgroundColor = .randomColor
+        self.view.addSubview(textFiled)
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            textFiled.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 2.06、设置文本颜色
+    @objc func test206() {
+        let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).text("我是一只小小鸟").alignment(.right).color(.brown)
+        textFiled.backgroundColor = .randomColor
+        self.view.addSubview(textFiled)
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            textFiled.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 2.05、设置文本格式
+    @objc func test205() {
+        let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).text("我是一只小小鸟").alignment(.right)
+        textFiled.backgroundColor = .randomColor
+        self.view.addSubview(textFiled)
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            textFiled.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 2.04、设置占位符
+    @objc func test204() {
+        let attributedString = NSMutableAttributedString(string: "占位符富文本", attributes: [NSAttributedString.Key.foregroundColor: UIColor.randomColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)])
+        let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).attributedPlaceholder(attributedString)
+        textFiled.backgroundColor = .randomColor
+        self.view.addSubview(textFiled)
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            textFiled.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 2.03、设置占位符
+    @objc func test203() {
+        let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).placeholder("我是占位符")
+        textFiled.backgroundColor = .randomColor
+        self.view.addSubview(textFiled)
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            textFiled.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 2.02、设置富文本
+    @objc func test202() {
+        let testString = "我是富文本"
+        let attributedString = NSMutableAttributedString(string: testString)
+        attributedString.addAttributes([NSAttributedString.Key.foregroundColor : UIColor.red], range: NSRange(location: 0, length: testString.count))
+        let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).attributedText(attributedString)
+        textFiled.backgroundColor = .randomColor
+        self.view.addSubview(textFiled)
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            textFiled.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 2.01、设置文字
+    @objc func test201() {
+        let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40)).text("我是一只小小鸟")
+        textFiled.backgroundColor = .randomColor
+        self.view.addSubview(textFiled)
+        JKAsyncs.asyncDelay(3) {
+        } _: {
+            textFiled.removeFromSuperview()
         }
     }
 }
@@ -205,33 +205,23 @@ extension UITextFieldExtensionViewController: UITextFieldDelegate {
 // MARK: - 一、基本的扩展
 extension UITextFieldExtensionViewController {
     
-    // MARK: 1.1、添加左边的内边距
-    @objc func test11() {
-        let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40))
-        textFiled.backgroundColor = .randomColor
-        textFiled.jk.addLeftTextPadding(20)
-        self.view.addSubview(textFiled)
-        JKAsyncs.asyncDelay(3) {
-        } _: {
-            textFiled.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 1.2、添加左边的图片
-    @objc func test12() {
-        // addLeftIcon
+    // MARK: 1.04、设置富文本的占位符
+    @objc func test104() {
+        JKPrint("设置富文本的占位符")
         let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40))
         textFiled.backgroundColor = .randomColor
         textFiled.jk.addLeftIcon(UIImage(named: "ironman"), leftViewFrame: CGRect(x: 20, y: 20, width: 30, height: 30), imageSize: CGSize(width: 20, height: 20))
+        textFiled.placeholder = "我是占位符"
+        textFiled.jk.setPlaceholderAttribute(font: UIFont.systemFont(ofSize: 16), color: UIColor.randomColor)
         self.view.addSubview(textFiled)
-        JKAsyncs.asyncDelay(300) {
+        JKAsyncs.asyncDelay(1000) {
         } _: {
             textFiled.removeFromSuperview()
         }
     }
     
-    // MARK: 1.3、是否都是数字
-    @objc func test13() {
+    // MARK: 1.03、是否都是数字
+    @objc func test103() {
         let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40))
         textFiled.backgroundColor = .randomColor
         textFiled.jk.addLeftIcon(UIImage(named: "ironman"), leftViewFrame: CGRect(x: 20, y: 20, width: 30, height: 30), imageSize: CGSize(width: 20, height: 20))
@@ -243,16 +233,26 @@ extension UITextFieldExtensionViewController {
         }
     }
     
-    // MARK: 1.4、设置富文本的占位符
-    @objc func test14() {
-        JKPrint("设置富文本的占位符")
+    // MARK: 1.02、添加左边的图片
+    @objc func test102() {
+        // addLeftIcon
         let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40))
         textFiled.backgroundColor = .randomColor
         textFiled.jk.addLeftIcon(UIImage(named: "ironman"), leftViewFrame: CGRect(x: 20, y: 20, width: 30, height: 30), imageSize: CGSize(width: 20, height: 20))
-        textFiled.placeholder = "我是占位符"
-        textFiled.jk.setPlaceholderAttribute(font: UIFont.systemFont(ofSize: 16), color: UIColor.randomColor)
         self.view.addSubview(textFiled)
-        JKAsyncs.asyncDelay(1000) {
+        JKAsyncs.asyncDelay(300) {
+        } _: {
+            textFiled.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 1.01、添加左边的内边距
+    @objc func test101() {
+        let textFiled = UITextField(frame: CGRect(x: 100, y: 100, width: 200, height: 40))
+        textFiled.backgroundColor = .randomColor
+        textFiled.jk.addLeftTextPadding(20)
+        self.view.addSubview(textFiled)
+        JKAsyncs.asyncDelay(3) {
         } _: {
             textFiled.removeFromSuperview()
         }

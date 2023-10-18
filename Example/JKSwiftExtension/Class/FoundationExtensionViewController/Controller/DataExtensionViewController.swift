@@ -21,8 +21,8 @@ class DataExtensionViewController: BaseViewController {
 // MARK: - 一、基本的扩展
 extension DataExtensionViewController {
     
-    // MARK: 1.3、转成bytes
-    @objc func test13() {
+    // MARK: 1.03、转成bytes
+    @objc func test103() {
         let content = "我是一只小小鸟"
         guard let data = content.data(using: String.Encoding.utf8), let resultData = data.jk.encodeToData  else {
             return
@@ -30,8 +30,8 @@ extension DataExtensionViewController {
         JKPrint("转成bytes：\(resultData.jk.bytes)")
     }
     
-    // MARK: 1.2、base64解码成 Data
-    @objc func test12() {
+    // MARK: 1.02、base64解码成 Data
+    @objc func test102() {
         let content = "我是一只小小鸟"
         guard let data = content.data(using: String.Encoding.utf8), let resultData = data.jk.encodeToData  else {
             return
@@ -42,8 +42,8 @@ extension DataExtensionViewController {
         JKPrint("base64编码成 Data：\(resultData)", "解码后的data是：\(oldData)", "解码后的 String：\(oldString)")
     }
     
-    // MARK: 1.1、base64编码成 Data
-    @objc func test11() {
+    // MARK: 1.01、base64编码成 Data
+    @objc func test101() {
         let content = "我是一只小小鸟"
         guard let data = content.data(using: String.Encoding.utf8), let resultData = data.jk.encodeToData else {
             return

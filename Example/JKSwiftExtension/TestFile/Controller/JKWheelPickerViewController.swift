@@ -78,7 +78,6 @@ class JKWheelPickerViewController: UIViewController {
             }
             // self.monthPicker.select(3, animated: false)
         }
-        
     }
     
     @objc func click1(sender: UIButton) {
@@ -108,11 +107,10 @@ extension JKWheelPickerViewController: JKWheelPickerDataSource {
 extension JKWheelPickerViewController: JKWheelPickerDelegate {
     
     func wheelPicker(_ wheelPicker: JKWheelPicker, didSelectItemAt index: Int) {
-        print("\(months[index])")
+        debugPrint("\(months[index])")
     }
     
     func wheelPicker(_ wheelPicker: JKWheelPicker, marginForItem index: Int) -> CGSize {
-        
         return CGSize(width: 0.0 , height: 0.0)
     }
 }

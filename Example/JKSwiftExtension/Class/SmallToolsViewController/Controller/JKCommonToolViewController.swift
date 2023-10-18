@@ -25,8 +25,8 @@ class JKCommonToolViewController: BaseViewController {
 // MARK: - 一、基本的方法
 extension JKCommonToolViewController {
     
-    // MARK: 1.2、模型对比返回差异
-    @objc func test12() {
+    // MARK: 1.02、模型对比返回差异
+    @objc func test102() {
         let person1 = Person()
         person1.name = "A"
         person1.age = 20
@@ -39,8 +39,8 @@ extension JKCommonToolViewController {
         // self.navigationController?.pushViewController(NotificationTetstViewController(), animated: true)
     }
     
-    // MARK: 1.1、交换两个值
-    @objc func test11() {
+    // MARK: 1.01、交换两个值
+    @objc func test101() {
         var a = 1
         var b = 2
         JKCommonTool.swapMe(value1: &a, value2: &b)

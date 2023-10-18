@@ -21,7 +21,7 @@ class CALayerExtensionViewController: BaseViewController, CAAnimationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "测试", style: .plain, target: self, action: #selector(test62))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "测试", style: .plain, target: self, action: #selector(test602))
         
         headDataArray = ["一、自定义链式编程", "二、有关 CABasicAnimation 动画的扩展", "三、有关 CAKeyframeAnimation 动画的扩展", "四、有关 CATransition 动画的扩展", "五、有关 CASpringAnimation 弹簧动画的扩展", "六、有关 CAAnimationGroup 动画组的扩展"]
         dataArray = [["设置圆角", "设置背景色", "设置背景色 (十六进制字符串)", "设置frame", "添加到父视图(UIView)", "添加到父视图(CALayer)", "是否隐藏", "设置边框宽度", "设置边框颜色", "是否开启光栅化", "设置光栅化比例", "设置阴影颜色", "设置阴影的透明度", "设置阴影的偏移量", "设置阴影圆角", "高性能添加阴影 Shadow Path"], ["移动到另外一个 点(point)", "移动X", "移动Y", "圆角动画", "缩放动画", "旋转动画"], ["position移动动画", "设置 角度值 抖动", "根据 CGPath 进行做 移动 动画"], ["转场动画的使用"], ["弹簧动画：Bounds 动画"], ["CAAnimationGroup 的基类动画"]]
@@ -49,11 +49,11 @@ extension CALayerExtensionViewController {
     }
     
     // MARK: CAAnimationGroup 动画
-    @objc func test62() {
+    @objc func test602() {
         self.view.addSubview(testButton)
     }
     // MARK: CAAnimationGroup 动画
-    @objc func test61() {
+    @objc func test601() {
         
         let testView = UIView()
         testView.frame = CGRect(x: 50, y: 100, width: 100, height: 100)
@@ -84,16 +84,14 @@ extension CALayerExtensionViewController {
                 imageView.removeFromSuperview()
             }
         }
-        
-        
     }
 }
 
 // MARK: - 五、有关 CASpringAnimation 弹簧动画的扩展
 extension CALayerExtensionViewController {
     
-    // MARK: 5.1、 弹簧动画：Bounds 动画
-    @objc func test51() {
+    // MARK: 5.01、 弹簧动画：Bounds 动画
+    @objc func test501() {
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
         imageView.image = UIImage(named: "ironman")
         imageView.jk.centerX = self.view.jk.centerX
@@ -113,8 +111,8 @@ extension CALayerExtensionViewController {
 // MARK: - 四、有关 CATransition 动画的扩展
 extension CALayerExtensionViewController {
     
-    // MARK: 4.1、转场动画的使用
-    @objc func test41() {
+    // MARK: 4.01、转场动画的使用
+    @objc func test401() {
         
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
         imageView.image = UIImage(named: "ironman")
@@ -135,8 +133,8 @@ extension CALayerExtensionViewController {
 // MARK: - 三、有关 CAKeyframeAnimation 动画的扩展
 extension CALayerExtensionViewController {
     
-    // MARK: 3.3、根据 CGPath 进行做 移动 动画
-    @objc func test33() {
+    // MARK: 3.03、根据 CGPath 进行做 移动 动画
+    @objc func test303() {
         
         let testLayer1 = CALayer().corner(100).borderWidth(2).borderColor(.randomColor)
         testLayer1.frame = CGRect(x: 100, y: 200, width: 200, height: 200)
@@ -161,8 +159,8 @@ extension CALayerExtensionViewController {
         }
     }
     
-    // MARK: 3.2、设置 角度值 抖动
-    @objc func test32() {
+    // MARK: 3.02、设置 角度值 抖动
+    @objc func test302() {
         let testLayer = CALayer()
         testLayer.frame = CGRect(x: 80, y: 80, width: 80, height: 80)
         testLayer.backgroundColor = UIColor.green.cgColor
@@ -178,8 +176,8 @@ extension CALayerExtensionViewController {
         }
     }
     
-    // MARK: 3.1、position移动动画
-    @objc func test31() {
+    // MARK: 3.01、position移动动画
+    @objc func test301() {
         
         let testLayer = CALayer().corner(0)
         testLayer.frame = CGRect(x: 80, y: 80, width: 80, height: 80)
@@ -222,14 +220,13 @@ extension CALayerExtensionViewController {
             testLayer.removeAllAnimations()
         }
     }
-    
 }
 
 // MARK: - 二、有关 CABasicAnimation 动画的扩展
 extension CALayerExtensionViewController {
     
-    // MARK: 2.6、旋转动画
-    @objc func test26() {
+    // MARK: 2.06、旋转动画
+    @objc func test206() {
         let testLayer1 = CALayer().corner(0)
         testLayer1.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
         testLayer1.backgroundColor = UIColor.red.cgColor
@@ -251,8 +248,8 @@ extension CALayerExtensionViewController {
         }
     }
     
-    // MARK: 2.5、缩放动画
-    @objc func test25() {
+    // MARK: 2.05、缩放动画
+    @objc func test205() {
         let testLayer1 = CALayer().corner(0)
         testLayer1.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
         testLayer1.backgroundColor = UIColor.red.cgColor
@@ -275,8 +272,8 @@ extension CALayerExtensionViewController {
         }
     }
     
-    // MARK: 2.4、圆角动画
-    @objc func test24() {
+    // MARK: 2.04、圆角动画
+    @objc func test204() {
         let testLayer1 = CALayer().corner(0)
         testLayer1.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
         testLayer1.backgroundColor = UIColor.red.cgColor
@@ -299,8 +296,8 @@ extension CALayerExtensionViewController {
         }
     }
     
-    // MARK: 2.3、移动Y
-    @objc func test23() {
+    // MARK: 2.03、移动Y
+    @objc func test203() {
         let testLayer1 = CALayer()
         testLayer1.frame = CGRect(x: 200, y: 100, width: 100, height: 100)
         testLayer1.backgroundColor = UIColor.red.cgColor
@@ -331,8 +328,8 @@ extension CALayerExtensionViewController {
         }
     }
     
-    // MARK: 2.2、移动X
-    @objc func test22() {
+    // MARK: 2.02、移动X
+    @objc func test202() {
         let testLayer1 = CALayer()
         testLayer1.frame = CGRect(x: 200, y: 100, width: 100, height: 100)
         testLayer1.backgroundColor = UIColor.red.cgColor
@@ -363,8 +360,8 @@ extension CALayerExtensionViewController {
         }
     }
     
-    // MARK: 2.1、移动到另外一个 点(point)
-    @objc func test21() {
+    // MARK: 2.01、移动到另外一个 点(point)
+    @objc func test201() {
         let testLayer1 = CALayer()
         testLayer1.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
         testLayer1.backgroundColor = UIColor.red.cgColor
@@ -398,181 +395,15 @@ extension CALayerExtensionViewController {
 // MARK: - 一、基本的扩展
 extension CALayerExtensionViewController {
     
-    // MARK: 1.1、设置圆角
-    @objc func test11() {
-        let testLayer = CALayer()
-        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-        testLayer.backgroundColor = UIColor.green.cgColor
-        testLayer.corner(12)
-        self.view.layer.addSublayer(testLayer)
-        JKAsyncs.asyncDelay(2, {
-        }) {
-            testLayer.removeFromSuperlayer()
-        }
-    }
-    
-    // MARK: 1.2、设置背景色
-    @objc func test12() {
-        let testLayer = CALayer()
-        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-        testLayer.backgroundColor(UIColor.randomColor)
-        self.view.layer.addSublayer(testLayer)
-        JKAsyncs.asyncDelay(2, {
-        }) {
-            testLayer.removeFromSuperlayer()
-        }
-    }
-    
-    // MARK: 1.3、设置背景色 (十六进制字符串)
-    @objc func test13() {
-        let testLayer = CALayer()
-        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-        testLayer.backgroundColor("#7B68EE")
-        self.view.layer.addSublayer(testLayer)
-        JKAsyncs.asyncDelay(2, {
-        }) {
-            testLayer.removeFromSuperlayer()
-        }
-    }
-    
-    // MARK: 1.4、设置frame
-    @objc func test14() {
-        let testLayer = CALayer()
-        testLayer.frame(CGRect(x: 100, y: 100, width: 100, height: 100))
-        testLayer.backgroundColor = UIColor.randomColor.cgColor
-        self.view.layer.addSublayer(testLayer)
-        JKAsyncs.asyncDelay(2, {
-        }) {
-            testLayer.removeFromSuperlayer()
-        }
-    }
-    
-    // MARK: 1.5、添加到父视图
-    @objc func test15() {
-        let testLayer = CALayer()
-        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-        testLayer.backgroundColor = UIColor.randomColor.cgColor
-        testLayer.addTo(self.view)
-        JKAsyncs.asyncDelay(2, {
-        }) {
-            testLayer.removeFromSuperlayer()
-        }
-    }
-    
-    // MARK: 1.6、添加到父视图(CALayer)
-    @objc func test16() {
-        let testLayer = CALayer()
-        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-        testLayer.backgroundColor = UIColor.randomColor.cgColor
-        testLayer.addTo(self.view.layer)
-        JKAsyncs.asyncDelay(2, {
-        }) {
-            testLayer.removeFromSuperlayer()
-        }
-    }
-    
-    // MARK: 1.7、是否隐藏
-    @objc func test17() {
-        let testLayer = CALayer()
-        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-        testLayer.backgroundColor = UIColor.randomColor.cgColor
-        testLayer.isHidden(false)
-        testLayer.addTo(self.view.layer)
-        JKAsyncs.asyncDelay(2, {
-        }) {
-            testLayer.removeFromSuperlayer()
-        }
-    }
-    
-    // MARK: 1.8、设置边框宽度
-    @objc func test18() {
-        let testLayer = CALayer()
-        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-        testLayer.backgroundColor = UIColor.randomColor.cgColor
-        testLayer.borderWidth(16)
-        testLayer.addTo(self.view.layer)
-        JKAsyncs.asyncDelay(2, {
-        }) {
-            testLayer.removeFromSuperlayer()
-        }
-    }
-    
-    // MARK: 1.9、设置边框颜色
-    @objc func test19() {
-        let testLayer = CALayer()
-        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-        testLayer.backgroundColor = UIColor.randomColor.cgColor
-        testLayer.borderWidth(16)
-        testLayer.borderColor(.yellow)
-        testLayer.addTo(self.view.layer)
-        JKAsyncs.asyncDelay(2, {
-        }) {
-            testLayer.removeFromSuperlayer()
-        }
-    }
-    
-    // MARK: 1.10、是否开启光栅化
-    @objc func test110() {
-        let testLayer = CALayer()
-        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-        testLayer.backgroundColor = UIColor.randomColor.cgColor
-        testLayer.shouldRasterize(true)
-        testLayer.addTo(self.view.layer)
-        JKAsyncs.asyncDelay(2, {
-        }) {
-            testLayer.removeFromSuperlayer()
-        }
-    }
-    
-    // MARK: 1.11、设置光栅化比例
-    @objc func test111() {
-        let testLayer = CALayer()
-        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-        testLayer.backgroundColor = UIColor.randomColor.cgColor
-        testLayer.shouldRasterize(true)
-        testLayer.rasterizationScale(0.8)
-        testLayer.addTo(self.view.layer)
-        JKAsyncs.asyncDelay(2, {
-        }) {
-            testLayer.removeFromSuperlayer()
-        }
-    }
-    
-    // MARK: 1.12、设置阴影颜色
-    @objc func test112() {
-        let testLayer = CALayer()
-        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-        testLayer.backgroundColor = UIColor.randomColor.cgColor
-        testLayer.shadowColor(.red)
-        testLayer.addTo(self.view.layer)
-        JKAsyncs.asyncDelay(2, {
-        }) {
-            testLayer.removeFromSuperlayer()
-        }
-    }
-    
-    // MARK: 1.13、设置阴影的透明度
-    @objc func test113() {
+    // MARK: 1.16、高性能添加阴影 Shadow Path
+    @objc func test116() {
         let testLayer = CALayer()
         testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
         testLayer.backgroundColor = UIColor.randomColor.cgColor
         testLayer.shadowColor(.red)
         testLayer.shadowOpacity(0.68)
-        testLayer.addTo(self.view.layer)
-        JKAsyncs.asyncDelay(2, {
-        }) {
-            testLayer.removeFromSuperlayer()
-        }
-    }
-    
-    // MARK: 1.14、设置阴影的偏移量
-    @objc func test114() {
-        let testLayer = CALayer()
-        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-        testLayer.backgroundColor = UIColor.randomColor.cgColor
-        testLayer.shadowColor(.red)
-        testLayer.shadowOpacity(0.68)
-        testLayer.shadowOffset(CGSize(width: 1, height: 1))
+        testLayer.shadowRadius(6)
+        // testLayer.shadowPath(UIBezierPath.init(rect: testLayer.bounds).cgPath)
         testLayer.addTo(self.view.layer)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -596,16 +427,182 @@ extension CALayerExtensionViewController {
         }
     }
     
-    // MARK: 1.16、高性能添加阴影 Shadow Path
-    @objc func test116() {
+    // MARK: 1.14、设置阴影的偏移量
+    @objc func test114() {
         let testLayer = CALayer()
         testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
         testLayer.backgroundColor = UIColor.randomColor.cgColor
         testLayer.shadowColor(.red)
         testLayer.shadowOpacity(0.68)
-        testLayer.shadowRadius(6)
-        // testLayer.shadowPath(UIBezierPath.init(rect: testLayer.bounds).cgPath)
+        testLayer.shadowOffset(CGSize(width: 1, height: 1))
         testLayer.addTo(self.view.layer)
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            testLayer.removeFromSuperlayer()
+        }
+    }
+    
+    // MARK: 1.13、设置阴影的透明度
+    @objc func test113() {
+        let testLayer = CALayer()
+        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        testLayer.backgroundColor = UIColor.randomColor.cgColor
+        testLayer.shadowColor(.red)
+        testLayer.shadowOpacity(0.68)
+        testLayer.addTo(self.view.layer)
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            testLayer.removeFromSuperlayer()
+        }
+    }
+    
+    // MARK: 1.12、设置阴影颜色
+    @objc func test112() {
+        let testLayer = CALayer()
+        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        testLayer.backgroundColor = UIColor.randomColor.cgColor
+        testLayer.shadowColor(.red)
+        testLayer.addTo(self.view.layer)
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            testLayer.removeFromSuperlayer()
+        }
+    }
+    
+    // MARK: 1.11、设置光栅化比例
+    @objc func test111() {
+        let testLayer = CALayer()
+        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        testLayer.backgroundColor = UIColor.randomColor.cgColor
+        testLayer.shouldRasterize(true)
+        testLayer.rasterizationScale(0.8)
+        testLayer.addTo(self.view.layer)
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            testLayer.removeFromSuperlayer()
+        }
+    }
+    
+    // MARK: 1.10、是否开启光栅化
+    @objc func test110() {
+        let testLayer = CALayer()
+        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        testLayer.backgroundColor = UIColor.randomColor.cgColor
+        testLayer.shouldRasterize(true)
+        testLayer.addTo(self.view.layer)
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            testLayer.removeFromSuperlayer()
+        }
+    }
+    
+    // MARK: 1.09、设置边框颜色
+    @objc func test109() {
+        let testLayer = CALayer()
+        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        testLayer.backgroundColor = UIColor.randomColor.cgColor
+        testLayer.borderWidth(16)
+        testLayer.borderColor(.yellow)
+        testLayer.addTo(self.view.layer)
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            testLayer.removeFromSuperlayer()
+        }
+    }
+    
+    // MARK: 1.08、设置边框宽度
+    @objc func test108() {
+        let testLayer = CALayer()
+        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        testLayer.backgroundColor = UIColor.randomColor.cgColor
+        testLayer.borderWidth(16)
+        testLayer.addTo(self.view.layer)
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            testLayer.removeFromSuperlayer()
+        }
+    }
+    
+    // MARK: 1.07、是否隐藏
+    @objc func test107() {
+        let testLayer = CALayer()
+        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        testLayer.backgroundColor = UIColor.randomColor.cgColor
+        testLayer.isHidden(false)
+        testLayer.addTo(self.view.layer)
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            testLayer.removeFromSuperlayer()
+        }
+    }
+    
+    // MARK: 1.06、添加到父视图(CALayer)
+    @objc func test106() {
+        let testLayer = CALayer()
+        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        testLayer.backgroundColor = UIColor.randomColor.cgColor
+        testLayer.addTo(self.view.layer)
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            testLayer.removeFromSuperlayer()
+        }
+    }
+    
+    // MARK: 1.05、添加到父视图
+    @objc func test105() {
+        let testLayer = CALayer()
+        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        testLayer.backgroundColor = UIColor.randomColor.cgColor
+        testLayer.addTo(self.view)
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            testLayer.removeFromSuperlayer()
+        }
+    }
+    
+    // MARK: 1.04、设置frame
+    @objc func test104() {
+        let testLayer = CALayer()
+        testLayer.frame(CGRect(x: 100, y: 100, width: 100, height: 100))
+        testLayer.backgroundColor = UIColor.randomColor.cgColor
+        self.view.layer.addSublayer(testLayer)
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            testLayer.removeFromSuperlayer()
+        }
+    }
+    
+    // MARK: 1.03、设置背景色 (十六进制字符串)
+    @objc func test103() {
+        let testLayer = CALayer()
+        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        testLayer.backgroundColor("#7B68EE")
+        self.view.layer.addSublayer(testLayer)
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            testLayer.removeFromSuperlayer()
+        }
+    }
+    
+    // MARK: 1.02、设置背景色
+    @objc func test102() {
+        let testLayer = CALayer()
+        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        testLayer.backgroundColor(UIColor.randomColor)
+        self.view.layer.addSublayer(testLayer)
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            testLayer.removeFromSuperlayer()
+        }
+    }
+    
+    // MARK: 1.01、设置圆角
+    @objc func test101() {
+        let testLayer = CALayer()
+        testLayer.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        testLayer.backgroundColor = UIColor.green.cgColor
+        testLayer.corner(12)
+        self.view.layer.addSublayer(testLayer)
         JKAsyncs.asyncDelay(2, {
         }) {
             testLayer.removeFromSuperlayer()

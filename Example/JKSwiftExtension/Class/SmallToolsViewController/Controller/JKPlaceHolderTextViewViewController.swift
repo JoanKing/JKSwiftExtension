@@ -21,8 +21,8 @@ class JKPlaceHolderTextViewViewController: BaseViewController {
 // MARK: - 一、基本的使用
 extension JKPlaceHolderTextViewViewController {
     
-    // MARK: 1.1、UITextView 设置PlaceHolder
-    @objc func test11() {
+    // MARK: 1.01、UITextView 设置PlaceHolder
+    @objc func test101() {
     
         let textView = JKPlaceHolderTextView()
         textView.backgroundColor = UIColor.brown

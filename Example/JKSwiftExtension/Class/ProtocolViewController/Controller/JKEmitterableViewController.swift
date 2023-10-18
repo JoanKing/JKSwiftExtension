@@ -25,13 +25,13 @@ class JKEmitterableViewController: BaseViewController {
 // MARK: - 一、粒子发射器
 extension JKEmitterableViewController: JKEmitterable {
     
-    // MARK: 1.3、停止发射
-    @objc func test13() {
+    // MARK: 1.03、停止发射
+    @objc func test103() {
         self.stopEmitter()
     }
     
-    // MARK: 1.2、只发射1次
-    @objc func test12() {
+    // MARK: 1.02、只发射1次
+    @objc func test102() {
         let style = JKEmitterStyle()
         style.cellEmitterLifetime = 5
         style.cellEmitterBirthRate = 3
@@ -40,8 +40,8 @@ extension JKEmitterableViewController: JKEmitterable {
         self.startEmitter(emitterImageNames: ["good", "good1"], style: style)
     }
     
-    // MARK: 1.1、开始发射
-    @objc func test11() {
+    // MARK: 1.01、开始发射
+    @objc func test101() {
         let style = JKEmitterStyle()
         style.cellEmitterLifetime = 5
         style.cellEmitterBirthRate = 3

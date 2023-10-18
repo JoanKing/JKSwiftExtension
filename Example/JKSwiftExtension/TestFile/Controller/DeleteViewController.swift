@@ -76,47 +76,47 @@ class DeleteViewController: UIViewController {
 extension DeleteViewController: UIScrollViewDelegate{
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("100000")
+        debugPrint("100000")
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        print("1100000")
+        debugPrint("1100000")
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        print("1200000")
+        debugPrint("1200000")
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        print("1300000")
+        debugPrint("1300000")
     }
     func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
-        print("1400000")
+        debugPrint("1400000")
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        print("1500000")
+        debugPrint("1500000")
     }
     
     func scrollViewDidChangeAdjustedContentInset(_ scrollView: UIScrollView) {
-        print("1700000")
+        debugPrint("1700000")
     }
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
-        print("1800000")
+        debugPrint("1800000")
     }
     
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
-        print("1900000")
+        debugPrint("1900000")
        
     }
     
     func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
-        print("12100000")
+        debugPrint("12100000")
     }
     
     func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
-        print("1200000")
+        debugPrint("1200000")
     }
 }
 
@@ -253,39 +253,38 @@ extension DeleteViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.jk.addSectionCellCornerRadius(radius: 10, fillColor: UIColor.white, willDisplay: cell, forRowAt: indexPath, insetByDx: 0)
     }
     
-   
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        print("5555555")
+        debugPrint("5555555")
         tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("666666")
+        debugPrint("666666")
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        print("77777")
+        debugPrint("77777")
         return nil
     }
     
     func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        print("bbbbbb")
+        debugPrint("bbbbbb")
     }
     
     func tableView(_ tableView: UITableView, didBeginMultipleSelectionInteractionAt indexPath: IndexPath) {
-        print("aaaaaaaaa")
+        debugPrint("aaaaaaaaa")
     }
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        print("编辑结束111")
+        debugPrint("编辑结束111")
     }
     
     func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
-        print("编辑结束2222")
+        debugPrint("编辑结束2222")
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        print("编辑结束4444")
+        debugPrint("编辑结束4444")
     }
     
     func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
@@ -302,7 +301,7 @@ extension DeleteViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
 
-        print("编辑结束333")
+        debugPrint("编辑结束333")
     }
     
     /// 去除编辑模式下的头部缩进
@@ -327,6 +326,4 @@ extension DeleteViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.reloadData()
         }
     }
-    
-    
 }

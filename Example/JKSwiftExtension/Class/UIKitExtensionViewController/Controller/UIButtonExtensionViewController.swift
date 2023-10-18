@@ -49,8 +49,8 @@ class UIButtonExtensionViewController: BaseViewController {
 
 // MARK: - 六、Button扩大点击事件
 extension UIButtonExtensionViewController {
-    // MARK: 6.1、扩大UIButton的点击区域，向四周扩展25像素的点击范围
-    @objc func test61() {
+    // MARK: 6.01、扩大UIButton的点击区域，向四周扩展25像素的点击范围
+    @objc func test601() {
         let testView1 = UIView()
         testView1.backgroundColor = .randomColor
         testView1.center = self.view.center
@@ -98,8 +98,8 @@ extension UIButtonExtensionViewController {
 // MARK: - 五、Button的基本事件
 extension UIButtonExtensionViewController {
     
-    // MARK: 5.1、button的事件
-    @objc func test51() {
+    // MARK: 5.01、button的事件
+    @objc func test501() {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).image(.brown).title("哈哈").jk.setImageTitleLayout(.imgLeft, spacing: 6)
         button.backgroundColor = .randomColor
         button.center = self.view.center
@@ -119,46 +119,82 @@ extension UIButtonExtensionViewController {
 // MARK: - 四、自带倒计时功能的 Button
 extension UIButtonExtensionViewController {
     
-    // MARK: 4.1、设置 Button 倒计时
-    @objc func test41() {
-        self.view.addSubview(testButton)
-    }
-    
-    // MARK: 4.2、是否可以点击
-    @objc func test42() {
-        guard let result = testButton.reEnableCond else {
-            print("-------nil--------")
-            return
-        }
-        print("是否可以点击：\(result)")
-    }
-    
-    // MARK: 4.3、是否正在倒计时
-    @objc func test43() {
-        let result = testButton.isTiming
-        print("是否正在倒计时：\(result)")
-    }
-    
-    // MARK: 4.4、处于倒计时时，前缀文案，如：「再次获取」 + (xxxs)
-    @objc func test44() {
-       guard let result = testButton.timeringPrefix else {
-            print("-------nil--------")
-            return
-        }
-        print("处于倒计时时，前缀文案：\(result)")
-    }
-    
-    // MARK: 4.5、销毁定时器
-    @objc func test45() {
+    // MARK: 4.05、销毁定时器
+    @objc func test405() {
         testButton.invalidate()
-        print("销毁定时器")
+        debugPrint("销毁定时器")
+    }
+    
+    // MARK: 4.04、处于倒计时时，前缀文案，如：「再次获取」 + (xxxs)
+    @objc func test404() {
+       guard let result = testButton.timeringPrefix else {
+           debugPrint("-------nil--------")
+            return
+        }
+        debugPrint("处于倒计时时，前缀文案：\(result)")
+    }
+    
+    // MARK: 4.03、是否正在倒计时
+    @objc func test403() {
+        let result = testButton.isTiming
+        debugPrint("是否正在倒计时：\(result)")
+    }
+    
+    // MARK: 4.02、是否可以点击
+    @objc func test402() {
+        guard let result = testButton.reEnableCond else {
+            debugPrint("-------nil--------")
+            return
+        }
+        debugPrint("是否可以点击：\(result)")
+    }
+    
+    // MARK: 4.01、设置 Button 倒计时
+    @objc func test401() {
+        self.view.addSubview(testButton)
     }
 }
 // MARK: - 三、UIButton 图片 与 title 位置关系
 extension UIButtonExtensionViewController {
     
-    // MARK: 3.1、图片在左
-    @objc func test31() {
+    // MARK: 3.04、图片在下
+    @objc func test304() {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).font(6).image(.brown, CGSize(width: 20, height: 20), .normal).title("哈哈").jk.setImageTitleLayout(.imgBottom, spacing: 6)
+        button.backgroundColor = .randomColor
+        button.center = self.view.center
+        self.view.addSubview(button)
+        JKAsyncs.asyncDelay(3, {
+        }) {
+            button.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 3.03、图片在上
+    @objc func test303() {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).image(.brown).title("哈哈").jk.setImageTitleLayout(.imgTop, spacing: 6)
+        button.backgroundColor = .randomColor
+        button.center = self.view.center
+        self.view.addSubview(button)
+        JKAsyncs.asyncDelay(3, {
+        }) {
+            button.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 3.02、图片在右
+    @objc func test302() {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).image(.brown).title("哈哈").jk.setImageTitleLayout(.imgRight, spacing: 6)
+        button.backgroundColor = .randomColor
+        button.center = self.view.center
+        self.view.addSubview(button)
+        JKAsyncs.asyncDelay(3, {
+        }) {
+            button.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 3.01、图片在左
+    @objc func test301() {
         let button = UIButton().image(.brown).title("收藏")
         button.backgroundColor = .brown
         button.setImage(UIImage(named: "go_favorite_selected"), for: .normal)
@@ -182,50 +218,14 @@ extension UIButtonExtensionViewController {
             }
         }
     }
-    
-    // MARK: 3.2、图片在右
-    @objc func test32() {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).image(.brown).title("哈哈").jk.setImageTitleLayout(.imgRight, spacing: 6)
-        button.backgroundColor = .randomColor
-        button.center = self.view.center
-        self.view.addSubview(button)
-        JKAsyncs.asyncDelay(3, {
-        }) {
-            button.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 3.3、图片在上
-    @objc func test33() {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).image(.brown).title("哈哈").jk.setImageTitleLayout(.imgTop, spacing: 6)
-        button.backgroundColor = .randomColor
-        button.center = self.view.center
-        self.view.addSubview(button)
-        JKAsyncs.asyncDelay(3, {
-        }) {
-            button.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 3.4、图片在下
-    @objc func test34() {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).font(6).image(.brown, CGSize(width: 20, height: 20), .normal).title("哈哈").jk.setImageTitleLayout(.imgBottom, spacing: 6)
-        button.backgroundColor = .randomColor
-        button.center = self.view.center
-        self.view.addSubview(button)
-        JKAsyncs.asyncDelay(3, {
-        }) {
-            button.removeFromSuperview()
-        }
-    }
 }
 
 // MARK: - 二、链式调用
 extension UIButtonExtensionViewController {
     
-    // MARK: 2.1、设置title
-    @objc func test21() {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal)
+    // MARK: 2.14、按钮点击的变化
+    @objc func test214() {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.brown, .normal).boldFont(12).bgImage(.yellow).confirmButton()
         button.backgroundColor = .randomColor
         button.center = self.view.center
         self.view.addSubview(button)
@@ -235,123 +235,9 @@ extension UIButtonExtensionViewController {
         }
     }
     
-    // MARK: 2.2、设置文字颜色
-    @objc func test22() {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.yellow, .normal)
-        button.backgroundColor = .randomColor
-        button.center = self.view.center
-        self.view.addSubview(button)
-        JKAsyncs.asyncDelay(3, {
-        }) {
-            button.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 2.3、设置字体大小(UIFont)
-    @objc func test23() {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.yellow, .normal).font(UIFont.systemFont(ofSize: 12))
-        button.backgroundColor = .randomColor
-        button.center = self.view.center
-        self.view.addSubview(button)
-        JKAsyncs.asyncDelay(3, {
-        }) {
-            button.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 2.4、设置字体大小(CGFloat)
-    @objc func test24() {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.yellow, .normal).font(16)
-        button.backgroundColor = .randomColor
-        button.center = self.view.center
-        self.view.addSubview(button)
-        JKAsyncs.asyncDelay(3, {
-        }) {
-            button.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 2.5、设置字体粗体
-    @objc func test25() {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.yellow, .normal).boldFont(12)
-        button.backgroundColor = .randomColor
-        button.center = self.view.center
-        self.view.addSubview(button)
-        JKAsyncs.asyncDelay(3, {
-        }) {
-            button.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 2.6、设置图片
-    @objc func test26() {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.yellow, .normal).boldFont(12).image(UIImage(named: "mark_highlighted"), .normal)
-        button.backgroundColor = .randomColor
-        button.center = self.view.center
-        self.view.addSubview(button)
-        JKAsyncs.asyncDelay(3, {
-        }) {
-            button.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 2.7、设置图片(通过Bundle加载)
-    @objc func test27() {
-        
-        guard let path = Bundle.init(for: Self.self).path(forResource: "JKBaseKit", ofType: "bundle") else {
-            return
-        }
-        let bundle = Bundle.init(path: path)
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.yellow, .normal).boldFont(12).image(in: bundle, "icon_scan", .normal)
-        button.backgroundColor = .randomColor
-        button.center = self.view.center
-        self.view.addSubview(button)
-        JKAsyncs.asyncDelay(3, {
-        }) {
-            button.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 2.8、设置图片(通过Bundle加载)
-    @objc func test28() {
-        
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.yellow, .normal).boldFont(12).image(forParent: Self.self, bundleName: "JKBaseKit", "icon_scan", .normal)
-        button.backgroundColor = .randomColor
-        button.center = self.view.center
-        self.view.addSubview(button)
-        JKAsyncs.asyncDelay(3, {
-        }) {
-            button.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 2.9、设置图片(纯颜色的图片)
-    @objc func test29() {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.yellow, .normal).boldFont(12).image(UIColor.brown)
-        button.backgroundColor = .randomColor
-        button.center = self.view.center
-        self.view.addSubview(button)
-        JKAsyncs.asyncDelay(3, {
-        }) {
-            button.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 2.10、设置背景图片
-    @objc func test210() {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.yellow, .normal).boldFont(12).bgImage(UIImage(named: "testicon"))
-        button.backgroundColor = .randomColor
-        button.center = self.view.center
-        self.view.addSubview(button)
-        JKAsyncs.asyncDelay(3, {
-        }) {
-            button.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 2.11、设置背景图片(通过Bundle加载)
-    @objc func test211() {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.yellow, .normal).boldFont(12).bgImage(forParent: Self.self, bundleName: "JKBaseKit", "icon_scan", .normal)
+    // MARK: 2.13、设置背景图片(纯颜色的图片)
+    @objc func test213() {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.brown, .normal).boldFont(12).bgImage(.yellow)
         button.backgroundColor = .randomColor
         button.center = self.view.center
         self.view.addSubview(button)
@@ -377,9 +263,9 @@ extension UIButtonExtensionViewController {
         }
     }
     
-    // MARK: 2.13、设置背景图片(纯颜色的图片)
-    @objc func test213() {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.brown, .normal).boldFont(12).bgImage(.yellow)
+    // MARK: 2.11、设置背景图片(通过Bundle加载)
+    @objc func test211() {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.yellow, .normal).boldFont(12).bgImage(forParent: Self.self, bundleName: "JKBaseKit", "icon_scan", .normal)
         button.backgroundColor = .randomColor
         button.center = self.view.center
         self.view.addSubview(button)
@@ -389,9 +275,123 @@ extension UIButtonExtensionViewController {
         }
     }
     
-    // MARK: 2.14、按钮点击的变化
-    @objc func test214() {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.brown, .normal).boldFont(12).bgImage(.yellow).confirmButton()
+    // MARK: 2.10、设置背景图片
+    @objc func test210() {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.yellow, .normal).boldFont(12).bgImage(UIImage(named: "testicon"))
+        button.backgroundColor = .randomColor
+        button.center = self.view.center
+        self.view.addSubview(button)
+        JKAsyncs.asyncDelay(3, {
+        }) {
+            button.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 2.09、设置图片(纯颜色的图片)
+    @objc func test209() {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.yellow, .normal).boldFont(12).image(UIColor.brown)
+        button.backgroundColor = .randomColor
+        button.center = self.view.center
+        self.view.addSubview(button)
+        JKAsyncs.asyncDelay(3, {
+        }) {
+            button.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 2.08、设置图片(通过Bundle加载)
+    @objc func test208() {
+        
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.yellow, .normal).boldFont(12).image(forParent: Self.self, bundleName: "JKBaseKit", "icon_scan", .normal)
+        button.backgroundColor = .randomColor
+        button.center = self.view.center
+        self.view.addSubview(button)
+        JKAsyncs.asyncDelay(3, {
+        }) {
+            button.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 2.07、设置图片(通过Bundle加载)
+    @objc func test207() {
+        
+        guard let path = Bundle.init(for: Self.self).path(forResource: "JKBaseKit", ofType: "bundle") else {
+            return
+        }
+        let bundle = Bundle.init(path: path)
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.yellow, .normal).boldFont(12).image(in: bundle, "icon_scan", .normal)
+        button.backgroundColor = .randomColor
+        button.center = self.view.center
+        self.view.addSubview(button)
+        JKAsyncs.asyncDelay(3, {
+        }) {
+            button.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 2.06、设置图片
+    @objc func test206() {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.yellow, .normal).boldFont(12).image(UIImage(named: "mark_highlighted"), .normal)
+        button.backgroundColor = .randomColor
+        button.center = self.view.center
+        self.view.addSubview(button)
+        JKAsyncs.asyncDelay(3, {
+        }) {
+            button.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 2.05、设置字体粗体
+    @objc func test205() {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.yellow, .normal).boldFont(12)
+        button.backgroundColor = .randomColor
+        button.center = self.view.center
+        self.view.addSubview(button)
+        JKAsyncs.asyncDelay(3, {
+        }) {
+            button.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 2.04、设置字体大小(CGFloat)
+    @objc func test204() {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.yellow, .normal).font(16)
+        button.backgroundColor = .randomColor
+        button.center = self.view.center
+        self.view.addSubview(button)
+        JKAsyncs.asyncDelay(3, {
+        }) {
+            button.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 2.03、设置字体大小(UIFont)
+    @objc func test203() {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.yellow, .normal).font(UIFont.systemFont(ofSize: 12))
+        button.backgroundColor = .randomColor
+        button.center = self.view.center
+        self.view.addSubview(button)
+        JKAsyncs.asyncDelay(3, {
+        }) {
+            button.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 2.02、设置文字颜色
+    @objc func test202() {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal).textColor(.yellow, .normal)
+        button.backgroundColor = .randomColor
+        button.center = self.view.center
+        self.view.addSubview(button)
+        JKAsyncs.asyncDelay(3, {
+        }) {
+            button.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 2.01、设置title
+    @objc func test201() {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).title("3秒后消失", .normal)
         button.backgroundColor = .randomColor
         button.center = self.view.center
         self.view.addSubview(button)
@@ -405,8 +405,8 @@ extension UIButtonExtensionViewController {
 // MARK: - 一、基本的扩展
 extension UIButtonExtensionViewController {
     
-    //MARK: 1.3、设置背景色
-    @objc func test13() {
+    //MARK: 1.03、设置背景色
+    @objc func test103() {
         let button = UIButton.jk.normal()
         button.jk.setBackgroundColor(UIColor.brown, forState: .normal)
         button.jk.setBackgroundColor(UIColor.green, forState: .disabled)
@@ -431,8 +431,8 @@ extension UIButtonExtensionViewController {
         }
     }
     
-    // MARK: 1.2、创建一个常规的 Button
-    @objc func test12() {
+    // MARK: 1.02、创建一个常规的 Button
+    @objc func test102() {
         let button = UIButton.jk.normal()
         button.frame = CGRect(x: 0, y: 0, width: 100, height: 50)
         button.center = self.view.center
@@ -443,8 +443,8 @@ extension UIButtonExtensionViewController {
         }
     }
     
-    // MARK: 1.1、创建一个带颜色的 Button
-    @objc func test11() {
+    // MARK: 1.01、创建一个带颜色的 Button
+    @objc func test101() {
         let button = UIButton.jk.small(type: .red, height: 200)
         button.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         button.center = self.view.center

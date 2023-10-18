@@ -21,18 +21,18 @@ class NSIndexPathExtensionViewController: BaseViewController {
 // MARK: - 一、基本扩展
 extension NSIndexPathExtensionViewController {
    
-    // MARK: 1.3、当前 NSIndexPath 的后一个 NSIndexPath
-    @objc func test13() {
+    // MARK: 1.03、当前 NSIndexPath 的后一个 NSIndexPath
+    @objc func test103() {
         
     }
     
-    // MARK: 1.2、当前 NSIndexPath 的前一个 NSIndexPath
-    @objc func test12() {
+    // MARK: 1.02、当前 NSIndexPath 的前一个 NSIndexPath
+    @objc func test102() {
         
     }
     
-    // MARK: 1.1、{section, row}
-    @objc func test11() {
+    // MARK: 1.01、{section, row}
+    @objc func test101() {
         
     }
 }

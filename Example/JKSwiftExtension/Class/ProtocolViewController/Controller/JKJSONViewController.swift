@@ -49,6 +49,6 @@ class JKJSONViewController: UIViewController {
         user1.tels = [tel1, tel2]
          
         // 输出json字符串
-        print(user1.toJSONString()!)
+        debugPrint(user1.toJSONString()!)
     }
 }

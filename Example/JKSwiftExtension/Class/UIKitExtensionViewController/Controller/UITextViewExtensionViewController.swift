@@ -25,16 +25,16 @@ class UITextViewExtensionViewController: BaseViewController {
 // MARK: - 三、输入内容以及正则的配置
 extension UITextViewExtensionViewController {
     
-    // MARK: 3.1、限制字数的输入(可配置正则)(提示在：- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;方法里面调用)
-    @objc func test31() {
+    // MARK: 3.01、限制字数的输入(可配置正则)(提示在：- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;方法里面调用)
+    @objc func test301() {
         self.navigationController?.pushViewController(TextViewTestViewController(), animated: true)
     }
 }
 // MARK: - 二、文本链接的扩展
 extension UITextViewExtensionViewController: UITextViewDelegate {
     
-    // MARK: 2.2、转换特殊符号标签字段
-    @objc func test22() {
+    // MARK: 2.02、转换特殊符号标签字段
+    @objc func test202() {
         let textView = UITextView(frame: CGRect(x: 16, y: 100, width: jk_kScreenW - 32, height: 200))
         textView.backgroundColor = .brown
         //设置展示文本框的代理
@@ -61,8 +61,8 @@ extension UITextViewExtensionViewController: UITextViewDelegate {
         }
     }
     
-    // MARK: 2.1、添加链接文本（链接为空时则表示普通文本）
-    @objc func test21() {
+    // MARK: 2.01、添加链接文本（链接为空时则表示普通文本）
+    @objc func test201() {
         let textView = UITextView(frame: CGRect(x: 16, y: 100, width: jk_kScreenW - 32, height: 200))
         textView.backgroundColor = .brown
         //设置展示文本框的代理
@@ -121,8 +121,8 @@ extension UITextViewExtensionViewController: UITextViewDelegate {
 // MARK: - 一、基本的扩展
 extension UITextViewExtensionViewController {
     
-    // MARK: 1.1、设置占位符
-    @objc func test11() {
+    // MARK: 1.01、设置占位符
+    @objc func test101() {
         
     }
 }

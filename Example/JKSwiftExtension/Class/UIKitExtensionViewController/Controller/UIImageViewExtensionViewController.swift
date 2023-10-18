@@ -20,8 +20,8 @@ class UIImageViewExtensionViewController: BaseViewController {
 
 // MARK: - 一、加载 gif
 extension UIImageViewExtensionViewController {
-    // MARK: 1.3、加载网络 url 的 gif 图片
-    @objc func test13() {
+    // MARK: 1.03、加载网络 url 的 gif 图片
+    @objc func test103() {
         gifImageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 100, height: 100))
         gifImageView.jk.loadGif(url: "http://qq.yh31.com/tp/zjbq/201711092144541829.gif")
         gifImageView.jk.centerX = self.view.jk.centerX
@@ -33,8 +33,8 @@ extension UIImageViewExtensionViewController {
         }
     }
     
-    // MARK: 1.2、加载 asset 里面的图片
-    @objc func test12() {
+    // MARK: 1.02、加载 asset 里面的图片
+    @objc func test102() {
         guard let image = UIImage.jk.gif(asset: "pika3") else {
             return
         }
@@ -49,8 +49,8 @@ extension UIImageViewExtensionViewController {
         }
     }
     
-    // MARK: 1.1、加载本地的gif图片
-    @objc func test11() {
+    // MARK: 1.01、加载本地的gif图片
+    @objc func test101() {
       
         gifImageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 100, height: 100))
         gifImageView.jk.loadGif(name: "pika2")

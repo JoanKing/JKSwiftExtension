@@ -20,15 +20,15 @@ class UIFontExtensionViewController: BaseViewController {
 
 // MARK: - 二、自定义字体
 extension UIFontExtensionViewController {
-    //MARK: 3.2、打印所有的字体
+    //MARK: 3.02、打印所有的字体
     /// 打印所有的字体
-    @objc func test32() {
+    @objc func test302() {
         JKPrint(UIFont.jk.showAllFont())
     }
     
-    // MARK: 3.1、自定义字体
+    // MARK: 3.01、自定义字体
     /// 自定义字体
-    @objc func test31() {
+    @objc func test301() {
         var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
         label.backgroundColor = .yellow
         label.textColor = .red
@@ -53,8 +53,8 @@ extension UIFontExtensionViewController {
 // MARK: - 二、自定义字体
 extension UIFontExtensionViewController {
     
-    // MARK: 2.6、半粗体的字体
-    @objc func test26() {
+    // MARK: 2.06、半粗体的字体
+    @objc func test206() {
         var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
         label.backgroundColor = .green
         label.textColor = .brown
@@ -74,8 +74,8 @@ extension UIFontExtensionViewController {
         }
     }
     
-    // MARK: 2.5、超细的字体
-    @objc func test25() {
+    // MARK: 2.05、超细的字体
+    @objc func test205() {
         var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
         label.backgroundColor = .green
         label.textColor = .brown
@@ -95,8 +95,8 @@ extension UIFontExtensionViewController {
         }
     }
     
-    // MARK: 2.4、亮字体
-    @objc func test24() {
+    // MARK: 2.04、亮字体
+    @objc func test204() {
         var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
         label.backgroundColor = .green
         label.textColor = .brown
@@ -116,8 +116,8 @@ extension UIFontExtensionViewController {
         }
     }
     
-    // MARK: 2.3、纤细的字体
-    @objc func test23() {
+    // MARK: 2.03、纤细的字体
+    @objc func test203() {
         var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
         label.backgroundColor = .green
         label.textColor = .brown
@@ -137,8 +137,8 @@ extension UIFontExtensionViewController {
         }
     }
     
-    // MARK: 2.2、中等的字体(介于Regular和Semibold之间)
-    @objc func test22() {
+    // MARK: 2.02、中等的字体(介于Regular和Semibold之间)
+    @objc func test202() {
         var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
         label.backgroundColor = .green
         label.textColor = .brown
@@ -158,8 +158,8 @@ extension UIFontExtensionViewController {
         }
     }
     
-    // MARK: 2.1、常规字体
-    @objc func test21() {
+    // MARK: 2.01、常规字体
+    @objc func test201() {
         var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
         label.backgroundColor = .green
         label.textColor = .brown
@@ -204,8 +204,8 @@ extension UIFontExtensionViewController {
         }
     }
     
-    // MARK: 1.9、介于Bold和Black之间
-    @objc func test19() {
+    // MARK: 1.09、介于Bold和Black之间
+    @objc func test109() {
         var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
         label.backgroundColor = .green
         label.textColor = .brown
@@ -225,8 +225,8 @@ extension UIFontExtensionViewController {
         }
     }
     
-    // MARK: 1.8、亮字体
-    @objc func test18() {
+    // MARK: 1.08、亮字体
+    @objc func test108() {
         var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
         label.backgroundColor = .green
         label.textColor = .brown
@@ -246,8 +246,8 @@ extension UIFontExtensionViewController {
         }
     }
     
-    // MARK: 1.7、纤细的字体
-    @objc func test17() {
+    // MARK: 1.07、纤细的字体
+    @objc func test107() {
         var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
         label.backgroundColor = .green
         label.textColor = .brown
@@ -267,8 +267,8 @@ extension UIFontExtensionViewController {
         }
     }
     
-    // MARK: 1.6、超细的字体
-    @objc func test16() {
+    // MARK: 1.06、超细的字体
+    @objc func test106() {
         var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
         label.backgroundColor = .green
         label.textColor = .brown
@@ -288,8 +288,8 @@ extension UIFontExtensionViewController {
         }
     }
     
-    // MARK: 1.5、半粗体的字体
-    @objc func test15() {
+    // MARK: 1.05、半粗体的字体
+    @objc func test105() {
         var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
         label.backgroundColor = .green
         label.textColor = .brown
@@ -309,8 +309,8 @@ extension UIFontExtensionViewController {
         }
     }
     
-    // MARK: 1.4、加粗的字体
-    @objc func test14() {
+    // MARK: 1.04、加粗的字体
+    @objc func test104() {
         var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
         label.backgroundColor = .green
         label.textColor = .brown
@@ -330,8 +330,8 @@ extension UIFontExtensionViewController {
         }
     }
     
-    // MARK: 1.3、中等的字体
-    @objc func test13() {
+    // MARK: 1.03、中等的字体
+    @objc func test103() {
         var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
         label.backgroundColor = .green
         label.textColor = .brown
@@ -351,8 +351,8 @@ extension UIFontExtensionViewController {
         }
     }
     
-    // MARK: 1.2、常规字体
-    @objc func test12() {
+    // MARK: 1.02、常规字体
+    @objc func test102() {
         var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
         label.backgroundColor = .green
         label.textColor = .brown
@@ -372,8 +372,8 @@ extension UIFontExtensionViewController {
         }
     }
     
-    // MARK: 1.1、系统字体
-    @objc func test11() {
+    // MARK: 1.01、系统字体
+    @objc func test101() {
         var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 50))
         label.backgroundColor = .green
         label.textColor = .brown

@@ -98,8 +98,8 @@ extension UILabelExtensionViewController {
         }
     }
     
-    // MARK: 3.9、设置特定文字的删除线
-    @objc func test39() {
+    // MARK: 3.09、设置特定文字的删除线
+    @objc func test309() {
         let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testLabel.backgroundColor = .brown
         testLabel.numberOfLines = 0
@@ -116,8 +116,8 @@ extension UILabelExtensionViewController {
         }
     }
     
-    // MARK: 3.8、设置特定区域的删除线
-    @objc func test38() {
+    // MARK: 3.08、设置特定区域的删除线
+    @objc func test308() {
         let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testLabel.backgroundColor = .brown
         testLabel.numberOfLines = 0
@@ -134,8 +134,8 @@ extension UILabelExtensionViewController {
         }
     }
     
-    // MARK: 3.7、设置特定文字的下划线
-    @objc func test37() {
+    // MARK: 3.07、设置特定文字的下划线
+    @objc func test307() {
         let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testLabel.backgroundColor = .brown
         testLabel.numberOfLines = 0
@@ -152,8 +152,8 @@ extension UILabelExtensionViewController {
         }
     }
     
-    // MARK: 3.6、设置特定文字区域的下划线
-    @objc func test36() {
+    // MARK: 3.06、设置特定文字区域的下划线
+    @objc func test306() {
         let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testLabel.backgroundColor = .brown
         testLabel.numberOfLines = 0
@@ -170,8 +170,8 @@ extension UILabelExtensionViewController {
         }
     }
     
-    // MARK: 3.5、设置行间距
-    @objc func test35() {
+    // MARK: 3.05、设置行间距
+    @objc func test305() {
         let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testLabel.backgroundColor = .brown
         testLabel.numberOfLines = 0
@@ -188,8 +188,8 @@ extension UILabelExtensionViewController {
         }
     }
     
-    // MARK: 3.4、设置特定文字的字体颜色
-    @objc func test34() {
+    // MARK: 3.04、设置特定文字的字体颜色
+    @objc func test304() {
         let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testLabel.backgroundColor = .brown
         testLabel.numberOfLines = 0
@@ -206,8 +206,8 @@ extension UILabelExtensionViewController {
         }
     }
     
-    // MARK: 3.3、设置特定区域的字体颜色
-    @objc func test33() {
+    // MARK: 3.03、设置特定区域的字体颜色
+    @objc func test303() {
         let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testLabel.backgroundColor = .brown
         testLabel.numberOfLines = 0
@@ -224,8 +224,8 @@ extension UILabelExtensionViewController {
         }
     }
     
-    // MARK: 3.2、设置特定文字的字体大小
-    @objc func test32() {
+    // MARK: 3.02、设置特定文字的字体大小
+    @objc func test302() {
         let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testLabel.backgroundColor = .brown
         testLabel.numberOfLines = 0
@@ -242,8 +242,8 @@ extension UILabelExtensionViewController {
         }
     }
     
-    // MARK: 3.1、设置特定区域的字体大小
-    @objc func test31() {
+    // MARK: 3.01、设置特定区域的字体大小
+    @objc func test301() {
         let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testLabel.backgroundColor = .brown
         testLabel.numberOfLines = 0
@@ -261,78 +261,36 @@ extension UILabelExtensionViewController {
     }
 }
 
-
 // MARK: - 二、其他的基本扩展
 extension UILabelExtensionViewController {
     
-    // MARK: 2.1、获取已知 frame 的 label 的文本行数 & 每一行内容
-    @objc func test21() {
-        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
-        testLabel.backgroundColor = .brown
-        testLabel.numberOfLines = 0
-        testLabel.text("舒服得很，可惜乡里没房子🏠")
-        self.view.addSubview(testLabel)
-        let result = testLabel.jk.linesCountAndLinesContent(lineSpace: 2)
-        if let number = result.0 {
-            print("行数：\(number)")
-        }
-        if let contents = result.1 {
-            print("内容：\(contents)")
-        }
-        JKAsyncs.asyncDelay(3, {
-        }) {
-            testLabel.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 2.2、获取已知 width 的 label 的文本行数 & 每一行内容
-    @objc func test22() {
-        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
-        testLabel.backgroundColor = .brown
-        testLabel.numberOfLines = 0
-        testLabel.text("梅花以它弱小娇艳的身躯，凌寒傲雪，傲然绽放，装点着寂寞荒凉的冬日。这是怎样的一种坚信和执着啊?因为它知道，不经历寒风冬雪的浸染，怎能有朵朵红花的暗香浮动?因为它知道，冬天过去了，春天还会遥远吗?")
-        self.view.addSubview(testLabel)
-        let result = testLabel.jk.accordWidthLinesCountAndLinesContent(accordWidth: 200, lineSpace: 2)
-        if let number = result.0 {
-            print("行数：\(number)")
-        }
-        if let contents = result.1 {
-            print("内容：\(contents)")
-        }
-        JKAsyncs.asyncDelay(3, {
-        }) {
-            testLabel.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 2.3、获取第一行内容
-    @objc func test23() {
+    // MARK: 2.07、label添加中划线
+    @objc func test207() {
         let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testLabel.backgroundColor = .brown
         testLabel.font(19)
         testLabel.numberOfLines = 0
         testLabel.text("梅花以它弱小娇艳的身躯，凌寒傲雪，傲然绽放，装点着寂寞荒凉的冬日。这是怎样的一种坚信和执着啊?因为它知道，不经历寒风冬雪的浸染，怎能有朵朵红花的暗香浮动?因为它知道，冬天过去了，春天还会遥远吗?")
+        testLabel.jk.centerLineText(lineValue: 1, underlineColor: .red)
         self.view.addSubview(testLabel)
-        if let firstLine = testLabel.jk.firstLineString {
-            JKPrint("获取第一行内容", "\(firstLine)")
-        }
+        
         JKAsyncs.asyncDelay(3, {
         }) {
             testLabel.removeFromSuperview()
         }
     }
     
-    // MARK: 2.4、改变行间距
-    @objc func test24() {
+    // MARK: 2.06、改变字间距和行间距
+    @objc func test206() {
         let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testLabel.backgroundColor = .brown
         testLabel.font(19)
-        testLabel.numberOfLines = 0
+        testLabel.numberOfLines = 1
         testLabel.text("梅花以它弱小娇艳的身躯，凌寒傲雪，傲然绽放，装点着寂寞荒凉的冬日。这是怎样的一种坚信和执着啊?因为它知道，不经历寒风冬雪的浸染，怎能有朵朵红花的暗香浮动?因为它知道，冬天过去了，春天还会遥远吗?")
         self.view.addSubview(testLabel)
         JKAsyncs.asyncDelay(3, {
         }) {
-            testLabel.jk.changeLineSpace(space: 10)
+            testLabel.jk.changeSpace(lineSpace: 4, wordSpace: 4)
             JKAsyncs.asyncDelay(3, {
             }) {
                 testLabel.removeFromSuperview()
@@ -340,8 +298,8 @@ extension UILabelExtensionViewController {
         }
     }
     
-    // MARK: 2.5、改变字间距
-    @objc func test25() {
+    // MARK: 2.05、改变字间距
+    @objc func test205() {
         
         let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testLabel.backgroundColor = .brown
@@ -359,17 +317,17 @@ extension UILabelExtensionViewController {
         }
     }
     
-    // MARK: 2.6、改变字间距和行间距
-    @objc func test26() {
+    // MARK: 2.04、改变行间距
+    @objc func test204() {
         let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testLabel.backgroundColor = .brown
         testLabel.font(19)
-        testLabel.numberOfLines = 1
+        testLabel.numberOfLines = 0
         testLabel.text("梅花以它弱小娇艳的身躯，凌寒傲雪，傲然绽放，装点着寂寞荒凉的冬日。这是怎样的一种坚信和执着啊?因为它知道，不经历寒风冬雪的浸染，怎能有朵朵红花的暗香浮动?因为它知道，冬天过去了，春天还会遥远吗?")
         self.view.addSubview(testLabel)
         JKAsyncs.asyncDelay(3, {
         }) {
-            testLabel.jk.changeSpace(lineSpace: 4, wordSpace: 4)
+            testLabel.jk.changeLineSpace(space: 10)
             JKAsyncs.asyncDelay(3, {
             }) {
                 testLabel.removeFromSuperview()
@@ -377,16 +335,57 @@ extension UILabelExtensionViewController {
         }
     }
     
-    // MARK: 2.7、label添加中划线
-    @objc func test27() {
+    // MARK: 2.03、获取第一行内容
+    @objc func test203() {
         let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testLabel.backgroundColor = .brown
         testLabel.font(19)
         testLabel.numberOfLines = 0
         testLabel.text("梅花以它弱小娇艳的身躯，凌寒傲雪，傲然绽放，装点着寂寞荒凉的冬日。这是怎样的一种坚信和执着啊?因为它知道，不经历寒风冬雪的浸染，怎能有朵朵红花的暗香浮动?因为它知道，冬天过去了，春天还会遥远吗?")
-        testLabel.jk.centerLineText(lineValue: 1, underlineColor: .red)
         self.view.addSubview(testLabel)
-        
+        if let firstLine = testLabel.jk.firstLineString {
+            JKPrint("获取第一行内容", "\(firstLine)")
+        }
+        JKAsyncs.asyncDelay(3, {
+        }) {
+            testLabel.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 2.02、获取已知 width 的 label 的文本行数 & 每一行内容
+    @objc func test202() {
+        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
+        testLabel.backgroundColor = .brown
+        testLabel.numberOfLines = 0
+        testLabel.text("梅花以它弱小娇艳的身躯，凌寒傲雪，傲然绽放，装点着寂寞荒凉的冬日。这是怎样的一种坚信和执着啊?因为它知道，不经历寒风冬雪的浸染，怎能有朵朵红花的暗香浮动?因为它知道，冬天过去了，春天还会遥远吗?")
+        self.view.addSubview(testLabel)
+        let result = testLabel.jk.accordWidthLinesCountAndLinesContent(accordWidth: 200, lineSpace: 2)
+        if let number = result.0 {
+            debugPrint("行数：\(number)")
+        }
+        if let contents = result.1 {
+            debugPrint("内容：\(contents)")
+        }
+        JKAsyncs.asyncDelay(3, {
+        }) {
+            testLabel.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 2.01、获取已知 frame 的 label 的文本行数 & 每一行内容
+    @objc func test201() {
+        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
+        testLabel.backgroundColor = .brown
+        testLabel.numberOfLines = 0
+        testLabel.text("舒服得很，可惜乡里没房子🏠")
+        self.view.addSubview(testLabel)
+        let result = testLabel.jk.linesCountAndLinesContent(lineSpace: 2)
+        if let number = result.0 {
+            debugPrint("行数：\(number)")
+        }
+        if let contents = result.1 {
+            debugPrint("内容：\(contents)")
+        }
         JKAsyncs.asyncDelay(3, {
         }) {
             testLabel.removeFromSuperview()
@@ -397,40 +396,11 @@ extension UILabelExtensionViewController {
 // MARK: - 一、链式编程
 extension UILabelExtensionViewController {
     
-    // MARK: 1.1、设置文字
-    @objc func test11() {
-        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 100))
+    // MARK: 1.09、设置字体的大小（粗体）
+    @objc func test109() {
+        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 100)).text("2秒后消失").color("#32CD32").boldFont(18)
         testLabel.backgroundColor = .brown
-        testLabel.text("2秒后消失")
-        testLabel.tintColor = .yellow
-        self.view.addSubview(testLabel)
-        JKAsyncs.asyncDelay(2, {
-        }) {
-            testLabel.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 1.2、设置文字行数
-    @objc func test12() {
-        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 200))
-        testLabel.backgroundColor = .brown
-        testLabel.text("梅花以它弱小娇艳的身躯，凌寒傲雪，傲然绽放，装点着寂寞荒凉的冬日。这是怎样的一种坚信和执着啊?因为它知道，不经历寒风冬雪的浸染，怎能有朵朵红花的暗香浮动?因为它知道，冬天过去了，春天还会遥远吗?")
-        testLabel.line(0)
-        testLabel.tintColor = .yellow
-        self.view.addSubview(testLabel)
-        JKAsyncs.asyncDelay(2, {
-        }) {
-            testLabel.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 1.3、设置文字对齐方式
-    @objc func test13() {
-        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 100))
-        testLabel.backgroundColor = .brown
-        testLabel.text("2秒后消失")
         testLabel.textAlignment(.right)
-        testLabel.tintColor = .yellow
         self.view.addSubview(testLabel)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -438,8 +408,56 @@ extension UILabelExtensionViewController {
         }
     }
     
-    // MARK: 1.4、设置富文本文字
-    @objc func test14() {
+    // MARK: 1.08、设置字体的大小
+    @objc func test108() {
+        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 100)).text("2秒后消失").color("#32CD32").font(12)
+        testLabel.backgroundColor = .brown
+        testLabel.textAlignment(.right)
+        self.view.addSubview(testLabel)
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            testLabel.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 1.07、设置字体的大小
+    @objc func test107() {
+        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 100)).text("2秒后消失").color("#32CD32").font(UIFont.systemFont(ofSize: 16))
+        testLabel.backgroundColor = .brown
+        testLabel.textAlignment(.right)
+        self.view.addSubview(testLabel)
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            testLabel.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 1.06、设置文本颜色（十六进制字符串）
+    @objc func test106() {
+        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 100)).text("2秒后消失").color("#32CD32")
+        testLabel.backgroundColor = .brown
+        testLabel.textAlignment(.right)
+        self.view.addSubview(testLabel)
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            testLabel.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 1.05、设置文本颜色
+    @objc func test105() {
+        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 100)).text("2秒后消失").color(.yellow)
+        testLabel.backgroundColor = .brown
+        testLabel.textAlignment(.right)
+        self.view.addSubview(testLabel)
+        JKAsyncs.asyncDelay(2, {
+        }) {
+            testLabel.removeFromSuperview()
+        }
+    }
+    
+    // MARK: 1.04、设置富文本文字
+    @objc func test104() {
         let attributedString = NSMutableAttributedString(string: "我是一只小小鸟").color(.randomColor).font(22)
         let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 100))
         testLabel.backgroundColor = .brown
@@ -453,11 +471,13 @@ extension UILabelExtensionViewController {
         }
     }
     
-    // MARK: 1.5、设置文本颜色
-    @objc func test15() {
-        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 100)).text("2秒后消失").color(.yellow)
+    // MARK: 1.03、设置文字对齐方式
+    @objc func test103() {
+        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 100))
         testLabel.backgroundColor = .brown
+        testLabel.text("2秒后消失")
         testLabel.textAlignment(.right)
+        testLabel.tintColor = .yellow
         self.view.addSubview(testLabel)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -465,11 +485,13 @@ extension UILabelExtensionViewController {
         }
     }
     
-    // MARK: 1.6、设置文本颜色（十六进制字符串）
-    @objc func test16() {
-        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 100)).text("2秒后消失").color("#32CD32")
+    // MARK: 1.02、设置文字行数
+    @objc func test102() {
+        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 200))
         testLabel.backgroundColor = .brown
-        testLabel.textAlignment(.right)
+        testLabel.text("梅花以它弱小娇艳的身躯，凌寒傲雪，傲然绽放，装点着寂寞荒凉的冬日。这是怎样的一种坚信和执着啊?因为它知道，不经历寒风冬雪的浸染，怎能有朵朵红花的暗香浮动?因为它知道，冬天过去了，春天还会遥远吗?")
+        testLabel.line(0)
+        testLabel.tintColor = .yellow
         self.view.addSubview(testLabel)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -477,35 +499,12 @@ extension UILabelExtensionViewController {
         }
     }
     
-    // MARK: 1.7、设置字体的大小
-    @objc func test17() {
-        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 100)).text("2秒后消失").color("#32CD32").font(UIFont.systemFont(ofSize: 16))
+    // MARK: 1.01、设置文字
+    @objc func test101() {
+        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 100))
         testLabel.backgroundColor = .brown
-        testLabel.textAlignment(.right)
-        self.view.addSubview(testLabel)
-        JKAsyncs.asyncDelay(2, {
-        }) {
-            testLabel.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 1.8、设置字体的大小
-    @objc func test18() {
-        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 100)).text("2秒后消失").color("#32CD32").font(12)
-        testLabel.backgroundColor = .brown
-        testLabel.textAlignment(.right)
-        self.view.addSubview(testLabel)
-        JKAsyncs.asyncDelay(2, {
-        }) {
-            testLabel.removeFromSuperview()
-        }
-    }
-    
-    // MARK: 1.9、设置字体的大小（粗体）
-    @objc func test19() {
-        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 100)).text("2秒后消失").color("#32CD32").boldFont(18)
-        testLabel.backgroundColor = .brown
-        testLabel.textAlignment(.right)
+        testLabel.text("2秒后消失")
+        testLabel.tintColor = .yellow
         self.view.addSubview(testLabel)
         JKAsyncs.asyncDelay(2, {
         }) {

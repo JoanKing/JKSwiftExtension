@@ -22,15 +22,15 @@ class CLLocationExtensionViewController: BaseViewController {
 // MARK: - 一、基本的扩展
 extension CLLocationExtensionViewController {
     
-    //MARK: 1.3、点与点之间的距离
+    //MARK: 1.03、点与点之间的距离
     /// 点与点之间的距离
-    @objc func test13() {
+    @objc func test103() {
         let distance = CLLocation.jk.distanePointToPoint(startLocationCoordinate2D: CLLocationCoordinate2D(latitude: 220972926.67721075, longitude: 101545204.78064685), endLocationCoordinate2D: CLLocationCoordinate2D(latitude: 220923262.3887309, longitude: 101626139.60786556))
         JKPrint("点与点之间的距离：\(distance)")
     }
     
-    // MARK: 1.2、地理信息编码
-    @objc func test12() {
+    // MARK: 1.02、地理信息编码
+    @objc func test102() {
         CLLocation.jk.locationEncode(address: "南京市新街口大洋百货") { (placemarks:[CLPlacemark]?, error:Error?) in
             if error != nil {
                 JKPrint("错误：\(error!.localizedDescription))")
@@ -44,8 +44,8 @@ extension CLLocationExtensionViewController {
         }
     }
     
-    // MARK: 1.1、地理信息反编码
-    @objc func test11() {
+    // MARK: 1.01、地理信息反编码
+    @objc func test101() {
         CLLocation.jk.reverseGeocode(latitude: 32.029171, longitude: 118.788231) { (placemarks: [CLPlacemark]?, error: Error?) in
             //强制转成简体中文
             let array = NSArray(object: "zh-hans")

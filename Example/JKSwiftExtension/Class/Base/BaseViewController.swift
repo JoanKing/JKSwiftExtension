@@ -106,7 +106,8 @@ extension BaseViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let selectorName = "test\(indexPath.section + 1)\(indexPath.row + 1)"
+        let rowString = "\(indexPath.row + 1)".jk.prefixAddZero(2)
+        let selectorName = "test\(indexPath.section + 1)\(rowString)"
         let selector = Selector("\(selectorName)")
         guard self.responds(to: selector) else {
             JKPrint("没有该方法：\(selector)")

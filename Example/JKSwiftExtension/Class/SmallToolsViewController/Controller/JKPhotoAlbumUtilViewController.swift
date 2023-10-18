@@ -20,8 +20,8 @@ class JKPhotoAlbumUtilViewController: BaseViewController {
 // MARK: - 一、基本的工具
 extension JKPhotoAlbumUtilViewController {
 
-    // MARK: 1.2、如果参数 isCustomPhotoAlbumName 不指定，则默认保存到相机胶卷中去
-    @objc func test12() {
+    // MARK: 1.02、如果参数 isCustomPhotoAlbumName 不指定，则默认保存到相机胶卷中去
+    @objc func test102() {
     
         guard let image = UIImage(named: "tfboy") else {
             return
@@ -52,8 +52,8 @@ extension JKPhotoAlbumUtilViewController {
 
     }
     
-    // MARK: 1.1、将图片保存到指定相簿中
-    @objc func test11() {
+    // MARK: 1.01、将图片保存到指定相簿中
+    @objc func test101() {
     
         guard let image = UIImage(named: "testicon") else {
             return

@@ -34,44 +34,44 @@ class UICollectionViewExtensionViewController: BaseViewController {
 // MARK: - 二、滚动和注册
 extension UICollectionViewExtensionViewController {
     
-    // MARK: 2.8、创建Section 的Header或者Footer(注册后使用该方法)
-    @objc func test28() {
+    // MARK: 2.08、创建Section 的Header或者Footer(注册后使用该方法)
+    @objc func test208() {
         
     }
     
-    // MARK: 2.7、注册自定义: Section 的Header或者Footer
-    @objc func test27() {
+    // MARK: 2.07、注册自定义: Section 的Header或者Footer
+    @objc func test207() {
         
     }
     
-    // MARK: 2.6、创建UITableViewCell(注册后使用该方法)
-    @objc func test26() {
+    // MARK: 2.06、创建UITableViewCell(注册后使用该方法)
+    @objc func test206() {
         
     }
     
-    // MARK: 2.5、注册Xib自定义cell
-    @objc func test25() {
+    // MARK: 2.05、注册Xib自定义cell
+    @objc func test205() {
         let nib = UINib(nibName: "Xib的名字", bundle: nil)
         collectionView.jk.register(nib: nib)
     }
     
-    // MARK: 2.4、注册自定义cell
-    @objc func test24() {
+    // MARK: 2.04、注册自定义cell
+    @objc func test204() {
         collectionView.jk.register(cellClass: UICollectionViewCell.self)
     }
     
-    // MARK: 2.3、滚动到什么位置（CGPoint）
-    @objc func test23() {
+    // MARK: 2.03、滚动到什么位置（CGPoint）
+    @objc func test203() {
         collectionView.jk.scrollToOffset(offsetX: 20, offsetY: 100, animated: true)
     }
     
-    // MARK: 2.2、是否滚动到底部
-    @objc func test22() {
+    // MARK: 2.02、是否滚动到底部
+    @objc func test202() {
         collectionView.jk.scrollToBottom(animated: true)
     }
     
-    // MARK: 2.1、是否滚动到顶部
-    @objc func test21() {
+    // MARK: 2.01、是否滚动到顶部
+    @objc func test201() {
         collectionView.jk.scrollToTop(animated: true)
     }
 }
@@ -79,8 +79,8 @@ extension UICollectionViewExtensionViewController {
 // MARK: - 一、基本的扩展
 extension UICollectionViewExtensionViewController {
     
-    // MARK: 1.1、移动 item
-    @objc func test11() {
+    // MARK: 1.01、移动 item
+    @objc func test101() {
         self.view.addSubview(collectionView)
         collectionView.allowsMoveItem()
     }

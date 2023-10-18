@@ -21,8 +21,8 @@ class UIVisualEffectViewExtensionViewController: BaseViewController {
 // MARK: - 一、基本的扩展
 extension UIVisualEffectViewExtensionViewController {
     
-    // MARK: 1.1、创建一个UIVisualEffectView对象
-    @objc func test11() {
+    // MARK: 1.01、创建一个UIVisualEffectView对象
+    @objc func test101() {
         let visualEffectView = UIVisualEffectView.jk.visualEffectView(size: CGSize(width: 100, height: 100))
         let image = UIImage(named: "testicon")
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))

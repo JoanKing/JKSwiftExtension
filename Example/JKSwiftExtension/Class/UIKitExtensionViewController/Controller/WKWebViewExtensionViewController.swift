@@ -21,8 +21,8 @@ class WKWebViewExtensionViewController: BaseViewController {
 // MARK: - 一、基本的扩展
 extension WKWebViewExtensionViewController {
     
-    // MARK: 1.6、获取WKWebView视图
-    @objc func test16() {
+    // MARK: 1.06、获取WKWebView视图
+    @objc func test106() {
         
         let wkWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: jk_kScreenH - jk_kNavFrameH))
         wkWebView.navigationDelegate = self
@@ -51,8 +51,8 @@ extension WKWebViewExtensionViewController {
         }
     }
     
-    // MARK: 1.5、加载网页
-    @objc func test15() {
+    // MARK: 1.05、加载网页
+    @objc func test105() {
         let wkWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: jk_kScreenH - jk_kNavFrameH))
         wkWebView.navigationDelegate = self
         let url = URL(string:("https://www.jianshu.com/p/13b77f3e52bd"))
@@ -71,8 +71,8 @@ extension WKWebViewExtensionViewController {
         }
     }
     
-    // MARK: 1.4、调整字体的比例
-    @objc func test14() {
+    // MARK: 1.04、调整字体的比例
+    @objc func test104() {
         let wkWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: jk_kScreenH - jk_kNavFrameH))
         wkWebView.navigationDelegate = self
         let url = URL(string:("https://www.jianshu.com/p/13b77f3e52bd"))
@@ -91,8 +91,8 @@ extension WKWebViewExtensionViewController {
         }
     }
     
-    // MARK: 1.3、js交互
-    @objc func test13() {
+    // MARK: 1.03、js交互
+    @objc func test103() {
         let jsCode = "document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '\(200)%'"
         let wkWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: jk_kScreenH - jk_kNavFrameH))
         wkWebView.navigationDelegate = self
@@ -114,8 +114,8 @@ extension WKWebViewExtensionViewController {
         }
     }
     
-    // MARK: 1.2、js注入
-    @objc func test12() {
+    // MARK: 1.02、js注入
+    @objc func test102() {
         
         // 以下代码适配大小
         let jScript = "var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);"
@@ -138,8 +138,8 @@ extension WKWebViewExtensionViewController {
         }
     }
     
-    // MARK: 1.1、WKWebViewConfiguration 默认配置
-    @objc func test11() {
+    // MARK: 1.01、WKWebViewConfiguration 默认配置
+    @objc func test101() {
         
         let configuration = WKWebViewConfiguration()
         configuration.allowsInlineMediaPlayback = true

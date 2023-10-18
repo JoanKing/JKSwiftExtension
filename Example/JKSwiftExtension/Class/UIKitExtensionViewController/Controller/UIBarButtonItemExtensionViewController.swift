@@ -25,8 +25,8 @@ class UIBarButtonItemExtensionViewController: BaseViewController {
  // MARK: - 一、基本的扩展
  extension UIBarButtonItemExtensionViewController {
      
-     // MARK: 1.1、快捷创建 UIBarButtonItem
-     @objc func test11() {
+     // MARK: 1.01、快捷创建 UIBarButtonItem
+     @objc func test101() {
         let barButtonItem = UIBarButtonItem.jk.createBarbuttonItem(name: "mark", target: self, action: #selector(click))
         self.navigationItem.rightBarButtonItem = barButtonItem
      }

@@ -22,8 +22,8 @@ class UITabbarExtensionViewController: BaseViewController {
 // MARK: - 一、基本扩展
 extension UITabbarExtensionViewController {
     
-    // MARK: 1.1、设置透明背景
-    @objc func test11() {
+    // MARK: 1.01、设置透明背景
+    @objc func test101() {
         JKPrint("设置透明背景")
     }
 }

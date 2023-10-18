@@ -21,12 +21,11 @@ class UIBezierPathExtensionViewController: BaseViewController {
 // MARK: - 一、基本的扩展
 extension UIBezierPathExtensionViewController {
     
-    // MARK: 1.1、根据圆上任意三个点添加圆弧
-    @objc func test11() {
-        JKPrint("根据圆上任意三个点添加圆弧")
-        
+    // MARK: 1.02、根据圆心和任意2个点添加圆弧
+    @objc func test102() {
+        JKPrint("CGPoint(x: 200, y: 350)")
         let bezierPath = UIBezierPath()
-        bezierPath.jk.addArc(startPoint: CGPoint(x: 200, y: 150), centerPoint: CGPoint(x: 300, y: 250), endPoint: CGPoint(x: 200, y: 350), clockwise: true)
+        bezierPath.jk.addArc(arcCenter: CGPoint(x: 200, y: 250), startPoint: CGPoint(x: 200, y: 150), endPoint: CGPoint(x: 200, y: 350), clockwise: false)
         
         let shapeLayer = CAShapeLayer()
         // 存入UIBezierPath的路径
@@ -57,11 +56,12 @@ extension UIBezierPathExtensionViewController {
         }
     }
     
-    // MARK: 1.2、根据圆心和任意2个点添加圆弧
-    @objc func test12() {
-        JKPrint("CGPoint(x: 200, y: 350)")
+    // MARK: 1.01、根据圆上任意三个点添加圆弧
+    @objc func test101() {
+        JKPrint("根据圆上任意三个点添加圆弧")
+        
         let bezierPath = UIBezierPath()
-        bezierPath.jk.addArc(arcCenter: CGPoint(x: 200, y: 250), startPoint: CGPoint(x: 200, y: 150), endPoint: CGPoint(x: 200, y: 350), clockwise: false)
+        bezierPath.jk.addArc(startPoint: CGPoint(x: 200, y: 150), centerPoint: CGPoint(x: 300, y: 250), endPoint: CGPoint(x: 200, y: 350), clockwise: true)
         
         let shapeLayer = CAShapeLayer()
         // 存入UIBezierPath的路径

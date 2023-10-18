@@ -40,8 +40,8 @@ class JKPrintViewController: BaseViewController, UIDocumentInteractionController
 extension JKPrintViewController {
     
     
-    // MARK: 1.5、变量的：地址、内存、大小 的打印
-    @objc func test15() {
+    // MARK: 1.05、变量的：地址、内存、大小 的打印
+    @objc func test105() {
         
         var name1 = "王三"
         var name2 = name1
@@ -62,8 +62,8 @@ extension JKPrintViewController {
         JKPrint(val: &y)
     }
     
-    // MARK: 1.4、对象的：地址、内存、大小 的打印
-    @objc func test14() {
+    // MARK: 1.04、对象的：地址、内存、大小 的打印
+    @objc func test104() {
         let p = Point()
         JKPrint(ref: p)
         // -------------- Point --------------
@@ -72,8 +72,8 @@ extension JKPrintViewController {
         // 对象的大小: 48
     }
     
-    // MARK: 1.3、变量的：地址、内存、大小 的打印
-    @objc func test13() {
+    // MARK: 1.03、变量的：地址、内存、大小 的打印
+    @objc func test103() {
         var p = Point()
         JKPrint(val: &p)
         // -------------- Point --------------
@@ -89,13 +89,13 @@ extension JKPrintViewController {
         JKPrint(val: &name2)
     }
     
-    // MARK: 1.2、打印多个内
-    @objc func test12() {
+    // MARK: 1.02、打印多个内
+    @objc func test102() {
         JKPrint("第 1 个内容", "第 2 个内容")
     }
     
-    // MARK: 1.1、打印单个内容
-    @objc func test11() {
+    // MARK: 1.01、打印单个内容
+    @objc func test101() {
         JKPrint("第 1 个内容")
     }
 }

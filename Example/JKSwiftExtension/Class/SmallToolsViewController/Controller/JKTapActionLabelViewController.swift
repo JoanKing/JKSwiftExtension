@@ -21,8 +21,8 @@ class JKTapActionLabelViewController: BaseViewController {
 // MARK: - 一、基本的工具
 extension JKTapActionLabelViewController {
     
-    // MARK: 1.1、设置可点击的label
-    @objc func test11() {
+    // MARK: 1.01、设置可点击的label
+    @objc func test101() {
     
         let label = JKTapActionLabel()
         label.frame = CGRect(x: 50, y: 100, width: 200, height: 200)

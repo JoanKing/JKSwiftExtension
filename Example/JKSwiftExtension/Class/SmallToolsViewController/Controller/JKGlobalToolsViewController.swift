@@ -25,8 +25,8 @@ class JKGlobalToolsViewController: BaseViewController {
 // MARK: - 二、控制台的操作
 extension JKGlobalToolsViewController {
     
-    // MARK: 2.1、autolayout自适应布局是否警告
-    @objc func test21() {
+    // MARK: 2.01、autolayout自适应布局是否警告
+    @objc func test201() {
         JKGlobalTools.autolayoutWaring(isHidden: false)
     }
 }
@@ -44,37 +44,37 @@ extension JKGlobalToolsViewController {
         JKGlobalTools.openSetting()
     }
     
-    // MARK: 1.9、获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information
-    @objc func test19() {
+    // MARK: 1.09、获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information
+    @objc func test109() {
         JKPrint("获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information", "连接wifi的名字：\(JKGlobalTools.getWifiNameWithMac().wifiName ?? "没有获取到")", "连接wifi的mac地址：\(JKGlobalTools.getWifiNameWithMac().macIP ?? "没有获取到")")
     }
     
-    // MARK: 1.8、获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information
-    @objc func test18() {
+    // MARK: 1.08、获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information
+    @objc func test108() {
         JKPrint("获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information", "连接wifi的ip地址：\(JKGlobalTools.getWiFiIP() ?? "没有获取到")")
     }
     
-    // MARK: 1.6、跳转URL
-    @objc func test17() {
+    // MARK: 1.07、跳转URL
+    @objc func test107() {
         JKPrint("跳转URL")
         JKGlobalTools.openUrl(url: URL(string: "https://app-applinks.niu.com/qq_conn/1104695483")!) { _ in
         }
     }
     
-    // MARK: 1.6、前往App Store进行评价
-    @objc func test16() {
+    // MARK: 1.06、前往App Store进行评价
+    @objc func test106() {
         JKPrint("前往App Store进行评价")
         // 抖音：1142110895
         JKGlobalTools.evaluationInAppStore(appid: "1142110895")
     }
     
-    // MARK: 1.5、获取本机IP
-    @objc func test15() {
+    // MARK: 1.05、获取本机IP
+    @objc func test105() {
         JKPrint("获取本机IP：\(JKGlobalTools.getIPAddress() ?? "没有获取到本机IP")")
     }
     
-    // MARK: 1.4、传进某个版本号 个 当前app版本号作对比
-    @objc func test14() {
+    // MARK: 1.04、传进某个版本号 个 当前app版本号作对比
+    @objc func test104() {
         
         let version1 = "0.0.1"
         let version2 = "1.0.0"
@@ -82,21 +82,21 @@ extension JKGlobalToolsViewController {
         JKPrint("传进某个版本号 个 当前app版本号作对比", "新的版本号：\(version1) 是否大于当前版本：\(Bundle.jk.appVersion) 结果：\(JKGlobalTools.compareVersion(version: version1))", "新的版本号：\(version2) 是否大于当前版本：\(Bundle.jk.appVersion) 结果：\(JKGlobalTools.compareVersion(version: version2))", "新的版本号：\(version3) 是否大于当前版本：\(Bundle.jk.appVersion) 结果：\(JKGlobalTools.compareVersion(version: version3))")
     }
     
-    // MARK: 1.3、从 storyboard 中唤醒 viewcontroller
-    @objc func test13() {
+    // MARK: 1.03、从 storyboard 中唤醒 viewcontroller
+    @objc func test103() {
         JKPrint("从 storyboard 中唤醒 viewcontroller")
     }
     
-    // MARK: 1.2、App更新
-    @objc func test12() {
+    // MARK: 1.02、App更新
+    @objc func test102() {
         JKPrint("App更新")
         
         // 抖音：1142110895
         JKGlobalTools.updateApp(vc: self, appId: "1142110895")
     }
     
-    // MARK: 1.1、拨打电话
-    @objc func test11() {
+    // MARK: 1.01、拨打电话
+    @objc func test101() {
         JKPrint("拨打电话")
         
         JKGlobalTools.callPhone(phoneNumber: "18500652880") { (_) in

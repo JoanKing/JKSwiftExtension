@@ -22,8 +22,8 @@ class DateFormatterExtensionViewController: BaseViewController {
 // MARK: - 一、基本的扩展
 extension DateFormatterExtensionViewController {
     
-    // MARK: 1.1、格式化快捷方式
-    @objc func test11() {
+    // MARK: 1.01、格式化快捷方式
+    @objc func test101() {
         let dateFormatter = DateFormatter(format: "EEEE")
         JKPrint("格式化快捷方式", "\(dateFormatter)")
     }

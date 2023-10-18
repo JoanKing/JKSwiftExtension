@@ -21,8 +21,8 @@ class JKPaddingLabelViewController: BaseViewController {
 // MARK: - 一、基本的工具
 extension JKPaddingLabelViewController {
     
-    // MARK: 1.1、设置可点击的label
-    @objc func test11() {
+    // MARK: 1.01、设置可点击的label
+    @objc func test101() {
     
         let label = JKPaddingLabel()
         label.backgroundColor = UIColor.randomColor
@@ -42,6 +42,5 @@ extension JKPaddingLabelViewController {
         } _: {
             label.removeFromSuperview()
         }
-
     }
 }

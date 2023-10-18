@@ -21,51 +21,51 @@ class TimerExtensionViewController: BaseViewController {
     }
     
     deinit {
-        test16()
+        test106()
     }
 }
 
 // MARK: - 一、基本的扩展
 extension TimerExtensionViewController {
     
-    // MARK: 1.1、构造器创建定时器
-    @objc func test11() {
+    // MARK: 1.06、销毁定时器
+    @objc func test106() {
         invalidate()
-        timer = Timer(safeTimerWithTimeInterval: 1, repeats: true) { (timer) in
-            print("构造器创建定时器", "a--\(timer)")
-        }
     }
     
-    // MARK: 1.2、类方法创建定时器
-    @objc func test12() {
-        invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 2, repeats: true) { (timer) in
-            print("类方法创建定时器", "b--\(timer)")
-        }
-    }
-    
-    // MARK: 1.3、C语言的形式创建定时器(创建后立即执行一次)
-    @objc func test13() {
-        invalidate()
-        timer = Timer.runThisEvery(timeInterval: 3) {[weak self] (timer1) in
-            guard let _ = self, let tr = timer1 else { return }
-            print("C语言的形式创建定时器(创建后立即执行一次)", "c--\(tr)")
-        }
-    }
-    
-    // MARK: 1.4、开始定时器
-    @objc func test14() {
-        timer?.fireDate = NSDate.distantPast
-    }
-    
-    // MARK: 1.5、暂停定时器
-    @objc func test15() {
+    // MARK: 1.05、暂停定时器
+    @objc func test105() {
         timer?.fireDate = NSDate.distantFuture
     }
     
-    // MARK: 1.6、销毁定时器
-    @objc func test16() {
+    // MARK: 1.04、开始定时器
+    @objc func test104() {
+        timer?.fireDate = NSDate.distantPast
+    }
+    
+    // MARK: 1.03、C语言的形式创建定时器(创建后立即执行一次)
+    @objc func test103() {
         invalidate()
+        timer = Timer.runThisEvery(timeInterval: 3) {[weak self] (timer1) in
+            guard let _ = self, let tr = timer1 else { return }
+            debugPrint("C语言的形式创建定时器(创建后立即执行一次)", "c--\(tr)")
+        }
+    }
+    
+    // MARK: 1.02、类方法创建定时器
+    @objc func test102() {
+        invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 2, repeats: true) { (timer) in
+            debugPrint("类方法创建定时器", "b--\(timer)")
+        }
+    }
+    
+    // MARK: 1.01、构造器创建定时器
+    @objc func test101() {
+        invalidate()
+        timer = Timer(safeTimerWithTimeInterval: 1, repeats: true) { (timer) in
+            debugPrint("构造器创建定时器", "a--\(timer)")
+        }
     }
 }
 
