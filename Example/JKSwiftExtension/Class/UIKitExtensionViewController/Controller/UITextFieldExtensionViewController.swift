@@ -266,15 +266,18 @@ class TextFildViewTestViewController: UIViewController {
     lazy var limitTipLabel1: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.text = "限制输入10个字符-使用utf16来计算长度"
+        label.text = "限制输入10个数字-使用utf16来计算长度"
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 18)
         return label
     }()
     
-    /// "限制输入10个字符"
+    /// "限制输入10个数字
     private var textFiledView1: TestTextFiledView = {
-        let view = TestTextFiledView(frame: CGRect.zero, placeholderContent: "限制输入10个字符", maxCharacters: 10, lenghType: .utf16)
+        let view = TestTextFiledView(frame: CGRect.zero, placeholderContent: "限制输入10个字符", regex: "^[0-9]*$", maxCharacters: 10, lenghType: .utf16)
+        if #available(iOS 10, *) {
+            view.infoTextField.textContentType = .telephoneNumber
+        }
         return view
     }()
     lazy var limitTipLabel2: UILabel = {
@@ -287,7 +290,7 @@ class TextFildViewTestViewController: UIViewController {
     }()
     /// "限制输入20个字符"
     private var textFiledView2: TestTextFiledView = {
-        let view = TestTextFiledView(frame: CGRect.zero, placeholderContent: "限制输入20个字符", maxCharacters: 20, lenghType: .count)
+        let view = TestTextFiledView(frame: CGRect.zero, placeholderContent: "限制输入20个字符", regex: "^[A-Za-z0-9]+$", maxCharacters: 20, lenghType: .count)
         return view
     }()
     
@@ -329,6 +332,8 @@ class TextFildViewTestViewController: UIViewController {
 class TestTextFiledView: UIView {
     /// 默认占位符
     private var placeholderContent: String
+    /// 正则
+    private var regex: String?
     /// 信息最多是40个字
     private var maxCharacters: Int = 40
     /// 长度类型
@@ -359,8 +364,9 @@ class TestTextFiledView: UIView {
     /// 输入的内容发生变化
     var inputChangeClosure: ((String) -> Void)?
     
-    init(frame: CGRect, placeholderContent: String = "", maxCharacters: Int = 100, lenghType: StringTypeLength = .count) {
+    init(frame: CGRect, placeholderContent: String = "", regex: String? = nil, maxCharacters: Int = 100, lenghType: StringTypeLength = .count) {
         self.placeholderContent = placeholderContent
+        self.regex = regex
         self.maxCharacters = maxCharacters
         self.lenghType = lenghType
         super.init(frame: frame)
@@ -414,22 +420,22 @@ extension TestTextFiledView {
 
 //MARK: - UITextFieldDelegate 代理事件
 extension TestTextFiledView: UITextFieldDelegate {
-    //MARK:邮箱发生变化
-    /// 邮箱发生变化
+    //MARK: 内容发生变化
+    /// 内容发生变化
     @objc func textDidChange(textField: UITextField) {
-        guard let str = textField.text else { return }
+        guard var str = textField.text else { return }
+        if str.count > 0, let weakRegex = regex, !JKRegexHelper.match(str, pattern: weakRegex) {
+            debugPrint("不能输入：\(str)")
+            textField.text = ""
+            str = ""
+        }
         debugPrint("内容：\(str)")
         inputChangeClosure?(str)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
-        if infoTextField.isPasting {
-            debugPrint("✅复制----：\(string)")
-        } else {
-            debugPrint("💣不是复制----：\(string)")
-        }
-        return textField.jk.inputRestrictions(shouldChangeTextIn: range, replacementText: string, maxCharacters: maxCharacters, regex: "^[A-Za-z0-9]+$", lenghType: lenghType, isRemovePasteboardNewlineCharacters: true)
+        
+        return textField.jk.inputRestrictions(shouldChangeTextIn: range, replacementText: string, maxCharacters: maxCharacters, regex: regex, lenghType: lenghType, isRemovePasteboardNewlineCharacters: true)
     }
     
     /// 获得焦点

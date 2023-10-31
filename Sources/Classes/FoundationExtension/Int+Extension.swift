@@ -77,26 +77,22 @@ public extension JKPOP where Base == Int {
 // MARK: - 三、转换为其他单位
 public extension JKPOP where Base == Int {
     
-    // MARK: 3.1、转换万单位
-    /// 转换万的单位
-    /// - Parameter scale: 小数点后舍入值的位数，默认 1 位
-    /// - Returns: 返回万的字符串
-    func toTenThousandString(scale: Int = 1) -> String {
+    //MARK: 3.1、转换万单位
+    /// 转换万单位
+    /// - Parameters:
+    ///   - scale: 小数点后舍入值的位数，默认 1 位
+    ///   - roundingMode: 小数取舍方式
+    ///   - unit: 单位
+    ///   - isNeedAddZero: 是否后面追加0，比如：1.201  保留2位是：1.20 或者 1.2，如果设置为true，则scale是几位则后面是几位，不足的使用0填充
+    /// - Returns: 转换后的结果
+    func toTenThousandString(scale: Int16 = 1, roundingMode: NSDecimalNumber.RoundingMode = .plain, unit: String = "万", isNeedAddZero: Bool = false) -> String {
         if self.base < 0 {
             return "0"
         } else if self.base <= 9999 {
             return "\(self.base)"
         } else {
-            let doub = CGFloat(self.base) / 10000
-            let str = String(format: "%.\(scale)f", doub)
-            let start_index = str.index(str.endIndex, offsetBy: -1)
-            let suffix = String(str[start_index ..< str.endIndex])
-            if suffix == "0" {
-                let toIndex = str.index(str.endIndex, offsetBy: -2)
-                return String(str[str.startIndex ..< toIndex]) + "万"
-            } else {
-                return str + "万"
-            }
+            let decimalValue = NSDecimalNumberHandler.jk.calculation(type: .dividing, value1: self.base, value2: 10000, roundingMode: roundingMode, scale: scale)
+            return (isNeedAddZero ? "\(String(format: "%.\(scale)f", decimalValue.doubleValue))" : "\(decimalValue)") + unit
         }
     }
     

@@ -47,8 +47,8 @@ extension IntExtensionViewController {
     
     // MARK: 3.01、转换万单位
     @objc func test301() {
-        let value: Int = 1001100
-        JKPrint("转换万单位", "\(value) 保留 1 为 转换后为：\(value.jk.toTenThousandString())")
+        let value: Int = 1001098
+        JKPrint("转换万单位", "\(value) 保留 2 为 转换后为：\(value.jk.toTenThousandString(scale: 2, roundingMode: .plain, unit: "w", isNeedAddZero: true))")
     }
 }
 

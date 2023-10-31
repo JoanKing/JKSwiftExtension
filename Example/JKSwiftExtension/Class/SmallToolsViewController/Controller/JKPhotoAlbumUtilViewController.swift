@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 class JKPhotoAlbumUtilViewController: BaseViewController {
 
     override func viewDidLoad() {
@@ -34,22 +35,18 @@ extension JKPhotoAlbumUtilViewController {
         
         JKAsyncs.asyncDelay(3) {
         } _: {
-            JKPhotoAlbumUtil.saveImageInAlbum(image: image) { (result) in
-                JKAsyncs.asyncDelay(1) {
-                } _: {
-                    imageView.removeFromSuperview()
-                }
+            JKPhotoAlbumUtil.saveImageInAlbum(image: image) { result, authorizedStatus  in
+                let authorizedStatusMessage = JKPhotoAlbumUtilViewController.authorizedStatusMessage(authorizeStatus: authorizedStatus, imageView: imageView)
                 switch result{
                 case .success:
-                    print("保存成功")
-                case .denied:
-                    print("被拒绝")
+                    print("保存成功：\(authorizedStatusMessage)")
+                case .notPermission:
+                    print("被拒绝：\(authorizedStatusMessage)")
                 case .error:
-                    print("保存错误")
+                    print("保存错误：\(authorizedStatusMessage)")
                 }
             }
         }
-
     }
     
     // MARK: 1.01、将图片保存到指定相簿中
@@ -66,21 +63,56 @@ extension JKPhotoAlbumUtilViewController {
         
         JKAsyncs.asyncDelay(3) {
         } _: {
-            JKPhotoAlbumUtil.saveImageInAlbum(image: image, isCustomPhotoAlbumName: true) { (result) in
-                
-                JKAsyncs.asyncDelay(1) {
-                } _: {
-                    imageView.removeFromSuperview()
-                }
+            JKPhotoAlbumUtil.saveImageInAlbum(image: image, isCustomPhotoAlbumName: true) { result, authorizedStatus in
+                let authorizedStatusMessage = JKPhotoAlbumUtilViewController.authorizedStatusMessage(authorizeStatus: authorizedStatus, imageView: imageView)
                 switch result{
                 case .success:
-                    print("保存成功")
-                case .denied:
-                    print("被拒绝")
+                    print("保存成功：\(authorizedStatusMessage)")
+                case .notPermission:
+                    print("被拒绝：\(authorizedStatusMessage)")
                 case .error:
-                    print("保存错误")
+                    print("保存错误：\(authorizedStatusMessage)")
                 }
             }
+        }
+    }
+}
+
+extension JKPhotoAlbumUtilViewController {
+    
+    static func authorizedStatusMessage(authorizeStatus: PHAuthorizationStatus, imageView: UIImageView) -> String {
+        /**
+         @available(iOS 8, *)
+         case notDetermined = 0 // User has not yet made a choice with regards to this application
+
+         @available(iOS 8, *)
+         case restricted = 1 // This application is not authorized to access photo data.
+
+         // The user cannot change this application’s status, possibly due to active restrictions
+         //   such as parental controls being in place.
+         @available(iOS 8, *)
+         case denied = 2 // User has explicitly denied this application access to photos data.
+
+         @available(iOS 8, *)
+         case authorized = 3 // User has authorized this application to access photos data.
+
+         @available(iOS 14, *)
+         case limited = 4 // User has authorized this application for limited photo library access. Add PHPhotoLibr
+         */
+        JKAsyncs.asyncDelay(1) {
+        } _: {
+            imageView.removeFromSuperview()
+        }
+        if authorizeStatus == .notDetermined {
+            return "notDetermined"
+        } else if authorizeStatus == .restricted {
+            return "restricted"
+        } else if authorizeStatus == .denied {
+            return "denied"
+        } else if authorizeStatus == .authorized {
+            return "authorized"
+        } else {
+            return "limited"
         }
     }
 }

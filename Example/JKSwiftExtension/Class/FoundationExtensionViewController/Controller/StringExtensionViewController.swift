@@ -286,7 +286,7 @@ extension StringExtensionViewController {
     // MARK: 11.01、截取字符串从开始到 index
     ///  截取字符串从开始到 index
     @objc func test1101() {
-        let testString1 = "😄1😄"
+        let testString1 = "0123456789"
         JKPrint("字符串截取的操作x", "\(testString1) 从开头截取到index=4 后为：\(testString1.jk.sub(to: 4))")
     }
     
@@ -642,17 +642,12 @@ extension StringExtensionViewController {
 
 // MARK: - 七、字符串有关数字方面的扩展
 extension StringExtensionViewController {
-    // MARK: 7.01、将金额字符串转化为带逗号的金额 按照千分位划分，如  "1234567" => 1,234,567   1234567.56 => 1,234,567.56
-    /// 将金额字符串转化为带逗号的金额 按照千分位划分，如  "1234567" => 1,234,567   1234567.56 => 1,234,567.56
-    @objc func test701() {
-        JKPrint(" 将金额字符串转化为带逗号的金额 按照千分位划分，如1234567 转化后为：\("1234567".jk.toThousands() ?? "无效")")
-    }
     
-    // MARK: 7.02、字符串差不多精确转换成Double——之所以差不多，是因为有精度损失
-    /// 字符串差不多精确转换成Double——之所以差不多，是因为有精度损失
-    @objc func test702() {
-        let testStrinig = "1.3403"
-        JKPrint("字符串差不多精确转换成Double——之所以差不多，是因为有精度损失：\(testStrinig.jk.accuraterDouble() ?? 0)")
+    // MARK: 7.4、将数字的字符串处理成 几位 位小数的情况
+    /// 将数字的字符串处理成  几位 位小数的情况
+    @objc func test74() {
+        let testStrinig1 = "6.123456789"
+        JKPrint("保留 1 位小数 \(testStrinig1.jk.saveNumberDecimal(numberDecimal: 1))", "保留 2 位小数 \(testStrinig1.jk.saveNumberDecimal(numberDecimal: 2))", "保留 3 位小数 \(testStrinig1.jk.saveNumberDecimal(numberDecimal: 3))", "保留 4 位小数 \(testStrinig1.jk.saveNumberDecimal(numberDecimal: 4))", "保留 5 位小数 \(testStrinig1.jk.saveNumberDecimal(numberDecimal: 5))")
     }
     
     // MARK: 7.03、去掉小数点后多余的 0
@@ -666,11 +661,17 @@ extension StringExtensionViewController {
         JKPrint("去掉小数点后多余的 0：\n\(testStrinig1) -> \(testStrinig1.jk.cutLastZeroAfterDot())", "\(testStrinig2) -> \(testStrinig2.jk.cutLastZeroAfterDot())", "\(testStrinig3) -> \(testStrinig3.jk.cutLastZeroAfterDot())", "\(testStrinig4) -> \(testStrinig4.jk.cutLastZeroAfterDot())", "\(testStrinig5) -> \(testStrinig5.jk.cutLastZeroAfterDot())")
     }
     
-    // MARK: 7.4、将数字的字符串处理成  几位 位小数的情况
-    /// 将数字的字符串处理成  几位 位小数的情况
-    @objc func test74() {
-        let testStrinig1 = "6.123456789"
-        JKPrint("保留 1 位小数 \(testStrinig1.jk.saveNumberDecimal(numberDecimal: 1))", "保留 2 位小数 \(testStrinig1.jk.saveNumberDecimal(numberDecimal: 2))", "保留 3 位小数 \(testStrinig1.jk.saveNumberDecimal(numberDecimal: 3))", "保留 4 位小数 \(testStrinig1.jk.saveNumberDecimal(numberDecimal: 4))", "保留 5 位小数 \(testStrinig1.jk.saveNumberDecimal(numberDecimal: 5))")
+    // MARK: 7.02、字符串差不多精确转换成Double——之所以差不多，是因为有精度损失
+    /// 字符串差不多精确转换成Double——之所以差不多，是因为有精度损失
+    @objc func test702() {
+        let testStrinig = "1.3403"
+        JKPrint("字符串差不多精确转换成Double——之所以差不多，是因为有精度损失：\(testStrinig.jk.accuraterDouble() ?? 0)")
+    }
+    
+    // MARK: 7.01、将金额字符串转化为带逗号的金额 按照千分位划分，如  "1234567" => 1,234,567   1234567.56 => 1,234,567.56
+    /// 将金额字符串转化为带逗号的金额 按照千分位划分，如  "1234567" => 1,234,567   1234567.56 => 1,234,567.56
+    @objc func test701() {
+        JKPrint(" 将金额字符串转化为带逗号的金额 按照千分位划分，如1234567 转化后为：\("1234567".jk.toThousands() ?? "无效")")
     }
 }
 
