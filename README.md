@@ -50,6 +50,7 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/520a15e4-970c-43e6-9f6a-aa0fc308abb5" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.5.2、版本(2023.11.01)：bug修复和代码优化
   - 2.5.1、版本(2023.10.31)：bug修复和代码优化
     - (1)、JKPhotoAlbumUtil保存图片增加权限判断
     - (2)、Int单位转化的优化
