@@ -38,11 +38,8 @@ public class JKPhotoAlbumUtil: NSObject {
                 return
             }
             var assetAlbum: PHAssetCollection?
-            // 如果指定的相册名称为空，则保存到相机胶卷。（否则保存到指定相册）
-            if !isCustomPhotoAlbumName {
-                let list = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
-                assetAlbum = list[0]
-            } else {
+            // 如果指定的相册名称为空，则保存到相机胶卷否则保存到指定相册）
+            if isCustomPhotoAlbumName {
                 // 相册的名字
                 let albumName = Bundle.jk.bundleName
                 // 看保存的指定相册是否存在
@@ -69,6 +66,9 @@ public class JKPhotoAlbumUtil: NSObject {
                     })
                     return
                 }
+            } else {
+                let list = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
+                assetAlbum = list[0]
             }
             
             // 保存图片
@@ -98,7 +98,7 @@ public class JKPhotoAlbumUtil: NSObject {
         let authorized = PHPhotoLibrary.authorizationStatus()
         if authorized == .notDetermined {
             PHPhotoLibrary.requestAuthorization { status in
-                if status == .authorized || status == .restricted {
+                if status == .authorized {
                     resultClosure(true, status)
                 } else {
                     resultClosure(false, status)

@@ -86,9 +86,8 @@ public extension JKPOP where Base == Int {
     ///   - isNeedAddZero: 是否后面追加0，比如：1.201  保留2位是：1.20 或者 1.2，如果设置为true，则scale是几位则后面是几位，不足的使用0填充
     /// - Returns: 转换后的结果
     func toTenThousandString(scale: Int16 = 1, roundingMode: NSDecimalNumber.RoundingMode = .plain, unit: String = "万", isNeedAddZero: Bool = false) -> String {
-        if self.base < 0 {
-            return "0"
-        } else if self.base <= 9999 {
+        let absValue = abs(self.base)
+        if absValue <= 9999 {
             return "\(self.base)"
         } else {
             let decimalValue = NSDecimalNumberHandler.jk.calculation(type: .dividing, value1: self.base, value2: 10000, roundingMode: roundingMode, scale: scale)
