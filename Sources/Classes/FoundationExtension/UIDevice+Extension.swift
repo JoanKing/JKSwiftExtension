@@ -428,6 +428,25 @@ public extension JKPOP where Base: UIDevice {
     static var localizedModel: String {
         return UIDevice.current.localizedModel
     }
+    
+    //MARK: 2.14、获取最高刷新率
+    /// 获取最高刷新率
+    @available(iOS 10.3, *)
+    static var maximumFramesPerSecond: Int {
+        UIScreen.main.maximumFramesPerSecond
+    }
+    
+    //MARK: 2.15、获取设备是否是省电模式
+    /// 获取设备是否是省电模式
+    static var isLowPowerMode: Bool {
+        ProcessInfo.processInfo.isLowPowerModeEnabled
+    }
+    
+    //MARK: 2.16、获取屏幕亮度比例
+    /// 获取屏幕亮度比例
+    static var brightnessRatio: CGFloat {
+        UIScreen.main.brightness
+    }
 }
 
 // MARK: - 三、有关设备运营商的信息

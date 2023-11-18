@@ -15,7 +15,7 @@ public extension JKPOP where Base: UIApplication {
     /// 获取当前的keyWindow
     static var keyWindow: UIWindow? {
         if #available(iOS 13, *) {
-            return UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+            return UIApplication.shared.windows.filter { $0.isKeyWindow }.first
         } else {
             return UIApplication.shared.keyWindow
         }
@@ -162,26 +162,48 @@ public extension JKPOP where Base: UIApplication {
     // MARK: 1.9、app商店链接
     /// app商店链接
     @discardableResult
-    static func appUrlWithID(_ appStoreID: String) -> String {
-        let appStoreUrl = "itms-apps://itunes.apple.com/app/id\(appStoreID)?mt=8"
-        return appStoreUrl
+    static func appSroreUrlWithID(_ appleID: String) -> String {
+        return "itms-apps://itunes.apple.com/app/id\(appleID)?mt=8"
     }
     
-    // MARK: 1.10、app详情链接
+    // MARK: 1.10、打开app商店链接
+    /// app商店链接
+    static func openAppSroreUrlWithID(_ appleID: String)  {
+        let appStoreUrl = appSroreUrlWithID(appleID)
+        openThirdPartyApp(thirdPartyAppDeeplink: appStoreUrl) { _ in
+        }
+    }
+    
+    // MARK: 1.11、app详情链接
     /// app详情链接
     @discardableResult
-    static func appDetailUrlWithID(_ appStoreID: String) -> String {
-        let detailUrl = "http://itunes.apple.com/cn/lookup?id=\(appStoreID)"
+    static func appDetailUrlWithID(_ appleID: String) -> String {
+        let detailUrl = "http://itunes.apple.com/cn/lookup?id=\(appleID)"
         return detailUrl
     }
     
-    //MARK: 1.11、APP是否常亮
-    /// APP是否常亮
+    // MARK: 1.12、评分App链接
+    /// 评分App链接
+    @discardableResult
+    static func rateAppUrlWithID(_ appleID: String) -> String {
+        return "itms-apps://itunes.apple.com/app/id\(appleID)?action=write-review"
+    }
+    
+    // MARK: 1.13、打开评分App界面
+    /// 打开评分App链接
+    static func openRateAppUrlWithID(_ appleID: String) {
+        let rateAppUrl = rateAppUrlWithID(appleID)
+        openThirdPartyApp(thirdPartyAppDeeplink: rateAppUrl) { _ in
+        }
+    }
+    
+    //MARK: 1.14、设置APP是否常亮
+    /// 设置APP是否常亮
     static func isIdleTimerDisabled(isIdleTimerDisabled: Bool) {
         UIApplication.shared.isIdleTimerDisabled = isIdleTimerDisabled
     }
     
-    //MARK: 1.12、APP主动崩溃
+    //MARK: 1.15、APP主动崩溃
     /// APP主动崩溃
     static func exitApp() {
         // 默认的程序结束函数

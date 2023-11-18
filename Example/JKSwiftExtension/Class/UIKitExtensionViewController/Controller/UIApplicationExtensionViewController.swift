@@ -14,7 +14,7 @@ class UIApplicationExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、基本的扩展", "二、APP权限的检测", "三、打开系统应用和第三方APP"]
-        dataArray = [["获取当前的keyWindow", "获取屏幕的方向", "获取根控制器", "设备信息的获取", "app定位区域", "网络状态是否可用", "消息推送是否可用", "注册APNs远程推送", "app商店链接", "app详情链接", "APP是否常亮", "APP主动崩溃"], ["判断是否拥有权限，目前支持 照相机、相册、麦克风、定位，提示：这里判断是这些权限有没有被用户手动关闭", "打开淘宝"], ["打开 safari", "打开googleMaps", "打开打电话Phone", "打开SMS", "打开Mail", "打开iBooks", "打开AppStore", "打开Music", "打开Videos", "打开微信", "打开QQ", "打开腾讯微博", "打开淘宝", "打开支付宝", "打开微博","打开QQ浏览器", "打开UC浏览器", "打开海豚浏览器", "打开欧朋浏览器", "打开搜狗浏览器", "打开百度地图", "打开谷歌Chrome浏览器", "打开优酷", "打开京东", "打开人人", "打开美团", "打开1号店", "打开我查查", "打开有道词典", "打开知乎", "打开点评", "打开微盘", "打开豆瓣fm", "打开网易公开课", "打开名片全能王", "打开QQ音乐", "打开腾讯视频", "打开豆瓣电影", "打开网易云音乐", "打开网易新闻", "打开网易应用", "打开网易彩票", "打开有道云笔记", "打开多看", "打开全国空气质量指数", "打开百度音乐", "打开下厨房"]]
+        dataArray = [["获取当前的keyWindow", "获取屏幕的方向", "获取根控制器", "设备信息的获取", "app定位区域", "网络状态是否可用", "消息推送是否可用", "注册APNs远程推送", "app商店链接", "打开app商店链接", "app详情链接", "评分App链接", "打开评分App界面", "设置APP是否常亮", "APP主动崩溃"], ["判断是否拥有权限，目前支持 照相机、相册、麦克风、定位，提示：这里判断是这些权限有没有被用户手动关闭", "打开淘宝"], ["打开 safari", "打开googleMaps", "打开打电话Phone", "打开SMS", "打开Mail", "打开iBooks", "打开AppStore", "打开Music", "打开Videos", "打开微信", "打开QQ", "打开腾讯微博", "打开淘宝", "打开支付宝", "打开微博","打开QQ浏览器", "打开UC浏览器", "打开海豚浏览器", "打开欧朋浏览器", "打开搜狗浏览器", "打开百度地图", "打开谷歌Chrome浏览器", "打开优酷", "打开京东", "打开人人", "打开美团", "打开1号店", "打开我查查", "打开有道词典", "打开知乎", "打开点评", "打开微盘", "打开豆瓣fm", "打开网易公开课", "打开名片全能王", "打开QQ音乐", "打开腾讯视频", "打开豆瓣电影", "打开网易云音乐", "打开网易新闻", "打开网易应用", "打开网易彩票", "打开有道云笔记", "打开多看", "打开全国空气质量指数", "打开百度音乐", "打开下厨房"]]
     }
 }
 
@@ -456,24 +456,45 @@ extension UIApplicationExtensionViewController {
 // MARK: - 一、基本的扩展
 extension UIApplicationExtensionViewController {
 
-    // MARK: 1.12、APP主动崩溃
-    @objc func test112() {
+    // MARK: 1.15、APP主动崩溃
+    @objc func test115() {
         JKPrint("app详情链接：\(UIApplication.jk.exitApp())")
     }
     
-    // MARK: 1.11、APP是否常亮
-    @objc func test111() {
-        JKPrint("APP是否常亮：\(UIApplication.jk.isIdleTimerDisabled(isIdleTimerDisabled: true))")
+    // MARK: 1.14、设置APP是否常亮
+    @objc func test114() {
+        JKPrint("设置APP是否常亮：\(UIApplication.jk.isIdleTimerDisabled(isIdleTimerDisabled: true))")
     }
     
-    // MARK: 1.10、app详情链接
+    //MARK: 1.13、打开评分App界面
+    @objc func test113() {
+        JKPrint("打开评分App界面")
+        UIApplication.jk.openRateAppUrlWithID("1142110895")
+    }
+    
+    // MARK: 1.12、评分App链接
+    @objc func test112() {
+        // 这里以打开抖音详情链接为例
+        JKPrint("评分App链接：\(UIApplication.jk.rateAppUrlWithID("1142110895"))")
+    }
+    
+    // MARK: 1.11、app详情链接
+    @objc func test111() {
+        // 这里以抖音详情链接为例
+        UIApplication.jk.appDetailUrlWithID("1142110895")
+    }
+    
+    // MARK: 1.10、打开app商店链接
     @objc func test110() {
-        JKPrint("app详情链接：\(UIApplication.jk.appDetailUrlWithID(""))")
+        // 这里以抖音为例 打开app商店链接
+        JKPrint("打开app商店链接")
+        UIApplication.jk.openAppSroreUrlWithID("1142110895")
     }
     
     // MARK: 1.09、app商店链接
     @objc func test109() {
-        JKPrint("app商店链接：\(UIApplication.jk.appUrlWithID(""))")
+        // 这里以抖音为例
+        JKPrint("app商店链接：\(UIApplication.jk.appSroreUrlWithID("1142110895"))")
     }
     
     // MARK: 1.08、注册APNs远程推送

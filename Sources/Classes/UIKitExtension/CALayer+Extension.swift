@@ -266,10 +266,11 @@ public extension JKPOP where Base: CALayer {
     /// 缩放动画
     /// - Parameters:
     ///   - rotation: 旋转的角度
-    ///   - duration:  动画持续的时间
+    ///   - duration: 动画持续的时间
     ///   - delay: 几秒后执行
+    ///   - repeatNumber: 重复的次数
     ///   - removedOnCompletion: 运动后的位置保持不变（layer的最后位置是toValue）
-    ///   - option: 动画的时间节奏控制 方式
+    ///   - option: 动画的时间节奏控制方式
     func animationRotation(rotation: Any?,
                            duration: TimeInterval = 2.0,
                            delay: TimeInterval = 0,

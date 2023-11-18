@@ -27,5 +27,4 @@ public extension JKPOP where Base == Data {
     var bytes: [UInt8] {
         return [UInt8](self.base)
     }
-    
 }

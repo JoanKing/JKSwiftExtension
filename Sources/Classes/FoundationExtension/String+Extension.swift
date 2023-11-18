@@ -631,6 +631,342 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     var toNumber: NSNumber? {
         return self.toDouble()?.jk.number
     }
+    
+    //MARK: 4.9、数字金额转换成大写人民币金额
+    /// 数字金额转换成大写人民币金额
+    /// - Parameters:
+    ///   - scale: 保留小数位数
+    ///   - roundingMode: 取舍方式
+    /// - Returns: 大写人民币金额
+    ///
+    /// 提示：double 双精度浮点, 64取值范围是-1022 - 1023 有效数位15
+    func convertToRMB(scale: Int16 = 2, roundingMode: NSDecimalNumber.RoundingMode = .plain) -> String {
+        // 1、小数后保留的位数，最高支持4位到厘，具体的分为角、分、毫、厘
+        var rMBScale: Int16 = scale
+        if scale > 4 || scale < 1 {
+            rMBScale = 4
+        }
+        // 2、单位的设置
+        let decimalValue = NSDecimalNumberHandler.jk.calculation(type: .multiplying, value1: self.base, value2: 1, roundingMode: roundingMode, scale: rMBScale)
+        let numberString = "\(decimalValue)"
+        // 2.1、包含小数部分的处理
+        var parts: [String] = [numberString]
+        if numberString.jk.contains(find: ".") {
+            // 根据点(.)分割字符串
+            parts = numberString.split(separator: ".").compactMap({ value in
+                return "\(value)"
+            })
+        }
+        // 2.2、汉字的数字
+        let chineseNumbers = ["零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"]
+        // 2.3、基础金额单位，在此只处理到仟秭(qiān zǐ)
+        let chineseUnits = ["", "拾", "佰", "仟"]
+        // 2.4、每个阶段单位的划分
+        let units = ["", "万", "亿", "兆", "京", "垓", "秭"]
+        // 2.5、整数部分
+        let integerPart = parts[0]
+        guard integerPart.count <= 4 * units.count else {
+            #if DEBUG
+            assert(false, "金额太大，无法处理")
+            #endif
+            return "金额太大，无法处理"
+        }
+        
+        // 3、整数部分大写金额
+        var integerString = ""
+        var count = 0
+        if integerPart.count > 0, integerPart != "0" {
+            for i in (0..<integerPart.count).reversed() {
+                // 取出对用位置的值，转Int，再取出对应的中文数字
+                let chIndex = integerPart.jk.sub(start: i, length: 1).jk.toInt() ?? 0
+                // 中文数字
+                let ch = chineseNumbers[chIndex]
+                // 对应的单位
+                var unitString: String = ""
+                // 此位置仅仅是为了获取大单位和小单位
+                if (integerPart.count - i - 1) % 4 == 0 {
+                    // 是否往左3位全是0
+                    var isAllZero: Bool = true
+                    // 再往左3位是不是也是零，是的话就不最低位的单位了，比如100001234就不要万了，直接是亿
+                    for zeroIndex in 0...3 where i - zeroIndex >= 0 {
+                        let zeroValue = integerPart.jk.sub(start: i - zeroIndex, length: 1)
+                        if zeroValue != "0" {
+                            isAllZero = false
+                            break
+                        }
+                    }
+                    if isAllZero {
+                        // 大单位四个全是0，就不要单位了
+                    } else {
+                        // 不等于0才有单位
+                        unitString = units[(integerPart.count - i - 1) / 4]
+                    }
+                } else {
+                    if ch != "零" {
+                        // 不等于0才有单位
+                        unitString = chineseUnits[(integerPart.count - i - 1) % 4]
+                    }
+                }
+                // debugPrint("i：\(i) unitString: \(unitString)")
+                if ch == "零" {
+                    // 处在大单位的位置或者如果是零，往右一位也是零，零不加
+                    if (integerPart.count - i - 1) % 4 == 0 || integerString.hasPrefix("零") {
+                        integerString = unitString + integerString
+                    } else {
+                        // 前一位不是零
+                        integerString = ch + unitString + integerString
+                    }
+                } else {
+                    integerString = ch + unitString + integerString
+                }
+                count += 1
+            }
+        }
+        // 整数部分如果结尾是零元，移除掉
+        if integerString.hasSuffix("零") {
+            integerString = (integerString + "元").jk.removeSomeStringUseSomeString(removeString: "零元")
+        }
+        // 4、小数点后面大写金额
+        guard parts.count > 1 else {
+            // 没有小数部分
+            return integerString.isEmpty ? "零元" : (integerString + "元整")
+        }
+        // 小数部分
+        let fractionalPart = parts[1]
+        // 小数单位
+        let chineseFractionalUnits = ["角", "分", "毫", "厘"]
+        // 小数部分大写金额
+        var fractionalString = ""
+        count = 0
+        for i in 0..<fractionalPart.count {
+            let index = fractionalPart.jk.sub(start: i, length: 1).jk.toInt() ?? 0
+            let ch = chineseNumbers[index]
+            let unit = chineseFractionalUnits[count]
+            if ch != "零" {
+                fractionalString += ch + unit
+            } else if !fractionalString.isEmpty, !fractionalString.hasSuffix("零") {
+                // 上一个单位是零，这里就不加零了
+                fractionalString = fractionalString + ch
+            }
+            count += 1
+        }
+        if fractionalString.isEmpty {
+            // 小数部分没有值(这个一般不会走，前面做了只有整数的拦截)
+            return integerString + "元整"
+        } else {
+            if integerString.isEmpty {
+                // 整数部分没有值
+                return fractionalString
+            }
+            // 整数和小数部分都有值
+            return integerString + "元" + fractionalString
+        }
+    }
+    
+    //MARK: 4.10、大写的金额转数字金额
+    /// 大写的金额转数字金额
+    func rMBConvertChineseNumber() -> String? {
+        var content = base as! String
+        // 1、长度大于0且包含元
+        guard content.count > 0 else { return nil }
+        // 2、特殊的零元直接返回
+        if content == "零元" {
+            return "0"
+        }
+        // 3、第一个肯定是0-9大写中的一个，如果不是就可以结束这个大写人民币数字有问题或者太大无法解析
+        // 汉字的数字
+        let chineseNumerals = ["零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"]
+        let firstNumber = content.jk.sub(to: 1)
+        guard chineseNumerals.contains(firstNumber) else { return nil }
+        
+        // 4、字符串整数和小数部分的分割
+        var parts: [String] = []
+        if content.jk.contains(find: "元整") {
+            content = content.jk.removeSomeStringUseSomeString(removeString: "元整", replacingString: "")
+            parts = [content]
+        } else {
+            // 有小数部分，根据点(元整)分割字符串
+            if content.jk.contains(find: "元") {
+                parts = content.jk.separatedByString(with: "元")
+            } else {
+                // 只有小数部分
+                parts = ["", content]
+            }
+        }
+        // 5、整数部分的处理
+        // 是否是单位
+        var isUint: Bool = false
+        // 整数金额单位，在此只处理到仟秭(qiān zǐ)
+        // 2.3、基础金额单位，在此只处理到仟秭(qiān zǐ)
+        // 2.3、基础金额单位，在此只处理到仟秭(qiān zǐ)
+        let chineseUnits = ["", "拾", "佰", "仟"]
+        // 2.4、每个阶段单位的划分
+        let units = ["", "万", "亿", "兆", "京", "垓", "秭"]
+        let integerPart = parts[0]
+        // 是否是正确的人民币文字
+        var isRightRNB = true
+        // 当前的小单位
+        var currentSmallUnit = ""
+        // 当前的大单位
+        var currentBigUnit = ""
+        var integerString = ""
+        for i in (0..<integerPart.count).reversed() {
+            let singleString = integerPart.jk.sub(start: i, length: 1)
+            // debugPrint("整数-i：\(i) 内容：\(singleString)")
+            if isUint {
+                // 判断是否是值，不是值的话就是有问题
+                if chineseNumerals.contains(singleString) {
+                    // 是值
+                    let numberValue = "\(chineseNumerals.indexes(singleString)[0])"
+                    if (currentSmallUnit.count > 0 && currentBigUnit.count > 0) || currentSmallUnit.count > 0 {
+                        // 小单位的索引
+                        let smalUintIndex = chineseUnits.indexes(currentSmallUnit)[0]
+                        let currntBigUintIndex = units.indexes(currentBigUnit)[0]
+                        integerString = "\(numberValue)" + integerString.jk.prefixAddZero(smalUintIndex + currntBigUintIndex * 4)
+                    } else {
+                        // 大单位
+                        integerString = "\(numberValue)" + integerString
+                    }
+                    isUint = false
+                    currentSmallUnit = ""
+                } else {
+                    // 如果是单位的话，这里只能是小单位，如果是大单位就说明有问题
+                    if chineseUnits.contains(singleString) {
+                        // 小单位
+                        // let smalUintIndex = chineseUnits.indexes(singleString)[0]
+                        currentSmallUnit = singleString
+                    } else {
+                        // 不是大单位，如果后面是单位，不管是大单位还是小单位，再往左一位不可能是小单位
+                        isRightRNB = false
+                        // debugPrint("不是值，这个大写人民币值有问题：\(singleString)")
+                        break
+                    }
+                }
+            } else {
+                if chineseUnits.contains(singleString) || units.contains(singleString) {
+                    // 记录单位
+                    isUint = true
+                    if units.contains(singleString) {
+                        // 是大单位：["", "万", "亿", "兆", "京", "垓", "秭"]
+                        currentBigUnit = singleString
+                    } else {
+                        currentSmallUnit = singleString
+                        // 是小单位：["", "拾", "佰", "仟"]
+                    }
+                } else {
+                    // 如果当前是0的话，就看下当前的单位
+                    if chineseNumerals.contains(singleString) {
+                        // 判断是否是值，不是值的话就是有问题。
+                        if singleString == "零" {
+                            // 查看往左一个是不是大单位
+                            let leftSingleString = integerPart.jk.sub(start: i - 1, length: 1)
+                            if units.contains(leftSingleString) {
+                                // 如果是大单位就进行计算
+                                let leftBigUintValue = units.indexes(leftSingleString)[0]
+                                integerString = integerString.jk.prefixAddZero(leftBigUintValue * 4)
+                                
+                            } else if chineseUnits.contains(leftSingleString) {
+                                // 看下小单位是几位 + 前面的单位 * 4 是总的长度
+                                let leftSmallUintValue = chineseUnits.indexes(leftSingleString)[0]
+                                let currntBigUintValue = units.indexes(currentBigUnit)[0]
+                                integerString = integerString.jk.prefixAddZero(leftSmallUintValue + currntBigUintValue * 4)
+                            } else {
+                                // 不是单位，这个大写人民币值有问题
+                                isRightRNB = false
+                                // debugPrint("不是值，这个大写人民币值有问题：\(singleString)")
+                                break
+                            }
+                        } else {
+                            // 不是零
+                            integerString = integerString + "\(chineseNumerals.indexes(singleString)[0])"
+                        }
+                    } else {
+                        // 不是单位，这个大写人民币值有问题
+                        isRightRNB = false
+                        // debugPrint("不是值，这个大写人民币值有问题：\(singleString)")
+                        break
+                    }
+                }
+            }
+        }
+        // 不是正确的RMB字符串就直接返回，解析不了
+        guard isRightRNB else {
+            return nil
+        }
+        guard parts.count > 1 else {
+            // 没有小数部分或者这个值有问题
+            return integerString
+        }
+        // 5、小数部分的处理
+        // 小数金额单位
+        let chineseFractionalUnits = ["角", "分", "毫", "厘"] // 1 3
+        // 当前的小单位
+        var currentFractionalUnit = ""
+        let fractionalPart = parts[1]
+        var fractionalString = ""
+        for i in (0..<fractionalPart.count).reversed() {
+            let singleString = fractionalPart.jk.sub(start: i, length: 1)
+            // debugPrint("小数-i：\(i) 内容：\(singleString)")
+            if isUint {
+                // 判断是否是值，不是值的话就是有问题
+                if chineseNumerals.contains(singleString) {
+                    // 是值
+                    let numberValue = "\(chineseNumerals.indexes(singleString)[0])"
+                    fractionalString = "\(numberValue)" + fractionalString
+                    // 如果左边没有小数了，当前的单位和角差几个就补几个0
+                    if i == 0 {
+                        let currntBigUintIndex = chineseFractionalUnits.indexes(currentFractionalUnit)[0]
+                        fractionalString = "".jk.prefixAddZero(currntBigUintIndex) + fractionalString
+                    } else {
+                    }
+                    isUint = false
+                } else {
+                    // 不是单位，这个大写人民币值有问题
+                    isRightRNB = false
+                    // debugPrint("不是值，这个大写人民币值有问题：\(singleString)")
+                    break
+                }
+            } else {
+                if chineseFractionalUnits.contains(singleString) {
+                    // 是否是小数的单位
+                    currentFractionalUnit = singleString
+                    isUint = true
+                } else {
+                    // 如果当前是0的话，就看下当前的单位
+                    if chineseNumerals.contains(singleString) && singleString == "零" {
+                        // 零的处理
+                        let leftSingleString = fractionalPart.jk.sub(start: i - 1, length: 1)
+                        if chineseFractionalUnits.contains(leftSingleString) {
+                            // 看下小单位是几位 + 前面的单位 * 4 是总的长度
+                            let leftSmallUintValue = chineseFractionalUnits.indexes(leftSingleString)[0]
+                            let currntBigUintValue = chineseFractionalUnits.indexes(currentFractionalUnit)[0]
+                            fractionalString = "".jk.prefixAddZero(currntBigUintValue - leftSmallUintValue - 1) + fractionalString
+                        } else {
+                            // 不是单位，这个大写人民币值有问题
+                            isRightRNB = false
+                            // debugPrint("不是值，这个大写人民币值有问题：\(singleString)")
+                            break
+                        }
+                    } else {
+                        // 不是单位，这个大写人民币值有问题
+                        isRightRNB = false
+                        // debugPrint("不是值，这个大写人民币值有问题：\(singleString)")
+                        break
+                    }
+                }
+            }
+        }
+        // 不是正确的RMB字符串就直接返回，解析不了
+        guard isRightRNB else {
+            return nil
+        }
+        if integerString.count > 0 {
+            // 如果有整数
+            return integerString + "." + fractionalString
+        }
+        // 只有小数
+        return "0." + fractionalString
+    }
 }
 
 // MARK: - 五、字符串UI的处理
@@ -1576,11 +1912,24 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     // MARK: 10.13、字符串长度不足前面补0
     /// 字符串长度不足前面补0
     public func prefixAddZero(_ length: Int) -> String {
+        return insufficientLengthAdZero(length)
+    }
+    
+    // MARK: 10.14、字符串长度不足后面补0
+    /// 字符串长度不足后面补0
+    public func suffixAddZero(_ length: Int) -> String {
+        return insufficientLengthAdZero(length, isPrefixAddZer: false)
+    }
+    
+    // MARK: 字符串长度不足补0
+    /// 字符串长度不足后面补0
+    private func insufficientLengthAdZero(_ length: Int, isPrefixAddZer: Bool = true) -> String {
         let string = base as! String
         guard string.count < length else {
             return string
         }
-        return String(repeating: "0", count: length - string.count) + string
+        let zero = String(repeating: "0", count: length - string.count)
+        return isPrefixAddZer ? (zero + string) : (string + zero)
     }
 }
 

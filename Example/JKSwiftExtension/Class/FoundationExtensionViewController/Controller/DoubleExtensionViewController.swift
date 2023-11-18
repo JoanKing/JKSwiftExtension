@@ -14,12 +14,48 @@ class DoubleExtensionViewController: BaseViewController {
         super.viewDidLoad()
 
         headDataArray = ["一、Double 与其他类型的转换", "二、其他常用的方法"]
-        dataArray = [["转 Int", "Double 四舍五入转 Int", "转 CGFloat", "转 Int64", "转 Float", "转 String", "转 NSNumber", "转 Double"], ["浮点数四舍五入"]]
+        dataArray = [["转 Int", "Double 四舍五入转 Int", "转 CGFloat", "转 Int64", "转 Float", "转 String", "转 NSNumber", "转 Double"], ["浮点数四舍五入", "数字金额转换成大写人民币金额"]]
     }
 }
 
 // MARK: - 二、其他常用的方法
 extension DoubleExtensionViewController {
+    
+    // MARK: 2.2、数字金额转换成大写人民币金额
+    @objc func test202() {
+        
+        let scale0: Int16 = 1
+        let money0: Double = 0.0
+        let price0 = money0.jk.convertToRMB(scale: scale0)
+        
+        let scale1: Int16 = 4
+        let money1: Double = 0.10045
+        let price1 = money1.jk.convertToRMB(scale: scale1)
+        
+        let scale2: Int16 = 3
+        let money2: Double = 10100.102
+        let price2 = money2.jk.convertToRMB(scale: scale2)
+        
+        let scale3: Int16 = 4
+        let money3: Double = 12002302234.00345
+        let price3 = money3.jk.convertToRMB(scale: scale3)
+        
+        let scale4: Int16 = 1
+        let money4: Double = 12003423412234.8
+        let price4 = money4.jk.convertToRMB(scale: scale4)
+        
+        let scale5: Int16 = 1
+        let money5: Double = 1234001234
+        let price5 = money5.jk.convertToRMB(scale: scale5)
+        
+        let scale6: Int16 = 3
+        let money6: Double = 123000000234.02
+        let price6 = money6.jk.convertToRMB(scale: scale6)
+        
+        JKPrint("数字金额转换成大写人民币金额", "\(money0) 保留\(scale0)位 转换成大写人民币金额 后为：\(price0)", "\(money1) 保留\(scale1)位 转换成大写人民币金额 后为：\(price1)", "\(money2) 保留\(scale2)位 转换成大写人民币金额 后为：\(price2)", "\(money3) 保留\(scale3)位 转换成大写人民币金额 后为：\(price3)", "\(money4) 保留\(scale4)位 转换成大写人民币金额 后为：\(price4)", "\(money5) 保留\(scale5)位 转换成大写人民币金额 后为：\(price5)", "\(money6) 保留\(scale6)位 转换成大写人民币金额 后为：\(price6)")
+        
+        JKPrint("\(price0) 反向转换为：\(price0.jk.rMBConvertChineseNumber() ?? "")", "\(price1) 反向转换为：\(price1.jk.rMBConvertChineseNumber() ?? "")", "\(price2) 反向转换为：\(price2.jk.rMBConvertChineseNumber() ?? "")", "\(price3) 反向转换为：\(price3.jk.rMBConvertChineseNumber() ?? "")", "\(price4) 反向转换为：\(price4.jk.rMBConvertChineseNumber() ?? "")", "\(price5) 反向转换为：\(price5.jk.rMBConvertChineseNumber() ?? "")", "\(price6) 反向转换为：\(price6.jk.rMBConvertChineseNumber() ?? "")")
+    }
     
     // MARK: 2.01、浮点数四舍五入
     @objc func test201() {

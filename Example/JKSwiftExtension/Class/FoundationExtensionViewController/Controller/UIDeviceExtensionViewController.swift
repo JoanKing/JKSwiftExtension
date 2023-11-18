@@ -14,7 +14,7 @@ class UIDeviceExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、基本的扩展", "二、设备的基本信息", "三、有关设备运营商的信息", "四、设备的震动"]
-        dataArray = [["设备的名字", "获取设备类型", "判断是否为 iPad", "判断是否是 pad", "判断是否为 iphone", "判断是否是 iphone5", "判断是否是 iphone6", "是不是 x 系列", "是不是 xs系列", "当前设备是不是模拟器"], ["当前设备的系统版本", "当前系统更新时间", "当前设备的类型", "当前系统的名称", "当前设备的名称", "当前设备是否越狱", "当前硬盘的空间", "当前硬盘可用空间", "当前硬盘已经使用的空间", "获取总内存大小", "当前设备能否打电话", "当前设备语言", "设备区域化型号"], ["sim卡信息", "数据业务对应的通信技术", "设备网络制式", "运营商名字", "移动国家码(MCC)", "移动网络码(MNC)", "ISO国家代码", "是否允许VoIP"], ["通过SystemSoundID震动", "UINotificationFeedbackGenerator 来设置的手机振动", "UIImpactFeedbackGenerator 来设置的手机振动", "模拟选择滚轮一类控件时的震动"]]
+        dataArray = [["设备的名字", "获取设备类型", "判断是否为 iPad", "判断是否是 pad", "判断是否为 iphone", "判断是否是 iphone5", "判断是否是 iphone6", "是不是 x 系列", "是不是 xs系列", "当前设备是不是模拟器"], ["当前设备的系统版本", "当前系统更新时间", "当前设备的类型", "当前系统的名称", "当前设备的名称", "当前设备是否越狱", "当前硬盘的空间", "当前硬盘可用空间", "当前硬盘已经使用的空间", "获取总内存大小", "当前设备能否打电话", "当前设备语言", "设备区域化型号", "获取最高刷新率", "获取设备是否是省电模式", "获取屏幕亮度比例"], ["sim卡信息", "数据业务对应的通信技术", "设备网络制式", "运营商名字", "移动国家码(MCC)", "移动网络码(MNC)", "ISO国家代码", "是否允许VoIP"], ["通过SystemSoundID震动", "UINotificationFeedbackGenerator 来设置的手机振动", "UIImpactFeedbackGenerator 来设置的手机振动", "模拟选择滚轮一类控件时的震动"]]
     }
 }
 
@@ -155,6 +155,22 @@ extension UIDeviceExtensionViewController {
 
 // MARK: - 二、设备的基本信息
 extension UIDeviceExtensionViewController {
+    
+    //MARK: 2.16、获取屏幕亮度比例
+    @objc func test216() {
+        JKPrint("获取屏幕亮度比例：\(UIDevice.jk.brightnessRatio)")
+    }
+    
+    //MARK: 2.1.5、获取设备是否是省电模式
+    @objc func test215() {
+        JKPrint("获取设备是否是省电模式：\(UIDevice.jk.isLowPowerMode)")
+    }
+    
+    //MARK: 2.14、获取最高刷新率
+    @available(iOS 10.3, *)
+    @objc func test214() {
+        JKPrint("获取最高刷新率：\(UIDevice.jk.maximumFramesPerSecond)")
+    }
     
     //MARK: 2.13、设备区域化型号
     @objc func test213() {

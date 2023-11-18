@@ -44,6 +44,29 @@ public extension JKPOP where Base == Double {
 }
 
 // MARK: - 二、数字的处理
+/**
+ 拾：代表的是10的1次方.
+ 佰：代表的是10的2次方.
+ 仟：代表的是10的3次方.
+ 万：代表的是10的4次方.
+ 亿：代表的是10的8次方.
+ 兆：代表的是10的12次方.
+ 京：代表的是10的16次方.
+ 垓：代表的是10的20次方.
+ 杼：代表的是10的24次方.
+ 穰：代表的是10的28次方.
+ 沟：代表的是10的32次方.
+ 涧：代表的是10的36次方.
+ 正：代表的是10的40次方.
+ 载：代表的是10的44次方.
+ 极：代表的是10的48次方.
+ 恒河沙：代表的是10的52次方.
+ 阿僧□：代表的是10的56次方.
+ 那由它：代表的是10的60次方.
+ 不可思议：代表的是10的64次方.
+ 无量：代表的是10的68次方.
+ 大数：代表的是10的72次方.
+ */
 public extension JKPOP where Base == Double {
     // MARK: 2.1、浮点数四舍五入
     /// 浮点数四舍五入
@@ -52,6 +75,18 @@ public extension JKPOP where Base == Double {
     func roundTo(places: Int) -> Double {
         let divisor = pow(10.0, Double(places))
         return (self.base * divisor).rounded() / divisor
+    }
+    
+    // MARK: 2.2、数字金额转换成大写人民币金额
+    /// 数字金额转换成大写人民币金额
+    /// - Parameters:
+    ///   - scale: 保留小数位数
+    ///   - roundingMode: 取舍方式
+    /// - Returns: 大写人民币金额
+    ///
+    /// 提示：double 双精度浮点, 64取值范围是-1022 - 1023 有效数位15
+    func convertToRMB(scale: Int16 = 2, roundingMode: NSDecimalNumber.RoundingMode = .plain) -> String {
+        return "\(self.base)".jk.convertToRMB(scale: scale, roundingMode: roundingMode)
     }
 }
 
