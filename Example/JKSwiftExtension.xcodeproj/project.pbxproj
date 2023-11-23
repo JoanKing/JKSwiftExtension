@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5537F3872B0B4D5500F6BEEC /* JKFileLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5537F3862B0B4D5500F6BEEC /* JKFileLogViewController.swift */; };
+		553FF3782B0EEB3500589AEF /* MapKitTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FF3772B0EEB3500589AEF /* MapKitTestViewController.swift */; };
 		555C223B2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C223A2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift */; };
 		55A815D42A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A815D32A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift */; };
 		55CBC9C72A9C74A000EE88FC /* SegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CBC9C62A9C74A000EE88FC /* SegmentViewController.swift */; };
@@ -193,7 +195,9 @@
 
 /* Begin PBXFileReference section */
 		2FEA1C54E10568E8E6A827CF /* Pods_JKSwiftExtension_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSwiftExtension_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		484863D9DD238F4FD5E44FEF /* JKSwiftExtension.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JKSwiftExtension.podspec; path = ../JKSwiftExtension.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		484863D9DD238F4FD5E44FEF /* JKSwiftExtension.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JKSwiftExtension.podspec; path = ../JKSwiftExtension.podspec; sourceTree = "<group>"; };
+		5537F3862B0B4D5500F6BEEC /* JKFileLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKFileLogViewController.swift; sourceTree = "<group>"; };
+		553FF3772B0EEB3500589AEF /* MapKitTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitTestViewController.swift; sourceTree = "<group>"; };
 		555C223A2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabbarExtensionViewController.swift; sourceTree = "<group>"; };
 		55A815D32A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingSpecialConfigurationSegmentView.swift; sourceTree = "<group>"; };
 		55CBC9C62A9C74A000EE88FC /* SegmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentViewController.swift; sourceTree = "<group>"; };
@@ -539,6 +543,7 @@
 				E203A4752A4032D400F19FE2 /* BleViewController.swift */,
 				55E467482A8A4521008D79B7 /* UIBezierPathViewController.swift */,
 				55CBC9C62A9C74A000EE88FC /* SegmentViewController.swift */,
+				553FF3772B0EEB3500589AEF /* MapKitTestViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -795,6 +800,7 @@
 			children = (
 				84BF16CB251DA012002ACE76 /* SmallToolsViewController.swift */,
 				E24692AC2A1F062700C8B2C8 /* JKAlertViewControllerViewController.swift */,
+				5537F3862B0B4D5500F6BEEC /* JKFileLogViewController.swift */,
 				E29EF19229F2AD63009BB4DC /* JKUnitConverterViewController.swift */,
 				E2FA6871299B8FC300535471 /* JKCustomPickViewViewController.swift */,
 				E24BB3B82941875B0089A696 /* JKCircleProgressViewViewController.swift */,
@@ -1065,6 +1071,7 @@
 				8457687C259DC3A3006F93D4 /* IndexPathExtensionViewController.swift in Sources */,
 				8473AAC02562889500707877 /* UIImageViewExtensionViewController.swift in Sources */,
 				8480280E255933DE0038748A /* UIControlExtensionViewController.swift in Sources */,
+				5537F3872B0B4D5500F6BEEC /* JKFileLogViewController.swift in Sources */,
 				8480281625594C1E0038748A /* UIAlertControllerExtensionViewController.swift in Sources */,
 				84A6FB79255A65EC00057839 /* UIButtonExtensionViewController.swift in Sources */,
 				E2FA6872299B8FC300535471 /* JKCustomPickViewViewController.swift in Sources */,
@@ -1118,6 +1125,7 @@
 				844A635325664F9B000059EC /* SixViewController.swift in Sources */,
 				8457685C259DC085006F93D4 /* UITabBarControllerExtensionViewController.swift in Sources */,
 				84BEA371254F9C7A00CA8A75 /* UserDefaultsExtensionViewController.swift in Sources */,
+				553FF3782B0EEB3500589AEF /* MapKitTestViewController.swift in Sources */,
 				E277B95928DF014800DC0319 /* PresetntOneViewController.swift in Sources */,
 				84BF16CC251DA012002ACE76 /* SmallToolsViewController.swift in Sources */,
 				844A635025664F9B000059EC /* TwoViewController.swift in Sources */,

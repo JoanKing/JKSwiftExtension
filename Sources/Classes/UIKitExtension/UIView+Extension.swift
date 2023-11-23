@@ -568,7 +568,7 @@ public extension JKPOP where Base: UIView {
     /// - Parameter shadowOpacity: 阴影的透明度
     /// - Parameter shadowRadius: 阴影半径，默认 3
     ///
-    /// - Note: 提示：如果在异步布局(如：SnapKit布局)中使用，要在布局后先调用 layoutIfNeeded，再使用该方法
+    /// - Note: 提示：如果在异步布局(如：SnapKit布局)中使用，要在布局后先调用 layoutIfNeeded，再使用该方法或者在override func layoutSublayers(of layer: CALayer) {} 里面调用，也要使用 layoutIfNeeded
     func addViewCornerAndShadow(conrners: UIRectCorner , radius: CGFloat = 3, shadowColor: UIColor, shadowOffset: CGSize, shadowOpacity: Float, shadowRadius: CGFloat = 3) {
         // 切圆角
         base.layer.shadowColor = shadowColor.cgColor

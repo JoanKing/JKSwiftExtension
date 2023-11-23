@@ -43,8 +43,8 @@ class SmallToolsViewController: UIViewController {
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.green
   
-        dataArray = ["JKAsyncs", "JKAlertViewController", "JKUnitConverter", "JKCustomPickView", "JKCircleProgressView", "JKRollingNoticeView", "JKPaddingLabel", "JKPhotoAlbumUtil", "JKTapActionLabel", "JKDrawSignatureView", "JKGlobalTools", "JKRegexHelper", "JKCommonTool", "JKContentSize", "JKPanView", "JKPrint", "JKWeakTimer", "JKRuntime", "JKPlaceHolderTextView", "JKWaterFallLayout", "KeyboardAccessory", "QRCodeImageFactory", "JKDarkModeUtil"]
-        finishedDataArray = ["JKAsyncs", "JKAlertViewController", "JKCustomPickView", "JKCircleProgressView", "JKRollingNoticeView", "JKPhotoAlbumUtil", "JKPaddingLabel", "JKPanView", "JKDrawSignatureView", "JKGlobalTools", "JKWeakTimer", "JKPrint", "JKRuntime", "QRCodeImageFactory", "JKCommonTool", "JKContentSize", "JKWaterFallLayout", "JKPlaceHolderTextView", "KeyboardAccessory", "JKRegexHelper", "JKTapActionLabel", "JKDarkModeUtil"]
+        dataArray = ["JKAsyncs", "JKFileLog", "JKAlertViewController", "JKUnitConverter", "JKCustomPickView", "JKCircleProgressView", "JKRollingNoticeView", "JKPaddingLabel", "JKPhotoAlbumUtil", "JKTapActionLabel", "JKDrawSignatureView", "JKGlobalTools", "JKRegexHelper", "JKCommonTool", "JKContentSize", "JKPanView", "JKPrint", "JKWeakTimer", "JKRuntime", "JKPlaceHolderTextView", "JKWaterFallLayout", "KeyboardAccessory", "QRCodeImageFactory", "JKDarkModeUtil"]
+        finishedDataArray = ["JKAsyncs", "JKFileLog", "JKAlertViewController", "JKCustomPickView", "JKCircleProgressView", "JKRollingNoticeView", "JKPhotoAlbumUtil", "JKPaddingLabel", "JKPanView", "JKDrawSignatureView", "JKGlobalTools", "JKWeakTimer", "JKPrint", "JKRuntime", "QRCodeImageFactory", "JKCommonTool", "JKContentSize", "JKWaterFallLayout", "JKPlaceHolderTextView", "KeyboardAccessory", "JKRegexHelper", "JKTapActionLabel", "JKDarkModeUtil"]
         initUI()
     }
     

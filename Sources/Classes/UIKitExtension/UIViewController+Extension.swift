@@ -90,6 +90,36 @@ public extension JKPOP where Base: UIViewController {
             nav.dismiss(animated: true, completion: nil)
         }
     }
+    
+    //MARK: 1.7、dismiss到某个vc
+    /// dismiss到某个vc
+    /// - Parameters:
+    ///   - vc: vc
+    ///   - animated: 是否需要动画
+    @discardableResult
+    func dismiss(vc: AnyClass, animated: Bool) -> Bool {
+        guard let targetPresentingVC = findPresentingViewController(fromVc: self.base, toVc: vc) else { return false }
+        targetPresentingVC.dismiss(animated: animated)
+        return true
+    }
+    
+    //MARK: 寻找到对应的presentingViewController
+    /// 寻找到对应的presentingViewController
+    /// - Parameters:
+    ///   - fromVc: 当前vc
+    ///   - toVc: 目标vc
+    /// - Returns: 目标presentingViewController
+    private func findPresentingViewController(fromVc: UIViewController, toVc: AnyClass) -> UIViewController? {
+        // 判断是否存在对应的presentingViewController
+        guard let vc = fromVc.presentingViewController else { return nil }
+        // 判断是否是目标vc
+        if (vc.isMember(of: toVc)) {
+            // 寻找到对应的presentingViewController
+            return vc
+        } else {
+            return findPresentingViewController(fromVc: vc, toVc: toVc)
+        }
+    }
 }
 
 // MARK: - 二、Storyboard 的 VC 交互

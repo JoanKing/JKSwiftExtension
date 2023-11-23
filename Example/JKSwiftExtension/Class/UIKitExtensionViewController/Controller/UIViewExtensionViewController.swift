@@ -727,6 +727,8 @@ extension UIViewExtensionViewController {
         }) {
             testView.removeFromSuperview()
         }
+        
+        // self.navigationController?.pushViewController(CornerAndShadowViewController(), animated: true)
     }
     
     //MARK: 5.05、通过贝塞尔曲线View添加阴影和圆角
@@ -1404,5 +1406,168 @@ extension UIViewExtensionViewController {
     /// 设备型号
     @objc func test101() {
         JKPrint("\(jk_deviceModel())")
+    }
+}
+
+//MARK: - 阴影和圆角的cell测试
+class CornerAndShadowViewController: UIViewController {
+    
+    var dataArray: [String] = []
+    
+    override func viewDidLoad() {
+        self.edgesForExtendedLayout = []
+        self.view.backgroundColor = UIColor.cBackViewColor
+        dataArray = ["秋天，是大自然的一幕美丽画卷，它以独特的色彩和氛围，为世界增添了一抹宁静和浪漫。", "树叶在秋风中轻轻摇曳，宛如一群舞者在舞台上翩翩起舞。它们从绿色转变成了金黄、红色、橙色和棕色，像是给大地披上了一件华美的斗篷。", "大自然似乎进入了一种宁静的状态。人们可以在秋日的阳光下漫步于林间小道，聆听树叶沙沙作响的声音，感受到大自然的宁静与安宁。", "无数诗人借助秋天的美景和情感，在文字中抒发对生命、对自然、对爱情的思考和赞美。他们用优美的词句描绘着秋天的景色和感受，让人们陶醉其中。", "它散发着温暖和希望，让人们感受到生命的美好和变化的力量。", "当微风吹拂着脸颊，阳光洒在身上，人们不禁回忆起往日的美好时光。秋天的风景唤起了人们对家乡、亲人和朋友的思念之情，温暖了心灵。", "农田里金黄的稻谷、丰满的玉米和成熟的蔬菜，都是勤劳农民辛勤劳作的结果。"]
+        initUI()
+    }
+    
+    /// 创建控件
+    private func initUI() {
+        view.addSubview(tableView)
+    }
+    
+    lazy var tableView : UITableView = {
+        
+        let tableView = UITableView(frame:CGRect(x:0, y: 0, width: jk_kScreenW, height: jk_kScreenH - CGFloat(jk_kNavFrameH)), style:.grouped)
+        if #available(iOS 11, *) {
+            tableView.contentInsetAdjustmentBehavior = .never
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
+        tableView.backgroundColor = UIColor.cBackViewColor
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 0.01))
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: jk_kTabbarBottom))
+        tableView.estimatedSectionFooterHeight = 0
+        tableView.estimatedSectionHeaderHeight = 0
+        // 设置一个默认高度
+        tableView.estimatedRowHeight = 80.0
+        // 开启自适应
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.jk.register(cellClass: CornerAndShadowViewCell.self)
+        return tableView
+    }()
+}
+
+extension CornerAndShadowViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.jk.dequeueReusableCell(cellType: CornerAndShadowViewCell.self, cellForRowAt: indexPath)
+        cell.loadData(text: dataArray[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height:0.01))
+        return sectionView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let sectionFootView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 0.01))
+        return sectionFootView
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+       
+    }
+}
+
+
+class CornerAndShadowViewCell: UITableViewCell {
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        self.contentView.backgroundColor = .white
+        
+        self.contentView.jk.addSubviews([testView1])
+        testView1.addSubview(testLabel1)
+        testView1.addSubview(testLabel2)
+        testView1.addSubview(bottomView)
+        
+        testView1.snp.makeConstraints { make in
+            make.top.equalTo(20)
+            make.left.equalTo(20)
+            make.bottom.equalTo(-20)
+            make.right.equalTo(-20)
+        }
+        bottomView.snp.makeConstraints { make in
+            make.bottom.equalTo(10)
+            make.left.equalTo(20)
+            make.height.equalTo(20)
+            make.right.equalTo(-20)
+        }
+        testLabel1.snp.makeConstraints { make in
+            make.top.equalTo(16)
+            make.left.equalTo(16)
+            make.right.equalTo(-16)
+        }
+        testLabel2.snp.makeConstraints { make in
+            make.top.equalTo(testLabel1.snp.bottom).offset(6)
+            make.left.equalTo(16)
+            make.right.equalTo(-16)
+            make.bottom.equalTo(-16)
+        }
+    }
+    
+    func loadData(text: String) {
+        testLabel1.text = text
+        testLabel2.text = text
+    }
+    
+    override func layoutSublayers(of layer: CALayer) {
+        super.layoutSublayers(of: layer)
+        testView1.layoutIfNeeded()
+        testView1.jk.addViewCornerAndShadow(conrners: .allCorners, radius: 20, shadowColor: UIColor.green, shadowOffset: CGSize(width: 1, height: 1), shadowOpacity: 1)
+        testLabel2.layoutIfNeeded()
+        testLabel2.jk.addViewCornerAndShadow(conrners: .allCorners, radius: 20, shadowColor: UIColor.red, shadowOffset: CGSize(width: 1, height: 1), shadowOpacity: 1)
+    }
+    
+    lazy var testView1: UIView = {
+        let view = UIView()
+        view.layer.masksToBounds = false
+        view.backgroundColor = .gray
+        return view
+    }()
+    
+    lazy var testLabel1: UILabel = {
+        let label = UILabel()
+        // label.backgroundColor = .randomColor
+        label.numberOfLines = 0
+        label.font = UIFont.jk.textSB(30)
+        return label
+    }()
+    
+    lazy var bottomView: UIView = {
+        let view = UIButton()
+        view.backgroundColor = .purple
+        return view
+    }()
+    
+    lazy var testLabel2: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = .brown
+        label.numberOfLines = 0
+        label.clipsToBounds = false
+        label.font = UIFont.jk.textSB(18)
+        return label
+    }()
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

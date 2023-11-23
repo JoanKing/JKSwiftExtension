@@ -84,6 +84,7 @@
 		5427DBACB1D189B22A74A5F95ECC6F7C /* MJRefreshBackNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 99678FAAF1B470AD9CDAFBA94C536135 /* MJRefreshBackNormalFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		551C663A2AD94A6400972EA4 /* JKPastedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C66392AD94A6400972EA4 /* JKPastedTextView.swift */; };
 		551D61922AD7EDE20094C8AF /* JKPastedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D61912AD7EDE20094C8AF /* JKPastedTextField.swift */; };
+		5537F3802B0A3DF700F6BEEC /* JKFileLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5537F37F2B0A3DF700F6BEEC /* JKFileLog.swift */; };
 		560CE8E0BC774EDE28CA47711A94AB00 /* JKPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6FF40DC04C2D79B7C5FB827AF096C5 /* JKPrint.swift */; };
 		569C9596A1EE66A0867C2F27DB4434FD /* MJRefreshComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B2AAE60FA49E589F3150078A9496D1D /* MJRefreshComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		572DBDC37429318F768FD7A21F1C0B70 /* MJRefreshBackStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = A2AE51FCC24837E8F305433BF716F932 /* MJRefreshBackStateFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -375,6 +376,7 @@
 		536E131A969E123758F19346BED21708 /* ImageTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageTransition.swift; path = Sources/ImageTransition.swift; sourceTree = "<group>"; };
 		551C66392AD94A6400972EA4 /* JKPastedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPastedTextView.swift; sourceTree = "<group>"; };
 		551D61912AD7EDE20094C8AF /* JKPastedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPastedTextField.swift; sourceTree = "<group>"; };
+		5537F37F2B0A3DF700F6BEEC /* JKFileLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKFileLog.swift; sourceTree = "<group>"; };
 		55A2F7D581F9DB315F57E8522D5E18D9 /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConstantTarget.swift; path = Source/ConstraintConstantTarget.swift; sourceTree = "<group>"; };
 		56D7B1C80DA21ABFD03CA2D3120361D6 /* NSMutableAttributedString+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extension.swift"; sourceTree = "<group>"; };
 		58023DA1E06624DC235E536B61D4D02C /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Box.swift; path = Sources/Box.swift; sourceTree = "<group>"; };
@@ -418,7 +420,7 @@
 		89CCF302EFB774904B0FF33AF53FF96F /* UITabBar+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UITabBar+Extension.swift"; sourceTree = "<group>"; };
 		8A384B0B52C2A8FA862EFE5D35A0D010 /* UITextView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		8A5680DBF1635257F526044F80FA47A8 /* ResourceBundle-JKSwiftExtension-JKSwiftExtension-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-JKSwiftExtension-JKSwiftExtension-Info.plist"; sourceTree = "<group>"; };
-		8A69258AEABFD8C10452E70A4EC11AF1 /* JKSwiftExtension.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = JKSwiftExtension.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		8A69258AEABFD8C10452E70A4EC11AF1 /* JKSwiftExtension.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = JKSwiftExtension.podspec; sourceTree = "<group>"; tabWidth = 2; };
 		8ACEBC62FCE88DC170D709F2CF7EE440 /* MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefresh.h; path = MJRefresh/MJRefresh.h; sourceTree = "<group>"; };
 		8C2A69CB3A481817812D801F96F928E0 /* MJRefreshGifHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshGifHeader.h; path = MJRefresh/Custom/Header/MJRefreshGifHeader.h; sourceTree = "<group>"; };
 		8D3D57353834825F7B52B816066B7789 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
@@ -1043,6 +1045,7 @@
 				B674F8C0C64692E72A38E6B4B255AD39 /* KeyboardAccessory.swift */,
 				2BC91206283A9F31779D23DE1569B554 /* QRCodeImageFactory.swift */,
 				E24692B22A1F2B1200C8B2C8 /* JKAlertViewController.swift */,
+				5537F37F2B0A3DF700F6BEEC /* JKFileLog.swift */,
 			);
 			name = SmallTools;
 			path = Sources/Classes/SmallTools;
@@ -1419,6 +1422,7 @@
 				048860E4904C888AB8AF2729EEC3C9E8 /* Character+Extension.swift in Sources */,
 				551D61922AD7EDE20094C8AF /* JKPastedTextField.swift in Sources */,
 				A87CF916C393A6F3332CE3EC53FBF39F /* CLLocation+Extension.swift in Sources */,
+				5537F3802B0A3DF700F6BEEC /* JKFileLog.swift in Sources */,
 				CA448A68254608B08E9E8966E3CF6895 /* Data+extension.swift in Sources */,
 				423DF4CB417B5139C3F16C738FEF5880 /* Date+Extension.swift in Sources */,
 				E4D49E2ACDBE6D5F53AB1881C73AFB69 /* DateFormatter+Extension.swift in Sources */,
