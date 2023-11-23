@@ -50,6 +50,7 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/520a15e4-970c-43e6-9f6a-aa0fc308abb5" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.5.5、版本(2023.11.23)：优化JKFileLog、图片检测支持人脸和二维码
   - 2.5.4、版本(2023.11.23)：新增JKFileLog日志以及UIViewController多次present后dismiss到某个vc 
   - 2.5.3、版本(2023.11.18)：扩展补充，特别是数字金钱转大写人民币金钱，以及反向大写人民币转数字金钱
   - 2.5.2、版本(2023.11.01)：bug修复和代码优化
