@@ -17,7 +17,7 @@ class UIImageExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、基本的扩展", "二、UIColor 生成的图片 和 生成渐变色图片", "三、图片的拉伸和缩放", "四、UIImage 压缩相关", "五、二维码的处理", "六、gif 加载", "七、图片旋转的一些操作", "八、给图片添加滤镜效果（棕褐色老照片滤镜，黑白滤镜）", "九、动态图片的使用"]
-        dataArray = [["设置图片的圆角", "设置圆形图片", "获取视频的第一帧", "layer 转 image", "设置图片透明度", "裁剪给定区域", "给图片添加文字水印", "添加图片水印", "文字图片占位符", "更改图片颜色", "获取图片某一个位置像素的颜色", "保存图片到相册", "保存图片到相册(建议使用这个)", "图片的模糊效果（高斯模糊滤镜）", "像素化后的图片", "返回一个将白色背景变透明的UIImage", "返回一个将黑色背景变透明的UIImage"], ["生成指定尺寸的纯色图像", "生成指定尺寸和圆角的纯色图像", "生成渐变色的图片 [\"#B0E0E6\", \"#00CED1\", \"#2E8B57\"]", "生成渐变色的图片 [UIColor, UIColor, UIColor]", "生成带圆角渐变色的图片 [UIColor, UIColor, UIColor]"], ["获取固定大小的 image", "按宽高比系数：等比缩放", "按指定尺寸等比缩放", "图片中间 1*1 拉伸——如气泡一般", "图片设置拉伸", "调整图像方向 避免图像有旋转"], ["压缩图片", "异步图片压缩", "压缩图片质量", "ImageIO 方式调整图片大小 性能很好", "CoreGraphics 方式调整图片大小 性能很好"], ["生成二维码图片", "获取图片中二维码数组", "获取图片每个二维码里面的信息数组"], ["验证资源的格式，返回资源格式（png/gif/jpeg...）", "加载 data 数据的 gif 图片", "加载网络 url 的 gif 图片", "加载本地的gif图片", "加载 asset 里面的图片", "获取 asset 里面的gif图片的信息：包含分解后的图片和gif时间", "获取 加载本地的 的gif图片的信息：包含分解后的图片和gif时间", "获取 网络 url 的 gif 图片的信息：包含分解后的图片和gif时间"], ["图片旋转 (角度)", "图片旋转 (弧度)", "水平翻转", "垂直翻转", "向下翻转", "向左翻转", "镜像向左翻转", "向右翻转", "镜像向右翻转", "图片平铺区域"], ["图片加滤镜", "全图马赛克", "检测人脸的frame", "检测人脸并打马赛克"], ["深色图片和浅色图片切换 （深色模式适配）"]]
+        dataArray = [["设置图片的圆角", "设置圆形图片", "获取视频的第一帧", "layer 转 image", "设置图片透明度", "裁剪给定区域", "给图片添加文字水印", "添加图片水印", "文字图片占位符", "更改图片颜色", "获取图片某一个位置像素的颜色", "保存图片到相册", "保存图片到相册(建议使用这个)", "图片的模糊效果（高斯模糊滤镜）", "像素化后的图片", "返回一个将白色背景变透明的UIImage", "返回一个将黑色背景变透明的UIImage"], ["生成指定尺寸的纯色图像", "生成指定尺寸和圆角的纯色图像", "生成渐变色的图片 [\"#B0E0E6\", \"#00CED1\", \"#2E8B57\"]", "生成渐变色的图片 [UIColor, UIColor, UIColor]", "生成带圆角渐变色的图片 [UIColor, UIColor, UIColor]"], ["获取固定大小的 image", "按宽高比系数：等比缩放", "按指定尺寸等比缩放", "图片中间 1*1 拉伸——如气泡一般", "图片设置拉伸", "调整图像方向 避免图像有旋转"], ["压缩图片", "异步图片压缩", "压缩图片质量", "ImageIO 方式调整图片大小 性能很好", "CoreGraphics 方式调整图片大小 性能很好"], ["生成二维码图片", "获取图片中二维码数组", "获取图片每个二维码里面的信息数组"], ["验证资源的格式，返回资源格式（png/gif/jpeg...）", "加载 data 数据的 gif 图片", "加载网络 url 的 gif 图片", "加载本地的gif图片", "加载 asset 里面的图片", "获取 asset 里面的gif图片的信息：包含分解后的图片和gif时间", "获取 加载本地的 的gif图片的信息：包含分解后的图片和gif时间", "获取 网络 url 的 gif 图片的信息：包含分解后的图片和gif时间"], ["图片旋转 (角度)", "图片旋转 (弧度)", "水平翻转", "垂直翻转", "向下翻转", "向左翻转", "镜像向左翻转", "向右翻转", "镜像向右翻转", "图片平铺区域"], ["图片加滤镜", "全图马赛克", "检测人脸/二维码的frame", "检测人脸/二维码并打马赛克"], ["深色图片和浅色图片切换 （深色模式适配）"]]
     }
 }
 
@@ -45,9 +45,9 @@ extension UIImageExtensionViewController {
 // MARK: - 八、给图片添加滤镜效果（棕褐色老照片滤镜，黑白滤镜）以及 马赛克
 extension UIImageExtensionViewController {
     
-    // MARK: 8.04、检测人脸并打马赛克
+    // MARK: 8.04、检测人脸/二维码并打马赛克
     @objc func test804() {
-        guard let image1 = UIImage(named: "tfboy"), let image = image1.jk.detectAndPixFace() else {
+        guard let image1 = UIImage(named: "tfboy"), let image = image1.jk.detectAndPixFace(detectorType: .face) else {
             return
         }
         var imageView1 = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
@@ -66,13 +66,13 @@ extension UIImageExtensionViewController {
         }
     }
     
-    // MARK: 8.03、检测人脸的frame
+    // MARK: 8.03、检测人脸/二维码的frame
     @objc func test803() {
-        
-        guard let image1 = UIImage(named: "tfboy"), let rects = image1.jk.detectFace() else {
+        // 二维码的图片 detect_qr
+        guard let image1 = UIImage(named: "tfboy"), let rects = image1.jk.detectTypeRect(detectorType: .face) else {
             return
         }
-        print("人脸的rects：\(rects)")
+        debugPrint("检测人脸/二维码的rects：\(rects)")
         
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
         imageView.image = image1

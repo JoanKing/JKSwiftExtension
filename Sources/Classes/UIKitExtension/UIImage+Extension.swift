@@ -1462,6 +1462,25 @@ public extension JKPOP where Base: UIImage {
 /**
  Core Image 是一个强大的滤镜处理框架。它除了可以直接给图片添加各种内置滤镜，还能精确地修改鲜艳程度, 色泽, 曝光等，下面通过两个样例演示如何给 UIImage 添加滤镜
  */
+/// 检测图片中的类型
+public enum JKDetectorType: Int {
+    /// 二维码
+    case qrCode
+    /// 人脸
+    case face
+    
+    /// 获取某个类型的DetectorType
+    /// - Returns: DetectorType
+    fileprivate func getDetectorTypeContent() -> String {
+        switch self {
+        case .qrCode:
+            return CIDetectorTypeQRCode
+        case .face:
+            return CIDetectorTypeFace
+        }
+    }
+}
+
 public extension JKPOP where Base: UIImage {
     /// 滤镜类型
     enum JKImageFilterType: String {
@@ -1516,24 +1535,24 @@ public extension JKPOP where Base: UIImage {
         return UIImage(cgImage: cgImage!)
     }
     
-    // MARK: 8.3、检测人脸的frame
-    // 检测人脸的frame
-    func detectFace() -> [CGRect]? {
+    // MARK: 8.3、检测人脸/二维码的frame
+    // 检测人脸/二维码的frame
+    func detectTypeRect(detectorType: JKDetectorType) -> [CGRect]? {
         guard let inputImage = CIImage(image: self.base) else {
             return nil
         }
         let context = CIContext(options: nil)
         // 人脸检测器
         // CIDetectorAccuracyHigh: 检测的精度高,但速度更慢些
-        let detector = CIDetector(ofType: CIDetectorTypeFace,
+        let detector = CIDetector(ofType: detectorType.getDetectorTypeContent(),
                                   context: context,
                                   options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
-        var faceFeatures: [CIFaceFeature]!
+        var faceFeatures: [CIFeature] = []
         // 人脸检测需要图片方向(有元数据的话使用元数据,没有就调用featuresInImage)
         if let orientation = inputImage.properties[kCGImagePropertyOrientation as String] {
-            faceFeatures = (detector!.features(in: inputImage, options: [CIDetectorImageOrientation: orientation]) as! [CIFaceFeature])
+            faceFeatures = (detector!.features(in: inputImage, options: [CIDetectorImageOrientation: orientation]))
         } else {
-            faceFeatures = (detector!.features(in: inputImage) as! [CIFaceFeature])
+            faceFeatures = (detector!.features(in: inputImage))
         }
         // 打印所有的面部特征
         // print(faceFeatures)
@@ -1552,10 +1571,10 @@ public extension JKPOP where Base: UIImage {
         return rects
     }
     
-    // MARK: 8.4、检测人脸并打马赛克
-    /// 检测人脸并打马赛克
-    /// - Returns: 打马赛克后的人脸
-    func detectAndPixFace() -> UIImage? {
+    // MARK: 8.4、检测人脸/二维码并打马赛克
+    /// 检测人脸/二维码并打马赛克
+    /// - Returns: 打马赛克后的人脸/二维码
+    func detectAndPixFace(detectorType: JKDetectorType) -> UIImage? {
         guard let inputImage = CIImage(image: self.base) else {
             return nil
         }
@@ -1567,8 +1586,8 @@ public extension JKPOP where Base: UIImage {
         let inputScale = max(inputImage.extent.size.width, inputImage.extent.size.height) / 80
         filter.setValue(inputScale, forKey: kCIInputScaleKey)
         let fullPixellatedImage = filter.outputImage
-        // 检测人脸，并保存在faceFeatures中
-        guard let detector = CIDetector(ofType: CIDetectorTypeFace,
+        // 检测人脸或者二维码，并保存在faceFeatures中
+        guard let detector = CIDetector(ofType: detectorType.getDetectorTypeContent(),
                                         context: context,
                                         options: nil) else {
             return nil
@@ -1578,8 +1597,8 @@ public extension JKPOP where Base: UIImage {
         var maskImage: CIImage!
         for faceFeature in faceFeatures {
             // JKPrint(faceFeature.bounds)
-            // 基于人脸的位置，为每一张脸都单独创建一个蒙版，所以要先计算出脸的中心点，对应为x、y轴坐标，
-            // 再基于脸的宽度或高度给一个半径，最后用这些计算结果初始化一个CIRadialGradient滤镜
+            // 基于人脸/二维码的位置，为每一张脸都单独创建一个蒙版，所以要先计算出脸的中心点，对应为x、y轴坐标，
+            // 再基于人脸/二维码的宽度或高度给一个半径，最后用这些计算结果初始化一个CIRadialGradient滤镜
             let centerX = faceFeature.bounds.origin.x + faceFeature.bounds.size.width / 2
             let centerY = faceFeature.bounds.origin.y + faceFeature.bounds.size.height / 2
             let radius = min(faceFeature.bounds.size.width, faceFeature.bounds.size.height)

@@ -93,9 +93,9 @@ extension JKFileLog {
     /// - Parameter logFileName: 日志文件名字
     /// - Returns: 日志内容
     public static func getFilePathContent(logFileName: String = "") -> String {
-        // 2、在判断下是否自定义了文件名
-        let fileName: String = getLogFileName(logFileName)
-        guard let fileURL = URL(string: sharedInstance.folderPath + "/\(fileName)") else { return "" }
+        // 1、获取文件路径
+        let path = getLogFilePath(logFileName: logFileName)
+        guard let fileURL = URL(string: path) else { return "" }
         guard FileManager.jk.judgeFileOrFolderExists(filePath: fileURL.absoluteString) else { return "" }
         do {
             let fileHandle = try FileHandle(forReadingFrom: fileURL)
@@ -124,10 +124,10 @@ extension JKFileLog {
     /// - Returns: 日志文件路径
     @discardableResult
     public static func removeLogFile(logFileName: String = "") -> Bool {
-        // 1、在判断下是否自定义了文件名
-        let fileName: String = getLogFileName(logFileName)
+        // 1、获取文件路径
+        let path = getLogFilePath(logFileName: logFileName)
         // 2、判断文件的路径是否存在
-        guard let fileURL = URL(string: sharedInstance.folderPath + "/\(fileName)") else { return true }
+        guard let fileURL = URL(string: path) else { return true }
         guard FileManager.jk.judgeFileOrFolderExists(filePath: fileURL.absoluteString) else { return true }
         // 3、存在的就进行移除
         let result = FileManager.jk.removefile(filePath: fileURL.absoluteString)
@@ -142,8 +142,8 @@ extension JKFileLog {
     /// - Returns: 是否导出成功
     @discardableResult
     public static func exportLog(logFileName: String = "", currntVC: UIViewController? = nil) -> Bool {
-        // 1、获取路径
-        let path = getLogFilePath(logFileName: getLogFileName(logFileName))
+        // 1、获取文件路径
+        let path = getLogFilePath(logFileName: logFileName)
         // 2、判断路径是否存在
         guard FileManager.jk.judgeFileOrFolderExists(filePath: path) else { return false }
         // 3、导出日志
@@ -165,11 +165,11 @@ extension JKFileLog {
     /// - Parameter logFileName: 日志名字
     /// - Returns: 获取代txt日志的名字
     private static func getLogFileName(_ logFileName: String = "") -> String {
-        // 1、在判断下是否自定义了文件名
-        var fileName: String = sharedInstance.defaultFileName
-        if logFileName.count > 0 {
-            fileName = logFileName
+        // 1、看下是否自定义了文件名
+        guard logFileName.count > 0 else {
+            return sharedInstance.defaultFileName
         }
-        return fileName.jk.isHasSuffix(suffix: ".txt") ? fileName : (fileName + ".txt")
+        // 2、自定义了就返回自定义的文件名，补充后缀.txt
+        return logFileName.jk.isHasSuffix(suffix: ".txt") ? logFileName : (logFileName + ".txt")
     }
 }
