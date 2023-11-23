@@ -10,6 +10,7 @@
  支持：写入自定义路径下，默认写入到 JKSwiftExtension.default.logfile
  */
 import Foundation
+import UIKit
 
 public class JKFileLog: NSObject {
     /// 单粒对象
