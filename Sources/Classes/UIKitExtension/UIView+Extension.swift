@@ -932,17 +932,10 @@ public extension JKPOP where Base: UIView {
     // MARK: 7.3、将 View 转换成图片
     /// 将 View 转换成图片
     /// - Returns: 图片
-    func toImage() -> UIImage? {
-        let scale = UIScreen.main.scale
-        UIGraphicsBeginImageContextWithOptions(self.base.frame.size, false, scale)
-        guard let context = UIGraphicsGetCurrentContext() else {
-            UIGraphicsEndImageContext()
-            return nil
+    func toImage() -> UIImage {
+        return UIGraphicsImageRenderer(size: self.base.frame.size).image { context in
+            self.base.layer.render(in: context.cgContext)
         }
-        self.base.layer.render(in: context)
-        let viewImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return viewImage
     }
     
     // MARK: 7.4、添加点击事件
@@ -1088,7 +1081,7 @@ public extension JKPOP where Base: UIView {
         return nil
     }
     
-    //MARK: 8.4、根据类名寻找某] 类型子视图
+    //MARK: 8.4、根据类名寻找某类型子视图
     /// 寻找某个类型子视图
     /// - Parameter childViewType: 子视图类型
     /// - Returns: 返回这个类型对象

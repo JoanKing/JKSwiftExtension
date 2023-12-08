@@ -23,10 +23,17 @@ public extension JKPOP where Base: UIImage {
     ///   - imageSize: 图片的大小
     /// - Returns: 剪切后的图片
     func isRoundCorner(radius: CGFloat = 3, byRoundingCorners corners: UIRectCorner = .allCorners, imageSize: CGSize?) -> UIImage? {
-        let weakSize = imageSize ?? base.size
-        let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: weakSize)
+        var drawSize = imageSize ?? base.size
+        if drawSize.width <= 0 || drawSize.height <= 0 {
+            drawSize = base.size
+        }
+        // 防止size：(0, 0)崩溃
+        if drawSize.width <= 0 || drawSize.height <= 0 {
+            drawSize = CGSize(width: 1, height: 1)
+        }
+        let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: drawSize)
         // 开始图形上下文
-        UIGraphicsBeginImageContextWithOptions(weakSize, false, UIScreen.main.scale)
+        UIGraphicsBeginImageContextWithOptions(drawSize, false, UIScreen.main.scale)
         guard let contentRef: CGContext = UIGraphicsGetCurrentContext() else {
             // 关闭上下文
             UIGraphicsEndImageContext()
@@ -105,7 +112,12 @@ public extension JKPOP where Base: UIImage {
     ///   - scale: 缩放比例
     /// - Returns: 返回转化后的 image
     static func image(from layer: CALayer, scale: CGFloat = 0.0) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(layer.frame.size, layer.isOpaque, scale)
+        // 防止size：(0, 0)崩溃
+        var drawSize = layer.frame.size
+        if drawSize.width <= 0 || drawSize.height <= 0 {
+            drawSize = CGSize(width: 1, height: 1)
+        }
+        UIGraphicsBeginImageContextWithOptions(drawSize, layer.isOpaque, scale)
         defer {
             UIGraphicsEndImageContext()
         }
@@ -256,7 +268,12 @@ public extension JKPOP where Base: UIImage {
             UIGraphicsEndImageContext()
         }
         let drawRect = CGRect(x: 0, y: 0, width: self.base.size.width, height: self.base.size.height)
-        UIGraphicsBeginImageContextWithOptions(self.base.size, false, self.base.scale)
+        // 防止size：(0, 0)崩溃
+        var drawSize = self.base.size
+        if drawSize.width <= 0 || drawSize.height <= 0 {
+            drawSize = CGSize(width: 1, height: 1)
+        }
+        UIGraphicsBeginImageContextWithOptions(drawSize, false, self.base.scale)
         color.setFill()
         UIRectFill(drawRect)
         self.base.draw(in: drawRect, blendMode: CGBlendMode.destinationIn, alpha: 1.0)
@@ -461,7 +478,12 @@ public extension JKPOP where Base: UIImage {
     /// - Returns: 返回对应的图片
     static func image(color: UIColor, size: CGSize, corners: UIRectCorner, radius: CGFloat) -> UIImage? {
         let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
+        // 防止size：(0, 0)崩溃
+        var drawSize = size
+        if drawSize.width <= 0 || drawSize.height <= 0 {
+            drawSize = CGSize(width: 1, height: 1)
+        }
+        UIGraphicsBeginImageContextWithOptions(drawSize, false, UIScreen.main.scale)
         let context = UIGraphicsGetCurrentContext()
         if radius > 0 {
             let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
@@ -574,6 +596,11 @@ public extension JKPOP where Base: UIImage {
          opaque：透明度，不透明设为true
          scale： 缩放因子，设0时系统自动设置缩放比例图片清晰；设1.0时模糊
          */
+        // 防止size：(0, 0)崩溃
+        var drawSize = reSize
+        if drawSize.width <= 0 || drawSize.height <= 0 {
+            drawSize = CGSize(width: 1, height: 1)
+        }
         UIGraphicsBeginImageContextWithOptions(reSize, false, UIScreen.main.scale);
         self.base.draw(in: CGRect(x: 0, y: 0, width: reSize.width, height: reSize.height))
         let reSizeImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -949,9 +976,13 @@ public extension JKPOP where Base: UIImage {
         if let newLogoRoundCorner = logoRoundCorner, let roundCornerLogo = logoImage.jk.isRoundCorner(radius: newLogoRoundCorner, byRoundingCorners: .allCorners, imageSize: logoSize) {
             newLogo = roundCornerLogo
         }
-        
+        // 防止size：(0, 0)崩溃
+        var drawSize = outputImage.size
+        if drawSize.width <= 0 || drawSize.height <= 0 {
+            drawSize = CGSize(width: 1, height: 1)
+        }
         // 给二维码加 logo 图
-        UIGraphicsBeginImageContextWithOptions(outputImage.size, false, UIScreen.main.scale)
+        UIGraphicsBeginImageContextWithOptions(drawSize, false, UIScreen.main.scale)
         outputImage.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         // 把水印图片画到生成的二维码图片上，注意尺寸不要太大（根据上面生成二维码设置的纠错程度设置），否则有可能造成扫不出来
         let waterImgW = logoSize.width

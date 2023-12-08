@@ -85,6 +85,7 @@
 		551C663A2AD94A6400972EA4 /* JKPastedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C66392AD94A6400972EA4 /* JKPastedTextView.swift */; };
 		551D61922AD7EDE20094C8AF /* JKPastedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D61912AD7EDE20094C8AF /* JKPastedTextField.swift */; };
 		5537F3802B0A3DF700F6BEEC /* JKFileLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5537F37F2B0A3DF700F6BEEC /* JKFileLog.swift */; };
+		55BD8A062B22FDCC001AD567 /* JKOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD8A052B22FDCC001AD567 /* JKOperator.swift */; };
 		560CE8E0BC774EDE28CA47711A94AB00 /* JKPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6FF40DC04C2D79B7C5FB827AF096C5 /* JKPrint.swift */; };
 		569C9596A1EE66A0867C2F27DB4434FD /* MJRefreshComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B2AAE60FA49E589F3150078A9496D1D /* MJRefreshComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		572DBDC37429318F768FD7A21F1C0B70 /* MJRefreshBackStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = A2AE51FCC24837E8F305433BF716F932 /* MJRefreshBackStateFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -378,6 +379,7 @@
 		551D61912AD7EDE20094C8AF /* JKPastedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPastedTextField.swift; sourceTree = "<group>"; };
 		5537F37F2B0A3DF700F6BEEC /* JKFileLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKFileLog.swift; sourceTree = "<group>"; };
 		55A2F7D581F9DB315F57E8522D5E18D9 /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConstantTarget.swift; path = Source/ConstraintConstantTarget.swift; sourceTree = "<group>"; };
+		55BD8A052B22FDCC001AD567 /* JKOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKOperator.swift; sourceTree = "<group>"; };
 		56D7B1C80DA21ABFD03CA2D3120361D6 /* NSMutableAttributedString+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extension.swift"; sourceTree = "<group>"; };
 		58023DA1E06624DC235E536B61D4D02C /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Box.swift; path = Sources/Box.swift; sourceTree = "<group>"; };
 		59C89275A787928B59ACA836DA4668BD /* JKJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKJSON.swift; sourceTree = "<group>"; };
@@ -392,7 +394,7 @@
 		60D7C01935B1734E7FA2B691F8891097 /* ImageModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageModifier.swift; path = Sources/ImageModifier.swift; sourceTree = "<group>"; };
 		6194AEDC1F4220A2E778B24C6EAC05D8 /* UIPageControl+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIPageControl+Extension.swift"; sourceTree = "<group>"; };
 		64ED520952378C612B3B5F54E89D7222 /* ConstraintRelatableTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelatableTarget.swift; path = Source/ConstraintRelatableTarget.swift; sourceTree = "<group>"; };
-		68877A42BD63BB778BB23FFC0031B17A /* JKSwiftExtension */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JKSwiftExtension; path = JKSwiftExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		68877A42BD63BB778BB23FFC0031B17A /* JKSwiftExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JKSwiftExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F1E9564FCBA264078ED06CBB22AA14 /* MJRefreshGifHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshGifHeader.m; path = MJRefresh/Custom/Header/MJRefreshGifHeader.m; sourceTree = "<group>"; };
 		69A6FB991F34561C710B5E2CC284D98E /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerFinalizable.swift; path = Source/ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
 		6A9C3DC999633CD47D4B3B34B5627772 /* FileManager+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
@@ -946,7 +948,7 @@
 			isa = PBXGroup;
 			children = (
 				85D03BEC2CA9B2DB28398618379E7744 /* FDFullscreenPopGesture */,
-				68877A42BD63BB778BB23FFC0031B17A /* JKSwiftExtension */,
+				68877A42BD63BB778BB23FFC0031B17A /* JKSwiftExtension.framework */,
 				22EFCFAE2A2CE6D0338326CFB1F1DF8A /* JKSwiftExtension.bundle */,
 				C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher */,
 				E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh */,
@@ -1046,6 +1048,7 @@
 				2BC91206283A9F31779D23DE1569B554 /* QRCodeImageFactory.swift */,
 				E24692B22A1F2B1200C8B2C8 /* JKAlertViewController.swift */,
 				5537F37F2B0A3DF700F6BEEC /* JKFileLog.swift */,
+				55BD8A052B22FDCC001AD567 /* JKOperator.swift */,
 			);
 			name = SmallTools;
 			path = Sources/Classes/SmallTools;
@@ -1213,7 +1216,7 @@
 			);
 			name = JKSwiftExtension;
 			productName = JKSwiftExtension;
-			productReference = 68877A42BD63BB778BB23FFC0031B17A /* JKSwiftExtension */;
+			productReference = 68877A42BD63BB778BB23FFC0031B17A /* JKSwiftExtension.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		6868056D761E163D10FDAF8CF1C4D9B8 /* MJRefresh */ = {
@@ -1458,6 +1461,7 @@
 				D4B5B7110C7280450DF37BC95F1A202E /* JKRollingNoticeView.swift in Sources */,
 				71B0FC4E02A97E1CAD25F1CF6D8A615B /* JKRuntime.swift in Sources */,
 				2F5A404F0995F78E90798631169053AA /* JKSwiftExtension-dummy.m in Sources */,
+				55BD8A062B22FDCC001AD567 /* JKOperator.swift in Sources */,
 				23AE73E1DC3C746788B60A62BBEB3197 /* JKTapActionLabel.swift in Sources */,
 				9A801F43980A90655B61F184D77CEB1F /* JKThemeProvider.swift in Sources */,
 				87A871F2D91EAEEE13F55CDCFB697216 /* JKUnitConverter.swift in Sources */,
@@ -1694,7 +1698,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/JKSwiftExtension/JKSwiftExtension-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/JKSwiftExtension/JKSwiftExtension-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1953,7 +1957,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/JKSwiftExtension/JKSwiftExtension-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/JKSwiftExtension/JKSwiftExtension-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -39,53 +39,22 @@ extension JKFileLog {
     ///   - line: 打印内容所在的 行
     ///   - column: 打印内容所在的 列
     ///   - fn: 打印内容的函数名
-    public static func writeLog(_ content: String,
+    public static func writeLog(_ content: Any,
                                 isSeekToEndOfFile: Bool = true,
                                 logFileName: String = "",
                                 file: NSString = #file,
                                 line: Int = #line,
                                 column: Int = #column,
                                 fn: String = #function) {
-        queue.async {
-            // 1、先判默认文件夹是否存在
-            let createFolderResult = FileManager.jk.createFolder(folderPath: sharedInstance.folderPath)
-            guard createFolderResult.isSuccess else { return }
-            // 2、在判断下是否自定义了文件名
-            let fileName: String = getLogFileName(logFileName)
-            guard let filePath = URL(string: sharedInstance.folderPath + "/\(fileName)") else { return }
-            let createFileResult = FileManager.jk.createFile(filePath: filePath.absoluteString)
-            guard createFileResult.isSuccess else { return }
-            // 3.文件内容的写入
-            do {
-                // 当前的日期
-                let currentDate = Date.jk.currentDate
-                let dateString = currentDate.jk.toformatterTimeString()
-                // 句柄对象
-                let fileHandle = try FileHandle(forWritingTo: filePath)
-                // 函数信息
-                let functionMessage = "file：\(file) line：\(line) column：\(column) function：\(fn)"
-                // 写入的内容
-                var stringToWrite = ""
-                // 追加还是插入开头
-                if isSeekToEndOfFile {
-                    stringToWrite = "\n" + "🚀 " + dateString + "\n" + "\(functionMessage)" + "\n" + "☕️ log：\(content)"
-                    // 文件可以追加，找到末尾位置并添加
-                    fileHandle.seekToEndOfFile()
-                } else {
-                    // 插入在开头的话，就需要先读取出来再组合一起写入
-                    let oldContent = getFilePathContent()
-                    stringToWrite = "🚀 " + dateString + "\n" + "\(functionMessage)" + "\n" + "☕️ log：\(content)" + "\n" + oldContent
-                    fileHandle.seek(toFileOffset: 0)
-                }
-                if let contentData = stringToWrite.data(using: .utf8) {
-                    // 写入要写入的内容
-                    fileHandle.write(contentData)
-                }
-                // 关闭文件句柄
-                fileHandle.closeFile()
-            } catch let error as NSError {
-                debugPrint("failed to append: \(error)")
+        switch content {
+        case let weakContent as String:
+            writeLogMessage(weakContent, isSeekToEndOfFile: isSeekToEndOfFile, logFileName: logFileName, file: file, line: line, column: column, fn: fn)
+        case let dictionaryData as [String: Any]:
+            if let dictionaryJson = dictionaryData.jk.dictionaryToJson() {
+                writeLogMessage(dictionaryJson, isSeekToEndOfFile: isSeekToEndOfFile, logFileName: logFileName, file: file, line: line, column: column, fn: fn)
             }
+        default:
+            debugPrint("unknown type")
         }
     }
     
@@ -172,5 +141,65 @@ extension JKFileLog {
         }
         // 2、自定义了就返回自定义的文件名，补充后缀.txt
         return logFileName.jk.isHasSuffix(suffix: ".txt") ? logFileName : (logFileName + ".txt")
+    }
+    
+    //MARK: 写入文件信息
+    /// 写入文件信息
+    /// - Parameters:
+    ///   - content: 内容
+    ///   - isSeekToEndOfFile: 是否内容追加到尾部，默认尾部追加
+    ///   - logFileName: 文件的名字
+    ///   - file: 文件路径
+    ///   - line: 打印内容所在的 行
+    ///   - column: 打印内容所在的 列
+    ///   - fn: 打印内容的函数名
+    private static func writeLogMessage(_ content: String,
+                                isSeekToEndOfFile: Bool = true,
+                                logFileName: String = "",
+                                file: NSString = #file,
+                                line: Int = #line,
+                                column: Int = #column,
+                                fn: String = #function) {
+        queue.async {
+            // 1、先判默认文件夹是否存在
+            let createFolderResult = FileManager.jk.createFolder(folderPath: sharedInstance.folderPath)
+            guard createFolderResult.isSuccess else { return }
+            // 2、在判断下是否自定义了文件名
+            let fileName: String = getLogFileName(logFileName)
+            guard let filePath = URL(string: sharedInstance.folderPath + "/\(fileName)") else { return }
+            let createFileResult = FileManager.jk.createFile(filePath: filePath.absoluteString)
+            guard createFileResult.isSuccess else { return }
+            // 3.文件内容的写入
+            do {
+                // 当前的日期
+                let currentDate = Date.jk.currentDate
+                let dateString = currentDate.jk.toformatterTimeString()
+                // 句柄对象
+                let fileHandle = try FileHandle(forWritingTo: filePath)
+                // 函数信息
+                let functionMessage = "file：\(file) line：\(line) column：\(column) function：\(fn)"
+                // 写入的内容
+                var stringToWrite = ""
+                // 追加还是插入开头
+                if isSeekToEndOfFile {
+                    stringToWrite = "\n" + "🚀 " + dateString + "\n" + "\(functionMessage)" + "\n" + "☕️ log：\(content)"
+                    // 文件可以追加，找到末尾位置并添加
+                    fileHandle.seekToEndOfFile()
+                } else {
+                    // 插入在开头的话，就需要先读取出来再组合一起写入
+                    let oldContent = getFilePathContent()
+                    stringToWrite = "🚀 " + dateString + "\n" + "\(functionMessage)" + "\n" + "☕️ log：\(content)" + "\n" + oldContent
+                    fileHandle.seek(toFileOffset: 0)
+                }
+                if let contentData = stringToWrite.data(using: .utf8) {
+                    // 写入要写入的内容
+                    fileHandle.write(contentData)
+                }
+                // 关闭文件句柄
+                fileHandle.closeFile()
+            } catch let error as NSError {
+                debugPrint("failed to append: \(error)")
+            }
+        }
     }
 }

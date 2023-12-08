@@ -299,6 +299,35 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         }
         return nil
     }
+    
+    // MARK: 2.6、字符串转成 CGRect
+    /// 字符串转成 CGRect
+    func toCGRect() -> CGRect? {
+        // 1、判断是否为空字符串
+        var content = (self.base as! String)
+        guard !content.isEmpty else {
+            return nil
+        }
+        // 2、去除所有的空格和换行
+        content = (self.base as! String).jk.removeAllLineAndSapcefeed
+        // 3.1、正则判断 "{{0,0},{375,812}}"
+        let pattern1 = #"^\{\{\d+,\d+\},\{\d+,\d+\}\}$"#
+        if content.jk.predicateValue(rgex: pattern1) {
+            return NSCoder.cgRect(for: self.base as! String)
+        }
+        // 3.2、正则判断 "(0,20,30,40)"
+        let pattern2 = #"^\((\d+),(\d+),(\d+),(\d+)\)$"#
+        if content.jk.predicateValue(rgex: pattern2) {
+            let results = JKRegexHelper.matchesResult(content: content, pattern: #"\d+"#)
+            let numbers = results.map { match in
+                String(content[Range(match.range, in: content)!])
+            }
+            guard numbers.count == 4 else { return nil }
+            content = "{{\(numbers[0]), \(numbers[1])}, {\(numbers[2]), \(numbers[3])}}"
+            return NSCoder.cgRect(for: content)
+        }
+        return nil
+    }
 }
 
 // MARK: - 二、沙盒路径的获取

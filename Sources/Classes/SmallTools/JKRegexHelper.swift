@@ -139,4 +139,19 @@ public struct JKRegexHelper {
         let isMatch: Bool = pred.evaluate(with: userIdCard)
         return isMatch
     }
+    
+    // MARK: 1.7、正则匹配结果
+    /// 正则匹配结果
+    /// - Parameters:
+    ///   - content: 内容
+    ///   - pattern: 正则表达式
+    ///   - options: Options
+    /// - Returns: 结果
+    public static func matchesResult(content: String, pattern: String, options: NSRegularExpression.Options = []) -> [NSTextCheckingResult] {
+        
+        guard let regex: NSRegularExpression = try? NSRegularExpression(pattern: pattern, options: options) else {
+            return []
+        }
+        return regex.matches(in: content, options: [], range: NSMakeRange(0, content.utf16.count))
+    }
 }

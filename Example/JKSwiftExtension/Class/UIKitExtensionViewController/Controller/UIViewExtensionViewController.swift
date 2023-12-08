@@ -430,9 +430,8 @@ extension UIViewExtensionViewController {
     
     // MARK: 7.03、将 View 转换成图片
     @objc func test703() {
-        let testView = UIView(frame: CGRect(x: 200, y: 100, width: 200, height: 200))
+        let testView = UIView(frame: CGRect(x: jk_kScreenW / 2.0 - 100, y: 100, width: 200, height: 200))
         testView.backgroundColor = .randomColor
-        testView.center.x = self.view.center.x
         testView.clipsToBounds = true
         self.view.addSubview(testView)
         
@@ -443,13 +442,10 @@ extension UIViewExtensionViewController {
         testView2.backgroundColor = .randomColor
         testView.addSubview(testView2)
         
-        let gifImageView = UIImageView(frame: CGRect(x: 100, y: testView.jk.bottom + 50, width: 200,height: 200))
+        let gifImageView = UIImageView(frame: CGRect(x: testView.jk.left, y: testView.jk.bottom + 50, width: 200,height: 200))
         self.view.addSubview(gifImageView)
         
-        guard let image = testView.jk.toImage() else {
-            JKPrint("view转换image失败")
-            return
-        }
+        let image = testView.jk.toImage()
         
         JKAsyncs.asyncDelay(3, {
         }) {

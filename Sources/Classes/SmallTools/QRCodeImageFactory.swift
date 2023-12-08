@@ -36,7 +36,12 @@ public struct QRCodeImageFactory {
             newLogo = roundCornerLogo
         }
         let logoFrame = CGRect(origin: CGPoint(x:  (size.width - logoSize.width) / 2 , y: (size.height - logoSize.height) / 2), size: logoSize)
-        UIGraphicsBeginImageContextWithOptions(image.size, false, UIScreen.main.scale)
+        // 防止size：(0, 0)崩溃
+        var drawSize = image.size
+        if drawSize.width <= 0 || drawSize.height <= 0 {
+            drawSize = CGSize(width: 1, height: 1)
+        }
+        UIGraphicsBeginImageContextWithOptions(drawSize, false, UIScreen.main.scale)
         image.draw(in: CGRect(origin: .zero, size: image.size))
         newLogo.draw(in: logoFrame)
         let resultImg = UIGraphicsGetImageFromCurrentImageContext()
@@ -151,8 +156,13 @@ public struct QRCodeImageFactory {
         
         // 清晰的二维码图片
         let outputImage = UIImage(cgImage: scaledImage)
+        // 防止size：(0, 0)崩溃
+        var drawSize = outputImage.size
+        if drawSize.width <= 0 || drawSize.height <= 0 {
+            drawSize = CGSize(width: 1, height: 1)
+        }
         // 给二维码加 logo 图
-        UIGraphicsBeginImageContextWithOptions(outputImage.size, false, UIScreen.main.scale)
+        UIGraphicsBeginImageContextWithOptions(drawSize, false, UIScreen.main.scale)
         outputImage.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         /*
          把水印图片画到生成的二维码图片上，注意尺寸不要太大（根据上面生成二维码设置的纠错程度设置），否则有可能造成扫不出来

@@ -58,8 +58,13 @@ public extension JKPOP where Base: UIScrollView {
         let originOffset = self.base.contentOffset
         /// 分页
         let page  = floorf(Float(self.base.contentSize.height / self.base.bounds.height))
+        // 防止size：(0, 0)崩溃
+        var contentSize = self.base.contentSize
+        if contentSize.width <= 0 || contentSize.height <= 0 {
+            contentSize = CGSize(width: 1, height: 1)
+        }
         /// 打开位图上下文大小为截图的大小
-        UIGraphicsBeginImageContextWithOptions(self.base.contentSize, false, UIScreen.main.scale)
+        UIGraphicsBeginImageContextWithOptions(contentSize, false, UIScreen.main.scale)
         /// 这个方法是一个绘图，里面可能有递归调用
         self.snapShotContentScrollPage(index: 0, maxIndex: Int(page), callback: { () -> Void in
             let screenShotImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -85,6 +90,30 @@ public extension JKPOP where Base: UIScrollView {
             } else {
                 callback()
             }
+        }
+    }
+    
+    //MARK: 1.4、获取内容截图
+    /// 获取内容截图
+    /// - Returns: 截图图片
+    func captureLongScreenshot() -> UIImage {
+        // 1、备份
+        let savedContentOffset = self.base.contentOffset
+        let savedFrame = self.base.frame
+        
+        // 2、修改frame
+        self.base.contentOffset = CGPoint.zero
+        self.base.frame = CGRect(x: 0, y: 0, width: self.base.contentSize.width, height: self.base.contentSize.height)
+        self.base.layoutIfNeeded()
+
+        defer {
+            // 4、还原
+            self.base.contentOffset = savedContentOffset
+            self.base.frame = savedFrame
+        }
+        // 3、渲染图片
+        return UIGraphicsImageRenderer(size: self.base.contentSize).image { context in
+            self.base.layer.render(in: context.cgContext)
         }
     }
 }

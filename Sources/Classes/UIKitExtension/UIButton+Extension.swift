@@ -78,7 +78,12 @@ public extension JKPOP where Base: UIButton {
     private static func drawSmallBtn(color: UIColor, height: CGFloat, lineType: LineType) -> UIImage? {
         let rect = CGRect(x: 0, y: 0, width: 200, height: height + 20)
         let path = UIBezierPath(roundedRect: CGRect(x: 10, y: 3, width: 180, height: height), cornerRadius: height / 2)
-        UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.main.scale)
+        // 防止size：(0, 0)崩溃
+        var drawSize = rect.size
+        if drawSize.width <= 0 || drawSize.height <= 0 {
+            drawSize = CGSize(width: 1, height: 1)
+        }
+        UIGraphicsBeginImageContextWithOptions(drawSize, false, UIScreen.main.scale)
         let context = UIGraphicsGetCurrentContext()
         context?.setFillColor(color.cgColor)
         context?.addPath(path.cgPath)
@@ -100,7 +105,12 @@ public extension JKPOP where Base: UIButton {
     private static func drawNormalBtn(color: UIColor) -> UIImage? {
         let rect = CGRect(x: 0, y: 0, width: 260, height: 50)
         let path = UIBezierPath(roundedRect: CGRect(x: 10, y: 3, width: 240, height: 40), cornerRadius: 3)
-        UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.main.scale)
+        // 防止size：(0, 0)崩溃
+        var drawSize = rect.size
+        if drawSize.width <= 0 || drawSize.height <= 0 {
+            drawSize = CGSize(width: 1, height: 1)
+        }
+        UIGraphicsBeginImageContextWithOptions(drawSize, false, UIScreen.main.scale)
         let context = UIGraphicsGetCurrentContext()
         context?.setFillColor(color.cgColor)
         context?.addPath(path.cgPath)
