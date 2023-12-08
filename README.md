@@ -55,7 +55,7 @@ end
     - (2)、UIGraphicsBeginImageContextWithOptions的size出现0崩溃防护
     - (3)、JKFileLog优化
     - (4)、其他扩展优化和新增部分内容
-    - (5)、从2.5.7版本开始最低支持iOS10
+    - (5)、从2.5.7版本开始最低支持iOS10.0
   - 2.5.6、版本(2023.11.23)：优化代码
   - 2.5.5、版本(2023.11.23)：优化JKFileLog、图片检测支持人脸和二维码
   - 2.5.4、版本(2023.11.23)：新增JKFileLog日志以及UIViewController多次present后dismiss到某个vc 
