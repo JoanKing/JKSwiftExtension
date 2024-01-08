@@ -7,7 +7,8 @@
 //
 
 import Foundation
-
+import UIKit
+import JKSwiftExtension
 class BaseViewCell: UITableViewCell {
 
     var lineView: UIView = {
