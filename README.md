@@ -50,6 +50,9 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/520a15e4-970c-43e6-9f6a-aa0fc308abb5" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.5.8、版本(2024.01.08)
+    - (1)、新增Optional+Extension
+    - (2)、设备的identifier更新，具体的可参考链接：https://theapplewiki.com/wiki/Models#iPhone
   - 2.5.7、版本(2023.12.08)
     - (1)、新增JKOperator：|>>>|无符号运算符
     - (2)、UIGraphicsBeginImageContextWithOptions的size出现0崩溃防护

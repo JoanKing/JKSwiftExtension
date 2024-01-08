@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JKSwiftExtension
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

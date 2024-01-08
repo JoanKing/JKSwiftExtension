@@ -85,6 +85,7 @@
 		551C663A2AD94A6400972EA4 /* JKPastedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C66392AD94A6400972EA4 /* JKPastedTextView.swift */; };
 		551D61922AD7EDE20094C8AF /* JKPastedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D61912AD7EDE20094C8AF /* JKPastedTextField.swift */; };
 		5537F3802B0A3DF700F6BEEC /* JKFileLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5537F37F2B0A3DF700F6BEEC /* JKFileLog.swift */; };
+		55625BC52B39BC0B0061D11C /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55625BC42B39BC0B0061D11C /* Optional+Extension.swift */; };
 		55BD8A062B22FDCC001AD567 /* JKOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD8A052B22FDCC001AD567 /* JKOperator.swift */; };
 		560CE8E0BC774EDE28CA47711A94AB00 /* JKPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6FF40DC04C2D79B7C5FB827AF096C5 /* JKPrint.swift */; };
 		569C9596A1EE66A0867C2F27DB4434FD /* MJRefreshComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B2AAE60FA49E589F3150078A9496D1D /* MJRefreshComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -378,6 +379,7 @@
 		551C66392AD94A6400972EA4 /* JKPastedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPastedTextView.swift; sourceTree = "<group>"; };
 		551D61912AD7EDE20094C8AF /* JKPastedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKPastedTextField.swift; sourceTree = "<group>"; };
 		5537F37F2B0A3DF700F6BEEC /* JKFileLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKFileLog.swift; sourceTree = "<group>"; };
+		55625BC42B39BC0B0061D11C /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
 		55A2F7D581F9DB315F57E8522D5E18D9 /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConstantTarget.swift; path = Source/ConstraintConstantTarget.swift; sourceTree = "<group>"; };
 		55BD8A052B22FDCC001AD567 /* JKOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKOperator.swift; sourceTree = "<group>"; };
 		56D7B1C80DA21ABFD03CA2D3120361D6 /* NSMutableAttributedString+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extension.swift"; sourceTree = "<group>"; };
@@ -739,6 +741,7 @@
 				59C89275A787928B59ACA836DA4668BD /* JKJSON.swift */,
 				8E16846F8976618BBCEE1F4D3873BBD6 /* JKNibLoadable.swift */,
 				777E6AF31742F2DC61C864AB4A4A3CCD /* JKPOP.swift */,
+				55625BC42B39BC0B0061D11C /* Optional+Extension.swift */,
 				93A027E4797F608EAE9E9286F8CD0B00 /* JKPOPExtension */,
 			);
 			name = Protocol;
@@ -1439,6 +1442,7 @@
 				843D81E798676CCFFC497E78E0BA0AE8 /* Int+Extension.swift in Sources */,
 				04EA661064BC5F49FC3797B19AE15C2B /* Int64+Extension.swift in Sources */,
 				1BB718303B042BC47D3DD99B012B241D /* JKAsyncs.swift in Sources */,
+				55625BC52B39BC0B0061D11C /* Optional+Extension.swift in Sources */,
 				2BB6207979781D8190175539A3468AF1 /* JKCircleProgressView.swift in Sources */,
 				878CA3035401E7480B44547AA7306BB7 /* JKClosure.swift in Sources */,
 				6DBE43CFE560858C1BD0565398BA86D2 /* JKCommonTool.swift in Sources */,

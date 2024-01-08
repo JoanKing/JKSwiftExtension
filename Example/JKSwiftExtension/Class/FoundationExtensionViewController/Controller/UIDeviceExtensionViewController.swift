@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JKSwiftExtension
 
 class UIDeviceExtensionViewController: BaseViewController {
     
@@ -14,7 +15,7 @@ class UIDeviceExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、基本的扩展", "二、设备的基本信息", "三、有关设备运营商的信息", "四、设备的震动"]
-        dataArray = [["设备的名字", "获取设备类型", "判断是否为 iPad", "判断是否是 pad", "判断是否为 iphone", "判断是否是 iphone5", "判断是否是 iphone6", "是不是 x 系列", "是不是 xs系列", "当前设备是不是模拟器"], ["当前设备的系统版本", "当前系统更新时间", "当前设备的类型", "当前系统的名称", "当前设备的名称", "当前设备是否越狱", "当前硬盘的空间", "当前硬盘可用空间", "当前硬盘已经使用的空间", "获取总内存大小", "当前设备能否打电话", "当前设备语言", "设备区域化型号", "获取最高刷新率", "获取设备是否是省电模式", "获取屏幕亮度比例"], ["sim卡信息", "数据业务对应的通信技术", "设备网络制式", "运营商名字", "移动国家码(MCC)", "移动网络码(MNC)", "ISO国家代码", "是否允许VoIP"], ["通过SystemSoundID震动", "UINotificationFeedbackGenerator 来设置的手机振动", "UIImpactFeedbackGenerator 来设置的手机振动", "模拟选择滚轮一类控件时的震动"]]
+        dataArray = [["设备的的identifier", "设备的名字", "获取设备类型", "判断是否为 iPad", "判断是否是 pad", "判断是否为 iphone", "判断是否是 iphone5", "判断是否是 iphone678", "当前设备是不是模拟器"], ["当前设备的系统版本", "当前系统更新时间", "当前设备的类型", "当前系统的名称", "当前设备的名称", "当前设备是否越狱", "当前硬盘的空间", "当前硬盘可用空间", "当前硬盘已经使用的空间", "获取总内存大小", "当前设备能否打电话", "当前设备语言", "设备区域化型号", "获取最高刷新率", "获取设备是否是省电模式", "获取屏幕亮度比例"], ["sim卡信息", "数据业务对应的通信技术", "设备网络制式", "运营商名字", "移动国家码(MCC)", "移动网络码(MNC)", "ISO国家代码", "是否允许VoIP"], ["通过SystemSoundID震动", "UINotificationFeedbackGenerator 来设置的手机振动", "UIImpactFeedbackGenerator 来设置的手机振动", "模拟选择滚轮一类控件时的震动"]]
     }
 }
 
@@ -239,54 +240,49 @@ extension UIDeviceExtensionViewController {
 // MARK: - 一、基本的扩展
 extension UIDeviceExtensionViewController {
 
-    // MARK: 1.10、当前设备是不是模拟器
+    // MARK: 1.09、当前设备是不是模拟器
     @objc func test110() {
         JKPrint("当前设备是不是模拟器", "\(UIDevice.jk.isSimulator())")
     }
     
-    // MARK: 1.09、是不是 xs系列
-    @objc func test109() {
-        JKPrint("是不是 xs系列", "\(UIDevice.jk.isIphoneXSScreen())")
-    }
-    
-    // MARK: 1.08、是不是 x 系列
+    // MARK: 1.08、判断是否是 iphone678
     @objc func test108() {
-        JKPrint("是不是 x 系列", "\(UIDevice.jk.isIphoneXScreen())")
-    }
-    
-    // MARK: 1.07、判断是否是 iphone6
-    @objc func test107() {
         JKPrint("判断是否是 iphone6", "\(UIDevice.jk.isIphone6Screen())")
     }
     
-    // MARK: 1.06、判断是否是 iphone5
-    @objc func test106() {
+    // MARK: 1.07、判断是否是 iphone5
+    @objc func test107() {
         JKPrint("判断是否是 iphone5", "\(UIDevice.jk.isIphone5Screen())")
     }
     
-    // MARK: 1.05、判断是否为 iphone
-    @objc func test105() {
+    // MARK: 1.06、判断是否为 iphone
+    @objc func test106() {
         JKPrint("判断是否为 iphone", "\(UIDevice.jk.isIphone())")
     }
     
-    // MARK: 1.04、判断是否是 pad
-    @objc func test104() {
+    // MARK: 1.05、判断是否是 pad
+    @objc func test105() {
         JKPrint("判断是否是 pad", "\(UIDevice.jk.isPadDevice())")
     }
     
-    // MARK: 1.03、判断是否为 iPad
-    @objc func test103() {
+    // MARK: 1.04、判断是否为 iPad
+    @objc func test104() {
         JKPrint("判断是否为 iPad", "\(UIDevice.jk.isIpad())")
     }
     
-    // MARK: 1.02、获取设备类型
-    @objc func test102() {
+    // MARK: 1.03、获取设备类型
+    @objc func test103() {
         let screenType = UIDevice.jk.screenType
         JKPrint("获取设备类型", "\(String(describing: screenType))")
     }
     
-    // MARK: 1.01、设备的名字
-    @objc func test101() {
+    // MARK: 1.02、设备的名字
+    @objc func test102() {
         JKPrint("设备的名字", "\(UIDevice.jk.modelName)")
+    }
+    
+    // MARK: 1.1、设备的的identifier
+    @objc func test101() {
+        JKPrint("设备的的identifier", "\(UIDevice.jk.deviceIdentifier)")
     }
 }

@@ -18,63 +18,51 @@ public enum JKDashLineDirection: Int {
 
 extension UIView: JKPOPCompatible {}
 // MARK: - 一、机型的判断
-/*
- iphone硬件型号
- iPhoneX的分辨率：      2436 * 1125 || pt: 812 * 375
- iPhoneXR的分辨率：     1792 * 828 || pt: 896 * 414
- iPhoneXS的分辨率：     2436 * 1125 || pt: 812 * 375
- iPhoneXS Max的分辨率： 2688 * 1242 || pt: 896 * 414
- */
-let isIPhone4 = (CGSize(width: 640, height: 960).equalTo(UIScreen.main.currentMode!.size))
-let isIPhone5 = (CGSize(width: 640, height: 1136).equalTo(UIScreen.main.currentMode!.size))
-let isIPhone6 = (CGSize(width: 750, height: 1334).equalTo(UIScreen.main.currentMode!.size))
-let isIPhone6P = (CGSize(width: 1242, height: 2208).equalTo(UIScreen.main.currentMode!.size))
-let isIPhoneX = UIScreen.main.bounds.height >= 812
-let isIPhoneXR = (CGSize(width: 828, height: 1792).equalTo(UIScreen.main.currentMode!.size))
-let isIPhoneXS = (CGSize(width: 1125, height: 2436).equalTo(UIScreen.main.currentMode!.size))
-let isIiPhoneXSMax = (CGSize(width: 1242, height: 2688).equalTo(UIScreen.main.currentMode!.size))
-
 // MARK: 1.1、设备型号
 /// 设备型号
 /// - Returns: 设备型号信息
 public func jk_deviceModel() -> String {
-    var systemInfo = utsname()
-    uname(&systemInfo)
-    let size = Int(_SYS_NAMELEN)
-    let deviceModelName = withUnsafeMutablePointer(to: &systemInfo.machine) { p in
-        p.withMemoryRebound(to: CChar.self, capacity: size, { p2 in
-            return String(cString: p2)
-        })
-    }
-    return deviceModelName
+    return UIDevice.jk.deviceIdentifier
 }
 
 // MARK: 1.2、是不是 iPhone X
 /// 是不是 iPhone X
 /// - Returns: bool
 public func jk_isIphoneX() -> Bool {
-    return jk_isIphone() && jk_kScreenH == 812
+    guard jk_isIphone() else {
+        return false
+    }
+    return UIDevice.jk.screenType() == .IPHONE_X
 }
 
 // MARK: 1.3、是不是 iPhone XS
 /// 是不是 iPhone XS
 /// - Returns: description
 public func jk_isXs() -> Bool {
-    return jk_isIphone() && jk_kScreenH == 812
+    guard jk_isIphone() else {
+        return false
+    }
+    return UIDevice.jk.screenType() == .IPHONE_XS
 }
 
 // MARK: 1.4、是不是 iPhone XR
 /// 是不是 iPhone XR
 /// - Returns: description
 public func jk_isXR() -> Bool {
-    return jk_isIphone() && jk_kScreenH == 896 && jk_kScreenW == 414
+    guard jk_isIphone() else {
+        return false
+    }
+    return UIDevice.jk.screenType() == .IPHONE_XR
 }
 
 // MARK: 1.5、是不是 iPhone XsMax
 /// 是不是 iPhone XsMax
 /// - Returns: description
 public func jk_isXsMax() -> Bool {
-    return jk_isIphone() && jk_kScreenH == 896 && jk_kScreenW == 414
+    guard jk_isIphone() else {
+        return false
+    }
+    return UIDevice.jk.screenType() == .IPHONE_XS_Max
 }
 
 // MARK: 1.6、是不是 iPhone
@@ -95,28 +83,40 @@ public func jk_isPadDevice() -> Bool {
 /// 判断是不是 4or4s
 /// - Returns: description
 public func jk_is4OrLess() -> Bool {
-    return jk_isIphone() && jk_kScreenH < 568
+    guard jk_isIphone() else {
+        return false
+    }
+    return UIDevice.jk.screenType() == .IPHONE_4
 }
 
 // MARK: 1.9、判断是不是 5 5c 5s
 /// 判断是不是 5 5c 5s
 /// - Returns: description
 public func jk_is5() -> Bool {
-    return jk_isIphone() && jk_kScreenH == 568
+    guard jk_isIphone() else {
+        return false
+    }
+    return UIDevice.jk.screenType() == .IPHONE_5
 }
 
 // MARK: 1.10、判断是不是 6 6s 7 8
 /// 判断是不是 6 6s 7 8
 /// - Returns: description
 public func jk_is678() -> Bool {
-    return jk_isIphone() && jk_kScreenH == 667
+    guard jk_isIphone() else {
+        return false
+    }
+    return UIDevice.jk.screenType() == .IPHONE_678
 }
 
 // MARK: 1.11、判断是不是 6p 7p 8p
 /// 判断是不是 6p 7p 8p
 /// - Returns: description
 public func jk_is678P() -> Bool {
-    return jk_isIphone() && jk_kScreenH == 736
+    guard jk_isIphone() else {
+        return false
+    }
+    return UIDevice.jk.screenType() == .IPHONE_678PLUS
 }
 
 // MARK: 1.12、当前设备是不是模拟器
@@ -124,6 +124,20 @@ public func jk_is678P() -> Bool {
 /// - Returns: result
 public func jk_isSimulator() -> Bool {
     return UIDevice.jk.isSimulator()
+}
+
+// MARK: 1.13、是否是缺口屏幕(刘海屏)或者灵动岛的屏幕
+// 是否是缺口屏幕(刘海屏)或者灵动岛的屏幕
+public var jk_isIPhoneNotch: Bool {
+    if #available(iOS 11.0, *) {
+        if let window = UIApplication.jk.keyWindow {
+            return window.safeAreaInsets.top > 0
+        } else {
+            return false
+        }
+    } else {
+        return UIApplication.shared.statusBarFrame.height > 20
+    }
 }
 
 // MARK: - 二、屏幕尺寸常用的常量
@@ -154,11 +168,11 @@ public var jk_kNavFrameH: CGFloat { return 44 + jk_kStatusBarFrameH }
     
 // MARK: 2.5、屏幕底部Tabbar高度
 /// 屏幕底部Tabbar高度
-public var jk_kTabbarFrameH: CGFloat { return isIPhoneX ? 83 : 49 }
+public var jk_kTabbarFrameH: CGFloat { return jk_isIPhoneNotch ? 83 : 49 }
 
 // MARK: 2.6、屏幕底部刘海高度
 /// 屏幕底部刘海高度
-public var jk_kTabbarBottom: CGFloat { return isIPhoneX ? 34 : 0 }
+public var jk_kTabbarBottom: CGFloat { return jk_isIPhoneNotch ? 34 : 0 }
 
 // MARK: 2.7、屏幕比例
 /// 屏幕比例

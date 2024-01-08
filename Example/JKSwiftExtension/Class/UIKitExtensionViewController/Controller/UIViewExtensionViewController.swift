@@ -15,7 +15,7 @@ class UIViewExtensionViewController: BaseViewController {
         super.viewDidLoad()
      
         headDataArray = ["一、机型的判断", "二、屏幕尺寸常用的常量", "三、UIView 有关 Frame 的扩展", "四、继承于 UIView 视图的 平面、3D 旋转 以及 缩放", "五、关于UIView的 圆角 和 阴影的设置", "六、自定义链式编程", "七、其他的方法", "八、试图调试", "九、手势的扩展", "十、颜色渐变"]
-        dataArray = [["设备型号", "是不是 iPhone X", "是不是 iPhone XS", "是不是 iPhone XR", "是不是 iPhone XsMax", "是不是 iPhone", "判断是否是 pad", "判断是不是 4or4s", "判断是不是 5 5c 5s", "判断是不是 6 6s 7 8", "判断是不是 6p 7p 8p", "当前设备是不是模拟器"], ["屏幕的宽", "屏幕的高", "获取statusBar的高度", "获取导航栏的高度", "屏幕底部Tabbar高度", "屏幕底部刘海高度", "屏幕比例", "身份证宽高比", "375尺寸适配比例", "屏幕16:9比例系数下的宽", "屏幕16:9比例系数下的高"], ["x 的位置", "y 的位置", "height: 视图的高度", "width: 视图的宽度", "size: 视图的zize", "centerX: 视图的X中间位置", "centerX: 视图的Y中间位置", "center: 视图的中间位置", "top 上端横坐标(y)", "left 左端横坐标(x)", "bottom 底端纵坐标 (y + height)", "right 底端纵坐标 (x + width)"], ["平面旋转", "沿 X 轴方向旋转多少度(3D旋转)", "沿 Y 轴方向旋转多少度(3D旋转)", "沿 Z 轴方向旋转多少度(3D旋转)", "沿 X、Y、Z 轴方向同时旋转多少度(3D旋转)", "设置 x,y 缩放", "水平或垂直翻转", "移动到指定中心点位置"], ["设置圆角", "添加圆角和边框", "给继承于view的类添加阴影", "添加阴影和圆角并存", "通过贝塞尔曲线View添加阴影和圆角", "添加边框", "添加顶部的边框", "添加顶部的 内边框", "添加底部的 边框", "添加左边的 边框", "添加右边的 边框", "画圆环", "绘制虚线", "添加内阴影", "毛玻璃效果", "添加多个View子视图"], ["设置tag值", "设置圆角", "图片的模式", "设置背景色", "设置十六进制颜色", "设置 frame", "被添加到某个视图上", "设置是否支持触摸", "设置是否隐藏", "设置透明度", "设置tintColor", "链式编程的综合使用"], ["获取当前view的viewcontroller", "添加水印", "将 View 转换成图片", "添加点击事件", "键盘收起来", "视图抖动", "是否包含WKWebView"], ["图层调试", "UIResponder.Type寻找某个类型子视图", "T.Type寻找某个类型子视图", "根据类名寻找某个类型子视图", "移除所有的子视图", "移除layer"], ["通用响应添加方法", "手势 - 单击", "手势 - 长按", "手势 - 拖拽", "手势 - 屏幕边缘(靠近屏幕边缘的View类才支持)", "手势 - 屏幕边缘(闭包)", "手势 - 清扫", "手势 - 清扫(闭包)", "手势 - 捏合", "手势 - 旋转"], ["添加渐变色图层（棕色->绿色）", "colors 变化渐变动画"]]
+        dataArray = [["设备型号", "是不是 iPhone X", "是不是 iPhone XS", "是不是 iPhone XR", "是不是 iPhone XsMax", "是不是 iPhone", "判断是否是 pad", "判断是不是 4or4s", "判断是不是 5 5c 5s", "判断是不是 6 6s 7 8", "判断是不是 6p 7p 8p", "当前设备是不是模拟器", "是否是缺口屏幕(刘海屏)或者灵动岛的屏幕"], ["屏幕的宽", "屏幕的高", "获取statusBar的高度", "获取导航栏的高度", "屏幕底部Tabbar高度", "屏幕底部刘海高度", "屏幕比例", "身份证宽高比", "375尺寸适配比例", "屏幕16:9比例系数下的宽", "屏幕16:9比例系数下的高"], ["x 的位置", "y 的位置", "height: 视图的高度", "width: 视图的宽度", "size: 视图的zize", "centerX: 视图的X中间位置", "centerX: 视图的Y中间位置", "center: 视图的中间位置", "top 上端横坐标(y)", "left 左端横坐标(x)", "bottom 底端纵坐标 (y + height)", "right 底端纵坐标 (x + width)"], ["平面旋转", "沿 X 轴方向旋转多少度(3D旋转)", "沿 Y 轴方向旋转多少度(3D旋转)", "沿 Z 轴方向旋转多少度(3D旋转)", "沿 X、Y、Z 轴方向同时旋转多少度(3D旋转)", "设置 x,y 缩放", "水平或垂直翻转", "移动到指定中心点位置"], ["设置圆角", "添加圆角和边框", "给继承于view的类添加阴影", "添加阴影和圆角并存", "通过贝塞尔曲线View添加阴影和圆角", "添加边框", "添加顶部的边框", "添加顶部的 内边框", "添加底部的 边框", "添加左边的 边框", "添加右边的 边框", "画圆环", "绘制虚线", "添加内阴影", "毛玻璃效果", "添加多个View子视图"], ["设置tag值", "设置圆角", "图片的模式", "设置背景色", "设置十六进制颜色", "设置 frame", "被添加到某个视图上", "设置是否支持触摸", "设置是否隐藏", "设置透明度", "设置tintColor", "链式编程的综合使用"], ["获取当前view的viewcontroller", "添加水印", "将 View 转换成图片", "添加点击事件", "键盘收起来", "视图抖动", "是否包含WKWebView"], ["图层调试", "UIResponder.Type寻找某个类型子视图", "T.Type寻找某个类型子视图", "根据类名寻找某个类型子视图", "移除所有的子视图", "移除layer"], ["通用响应添加方法", "手势 - 单击", "手势 - 长按", "手势 - 拖拽", "手势 - 屏幕边缘(靠近屏幕边缘的View类才支持)", "手势 - 屏幕边缘(闭包)", "手势 - 清扫", "手势 - 清扫(闭包)", "手势 - 捏合", "手势 - 旋转"], ["添加渐变色图层（棕色->绿色）", "colors 变化渐变动画"]]
     }
 }
 
@@ -1325,83 +1325,94 @@ extension UIViewExtensionViewController {
     //MARK: 2.01、屏幕的宽
     /// 屏幕的宽
     @objc func test201() {
+      debugPrint("模型：\(UIDevice.current.model)")
+        if UIDevice.current.model.contains("iPhone X") {
+            // 是iPhone X
+        } else {
+            // 不是iPhone X
+        }
         JKPrint("屏幕的宽：\(jk_kScreenW)")
     }
 }
 
 // MARK: - 一、机型的判断
 extension UIViewExtensionViewController {
+    //MARK: 1.13、是否是缺口屏幕(刘海屏)或者灵动岛的屏幕
+    /// 是否是缺口屏幕(刘海屏)或者灵动岛的屏幕
+    @objc func test113() {
+        JKPrint("是否是缺口屏幕(刘海屏)或者灵动岛的屏幕：\(jk_isIPhoneNotch ? "是" : "不是")")
+    }
     
     //MARK: 1.12、当前设备是不是模拟器
     /// 当前设备是不是模拟器
     @objc func test112() {
-        JKPrint("\(jk_isSimulator())")
+        JKPrint("当前设备是不是模拟器：\(jk_isSimulator() ? "是" : "不是")")
     }
     
     //MARK: 1.11、判断是不是 6p 7p 8p
     /// 判断是不是 6p 7p 8p
     @objc func test111() {
-        JKPrint("\(jk_is678P())")
+        JKPrint("判断是不是 6p 7p 8p：\(jk_is678P() ? "是" : "不是")")
     }
     
     //MARK: 1.10、判断是不是 6 6s 7 8
     /// 判断是不是 6 6s 7 8
     @objc func test110() {
-        JKPrint("\(jk_is678())")
+        JKPrint("判断是不是 6 6s 7 8：\(jk_is678() ? "是" : "不是")")
     }
     
     //MARK: 1.09、判断是不是 5 5c 5s
     /// 判断是不是 5 5c 5s
     @objc func test109() {
-        JKPrint("\(jk_is5())")
+        JKPrint("判断是不是 5 5c 5s：\(jk_is5() ? "是" : "不是")")
     }
     
     //MARK: 1.08、判断是不是 4or4s
     /// 判断是不是 4or4s
     @objc func test108() {
-        JKPrint("\(jk_is4OrLess())")
+        JKPrint("判断是不是 4or4s：\(jk_is4OrLess() ? "是" : "不是")")
     }
     
     //MARK: 1.07、判断是否是 pad
     /// 判断是否是 pad
     @objc func test107() {
-        JKPrint("\(jk_isPadDevice())")
+        JKPrint("判断是否是 pad：\(jk_isPadDevice() ? "是" : "不是")")
     }
     
     //MARK: 1.06、是不是 iPhone
     /// 是不是 iPhone
     @objc func test106() {
-        JKPrint("\(jk_isIphone())")
+        JKPrint("是不是 iPhone：\(jk_isIphone() ? "是" : "不是")")
     }
     
     //MARK: 1.05、是不是 iPhone XsMax
     /// 是不是 iPhone XsMax
     @objc func test105() {
-        JKPrint("\(jk_isXsMax())")
+        JKPrint("是不是 iPhone XsMax：\(jk_isXsMax() ? "是" : "不是")")
     }
     
     //MARK: 1.04、是不是 iPhone XR
     /// 是不是 iPhone XR
     @objc func test104() {
-        JKPrint("\(jk_isXR())")
+        JKPrint("是不是 iPhone XR：\(jk_isXR() ? "是" : "不是")")
     }
     
     //MARK: 1.03、是不是 iPhone XS
     /// 是不是 iPhone XS
     @objc func test103() {
-        JKPrint("\(jk_isXs())")
+        JKPrint("是不是 iPhone XS：\(jk_isXs() ? "是" : "不是")")
     }
     
     // MARK: 1.02、是不是 iPhone X
     /// 是不是 iPhone X
     @objc func test102() {
-        JKPrint("\(jk_isIphoneX())")
+        JKPrint("是不是 iPhone X：\(jk_isIphoneX() ? "是" : "不是")")
     }
     
     // MARK: 1.01、设备型号
     /// 设备型号
     @objc func test101() {
-        JKPrint("\(jk_deviceModel())")
+        JKPrint("设备型号：\(jk_deviceModel())")
     }
 }
 

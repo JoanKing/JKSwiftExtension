@@ -10,6 +10,7 @@
 		5537F3872B0B4D5500F6BEEC /* JKFileLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5537F3862B0B4D5500F6BEEC /* JKFileLogViewController.swift */; };
 		553FF3782B0EEB3500589AEF /* MapKitTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FF3772B0EEB3500589AEF /* MapKitTestViewController.swift */; };
 		555C223B2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C223A2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift */; };
+		55625BC72B39BC770061D11C /* OptionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55625BC62B39BC770061D11C /* OptionalViewController.swift */; };
 		55A815D42A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A815D32A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift */; };
 		55BD8A082B22FF7E001AD567 /* JKOperatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD8A072B22FF7E001AD567 /* JKOperatorViewController.swift */; };
 		55CBC9C72A9C74A000EE88FC /* SegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CBC9C62A9C74A000EE88FC /* SegmentViewController.swift */; };
@@ -200,6 +201,7 @@
 		5537F3862B0B4D5500F6BEEC /* JKFileLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKFileLogViewController.swift; sourceTree = "<group>"; };
 		553FF3772B0EEB3500589AEF /* MapKitTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitTestViewController.swift; sourceTree = "<group>"; };
 		555C223A2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabbarExtensionViewController.swift; sourceTree = "<group>"; };
+		55625BC62B39BC770061D11C /* OptionalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalViewController.swift; sourceTree = "<group>"; };
 		55A815D32A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingSpecialConfigurationSegmentView.swift; sourceTree = "<group>"; };
 		55BD8A072B22FF7E001AD567 /* JKOperatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKOperatorViewController.swift; sourceTree = "<group>"; };
 		55CBC9C62A9C74A000EE88FC /* SegmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentViewController.swift; sourceTree = "<group>"; };
@@ -770,6 +772,7 @@
 				84D9BDD425652FE400D92461 /* JKEmitterableViewController.swift */,
 				84D9BDB725652C7200D92461 /* NibLoadableViewController.swift */,
 				84ADDC5325E38BE400C8177C /* JKJSONViewController.swift */,
+				55625BC62B39BC770061D11C /* OptionalViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1148,6 +1151,7 @@
 				84F11D6B25DE0DB500209B4C /* NSRangeExtensionViewController.swift in Sources */,
 				E20237AE28B5F98E00F65F61 /* UIAlertController+Extension1.swift in Sources */,
 				E289F9112850279F00D840B7 /* RadiusViewCell.swift in Sources */,
+				55625BC72B39BC770061D11C /* OptionalViewController.swift in Sources */,
 				84D5B11725F4FA2400984F5A /* FBArrowLabel.swift in Sources */,
 				E2BBEDDF29B1ED8E005FB04B /* JKWheelPicker.swift in Sources */,
 				844A635425664F9B000059EC /* ThreeViewController.swift in Sources */,

@@ -4,7 +4,7 @@
 //
 //  Created by IronMan on 2020/10/30.
 //
-// link: https://www.theiphonewiki.com/wiki/Models#p-search
+// link: https://theapplewiki.com/wiki/Models#iPhone
 import Foundation
 import UIKit
 // 使用CoreTelephony获取运营商信息、网络制式（4G、3G、2G）
@@ -14,9 +14,11 @@ import AudioToolbox
 extension UIDevice: JKPOPCompatible {}
 // 这里只指屏幕类型
 public enum UIDeviceScreenType: String {
+    case unKnown
+    case IPHONE_4
     case IPHONE_5
-    case IPHONE_6
-    case IPHONE_PLUS
+    case IPHONE_678
+    case IPHONE_678PLUS
     case IPHONE_X
     case IPHONE_XS
     case IPHONE_XR
@@ -24,14 +26,32 @@ public enum UIDeviceScreenType: String {
     case IPHONE_11
     case IPHONE_11_PRO
     case IPHONE_11_PRO_MAX
+    case IPHONE_SE
+    case IPHONE_12_MINI
+    case IPHONE_12
+    case IPHONE_12_Pro
+    case IPHONE_12_ProMax
+    case IPHONE_13_Pro
+    case IPHONE_13_ProMax
+    case IPHONE_13_Mini
+    case IPHONE_13
+    case IPHONE_SE_3rdGeneration
+    case IPHONE_14
+    case IPHONE_14_Plus
+    case IPHONE_14_Pro
+    case IPHONE_14_ProMax
+    case IPHONE_15
+    case IPHONE_15_Plus
+    case IPHONE_15_Pro
+    case IPHONE_15_ProMax
 }
 
 // MARK: - 一、基本的扩展
 public extension JKPOP where Base: UIDevice {
     
-    // MARK: 1.1、设备的名字
+    // MARK: 1.1、设备的的identifier
     /// 设备的名字
-    static var modelName: String {
+    static var deviceIdentifier: String {
         var systemInfo = utsname()
         uname(&systemInfo)
         let machineMirror = Mirror(reflecting: systemInfo.machine)
@@ -39,7 +59,13 @@ public extension JKPOP where Base: UIDevice {
             guard let value = element.value as? Int8, value != 0 else { return identifier }
             return identifier + String(UnicodeScalar(UInt8(value)))
         }
-        
+        return identifier
+    }
+    
+    // MARK: 1.2、设备的名字
+    /// 设备的名字
+    static var modelName: String {
+        let identifier = deviceIdentifier
         func mapToDevice(identifier: String) -> String {
             //MARK: os(iOS)
             #if os(iOS)
@@ -126,6 +152,22 @@ public extension JKPOP where Base: UIDevice {
                 return "iPhone 13"
             case "iPhone14,6":
                 return "iPhone SE (3rd generation)"
+            case "iPhone14,7":
+                return "iPhone 14"
+            case "iPhone14,8":
+                return "iPhone 14 Plus"
+            case "iPhone15,2":
+                return "iPhone 14 Pro"
+            case "iPhone15,3":
+                return "iPhone 14 Pro Max"
+            case "iPhone15,4":
+                return "iPhone 15"
+            case "iPhone15,5":
+                return "iPhone 15 Plus"
+            case "iPhone16,1":
+                return "iPhone 15 Pro"
+            case "iPhone16,2":
+                return "iPhone 15 Pro Max"
             case "iPad1,1":
                 return "iPad"
             case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4":
@@ -190,17 +232,19 @@ public extension JKPOP where Base: UIDevice {
         return mapToDevice(identifier: identifier)
     }
     
-    // MARK: 1.2、获取设备类型
+    // MARK: 1.3、获取设备类型
     /// 获取设备类型
     /// - Returns: 设备类型
     static func screenType() -> UIDeviceScreenType {
         let modelName = Base.jk.modelName
-        if modelName == "iPhone 5" || modelName == "iPhone 5c" || modelName == "iPhone 5s" || modelName == "iPhone SE" {
+        if modelName == "iPhone 4" || modelName == "iPhone 4S" {
+            return UIDeviceScreenType.IPHONE_4
+        } else if modelName == "iPhone 5" || modelName == "iPhone 5c" || modelName == "iPhone 5s" || modelName == "iPhone SE" {
             return UIDeviceScreenType.IPHONE_5
         } else if modelName == "iPhone 6" || modelName == "iPhone 6s" || modelName == "iPhone 7" || modelName == "iPhone 8" {
-            return UIDeviceScreenType.IPHONE_6
+            return UIDeviceScreenType.IPHONE_678
         } else if modelName == "iPhone 6 Plus" || modelName == "iPhone 6s Plus" || modelName == "iPhone 7 Plus" || modelName == "iPhone 8 Plus" {
-            return UIDeviceScreenType.IPHONE_PLUS
+            return UIDeviceScreenType.IPHONE_678PLUS
         } else if modelName == "iPhone X" {
             return UIDeviceScreenType.IPHONE_X
         } else if modelName == "iPhone XS" {
@@ -211,15 +255,53 @@ public extension JKPOP where Base: UIDevice {
             return UIDeviceScreenType.IPHONE_XS_Max
         } else if modelName == "iPhone 11" {
             return UIDeviceScreenType.IPHONE_11
-        }   else if modelName == "iPhone 11 Pro" {
+        } else if modelName == "iPhone 11 Pro" {
             return UIDeviceScreenType.IPHONE_11_PRO
-        }   else if modelName == "iPhone 11 Pro Max" {
+        } else if modelName == "iPhone 11 Pro Max" {
             return UIDeviceScreenType.IPHONE_11_PRO_MAX
+        } else if modelName == "iPhone SE" {
+            return UIDeviceScreenType.IPHONE_SE
+        } else if modelName == "iPhone 12 mini" {
+            return UIDeviceScreenType.IPHONE_12_MINI
+        } else if modelName == "iPhone 12" {
+            return UIDeviceScreenType.IPHONE_12
+        } else if modelName == "iPhone 12 Pro" {
+            return UIDeviceScreenType.IPHONE_12_Pro
+        } else if modelName == "iPhone 12 Pro Max" {
+            return UIDeviceScreenType.IPHONE_12_ProMax
+        } else if modelName == "iPhone 13 Pro" {
+            return UIDeviceScreenType.IPHONE_13_Pro
+        } else if modelName == "iPhone 13 Pro Max" {
+            return UIDeviceScreenType.IPHONE_13_ProMax
+        } else if modelName == "iPhone 13 mini" {
+            return UIDeviceScreenType.IPHONE_13_Mini
+        } else if modelName == "iPhone 13 mini" {
+            return UIDeviceScreenType.IPHONE_13_Mini
+        } else if modelName == "iPhone 13" {
+            return UIDeviceScreenType.IPHONE_13
+        } else if modelName == "iPhone SE (3rd generation)" {
+            return UIDeviceScreenType.IPHONE_SE_3rdGeneration
+        } else if modelName == "iPhone 14" {
+            return UIDeviceScreenType.IPHONE_14
+        } else if modelName == "iPhone 14 Plus" {
+            return UIDeviceScreenType.IPHONE_14_Plus
+        } else if modelName == "iPhone 14 Pro" {
+            return UIDeviceScreenType.IPHONE_14_Pro
+        } else if modelName == "iPhone 14 Pro Max" {
+            return UIDeviceScreenType.IPHONE_14_ProMax
+        } else if modelName == "iPhone 15" {
+            return UIDeviceScreenType.IPHONE_15
+        } else if modelName == "iPhone 15 Plus" {
+            return UIDeviceScreenType.IPHONE_15_Plus
+        } else if modelName == "iPhone 15 Pro" {
+            return UIDeviceScreenType.IPHONE_15_Pro
+        } else if modelName == "iPhone 15 Pro Max" {
+            return UIDeviceScreenType.IPHONE_15_ProMax
         }
-        return UIDeviceScreenType.IPHONE_6
+        return UIDeviceScreenType.unKnown
     }
     
-    // MARK: 1.3、判断是否为 iPad
+    // MARK: 1.4、判断是否为 iPad
     /// 判断是否为 Pad
     /// - Returns: bool
     static func isIpad() -> Bool {
@@ -230,61 +312,35 @@ public extension JKPOP where Base: UIDevice {
         return false
     }
     
-    // MARK: 1.4、判断是否是 pad
+    // MARK: 1.5、判断是否是 pad
     /// 判断是否是 pad
     /// - Returns: bool
     static func isPadDevice() -> Bool {
         return UIDevice.current.userInterfaceIdiom == .pad
     }
     
-    // MARK: 1.5、判断是否为 iphone
+    // MARK: 1.6、判断是否为 iphone
     /// 判断是否为 iphone
     /// - Returns: bool
     static func isIphone() -> Bool {
         return UIDevice.current.userInterfaceIdiom == .phone
     }
     
-    // MARK: 1.6、判断是否是 iphone5
+    // MARK: 1.7、判断是否是 iphone5
     /// 判断是否是 iphone5
     /// - Returns: bool
     static func isIphone5Screen() -> Bool {
-        if Base.jk.screenType() == .IPHONE_5 {
-            return true
-        }
-        return false
+        return Base.jk.screenType() == .IPHONE_5
     }
     
-    // MARK: 1.7、判断是否是 iphone6
-    /// 判断是否是 iphone5
+    // MARK: 1.8、判断是否是 iphone678
+    /// 判断是否是 判断是否是 iphone678
     /// - Returns: bool
     static func isIphone6Screen() -> Bool {
-        if Base.jk.screenType() == .IPHONE_6 {
-            return true
-        }
-        return false
+        return Base.jk.screenType() == .IPHONE_678
     }
     
-    // MARK: 1.8、是不是 x 系列
-    /// 是不是 x 系列
-    /// - Returns: bool
-    static func isIphoneXScreen() -> Bool {
-        if Base.jk.screenType() == .IPHONE_X || Base.jk.screenType() == .IPHONE_XS || Base.jk.screenType() == .IPHONE_XR || Base.jk.screenType() == .IPHONE_XS_Max ||  Base.jk.screenType() == .IPHONE_11 ||  Base.jk.screenType() == .IPHONE_11_PRO ||  Base.jk.screenType() == .IPHONE_11_PRO_MAX {
-            return true
-        }
-        return false
-    }
-    
-    // MARK: 1.9、是不是 xs系列
-    /// 是不是 xs 系列
-    /// - Returns: bool
-    static func isIphoneXSScreen() -> Bool {
-        if Base.jk.screenType() == .IPHONE_XS || Base.jk.screenType() == .IPHONE_XR || Base.jk.screenType() == .IPHONE_XS_Max {
-            return true
-        }
-        return false
-    }
-    
-    // MARK: 1.10、当前设备是不是模拟器
+    // MARK: 1.11、当前设备是不是模拟器
     /// 当前设备是不是模拟器
     static func isSimulator() -> Bool {
         var isSim = false
