@@ -1332,13 +1332,18 @@ public extension JKPOP where Base : UIView {
     /// - Parameters:
     ///   - direction: 渐变方向
     ///   - gradientColors: 渐变的颜色数组（颜色的数组是）
-    ///   - gradientLocations: 决定每个渐变颜色的终止位置，这些值必须是递增的，数组的长度和 colors 的长度最好一致
+    ///   - gradientLocations: 决定每个渐变颜色的终止位置，这些值必须是递增的，数组的长度和 colors 的长度最好一致，提示：如果设置[0, 0.2] 指的是0-0.2之间渐变 0.2-1.0颜色不渐变
     func gradientColor(_ direction: JKViewGradientDirection = .horizontal, _ gradientColors: [Any], _ gradientLocations: [NSNumber]? = nil, _ transform: CATransform3D? = nil) {
         // 获取渐变对象
         let gradientLayer = CAGradientLayer().jk.gradientLayer(direction, gradientColors, gradientLocations, transform)
         // 设置其CAGradientLayer对象的frame，并插入view的layer
         gradientLayer.frame = CGRect(x: 0, y: 0, width: self.base.jk.width, height: self.base.jk.height)
-        self.base.layer.insertSublayer(gradientLayer, at: 0)
+        if let sublayers = self.base.layer.sublayers {
+            // 将后面的渐变层插入到最后面
+            self.base.layer.insertSublayer(gradientLayer, at: UInt32(sublayers.count))
+        } else {
+            self.base.layer.insertSublayer(gradientLayer, at: 0)
+        }
     }
     
     // MARK: 10.2、colors 变化渐变动画
@@ -1347,18 +1352,25 @@ public extension JKPOP where Base : UIView {
     ///   - direction: 渐变方向
     ///   - startGradientColors: 开始渐变的颜色数组
     ///   - endGradientColors: 结束渐变的颜色数组
-    ///   - gradientLocations: 决定每个渐变颜色的终止位置，这些值必须是递增的，数组的长度和 colors 的长度最好一致
-    func gradientColorAnimation(direction: JKViewGradientDirection = .horizontal, startGradientColors: [Any], endGradientColors: [Any], duration: CFTimeInterval = 1.0, gradientLocations: [NSNumber]? = nil) {
+    ///   - gradientLocations: 决定每个渐变颜色的终止位置，这些值必须是递增的，数组的长度和 colors 的长度最好一致，提示：如果设置[0, 0.2] 指的是0-0.2之间渐变 0.2-1.0颜色不渐变
+    ///   - isRemovedOnCompletion: 是否动画结束后保持最终的效果
+    ///   - duration: 动画时长
+    func gradientColorAnimation(direction: JKViewGradientDirection = .horizontal, startGradientColors: [Any], endGradientColors: [Any], isRemovedOnCompletion: Bool = true, duration: CFTimeInterval = 1.0, gradientLocations: [NSNumber]? = nil) {
         // 获取渐变对象
         let gradientLayer = CAGradientLayer().jk.gradientLayer(direction, startGradientColors, gradientLocations)
         // 设置其CAGradientLayer对象的frame，并插入view的layer
         gradientLayer.frame = CGRect(x: 0, y: 0, width: self.base.jk.width, height: self.base.jk.height)
-        self.base.layer.insertSublayer(gradientLayer, at: 0)
-        
-        startgradientColorAnimation(gradientLayer, startGradientColors, endGradientColors, duration)
+        if let sublayers = self.base.layer.sublayers {
+            // 将后面的渐变层插入到最后面
+            self.base.layer.insertSublayer(gradientLayer, at: UInt32(sublayers.count))
+        } else {
+            self.base.layer.insertSublayer(gradientLayer, at: 0)
+        }
+        // 启动动画
+        startgradientColorAnimation(gradientLayer, startGradientColors, endGradientColors, isRemovedOnCompletion, duration)
     }
     
-    private func startgradientColorAnimation(_ gradientLayer: CAGradientLayer, _ startGradientColors: [Any], _ endGradientColors: [Any], _ duration: CFTimeInterval = 1.0) {
+    private func startgradientColorAnimation(_ gradientLayer: CAGradientLayer, _ startGradientColors: [Any], _ endGradientColors: [Any], _ isRemovedOnCompletion: Bool = true, _ duration: CFTimeInterval = 1.0) {
         // 添加渐变动画
         let colorChangeAnimation = CABasicAnimation(keyPath: "colors")
         // colorChangeAnimation.delegate = self

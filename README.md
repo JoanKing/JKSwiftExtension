@@ -50,6 +50,16 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/520a15e4-970c-43e6-9f6a-aa0fc308abb5" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.5.9、版本(2024.01.12)
+    - UIView+Extension渐变色追加到后面
+        ```swift
+        if let sublayers = self.base.layer.sublayers {
+            // 将后面的渐变层插入到最后面
+            self.base.layer.insertSublayer(gradientLayer, at: UInt32(sublayers.count))
+        } else {
+            self.base.layer.insertSublayer(gradientLayer, at: 0)
+        }
+        ```
   - 2.5.8、版本(2024.01.08)
     - (1)、新增Optional+Extension
     - (2)、设备的identifier更新，具体的可参考链接：https://theapplewiki.com/wiki/Models#iPhone

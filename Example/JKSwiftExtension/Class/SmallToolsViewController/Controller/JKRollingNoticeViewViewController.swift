@@ -5,10 +5,7 @@
 //  Created by 王冲 on 2022/5/15.
 //  Copyright © 2022 CocoaPods. All rights reserved.
 //
-
-import SnapKit
 import UIKit
-import JKSwiftExtension
 
 class JKRollingNoticeViewViewController: UIViewController {
     var labelColor: UIColor = .white
