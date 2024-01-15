@@ -343,11 +343,7 @@ public extension JKPOP where Base: UIDevice {
     // MARK: 1.11、当前设备是不是模拟器
     /// 当前设备是不是模拟器
     static func isSimulator() -> Bool {
-        var isSim = false
-        #if arch(i386) || arch(x86_64)
-        isSim = true
-        #endif
-        return isSim
+        ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] != nil
     }
 }
 
