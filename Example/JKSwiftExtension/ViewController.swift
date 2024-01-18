@@ -18,6 +18,15 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor.cBackViewColor
         dataArray = ["FoundationExtension", "UIKitExtension", "Protocol", "SmallTools", "TestFile(自己测试用的)"]
         initUI()
+        
+        debugPrint("开始----")
+        for item in 0...5 {
+            debugPrint("进行中---\(item)-")
+            if item == 3 {
+                break
+            }
+        }
+        debugPrint("结束----")
     }
     
     override func viewWillDisappear(_ animated: Bool) {

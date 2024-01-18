@@ -1339,8 +1339,14 @@ public extension JKPOP where Base : UIView {
         // 设置其CAGradientLayer对象的frame，并插入view的layer
         gradientLayer.frame = CGRect(x: 0, y: 0, width: self.base.jk.width, height: self.base.jk.height)
         if let sublayers = self.base.layer.sublayers {
-            // 将后面的渐变层插入到最后面
-            self.base.layer.insertSublayer(gradientLayer, at: UInt32(sublayers.count))
+            // 替换旧的CAGradientLayer
+            for (index, layer) in sublayers.enumerated() {
+                if layer is CAGradientLayer {
+                    // 替换旧的CAGradientLayer
+                    self.base.layer.replaceSublayer(layer, with: gradientLayer)
+                    break
+                }
+            }
         } else {
             self.base.layer.insertSublayer(gradientLayer, at: 0)
         }
@@ -1361,8 +1367,14 @@ public extension JKPOP where Base : UIView {
         // 设置其CAGradientLayer对象的frame，并插入view的layer
         gradientLayer.frame = CGRect(x: 0, y: 0, width: self.base.jk.width, height: self.base.jk.height)
         if let sublayers = self.base.layer.sublayers {
-            // 将后面的渐变层插入到最后面
-            self.base.layer.insertSublayer(gradientLayer, at: UInt32(sublayers.count))
+            // 替换旧的CAGradientLayer
+            for (index, layer) in sublayers.enumerated() {
+                if layer is CAGradientLayer {
+                    // 替换旧的CAGradientLayer
+                    self.base.layer.replaceSublayer(layer, with: gradientLayer)
+                    break
+                }
+            }
         } else {
             self.base.layer.insertSublayer(gradientLayer, at: 0)
         }

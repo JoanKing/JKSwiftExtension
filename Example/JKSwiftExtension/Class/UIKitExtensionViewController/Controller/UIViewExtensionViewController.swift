@@ -24,9 +24,10 @@ extension UIViewExtensionViewController {
     
     // MARK: 10.2、colors 变化渐变动画
     @objc func test1002() {
-        let testView = UIView(frame: CGRect(x: 0, y: 200, width: 260, height: 60))
+        let testView = UIButton(frame: CGRect(x: 0, y: 200, width: 260, height: 60))
         testView.backgroundColor = .randomColor
         testView.center.x = self.view.center.x
+        testView.setTitle("测试文字", for: .normal)
         testView.clipsToBounds = true
         self.view.addSubview(testView)
         
@@ -44,10 +45,11 @@ extension UIViewExtensionViewController {
     // MARK: 10.1、添加渐变色图层（棕色->绿色）=>（蓝色->红色）
     @objc func test1001() {
     
-        let testView = UIView(frame: CGRect(x: 0, y: 200, width: 260, height: 60))
+        let testView = UIButton(frame: CGRect(x: 0, y: 200, width: 260, height: 60))
         testView.backgroundColor = .randomColor
         testView.center.x = self.view.center.x
         testView.clipsToBounds = true
+        testView.setTitle("测试文字", for: .normal)
         testView.jk.gradientColor(.horizontal, [UIColor.brown.cgColor, UIColor.green.cgColor])
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(3) {
