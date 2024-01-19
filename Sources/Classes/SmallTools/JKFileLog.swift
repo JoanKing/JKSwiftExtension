@@ -12,6 +12,19 @@
 import Foundation
 import UIKit
 
+public protocol JKFileContentType {
+    associatedtype ValueType
+}
+
+extension Dictionary: JKFileContentType {
+    public typealias ValueType = [Key: Value]
+
+}
+
+extension String: JKFileContentType {
+    public typealias ValueType = String
+}
+
 public class JKFileLog: NSObject {
     /// 单粒对象
     public static let sharedInstance = JKFileLog()
@@ -32,14 +45,14 @@ extension JKFileLog {
     //MARK: 1.01、写入文件
     /// 写入文件
     /// - Parameters:
-    ///   - content: 内容
+    ///   - content: 内容，遵守JKFileContentType协议的类型可以写入
     ///   - isSeekToEndOfFile: 是否内容追加到尾部，默认尾部追加
     ///   - logFileName: 文件的名字
     ///   - file: 文件路径
     ///   - line: 打印内容所在的 行
     ///   - column: 打印内容所在的 列
     ///   - fn: 打印内容的函数名
-    public static func writeLog(_ content: Any,
+    public static func writeLog<T: JKFileContentType>(_ content: T,
                                 isSeekToEndOfFile: Bool = true,
                                 logFileName: String = "",
                                 file: NSString = #file,

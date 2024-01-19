@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 fileprivate let gridview_margin: CGFloat = 18
 fileprivate let gridview_spacingBetweenGrid: CGFloat = 3

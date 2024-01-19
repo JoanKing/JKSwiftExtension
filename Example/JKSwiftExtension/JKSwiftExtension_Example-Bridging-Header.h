@@ -5,6 +5,4 @@
 #import <JKSwiftExtension/JKSwiftExtension-Swift.h>
 #import <SnapKit/SnapKit-Swift.h>
 
-#import "UINavigationController+FDFullscreenPopGesture.h"
-
 #import "NotificationTetstViewController.h"

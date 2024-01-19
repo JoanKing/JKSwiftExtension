@@ -2,12 +2,7 @@ use_frameworks!
 target 'JKSwiftExtension_Example' do
   pod 'JKSwiftExtension', :path => '../'
 
-  # pod 'RxSwift'
-  # pod 'RxCocoa'
-  pod 'FDFullscreenPopGesture'
-  pod 'MJRefresh'
   pod 'SnapKit'
-  pod 'Kingfisher'
   
 end
 

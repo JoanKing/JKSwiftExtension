@@ -62,6 +62,7 @@ extension JKFileLogViewController {
     //MARK: 1.01、内容的写入：正序
     @objc func test101() {
         for i in 0...2 {
+            JKFileLog.writeLog("123")
             JKFileLog.writeLog("hello(正序)：\(i)", isSeekToEndOfFile: true)
         }
     }
