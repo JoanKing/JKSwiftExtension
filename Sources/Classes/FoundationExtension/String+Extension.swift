@@ -614,19 +614,24 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     /// 字符串转 Int
     /// - Returns: Int
     func toInt() -> Int? {
-        if let num = NumberFormatter().number(from: base as! String) {
-            return num.intValue
-        } else {
-            return nil
-        }
+        guard let doubleValue = Double(base as! String) else { return nil }
+        return Int(doubleValue)
     }
     
     // MARK: 4.4、字符串转 Double
     /// 字符串转 Double
     /// - Returns: Double
     func toDouble() -> Double? {
-        if let num = NumberFormatter().number(from: base as! String) {
-            return num.doubleValue
+        return Double(base as! String)
+    }
+    
+    // MARK: 4.5、字符串转通过NSDecimalNumberHandler转Double
+    /// 字符串转通过NSDecimalNumberHandler转Double
+    /// - Returns: Double
+    func toDecimalDouble(roundingMode: NSDecimalNumber.RoundingMode = .plain, scale: Int16 = 2) -> Double? {
+        if let _ = Double(base as! String) {
+            let decimalNumberHandler = NSDecimalNumberHandler.jk.digitalTradeOff(value1: base, roundingMode: roundingMode, scale: scale)
+            return decimalNumberHandler.doubleValue.isNaN ? nil : decimalNumberHandler.doubleValue
         } else {
             return nil
         }
