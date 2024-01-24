@@ -1096,11 +1096,17 @@ extension StringExtensionViewController {
     // MARK: 5.06、字符串转 Float
     /// 字符串转 Float
     @objc func test506() {
-        let str = "5.89"
-        guard let value = str.jk.toFloat() else {
-            return
-        }
-        JKPrint("字符串: \(value) 转 Float 后为：\(value)")
+        let str1 = "5.89"
+        let value1 = str1.jk.toFloat() ?? 0
+        let str2 = "20.--8"
+        let value2 = str2.jk.toFloat() ?? 0
+        let str3 = ""
+        let value3 = str3.jk.toFloat() ?? 0
+        let str4 = "3"
+        let value4 = str4.jk.toFloat() ?? 0
+        let str5 = "5.0"
+        let value5 = str5.jk.toFloat() ?? 0
+        JKPrint("字符串: \(str1) 转 Float 后为：\(value1)", "字符串: \(str2) 转 Float 后为：\(value2)", "字符串: \(str3) 转 Float 后为：\(value3)", "字符串: \(str4) 转 Float 后为：\(value4)", "字符串: \(str5) 转 Float 后为：\(value5)")
     }
 
     // MARK: 5.05、字符串转通过NSDecimalNumberHandler转Double

@@ -641,11 +641,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     /// 字符串转 Float
     /// - Returns: Float
     func toFloat() -> Float? {
-        if let num = NumberFormatter().number(from: base as! String) {
-            return num.floatValue
-        } else {
-            return nil
-        }
+       return Float(base as! String)
     }
     
     // MARK: 4.6、字符串转 NSString

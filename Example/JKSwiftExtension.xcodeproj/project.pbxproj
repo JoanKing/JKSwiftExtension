@@ -13,6 +13,7 @@
 		55625BC72B39BC770061D11C /* OptionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55625BC62B39BC770061D11C /* OptionalViewController.swift */; };
 		55A815D42A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A815D32A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift */; };
 		55BD8A082B22FF7E001AD567 /* JKOperatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD8A072B22FF7E001AD567 /* JKOperatorViewController.swift */; };
+		55BFA0C62B5E7A5A0048B37D /* CGPointExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFA0C52B5E7A5A0048B37D /* CGPointExtensionViewController.swift */; };
 		55CBC9C72A9C74A000EE88FC /* SegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CBC9C62A9C74A000EE88FC /* SegmentViewController.swift */; };
 		55E467492A8A4521008D79B7 /* UIBezierPathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E467482A8A4521008D79B7 /* UIBezierPathViewController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -204,6 +205,7 @@
 		55625BC62B39BC770061D11C /* OptionalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalViewController.swift; sourceTree = "<group>"; };
 		55A815D32A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingSpecialConfigurationSegmentView.swift; sourceTree = "<group>"; };
 		55BD8A072B22FF7E001AD567 /* JKOperatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKOperatorViewController.swift; sourceTree = "<group>"; };
+		55BFA0C52B5E7A5A0048B37D /* CGPointExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointExtensionViewController.swift; sourceTree = "<group>"; };
 		55CBC9C62A9C74A000EE88FC /* SegmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentViewController.swift; sourceTree = "<group>"; };
 		55E467482A8A4521008D79B7 /* UIBezierPathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathViewController.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* JKSwiftExtensionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKSwiftExtensionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -653,6 +655,7 @@
 			isa = PBXGroup;
 			children = (
 				84BF16C5251D9F8D002ACE76 /* FoundationExtensionViewController.swift */,
+				55BFA0C52B5E7A5A0048B37D /* CGPointExtensionViewController.swift */,
 				84A5D2D52547B48E003D289C /* DateExtensionViewController.swift */,
 				849D58EF2536ADD300CCDF0F /* StringExtensionViewController.swift */,
 				84BEA372254FAC6600CA8A75 /* UIFontExtensionViewController.swift */,
@@ -1182,6 +1185,7 @@
 				E2CFA13A28597E9000E342DE /* JKPanViewViewController.swift in Sources */,
 				55E467492A8A4521008D79B7 /* UIBezierPathViewController.swift in Sources */,
 				848028082558D5A70038748A /* CALayerExtensionViewController.swift in Sources */,
+				55BFA0C62B5E7A5A0048B37D /* CGPointExtensionViewController.swift in Sources */,
 				84CB0CA1260DD144003D2738 /* BaseViewCell.swift in Sources */,
 				847CCCF925B80D1E00928F5B /* AVAssetExportSessionExtensionViewController.swift in Sources */,
 				8488D0CD2689786000DADFE6 /* DispatchQueueExtensionViewController.swift in Sources */,

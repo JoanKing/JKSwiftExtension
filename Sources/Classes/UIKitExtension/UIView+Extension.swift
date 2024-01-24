@@ -131,7 +131,7 @@ public func jk_isSimulator() -> Bool {
 public var jk_isIPhoneNotch: Bool {
     if #available(iOS 11.0, *) {
         if let window = UIApplication.jk.keyWindow {
-            return window.safeAreaInsets.top > 0
+            return window.safeAreaInsets.bottom > 0
         } else {
             return false
         }

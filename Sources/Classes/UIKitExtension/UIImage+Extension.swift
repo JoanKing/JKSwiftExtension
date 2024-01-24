@@ -777,10 +777,13 @@ public extension JKPOP where Base: UIImage {
         return data
     }
     
-    // MARK: 4.4、ImageIO 方式调整图片大小 性能很好
-    /// ImageIO 方式调整图片大小 性能很好
+    // MARK: 4.4、ImageIO 方式调整图片大小
+    /// ImageIO 方式调整图片大小
     /// - Parameter resizeSize: 图片调整Size
     /// - Returns: 调整后图片
+    ///
+    /// - ImageIO 是 iOS 平台上用于处理图像的框架，提供了对图像的读取、解码和编码功能。你可以使用 ImageIO 来读取和写入各种图片格式，并进行基本的图像处理操作，例如调整尺寸、裁剪和缩放。
+
     func resizeIO(resizeSize: CGSize) -> UIImage? {
         if base.size == resizeSize {
             return self.base
@@ -788,7 +791,7 @@ public extension JKPOP where Base: UIImage {
         guard let imageData = base.pngData() else { return nil }
         guard let imageSource = CGImageSourceCreateWithData(imageData as CFData, nil) else { return nil }
         
-        let maxPixelSize = max(base.size.width, base.size.height)
+        let maxPixelSize = max(resizeSize.width, resizeSize.height)
         let options = [kCGImageSourceCreateThumbnailWithTransform: true,
                    kCGImageSourceCreateThumbnailFromImageIfAbsent: true,
                               kCGImageSourceThumbnailMaxPixelSize: maxPixelSize] as [CFString : Any]
@@ -799,10 +802,12 @@ public extension JKPOP where Base: UIImage {
         return resizedImage
     }
     
-    // MARK: 4.5、CoreGraphics 方式调整图片大小 性能很好
-    /// CoreGraphics 方式调整图片大小 性能很好
+    // MARK: 4.5、CoreGraphics 方式调整图片大小
+    /// CoreGraphics 方式调整图片大小
     /// - Parameter resizeSize: 图片调整Size
     /// - Returns: 调整后图片
+    ///
+    /// - CoreGraphics 是 iOS 平台上的 2D 图形渲染引擎，提供了强大的绘图和图像处理能力。你可以使用 CoreGraphics 来绘制图形、操作位图和调整图片的尺寸。通过 CoreGraphics，你可以直接操作图像的像素数据，对图像进行自定义的绘制和转换
     func resizeCG(resizeSize: CGSize) -> UIImage? {
         if base.size == resizeSize {
             return self.base

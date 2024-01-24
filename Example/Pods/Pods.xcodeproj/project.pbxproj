@@ -69,6 +69,8 @@
 		5057A5C1ADB2AFA6AD5E82968CD5DF9B /* NumberFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6452879F05E36788932A475C2EE97CB /* NumberFormatter+Extension.swift */; };
 		52BAE3650895C1361C79056306716C4E /* KeyboardAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD022803E42F2B8984BD62CCAB6545D7 /* KeyboardAccessory.swift */; };
 		5380454C48A12A6E376122ABD8096968 /* ConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A0BC61944B3E89515CACB83BB1B976 /* ConstraintDescription.swift */; };
+		55649F892B5F8F4C0004AFE4 /* JKDecodeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55649F882B5F8F4C0004AFE4 /* JKDecodeString.swift */; };
+		55BFA0C42B5E78FB0048B37D /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFA0C32B5E78FB0048B37D /* CGPoint+Extension.swift */; };
 		55E51F45F1E157D3B4942BA7252C277E /* ConstraintRelatableTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF34962F54DAA8DEB0A1D7D4F3FC09A /* ConstraintRelatableTarget.swift */; };
 		56A72F6D13D930C4A2568F24DEA33C8D /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5032FD34D5BB9A1F925C649B43CC02DC /* ConstraintLayoutSupportDSL.swift */; };
 		56AC6DC6459AE47E7BC4AF06E5B148D2 /* ConstraintDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02732995CB94C03CB83E1935B434AD74 /* ConstraintDSL.swift */; };
@@ -246,6 +248,8 @@
 		5032FD34D5BB9A1F925C649B43CC02DC /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupportDSL.swift; path = Sources/ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
 		539C1977836C302B69CC347F9B14F601 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		54A0BC61944B3E89515CACB83BB1B976 /* ConstraintDescription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDescription.swift; path = Sources/ConstraintDescription.swift; sourceTree = "<group>"; };
+		55649F882B5F8F4C0004AFE4 /* JKDecodeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKDecodeString.swift; sourceTree = "<group>"; };
+		55BFA0C32B5E78FB0048B37D /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
 		55DFE56481E84096B2DABEA63F070AAF /* JKDrawSignatureView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKDrawSignatureView.swift; sourceTree = "<group>"; };
 		57025B12FAFD2F0014AB9D716164EFDB /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		583BBF75085D255E27A5F9EF9EC203A5 /* ConstraintMakerRelatable+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintMakerRelatable+Extensions.swift"; path = "Sources/ConstraintMakerRelatable+Extensions.swift"; sourceTree = "<group>"; };
@@ -562,6 +566,7 @@
 				C2E01F73376E02394FD49035631F8A45 /* JKWeakTimer.swift */,
 				CD022803E42F2B8984BD62CCAB6545D7 /* KeyboardAccessory.swift */,
 				4B3F149C1296462601E64530D435DEC8 /* QRCodeImageFactory.swift */,
+				55649F882B5F8F4C0004AFE4 /* JKDecodeString.swift */,
 			);
 			name = SmallTools;
 			path = Sources/Classes/SmallTools;
@@ -571,6 +576,7 @@
 			isa = PBXGroup;
 			children = (
 				001AD4AC19D0C2C192BEAFD5CA371868 /* Array+Extension.swift */,
+				55BFA0C32B5E78FB0048B37D /* CGPoint+Extension.swift */,
 				18C13BA77ED8A82F1B262E2B452F4DE1 /* AVAssetExportSession+Extension.swift */,
 				319B1C9971A6D3563E1D2DF5C88C9833 /* Bool+Extension.swift */,
 				8360010F2BC13E213ABD6D7A02AEFE00 /* Bundle+Extension.swift */,
@@ -990,6 +996,7 @@
 				2FDC5E6BDC12A2056C7AF6EC0D06F9F4 /* JKThemeProvider.swift in Sources */,
 				EB8824F72064B2DB8FD2546BB158BD91 /* JKUnitConverter.swift in Sources */,
 				43D77B0C030A53C20EFFCE8A1F470DC3 /* JKWaterFallLayout.swift in Sources */,
+				55BFA0C42B5E78FB0048B37D /* CGPoint+Extension.swift in Sources */,
 				4D2194E0B22C7956734E1454DBCFC13E /* JKWeakTimer.swift in Sources */,
 				52BAE3650895C1361C79056306716C4E /* KeyboardAccessory.swift in Sources */,
 				BB1F48BA3A60CFBC8B70B4463BDE0267 /* NSAttributedString+Extension.swift in Sources */,
@@ -1033,6 +1040,7 @@
 				AD7A654F99CCFD25AD546E1542C87C83 /* UITableView+Extension.swift in Sources */,
 				C679A2EF16B8BDE043EE250EC066FB37 /* UITableViewCell+Extension.swift in Sources */,
 				A9C732D74BCCB61F8F1567DA1CF38C46 /* UITapGestureRecognizer+Extension.swift in Sources */,
+				55649F892B5F8F4C0004AFE4 /* JKDecodeString.swift in Sources */,
 				A7A28C5E54BA21C79702DA9EC1D22FD0 /* UITextField+Extension.swift in Sources */,
 				4BCF92202531413811C258229B611D1C /* UITextView+Extension.swift in Sources */,
 				759DA7C460BB1A99184C613E52636DEA /* UIView+Extension.swift in Sources */,
