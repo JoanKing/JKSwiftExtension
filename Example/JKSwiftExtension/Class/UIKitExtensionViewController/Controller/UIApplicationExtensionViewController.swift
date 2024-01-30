@@ -26,10 +26,6 @@ public enum JKThirdPartyAppType: String {
     case qq = "mqq://"
     /// 腾讯微博
     case tencentWeibo = "TencentWeibo://"
-    /// 淘宝
-    case taobao = "taobao://"
-    /// 支付宝
-    case alipay = "alipay://"
     /// 微博
     case weico = "weico://"
     /// QQ浏览器
@@ -335,19 +331,6 @@ extension UIApplicationExtensionViewController {
         }
     }
     
-    // MARK: 3.14、打开支付宝
-    @objc func test314() {
-        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.alipay.rawValue) { (result) in
-            JKPrint("结果：\(result)")
-        }
-    }
-    
-    // MARK: 3.13、打开淘宝
-    @objc func test313() {
-        UIApplication.jk.openThirdPartyApp(thirdPartyAppDeeplink: JKThirdPartyAppType.taobao.rawValue) { (result) in
-            JKPrint("结果：\(result)")
-        }
-    }
     
     // MARK: 3.12、打开腾讯微博
     @objc func test312() {
