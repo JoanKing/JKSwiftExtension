@@ -30,7 +30,7 @@
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '9.0'
+platform :ios, '10.0'
 use_frameworks!
 
 target 'MyApp' do
@@ -50,6 +50,9 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/520a15e4-970c-43e6-9f6a-aa0fc308abb5" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.6.3、版本(2024.03.19)
+    - 新增JKScreenShieldView 屏蔽 [录屏, 截屏] 的视图
+    - 修复Date针对12小时制转换失败的问题
   - 2.6.2、版本(2024.01.24)
     - 新增CGPoint+Extension扩展
     - 修复其他问题
