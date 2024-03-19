@@ -209,7 +209,7 @@ public extension JKPOP where Base == Date {
         jk_formatter.locale = NSLocale.system
         guard let date = jk_formatter.date(from: timesString) else {
             #if DEBUG
-            fatalError("时间有问题")
+            fatalError("日期格式不匹配")
             #else
             return ""
             #endif
@@ -228,6 +228,7 @@ public extension JKPOP where Base == Date {
     /// - Returns: 返回 Date
     static func formatterTimeStringToDate(timesString: String, formatter: String) -> Date {
         jk_formatter.dateFormat = formatter
+        jk_formatter.locale = NSLocale.system
         guard let date = jk_formatter.date(from: timesString) else {
             #if DEBUG
             fatalError("时间有问题")

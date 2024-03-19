@@ -15,6 +15,7 @@
 		55BD8A082B22FF7E001AD567 /* JKOperatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD8A072B22FF7E001AD567 /* JKOperatorViewController.swift */; };
 		55BFA0C62B5E7A5A0048B37D /* CGPointExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFA0C52B5E7A5A0048B37D /* CGPointExtensionViewController.swift */; };
 		55CBC9C72A9C74A000EE88FC /* SegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CBC9C62A9C74A000EE88FC /* SegmentViewController.swift */; };
+		55DDC56F2BA92D1900B7429E /* JKScreenShieldViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DDC56E2BA92D1900B7429E /* JKScreenShieldViewViewController.swift */; };
 		55E467492A8A4521008D79B7 /* UIBezierPathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E467482A8A4521008D79B7 /* UIBezierPathViewController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -207,6 +208,7 @@
 		55BD8A072B22FF7E001AD567 /* JKOperatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKOperatorViewController.swift; sourceTree = "<group>"; };
 		55BFA0C52B5E7A5A0048B37D /* CGPointExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointExtensionViewController.swift; sourceTree = "<group>"; };
 		55CBC9C62A9C74A000EE88FC /* SegmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentViewController.swift; sourceTree = "<group>"; };
+		55DDC56E2BA92D1900B7429E /* JKScreenShieldViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKScreenShieldViewViewController.swift; sourceTree = "<group>"; };
 		55E467482A8A4521008D79B7 /* UIBezierPathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathViewController.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* JKSwiftExtensionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKSwiftExtensionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -807,6 +809,7 @@
 			isa = PBXGroup;
 			children = (
 				84BF16CB251DA012002ACE76 /* SmallToolsViewController.swift */,
+				55DDC56E2BA92D1900B7429E /* JKScreenShieldViewViewController.swift */,
 				E24692AC2A1F062700C8B2C8 /* JKAlertViewControllerViewController.swift */,
 				55BD8A072B22FF7E001AD567 /* JKOperatorViewController.swift */,
 				5537F3862B0B4D5500F6BEEC /* JKFileLogViewController.swift */,
@@ -1150,6 +1153,7 @@
 				E277B95B28DF015600DC0319 /* PresetntTwoViewController.swift in Sources */,
 				847D4B452560DF85000DDA3C /* UIBezierPathExtensionViewController.swift in Sources */,
 				84BF16C8251D9FB6002ACE76 /* UIKitExtensionViewController.swift in Sources */,
+				55DDC56F2BA92D1900B7429E /* JKScreenShieldViewViewController.swift in Sources */,
 				8415464525F5BD75007DE673 /* FBArrowTestLabel.swift in Sources */,
 				84F11D6B25DE0DB500209B4C /* NSRangeExtensionViewController.swift in Sources */,
 				E20237AE28B5F98E00F65F61 /* UIAlertController+Extension1.swift in Sources */,
