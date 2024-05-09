@@ -298,7 +298,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     /// - Returns: Array
     func jsonStringToArray() -> Array<Any>? {
         let jsonString = self.base as! String
-        let jsonData:Data = jsonString.data(using: .utf8)!
+        guard let jsonData: Data = jsonString.data(using: .utf8) else { return nil }
         let array = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
         if array != nil {
             return (array as! Array<Any>)
@@ -1671,15 +1671,8 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     /// 是否为0-9之间的数字(字符串的组成是：0-9之间的数字)
     /// - Returns: 返回结果
     public func isValidNumberValue() -> Bool {
-        
         let notDigits = NSCharacterSet.decimalDigits.inverted
         return (base as! String).rangeOfCharacter(from: notDigits, options: String.CompareOptions.literal, range: nil) == nil
-        
-//        guard (base as! String).count > 0 else {
-//            return false
-//        }
-//        let rgex = "^[\\d]*$"
-//        return predicateValue(rgex: rgex)
     }
     
     // MARK: 10.19、是否为数字或者小数点(字符串的组成是：0-9之间的数字或者小数点即可)

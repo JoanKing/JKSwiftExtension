@@ -586,8 +586,9 @@ extension StringExtensionViewController {
     
     // MARK: 10.18、是否为0-9之间的数字(字符串的组成是：0-9之间的数字)
     @objc func test1018() {
-        let testString = "123456"
-        JKPrint("是否为0-9之间的数字(字符串的组成是：0-9之间的数字)", "\(testString) 是否为0-9之间的数字：\(testString.jk.isValidNumberValue())")
+        let testString1 = "123456s"
+        let testString2 = "23"
+        JKPrint("是否为0-9之间的数字(字符串的组成是：0-9之间的数字)", "\(testString1) 是否为0-9之间的数字：\(testString1.jk.isValidNumberValue())", "\(testString2) 是否为0-9之间的数字：\(testString2.jk.isValidNumberValue())")
     }
     
     // MARK: 10.19、是否为数字或者小数点(字符串的组成是：0-9之间的数字或者小数点即可)
