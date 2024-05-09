@@ -50,6 +50,9 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/5611a91f-e083-4c77-8ef8-bdc4a91a13c9" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.6.5、版本(2024.05.09)
+    - 新增String+Extension进制扩展，如：字符串转十六进制字符串、十六进制字符串转换回原始字符串、十六进制字符串转Float、十六进制字符串转Double等等
+    - 修复优化部分部分扩展bug，比如：取消强制解包
   - 2.6.3、版本(2024.03.19)
     - 新增JKScreenShieldView 屏蔽 [录屏, 截屏] 的视图
     - 修复Date针对12小时制转换失败的问题
