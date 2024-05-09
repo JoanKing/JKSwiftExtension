@@ -27,4 +27,21 @@ public extension JKPOP where Base == Data {
     var bytes: [UInt8] {
         return [UInt8](self.base)
     }
+    
+    // MARK: 1.4、Data转十六进制的字符串
+    /// Data转16进制的字符串
+    /// - Parameter data: data
+    /// - Returns: 16进制的字符串
+    var toHexString: String? {
+        let data = self.base
+        let dataBuffer = [UInt8](data)
+        let dataLength = data.count
+        var hexString = ""
+        
+        for i in 0..<dataLength {
+            hexString += String(format: "%02lx", dataBuffer[i])
+        }
+        
+        return hexString
+    }
 }

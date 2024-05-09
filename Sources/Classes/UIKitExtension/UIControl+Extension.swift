@@ -104,7 +104,7 @@ public extension JKPOP where Base: UIControl {
     /// UIControl 添加回调方式
     func addActionHandler(_ action: @escaping ControlClosure, for controlEvents: UIControl.Event = .touchUpInside) {
         self.base.addTarget(self, action: #selector(base.handleAction), for: controlEvents)
-        objc_setAssociatedObject(self, &AssociateKeys.closure, action, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        objc_setAssociatedObject(self.base, &AssociateKeys.closure, action, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
     
 }

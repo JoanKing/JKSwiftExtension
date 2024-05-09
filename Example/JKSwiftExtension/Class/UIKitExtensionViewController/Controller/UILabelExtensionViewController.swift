@@ -14,7 +14,7 @@ class UILabelExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、链式编程", "二、其他的基本扩展", "三、特定区域和特定文字的基本扩展"]
-        dataArray = [["设置文字", "设置文字行数", "设置文字对齐方式", "设置富文本文字", "设置文本颜色", "设置文本颜色（十六进制字符串）", "设置字体的大小", "设置字体的大小", "设置字体的大小（粗体）"], ["获取已知 frame 的 label 的文本行数 & 每一行内容", "获取已知 width 的 label 的文本行数 & 每一行内容", "获取第一行内容", "改变行间距", "改变字间距", "改变字间距和行间距", "添加中划线"], ["设置特定区域的字体大小", "设置特定文字的字体大小", "设置特定区域的字体颜色", "设置特定文字的字体颜色", "设置行间距", "设置特定文字区域的下划线", "设置特定文字的下划线", "设置特定区域的删除线", "设置特定文字的删除线", "插入图片", "首行缩进", "设置特定文字区域的倾斜", "设置特定文字的倾斜"]]
+        dataArray = [["设置文字", "设置文字行数", "设置文字对齐方式", "设置富文本文字", "设置文本颜色", "设置文本颜色（十六进制字符串）", "设置字体的大小", "设置字体的大小", "设置字体的大小（粗体）"], ["获取已知 frame 的 label 的文本行数 & 每一行内容", "获取已知 width 的 label 的文本行数 & 每一行内容", "获取第一行内容", "改变行间距", "改变字间距", "改变字间距和行间距", "添加中划线", "获取已知label 的文本行数 & 每一行内容", "获取字体的大小", "设置行高"], ["设置特定区域的字体大小", "设置特定文字的字体大小", "设置特定区域的字体颜色", "设置特定文字的字体颜色", "设置行间距", "设置特定文字区域的下划线", "设置特定文字的下划线", "设置特定区域的删除线", "设置特定文字的删除线", "插入图片", "首行缩进", "设置特定文字区域的倾斜", "设置特定文字的倾斜"]]
     }
     
     @objc func click(sender: UIButton) {
@@ -263,6 +263,55 @@ extension UILabelExtensionViewController {
 
 // MARK: - 二、其他的基本扩展
 extension UILabelExtensionViewController {
+    // MARK: 2.10、设置行高
+    @objc func test210() {
+        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
+        testLabel.backgroundColor = .brown
+        testLabel.font(12)
+        testLabel.numberOfLines = 0
+        testLabel.text("梅花以它弱小娇艳的身躯，凌寒傲雪，傲然绽放，装点着寂寞荒凉的冬日。这是怎样的一种坚信和执着啊?因为它知道，不经历寒风冬雪的浸染，怎能有朵朵红花的暗香浮动?因为它知道，冬天过去了，春天还会遥远吗?")
+        testLabel.jk.centerLineText(lineValue: 1, underlineColor: .red)
+        self.view.addSubview(testLabel)
+        
+        JKAsyncs.asyncDelay(2, {
+        }) {
+           testLabel.jk.setLineHeight(lineHeight: 30)
+        }
+    }
+    
+    // MARK: 2.09、获取字体的大小
+    @objc func test209() {
+        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
+        testLabel.backgroundColor = .brown
+        testLabel.font(25)
+        testLabel.numberOfLines = 0
+        testLabel.text("梅花以它弱小娇艳的身躯，凌寒傲雪，傲然绽放，装点着寂寞荒凉的冬日。这是怎样的一种坚信和执着啊?因为它知道，不经历寒风冬雪的浸染，怎能有朵朵红花的暗香浮动?因为它知道，冬天过去了，春天还会遥远吗?")
+        testLabel.jk.centerLineText(lineValue: 1, underlineColor: .red)
+        self.view.addSubview(testLabel)
+        
+        JKAsyncs.asyncDelay(3, {
+        }) {
+           let fontSize = testLabel.jk.getFontSizeForLabel()
+            JKPrint("获取字体的大小", "\(fontSize)")
+        }
+    }
+    
+    // MARK: 2.08、获取已知label 的文本行数 & 每一行内容
+    @objc func test208() {
+        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
+        testLabel.backgroundColor = .brown
+        testLabel.font(19)
+        testLabel.numberOfLines = 0
+        testLabel.text("梅花以它弱小娇艳的身躯，凌寒傲雪，傲然绽放，装点着寂寞荒凉的冬日。这是怎样的一种坚信和执着啊?因为它知道，不经历寒风冬雪的浸染，怎能有朵朵红花的暗香浮动?因为它知道，冬天过去了，春天还会遥远吗?")
+        testLabel.jk.centerLineText(lineValue: 1, underlineColor: .red)
+        self.view.addSubview(testLabel)
+        
+        JKAsyncs.asyncDelay(3, {
+        }) {
+           let data = testLabel.jk.linesCountAndLinesContent()
+            JKPrint("获取已知label 的文本行数 & 每一行内容", "\(data)")
+        }
+    }
     
     // MARK: 2.07、label添加中划线
     @objc func test207() {

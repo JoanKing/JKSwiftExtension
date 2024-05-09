@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		551E7E9D2BDB584500C1E7EF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 551E7E972BDB56A100C1E7EF /* Localizable.strings */; };
 		5537F3872B0B4D5500F6BEEC /* JKFileLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5537F3862B0B4D5500F6BEEC /* JKFileLogViewController.swift */; };
 		553FF3782B0EEB3500589AEF /* MapKitTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FF3772B0EEB3500589AEF /* MapKitTestViewController.swift */; };
 		555C223B2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C223A2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift */; };
@@ -199,7 +200,13 @@
 
 /* Begin PBXFileReference section */
 		2FEA1C54E10568E8E6A827CF /* Pods_JKSwiftExtension_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSwiftExtension_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		484863D9DD238F4FD5E44FEF /* JKSwiftExtension.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JKSwiftExtension.podspec; path = ../JKSwiftExtension.podspec; sourceTree = "<group>"; };
+		484863D9DD238F4FD5E44FEF /* JKSwiftExtension.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JKSwiftExtension.podspec; path = ../JKSwiftExtension.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		550EB8EC2BEA2B5F0060C09D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		551E7E982BDB56A100C1E7EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		551E7E992BDB56D800C1E7EF /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		551E7E9A2BDB56F900C1E7EF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		551E7E9B2BDB56F900C1E7EF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		551E7E9C2BDB56FA00C1E7EF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5537F3862B0B4D5500F6BEEC /* JKFileLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKFileLogViewController.swift; sourceTree = "<group>"; };
 		553FF3772B0EEB3500589AEF /* MapKitTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitTestViewController.swift; sourceTree = "<group>"; };
 		555C223A2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabbarExtensionViewController.swift; sourceTree = "<group>"; };
@@ -470,6 +477,8 @@
 				84E922A927AE060D00BC4AA2 /* baby.gif */,
 				8410D02B25DBC98300700FDD /* mebubble@2x.png */,
 				8410D02C25DBC98300700FDD /* yoububble@2x.png */,
+				551E7E972BDB56A100C1E7EF /* Localizable.strings */,
+				550EB8EC2BEA2B5F0060C09D /* PrivacyInfo.xcprivacy */,
 				847DE9542573F0B60080EEC0 /* testFile.text */,
 				8473AAD82562985A00707877 /* pika2.gif */,
 				840F883E256637BE009B73DA /* huaban1.png */,
@@ -979,6 +988,7 @@
 				English,
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
@@ -997,6 +1007,7 @@
 			files = (
 				847DE9552573F0B60080EEC0 /* testFile.text in Resources */,
 				84F9375A2589D4B500A35E77 /* MyStoryboard.storyboard in Resources */,
+				551E7E9D2BDB584500C1E7EF /* Localizable.strings in Resources */,
 				8410D02D25DBC98300700FDD /* mebubble@2x.png in Resources */,
 				8483A730254C0A7F00ACF6FD /* testicon.png in Resources */,
 				8483A72C254BF0AD00ACF6FD /* JKBaseKit.bundle in Resources */,
@@ -1240,10 +1251,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		551E7E972BDB56A100C1E7EF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				551E7E982BDB56A100C1E7EF /* en */,
+				551E7E992BDB56D800C1E7EF /* English */,
+				551E7E9C2BDB56FA00C1E7EF /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				607FACDA1AFB9204008FA782 /* Base */,
+				551E7E9A2BDB56F900C1E7EF /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1252,6 +1274,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				607FACDF1AFB9204008FA782 /* Base */,
+				551E7E9B2BDB56F900C1E7EF /* zh-Hans */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

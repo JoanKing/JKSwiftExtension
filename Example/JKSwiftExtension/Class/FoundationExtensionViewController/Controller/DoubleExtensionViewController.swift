@@ -14,7 +14,7 @@ class DoubleExtensionViewController: BaseViewController {
         super.viewDidLoad()
 
         headDataArray = ["一、Double 与其他类型的转换", "二、其他常用的方法"]
-        dataArray = [["转 Int", "Double 四舍五入转 Int", "转 CGFloat", "转 Int64", "转 Float", "转 String", "转 NSNumber", "转 Double"], ["浮点数四舍五入", "数字金额转换成大写人民币金额"]]
+        dataArray = [["转 Int", "Double 四舍五入转 Int", "转 CGFloat", "转 Int64", "转 Float", "转 String", "转 NSNumber", "转 Double", "Double转十六进制字符串"], ["浮点数四舍五入", "数字金额转换成大写人民币金额"]]
     }
 }
 
@@ -67,6 +67,12 @@ extension DoubleExtensionViewController {
 
 // MARK: - 一、基本的扩展
 extension DoubleExtensionViewController {
+    
+    // MARK: 1.9、Double转十六进制字符串
+    @objc func test109() {
+        let value: Double = 1.290
+        JKPrint("Double转十六进制字符串", "\(value) 转 十六进制字符串 后为 \(value.jk.doubleToHexString)")
+    }
     
     // MARK: 1.08、转 Double
     @objc func test108() {

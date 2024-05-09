@@ -288,7 +288,7 @@ public extension JKPOP where Base: UILabel {
         return dict
     }
     
-    // MARK: 2.8、获取已知label 的文本行数 & 每一行内容
+    // MARK: 2.08、获取已知label 的文本行数 & 每一行内容
     /// 获取已知label 的文本行数 & 每一行内容
     /// - Returns: 每行的内容
     func linesCountAndLinesContent() -> (Int?, [String]?) {
@@ -324,7 +324,7 @@ public extension JKPOP where Base: UILabel {
         return (lineArr.count, lineArr)
     }
     
-    // MARK: 2.9、获取字体的大小
+    // MARK: 2.09、获取字体的大小
     /// 获取字体的大小
     /// - Returns: 字体大小
     func getFontSizeForLabel() -> CGFloat {
@@ -335,6 +335,19 @@ public extension JKPOP where Base: UILabel {
         text.boundingRect(with: base.frame.size, options: NSStringDrawingOptions.usesLineFragmentOrigin, context: context)
         let adjustedFontSize: CGFloat = base.font.pointSize * context.actualScaleFactor
         return adjustedFontSize
+    }
+    
+    // MARK: 2.10、设置行高
+    /// 设置行高
+    /// - Parameter lineHeight: 行高
+    func setLineHeight(lineHeight: CGFloat) {
+        guard let text = base.text else { return }
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineHeight - (base.font.lineHeight - base.font.pointSize)
+        
+        let attributedString = NSMutableAttributedString(string: text)
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedString.length))
+        base.attributedText = attributedString
     }
 }
 

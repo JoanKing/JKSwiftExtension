@@ -41,6 +41,18 @@ public extension JKPOP where Base == Double {
     // MARK: 1.8、转 Double
     /// 转 Double
     var double: Double { return self.base }
+    
+    // MARK: 1.9、Double转十六进制字符串
+    /// Double转十六进制字符串
+    var doubleToHexString: String {
+        var value = self.base
+        let data = withUnsafeBytes(of: &value) { Data($0) }
+        var hexString = ""
+        data.reversed().forEach { byte in
+            hexString.append(String(format: "%02x", byte))
+        }
+        return hexString
+    }
 }
 
 // MARK: - 二、数字的处理

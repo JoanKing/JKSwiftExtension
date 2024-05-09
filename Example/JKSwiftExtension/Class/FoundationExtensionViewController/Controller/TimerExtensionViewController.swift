@@ -66,6 +66,7 @@ extension TimerExtensionViewController {
         timer = Timer(safeTimerWithTimeInterval: 1, repeats: true) { (timer) in
             debugPrint("构造器创建定时器", "a--\(timer)")
         }
+        timer?.fireDate = NSDate.distantFuture
     }
 }
 

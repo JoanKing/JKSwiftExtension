@@ -154,9 +154,9 @@ public extension JKPOP where Base: UIImage {
         if cropRect.size.width <= 0 || cropRect.size.height <= 0 {
             return nil
         }
-        var image:UIImage?
+        var image: UIImage?
         autoreleasepool{
-            let imageRef: CGImage?  = self.base.cgImage!.cropping(to: cropRect)
+            let imageRef: CGImage? = self.base.cgImage!.cropping(to: cropRect)
             if let imageRef = imageRef {
                 image = UIImage(cgImage: imageRef)
             }
@@ -164,7 +164,26 @@ public extension JKPOP where Base: UIImage {
         return image
     }
     
-    // MARK: 1.7、给图片添加文字水印
+    // MARK: 1.7、裁剪中间的size图片
+    /// 裁剪中间的size图片
+    /// - Parameter crop: 中间裁剪的size
+    /// - Returns: 剪裁后的图片
+    func cropCenterSize( _ cropSize: CGSize) -> UIImage? {
+        let cropRect = CGRect(x: (self.base.size.width - cropSize.width) * self.base.scale / 2.0, y: (self.base.size.width - cropSize.width) * self.base.scale / 2.0, width: cropSize.width * self.base.scale, height: cropSize.height *  self.base.scale)
+        if cropRect.size.width <= 0 || cropRect.size.height <= 0 || cropRect.size.width > self.base.size.width || cropRect.size.height > self.base.size.height {
+            return nil
+        }
+        var image: UIImage?
+        autoreleasepool{
+            let imageRef: CGImage? = self.base.cgImage!.cropping(to: cropRect)
+            if let imageRef = imageRef {
+                image = UIImage(cgImage: imageRef)
+            }
+        }
+        return image
+    }
+    
+    // MARK: 1.8、给图片添加文字水印
     /// 给图片添加文字水印
     /// - Parameters:
     ///   - drawTextframe: 水印的 frame
@@ -192,7 +211,7 @@ public extension JKPOP where Base: UIImage {
         return image!
     }
     
-    // MARK: 1.8、添加图片水印
+    // MARK: 1.9、添加图片水印
     /// 添加图片水印
     /// - Parameters:
     ///   - rect: 水印图片的位置
@@ -207,7 +226,7 @@ public extension JKPOP where Base: UIImage {
         return newImage
     }
     
-    // MARK: 1.9、文字图片占位符
+    // MARK: 1.10、文字图片占位符
     /// 文字图片占位符
     /// - Parameters:
     ///   - text: 图片上的文字
@@ -254,7 +273,7 @@ public extension JKPOP where Base: UIImage {
         return image
     }
     
-    // MARK: 1.10、更改图片颜色
+    // MARK: 1.11、更改图片颜色
     /// 更改图片颜色
     /// - Parameters:
     ///   - color: 图片颜色
@@ -283,7 +302,7 @@ public extension JKPOP where Base: UIImage {
         return tintedImage
     }
     
-    // MARK: 1.11、获取图片某一个位置像素的颜色
+    // MARK: 1.12、获取图片某一个位置像素的颜色
     /// 获取图片某一个位置像素的颜色
     /// - Parameter point: 图片上某个点
     /// - Returns: 返回某个点的 UIColor
@@ -307,13 +326,13 @@ public extension JKPOP where Base: UIImage {
         return UIColor(red: r, green: g, blue: b, alpha: a)
     }
     
-    // MARK: 1.12、保存图片到相册
+    // MARK: 1.13、保存图片到相册
     /// 保存图片到相册
     func saveImageToPhotoAlbum(_ result: ((Bool)->())?) {
         self.base.saveToPhotoAlbum(result)
     }
     
-    // MARK: 1.13、保存图片到相册(建议使用这个)
+    // MARK: 1.14、保存图片到相册(建议使用这个)
     /// 保存图片到相册
     func savePhotosImageToAlbum(completion: @escaping ((Bool, Error?) -> Void)) {
         PHPhotoLibrary.shared().performChanges {
@@ -323,7 +342,7 @@ public extension JKPOP where Base: UIImage {
         }
     }
     
-    // MARK: 1.14、图片的模糊效果（高斯模糊滤镜）
+    // MARK: 1.15、图片的模糊效果（高斯模糊滤镜）
     /// 图片的模糊效果（高斯模糊滤镜）
     /// - Parameter fuzzyValue: 设置模糊半径值（越大越模糊）
     /// - Returns: 返回模糊后的图片
@@ -332,7 +351,7 @@ public extension JKPOP where Base: UIImage {
         return blurredPicture(fuzzyValue: fuzzyValue, filterName: "CIGaussianBlur")
     }
     
-    // MARK: 1.15、像素化后的图片
+    // MARK: 1.16、像素化后的图片
     ///像素化后的图片
     /// - Parameter fuzzyValue: 设置模糊半径值（越大越模糊）
     /// - Returns: 返回像素化后的图片
@@ -364,7 +383,7 @@ public extension JKPOP where Base: UIImage {
         return UIImage(cgImage: cgImage)
     }
     
-    // MARK: 1.16、返回一个将白色背景变透明的UIImage
+    // MARK: 1.17、返回一个将白色背景变透明的UIImage
     /// 返回一个将白色背景变透明的UIImage
     /// - Returns: 白色背景变透明的UIImage
     func imageByRemoveWhiteBg() -> UIImage? {
@@ -372,7 +391,7 @@ public extension JKPOP where Base: UIImage {
         return transparentColor(colorMasking: colorMasking)
     }
     
-    // MARK: 1.17、返回一个将黑色背景变透明的UIImage
+    // MARK: 1.18、返回一个将黑色背景变透明的UIImage
     /// 返回一个将黑色背景变透明的UIImage
     /// - Returns: 黑色背景变透明的UIImage
     func imageByRemoveBlackBg() -> UIImage? {

@@ -41,6 +41,18 @@ public extension JKPOP where Base == Float {
     // MARK: 1.8、转 Float
     /// 转 Float
     var float: Float { return self.base }
+    
+    // MARK: 1.9、Float 转十六进制字符串
+    /// Float 转十六进制字符串
+    var floatToHexString: String {
+         var bigEndian = self.base.bitPattern.bigEndian
+         let data = withUnsafeBytes(of: &bigEndian) { Data($0) }
+         var hexString = ""
+         data.forEach { byte in
+             hexString.append(String(format: "%02x", byte))
+         }
+         return hexString
+     }
 }
 
 // MARK: - 二、其他常用的方法

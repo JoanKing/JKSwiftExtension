@@ -14,7 +14,7 @@ class FloatExtensionViewController: BaseViewController {
         super.viewDidLoad()
 
         headDataArray = ["一、Float 与其他类型的转换", "二、其他常用的方法"]
-        dataArray = [["转 Int", "Float四舍五入转Int", "转 CGFloat", "转 Int64", "转 Double", "转 String", "转 NSNumber", "转 Float"], ["浮点数四舍五入", "一个数字四舍五入返回(建议使用这个)"]]
+        dataArray = [["转 Int", "Float四舍五入转Int", "转 CGFloat", "转 Int64", "转 Double", "转 String", "转 NSNumber", "转 Float", "Float转十六进制字符串"], ["浮点数四舍五入", "一个数字四舍五入返回(建议使用这个)"]]
     }
 }
 
@@ -39,6 +39,12 @@ extension FloatExtensionViewController {
 
 // MARK: - 一、基本的扩展
 extension FloatExtensionViewController {
+    
+    // MARK: 1.9、Float转十六进制字符串
+    @objc func test109() {
+        let value: Float = 3.1836
+        JKPrint("Float转十六进制字符串", "\(value) 转 十六进制字符串 后为 \(value.jk.floatToHexString)")
+    }
     
     // MARK: 1.08、转 Float
     @objc func test108() {

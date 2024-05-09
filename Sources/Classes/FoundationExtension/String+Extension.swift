@@ -227,6 +227,12 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         }
         return count
     }
+    
+    // MARK: 1.16、本地化字符串
+    /// 本地化字符串
+    var localized: String {
+        return NSLocalizedString((self.base as! String), comment: "")
+    }
 }
 
 // MARK: - 二、字符串与其他类型(字符串转 UIViewController、AnyClass、数组、字典等)的转换
@@ -279,7 +285,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     /// - Returns: Dictionary
     func jsonStringToDictionary() -> Dictionary<String, Any>? {
         let jsonString = self.base as! String
-        let jsonData: Data = jsonString.data(using: .utf8)!
+        guard let jsonData: Data = jsonString.data(using: .utf8) else { return nil }
         let dict = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
         if dict != nil {
             return (dict as! Dictionary<String, Any>)
@@ -330,7 +336,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK: - 二、沙盒路径的获取
+// MARK: - 三、沙盒路径的获取
 /*
  - 1、Home(应用程序包)目录
  - 整个应用程序各文档所在的目录,包含了所有的资源文件和可执行文件
@@ -357,7 +363,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
  - 保存应用运行时所需要的临时数据，使用完毕后再将相应的文件从该目录删除。应用没有运行，系统也可能会清除该目录下的文件，iTunes不会同步备份该目录
  */
 public extension JKPOP where Base: ExpressibleByStringLiteral {
-    // MARK: 2.1、获取Home的完整路径名
+    // MARK: 3.1、获取Home的完整路径名
     /// 获取Home的完整路径名
     /// - Returns: Home的完整路径名
     static func homeDirectory() -> String {
@@ -366,7 +372,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return homeDirectory
     }
     
-    // MARK: 2.2、获取Documnets的完整路径名
+    // MARK: 3.2、获取Documnets的完整路径名
     /// 获取Documnets的完整路径名
     /// - Returns: Documnets的完整路径名
     static func DocumnetsDirectory() -> String {
@@ -380,7 +386,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return ducumentPath
     }
     
-    // MARK: 2.3、获取Library的完整路径名
+    // MARK: 3.3、获取Library的完整路径名
     /**
      这个目录下有两个子目录：Caches 和 Preferences
      Library/Preferences目录，包含应用程序的偏好设置文件。不应该直接创建偏好设置文件，而是应该使用NSUserDefaults类来取得和设置应用程序的偏好。
@@ -399,7 +405,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return libraryPath
     }
     
-    // MARK: 2.4、获取/Library/Caches的完整路径名
+    // MARK: 3.4、获取/Library/Caches的完整路径名
     /// 获取/Library/Caches的完整路径名
     /// - Returns: /Library/Caches的完整路径名
     static func CachesDirectory() -> String {
@@ -408,7 +414,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return cachesPath
     }
     
-    // MARK: 2.5、获取Library/Preferences的完整路径名
+    // MARK: 3.5、获取Library/Preferences的完整路径名
     /// 获取Library/Preferences的完整路径名
     /// - Returns: Library/Preferences的完整路径名
     static func PreferencesDirectory() -> String {
@@ -417,7 +423,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return preferencesPath
     }
     
-    // MARK: 2.6、获取Tmp的完整路径名
+    // MARK: 3.6、获取Tmp的完整路径名
     /// 获取Tmp的完整路径名，用于存放临时文件，保存应用程序再次启动过程中不需要的信息，重启后清空。
     /// - Returns: Tmp的完整路径名
     static func TmpDirectory() -> String {
@@ -429,7 +435,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK: - 三、iOS CharacterSet（字符集）
+// MARK: - 四、iOS CharacterSet（字符集）
 /**
  CharacterSet是在Foundation框架下的一个结构体，用于搜索操作的一组Unicode字符值。官方的API地址：https://developer.apple.com/documentation/foundation/characterset
  概述
@@ -466,21 +472,21 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
  */
 public extension JKPOP where Base: ExpressibleByStringLiteral {
     
-    // MARK: 3.1、去除字符串前后的 空格 
+    // MARK: 4.1、去除字符串前后的 空格
     /// 去除字符串前后的 空格
     var removeBeginEndAllSapcefeed: String {
         let resultString = (base as! String).trimmingCharacters(in: CharacterSet.whitespaces)
         return resultString
     }
     
-    // MARK: 3.2、去除字符串前后的 换行
+    // MARK: 4.2、去除字符串前后的 换行
     /// 去除字符串前后的 换行
     var removeBeginEndAllLinefeed: String {
         let resultString = (base as! String).trimmingCharacters(in: CharacterSet.newlines)
         return resultString
     }
     
-    // MARK: 3.3、去除字符串前后的 换行和空格
+    // MARK: 4.3、去除字符串前后的 换行和空格
     /// 去除字符串前后的 换行和空格
     var removeBeginEndAllSapceAndLinefeed: String {
         var resultString = (base as! String).trimmingCharacters(in: CharacterSet.whitespaces)
@@ -488,19 +494,19 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return resultString
     }
     
-    // MARK: 3.4、去掉所有空格
+    // MARK: 4.4、去掉所有空格
     /// 去掉所有空格
     var removeAllSapce: String {
         return (base as! String).replacingOccurrences(of: " ", with: "", options: .literal, range: nil)
     }
     
-    // MARK: 3.5、去掉所有换行
+    // MARK: 4.5、去掉所有换行
     /// 去掉所有换行
     var removeAllLinefeed: String {
         return (base as! String).replacingOccurrences(of: "\n", with: "", options: .literal, range: nil)
     }
     
-    // MARK: 3.6、去掉所有空格 和 换行
+    // MARK: 4.6、去掉所有空格 和 换行
     /// 去掉所有的空格 和 换行
     var removeAllLineAndSapcefeed: String {
         // 去除所有的空格
@@ -510,7 +516,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return resultString
     }
     
-    // MARK: 3.7、是否是 0-9 的数字，也不包含小数点
+    // MARK: 4.7、是否是 0-9 的数字，也不包含小数点
     /// 是否是 0-9 的数字，也不包含小数点
     /// - Returns: 结果
     func isValidNumber() -> Bool {
@@ -522,23 +528,23 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return true
     }
     
-    // MARK: 3.8、url进行编码
+    // MARK: 4.8、url进行编码
     /// url 进行编码
     /// - Returns: 返回对应的URL
     func urlEncode() -> String {
-        // 为了不把url中一些特殊字符也进行转换(以%为例)，自己添加到自付集中
+        // 为了不把url中一些特殊字符也进行转换(以%为例)，自己添加到字符集中
         var charSet = CharacterSet.urlQueryAllowed
         charSet.insert(charactersIn: "%")
         return (base as! String).addingPercentEncoding(withAllowedCharacters: charSet) ?? ""
     }
     
-    // MARK: 3.9、url进行解码
+    // MARK: 4.9、url进行解码
     /// url解码
     func urlDecode() -> String {
         return (base as! String).removingPercentEncoding ?? ""
     }
     
-    // MARK: 3.10、某个字符使用某个字符替换掉
+    // MARK: 4.10、某个字符使用某个字符替换掉
     /// 某个字符使用某个字符替换掉
     /// - Parameters:
     ///   - removeString: 原始字符
@@ -548,7 +554,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return (base as! String).replacingOccurrences(of: removeString, with: replacingString)
     }
     
-    //MARK: 3.11、字符串指定range替换
+    //MARK: 4.11、字符串指定range替换
     /// 字符串指定range替换
     /// - Parameters:
     ///   - range: range
@@ -558,7 +564,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return ((base as! String) as NSString).replacingCharacters(in: range, with: replacingString)
     }
     
-    // MARK: 3.12、使用正则表达式替换某些子串
+    // MARK: 4.12、使用正则表达式替换某些子串
     /// 使用正则表达式替换
     /// - Parameters:
     ///   - pattern: 正则
@@ -573,7 +579,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
                                               withTemplate: with)
     }
     
-    // MARK: 3.13、删除指定的字符
+    // MARK: 4.13、删除指定的字符
     /// 删除指定的字符
     /// - Parameter characterString: 指定的字符
     /// - Returns: 返回删除后的字符
@@ -583,10 +589,10 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK: - 四、字符串的转换
+// MARK: - 五、字符串的转换
 public extension JKPOP where Base: ExpressibleByStringLiteral {
     
-    // MARK: 4.1、字符串 转 CGFloat
+    // MARK: 5.1、字符串 转 CGFloat
     /// 字符串 转 Float
     /// - Returns: CGFloat
     func toCGFloat() -> CGFloat? {
@@ -596,7 +602,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return nil
     }
     
-    // MARK: 4.2、字符串转 Bool
+    // MARK: 5.2、字符串转 Bool
     /// 字符串转 Bool
     /// - Returns: Bool
     func toBool() -> Bool? {
@@ -610,7 +616,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         }
     }
     
-    // MARK: 4.3、字符串转 Int
+    // MARK: 5.3、字符串转 Int
     /// 字符串转 Int
     /// - Returns: Int
     func toInt() -> Int? {
@@ -618,14 +624,14 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return Int(doubleValue)
     }
     
-    // MARK: 4.4、字符串转 Double
+    // MARK: 5.4、字符串转 Double
     /// 字符串转 Double
     /// - Returns: Double
     func toDouble() -> Double? {
         return Double(base as! String)
     }
     
-    // MARK: 4.5、字符串转通过NSDecimalNumberHandler转Double
+    // MARK: 5.5、字符串转通过NSDecimalNumberHandler转Double
     /// 字符串转通过NSDecimalNumberHandler转Double
     /// - Returns: Double
     func toDecimalDouble(roundingMode: NSDecimalNumber.RoundingMode = .plain, scale: Int16 = 2) -> Double? {
@@ -637,32 +643,32 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         }
     }
     
-    // MARK: 4.5、字符串转 Float
+    // MARK: 5.6、字符串转 Float
     /// 字符串转 Float
     /// - Returns: Float
     func toFloat() -> Float? {
        return Float(base as! String)
     }
     
-    // MARK: 4.6、字符串转 NSString
+    // MARK: 5.7、字符串转 NSString
     /// 字符串转 NSString
     var toNSString: NSString {
         return (base as! String) as NSString
     }
     
-    // MARK: 4.7、字符串转 Int64
+    // MARK: 5.8、字符串转 Int64
     /// 字符串转 Int64
     var toInt64Value: Int64? {
         return Int64(base as! String)
     }
     
-    // MARK: 4.8、字符串转 NSNumber
+    // MARK: 5.9、字符串转 NSNumber
     /// 字符串转 NSNumber
     var toNumber: NSNumber? {
         return self.toDouble()?.jk.number
     }
     
-    //MARK: 4.9、数字金额转换成大写人民币金额
+    //MARK: 5.10、数字金额转换成大写人民币金额
     /// 数字金额转换成大写人民币金额
     /// - Parameters:
     ///   - scale: 保留小数位数
@@ -793,7 +799,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         }
     }
     
-    //MARK: 4.10、大写的金额转数字金额
+    //MARK: 5.11、大写的金额转数字金额
     /// 大写的金额转数字金额
     func rMBConvertChineseNumber() -> String? {
         var content = base as! String
@@ -999,10 +1005,10 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK: - 五、字符串UI的处理
+// MARK: - 六、字符串UI的处理
 extension JKPOP where Base: ExpressibleByStringLiteral {
     
-    // MARK: 5.1、对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)
+    // MARK: 6.1、对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)
     /// 对字符串(多行)指定出字体大小和最大的 Size，获取展示的 Size
     /// - Parameters:
     ///   - font: 字体大小
@@ -1022,7 +1028,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return rect.size
     }
     
-    // MARK: 5.2、对字符串(多行)指定字体及Size，获取 (高度)
+    // MARK: 6.2、对字符串(多行)指定字体及Size，获取 (高度)
     /// 对字符串指定字体及Size，获取 (高度)
     /// - Parameters:
     ///   - font: 字体的大小
@@ -1032,7 +1038,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return rectSize(font: font, size: size).height
     }
     
-    // MARK: 5.3、对字符串(多行)指定字体及Size，获取 (宽度)
+    // MARK: 6.3、对字符串(多行)指定字体及Size，获取 (宽度)
     /// 对字符串指定字体及Size，获取 (宽度)
     /// - Parameters:
     ///   - font: 字体的大小
@@ -1042,7 +1048,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return rectSize(font: font, size: size).width
     }
     
-    // MARK: 5.4、对字符串(单行)指定字体，获取 (Size)
+    // MARK: 6.4、对字符串(单行)指定字体，获取 (Size)
     /// 对字符串(单行)指定字体，获取 (Size)
     /// - Parameter font: 字体的大小
     /// - Returns: 返回单行字符串的 size
@@ -1051,7 +1057,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return (base as! String).size(withAttributes: attrs as [NSAttributedString.Key: Any])
     }
     
-    // MARK: 5.5、对字符串(单行)指定字体，获取 (width)
+    // MARK: 6.5、对字符串(单行)指定字体，获取 (width)
     /// 对字符串(单行)指定字体，获取 (width)
     /// - Parameter font: 字体的大小
     /// - Returns: 返回单行字符串的 width
@@ -1060,7 +1066,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return (base as! String).size(withAttributes: attrs as [NSAttributedString.Key: Any]).width
     }
     
-    // MARK: 5.6、对字符串(单行)指定字体，获取 (Height)
+    // MARK: 6.6、对字符串(单行)指定字体，获取 (Height)
     /// 对字符串(单行)指定字体，获取 (height)
     /// - Parameter font: 字体的大小
     /// - Returns: 返回单行字符串的 height
@@ -1069,7 +1075,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return (base as! String).size(withAttributes: attrs as [NSAttributedString.Key: Any]).height
     }
     
-    // MARK: 5.7、字符串通过 label 根据高度&字体 —> Size
+    // MARK: 6.7、字符串通过 label 根据高度&字体 —> Size
     /// 字符串通过 label 根据高度&字体 ——> Size
     /// - Parameters:
     ///   - height: 字符串最大的高度
@@ -1082,7 +1088,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return label.sizeThatFits(rect.size)
     }
     
-    // MARK: 5.8、字符串通过 label 根据高度&字体 —> Width
+    // MARK: 6.8、字符串通过 label 根据高度&字体 —> Width
     /// 字符串通过 label 根据高度&字体 ——> Width
     /// - Parameters:
     ///   - height: 字符串最大高度
@@ -1095,7 +1101,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return label.sizeThatFits(rect.size).width
     }
     
-    // MARK: 5.9、字符串通过 label 根据宽度&字体 —> height
+    // MARK: 6.9、字符串通过 label 根据宽度&字体 —> height
     /// 字符串通过 label 根据宽度&字体 ——> height
     /// - Parameters:
     ///   - width: 字符串最大宽度
@@ -1108,7 +1114,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return label.sizeThatFits(rect.size).height
     }
     
-    // MARK: 5.10、字符串根据宽度 & 字体 & 行间距 —> Size
+    // MARK: 6.10、字符串根据宽度 & 字体 & 行间距 —> Size
     /// 字符串根据宽度 & 字体 & 行间距 ——> Size
     /// - Parameters:
     ///   - width: 字符串最大的宽度
@@ -1128,7 +1134,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return label.sizeThatFits(rect.size)
     }
     
-    // MARK: 5.11、字符串根据宽度 & 字体 & 行间距 —> width
+    // MARK: 6.11、字符串根据宽度 & 字体 & 行间距 —> width
     /// 字符串根据宽度 & 字体 & 行间距 ——> width
     /// - Parameters:
     ///   - width: 字符串最大的宽度
@@ -1148,7 +1154,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return label.sizeThatFits(rect.size).width
     }
     
-    // MARK: 5.12、字符串根据宽度 & 字体 & 行间距 —> height
+    // MARK: 6.12、字符串根据宽度 & 字体 & 行间距 —> height
     /// 字符串根据宽度 & 字体 & 行间距 ——> height
     /// - Parameters:
     ///   - width: 字符串最大的宽度
@@ -1169,14 +1175,14 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK: - 六、字符串有关数字方面的扩展
+// MARK: - 七、字符串有关数字方面的扩展
 public enum StringCutType {
     case normal, auto
 }
 
 public extension JKPOP where Base: ExpressibleByStringLiteral {
     
-    // MARK: 6.1、将金额字符串转化为带逗号的金额 按照千分位划分，如  "1234567" => 1,234,567   1234567.56 => 1,234,567.56
+    // MARK: 7.1、将金额字符串转化为带逗号的金额 按照千分位划分，如  "1234567" => 1,234,567   1234567.56 => 1,234,567.56
     /// 将金额字符串转化为带逗号的金额 按照千分位划分，如  "1234567" => 1,234,567   1234567.56 => 1,234,567.56
     /// - Returns: 千分位的字符串
     func toThousands() -> String? {
@@ -1198,7 +1204,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return result
     }
     
-    // MARK: 6.2、字符串差不多精确转换成Double——之所以差不多，是因为有精度损失
+    // MARK: 7.2、字符串差不多精确转换成Double——之所以差不多，是因为有精度损失
     /// - Important: 字符串差不多精确转换成Double——之所以差不多，是因为有精度损失
     func accuraterDouble() -> Double? {
         guard let decimal = Decimal(string: (base as! String)) else { return nil }
@@ -1206,7 +1212,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return NSDecimalNumber(decimal: decimal).doubleValue
     }
     
-    // MARK: 6.3、去掉小数点后多余的0
+    // MARK: 7.3、去掉小数点后多余的0
     /// 去掉小数点后多余的0
     /// - Returns: 返回小数点后没有 0 的金额
     func cutLastZeroAfterDot() -> String {
@@ -1230,7 +1236,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         }
     }
     
-    // MARK: 6.4、将数字的字符串处理成  几位 位小数的情况
+    // MARK: 7.4、将数字的字符串处理成  几位 位小数的情况
     /// 将数字的字符串处理成  几位 位小数的情况
     /// - Parameters:
     ///   - numberDecimal: 保留几位小数
@@ -1268,7 +1274,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK: - 七、苹果针对浮点类型计算精度问题提供出来的计算类
+// MARK: - 八、苹果针对浮点类型计算精度问题提供出来的计算类
 /// NSDecimalNumberHandler 苹果针对浮点类型计算精度问题提供出来的计算类
 /**
  初始化方法
@@ -1288,7 +1294,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
  }
  */
 extension JKPOP where Base: ExpressibleByStringLiteral {
-    // MARK: 7.1、(加：＋)
+    // MARK: 8.1、(加：＋)
     /// (加：＋)
     /// - Parameter strNumber: strNumber description
     /// - Returns: description
@@ -1305,7 +1311,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return final.stringValue
     }
     
-    // MARK: 7.2、(减：-)
+    // MARK: 8.2、(减：-)
     /// (减：-)
     /// - Parameter strNumber: strNumber description
     /// - Returns: description
@@ -1322,7 +1328,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return final.stringValue
     }
     
-    // MARK: 7.3、(乘：*)
+    // MARK: 8.3、(乘：*)
     /// (乘：*)
     /// - Parameter strNumber: strNumber description
     /// - Returns: description
@@ -1339,7 +1345,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return final.stringValue
     }
     
-    // MARK: 7.4、(除：/)
+    // MARK: 8.4、(除：/)
     /// (除：/)
     /// - Parameter strNumber: strNumber description
     /// - Returns: description
@@ -1360,10 +1366,10 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK: - 八、字符串包含表情的处理
+// MARK: - 九、字符串包含表情的处理
 extension JKPOP where Base: ExpressibleByStringLiteral {
     
-    // MARK: 8.1、检查字符串是否包含 Emoji 表情
+    // MARK: 9.1、检查字符串是否包含 Emoji 表情
     /// 检查字符串是否包含 Emoji 表情
     /// - Returns: bool
     public func containsEmoji() -> Bool {
@@ -1383,7 +1389,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return false
     }
     
-    // MARK: 8.2、检查字符串是否包含 Emoji 表情
+    // MARK: 9.2、检查字符串是否包含 Emoji 表情
     /// 检查字符串是否包含 Emoji 表情
     /// - Returns: bool
     public func includesEmoji() -> Bool {
@@ -1398,7 +1404,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return isInClude
     }
     
-    // MARK: 8.3、去除字符串中的Emoji表情
+    // MARK: 9.3、去除字符串中的Emoji表情
     /// 去除字符串中的Emoji表情
     /// - Parameter text: 字符串
     /// - Returns: 去除Emoji表情后的字符串
@@ -1416,16 +1422,16 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK: - 九、字符串的一些正则校验
+// MARK: - 十、字符串的一些正则校验
 extension JKPOP where Base: ExpressibleByStringLiteral {
     
-    // MARK: 9.1、判断是否全是空白,包括空白字符和换行符号，长度为0返回true
+    // MARK: 10.1、判断是否全是空白,包括空白字符和换行符号，长度为0返回true
     /// 判断是否全是空白,包括空白字符和换行符号，长度为0返回true
     public var isBlank: Bool {
         return (base as! String).trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines) == ""
     }
     
-    // MARK: 9.2、判断是否全十进制数字，长度为0返回false
+    // MARK: 10.2、判断是否全十进制数字，长度为0返回false
     /// 判断是否全十进制数字，长度为0返回false
     public var isDecimalDigits: Bool {
         if (base as! String).isEmpty {
@@ -1435,7 +1441,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return (base as! String).trimmingCharacters(in: NSCharacterSet.decimalDigits) == ""
     }
     
-    // MARK: 9.3、判断是否是整数
+    // MARK: 10.3、判断是否是整数
     /// 判断是否是整数
     public var isPureInt: Bool {
         let scan: Scanner = Scanner(string: (base as! String))
@@ -1443,7 +1449,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return scan.scanInt(&n) && scan.isAtEnd
     }
     
-    // MARK: 9.4、判断是否是Float,此处Float是包含Int的，即Int是特殊的Float
+    // MARK: 10.4、判断是否是Float,此处Float是包含Int的，即Int是特殊的Float
     /// 判断是否是Float，此处Float是包含Int的，即Int是特殊的Float
     public var isPureFloat: Bool {
         let scan: Scanner = Scanner(string: (base as! String))
@@ -1451,7 +1457,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return scan.scanFloat(&n) && scan.isAtEnd
     }
     
-    // MARK: 9.5、判断是否全是字母，长度为0返回false
+    // MARK: 10.5、判断是否全是字母，长度为0返回false
     /// 判断是否全是字母，长度为0返回false
     public var isLetters: Bool {
         if (base as! String).isEmpty {
@@ -1460,42 +1466,42 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return (base as! String).trimmingCharacters(in: NSCharacterSet.letters) == ""
     }
     
-    // MARK: 9.6、判断是否是中文, 这里的中文不包括数字及标点符号
+    // MARK: 10.6、判断是否是中文, 这里的中文不包括数字及标点符号
     /// 判断是否是中文, 这里的中文不包括数字及标点符号
     public var isChinese: Bool {
         let rgex = "(^[\u{4e00}-\u{9fef}]+$)"
         return predicateValue(rgex: rgex)
     }
     
-    // MARK: 9.7、是否是有效昵称，即允许“中文”、“英文”、“数字”
+    // MARK: 10.7、是否是有效昵称，即允许“中文”、“英文”、“数字”
     /// 是否是有效昵称，即允许“中文”、“英文”、“数字”
     public var isValidNickName: Bool {
         let rgex = "(^[\u{4e00}-\u{9faf}_a-zA-Z0-9]+$)"
         return predicateValue(rgex: rgex)
     }
     
-    // MARK: 9.8、判断是否是有效的手机号码
+    // MARK: 10.8、判断是否是有效的手机号码
     /// 判断是否是有效的手机号码
     public var isValidMobile: Bool {
         let rgex = "^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199)\\d{8}$"
         return predicateValue(rgex: rgex)
     }
     
-    // MARK: 9.9、判断是否是有效的电子邮件地址
+    // MARK: 10.9、判断是否是有效的电子邮件地址
     /// 判断是否是有效的电子邮件地址
     public var isValidEmail: Bool {
         let rgex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
         return predicateValue(rgex: rgex)
     }
     
-    // MARK: 9.10、判断是否有效的身份证号码，不是太严格
+    // MARK: 10.10、判断是否有效的身份证号码，不是太严格
     /// 判断是否有效的身份证号码，不是太严格
     public var isValidIDCardNumber: Bool {
         let rgex = "^(\\d{15})|((\\d{17})(\\d|[X]))$"
         return predicateValue(rgex: rgex)
     }
     
-    // MARK: 9.11、严格判断是否有效的身份证号码,检验了省份，生日，校验位，不过没检查市县的编码
+    // MARK: 10.11、严格判断是否有效的身份证号码,检验了省份，生日，校验位，不过没检查市县的编码
     /// 严格判断是否有效的身份证号码,检验了省份，生日，校验位，不过没检查市县的编码
     public var isValidIDCardNumStrict: Bool {
         let str = (base as! String).trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
@@ -1576,7 +1582,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         }
     }
     
-    // MARK: 9.12、校验字符串位置是否合理，并返回String.Index
+    // MARK: 10.12、校验字符串位置是否合理，并返回String.Index
     /// 校验字符串位置是否合理，并返回String.Index
     /// - Parameter original: 位置
     /// - Returns: String.Index
@@ -1591,7 +1597,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         }
     }
     
-    // MARK: 9.13、隐藏手机号中间的几位
+    // MARK: 10.13、隐藏手机号中间的几位
     /// 隐藏手机号中间的几位
     /// - Parameter combine: 隐藏的字符串(替换的类型)
     /// - Returns: 返回隐藏的手机号
@@ -1605,7 +1611,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         }
     }
     
-    // MARK: 9.14、隐藏手机号中间的几位(保留前几位和后几位)
+    // MARK: 10.14、隐藏手机号中间的几位(保留前几位和后几位)
     /// 隐藏手机号中间的几位(保留前几位和后几位)
     /// - Parameters:
     ///   - combine: 中间加密的符号
@@ -1628,7 +1634,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         }
     }
     
-    // MARK: 9.15、隐藏邮箱中间的几位(保留前几位和后几位)
+    // MARK: 10.15、隐藏邮箱中间的几位(保留前几位和后几位)
     /// 隐藏邮箱中间的几位(保留前几位和后几位)
     /// - Parameters:
     ///   - combine: 加密的符号
@@ -1645,7 +1651,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return (base as! String)
     }
     
-    // MARK: 9.16、检查字符串是否有特定前缀：hasPrefix
+    // MARK: 10.16、检查字符串是否有特定前缀：hasPrefix
     /// 检查字符串是否有特定前缀：hasPrefix
     /// - Parameter prefix: 前缀字符串
     /// - Returns: 结果
@@ -1653,7 +1659,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return (base as! String).hasPrefix(prefix)
     }
     
-    // MARK: 9.17、检查字符串是否有特定后缀：hasSuffix
+    // MARK: 10.17、检查字符串是否有特定后缀：hasSuffix
     /// 检查字符串是否有特定后缀：hasSuffix
     /// - Parameter suffix: 后缀字符串
     /// - Returns: 结果
@@ -1661,18 +1667,22 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return (base as! String).hasSuffix(suffix)
     }
     
-    // MARK: 9.18、是否为0-9之间的数字(字符串的组成是：0-9之间的数字)
+    // MARK: 10.18、是否为0-9之间的数字(字符串的组成是：0-9之间的数字)
     /// 是否为0-9之间的数字(字符串的组成是：0-9之间的数字)
     /// - Returns: 返回结果
     public func isValidNumberValue() -> Bool {
-        guard (base as! String).count > 0 else {
-            return false
-        }
-        let rgex = "^[\\d]*$"
-        return predicateValue(rgex: rgex)
+        
+        let notDigits = NSCharacterSet.decimalDigits.inverted
+        return (base as! String).rangeOfCharacter(from: notDigits, options: String.CompareOptions.literal, range: nil) == nil
+        
+//        guard (base as! String).count > 0 else {
+//            return false
+//        }
+//        let rgex = "^[\\d]*$"
+//        return predicateValue(rgex: rgex)
     }
     
-    // MARK: 9.19、是否为数字或者小数点(字符串的组成是：0-9之间的数字或者小数点即可)
+    // MARK: 10.19、是否为数字或者小数点(字符串的组成是：0-9之间的数字或者小数点即可)
     /// 是否为数字或者小数点(字符串的组成是：0-9之间的数字或者小数点即可)
     /// - Returns: 返回结果
     public func isValidNumberAndDecimalPoint() -> Bool {
@@ -1683,7 +1693,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return predicateValue(rgex: rgex)
     }
     
-    // MARK: 9.20、验证URL格式是否正确
+    // MARK: 10.20、验证URL格式是否正确
     /// 验证URL格式是否正确
     /// - Returns: 结果
     public func verifyUrl() -> Bool {
@@ -1695,13 +1705,13 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return false
     }
     
-    // MARK: 9.21、是否是一个有效的文件URL, "file://Documents/file.txt".isValidFileUrl -> true
+    // MARK: 10.21、是否是一个有效的文件URL, "file://Documents/file.txt".isValidFileUrl -> true
     /// 是否是一个有效的文件URL
     public var isValidFileUrl: Bool {
         return URL(string: base as! String)?.isFileURL ?? false
     }
     
-    // MARK: 9.22、富文本匹配(某些关键词高亮)
+    // MARK: 10.22、富文本匹配(某些关键词高亮)
     /// 富文本匹配(某些关键词高亮)
     /// - Parameters:
     ///   - substring: 匹配的关键字
@@ -1731,7 +1741,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return attributedString
     }
     
-    //MARK: 9.23、判断是否是视频链接
+    //MARK: 10.23、判断是否是视频链接
     /// 判断是否是视频链接
     public var isVideoUrl: Bool {
         let videoUrls = ["mp4", "MP4", "MOV", "mov", "mpg", "mpeg", "mpg4", "wm", "wmx", "mkv", "mkv2", "3gp", "3gpp", "wv", "wvx", "avi", "asf", "fiv", "swf", "flv", "f4v", "m4u", "m4v", "mov", "movie", "pvx", "qt", "rv", "vod", "rm", "ram", "rmvb"]
@@ -1753,10 +1763,10 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK: - 十、字符串截取的操作
+// MARK: - 十一、字符串截取的操作
 extension JKPOP where Base: ExpressibleByStringLiteral {
     
-    // MARK: 10.1、截取字符串从开始到 index
+    // MARK: 11.1、截取字符串从开始到 index
     /// 截取字符串从开始到 index
     /// - Parameter index: 截取到的位置
     /// - Returns: 截取后的字符串
@@ -1765,7 +1775,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return String((base as! String)[(base as! String).startIndex ..< end_Index])
     }
     
-    // MARK: 10.2、截取字符串从index到结束
+    // MARK: 11.2、截取字符串从index到结束
     /// 截取字符串从index到结束
     /// - Parameter index: 截取结束的位置
     /// - Returns: 截取后的字符串
@@ -1774,7 +1784,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return String((base as! String)[start_index ..< (base as! String).endIndex])
     }
     
-    // MARK: 10.3、获取指定位置和长度的字符串
+    // MARK: 11.3、获取指定位置和长度的字符串
     /// 获取指定位置和大小的字符串
     /// - Parameters:
     ///   - start: 开始位置
@@ -1791,7 +1801,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return String((base as! String)[range]) // .substring(with:range)
     }
     
-    // MARK: 10.4、切割字符串(区间范围 前闭后开)
+    // MARK: 11.4、切割字符串(区间范围 前闭后开)
     /**
      CountableClosedRange：可数的闭区间，如 0...2
      CountableRange：可数的开区间，如 0..<2
@@ -1815,7 +1825,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return String((base as! String)[startIndex ..< endIndex])
     }
     
-    // MARK: 10.5、子字符串第一次出现的位置
+    // MARK: 11.5、子字符串第一次出现的位置
     /// 子字符串第一次出现的位置
     /// - Parameter sub: 子字符串
     /// - Returns: 返回字符串的位置（如果内部不存在该字符串则返回 -1）
@@ -1823,7 +1833,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return position(of: sub)
     }
     
-    // MARK: 10.6、子字符串最后一次出现的位置
+    // MARK: 11.6、子字符串最后一次出现的位置
     /// 子字符串第一次出现的位置
     /// - Parameter sub: 子字符串
     /// - Returns: 返回字符串的位置（如果内部不存在该字符串则返回 -1）
@@ -1846,7 +1856,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return pos
     }
     
-    // MARK: 10.7、获取某个位置的字符串
+    // MARK: 11.7、获取某个位置的字符串
     /// 获取某个位置的字符串
     /// - Parameter index: 位置
     /// - Returns: 某个位置的字符串
@@ -1854,7 +1864,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return slice((index ..< index + 1))
     }
     
-    // MARK: 10.8、获取某个子串在父串中的范围->Range
+    // MARK: 11.8、获取某个子串在父串中的范围->Range
     /// 获取某个子串在父串中的范围->Range
     /// - Parameter str: 子串
     /// - Returns: 某个子串在父串中的范围
@@ -1862,7 +1872,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return (base as! String).range(of: subString)
     }
     
-    // MARK: 10.9、获取某个子串在父串中的范围->[NSRange]
+    // MARK: 11.9、获取某个子串在父串中的范围->[NSRange]
     /// 获取某个子串在父串中的范围->NSRange
     /// - Parameter str: 子串
     /// - Returns: 某个子串在父串中的范围
@@ -1874,7 +1884,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return JKRegexHelper.matchRange(base as! String, pattern: subString)
     }
     
-    // MARK: 10.10、在任意位置后面插入字符串
+    // MARK: 11.10、在任意位置后面插入字符串
     /// 在任意位置后面插入字符串
     /// - Parameters:
     ///   - content: 插入内容
@@ -1889,7 +1899,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return str1 + content + str2
     }
     
-    //MARK: 10.11、匹配两个字符之间的内容
+    //MARK: 11.11、匹配两个字符之间的内容
     /// 匹配两个字符之间的内容
     /// - Parameters:
     ///   - leftChar: 左边的字符
@@ -1915,7 +1925,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         }
     }
     
-    //MARK: 10.12、字符串按照步长拆分为字符串数组
+    //MARK: 11.12、字符串按照步长拆分为字符串数组
     /// 字符串拆分为字符串数组
     /// - Parameter length: 步长
     /// - Returns: description
@@ -1939,13 +1949,13 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return subStrings
     }
     
-    // MARK: 10.13、字符串长度不足前面补0
+    // MARK: 11.13、字符串长度不足前面补0
     /// 字符串长度不足前面补0
     public func prefixAddZero(_ length: Int) -> String {
         return insufficientLengthAdZero(length)
     }
     
-    // MARK: 10.14、字符串长度不足后面补0
+    // MARK: 11.14、字符串长度不足后面补0
     /// 字符串长度不足后面补0
     public func suffixAddZero(_ length: Int) -> String {
         return insufficientLengthAdZero(length, isPrefixAddZer: false)
@@ -1963,17 +1973,17 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK: - 十一、字符串编码的处理
+// MARK: - 十二、字符串编码的处理
 extension JKPOP where Base: ExpressibleByStringLiteral {
     
-    // MARK: 11.1、特殊字符编码处理urlEncoded
+    // MARK: 12.1、特殊字符编码处理urlEncoded
     /// url编码 默认urlQueryAllowed
     public func urlEncoding(characters: CharacterSet = .urlQueryAllowed) -> String {
         let encodeUrlString = (base as! String).addingPercentEncoding(withAllowedCharacters: characters)
         return encodeUrlString ?? ""
     }
     
-    // MARK: 11.2、url编码 Alamofire AFNetworking 处理方式 推荐使用
+    // MARK: 12.2、url编码 Alamofire AFNetworking 处理方式 推荐使用
     /// url编码 Alamofire AFNetworking 处理方式 推荐使用
     public var urlEncoded: String {
         // does not include "?" or "/" due to RFC 3986 - Section 3.4
@@ -1987,7 +1997,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return encodeUrlString ?? ""
     }
     
-    // MARK: 11.3、url编码 会对所有特殊字符做编码  特殊情况下使用
+    // MARK: 12.3、url编码 会对所有特殊字符做编码  特殊情况下使用
     /// url编码 会对所有特殊字符做编码  特殊情况下使用
     public var urlAllEncoded: String {
         let generalDelimitersToEncode = ":#[]@" // does not include "?" or "/" due to RFC 3986 - Section 3.4
@@ -2001,7 +2011,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK: - 十二、进制之间的转换
+// MARK: - 十三、进制之间的转换
 /*
  Binary：      二进制
  Octal：       八进制
@@ -2010,7 +2020,7 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
  */
 public extension JKPOP where Base: ExpressibleByStringLiteral {
     
-    // MARK: 12.1、二进制 -> 八进制
+    // MARK: 13.1、二进制 -> 八进制
     /// 二进制 ->转 八进制
     /// - Returns: 八进制
     func binaryToOctal() -> String {
@@ -2022,7 +2032,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return decimal.jk.decimalToOctal()
     }
     
-    // MARK: 12.2、二进制 -> 十进制
+    // MARK: 13.2、二进制 -> 十进制
     /// 二进制 -> 十进制
     /// - Returns: 十进制
     func binaryTodecimal() -> String {
@@ -2036,7 +2046,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return "\(sum)"
     }
     
-    // MARK: 12.3、二进制 转 十六进制
+    // MARK: 13.3、二进制 转 十六进制
     /// 二进制  ->  十六进制
     /// - Returns: 十六进制
     func binaryToHexadecimal() -> String {
@@ -2048,7 +2058,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return decimal.jk.decimalToHexadecimal()
     }
     
-    // MARK: 12.4、八进制 -> 二进制
+    // MARK: 13.4、八进制 -> 二进制
     /// 八进制 -> 二进制
     /// - Returns: 二进制
     func octalTobinary() -> String {
@@ -2060,7 +2070,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return decimal.jk.decimalToBinary()
     }
     
-    // MARK: 12.5、八进制 -> 十进制
+    // MARK: 13.5、八进制 -> 十进制
     /// 八进制 -> 十进制
     /// - Returns: 十进制
     func octalTodecimal() -> String {
@@ -2074,7 +2084,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return "\(sum)"
     }
     
-    // MARK: 12.6、八进制 -> 十六进制
+    // MARK: 13.6、八进制 -> 十六进制
     /// 八进制 -> 十六进制
     /// - Returns: 十六进制
     func octalToHexadecimal() -> String {
@@ -2086,7 +2096,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return decimal.jk.decimalToHexadecimal()
     }
     
-    // MARK: 12.7、十进制 -> 二进制
+    // MARK: 13.7、十进制 -> 二进制
     /// 十进制 -> 二进制
     /// - Returns: 二进制
     func decimalToBinary() -> String {
@@ -2101,7 +2111,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return str
     }
     
-    // MARK: 12.8、十进制 -> 八进制
+    // MARK: 13.8、十进制 -> 八进制
     /// 十进制 -> 八进制
     /// - Returns: 八进制
     func decimalToOctal() -> String {
@@ -2122,7 +2132,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return String(format: "%0O", decimal)
     }
     
-    // MARK: 12.9、十进制 -> 十六进制
+    // MARK: 13.9、十进制 -> 十六进制
     /// 十进制 -> 十六进制
     /// - Returns: 十六进制
     func decimalToHexadecimal() -> String {
@@ -2132,7 +2142,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return String(format: "%0X", decimal)
     }
     
-    // MARK: 12.10、十六进制 -> 二进制
+    // MARK: 13.10、十六进制 -> 二进制
     /// 十六进制  -> 二进制
     /// - Returns: 二进制
     func hexadecimalToBinary() -> String {
@@ -2144,7 +2154,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return decimal.jk.decimalToBinary()
     }
     
-    // MARK: 12.11、十六进制 -> 八进制
+    // MARK: 13.11、十六进制 -> 八进制
     /// 十六进制  -> 八进制
     /// - Returns: 八进制
     func hexadecimalToOctal() -> String {
@@ -2156,7 +2166,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return decimal.jk.decimalToOctal()
     }
     
-    // MARK: 12.12、十六进制 -> 十进制
+    // MARK: 13.12、十六进制 -> 十进制
     /// 十六进制  -> 十进制
     /// - Returns: 十进制
     func hexadecimalToDecimal() -> String {
@@ -2172,12 +2182,113 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         }
         return "\(sum)"
     }
+    
+    // MARK: 13.13、字符串转十六进制字符串
+    /// 字符串转十六进制字符串
+    /// - Returns: 十六进制字符串
+    func hexString() -> String? {
+        guard let data = (self.base as! String).data(using: .utf8) else {
+            return nil
+        }
+        
+        let dataBuffer = [UInt8](data)
+        let dataLength = data.count
+        var hexString = ""
+        
+        for i in 0..<dataLength {
+            hexString += String(format: "%02lx", dataBuffer[i])
+        }
+        
+        return hexString
+    }
+
+    // MARK: 13.14、十六进制字符串转换回原始字符串
+    /// 十六进制字符串转换回原始字符串
+    /// - Returns: 原始字符串
+    func stringFromHexString() -> String? {
+        var hex = self.base as! String
+        var string = ""
+        
+        while !hex.isEmpty {
+            let startIndex = hex.startIndex
+            let endIndex = hex.index(startIndex, offsetBy: 2)
+            
+            if let byte = UInt8(hex[startIndex..<endIndex], radix: 16) {
+                string.append(Character(UnicodeScalar(byte)))
+            } else {
+                return nil
+            }
+            hex = String(hex[endIndex...])
+        }
+        
+        return string
+    }
+    
+    // MARK: 13.15、十六进制字符串转Float
+    /// 十六进制字符串转Float
+    /// - Returns: Float
+    func hexStringToFloat() -> Float {
+        if let intValue = UInt32(self.base as! String, radix: 16) {
+            var convertedValue: Float = 0.0
+            withUnsafePointer(to: intValue) {
+                $0.withMemoryRebound(to: Float.self, capacity: 1) {
+                    convertedValue = $0.pointee
+                }
+            }
+            return convertedValue
+        }
+        // 返回默认值或者进行错误处理
+        return 0.0
+    }
+    
+    // MARK: 13.16、十六进制字符串转Double
+    /// 十六进制字符串转Double
+    /// - Returns: Double
+    func hexStringToDouble() -> Double {
+        if let intValue = UInt64(self.base as! String, radix: 16) {
+            var convertedValue: Double = 0.0
+            withUnsafePointer(to: intValue) {
+                $0.withMemoryRebound(to: Double.self, capacity: 1) {
+                    convertedValue = $0.pointee
+                }
+            }
+            return convertedValue
+        }
+        // 返回默认值或者进行错误处理
+        return 0.0
+    }
+    
+    // MARK: 13.17、十六进制字符串转化为data
+    /// 十六进制字符串转化为data
+    /// - Parameter string: 十六进制字符串
+    /// - Returns: data
+    func hexStringToData() -> Data? {
+        let string = self.base as! String
+
+        var data = Data()
+        var idx = 0
+        
+        while idx + 2 <= string.count {
+            let length = string.count - idx
+            let len = min(2, length)
+            let range = string.index(string.startIndex, offsetBy: idx)..<string.index(string.startIndex, offsetBy: idx + len)
+            let hexStr = String(string[range])
+            
+            if let intValue = UInt8(hexStr, radix: 16) {
+                data.append(intValue)
+            }
+            
+            idx += 2
+        }
+        
+        return data
+    }
 }
 
-// MARK: - 十三、String -> NSMutableAttributedString
+// MARK: - 十四、String -> NSMutableAttributedString
 public extension JKPOP where Base: ExpressibleByStringLiteral {
     
-    // MARK: 13.1、String 添加颜色后转 NSMutableAttributedString
+    // MARK: 14.1、String 添加颜色后转 NSMutableAttributedString
     /// String 添加颜色后转 NSMutableAttributedString
     /// - Parameter color: 背景色
     /// - Returns: NSMutableAttributedString
@@ -2186,7 +2297,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return attributedText
     }
     
-    // MARK: 13.2、String 添加 font 后转 NSMutableAttributedString
+    // MARK: 14.2、String 添加 font 后转 NSMutableAttributedString
     /// String 添加 font 后转 NSMutableAttributedString
     /// - Parameter font: 字体的大小
     /// - Returns: NSMutableAttributedString
@@ -2195,7 +2306,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return attributedText
     }
     
-    // MARK: 13.3、String 添加 font 后转 NSMutableAttributedString
+    // MARK: 14.3、String 添加 font 后转 NSMutableAttributedString
     /// String 添加 UIFont 后转 NSMutableAttributedString
     /// - Parameter font: UIFont
     /// - Returns: NSMutableAttributedString
@@ -2204,7 +2315,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return attributedText
     }
     
-    // MARK: 13.4、String 添加 text 后转 NSMutableAttributedString
+    // MARK: 14.4、String 添加 text 后转 NSMutableAttributedString
     /// String 添加 text 后转 NSMutableAttributedString
     /// - Returns: NSMutableAttributedString
     func text() -> NSMutableAttributedString {
@@ -2212,7 +2323,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         return attributedText
     }
     
-    // MARK: 13.5、String 添加 删除线 后转 NSMutableAttributedString
+    // MARK: 14.5、String 添加 删除线 后转 NSMutableAttributedString
     /// String 添加 删除线 后转 NSMutableAttributedString
     /// - Returns: NSMutableAttributedString
     func strikethrough() -> NSMutableAttributedString {
@@ -2221,7 +2332,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK: - 十四、MD5 加密 和 Base64 编解码
+// MARK: - 十五、MD5 加密 和 Base64 编解码
 /**
  单向散列函数，又被称为消息摘要函数（message digest function），哈希函数
  输出的散列值，也被称为消息摘要（message digest）、指纹（fingerprint）
@@ -2250,7 +2361,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         case uppercase16
     }
     
-    // MARK: 14.1、MD5加密 默认是32位小写加密
+    // MARK: 15.1、MD5加密 默认是32位小写加密
     /// MD5加密 默认是32位小写加密
     /// - Parameter md5Type: 加密类型
     /// - Returns: MD5加密后的字符串
@@ -2309,7 +2420,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         }
     }
     
-    // MARK: 14.2、Base64 编解码
+    // MARK: 15.2、Base64 编解码
     /// Base64 编解码
     /// - Parameter encode: true:编码 false:解码
     /// - Returns: 编解码结果
@@ -2329,7 +2440,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK: - 十五、AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
+// MARK: - 十六、AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
 /**
  iOS中填充规则PKCS7,加解密模式ECB(无补码,CCCrypt函数中对应的nil),字符集UTF8,输出base64(可以自己改hex)
  */
@@ -2359,7 +2470,7 @@ public enum DDYSCAType {
 
 public extension JKPOP where Base: ExpressibleByStringLiteral {
     
-    // MARK: 15.1、字符串 AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
+    // MARK: 16.1、字符串 AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
     /// 字符串 AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
     /// - Parameters:
     ///   - cryptType: 加密类型
@@ -2419,7 +2530,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK: - 十六、SHA1, SHA224, SHA256, SHA384, SHA512
+// MARK: - 十七、SHA1, SHA224, SHA256, SHA384, SHA512
 /**
  - 安全哈希算法（Secure Hash Algorithm）主要适用于数字签名标准（Digital Signature Standard DSS）里面定义的数字签名算法（Digital Signature Algorithm DSA）。对于长度小于2^64位的消息，SHA1会产生一个160位的消息摘要。当接收到消息的时候，这个消息摘要可以用来验证数据的完整性。在传输的过程中，数据很可能会发生变化，那么这时候就会产生不同的消息摘要。当让除了SHA1还有SHA256以及SHA512等。
  - SHA1有如下特性：不可以从消息摘要中复原信息；两个不同的消息不会产生同样的消息摘要
@@ -2446,7 +2557,7 @@ public enum DDYSHAType {
 
 public extension JKPOP where Base: ExpressibleByStringLiteral {
     
-    // MARK: 16.1、SHA1, SHA224, SHA256, SHA384, SHA512 加密
+    // MARK: 17.1、SHA1, SHA224, SHA256, SHA384, SHA512 加密
     /// SHA1, SHA224, SHA256, SHA384, SHA512 加密
     /// - Parameters:
     ///   - cryptType: 加密类型，默认是 SHA1 加密
@@ -2486,10 +2597,10 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     }
 }
 
-// MARK: - 十七、unicode编码和解码
+// MARK: - 十八、unicode编码和解码
 public extension JKPOP where Base == String {
     
-    // MARK: 17.1、unicode编码
+    // MARK: 18.1、unicode编码
     /// unicode编码
     /// - Returns: unicode编码后的字符串
     func unicodeEncode() -> String {
@@ -2505,7 +2616,7 @@ public extension JKPOP where Base == String {
         return tempStr
     }
     
-    // MARK: 17.2、unicode解码
+    // MARK: 18.2、unicode解码
     /// unicode解码
     /// - Returns: unicode解码后的字符串
     func unicodeDecode() -> String {
@@ -2523,7 +2634,7 @@ public extension JKPOP where Base == String {
     }
 }
 
-// MARK: - 十八、字符值引用 (numeric character reference, NCR)与普通字符串的转换
+// MARK: - 十九、字符值引用 (numeric character reference, NCR)与普通字符串的转换
 /**
  1，什么是字符值引用
  （1）字符值引用 (numeric character reference, NCR) 是在标记语言SGML以及派生的如HTML与XML中常见的一种转义序列结构，用来表示Unicode的通用字符集 (UCS)中的单个字符. NCR可以表示在一个特定文档中不能直接编码的字符，而该标记语言阅读器软件把每个NCR当作一个字符来处理。
@@ -2537,7 +2648,7 @@ public extension JKPOP where Base == String {
  */
 public extension JKPOP where Base == String {
     
-    // MARK: 18.1、将普通字符串转为字符值引用
+    // MARK: 19.1、将普通字符串转为字符值引用
     /// 将普通字符串转为字符值引用
     /// - Returns: 字符值引用
     func toHtmlEncodedString() -> String {
@@ -2550,7 +2661,7 @@ public extension JKPOP where Base == String {
         return result
     }
     
-    // MARK: 18.2、字符值引用转普通字符串
+    // MARK: 19.2、字符值引用转普通字符串
     /// 字符值引用转普通字符串
     /// - Parameter htmlEncodedString: 字符值引用
     /// - Returns: 普通字符串
