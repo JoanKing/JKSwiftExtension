@@ -50,6 +50,10 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/5611a91f-e083-4c77-8ef8-bdc4a91a13c9" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.6.6、版本(2024.05.27)
+    - 修复UITextField和UITextView复制超出限制字数无法截取的问题
+    - UIImage+Extension对于图片裁剪进行了多种扩展
+    - 其他扩展新增和优化
   - 2.6.5、版本(2024.05.09)
     - 新增String+Extension进制扩展，如：字符串转十六进制字符串、十六进制字符串转换回原始字符串、十六进制字符串转Float、十六进制字符串转Double等等
     - 修复并优化部分扩展，比如：取消强制解包
