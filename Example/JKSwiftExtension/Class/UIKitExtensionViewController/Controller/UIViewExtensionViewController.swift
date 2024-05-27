@@ -455,11 +455,14 @@ extension UIViewExtensionViewController {
         let gifImageView = UIImageView(frame: CGRect(x: testView.jk.left, y: testView.jk.bottom + 50, width: 200,height: 200))
         self.view.addSubview(gifImageView)
         
-        let image = testView.jk.toImage()
+        guard let image = self.view.jk.toImage() else { return }
         
         JKAsyncs.asyncDelay(3, {
         }) {
             gifImageView.image = image
+            image.jk.saveImageToPhotoAlbum { _ in
+                
+            }
             JKAsyncs.asyncDelay(2, {
             }) {
                 testView.removeFromSuperview()

@@ -946,10 +946,30 @@ public extension JKPOP where Base: UIView {
     // MARK: 7.3、将 View 转换成图片
     /// 将 View 转换成图片
     /// - Returns: 图片
-    func toImage() -> UIImage {
+    func toImage() -> UIImage? {
+        
+        /**
+         UIGraphicsBeginImageContext：在截图或者处理图片是会出现模糊的情况，可以使用以下函数代替         UIGraphicsBeginImageContextWithOptions(CGSize size, BOOL opaque, CGFloat scale)
+         size：缩放后的 size
+         opaque：透明度，不透明设为true
+         scale： 缩放因子，设0时系统自动设置缩放比例图片清晰；设1.0时模糊
+         */
+        // 防止size：(0, 0)崩溃
+        var drawSize = self.base.frame.size
+        if drawSize.width <= 0 || drawSize.height <= 0 {
+            drawSize = CGSize(width: 1, height: 1)
+        }
+        UIGraphicsBeginImageContextWithOptions(drawSize, false, UIScreen.main.scale)
+        guard let ctx = UIGraphicsGetCurrentContext() else { return nil }
+        self.base.layer.render(in: ctx)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        return image
+        // 下面的方法会导致子视图自动绘制
+        /*
         return UIGraphicsImageRenderer(size: self.base.frame.size).image { context in
             self.base.layer.render(in: context.cgContext)
         }
+         */
     }
     
     // MARK: 7.4、添加点击事件

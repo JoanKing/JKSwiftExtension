@@ -469,32 +469,38 @@ public extension JKPOP where Base: UIDevice {
         return false
     }
     
-    //MARK: 2.12、当前设备语言
-    /// 当前设备语言
-    static var deviceLanguage: String {
+    //MARK: 2.12、当前App的语言
+    /// 当前App的语言
+    static var appLanguage: String {
         return Bundle.main.preferredLocalizations[0]
     }
     
-    //MARK: 2.13、设备区域化型号
+    //MARK: 2.13、当前设备(手机)首选语言
+    /// 当前设备语言
+    static var deviceLanguage: String? {
+        return Locale.preferredLanguages.first
+    }
+        
+    //MARK: 2.14、设备区域化型号
     /// 设备区域化型号
     static var localizedModel: String {
         return UIDevice.current.localizedModel
     }
     
-    //MARK: 2.14、获取最高刷新率
+    //MARK: 2.15、获取最高刷新率
     /// 获取最高刷新率
     @available(iOS 10.3, *)
     static var maximumFramesPerSecond: Int {
         UIScreen.main.maximumFramesPerSecond
     }
     
-    //MARK: 2.15、获取设备是否是省电模式
+    //MARK: 2.16、获取设备是否是省电模式
     /// 获取设备是否是省电模式
     static var isLowPowerMode: Bool {
         ProcessInfo.processInfo.isLowPowerModeEnabled
     }
     
-    //MARK: 2.16、获取屏幕亮度比例
+    //MARK: 2.17、获取屏幕亮度比例
     /// 获取屏幕亮度比例
     static var brightnessRatio: CGFloat {
         UIScreen.main.brightness

@@ -233,6 +233,24 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     var localized: String {
         return NSLocalizedString((self.base as! String), comment: "")
     }
+    
+    // MARK: 1.17、每n个字符后插入一些字符或字符串
+    /// 每 n 个字符后插入一些字符或字符串
+    /// - Parameters:
+    ///   - length:  n 个字符
+    ///   - separator:  插入的字符或字符串
+    /// - Returns: 格式化后的字符
+    func splitByLength(length: Int, withSeparator separator: String) -> String {
+        let content = (self.base as! String)
+        var result: [String] = []
+        var startIndex = content.startIndex
+        while startIndex < content.endIndex {
+            let endIndex = content.index(startIndex, offsetBy: length, limitedBy: content.endIndex) ?? content.endIndex
+            result.append(String(content[startIndex..<endIndex]))
+            startIndex = endIndex
+        }
+        return result.joined(separator: separator)
+    }
 }
 
 // MARK: - 二、字符串与其他类型(字符串转 UIViewController、AnyClass、数组、字典等)的转换
