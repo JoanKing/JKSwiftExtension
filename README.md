@@ -49,7 +49,10 @@ end
 - 邮箱: jkironman@163.com
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/5611a91f-e083-4c77-8ef8-bdc4a91a13c9" alt="微信交流群" width="220">
 
-## 版本说明
+## 版本说明 
+  - 2.6.7、版本(2024.07.06)
+    - import Photos 移到库外
+    - 其他扩展新增和优化
   - 2.6.6、版本(2024.05.27)
     - 修复UITextField和UITextView复制超出限制字数无法截取的问题
     - UIImage+Extension对于图片裁剪进行了多种扩展
