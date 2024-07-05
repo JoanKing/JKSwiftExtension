@@ -49,7 +49,7 @@ extension UIViewExtensionViewController {
         testView.backgroundColor = .randomColor
         testView.center.x = self.view.center.x
         testView.clipsToBounds = true
-        testView.setTitle("测试文字", for: .normal)
+        testView.setTitle("测试渐变色", for: .normal)
         testView.jk.gradientColor(.horizontal, [UIColor.brown.cgColor, UIColor.green.cgColor])
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(3) {

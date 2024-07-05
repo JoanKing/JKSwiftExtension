@@ -12,7 +12,7 @@ class NineViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .brown
         
+        self.view.jk.gradientColor(.vertical, [UIColor.brown.cgColor, UIColor.green.cgColor])
     }
 }

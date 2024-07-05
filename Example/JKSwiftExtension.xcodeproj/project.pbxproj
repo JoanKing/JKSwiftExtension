@@ -15,6 +15,9 @@
 		55A815D42A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A815D32A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift */; };
 		55BD8A082B22FF7E001AD567 /* JKOperatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD8A072B22FF7E001AD567 /* JKOperatorViewController.swift */; };
 		55BFA0C62B5E7A5A0048B37D /* CGPointExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFA0C52B5E7A5A0048B37D /* CGPointExtensionViewController.swift */; };
+		55C1C9492C384F01009BC9C6 /* Image+Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C1C9482C384F01009BC9C6 /* Image+Photo.swift */; };
+		55C1C94B2C3850F7009BC9C6 /* UIApplication+Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C1C94A2C3850F7009BC9C6 /* UIApplication+Photo.swift */; };
+		55C1C9502C3853AD009BC9C6 /* JKPhotoAlbumUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C1C94F2C3853AD009BC9C6 /* JKPhotoAlbumUtil.swift */; };
 		55CBC9C72A9C74A000EE88FC /* SegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CBC9C62A9C74A000EE88FC /* SegmentViewController.swift */; };
 		55DDC56F2BA92D1900B7429E /* JKScreenShieldViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DDC56E2BA92D1900B7429E /* JKScreenShieldViewViewController.swift */; };
 		55E467492A8A4521008D79B7 /* UIBezierPathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E467482A8A4521008D79B7 /* UIBezierPathViewController.swift */; };
@@ -214,6 +217,9 @@
 		55A815D32A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingSpecialConfigurationSegmentView.swift; sourceTree = "<group>"; };
 		55BD8A072B22FF7E001AD567 /* JKOperatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKOperatorViewController.swift; sourceTree = "<group>"; };
 		55BFA0C52B5E7A5A0048B37D /* CGPointExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointExtensionViewController.swift; sourceTree = "<group>"; };
+		55C1C9482C384F01009BC9C6 /* Image+Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Photo.swift"; sourceTree = "<group>"; };
+		55C1C94A2C3850F7009BC9C6 /* UIApplication+Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Photo.swift"; sourceTree = "<group>"; };
+		55C1C94F2C3853AD009BC9C6 /* JKPhotoAlbumUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKPhotoAlbumUtil.swift; sourceTree = "<group>"; };
 		55CBC9C62A9C74A000EE88FC /* SegmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentViewController.swift; sourceTree = "<group>"; };
 		55DDC56E2BA92D1900B7429E /* JKScreenShieldViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKScreenShieldViewViewController.swift; sourceTree = "<group>"; };
 		55E467482A8A4521008D79B7 /* UIBezierPathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathViewController.swift; sourceTree = "<group>"; };
@@ -432,6 +438,23 @@
 				88DDA121456371E8DD11E3A3 /* Pods-JKSwiftExtension_Tests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		55C1C9472C384EE0009BC9C6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				55C1C9482C384F01009BC9C6 /* Image+Photo.swift */,
+				55C1C94A2C3850F7009BC9C6 /* UIApplication+Photo.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		55C1C94C2C38538D009BC9C6 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				55C1C94F2C3853AD009BC9C6 /* JKPhotoAlbumUtil.swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		607FACC71AFB9204008FA782 = {
@@ -877,6 +900,8 @@
 		84BF16D5251DFE5D002ACE76 /* TestFile */ = {
 			isa = PBXGroup;
 			children = (
+				55C1C94C2C38538D009BC9C6 /* Tools */,
+				55C1C9472C384EE0009BC9C6 /* Extension */,
 				844A634225664F4D000059EC /* Controller */,
 				844A634425664F4D000059EC /* View */,
 				E2696C9229C00B3D0058D2B9 /* Model */,
@@ -1126,6 +1151,8 @@
 				E233A77729B18BBF003A5C3D /* JKSoundPickView.swift in Sources */,
 				E2D5FDA62861B876006D1AAB /* AnimationView.swift in Sources */,
 				84B5BDAC260C7A2D00616143 /* RangeExtensionViewController.swift in Sources */,
+				55C1C94B2C3850F7009BC9C6 /* UIApplication+Photo.swift in Sources */,
+				55C1C9502C3853AD009BC9C6 /* JKPhotoAlbumUtil.swift in Sources */,
 				844A635D25665328000059EC /* TouchViewController.swift in Sources */,
 				847DFF282550F43C00EEE785 /* UIntExtensionViewController.swift in Sources */,
 				8480281A255963610038748A /* UISwitchExtensionViewController.swift in Sources */,
@@ -1230,6 +1257,7 @@
 				84F870012564F91600B74128 /* JKWaterFallLayoutViewController.swift in Sources */,
 				844A635125664F9B000059EC /* FourViewController.swift in Sources */,
 				84B84C3227BBF455004F04B9 /* ProfileViewController.swift in Sources */,
+				55C1C9492C384F01009BC9C6 /* Image+Photo.swift in Sources */,
 				849D58F42537090B00CCDF0F /* NSDecimalNumberHandlerExtensionViewController.swift in Sources */,
 				E2B28D2A2831457800DD7C9A /* JKRollingNoticeViewCell1.swift in Sources */,
 				8480280C255926120038748A /* CATextLayerExtensionViewController.swift in Sources */,

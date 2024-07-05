@@ -38,7 +38,7 @@ extension WKWebViewExtensionViewController {
                     return
                 }
                 print("开始保存图片------")
-                weakImage.jk.savePhotosImageToAlbum { result, error in
+                weakImage.savePhotosImageToAlbum { result, error in
                     if result {
                         print("保存图片成功------")
                     }

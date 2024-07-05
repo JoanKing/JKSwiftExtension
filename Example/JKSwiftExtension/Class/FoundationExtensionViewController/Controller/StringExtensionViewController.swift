@@ -334,8 +334,8 @@ extension StringExtensionViewController {
     // MARK: 11.02、截取字符串从index到结束
     ///  截取字符串从index到结束
     @objc func test1102() {
-        let testString1 = "0😄123456789"
-        JKPrint("截取字符串从index到结束", "\(testString1) 截取字符串从index=4到结束后为：\(testString1.jk.sub(from: 4))")
+        let testString1 = "123456789"
+        JKPrint("截取字符串从index到结束", "\(testString1) 截取字符串从index=4到结束后为：\(testString1.jk.sub(from: 7))")
     }
     
     // MARK: 11.03、获取指定位置和长度的字符串

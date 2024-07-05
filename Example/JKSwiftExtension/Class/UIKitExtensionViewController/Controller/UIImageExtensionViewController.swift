@@ -1045,7 +1045,7 @@ extension UIImageExtensionViewController {
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
         } _: {
-            image.jk.savePhotosImageToAlbum { (isSuccess: Bool, error: Error?) in
+            image.savePhotosImageToAlbum { (isSuccess: Bool, error: Error?) in
                 if isSuccess {
                     print("保存成功!")
                 } else{
@@ -1145,8 +1145,9 @@ extension UIImageExtensionViewController {
         guard let image = UIImage(named: "testicon") else {
             return
         }
+        debugPrint("图片的大小：\(image.size) scale: \(image.scale) UIScreen.main.scale:\(UIScreen.main.scale)")
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 150, height: 200))
-        imageView.image = image.jk.addImageWatermark(rect: CGRect(x: 25, y: 25, width: 50, height: 50), image: UIImage(named: "good5")!)
+        imageView.image = image.jk.addImageWatermark(rect: CGRect(x: image.size.width - 50, y: 25, width: 50, height: 50), image: UIImage(named: "good5")!)
         imageView.contentMode = .scaleAspectFill
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)

@@ -9,7 +9,6 @@
 import UIKit
 import AVFoundation
 import Dispatch
-import Photos
 
 extension UIImage: JKPOPCompatible {}
 // MARK: - 一、基本的扩展
@@ -355,16 +354,6 @@ public extension JKPOP where Base: UIImage {
     /// 保存图片到相册
     func saveImageToPhotoAlbum(_ result: ((Bool)->())?) {
         self.base.saveToPhotoAlbum(result)
-    }
-    
-    // MARK: 1.15、保存图片到相册(建议使用这个)
-    /// 保存图片到相册
-    func savePhotosImageToAlbum(completion: @escaping ((Bool, Error?) -> Void)) {
-        PHPhotoLibrary.shared().performChanges {
-            PHAssetChangeRequest.creationRequestForAsset(from: self.base)
-        } completionHandler: { (isSuccess: Bool, error: Error?) in
-            completion(isSuccess, error)
-        }
     }
     
     // MARK: 1.16、图片的模糊效果（高斯模糊滤镜）

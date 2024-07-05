@@ -12,7 +12,7 @@ import UIKit
 public enum JKViewGradientDirection {
     /// 水平从左到右
     case horizontal
-    ///  垂直从上到下
+    /// 垂直从上到下
     case vertical
     /// 左上到右下
     case leftOblique
