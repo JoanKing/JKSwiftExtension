@@ -172,7 +172,7 @@ class TextViewTestViewController: UIViewController, UITextViewDelegate {
         } else {
             debugPrint("💣不是复制----：\(text)")
         }
-        return textView.jk.inputRestrictions(shouldChangeTextIn: range, replacementText: text, maxCharacters: 20, regex: nil, isInterceptString: true, isRemovePasteboardNewlineCharacters: true, isMarkedTextRangeCanInput: true)
+        return textView.jk.inputRestrictions(shouldChangeTextIn: range, replacementText: text, maxCharacters: 20, regex: nil, isInterceptString: true, isRemovePasteboardNewlineCharacters: true, isMarkedTextRangeCanInput: false)
     }
     
     func textViewDidChange(_ textView: UITextView) {

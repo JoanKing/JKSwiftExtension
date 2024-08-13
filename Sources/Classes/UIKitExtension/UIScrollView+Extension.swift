@@ -71,7 +71,10 @@ public extension JKPOP where Base: UIScrollView {
             UIGraphicsEndImageContext()
             /// 设置原点偏移
             self.base.setContentOffset(originOffset, animated: false)
-            snapShotView?.removeFromSuperview()
+            // 防止移除闪烁
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+                snapShotView?.removeFromSuperview()
+            }
             /// 获取 snapShotContentScroll 时的回调图像
             completionHandler(screenShotImage)
         })

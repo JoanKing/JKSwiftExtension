@@ -155,6 +155,9 @@ public extension JKPOP where Base: UITextView {
         } 
         
         if let markedTextRange = self.base.markedTextRange {
+            // 获取标记的文本
+            // let markedText = self.base.text(in: markedTextRange)
+            // debugPrint("标记的文本: \(markedText ?? "")")
             // 有高亮
             if range.length == 0 {
                 let oldContentLength = oldContent.jk.typeLengh(lenghType)
@@ -189,14 +192,14 @@ public extension JKPOP where Base: UITextView {
             }
         } else {
             guard !inputingContent.jk.isNineKeyBoard() else {
-                return oldContent.jk.typeLengh(lenghType) < maxCharacters
+                return (oldContent.jk.typeLengh(lenghType) - getSelectedRangeLength(lenghType: lenghType)) < maxCharacters
             }
             // 正则的判断
             if let weakRegex = regex, !JKRegexHelper.match(inputingContent, pattern: weakRegex) {
                 return false
             }
             // 2、如果数字大于指定位数，不能输入
-            guard oldContent.jk.typeLengh(lenghType) + inputingContent.jk.typeLengh(lenghType) <= maxCharacters else {
+            guard oldContent.jk.typeLengh(lenghType) + inputingContent.jk.typeLengh(lenghType) - getSelectedRangeLength(lenghType: lenghType) <= maxCharacters else {
                 // 判断字符串是否要截取
                 guard isInterceptString else {
                     // 不截取，也就是不让输入进去
@@ -267,5 +270,19 @@ public extension JKPOP where Base: UITextView {
         let location: Int = self.base.offset(from: self.base.beginningOfDocument, to: textRange.start)
         let length: Int = self.base.offset(from: textRange.start, to: textRange.end)
         return NSMakeRange(location, length)
+    }
+    
+    /// 获取选中内容的长度
+    /// - Parameter lenghType: 字符串取类型的长度
+    /// - Returns: 长度
+    private func getSelectedRangeLength(lenghType: StringTypeLength) -> Int {
+        guard self.base.selectedRange.length > 0 else { return 0 }
+        let selectedRangeText = self.base.text as NSString
+        // 获取选中文字的内容
+        let selectedText = selectedRangeText.substring(with: NSRange(location: self.base.selectedRange.location, length: self.base.selectedRange.length))
+        // 获取选中文字的内容长度
+        let selectedRangeLength = selectedText.jk.typeLengh(lenghType)
+        // debugPrint("选中的长度：\(selectedRangeLength) 选中的内容：\(selectedText)")
+        return selectedRangeLength
     }
 }

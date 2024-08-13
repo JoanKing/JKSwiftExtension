@@ -266,14 +266,14 @@ public extension JKPOP where Base: UITextField {
             }
         } else {
             guard !inputingContent.jk.isNineKeyBoard() else {
-                return oldContent.jk.typeLengh(lenghType) < maxCharacters
+                return oldContent.jk.typeLengh(lenghType) - getSelectedRangeLength(lenghType: lenghType) < maxCharacters
             }
             // 正则的判断
             if let weakRegex = regex, !JKRegexHelper.match(inputingContent, pattern: weakRegex) {
                 return false
             }
             // 2、如果数字大于指定位数，不能输入
-            guard oldContent.jk.typeLengh(lenghType) + inputingContent.jk.typeLengh(lenghType) <= maxCharacters else {
+            guard oldContent.jk.typeLengh(lenghType) + inputingContent.jk.typeLengh(lenghType) - getSelectedRangeLength(lenghType: lenghType) <= maxCharacters else {
                 // 判断字符串是否要截取
                 guard isInterceptString else {
                     // 不截取，也就是不让输入进去
@@ -345,5 +345,18 @@ public extension JKPOP where Base: UITextField {
         let location: Int = self.base.offset(from: self.base.beginningOfDocument, to: textRange.start)
         let length: Int = self.base.offset(from: textRange.start, to: textRange.end)
         return NSMakeRange(location, length)
+    }
+    
+    /// 获取选中内容的长度
+    /// - Parameter lenghType: 字符串取类型的长度
+    /// - Returns: 长度
+    private func getSelectedRangeLength(lenghType: StringTypeLength) -> Int {
+        guard let weakSelectedTextRange = self.base.selectedTextRange else { return 0 }
+        // 获取选定的文本
+        guard let selectedTextRangeText = self.base.text(in: weakSelectedTextRange) else { return 0 }
+        // 获取选中文字的内容长度
+        let selectedRangeLength = selectedTextRangeText.jk.typeLengh(lenghType)
+        // debugPrint("选中的长度：\(selectedRangeLength) 选中的内容：\(selectedTextRangeText)")
+        return selectedRangeLength
     }
 }
