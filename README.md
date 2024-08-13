@@ -50,6 +50,9 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/5611a91f-e083-4c77-8ef8-bdc4a91a13c9" alt="微信交流群" width="220">
 
 ## 版本说明 
+  - 2.6.8、版本(2024.08.13)
+    - 修复UIScrollView截屏闪烁
+    - 修复UITextField和UITextView输入选中内容不可修改的问题
   - 2.6.7、版本(2024.07.06)
     - import Photos 移到库外
     - 其他扩展新增和优化
