@@ -76,10 +76,12 @@ extension JKGlobalToolsViewController {
     // MARK: 1.04、传进某个版本号 个 当前app版本号作对比
     @objc func test104() {
         
-        let version1 = "0.0.1"
-        let version2 = "1.0.0"
-        let version3 = "1.2.1"
-        JKPrint("传进某个版本号 个 当前app版本号作对比", "新的版本号：\(version1) 是否大于当前版本：\(Bundle.jk.appVersion) 结果：\(JKGlobalTools.compareVersion(version: version1))", "新的版本号：\(version2) 是否大于当前版本：\(Bundle.jk.appVersion) 结果：\(JKGlobalTools.compareVersion(version: version2))", "新的版本号：\(version3) 是否大于当前版本：\(Bundle.jk.appVersion) 结果：\(JKGlobalTools.compareVersion(version: version3))")
+        let versions = ["0.0.1", "0.9", "1.0.1", "2.0.1", "3.A", "5.6", "我.是", "1.0.0", "0.8.0", ".0.0.08", "1.0.08"]
+        var resultString = "传进某个版本号 个 当前app版本号作对比"
+        for items in versions {
+            resultString = resultString + "\n新的版本号：\(items) 是否大于当前版本：\(Bundle.jk.appVersion) 结果：\(JKGlobalTools.compareVersion(version: items))"
+        }
+        JKPrint(resultString)
     }
     
     // MARK: 1.03、从 storyboard 中唤醒 viewcontroller

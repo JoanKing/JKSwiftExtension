@@ -62,38 +62,49 @@ public struct JKGlobalTools {
     /// - Parameter version: 传进来的版本号码
     /// - Returns: 返回对比加过，true：比当前的版本大，false：比当前的版本小
     public static func compareVersion(version: String) -> Bool {
-        // 1、传进来的版本号获取 三位Int值
+        /*
+        1.先判断传进来的版本号正则判断：开头是数字，结尾是数字，中间是由数字和小数点组合
+        2.传进来的版本号使用.分割，分割后的数组不足3个元素的补0
+        3.获取app的版本号使用.分割，分割后的数组不足3个元素的补0
+        4.逐位对比
+        */
+        // 1.字符串开头和结尾都是数字，中间可以包含数字和小数点，最多有2个小数点(判断app版本号的时候使用)
+        let regexResult = JKRegexHelper.match(version, pattern: JKRegexCharacterType.type13.rawValue)
+        guard regexResult else {
+            return false
+        }
+        // 2、传进来的版本号获取 三位Int值
         let newVersionResult = appVersion(version: version)
         guard newVersionResult.isSuccess else {
             return false
         }
-        // 2、当前版本的版本号获取 三位Int值
+        // 3、当前版本的版本号获取 三位Int值
         let currentVersion = Bundle.jk.appVersion
         let currentVersionResult = appVersion(version: currentVersion)
         guard currentVersionResult.isSuccess else {
             return false
         }
-        if newVersionResult.versions[0] > currentVersionResult.versions[0] {
-            return true
-        } else if newVersionResult.versions[0] == currentVersionResult.versions[0] {
-            if newVersionResult.versions[1] > currentVersionResult.versions[1] {
-                return true
-            } else if newVersionResult.versions[1] > currentVersionResult.versions[1] {
-                if newVersionResult.versions[3] > currentVersionResult.versions[3] {
-                    return true
-                } else if newVersionResult.versions[3] > currentVersionResult.versions[3] {
-                    return false
-                } else {
-                    return false
-                }
-            } else {
-                return false
-            }
-        } else {
-            return false
+        // 4.1、对比第1个元素
+        let newVersion1 = newVersionResult.versions[0]
+        let appVersion1 = currentVersionResult.versions[0]
+        guard newVersion1 == appVersion1 else {
+            return newVersion1 > appVersion1
         }
+        // 4.2、对比第2个元素
+        let newVersion2 = newVersionResult.versions[1]
+        let appVersion2 = currentVersionResult.versions[1]
+        guard newVersion2 == appVersion2 else {
+            return newVersion2 > appVersion2
+        }
+        // 4.3、对比第3个元素
+        let newVersion3 = newVersionResult.versions[2]
+        let appVersion3 = currentVersionResult.versions[2]
+        guard newVersion3 == appVersion3 else {
+            return newVersion3 > appVersion3
+        }
+        return false
     }
-    
+
     // MARK: 1.5、获取本机IP
     /// 获取本机IP
     public static func getIPAddress() -> String? {
@@ -241,14 +252,39 @@ private extension JKGlobalTools {
     /// - Parameter version: 版本号
     /// - Returns: 结果 和 版本号数组
     static func appVersion(version: String) -> (isSuccess: Bool, versions: [Int]) {
+        /**
+         1、传进来的版本号使用.分割，分割后的数组不足3个元素的补0
+         2、获取app的版本号使用.分割，分割后的数组不足3个元素的补0
+         3、逐位对比
+         */
         let versionArray = version.jk.separatedByString(with: ".")
-        guard versionArray.count == 3 else {
+        // 1.分割后大于3个元素也认为是无效版本号
+        guard versionArray.count <= 3 else {
             return (false, [])
         }
-        let versionString1 = versionArray[0]
+        // 2.分割后元素个数要大于0
+        guard versionArray.count > 0 else {
+            return (false, [])
+        }
+        // 3.判断第1个元素是不是整数
+        guard let versionValue1 = versionArray[0].jk.toInt() else {
+            return (false, [])
+        }
+        // 4.判断分割后是不是3个元素
+        guard versionArray.count == 3 else {
+            if versionArray.count == 2 {
+                // 判断第2个元素是不是整数
+                guard let versionValue2 = versionArray[1].jk.toInt() else {
+                    return (false, [])
+                }
+                return (true, [versionValue1, versionValue2, 0])
+            } else {
+                return (true, [versionValue1, 0, 0])
+            }
+        }
         let versionString2 = versionArray[1]
         let versionString3 = versionArray[2]
-        guard let versionValue1 = versionString1.jk.toInt(), let versionValue2 = versionString2.jk.toInt(), let versionValue3 = versionString3.jk.toInt() else {
+        guard let versionValue2 = versionString2.jk.toInt(), let versionValue3 = versionString3.jk.toInt() else {
             return (false, [])
         }
         return (true, [versionValue1, versionValue2, versionValue3])

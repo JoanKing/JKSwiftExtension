@@ -32,6 +32,8 @@ public enum JKRegexCharacterType: String {
     case type11 = "[^%&',;=?$\\x22]+"
     /// 禁止输入含有~的字符
     case type12 = "[^~\\x22]+"
+    /// 字符串开头和结尾都是数字，中间可以包含数字和小数点，最多有2个小数点(判断app版本号的时候使用)
+    case type13 = "^[0-9]+(\\.[0-9]+){0,2}$"
 }
 
 // MARK: - 校验数字的表达式

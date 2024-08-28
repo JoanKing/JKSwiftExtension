@@ -68,10 +68,14 @@ extension JKRegexHelperViewController {
     
     // MARK: 1.01、通用匹配
     @objc func test101() {
-        let maybeMailAddress = "jkironman@163.com"
-        let pattern = "^([a-z0-9A-Z]+[-_|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$"
-        let result = JKRegexHelper.match(maybeMailAddress, pattern: pattern)
-        JKPrint("通用匹配", "有效的邮箱地址：\(result)")
+        let versions = ["0.0.1", "0.9", "1.0.1", "2.0.1", "3.A", "5.6", "我.是", "1.0.0", "0.8.0", ".0.0.08", "1.0.08"]
+        var resultString = ""
+        for items in versions {
+            let result = JKRegexHelper.match(items, pattern: JKRegexCharacterType.type13.rawValue)
+            resultString = resultString + "\n\(items) 是否符合校验：\(result)"
+        }
+        JKPrint(resultString)
+        JKPrint("字符串开头和结尾都是数字，中间可以包含数字和小数点(判断app版本号的时候使用)", "\(resultString)")
     }
 }
 
