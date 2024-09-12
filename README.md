@@ -50,6 +50,9 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/5611a91f-e083-4c77-8ef8-bdc4a91a13c9" alt="微信交流群" width="220">
 
 ## 版本说明 
+  - 2.6.10、版本(2024.09.12)
+    - 1、UserDefaults修复移除包含的key
+    - 2、UILabel扩展的属性修改为与系统一致的可选类型
   - 2.6.9、版本(2024.08.28)
     - 修复新旧版本号判断的bug，判断逻辑如下
         - 1.先判断传进来的版本号正则判断：开头是数字，结尾是数字，中间是由数字和小数点组合
