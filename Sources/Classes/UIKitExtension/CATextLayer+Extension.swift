@@ -17,7 +17,7 @@ public extension CATextLayer {
     /// - Parameter text: 文字内容
     /// - Returns: 返回自身
     @discardableResult
-    func text(_ text: String) -> Self {
+    func text(_ text: String?) -> Self {
         self.string = text
         return self
     }

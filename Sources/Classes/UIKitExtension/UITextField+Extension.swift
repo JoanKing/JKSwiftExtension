@@ -79,7 +79,7 @@ public extension UITextField {
     /// - Parameter text: 文字
     /// - Returns: 返回自身
     @discardableResult
-    func text(_ text: String) -> Self {
+    func text(_ text: String?) -> Self {
         self.text = text
         return self
     }
@@ -89,7 +89,7 @@ public extension UITextField {
     /// - Parameter attributedString: 富文本文字
     /// - Returns: 返回自身
     @discardableResult
-    func attributedText(_ attributedString: NSAttributedString) -> Self {
+    func attributedText(_ attributedString: NSAttributedString?) -> Self {
         self.attributedText = attributedString
         return self
     }
@@ -99,7 +99,7 @@ public extension UITextField {
     /// - Parameter text: 占位符文字
     /// - Returns: 返回自身
     @discardableResult
-    func placeholder(_ text: String) -> Self {
+    func placeholder(_ text: String?) -> Self {
         placeholder = text
         return self
     }
@@ -109,7 +109,7 @@ public extension UITextField {
     /// - Parameter text: 富文本占位符
     /// - Returns: 返回自身
     @discardableResult
-    func attributedPlaceholder(_ text: NSAttributedString) -> Self {
+    func attributedPlaceholder(_ text: NSAttributedString?) -> Self {
         attributedPlaceholder = text
         return self
     }
