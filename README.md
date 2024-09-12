@@ -50,6 +50,8 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/5611a91f-e083-4c77-8ef8-bdc4a91a13c9" alt="微信交流群" width="220">
 
 ## 版本说明 
+  - 2.7.0、版本(2024.09.12)
+    - 最低支持版本调整为13.0
   - 2.6.10、版本(2024.09.12)
     - 1、UserDefaults修复移除包含的key
     - 2、UILabel扩展的属性修改为与系统一致的可选类型

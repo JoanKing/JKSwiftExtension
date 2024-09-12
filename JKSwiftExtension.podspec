@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   # 项目名
   s.name             = 'JKSwiftExtension'
   # 版本号
-  s.version          = '2.6.10'
+  s.version          = '2.7.0'
   # 简单描述
   s.summary          = 'Swift版本的一个扩展'
   # 详细介绍
@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   # git仓库的https地址
   s.source           = { :git => 'https://github.com/JoanKing/JKSwiftExtension.git', :tag => s.version.to_s }
   # 最低要求的系统版本
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '13.0'
   # s.tvos.deployment_target = "12.0"
   # s.osx.deployment_target = "10.14"
   # s.watchos.deployment_target = "2.0"

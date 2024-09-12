@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "JKSwiftExtension",
-    platforms: [.iOS(.v9)],
+    platforms: [.iOS(.v13)],
     products: [
         .library(
             name: "JKSwiftExtension",

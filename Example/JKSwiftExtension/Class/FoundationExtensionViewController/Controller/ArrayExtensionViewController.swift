@@ -31,7 +31,7 @@ extension ArrayExtensionViewController {
     // MARK: 5.01、 数组转字符转（数组的元素是 字符串），如：["1", "2", "3"] 连接器为 - ，那么转化后为 "1-2-3"
     @objc func test501() {
         let testArray = ["1", "2", "3", "4", "5", "6"]
-        let testString = testArray.toStrinig(separator: "-")
+        let testString = testArray.toString(separator: "-")
         JKPrint("数组转字符转（数组的元素是 字符串）", "数组：\(testArray) 转为字符串为：\(testString)")
     }
 }

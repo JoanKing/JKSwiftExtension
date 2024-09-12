@@ -210,7 +210,7 @@ public extension Array where Self.Element == String {
     /// 数组转字符转（数组的元素是 字符串），如：["1", "2", "3"] 连接器为 - ，那么转化后为 "1-2-3"
     /// - Parameter separator: 连接器
     /// - Returns: 转化后的字符串
-    func toStrinig(separator: String = "") -> String {
+    func toString(separator: String = "") -> String {
         return self.joined(separator: separator)
     }
 }
