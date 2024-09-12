@@ -16,7 +16,7 @@ public extension UILabel {
     /// - Parameter text: 文字内容
     /// - Returns: 返回自身
     @discardableResult
-    func text(_ text: String) -> Self {
+    func text(_ text: String?) -> Self {
         self.text = text
         return self
     }
@@ -46,7 +46,7 @@ public extension UILabel {
     /// - Parameter attributedText: 富文本文字
     /// - Returns: 返回自身
     @discardableResult
-    func attributedText(_ attributedText: NSAttributedString) -> Self {
+    func attributedText(_ attributedText: NSAttributedString?) -> Self {
         self.attributedText = attributedText
         return self
     }

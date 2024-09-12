@@ -150,7 +150,7 @@ public extension UIButton {
     ///   - state: 状态
     /// - Returns: 返回自身
     @discardableResult
-    func title(_ text: String, _ state: UIControl.State = .normal) -> Self {
+    func title(_ text: String?, _ state: UIControl.State = .normal) -> Self {
         setTitle(text, for: state)
         return self
     }
