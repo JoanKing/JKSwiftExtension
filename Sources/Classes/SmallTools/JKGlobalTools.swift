@@ -57,13 +57,13 @@ public struct JKGlobalTools {
         return story.instantiateViewController(withIdentifier: storyboardID)
     }
     
-    // MARK: 1.4、传进某个版本号 和 当前app版本号作对比，注意：版本号必须是三位的，比如：1.1.1、1.23.45、23.4.6
+    // MARK: 1.4、传进某个版本号 和 当前app版本号作对比
     /// 传进某个版本号 个 当前app版本号作对比
     /// - Parameter version: 传进来的版本号码
     /// - Returns: 返回对比加过，true：比当前的版本大，false：比当前的版本小
     public static func compareVersion(version: String) -> Bool {
         /*
-        1.先判断传进来的版本号正则判断：开头是数字，结尾是数字，中间是由数字和小数点组合
+        1.字符串开头和结尾都是数字，中间可以包含数字和小数点，最多有2个小数点(判断app版本号的时候使用)
         2.传进来的版本号使用.分割，分割后的数组不足3个元素的补0
         3.获取app的版本号使用.分割，分割后的数组不足3个元素的补0
         4.逐位对比

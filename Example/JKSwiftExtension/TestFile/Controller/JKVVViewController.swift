@@ -12,7 +12,11 @@ class JKVVViewController: UIViewController {
     var backClosure: (() -> Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        // 设置当前视图控制器的外观为浅色模式
+        overrideUserInterfaceStyle = .light
+        self.view.backgroundColor = .cN2
+
+        debugPrint("当前 Trait Collection: \(traitCollection.userInterfaceStyle)")
         
 //        let array = ["4-20", "3-20"]
 //        let newArray = array.map { item -> [String: Int] in
@@ -49,5 +53,12 @@ class JKVVViewController: UIViewController {
         //self.navigationController?.popViewController(animated: true)
         //backClosure?()
         
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        // 处理 trait collection 的变化
+        debugPrint("更新后的 Trait Collection: \(traitCollection.userInterfaceStyle)")
     }
 }

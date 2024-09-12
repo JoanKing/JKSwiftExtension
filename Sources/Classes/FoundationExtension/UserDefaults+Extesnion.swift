@@ -53,7 +53,7 @@ public extension JKPOP where Base: UserDefaults {
         let userDefaults = Base.standard
         let dics = userDefaults.dictionaryRepresentation()
         for dic in dics where dic.key.jk.contains(find: key) == true {
-            userDefaults.removeObject(forKey: key)
+            userDefaults.removeObject(forKey: dic.key)
         }
         userDefaults.synchronize()
     }

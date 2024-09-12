@@ -1424,7 +1424,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = Q24HFFF5V3;
 				INFOPLIST_FILE = JKSwiftExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1455,7 +1455,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = Q24HFFF5V3;
 				INFOPLIST_FILE = JKSwiftExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
