@@ -80,7 +80,7 @@ extension UITableViewExtensionViewController {
         let testTableView = UITableView(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testTableView.jk.tableViewNeverAdjustContentInset()
         testTableView.backgroundColor = .randomColor
-        testTableView.dataSource(self).estimatedRowHeight(50).separatorStyle(.singleLine).tableFooterView(footView)
+        testTableView.estimatedRowHeight(50).separatorStyle(.singleLine).tableFooterView(footView)
         self.view.addSubview(testTableView)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -96,7 +96,7 @@ extension UITableViewExtensionViewController {
         let testTableView = UITableView(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testTableView.jk.tableViewNeverAdjustContentInset()
         testTableView.backgroundColor = .randomColor
-        testTableView.dataSource(self).estimatedRowHeight(50).separatorStyle(.singleLine).tableHeaderView(headView)
+        testTableView.estimatedRowHeight(50).separatorStyle(.singleLine).tableHeaderView(headView)
         self.view.addSubview(testTableView)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -109,7 +109,7 @@ extension UITableViewExtensionViewController {
         let testTableView = UITableView(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testTableView.jk.tableViewNeverAdjustContentInset()
         testTableView.backgroundColor = .randomColor
-        testTableView.dataSource(self).estimatedRowHeight(50).separatorStyle(.singleLine)
+        testTableView.estimatedRowHeight(50).separatorStyle(.singleLine)
         self.view.addSubview(testTableView)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -122,7 +122,7 @@ extension UITableViewExtensionViewController {
         let testTableView = UITableView(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testTableView.jk.tableViewNeverAdjustContentInset()
         testTableView.backgroundColor = .randomColor
-        testTableView.dataSource(self).estimatedRowHeight(50).estimatedSectionFooterHeight(20)
+        testTableView.estimatedRowHeight(50).estimatedSectionFooterHeight(20)
         self.view.addSubview(testTableView)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -135,7 +135,7 @@ extension UITableViewExtensionViewController {
         let testTableView = UITableView(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testTableView.jk.tableViewNeverAdjustContentInset()
         testTableView.backgroundColor = .randomColor
-        testTableView.dataSource(self).estimatedRowHeight(50).estimatedSectionHeaderHeight(20)
+        testTableView.estimatedRowHeight(50).estimatedSectionHeaderHeight(20)
         self.view.addSubview(testTableView)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -148,7 +148,7 @@ extension UITableViewExtensionViewController {
         let testTableView = UITableView(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testTableView.jk.tableViewNeverAdjustContentInset()
         testTableView.backgroundColor = .randomColor
-        testTableView.dataSource(self).rowHeight(20).sectionFooterHeight(30).estimatedRowHeight(50)
+        testTableView.rowHeight(20).sectionFooterHeight(30).estimatedRowHeight(50)
         self.view.addSubview(testTableView)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -161,7 +161,7 @@ extension UITableViewExtensionViewController {
         let testTableView = UITableView(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testTableView.jk.tableViewNeverAdjustContentInset()
         testTableView.backgroundColor = .randomColor
-        testTableView.dataSource(self).rowHeight(20).sectionFooterHeight(30)
+        testTableView.rowHeight(20).sectionFooterHeight(30)
         self.view.addSubview(testTableView)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -174,7 +174,7 @@ extension UITableViewExtensionViewController {
         let testTableView = UITableView(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testTableView.jk.tableViewNeverAdjustContentInset()
         testTableView.backgroundColor = .randomColor
-        testTableView.dataSource(self).rowHeight(20).sectionHeaderHeight(20)
+        testTableView.rowHeight(20).sectionHeaderHeight(20)
         self.view.addSubview(testTableView)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -187,7 +187,7 @@ extension UITableViewExtensionViewController {
         let testTableView = UITableView(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testTableView.jk.tableViewNeverAdjustContentInset()
         testTableView.backgroundColor = .randomColor
-        testTableView.dataSource(self).rowHeight(20)
+        testTableView.rowHeight(20)
         self.view.addSubview(testTableView)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -200,7 +200,6 @@ extension UITableViewExtensionViewController {
         let testTableView = UITableView(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
         testTableView.jk.tableViewNeverAdjustContentInset()
         testTableView.backgroundColor = .randomColor
-        testTableView.dataSource(self)
         self.view.addSubview(testTableView)
         JKAsyncs.asyncDelay(2, {
         }) {
