@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import simd
 
 class NSDecimalNumberHandlerExtensionViewController: BaseViewController {
     

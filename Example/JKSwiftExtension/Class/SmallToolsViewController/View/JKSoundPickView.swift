@@ -50,7 +50,7 @@ public class JKSoundPickView : UIView {
     var keyWindow : UIWindow?
     /// 背景色
     lazy var bgView: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: jk_kScreenH - 274 - jk_kTabbarBottom, width: jk_kScreenW, height: 274 + jk_kTabbarBottom))
+        let view = UIView(frame: CGRect(x: 0, y: jk_kScreenH - 274 - jk_kSafeDistanceBottom, width: jk_kScreenW, height: 274 + jk_kSafeDistanceBottom))
         view.backgroundColor = UIColor.white
         view.jk.addCorner(conrners: [.topLeft, .topRight], radius: 20)
         // UIColor.niuColorTheme(lightColor: UIColor.cF2F4F7, darkColor: UIColor.c222222)
@@ -75,7 +75,7 @@ public class JKSoundPickView : UIView {
     public convenience init(frame: CGRect, dataSource: [String], inComponent component: Int = 0, style: SoundPickViewStyle = SoundPickViewStyle()) {
         self.init(frame: frame)
         if (dataSource.count != 0) {
-            let picker = SoundPickerViewBuilder(frame: CGRect(x: 0, y: 60, width: jk_kScreenW, height: bgView.frame.size.height - 60 - jk_kTabbarBottom - 20), dataSource: dataSource, inComponent: component, contentCallBack:{ [weak self] (resultStr) in
+            let picker = SoundPickerViewBuilder(frame: CGRect(x: 0, y: 60, width: jk_kScreenW, height: bgView.frame.size.height - 60 - jk_kSafeDistanceBottom - 20), dataSource: dataSource, inComponent: component, contentCallBack:{ [weak self] (resultStr) in
                 guard let weakSelf = self else {
                     return
                 }

@@ -149,44 +149,70 @@ public var jk_kScreenW: CGFloat { return UIScreen.main.bounds.width }
 /// 屏幕的高
 public var jk_kScreenH: CGFloat { return UIScreen.main.bounds.height }
 
-// MARK: 2.3、获取statusBar的高度
-/// 获取statusBar的高度
+// MARK: 2.3、获取statusBar状态栏的高度
+/// 获取statusBar状态栏的高度
 public var jk_kStatusBarFrameH: CGFloat {
     if #available(iOS 13.0, *) {
         let window: UIWindow? = UIApplication.shared.windows.first
         let statusBarHeight = (window?.windowScene?.statusBarManager?.statusBarFrame.height) ?? 0
         return statusBarHeight
+        /*
+        let scene = UIApplication.shared.connectedScenes.first
+        guard let windowScene = scene as? UIWindowScene else { return 0 }
+        guard let statusBarManager = windowScene.statusBarManager else { return 0 }
+        return statusBarManager.statusBarFrame.height
+         */
     } else {
         // 防止界面没有出来获取为0的情况
         return UIApplication.shared.statusBarFrame.height > 0 ? UIApplication.shared.statusBarFrame.height : 44
     }
 }
 
-// MARK: 2.4、获取导航栏的高度
-/// 获取导航栏的高度
+// MARK: 2.4、顶部安全区高度
+/// 2.4、顶部安全区高度
+public var jk_kSafeDistanceTop: CGFloat {
+    if #available(iOS 13.0, *) {
+        let scene = UIApplication.shared.connectedScenes.first
+        guard let windowScene = scene as? UIWindowScene else { return 0 }
+        guard let window = windowScene.windows.first else { return 0 }
+        return window.safeAreaInsets.top
+    }
+    return 0
+}
+
+// MARK: 2.5、获取导航栏的高度
+/// 2.5、获取导航栏的高度
 public var jk_kNavFrameH: CGFloat { return 44 + jk_kStatusBarFrameH }
-    
-// MARK: 2.5、屏幕底部Tabbar高度
-/// 屏幕底部Tabbar高度
-public var jk_kTabbarFrameH: CGFloat { return jk_isIPhoneNotch ? 83 : 49 }
 
-// MARK: 2.6、屏幕底部刘海高度
-/// 屏幕底部刘海高度
-public var jk_kTabbarBottom: CGFloat { return jk_isIPhoneNotch ? 34 : 0 }
+// MARK: 2.6、底部安全区高度
+/// 2.6、底部安全区高度
+public var jk_kSafeDistanceBottom: CGFloat {
+    if #available(iOS 13.0, *) {
+        let scene = UIApplication.shared.connectedScenes.first
+        guard let windowScene = scene as? UIWindowScene else { return 0 }
+        guard let window = windowScene.windows.first else { return 0 }
+        return window.safeAreaInsets.bottom
+    }
+    return 0
+}
 
-// MARK: 2.7、屏幕比例
-/// 屏幕比例
+// MARK: 2.7、屏幕底部Tabbar高度
+/// 2.7、屏幕底部Tabbar高度
+public var jk_kTabbarFrameH: CGFloat { return 49 + jk_kSafeDistanceBottom }
+
+// MARK: 2.8、屏幕比例
+/// 2.8、屏幕比例
 public let jk_kPixel = 1.0 / UIScreen.main.scale
 
-// MARK: 2.8、身份证宽高比
-/// 身份证宽高比
+// MARK: 2.9、身份证宽高比
+/// 2.9、身份证宽高比
 public let jk_kRatioIDCard: CGFloat = 0.63
 
-// MARK: 2.9、375尺寸适配比例
-/// 375尺寸适配比例
+// MARK: 2.10、375尺寸适配比例
+/// 2.10、375尺寸适配比例
 public var jk_scaleIphone: CGFloat { return jk_kScreenW / CGFloat(375.0) }
 
-// MARK: - 屏幕16:9比例系数下的宽高
+// MARK: 2.11、 屏幕16:9比例系数下的宽高
 // 宽
 public var jk_kScreenW16_9: CGFloat { return jk_kScreenW * 9.0 / 16.0 }
 // 高

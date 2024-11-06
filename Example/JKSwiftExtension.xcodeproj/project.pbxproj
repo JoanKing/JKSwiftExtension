@@ -13,6 +13,7 @@
 		555C223B2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C223A2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift */; };
 		55625BC72B39BC770061D11C /* OptionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55625BC62B39BC770061D11C /* OptionalViewController.swift */; };
 		55A815D42A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A815D32A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift */; };
+		55B94AE92CDA332E003215A2 /* NSDecimalNumberExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B94AE82CDA332E003215A2 /* NSDecimalNumberExtensionViewController.swift */; };
 		55BD8A082B22FF7E001AD567 /* JKOperatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD8A072B22FF7E001AD567 /* JKOperatorViewController.swift */; };
 		55BFA0C62B5E7A5A0048B37D /* CGPointExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFA0C52B5E7A5A0048B37D /* CGPointExtensionViewController.swift */; };
 		55C1C9492C384F01009BC9C6 /* Image+Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C1C9482C384F01009BC9C6 /* Image+Photo.swift */; };
@@ -215,6 +216,7 @@
 		555C223A2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabbarExtensionViewController.swift; sourceTree = "<group>"; };
 		55625BC62B39BC770061D11C /* OptionalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalViewController.swift; sourceTree = "<group>"; };
 		55A815D32A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingSpecialConfigurationSegmentView.swift; sourceTree = "<group>"; };
+		55B94AE82CDA332E003215A2 /* NSDecimalNumberExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDecimalNumberExtensionViewController.swift; sourceTree = "<group>"; };
 		55BD8A072B22FF7E001AD567 /* JKOperatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKOperatorViewController.swift; sourceTree = "<group>"; };
 		55BFA0C52B5E7A5A0048B37D /* CGPointExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointExtensionViewController.swift; sourceTree = "<group>"; };
 		55C1C9482C384F01009BC9C6 /* Image+Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Photo.swift"; sourceTree = "<group>"; };
@@ -723,6 +725,7 @@
 				8483A738254EC47E00ACF6FD /* NSObjectExtensionViewController.swift */,
 				84A8FEFE2534598A00830EAF /* ArrayExtensionViewController.swift */,
 				8488D0CC2689786000DADFE6 /* DispatchQueueExtensionViewController.swift */,
+				55B94AE82CDA332E003215A2 /* NSDecimalNumberExtensionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1136,6 +1139,7 @@
 				846ECCC9279AE137006215EF /* JKPlaceHolderTextViewViewController.swift in Sources */,
 				84D9BD9725651BEB00D92461 /* KeyboardAccessoryViewController.swift in Sources */,
 				84BEA37B25500B8F00CA8A75 /* DoubleExtensionViewController.swift in Sources */,
+				55B94AE92CDA332E003215A2 /* NSDecimalNumberExtensionViewController.swift in Sources */,
 				8483C4C0255E799B0034A2F7 /* UIStackViewExtensionViewController.swift in Sources */,
 				8483A6CA254BC02B00ACF6FD /* BundleExtensionViewController.swift in Sources */,
 				E2BBEDE129B1EF52005FB04B /* JKWheelPickerCell.swift in Sources */,

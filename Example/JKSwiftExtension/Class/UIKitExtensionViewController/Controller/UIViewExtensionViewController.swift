@@ -15,7 +15,7 @@ class UIViewExtensionViewController: BaseViewController {
         super.viewDidLoad()
      
         headDataArray = ["一、机型的判断", "二、屏幕尺寸常用的常量", "三、UIView 有关 Frame 的扩展", "四、继承于 UIView 视图的 平面、3D 旋转 以及 缩放", "五、关于UIView的 圆角 和 阴影的设置", "六、自定义链式编程", "七、其他的方法", "八、试图调试", "九、手势的扩展", "十、颜色渐变"]
-        dataArray = [["设备型号", "是不是 iPhone X", "是不是 iPhone XS", "是不是 iPhone XR", "是不是 iPhone XsMax", "是不是 iPhone", "判断是否是 pad", "判断是不是 4or4s", "判断是不是 5 5c 5s", "判断是不是 6 6s 7 8", "判断是不是 6p 7p 8p", "当前设备是不是模拟器", "是否是缺口屏幕(刘海屏)或者灵动岛的屏幕"], ["屏幕的宽", "屏幕的高", "获取statusBar的高度", "获取导航栏的高度", "屏幕底部Tabbar高度", "屏幕底部刘海高度", "屏幕比例", "身份证宽高比", "375尺寸适配比例", "屏幕16:9比例系数下的宽", "屏幕16:9比例系数下的高"], ["x 的位置", "y 的位置", "height: 视图的高度", "width: 视图的宽度", "size: 视图的zize", "centerX: 视图的X中间位置", "centerX: 视图的Y中间位置", "center: 视图的中间位置", "top 上端横坐标(y)", "left 左端横坐标(x)", "bottom 底端纵坐标 (y + height)", "right 底端纵坐标 (x + width)"], ["平面旋转", "沿 X 轴方向旋转多少度(3D旋转)", "沿 Y 轴方向旋转多少度(3D旋转)", "沿 Z 轴方向旋转多少度(3D旋转)", "沿 X、Y、Z 轴方向同时旋转多少度(3D旋转)", "设置 x,y 缩放", "水平或垂直翻转", "移动到指定中心点位置"], ["设置圆角", "添加圆角和边框", "给继承于view的类添加阴影", "添加阴影和圆角并存", "通过贝塞尔曲线View添加阴影和圆角", "添加边框", "添加顶部的边框", "添加顶部的 内边框", "添加底部的 边框", "添加左边的 边框", "添加右边的 边框", "画圆环", "绘制虚线", "添加内阴影", "毛玻璃效果", "添加多个View子视图"], ["设置tag值", "设置圆角", "图片的模式", "设置背景色", "设置十六进制颜色", "设置 frame", "被添加到某个视图上", "设置是否支持触摸", "设置是否隐藏", "设置透明度", "设置tintColor", "链式编程的综合使用"], ["获取当前view的viewcontroller", "添加水印", "将 View 转换成图片", "添加点击事件", "键盘收起来", "视图抖动", "是否包含WKWebView"], ["图层调试", "UIResponder.Type寻找某个类型子视图", "T.Type寻找某个类型子视图", "根据类名寻找某个类型子视图", "移除所有的子视图", "移除layer"], ["通用响应添加方法", "手势 - 单击", "手势 - 长按", "手势 - 拖拽", "手势 - 屏幕边缘(靠近屏幕边缘的View类才支持)", "手势 - 屏幕边缘(闭包)", "手势 - 清扫", "手势 - 清扫(闭包)", "手势 - 捏合", "手势 - 旋转"], ["添加渐变色图层（棕色->绿色）=>（蓝色->红色）", "colors 变化渐变动画"]]
+        dataArray = [["设备型号", "是不是 iPhone X", "是不是 iPhone XS", "是不是 iPhone XR", "是不是 iPhone XsMax", "是不是 iPhone", "判断是否是 pad", "判断是不是 4or4s", "判断是不是 5 5c 5s", "判断是不是 6 6s 7 8", "判断是不是 6p 7p 8p", "当前设备是不是模拟器", "是否是缺口屏幕(刘海屏)或者灵动岛的屏幕"], ["屏幕的宽", "屏幕的高", "获取statusBar状态栏的高度", "顶部安全区高度", "获取导航栏的高度", "底部安全区高度", "屏幕底部Tabbar高度", "屏幕比例", "身份证宽高比", "375尺寸适配比例", "屏幕16:9比例系数下的宽", "屏幕16:9比例系数下的高"], ["x 的位置", "y 的位置", "height: 视图的高度", "width: 视图的宽度", "size: 视图的zize", "centerX: 视图的X中间位置", "centerX: 视图的Y中间位置", "center: 视图的中间位置", "top 上端横坐标(y)", "left 左端横坐标(x)", "bottom 底端纵坐标 (y + height)", "right 底端纵坐标 (x + width)"], ["平面旋转", "沿 X 轴方向旋转多少度(3D旋转)", "沿 Y 轴方向旋转多少度(3D旋转)", "沿 Z 轴方向旋转多少度(3D旋转)", "沿 X、Y、Z 轴方向同时旋转多少度(3D旋转)", "设置 x,y 缩放", "水平或垂直翻转", "移动到指定中心点位置"], ["设置圆角", "添加圆角和边框", "给继承于view的类添加阴影", "添加阴影和圆角并存", "通过贝塞尔曲线View添加阴影和圆角", "添加边框", "添加顶部的边框", "添加顶部的 内边框", "添加底部的 边框", "添加左边的 边框", "添加右边的 边框", "画圆环", "绘制虚线", "添加内阴影", "毛玻璃效果", "添加多个View子视图"], ["设置tag值", "设置圆角", "图片的模式", "设置背景色", "设置十六进制颜色", "设置 frame", "被添加到某个视图上", "设置是否支持触摸", "设置是否隐藏", "设置透明度", "设置tintColor", "链式编程的综合使用"], ["获取当前view的viewcontroller", "添加水印", "将 View 转换成图片", "添加点击事件", "键盘收起来", "视图抖动", "是否包含WKWebView"], ["图层调试", "UIResponder.Type寻找某个类型子视图", "T.Type寻找某个类型子视图", "根据类名寻找某个类型子视图", "移除所有的子视图", "移除layer"], ["通用响应添加方法", "手势 - 单击", "手势 - 长按", "手势 - 拖拽", "手势 - 屏幕边缘(靠近屏幕边缘的View类才支持)", "手势 - 屏幕边缘(闭包)", "手势 - 清扫", "手势 - 清扫(闭包)", "手势 - 捏合", "手势 - 旋转"], ["添加渐变色图层（棕色->绿色）=>（蓝色->红色）", "colors 变化渐变动画"]]
     }
 }
 
@@ -1275,56 +1275,62 @@ extension UIViewExtensionViewController {
 // MARK: - 二、机型的判断
 extension UIViewExtensionViewController {
     
-    //MARK: 2.11、屏幕16:9比例系数下的高
+    //MARK: 2.12、屏幕16:9比例系数下的高
     /// 屏幕16:9比例系数下的高
-    @objc func test211() {
+    @objc func test212() {
         JKPrint("屏幕16:9比例系数下的高：\(jk_kScreenH16_9)")
     }
     
-    //MARK: 2.10、屏幕16:9比例系数下的宽
+    //MARK: 2.11、屏幕16:9比例系数下的宽
     /// 屏幕16:9比例系数下的宽
-    @objc func test210() {
+    @objc func test211() {
         JKPrint("屏幕16:9比例系数下的宽：\(jk_kScreenW16_9)")
     }
     
-    //MARK: 2.09、375尺寸适配比例
+    //MARK: 2.10、375尺寸适配比例
     /// 375尺寸适配比例
-    @objc func test209() {
+    @objc func test210() {
         JKPrint("375尺寸适配比例：\(jk_scaleIphone)")
     }
     
-    //MARK: 2.08、身份证宽高比
+    //MARK: 2.09、身份证宽高比
     /// 身份证宽高比
-    @objc func test208() {
+    @objc func test209() {
         JKPrint("身份证宽高比：\(jk_kRatioIDCard)")
     }
     
-    //MARK: 2.07、屏幕比例
+    //MARK: 2.08、屏幕比例
     /// 屏幕比例
-    @objc func test207() {
+    @objc func test208() {
         JKPrint("屏幕比例：\(jk_kPixel)")
     }
     
-    //MARK: 2.06、屏幕底部刘海高度
-    /// 屏幕底部刘海高度
-    @objc func test206() {
-        JKPrint("屏幕底部刘海高度：\(jk_kTabbarBottom)")
-    }
-    
-    //MARK: 2.05、屏幕底部Tabbar高度
+    //MARK: 2.07、屏幕底部Tabbar高度
     /// 屏幕底部Tabbar高度
-    @objc func test205() {
+    @objc func test207() {
         JKPrint("屏幕底部Tabbar高度：\(jk_kTabbarFrameH)")
     }
     
-    //MARK: 2.04、获取导航栏的高度
+    //MARK: 2.06、底部安全区高度
+    /// 底部安全区高度
+    @objc func test206() {
+        JKPrint("底部安全区高度：\(jk_kSafeDistanceBottom)")
+    }
+    
+    //MARK: 2.05、获取导航栏的高度
     /// 获取导航栏的高度
-    @objc func test204() {
+    @objc func test205() {
         JKPrint("获取导航栏的高度：\(jk_kNavFrameH)")
     }
     
-    //MARK: 2.03、获取statusBar的高度
-    /// 获取statusBar的高度
+    //MARK: 2.04、顶部安全区高度
+    /// 顶部安全区高度
+    @objc func test204() {
+        JKPrint("顶部安全区高度：\(jk_kSafeDistanceTop)")
+    }
+    
+    //MARK: 2.03、获取statusBar状态栏的高度
+    /// 获取statusBar状态栏的高度
     @objc func test203() {
         JKPrint("获取statusBar的高度：\(jk_kStatusBarFrameH)")
     }
@@ -1459,7 +1465,7 @@ class CornerAndShadowViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 0.01))
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: jk_kTabbarBottom))
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: jk_kSafeDistanceBottom))
         tableView.estimatedSectionFooterHeight = 0
         tableView.estimatedSectionHeaderHeight = 0
         // 设置一个默认高度
