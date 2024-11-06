@@ -50,6 +50,12 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/5611a91f-e083-4c77-8ef8-bdc4a91a13c9" alt="微信交流群" width="220">
 
 ## 版本说明 
+  - 2.7.2、版本(2024.11.06)
+    - 新增UIView+Extension中部分高度的属性
+    - 新增NSDecimalNumber+Extension扩展
+      - 判断NSDecimalNumber是否包含小数部分
+      - 如果NSDecimalNumber判断是小数部分，如果小数部分是0是否舍弃
+    - 修复UIAlertController在子线程调用show崩溃，增加是否主线程判断，否则回到主线程调用show
   - 2.7.1、版本(2024.10.11)
     - 去除 override var traitCollection: UITraitCollection {} 重写，建议重写traitCollectionDidChange自己去实现界面的布局
   - 2.7.0、版本(2024.09.12)
