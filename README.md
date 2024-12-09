@@ -49,7 +49,8 @@ end
 - 邮箱: jkironman@163.com
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/5611a91f-e083-4c77-8ef8-bdc4a91a13c9" alt="微信交流群" width="220">
 
-## 版本说明 
+## 版本说明  
+  - 2.7.3、版本(2024.12.09) 强制解包as!处理
   - 2.7.2、版本(2024.11.06)
     - 新增UIView+Extension中部分高度的属性
     - 新增NSDecimalNumber+Extension扩展
