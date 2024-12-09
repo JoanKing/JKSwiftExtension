@@ -34,7 +34,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     /// 字符串的长度
     var length: Int {
         let string = base as! String
-        return string.count
+        return string.utf16.count
     }
     
     // MARK: 1.2、字符串取类型的长度
@@ -44,6 +44,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
         if type == .utf8 {
             return string.utf8.count
         } else if type == .utf16 {
+            // 等同于 NSString的length
             return string.utf16.count
         } else if type == .unicodeScalars {
             return string.unicodeScalars.count

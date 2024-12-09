@@ -76,7 +76,7 @@ extension JKGlobalToolsViewController {
     // MARK: 1.04、传进某个版本号 个 当前app版本号作对比
     @objc func test104() {
         
-        let versions = ["0.0.1", "0.9", "1.0.1", "2.0.1", "3.A", "5.6", "我.是", "1.0.0", "0.8.0", ".0.0.08", "1.0.08"]
+        let versions = ["2.0.21", "2.9", "1.0.1", "2.0.1", "3.A", "5.6", "我.是", "1.0.0", "0.8.0", ".0.0.08", "1.0.08"]
         var resultString = "传进某个版本号 个 当前app版本号作对比"
         for items in versions {
             resultString = resultString + "\n新的版本号：\(items) 是否大于当前版本：\(Bundle.jk.appVersion) 结果：\(JKGlobalTools.compareVersion(version: items))"

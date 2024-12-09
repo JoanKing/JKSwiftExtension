@@ -102,17 +102,20 @@ public extension Dictionary {
     @discardableResult
     mutating func setValue(keys: [String], newValue: Any) -> Bool {
         guard keys.count > 1 else {
-            guard keys.count == 1, let key = keys[0] as? Dictionary<Key, Value>.Keys.Element else {
+            guard keys.count == 1, let key = keys[0] as? Dictionary<Key, Value>.Keys.Element, let value = newValue as? Value else {
                 return false
             }
-            self[key] = (newValue as! Value)
+            self[key] = value
             return true
         }
-        guard let key = keys[0] as? Dictionary<Key, Value>.Keys.Element, self.keys.contains(key), var value1 = self[key] as? [String: Any] else {
+        guard let key = keys[0] as? Dictionary<Key, Value>.Keys.Element, self.keys.contains(key), var value = self[key] as? [String: Any] else {
             return false
         }
-        let result = Dictionary<String, Any>.value(keys: Array(keys[1..<keys.count]), oldValue: &value1, newValue: newValue)
-        self[key] = (value1 as! Value)
+        let result = Dictionary<String, Any>.value(keys: Array(keys[1..<keys.count]), oldValue: &value, newValue: newValue)
+        guard let value1 = value as? Value else {
+            return false
+        }
+        self[key] = value1
         return result
     }
     

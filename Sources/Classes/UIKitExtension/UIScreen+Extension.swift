@@ -42,5 +42,12 @@ public extension JKPOP where Base: UIScreen {
             }
         }
     }
+    
+    // MARK: 1.4、获取屏幕对角线长度
+    /// 1.4、获取屏幕对角线长度
+     static var diagonalLength: CGFloat {
+        let size = UIScreen.main.bounds.size
+        return sqrt(pow(size.width, 2) + pow(size.height, 2))
+    }
 }
 

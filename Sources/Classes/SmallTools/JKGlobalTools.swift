@@ -63,6 +63,7 @@ public struct JKGlobalTools {
     /// - Returns: 返回对比加过，true：比当前的版本大，false：比当前的版本小
     public static func compareVersion(version: String) -> Bool {
         /*
+        /*
         1.字符串开头和结尾都是数字，中间可以包含数字和小数点，最多有2个小数点(判断app版本号的时候使用)
         2.传进来的版本号使用.分割，分割后的数组不足3个元素的补0
         3.获取app的版本号使用.分割，分割后的数组不足3个元素的补0
@@ -103,6 +104,16 @@ public struct JKGlobalTools {
             return newVersion3 > appVersion3
         }
         return false
+         */
+        
+        let result = version.compare(Bundle.jk.appVersion, options: .numeric)
+        switch result {
+        case .orderedAscending, .orderedSame:
+            return false
+        case .orderedDescending:
+            return true
+        }
+        
     }
 
     // MARK: 1.5、获取本机IP

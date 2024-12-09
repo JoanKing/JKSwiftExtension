@@ -14,7 +14,9 @@ extension NSString: JKPOPCompatible {}
 extension JKPOP where Base: ExpressibleByStringLiteral {
     
     func numberCount() -> Int {
-        let string = base as! String
+        guard let string = base as? String else {
+            return 0
+        }
         var count = 0
         for c in string where ("0"..."9").contains(c) {
             count += 1

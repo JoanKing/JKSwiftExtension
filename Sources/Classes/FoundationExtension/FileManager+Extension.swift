@@ -253,7 +253,7 @@ public extension JKPOP where Base: FileManager {
                 return (false, "写入失败")
             }
         case .ImageType:
-            let data = content as! Data
+            guard let data = content as? Data else { return (false, "写入失败") }
             do {
                 try data.write(to: URL(fileURLWithPath: writePath))
                 return (true, "")
@@ -261,7 +261,7 @@ public extension JKPOP where Base: FileManager {
                 return (false, "写入失败")
             }
         case .ArrayType:
-            let array = content as! NSArray
+            guard let array = content as? NSArray else { return (false, "写入失败") }
             let result = array.write(toFile: writePath, atomically: true)
             if result {
                 return (true, "")
@@ -269,7 +269,8 @@ public extension JKPOP where Base: FileManager {
                 return (false, "写入失败")
             }
         case .DictionaryType:
-            let result = (content as! NSDictionary).write(toFile: writePath, atomically: true)
+            guard let content = content as? NSDictionary else { return (false, "写入失败") }
+            let result = content.write(toFile: writePath, atomically: true)
             if result {
                 return (true, "")
             } else {

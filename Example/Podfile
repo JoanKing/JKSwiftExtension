@@ -1,8 +1,10 @@
-platform :ios, '10.0'
+platform :ios, '13.0'
 use_frameworks!
 target 'JKSwiftExtension_Example' do
   pod 'JKSwiftExtension', :path => '../'
 
   pod 'SnapKit'
+  # 卡顿检测
+  # pod 'GDPerformanceView-Swift', '~> 2.1.1', :configurations => ['Debug']
   
 end

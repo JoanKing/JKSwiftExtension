@@ -164,15 +164,13 @@ public extension JKPOP where Base: UILabel {
     /// 改变行间距
     /// - Parameter space: 行间距大小
     func changeLineSpace(space: CGFloat) {
-        if self.base.text == nil || self.base.text == "" {
-            return
-        }
-        let text = self.base.text
-        let attributedString = NSMutableAttributedString(string: text!)
+        guard let text = self.base.text, text != "" else { return }
+        let attributedString = NSMutableAttributedString(string: text)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = space
         paragraphStyle.alignment = self.base.textAlignment
-        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: .init(location: 0, length: text!.count))
+        let fullRange = NSRange(location: 0, length: attributedString.length)
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: fullRange)
         self.base.attributedText = attributedString
         self.base.sizeToFit()
     }
@@ -181,14 +179,12 @@ public extension JKPOP where Base: UILabel {
     /// 改变字间距
     /// - Parameter space: 字间距大小
     func changeWordSpace(space: CGFloat) {
-        if self.base.text == nil || self.base.text == "" {
-            return
-        }
-        let text = self.base.text
-        let attributedString = NSMutableAttributedString(string: text!, attributes: [NSAttributedString.Key.kern:space])
+        guard let text = self.base.text, text != "" else { return }
+        let attributedString = NSMutableAttributedString(string: text, attributes: [NSAttributedString.Key.kern:space])
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = self.base.textAlignment
-        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: .init(location: 0, length: text!.count))
+        let fullRange = NSRange(location: 0, length: attributedString.length)
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: fullRange)
         self.base.attributedText = attributedString
         self.base.sizeToFit()
     }
@@ -199,15 +195,13 @@ public extension JKPOP where Base: UILabel {
     ///   - lineSpace: 行间距
     ///   - wordSpace: 字间距
     func changeSpace(lineSpace: CGFloat, wordSpace: CGFloat) {
-        if self.base.text == nil || self.base.text == "" {
-            return
-        }
-        let text = self.base.text
-        let attributedString = NSMutableAttributedString(string: text!, attributes: [NSAttributedString.Key.kern:wordSpace])
+        guard let text = self.base.text, text != "" else { return }
+        let attributedString = NSMutableAttributedString(string: text, attributes: [NSAttributedString.Key.kern:wordSpace])
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = self.base.textAlignment
         paragraphStyle.lineSpacing = lineSpace
-        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: .init(location: 0, length: text!.count))
+        let fullRange = NSRange(location: 0, length: attributedString.length)
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: fullRange)
         self.base.attributedText = attributedString
         self.base.sizeToFit()
     }
@@ -218,11 +212,10 @@ public extension JKPOP where Base: UILabel {
     ///   - lineValue: value 越大,划线越粗
     ///   - underlineColor: 中划线的颜色
     func centerLineText(lineValue: Int = 1, underlineColor: UIColor = .black) {
-        guard let content = base.text else {
-            return
-        }
-        let arrText = NSMutableAttributedString(string: content)
-        arrText.addAttributes([NSAttributedString.Key.strikethroughStyle: lineValue, NSAttributedString.Key.strikethroughColor: underlineColor], range: NSRange(location: 0, length: arrText.length))
+        guard let text = self.base.text, text != "" else { return }
+        let arrText = NSMutableAttributedString(string: text)
+        let fullRange = NSRange(location: 0, length: arrText.length)
+        arrText.addAttributes([NSAttributedString.Key.strikethroughStyle: lineValue, NSAttributedString.Key.strikethroughColor: underlineColor], range: fullRange)
         base.attributedText = arrText
     }
     
@@ -292,9 +285,8 @@ public extension JKPOP where Base: UILabel {
     /// 获取已知label 的文本行数 & 每一行内容
     /// - Returns: 每行的内容
     func linesCountAndLinesContent() -> (Int?, [String]?) {
-        guard let t = base.text else {return (0, nil)}
+        guard let t = base.text, let fontSize = getFontSizeForLabel() else { return (0, nil) }
         let lodFontName = base.font.fontName == ".SFUI-Regular" ? "TimesNewRomanPSMT" : base.font.fontName
-        let fontSize = getFontSizeForLabel()
         let newFont = UIFont(name: lodFontName, size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
         let c_fn = newFont.fontName as CFString
         let fp = newFont.pointSize
@@ -317,6 +309,7 @@ public extension JKPOP where Base: UILabel {
         let lines = CTFrameGetLines(framef) as NSArray
         var lineArr = [String]()
         for line in lines {
+            // 安全的强制转换，因为我们知道类型
             let lineRange = CTLineGetStringRange(line as! CTLine)
             let lineString = t.jk.sub(start: lineRange.location, length: lineRange.length)
             lineArr.append(lineString as String)
@@ -327,9 +320,11 @@ public extension JKPOP where Base: UILabel {
     // MARK: 2.09、获取字体的大小
     /// 获取字体的大小
     /// - Returns: 字体大小
-    func getFontSizeForLabel() -> CGFloat {
-        let text: NSMutableAttributedString = NSMutableAttributedString(attributedString: base.attributedText!)
-        text.setAttributes([NSAttributedString.Key.font: base.font as Any], range: NSMakeRange(0, text.length))
+    func getFontSizeForLabel() -> CGFloat? {
+        guard let text = base.attributedText else { return nil }
+        let attributedText: NSMutableAttributedString = NSMutableAttributedString(attributedString: text)
+        let fullRange = NSRange(location: 0, length: attributedText.length)
+        attributedText.setAttributes([NSAttributedString.Key.font: base.font as Any], range: fullRange)
         let context: NSStringDrawingContext = NSStringDrawingContext()
         context.minimumScaleFactor = base.minimumScaleFactor
         text.boundingRect(with: base.frame.size, options: NSStringDrawingOptions.usesLineFragmentOrigin, context: context)

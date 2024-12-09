@@ -1197,7 +1197,8 @@ public extension JKPOP where Base: UIView {
             }, for: .valueChanged)
         } else {
             _ = self.base.jk.addGestureTap { (reco) in
-                actionClosure((reco as! UITapGestureRecognizer), reco.view!, reco.view!.tag)
+                guard let reco = reco as? UITapGestureRecognizer, let recoView = reco.view else { return }
+                actionClosure(reco, recoView, recoView.tag)
             }
         }
     }

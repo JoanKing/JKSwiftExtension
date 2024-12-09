@@ -482,8 +482,8 @@ public extension UIButton {
     /// 是否正在倒计时
     var isTiming: Bool {
         get {
-            if let value = objc_getAssociatedObject(self, &TimerKey.running_key) {
-                return value as! Bool
+            if let value = objc_getAssociatedObject(self, &TimerKey.running_key), let runningKeyValue = value as? Bool{
+                return runningKeyValue
             }
             // 默认状态
             return false

@@ -13,12 +13,17 @@ class UIScreenExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、基本的扩展"]
-        dataArray = [["获取宽度", "获取高度", "截屏和录屏通知"]]
+        dataArray = [["获取宽度", "获取高度", "截屏和录屏通知", "获取屏幕对角线长度"]]
     }
 }
 
 // MARK: - 一、基本的扩展
 extension UIScreenExtensionViewController {
+    // MARK: 1.4、获取屏幕对角线长度
+    @objc func test104() {
+        debugPrint("获取屏幕对角线长度：\(UIScreen.jk.diagonalLength)")
+        
+    }
     
     // MARK: 1.03、截屏通知
     @objc func test103() {

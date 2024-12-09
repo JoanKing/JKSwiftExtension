@@ -75,10 +75,10 @@ public extension JKPOP where Base: UIApplication {
     // MARK: 1.5、app定位区域
     /// app定位区域
     static var localizations: String? {
-        guard let weakInfoDictionary = Bundle.jk.infoDictionary, let content = weakInfoDictionary[String(kCFBundleLocalizationsKey)] else {
+        guard let weakInfoDictionary = Bundle.jk.infoDictionary, let content = weakInfoDictionary[String(kCFBundleLocalizationsKey)] as? String else {
             return nil
         }
-        return (content as! String)
+        return content
     }
     
     // MARK: 1.6、网络状态是否可用
