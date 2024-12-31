@@ -174,7 +174,7 @@ public extension JKPOP where Base: UIFont {
  使用自定义自提注意事项
  1、添加自定义字体到项目，保证TARGETS->Build Phases里面有对应的字体资源
  2、在info.plist添加字体资源 Fonts provided by application(数组类型，存放自定义字体名字)
- 3、调用下面方法使用：UIFont.jk.customFont(26, fontName: "字体的名字")
+ 3、调用下面方法使用：UIFont.jk.customFont(26, fontName: "字体的名字")，⚠️特别注意：字体的名字是字体的实际名称，而不是字体文件的名称，可以使用 UIFont.jk.showAllFont() 打印所有的字体名来获取字体的实际名称
  */
 public extension JKPOP where Base: UIFont {
     //MARK: 3.1、自定义字体

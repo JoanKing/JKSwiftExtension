@@ -12,6 +12,8 @@
 		553FF3782B0EEB3500589AEF /* MapKitTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FF3772B0EEB3500589AEF /* MapKitTestViewController.swift */; };
 		555C223B2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C223A2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift */; };
 		55625BC72B39BC770061D11C /* OptionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55625BC62B39BC770061D11C /* OptionalViewController.swift */; };
+		558DE6AD2D12B18B00DAB9E1 /* fanghei.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 558DE6AC2D12B18B00DAB9E1 /* fanghei.ttf */; };
+		558DE6AF2D12B40700DAB9E1 /* niu1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 558DE6AE2D12B40700DAB9E1 /* niu1.ttf */; };
 		55A815D42A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A815D32A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift */; };
 		55B94AE92CDA332E003215A2 /* NSDecimalNumberExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B94AE82CDA332E003215A2 /* NSDecimalNumberExtensionViewController.swift */; };
 		55BD8A082B22FF7E001AD567 /* JKOperatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD8A072B22FF7E001AD567 /* JKOperatorViewController.swift */; };
@@ -166,7 +168,6 @@
 		E24692AD2A1F062700C8B2C8 /* JKAlertViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24692AC2A1F062700C8B2C8 /* JKAlertViewControllerViewController.swift */; };
 		E24BB3B92941875B0089A696 /* JKCircleProgressViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24BB3B82941875B0089A696 /* JKCircleProgressViewViewController.swift */; };
 		E24BE977296FA5E1002B5ADE /* NSMutableAttributedStringExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24BE976296FA5E1002B5ADE /* NSMutableAttributedStringExtensionViewController.swift */; };
-		E254825A295BEFE200BA49A5 /* niu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2548259295BEFE200BA49A5 /* niu.ttf */; };
 		E2696C9429C00B3D0058D2B9 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2696C9329C00B3D0058D2B9 /* Person.swift */; };
 		E2696CB629C022A70058D2B9 /* SoundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2696CB529C022A70058D2B9 /* SoundModel.swift */; };
 		E26C272927E9CFD000012389 /* NotificationTetstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26C272827E9CFD000012389 /* NotificationTetstViewController.m */; };
@@ -215,6 +216,8 @@
 		553FF3772B0EEB3500589AEF /* MapKitTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitTestViewController.swift; sourceTree = "<group>"; };
 		555C223A2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabbarExtensionViewController.swift; sourceTree = "<group>"; };
 		55625BC62B39BC770061D11C /* OptionalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalViewController.swift; sourceTree = "<group>"; };
+		558DE6AC2D12B18B00DAB9E1 /* fanghei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fanghei.ttf; sourceTree = "<group>"; };
+		558DE6AE2D12B40700DAB9E1 /* niu1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = niu1.ttf; sourceTree = "<group>"; };
 		55A815D32A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingSpecialConfigurationSegmentView.swift; sourceTree = "<group>"; };
 		55B94AE82CDA332E003215A2 /* NSDecimalNumberExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDecimalNumberExtensionViewController.swift; sourceTree = "<group>"; };
 		55BD8A072B22FF7E001AD567 /* JKOperatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKOperatorViewController.swift; sourceTree = "<group>"; };
@@ -380,7 +383,6 @@
 		E24692AC2A1F062700C8B2C8 /* JKAlertViewControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKAlertViewControllerViewController.swift; sourceTree = "<group>"; };
 		E24BB3B82941875B0089A696 /* JKCircleProgressViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKCircleProgressViewViewController.swift; sourceTree = "<group>"; };
 		E24BE976296FA5E1002B5ADE /* NSMutableAttributedStringExtensionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringExtensionViewController.swift; sourceTree = "<group>"; };
-		E2548259295BEFE200BA49A5 /* niu.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = niu.ttf; sourceTree = "<group>"; };
 		E2696C9329C00B3D0058D2B9 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		E2696CB529C022A70058D2B9 /* SoundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundModel.swift; sourceTree = "<group>"; };
 		E26C272727E9CFD000012389 /* NotificationTetstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationTetstViewController.h; sourceTree = "<group>"; };
@@ -652,7 +654,6 @@
 			children = (
 				84BF16B8251D9EB1002ACE76 /* Controller */,
 				84BF16B7251D9EB1002ACE76 /* ViewModel */,
-				84BF16B9251D9EB1002ACE76 /* Model */,
 				84BF16BA251D9EB1002ACE76 /* View */,
 			);
 			path = UIKitExtensionViewController;
@@ -781,13 +782,6 @@
 				E21E3ABA27EF5868000A4CB5 /* UIVisualEffectViewExtensionViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		84BF16B9251D9EB1002ACE76 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		84BF16BA251D9EB1002ACE76 /* View */ = {
@@ -935,8 +929,9 @@
 		E2548258295BEFCC00BA49A5 /* font */ = {
 			isa = PBXGroup;
 			children = (
+				558DE6AC2D12B18B00DAB9E1 /* fanghei.ttf */,
 				E27F0F0D2A38A10900FC98D6 /* din-2014_bold-italic.ttf */,
-				E2548259295BEFE200BA49A5 /* niu.ttf */,
+				558DE6AE2D12B40700DAB9E1 /* niu1.ttf */,
 			);
 			path = font;
 			sourceTree = "<group>";
@@ -1042,7 +1037,7 @@
 				8473AADA2562985B00707877 /* pika2.gif in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				E2D447BE29E80CCC00199BCD /* herf.html in Resources */,
-				E254825A295BEFE200BA49A5 /* niu.ttf in Resources */,
+				558DE6AD2D12B18B00DAB9E1 /* fanghei.ttf in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				84F937622589E82100A35E77 /* MyStoryboard2.storyboard in Resources */,
 				8423F2E6269FEE8900CACC47 /* girl.jpg in Resources */,
@@ -1050,6 +1045,7 @@
 				84EE8174257F8EFF00DDC56B /* Persons.plist in Resources */,
 				840F883F256637BE009B73DA /* huaban1.png in Resources */,
 				8423F2E4269FEDDB00CACC47 /* GuideX_2.png in Resources */,
+				558DE6AF2D12B40700DAB9E1 /* niu1.ttf in Resources */,
 				8410D02E25DBC98300700FDD /* yoububble@2x.png in Resources */,
 				8423F2EA269FF62800CACC47 /* CashCow.bundle in Resources */,
 				84E922AA27AE060D00BC4AA2 /* baby.gif in Resources */,

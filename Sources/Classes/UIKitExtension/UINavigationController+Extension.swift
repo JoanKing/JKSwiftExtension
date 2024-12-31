@@ -65,8 +65,7 @@ public extension JKPOP where Base: UINavigationController {
             }
             return
         }
-        
-        var vcs = base.viewControllers[0...(vcsCount - count - 1)]
+        var vcs: [UIViewController] = Array(base.viewControllers[0...(vcsCount - count - 1)])
         vcs.append(vc)
         base.setViewControllers(Array(vcs), animated: animated)
     }

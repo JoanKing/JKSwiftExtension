@@ -834,7 +834,7 @@ public extension UIView {
     /// - Parameter color: 颜色
     /// - Returns: 返回自身
     @discardableResult
-    func backgroundColor(_ color: UIColor) -> Self {
+    func backgroundColor(_ color: UIColor?) -> Self {
         backgroundColor = color
         return self
     }

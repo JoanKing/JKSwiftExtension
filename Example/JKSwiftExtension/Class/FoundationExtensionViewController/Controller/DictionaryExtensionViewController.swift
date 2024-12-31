@@ -15,13 +15,33 @@ class DictionaryExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、基本的扩展", "二、其他基本扩展"]
-        dataArray = [["检查字典里面是否有某个 key", "检验 Dictionary 中是否存在某个key的值", "字典的key或者value组成的数组", "JSON字符串 -> 字典", "字典 -> JSON字符串", "字典里面所有的 key", "字典里面所有的 value", "设置value1", "设置value2"], ["字典转JSON"]]
+        dataArray = [["检查字典里面是否有某个 key", "检验 Dictionary 中是否存在某个key的值", "字典的key或者value组成的数组", "JSON字符串 -> 字典", "字典 -> JSON字符串", "字典里面所有的 key", "字典里面所有的 value", "设置value1", "设置value2"], ["字典转JSON", "对字典进行排序，排序规则是key的字母大小"]]
     }
     
 }
 
 // MARK: - 二、其他基本扩展
 extension DictionaryExtensionViewController {
+    
+    
+    // MARK: 2.02、对字典进行排序，排序规则是key的字母大小
+    @objc func test202() {
+        // 测试数据
+        let dictionary: [String: Any] = [
+            "sn": "哈哈",
+            "snx": "哈哈",
+            "deviceType": 1,
+            "appid": 3.14,
+            "Sn": ["测试", "列表"],
+            "DeviceType": "0"
+        ]
+
+        // 调用排序方法并打印结果
+        let sortedKeyValuePairs = dictionary.jk.sortDictionary()
+        for (key, value) in sortedKeyValuePairs {
+            print("\(key): \(value)")
+        }
+    }
     
     // MARK: 2.01、字典转JSON
     @objc func test201() {
