@@ -67,26 +67,11 @@ class TenViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        let content = textView.text ?? ""
-        print("输入的内容：\(content)")
-        let newContent = JKContentSize.linesCountAndLinesContent(content: content, font: UIFont.jk.pingFangSB(15), width: jk_kScreenW / 3.0 - 15 - 5, height: 10, minimumScaleFactor: 11 / 15).1?.first ?? ""
-        showLabel2.text = content
-        showLabel.text = newContent
-        print("第一行的内容：\(newContent)")
+       
     }
     
     @objc func click() {
-        let content = "17 Education & Techology Group incorporation"
-        /*
-        showLabel2.text = content
-        let s = showLabel2.jk.linesCountAndLinesContent().1?.first ?? ""
-        showLabel.text = s
-        print("第一行的内容：\(s)")
-        */
-        let newContent = JKContentSize.linesCountAndLinesContent(content: content, font: UIFont.jk.pingFangSB(15), width: jk_kScreenW / 3.0 - 15 - 5, height: 10, minimumScaleFactor:11 / 15).1?.first ?? ""
-        showLabel2.text = content
-        showLabel.text = newContent
-        print("第一行的内容：\(newContent)")
+      
     }
     
     func getFontSizeForLabel(_ label: UILabel) -> CGFloat {
