@@ -50,6 +50,8 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/5611a91f-e083-4c77-8ef8-bdc4a91a13c9" alt="微信交流群" width="220">
 
 ## 版本说明  
+  - 2.7.5、版本(2024.01.14)
+    - 增加JKScrollviewCardLayout
   - 2.7.4、版本(2024.12.31)
     - 修复UINavigationController中pop(count: Int, andPush vc: UIViewController, animated: Bool = true)崩溃问题
     - JKContentSize 计算文本内容重构
