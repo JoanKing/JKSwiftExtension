@@ -14,6 +14,9 @@
 		55625BC72B39BC770061D11C /* OptionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55625BC62B39BC770061D11C /* OptionalViewController.swift */; };
 		558DE6AD2D12B18B00DAB9E1 /* fanghei.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 558DE6AC2D12B18B00DAB9E1 /* fanghei.ttf */; };
 		558DE6AF2D12B40700DAB9E1 /* niu1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 558DE6AE2D12B40700DAB9E1 /* niu1.ttf */; };
+		55A7FDD82D3682DE00D59D15 /* JKScrollviewCardLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7FDD72D3682DE00D59D15 /* JKScrollviewCardLayoutViewController.swift */; };
+		55A7FE0A2D3683B300D59D15 /* JKTeamRideShareLongImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7FE082D3683B300D59D15 /* JKTeamRideShareLongImageCollectionViewCell.swift */; };
+		55A7FE0B2D3683B300D59D15 /* JKTeamRideShareShortImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7FE092D3683B300D59D15 /* JKTeamRideShareShortImageCollectionViewCell.swift */; };
 		55A815D42A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A815D32A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift */; };
 		55B94AE92CDA332E003215A2 /* NSDecimalNumberExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B94AE82CDA332E003215A2 /* NSDecimalNumberExtensionViewController.swift */; };
 		55BD8A082B22FF7E001AD567 /* JKOperatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD8A072B22FF7E001AD567 /* JKOperatorViewController.swift */; };
@@ -218,6 +221,9 @@
 		55625BC62B39BC770061D11C /* OptionalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalViewController.swift; sourceTree = "<group>"; };
 		558DE6AC2D12B18B00DAB9E1 /* fanghei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fanghei.ttf; sourceTree = "<group>"; };
 		558DE6AE2D12B40700DAB9E1 /* niu1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = niu1.ttf; sourceTree = "<group>"; };
+		55A7FDD72D3682DE00D59D15 /* JKScrollviewCardLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKScrollviewCardLayoutViewController.swift; sourceTree = "<group>"; };
+		55A7FE082D3683B300D59D15 /* JKTeamRideShareLongImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKTeamRideShareLongImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		55A7FE092D3683B300D59D15 /* JKTeamRideShareShortImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKTeamRideShareShortImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		55A815D32A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingSpecialConfigurationSegmentView.swift; sourceTree = "<group>"; };
 		55B94AE82CDA332E003215A2 /* NSDecimalNumberExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDecimalNumberExtensionViewController.swift; sourceTree = "<group>"; };
 		55BD8A072B22FF7E001AD567 /* JKOperatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKOperatorViewController.swift; sourceTree = "<group>"; };
@@ -864,6 +870,7 @@
 				8483A731254C0D6200ACF6FD /* JKPrintViewController.swift */,
 				8483A736254C11C200ACF6FD /* JKRuntimeViewController.swift */,
 				E2CFA13928597E9000E342DE /* JKPanViewViewController.swift */,
+				55A7FDD72D3682DE00D59D15 /* JKScrollviewCardLayoutViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -890,6 +897,8 @@
 				E2CFA13B285993CE00E342DE /* JKPanViewCell.swift */,
 				E2CB1A2D287093E800805F85 /* JKEmptyView.swift */,
 				E233A77629B18BBF003A5C3D /* JKSoundPickView.swift */,
+				55A7FE082D3683B300D59D15 /* JKTeamRideShareLongImageCollectionViewCell.swift */,
+				55A7FE092D3683B300D59D15 /* JKTeamRideShareShortImageCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1263,6 +1272,7 @@
 				8480280C255926120038748A /* CATextLayerExtensionViewController.swift in Sources */,
 				84C4BF5F25500E5C00B3705F /* CGFloatExtensionViewController.swift in Sources */,
 				84CC32AF255D39F000F489F0 /* UITextViewExtensionViewController.swift in Sources */,
+				55A7FDD82D3682DE00D59D15 /* JKScrollviewCardLayoutViewController.swift in Sources */,
 				55CBC9C72A9C74A000EE88FC /* SegmentViewController.swift in Sources */,
 				847D4B9625611E50000DDA3C /* UIImageExtensionViewController.swift in Sources */,
 				E277B95F28DF017700DC0319 /* PresetntFourViewController.swift in Sources */,
@@ -1271,6 +1281,8 @@
 				8488026D256DF0DE007D41CA /* TestFileViewController.swift in Sources */,
 				84CC32AD255CDBB300F489F0 /* UIScrollViewExtensionViewController.swift in Sources */,
 				8418FB97255B8642000CB0B3 /* UILabelExtensionViewController.swift in Sources */,
+				55A7FE0A2D3683B300D59D15 /* JKTeamRideShareLongImageCollectionViewCell.swift in Sources */,
+				55A7FE0B2D3683B300D59D15 /* JKTeamRideShareShortImageCollectionViewCell.swift in Sources */,
 				E2E08F182871AD5300F722A9 /* JKEmptyViewController.swift in Sources */,
 				55A815D42A9EE5EC00F4068A /* DrivingSpecialConfigurationSegmentView.swift in Sources */,
 			);

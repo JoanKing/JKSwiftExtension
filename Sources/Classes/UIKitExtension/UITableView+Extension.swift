@@ -138,6 +138,22 @@ public extension JKPOP where Base: UITableView {
     func isLastCell(cellForRowAt indexPath: IndexPath) -> Bool {
         return self.base.numberOfRows(inSection: indexPath.section) == indexPath.row + 1
     }
+    
+    //MARK: 1.11、滚动 tableView 一段特定的距离
+    /// 滚动 tableView 一段特定的距离
+    /// - Parameters:
+    ///   - distance: 要滚动的距离 (正值向下滚动，负值向上滚动)
+    ///   - animated: 是否带有动画效果
+    ///   - duration: 动画的持续时间
+    func scrollBy(distance: CGFloat, animated: Bool, duration: TimeInterval = 0) {
+        if duration > 0 {
+            UIView.animate(withDuration: duration) {
+                self.scrollBy(distance: distance, animated: animated)
+            }
+        } else {
+            self.scrollBy(distance: distance, animated: animated)
+        }
+    }
 }
 
 // MARK: - 二、链式编程
