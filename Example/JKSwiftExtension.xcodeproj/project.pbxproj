@@ -1441,7 +1441,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 5.10.1.011401.niuTeam;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jk.com;
 				PRODUCT_NAME = JKSwiftExtensionDemo;
@@ -1472,7 +1472,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 5.10.1.011401.niuTeam;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jk.com;
 				PRODUCT_NAME = JKSwiftExtensionDemo;

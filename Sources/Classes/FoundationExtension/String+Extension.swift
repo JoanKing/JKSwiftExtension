@@ -551,12 +551,16 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     /// url 进行编码
     /// - Returns: 返回对应的URL
     func urlEncode() -> String {
+        guard !(base as! String).jk.isStringEncoded() else {
+            // 已经编码过
+            return base as! String
+        }
         // 为了不把url中一些特殊字符也进行转换(以%为例)，自己添加到字符集中
         var charSet = CharacterSet.urlQueryAllowed
         charSet.insert(charactersIn: "%")
         return (base as! String).addingPercentEncoding(withAllowedCharacters: charSet) ?? ""
     }
-    
+
     // MARK: 4.9、url进行解码
     /// url解码
     func urlDecode() -> String {
@@ -605,6 +609,20 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     func removeCharacter(characterString: String) -> String {
         let characterSet = CharacterSet(charactersIn: characterString)
         return (base as! String).trimmingCharacters(in: characterSet)
+    }
+    
+    // MARK: 4.14、判断判断字符串是否已经被编码过
+    /// 判断判断字符串是否已经被编码过
+    /// - Parameter str: str description
+    /// - Returns: description
+    func isStringEncoded() -> Bool {
+        let str = (base as! String)
+        // 进行解码
+        if let decodedString = str.removingPercentEncoding {
+            // 比较原始字符串和解码后的字符串
+            return decodedString != str
+        }
+        return true
     }
 }
 
