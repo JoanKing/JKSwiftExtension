@@ -154,6 +154,17 @@ public extension JKPOP where Base: UITableView {
             self.scrollBy(distance: distance, animated: animated)
         }
     }
+    
+    // MARK: 1.12、判断cell是否在可见区域
+    /// 判断cell是否在可见区域
+    /// - Parameter indexPath: indexPath description
+    /// - Returns: description
+    func isCellVisible(indexPath: IndexPath) -> Bool {
+        guard let visibleIndexPaths = self.base.indexPathsForVisibleRows, visibleIndexPaths.contains(indexPath) else {
+            return false
+        }
+        return true
+    }
 }
 
 // MARK: - 二、链式编程
@@ -278,7 +289,8 @@ public extension UITableView {
     /// - Returns: 返回自身
     @discardableResult
     func scroll(to indexPath: IndexPath, at scrollPosition: UITableView.ScrollPosition = .middle, animated: Bool = true) -> Self {
-        if indexPath.section < 0 || indexPath.row < 0 || indexPath.section > self.numberOfSections || indexPath.row > self.numberOfRows (inSection: indexPath.section) {
+        if indexPath.section < self.numberOfSections,
+           indexPath.row < self.numberOfRows(inSection: indexPath.section) {
             return self
         }
         scrollToRow(at: indexPath, at: scrollPosition, animated: animated)
@@ -295,7 +307,8 @@ public extension UITableView {
     /// - Returns: 返回自身
     @discardableResult
     func scroll(row: Int, section: Int = 0, at scrollPosition: UITableView.ScrollPosition = .middle, animated: Bool = true) -> Self {
-        return scroll(to: IndexPath(row: row, section: section), at: scrollPosition, animated: animated)
+        let indexPath = IndexPath(row: row, section: section)
+        return scroll(to: indexPath, at: scrollPosition, animated: animated)
     }
     
     // MARK: 2.14、滚动到最近选中的cell（选中的cell消失在屏幕中，触发事件可以滚动到选中的cell）

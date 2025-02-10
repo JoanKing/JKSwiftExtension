@@ -1771,7 +1771,85 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
         return attributedString
     }
     
-    //MARK: 10.23、判断是否是视频链接
+    // MARK: 10.23、高亮关键词匹配
+    /// 10.23、高亮关键词匹配
+    /// - Parameters:
+    ///   - keywords: 关键词数组
+    ///   - normalColor: 正常的颜色
+    ///   - highlightColor: 高亮的颜色
+    ///   - specialKeywords: 特殊关键词数组
+    ///   - specialColor: 特殊关键词颜色
+    ///   - isCaseSensitive: 是否忽略匹配大小写
+    ///   - isMatchesWholeWords: 是否匹配完整的单词
+    /// - Returns: 匹配后的富文本
+    public func highlightKeywords(keywords: [String], normalColor: UIColor, highlightColor: UIColor, specialKeywords: [String] = [], specialColor: UIColor? = nil, isCaseSensitive: Bool = false, isMatchesWholeWords: Bool = false) -> NSAttributedString {
+        let text = base as! String
+        // 1、创建富文本
+        let attributedString = NSMutableAttributedString(string: text)
+        let allRange = NSRange(location: 0, length: text.utf16.count)
+        // 默认全部设为黑色
+        attributedString.addAttribute(.foregroundColor, value: normalColor, range: allRange)
+        
+        // 2、关键词内容处理
+        // 去除keywords中包含specialKeywords的元素，keywords 里面和specialKeywords的内容是互斥的
+        // 将arrayB转换为Set以便快速查找
+        let specialKeywordsSet = Set(specialKeywords)
+        // 过滤keywords，仅保留不在setB中的元素
+        let resultArray = keywords.filter { !specialKeywordsSet.contains($0) }
+        // 若关键词数组为空，直接返回
+        guard !resultArray.isEmpty || !specialKeywords.isEmpty else { return attributedString }
+        
+        // 3、全词匹配：正则表达式 \\b(...)\\b 中的 \b 表示单词边界，确保只匹配完整单词。例如，数组中的 "swift" 不会匹配 "swifts" 或 "SwiftUI"。
+        let matchesWholeWordsPattern = isMatchesWholeWords ? "\\b" : ""
+        
+        // 设置正则表达式的选项
+        var options: NSRegularExpression.Options = []
+        if isCaseSensitive {
+            options.insert(.caseInsensitive)
+        }
+        
+        // 4、特殊关键词高亮匹配
+        if specialKeywords.count > 0 {
+            // 将关键词数组转换为不区分大小写的正则表达式
+            let escapedKeywords = isCaseSensitive ? specialKeywords.map { NSRegularExpression.escapedPattern(for: $0) } : specialKeywords
+            // 正常关键词高亮匹配
+            let pattern = matchesWholeWordsPattern + "(\(escapedKeywords.joined(separator: "|")))" + matchesWholeWordsPattern
+            do {
+                let regex = try NSRegularExpression(pattern: pattern, options: options)
+                let matches = regex.matches(in: text, range: allRange)
+                
+                // 将匹配到的关键词设为红色
+                for match in matches {
+                    attributedString.addAttribute(.foregroundColor, value: specialColor ?? highlightColor, range: match.range)
+                }
+            } catch {
+                debugPrint("正则表达式错误: \(error.localizedDescription)")
+            }
+        }
+    
+        // 5、正常关键词高亮匹配
+        if resultArray.count > 0 {
+            do {
+                // 将关键词数组转换为不区分大小写的正则表达式
+                let escapedKeywords = isCaseSensitive ?  resultArray.map { NSRegularExpression.escapedPattern(for: $0) } : resultArray
+                let pattern = matchesWholeWordsPattern + "(\(escapedKeywords.joined(separator: "|")))" + matchesWholeWordsPattern
+                let regex = try NSRegularExpression(pattern: pattern, options: options)
+                let matches = regex.matches(in: text, range: allRange)
+                
+                // 将匹配到的关键词设为红色
+                for match in matches {
+                    attributedString.addAttribute(.foregroundColor, value: highlightColor, range: match.range)
+                }
+            } catch {
+                debugPrint("正则表达式错误: \(error.localizedDescription)")
+            }
+        }
+        
+        return attributedString
+    }
+
+    
+    //MARK: 10.24、判断是否是视频链接
     /// 判断是否是视频链接
     public var isVideoUrl: Bool {
         let videoUrls = ["mp4", "MP4", "MOV", "mov", "mpg", "mpeg", "mpg4", "wm", "wmx", "mkv", "mkv2", "3gp", "3gpp", "wv", "wvx", "avi", "asf", "fiv", "swf", "flv", "f4v", "m4u", "m4v", "mov", "movie", "pvx", "qt", "rv", "vod", "rm", "ram", "rmvb"]

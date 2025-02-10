@@ -14,7 +14,7 @@ class UITableViewExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、基本扩展", "二、链式编程"]
-        dataArray = [["tableView 在 iOS 11 上的适配", "是否滚动到顶部", "是否滚动到底部", "滚动到什么位置（CGPoint）", "注册自定义cell", "注册Xib自定义cell", "创建UITableViewCell(注册后使用该方法)", "给单个section整体cell加圆角", "每段的cell数量", "是否是每个section的最后一个cell", "滚动 tableView 一段特定的距离"], ["设置 delegate 代理", "设置 dataSource 代理", "设置行高", "设置段头(sectionHeaderHeight)的高度", "设置段尾(sectionHeaderHeight)的高度", "设置一个默认cell高度", "设置默认段头(estimatedSectionHeaderHeight)高度", "设置默认段尾(estimatedSectionFooterHeight)高度", "设置分割线的样式", "设置 UITableView 的头部 tableHeaderView", "设置 UITableView 的尾部 tableFooterView", "滚动到第几个IndexPath", "滚动到第几个row、第几个section"]]
+        dataArray = [["tableView 在 iOS 11 上的适配", "是否滚动到顶部", "是否滚动到底部", "滚动到什么位置（CGPoint）", "注册自定义cell", "注册Xib自定义cell", "创建UITableViewCell(注册后使用该方法)", "给单个section整体cell加圆角", "每段的cell数量", "是否是每个section的最后一个cell", "滚动 tableView 一段特定的距离", "判断cell是否在可见区域"], ["设置 delegate 代理", "设置 dataSource 代理", "设置行高", "设置段头(sectionHeaderHeight)的高度", "设置段尾(sectionHeaderHeight)的高度", "设置一个默认cell高度", "设置默认段头(estimatedSectionHeaderHeight)高度", "设置默认段尾(estimatedSectionFooterHeight)高度", "设置分割线的样式", "设置 UITableView 的头部 tableHeaderView", "设置 UITableView 的尾部 tableFooterView", "滚动到第几个IndexPath", "滚动到第几个row、第几个section"]]
     }
 }
 
@@ -223,6 +223,13 @@ extension UITableViewExtensionViewController {
 
 // MARK: - 一、基本扩展
 extension UITableViewExtensionViewController {
+    
+    // MARK: 1.12、判断cell是否在可见区域
+    @objc func test112() {
+        let indexPath = IndexPath(row: 12, section: 0)
+        let isResult = tableView.jk.isCellVisible(indexPath: indexPath)
+        debugPrint("判断cell(row: 12, section: 0)是否在可见区域 :\(isResult)")
+    }
     
     //MARK: 1.11、滚动 tableView 一段特定的距离
     @objc func test111() {

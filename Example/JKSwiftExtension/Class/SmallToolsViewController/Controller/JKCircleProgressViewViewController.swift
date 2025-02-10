@@ -8,15 +8,22 @@
 
 import UIKit
 import SnapKit
+import JKSwiftExtension
+
 class JKCircleProgressViewViewController: UIViewController {
     
     /// 进度条
     lazy var progressView: JKCircleProgressView = {
         let circleProgressView = JKCircleProgressView()
-        circleProgressView.backgroundColor = .red
+        circleProgressView.lineWidth = 10
+        // circleProgressView.backgroundColor = .red
+        /// 进度槽颜色
+        circleProgressView.progressColor = UIColor.hexStringColor(hexString: "#2BDA62")
+        /// 进度条颜色
+        circleProgressView.trackColor = UIColor.hexStringColor(hexString: "#E6EAEF")
         return circleProgressView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,7 +33,7 @@ class JKCircleProgressViewViewController: UIViewController {
     
         progressView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.size.equalTo(CGSize(width: 200, height: 200))
+            make.size.equalTo(CGSizeMake(100, 100))
         }
     }
     
@@ -37,7 +44,15 @@ class JKCircleProgressViewViewController: UIViewController {
             weakSelf.progressView.setProgress(25, animated: true)
             JKAsyncs.asyncDelay(1) {
             } _: {
-                weakSelf.progressView.setProgress(50, animated: true)
+                weakSelf.progressView.setProgress(65, animated: false)
+                JKAsyncs.asyncDelay(1) {
+                } _: {
+                    weakSelf.progressView.setProgress(10, animated: true)
+                    JKAsyncs.asyncDelay(1) {
+                    } _: {
+                        weakSelf.progressView.setProgress(90, animated: false)
+                    }
+                }
             }
         }
     }

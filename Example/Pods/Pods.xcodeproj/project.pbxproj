@@ -61,6 +61,7 @@
 		55586120852BDFB012E80A20DA6EBF6C /* KeyboardAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9D293454D1FB39F7D6476DAC740993 /* KeyboardAccessory.swift */; };
 		556C6EAE8CF549F9202A58B60D116065 /* JKDrawSignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85C86E8DF90D0D136DE4B48A17D656 /* JKDrawSignatureView.swift */; };
 		55B197552D2F62C200D82A2A /* JKScrollviewCardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B197542D2F62C100D82A2A /* JKScrollviewCardLayout.swift */; };
+		55ECCD442D531218004718C8 /* JKTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ECCD432D531218004718C8 /* JKTaskManager.swift */; };
 		5698415D959B5FB5941847B7035C60EE /* JKJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566FC0DAD48C563496ACB2DBAC07AB51 /* JKJSON.swift */; };
 		57AC4351CC1C6607B2491E4DDB80FD5C /* JKOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9DA65DCE5A215B8C74A1B51161EE9A /* JKOperator.swift */; };
 		57C4F6EFB30DDD14E960AC2D6B34F904 /* SnapKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A2D29E7DCF71E39255CA4CFD9DC2DC6E /* SnapKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -260,6 +261,7 @@
 		52859A3E6C557B664FD8E4D71C16A6EA /* JKPaddingLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKPaddingLabel.swift; sourceTree = "<group>"; };
 		532AB9558629C082C482EF3EC3BF445C /* JKPastedTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKPastedTextField.swift; sourceTree = "<group>"; };
 		55B197542D2F62C100D82A2A /* JKScrollviewCardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKScrollviewCardLayout.swift; sourceTree = "<group>"; };
+		55ECCD432D531218004718C8 /* JKTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKTaskManager.swift; sourceTree = "<group>"; };
 		566FC0DAD48C563496ACB2DBAC07AB51 /* JKJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKJSON.swift; sourceTree = "<group>"; };
 		59A598465C16CDE7D54CB37FAAE8EEDB /* ConstraintDirectionalInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDirectionalInsets.swift; path = Sources/ConstraintDirectionalInsets.swift; sourceTree = "<group>"; };
 		5BCF511486018B445B9C0B5E032FDFEC /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupport.swift; path = Sources/ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
@@ -557,6 +559,7 @@
 				6B9D293454D1FB39F7D6476DAC740993 /* KeyboardAccessory.swift */,
 				2AE905F630BE94A6D9EBFCCECA86E43A /* QRCodeImageFactory.swift */,
 				55B197542D2F62C100D82A2A /* JKScrollviewCardLayout.swift */,
+				55ECCD432D531218004718C8 /* JKTaskManager.swift */,
 			);
 			name = SmallTools;
 			path = Sources/Classes/SmallTools;
@@ -1082,6 +1085,7 @@
 				338F7BF464161362EB33DB6554CDE6E6 /* JKPastedTextView.swift in Sources */,
 				4FF84ECE72A80FFF4EB0A049D9EDB796 /* JKPlaceHolderTextView.swift in Sources */,
 				84359992F4E21CF3D87314883CBF3273 /* JKPOP.swift in Sources */,
+				55ECCD442D531218004718C8 /* JKTaskManager.swift in Sources */,
 				F876175043DEB6CACA276DC8573E2FC0 /* JKPOP+String.swift in Sources */,
 				B44A9F19AF4CE73E192826B7A04A3911 /* JKPrint.swift in Sources */,
 				4B40DE0BB0132C1C5CEED41A9B75BB7B /* JKRegexHelper.swift in Sources */,
