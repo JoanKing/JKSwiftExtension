@@ -50,6 +50,10 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/5611a91f-e083-4c77-8ef8-bdc4a91a13c9" alt="微信交流群" width="220">
 
 ## 版本说明  
+  - 2.7.6、版本(2024.02.10)
+    - 增加JKTaskManager，任务管理器类，用于调度和取消延迟任务。
+    - 重构JKCircleProgressView
+    - 增加其他扩展
   - 2.7.5、版本(2024.01.14)
     - 增加JKScrollviewCardLayout
   - 2.7.4、版本(2024.12.31)
