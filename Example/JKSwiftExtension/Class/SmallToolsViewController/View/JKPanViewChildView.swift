@@ -96,6 +96,6 @@ extension JKPanViewChildView: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.stop_y = scrollView.contentOffset.y
-        print("------stop_y-----")
+        debugPrint("------stop_y-----")
     }
 }

@@ -81,7 +81,7 @@ class DarkModePickerView: UIView {
         line.backgroundColor = .gray
         return line
     }()
-
+    
     init(startTime: String, endTime: String, complete: @escaping (String, String)->Void) {
         self.startTime = startTime
         self.endTime = endTime
@@ -151,22 +151,22 @@ extension DarkModePickerView: UIPickerViewDelegate, UIPickerViewDataSource {
         return 47
     }
     
-   // func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-   //    return 100
-   // }
+    // func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+    //    return 100
+    // }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         // 自定义分隔线属性
         /*
-        for v in pickerView.subviews {
-            if v.frame.size.height < 1 {
-               // v.frame.origin.x = 100
-               // v.frame.size.width = ScreenWidth - 200
-               // v.frame.size.height = 1
-               v.backgroundColor = UIColor.red
-            }
-        }
-        */
+         for v in pickerView.subviews {
+         if v.frame.size.height < 1 {
+         // v.frame.origin.x = 100
+         // v.frame.size.width = ScreenWidth - 200
+         // v.frame.size.height = 1
+         v.backgroundColor = UIColor.red
+         }
+         }
+         */
         
         // 自定义行属性
         var label = view as? UILabel
@@ -186,10 +186,10 @@ extension DarkModePickerView: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == leftTimePickerView {
             startTime = timeDataArray[row]
-            // print("左边时间：\(timeDataArray[row])， row = \(row) component = \(component)")
+            // debugPrint("左边时间：\(timeDataArray[row])， row = \(row) component = \(component)")
         } else {
             endTime = timeDataArray[row]
-            // print("右边时间：\(timeDataArray[row])， row = \(row) component = \(component)")
+            // debugPrint("右边时间：\(timeDataArray[row])， row = \(row) component = \(component)")
         }
     }
 }

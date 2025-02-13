@@ -21,9 +21,9 @@ class UIScrollViewExtensionViewController: BaseViewController {
 extension UIScrollViewExtensionViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.isMember(of: UITableView.self) {
-            print("UITableView-----滚动")
+            debugPrint("UITableView-----滚动")
         } else if scrollView.isMember(of: UIScrollView.self) {
-            print("UIScrollView-----滚动")
+            debugPrint("UIScrollView-----滚动")
         }
     }
 }

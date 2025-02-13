@@ -690,7 +690,7 @@ extension UIImageExtensionViewController {
             guard let newData1 = image.jk.compressDataSize(maxSize: i * 10 * 1024) else {
                 return
             }
-            print("原图的大小: \(oldData.count / 1024) kb", "要求压缩到：\(i * 10) kb", "压缩后的图片大小：\(newData1.count / 1024) kb")
+            debugPrint("原图的大小: \(oldData.count / 1024) kb", "要求压缩到：\(i * 10) kb", "压缩后的图片大小：\(newData1.count / 1024) kb")
         }
         JKPrint("压缩图片质量", "原图的大小: \(oldData.count / 1024) kb", "压缩后的图片大小：\(newData.count / 1024) kb")
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 250, height: 300))
@@ -1047,9 +1047,9 @@ extension UIImageExtensionViewController {
         } _: {
             image.savePhotosImageToAlbum { (isSuccess: Bool, error: Error?) in
                 if isSuccess {
-                    print("保存成功!")
+                    debugPrint("保存成功!")
                 } else{
-                    print("保存失败：", error!.localizedDescription)
+                    debugPrint("保存失败：", error!.localizedDescription)
                 }
             }
             JKAsyncs.asyncDelay(3) {
@@ -1072,7 +1072,7 @@ extension UIImageExtensionViewController {
         JKAsyncs.asyncDelay(1) {
         } _: {
             image.jk.saveImageToPhotoAlbum { (result) in
-                print("保存结果：\(result)")
+                debugPrint("保存结果：\(result)")
                 JKAsyncs.asyncDelay(3) {
                 } _: {
                     imageView.removeFromSuperview()

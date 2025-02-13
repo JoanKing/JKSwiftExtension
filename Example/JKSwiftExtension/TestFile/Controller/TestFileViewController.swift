@@ -31,7 +31,7 @@ class TestFileViewController: BaseViewController {
         /*
          var userInfo: [String: Any] = ["firstName": "大帅",
          "school": "St. Primary School"]
-         print("Original User Info: \(userInfo)")
+         debugPrint("Original User Info: \(userInfo)")
          // creating a new dictionary with other info
          let otherInfo: [String: Any] = ["country": "USA",
          "school": "河南",
@@ -39,7 +39,7 @@ class TestFileViewController: BaseViewController {
          userInfo = userInfo.merging(otherInfo, uniquingKeysWith: { current, _ in
          return current
          })
-         print("Updated User Info: \(userInfo)")
+         debugPrint("Updated User Info: \(userInfo)")
          */
     }
     
@@ -85,10 +85,10 @@ extension TestFileViewController {
     
     @objc func test110() {
         /*
-        debugPrint("开始----")
-        let isNetworkPermissions = isNetworkPermissions()
-        debugPrint("是否有网络的权限：\(isNetworkPermissions)")
-        debugPrint("结束----")
+         debugPrint("开始----")
+         let isNetworkPermissions = isNetworkPermissions()
+         debugPrint("是否有网络的权限：\(isNetworkPermissions)")
+         debugPrint("结束----")
          */
         let text = "哈哈 😄"
         var count = 0
@@ -99,9 +99,9 @@ extension TestFileViewController {
             endString = endString + "\(c)"
             debugPrint("c：\(c)")
         }
-
+        
         for character in text {
-            print("character:\(character)")
+            debugPrint("character:\(character)")
         }
         debugPrint("endString：\(endString)")
     }
@@ -126,11 +126,11 @@ extension TestFileViewController {
     
     @objc func test109() {
         /*
-        debugPrint(isMultiple(10, of: 5))
-        debugPrint(isMultiple(0, of: 1))
-        debugPrint(isMultiple(1, of: 3))
-        debugPrint(isMultiple(5, of: 10))
-        debugPrint(isMultiple(8, of: 16))
+         debugPrint(isMultiple(10, of: 5))
+         debugPrint(isMultiple(0, of: 1))
+         debugPrint(isMultiple(1, of: 3))
+         debugPrint(isMultiple(5, of: 10))
+         debugPrint(isMultiple(8, of: 16))
          */
         if #available(iOS 13, *) {
             self.navigationController?.pushViewController(SegmentViewController(), animated: true)
@@ -217,11 +217,11 @@ extension TestFileViewController {
         // showAlertAgreement()
         /*
          var sectionModels = [[11, 12, 13], [21, 22, 23]]
-         print("数组：\(sectionModels)")
+         debugPrint("数组：\(sectionModels)")
          //var items = sectionModels[0]
          // items.remove(at: 1)
          sectionModels[0].removeAll(where: { $0  == 12 })
-         print("移除后数组：\(sectionModels)")
+         debugPrint("移除后数组：\(sectionModels)")
          */
         //        let colors = Rank.allValues
         //        print(colors)
@@ -234,34 +234,34 @@ extension TestFileViewController {
     
     @objc func test101() {
         /*
-        // self.navigationController?.pushViewController(RadiusViewController(), animated: true)
-        print("开始")
-        DispatchQueue.global().async {
-            /// 初始化值 S = 0
-            let semaphore = DispatchSemaphore(value: 0)
-            for index in 0..<4 {
-                /// S = 0 - 1，S = -1, 进程阻塞并进入等待队列
-                DispatchQueue.global().async {
-                    print(index)
-                    Thread.sleep(forTimeInterval: 3)
-                    DispatchQueue.main.async {
-                        /// S = -1 + 1，S = 0, 唤醒对应的等待进程，并继续执行
-                        semaphore.signal()
-                    }
-                }
-                semaphore.wait()
-            }
-            DispatchQueue.main.async {
-                print("全部执行完毕")
-            }
-        }
-        print("结束")
+         // self.navigationController?.pushViewController(RadiusViewController(), animated: true)
+         debugPrint("开始")
+         DispatchQueue.global().async {
+         /// 初始化值 S = 0
+         let semaphore = DispatchSemaphore(value: 0)
+         for index in 0..<4 {
+         /// S = 0 - 1，S = -1, 进程阻塞并进入等待队列
+         DispatchQueue.global().async {
+         print(index)
+         Thread.sleep(forTimeInterval: 3)
+         DispatchQueue.main.async {
+         /// S = -1 + 1，S = 0, 唤醒对应的等待进程，并继续执行
+         semaphore.signal()
+         }
+         }
+         semaphore.wait()
+         }
+         DispatchQueue.main.async {
+         debugPrint("全部执行完毕")
+         }
+         }
+         debugPrint("结束")
          */
         
         let originalString = "123"
         let targetLength = 20
         let paddingCharacter = "0"
-
+        
         let paddedString = String(repeating: paddingCharacter, count: targetLength - originalString.count) + originalString
         debugPrint(paddedString) // 输出结果：00000000000000000123
     }
@@ -426,7 +426,7 @@ extension TestFileViewController {
         
         let alertVC = UIAlertController(title: title, message: nil, preferredStyle: .alert)
             .addActionTitles(["取消", "同意"]) { vc, action in
-                print(action.title)
+                debugPrint(action.title)
             }
         
         alertVC.setValue(attributedText, forKey: "attributedMessage")
@@ -435,7 +435,7 @@ extension TestFileViewController {
                 guard let weakSelf = self else {
                     return
                 }
-                print("\(text), \(url ?? "_")")
+                debugPrint("\(text), \(url ?? "_")")
                 alertVC.dismiss(animated: true, completion: nil)
                 let vc = JKVVViewController()
                 vc.backClosure = {

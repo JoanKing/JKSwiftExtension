@@ -21,7 +21,7 @@ struct SliderDashLineViewSryle {
     var minimumTrackTintColor: UIColor = UIColor.hexStringColor(hexString: "#CFD7E2")
     /// 虚线的颜色
     var dashLineColor: UIColor = UIColor.hexStringColor(hexString: "#CFD7E2")
-  
+    
 }
 
 class SliderDashLineView: UIView {
@@ -84,7 +84,7 @@ extension SliderDashLineView {
         }
         sliderClosure?(sender.value)
     }
-            
+    
     @objc func sliderChange(_ slider: UISlider, _ event: UIEvent) {
         let value = slider.value
         print(value)
@@ -92,17 +92,17 @@ extension SliderDashLineView {
         if let touchEvent = event.allTouches?.first {
             switch touchEvent.phase {
             case .began:
-                print("开始拖动")
+                debugPrint("开始拖动")
             case .moved:
-                print("正在拖动")
+                debugPrint("正在拖动")
             case .ended:
-                print("结束拖动")
+                debugPrint("结束拖动")
             default:
                 break
             }
         }
     }
-            
+    
     func setValue(value: Float) {
         rateLimitSlider.setValue(value , animated: false)
         leftView.snp.updateConstraints { make in
@@ -163,9 +163,9 @@ extension SliderDashLineView {
     
     private func changeTheme() {
         
-    
+        
     }
-
+    
     func refreshUI() {
         rateLimitSlider.value = 0.6
     }

@@ -9,10 +9,10 @@
 import UIKit
 
 class UISliderExtensionViewController: BaseViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         headDataArray = ["一、基本的扩展"]
         dataArray = [["UISlider的 闭包事件"]]
     }
@@ -32,7 +32,7 @@ extension UISliderExtensionViewController {
             guard let weakvalue = value else {
                 return
             }
-            print("\(weakvalue)")
+            debugPrint("\(weakvalue)")
         }
         self.view.addSubview(slider)
         

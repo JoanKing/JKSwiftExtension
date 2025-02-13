@@ -29,12 +29,12 @@ extension JKTaskManagerViewController {
     // MARK: 1.01、延迟任务
     @objc func test101() {
         let taskManager = JKTaskManager()
-
+        
         // 调度一个延迟任务
         taskManager.scheduleTask(identifier: "task1", delay: 5) {
-            print("任务 1 执行")
+            debugPrint("任务 1 执行")
         }
-
+        
         // 取消任务
         // taskManager.cancelTask(identifier: "task1")
     }

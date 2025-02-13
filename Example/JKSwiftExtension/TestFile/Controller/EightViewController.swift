@@ -9,21 +9,21 @@
 import UIKit
 
 class EightViewController: UIViewController {
-
+    
     var sectionTimeArray: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.view.backgroundColor = .white
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-       
+        
         var array1 = ["1", "2", "3"]
         var array2 = [["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]]
         
-        print("array1: \(array1.removeFirst())\n新的array1：\(array1)\narray2:\(array2.removeFirst())\n新的array2:\(array2)")
+        debugPrint("array1: \(array1.removeFirst())\n新的array1：\(array1)\narray2:\(array2.removeFirst())\n新的array2:\(array2)")
     }
     
     func test<T>(array: [String], array1: [T]) -> ([String], [[String]]) {
@@ -45,7 +45,7 @@ class EightViewController: UIViewController {
             }
         }
         
-        print("section：\(sectionPartialArray)\n 单个数组：\(dataArray)")
+        debugPrint("section：\(sectionPartialArray)\n 单个数组：\(dataArray)")
         return (sectionPartialArray, dataArray)
     }
 }

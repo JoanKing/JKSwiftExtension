@@ -10,12 +10,12 @@ import UIKit
 import JKSwiftExtension
 
 class DeleteViewCell: UITableViewCell {
-
+    
     var lineView: UIView = {
-           let view = UIView()
+        let view = UIView()
         view.backgroundColor = UIColor.cN4
-           return view
-       }()
+        return view
+    }()
     /// 文本的展示
     var contentLabel: UILabel = {
         let label = UILabel()
@@ -51,7 +51,7 @@ class DeleteViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        print("contentView：\(contentView.frame)")
+        debugPrint("contentView：\(contentView.frame)")
         customDragImgIcon()
     }
     
@@ -112,7 +112,7 @@ class DeleteViewCell: UITableViewCell {
     @available(iOS 11.0, *)
     override func dragStateDidChange(_ dragState: UITableViewCell.DragState) {
         super.dragStateDidChange(dragState)
-        print("哈哈哈")
+        debugPrint("哈哈哈")
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

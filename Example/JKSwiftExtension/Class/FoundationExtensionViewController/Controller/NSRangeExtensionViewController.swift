@@ -9,10 +9,10 @@
 import UIKit
 
 class NSRangeExtensionViewController: BaseViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         headDataArray = ["一、基本的扩展"]
         dataArray = [["NSRange转换成Range的方法"]]
     }
@@ -29,8 +29,8 @@ extension NSRangeExtensionViewController {
         if let range = nsRange.jk.toRange(string: string) {
             JKPrint("NSRange转换成Range的方法", "父字符串：\(string)", "\(nsRange) 转Range后为：\(range)")
         } else {
-            print("没有拿到了range")
+            debugPrint("没有拿到了range")
         }
     }
 }
-    
+

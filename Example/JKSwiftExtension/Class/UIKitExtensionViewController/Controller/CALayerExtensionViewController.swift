@@ -28,11 +28,11 @@ class CALayerExtensionViewController: BaseViewController, CAAnimationDelegate {
     }
     
     func animationDidStart(_ anim: CAAnimation) {
-        print("animationDidStart:")
+        debugPrint("animationDidStart:")
     }
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        print("animationDidStop")
+        debugPrint("animationDidStop")
     }
 }
 

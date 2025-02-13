@@ -52,7 +52,7 @@ extension CLLocationExtensionViewController {
             UserDefaults.standard.set(array, forKey: "AppleLanguages")
             //显示所有信息
             if error != nil {
-                print("错误：\(error!.localizedDescription))")
+                debugPrint("错误：\(error!.localizedDescription))")
                 return
             }
             
@@ -101,7 +101,7 @@ extension CLLocationExtensionViewController {
                 }
                 print(address)
             } else {
-                print("No placemarks!")
+                debugPrint("No placemarks!")
             }
         }
         JKPrint("地理信息反编码")

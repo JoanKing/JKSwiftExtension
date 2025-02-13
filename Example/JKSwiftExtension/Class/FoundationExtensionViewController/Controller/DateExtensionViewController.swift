@@ -275,7 +275,7 @@ extension DateExtensionViewController {
         let date = Date.jk.formatterTimeStringToDate(timesString: timeStr, formatter: timestamp1Fomatter)
         let timestamp = date.jk.dateFromGMT().jk.dateToTimeStamp(timestampType: .second)
         let newTimeStr = Date.jk.timestampToFormatterTimeString(timestamp: timestamp, format: "yyyy-MM-dd HH:mm:ss")
-        print("Date 转 时间戳" ,"\(date)：转 时间戳：\(timestamp) -> \(newTimeStr)")
+        debugPrint("Date 转 时间戳" ,"\(date)：转 时间戳：\(timestamp) -> \(newTimeStr)")
     }
     
     // MARK: 2.06、秒转换成播放时间条的格式
@@ -457,7 +457,7 @@ extension DateExtensionViewController {
         dateFormatter.dateFormat = "aa HH:mm"
         // dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm aa")
         print(dateFormatter.string(from: Date())) // --> Jun 28
-    
+        
         dateFormatter.locale = Locale(identifier: "fr")
         dateFormatter.dateFormat = "aa HH:mm"
         print(dateFormatter.string(from: Date())) // --> 28 juin
@@ -469,7 +469,7 @@ extension DateExtensionViewController {
         dateFormatter.locale = Locale(identifier: "de")
         dateFormatter.dateFormat = "aa HH:mm"
         print(dateFormatter.string(from: Date())) // --> 28 juin
-    
+        
         dateFormatter.locale = Locale(identifier: "it")
         dateFormatter.dateFormat = "aa HH:mm"
         print(dateFormatter.string(from: Date())) // --> 28 juin
@@ -495,11 +495,11 @@ extension DateExtensionViewController {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        print("小写的yyyy：\(dateFormatter.string(from: date))")
+        debugPrint("小写的yyyy：\(dateFormatter.string(from: date))")
         
         let dateFormatter2 = DateFormatter()
         dateFormatter2.dateFormat = "YYYY-MM-dd"
-        print("大写的YYYY：\(dateFormatter2.string(from: date))")
+        debugPrint("大写的YYYY：\(dateFormatter2.string(from: date))")
     }
     
     func test01() {

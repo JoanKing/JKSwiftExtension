@@ -35,11 +35,11 @@ extension DictionaryExtensionViewController {
             "Sn": ["测试", "列表"],
             "DeviceType": "0"
         ]
-
+        
         // 调用排序方法并打印结果
         let sortedKeyValuePairs = dictionary.jk.sortDictionary()
         for (key, value) in sortedKeyValuePairs {
-            print("\(key): \(value)")
+            debugPrint("\(key): \(value)")
         }
     }
     

@@ -179,7 +179,7 @@ extension JKRollingNoticeViewViewController: JKRollingNoticeViewDelegate, JKRoll
     }
     
     func rollingNoticeView(_ roolingView: JKRollingNoticeView, didClickAt index: Int) {
-        print("did click index: \(roolingView.currentIndex)")
+        debugPrint("did click index: \(roolingView.currentIndex)")
     }
 }
 

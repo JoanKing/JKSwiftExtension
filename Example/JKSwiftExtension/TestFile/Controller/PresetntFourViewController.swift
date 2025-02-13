@@ -780,11 +780,10 @@ class PresetntFourViewController: UIViewController {
         }
         
     }
-    
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let vc = self.bottomestPresentedViewController()
-        print("vc：\(vc.className)")
+        debugPrint("vc：\(vc.className)")
         vc.dismiss(animated: true, completion: nil)
         // dismissViewController(currentVC: self)
     }
@@ -797,7 +796,7 @@ class PresetntFourViewController: UIViewController {
     func dismissViewController(currentVC:UIViewController) {
         var tempVC: UIViewController = currentVC
         while tempVC.presentingViewController != nil {
-            print("\(currentVC.className)")
+            debugPrint("\(currentVC.className)")
             if currentVC.isMember(of: PresetntThreeViewController.self) {
                 break
             }

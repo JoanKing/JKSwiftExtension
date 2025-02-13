@@ -20,7 +20,7 @@ class JKWeakTimerViewController: BaseViewController {
     }
     
     @objc func click() {
-        print("定时器打印中：🚀🚀🚀🚀🚀🚀", "当前的线程：\(Thread.current)")
+        debugPrint("定时器打印中：🚀🚀🚀🚀🚀🚀", "当前的线程：\(Thread.current)")
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,9 +54,9 @@ extension JKWeakTimerViewController {
     @objc func test202() {
         let secondStamp = Int(Date.jk.secondStamp)! + 5
         let date = Date.jk.timestampToFormatterDate(timestamp: "\(secondStamp)")
-        print("--------5秒后开启定时器----------")
+        debugPrint("--------5秒后开启定时器----------")
         timer = JKWeakTimer(fire: date, interval: 1, repeats: true, queue: DispatchQueue.global(), block: { timer in
-            print("定时器打印中：🚀🚀🚀🚀🚀🚀", "当前的线程：\(Thread.current)")
+            debugPrint("定时器打印中：🚀🚀🚀🚀🚀🚀", "当前的线程：\(Thread.current)")
         })
     }
     
@@ -64,7 +64,7 @@ extension JKWeakTimerViewController {
     @objc func test201() {
         let secondStamp = Int(Date.jk.secondStamp)! + 10
         let date = Date.jk.timestampToFormatterDate(timestamp: "\(secondStamp)")
-        print("--------10秒后开启定时器----------")
+        debugPrint("--------10秒后开启定时器----------")
         timer = JKWeakTimer(fireAt: date, interval: 1, target: self, selector: #selector(click), userInfo: nil, repeats: true)
     }
 }
@@ -75,14 +75,14 @@ extension JKWeakTimerViewController {
     // MARK: 1.04、类方法初始化定时器（有队列）- 自动开启定时器
     @objc func test104() {
         timer = JKWeakTimer.scheduledTimer(timeInterval: 1, repeats: true, queue: DispatchQueue.global(), block: { _ in
-            print("定时器打印中：🚀🚀🚀🚀🚀🚀", "当前的线程：\(Thread.current)")
+            debugPrint("定时器打印中：🚀🚀🚀🚀🚀🚀", "当前的线程：\(Thread.current)")
         })
     }
     
     // MARK: 1.03、便利初始化定时器（有队列）
     @objc func test103() {
         timer = JKWeakTimer(timeInterval: 1, repeats: true, queue: DispatchQueue.global(), block: { _ in
-            print("定时器打印中：🚀🚀🚀🚀🚀🚀", "当前的线程：\(Thread.current)")
+            debugPrint("定时器打印中：🚀🚀🚀🚀🚀🚀", "当前的线程：\(Thread.current)")
         })
         timer?.fire()
     }

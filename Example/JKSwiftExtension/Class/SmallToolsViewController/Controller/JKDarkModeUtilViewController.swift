@@ -45,7 +45,7 @@ class JKDarkModeUtilViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.title = "皮肤设置"
         self.view.backgroundColor = .cBackViewColor
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "跳转", style: .plain, target: self, action: #selector(click))
@@ -103,7 +103,7 @@ class JKDarkModeUtilViewController: UIViewController {
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension JKDarkModeUtilViewController: UITableViewDelegate, UITableViewDataSource {
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return dataArray.count
     }
@@ -216,7 +216,7 @@ extension JKDarkModeUtilViewController {
     @objc func switchClick(sender: UISwitch) {
         if sender.tag == 100 {
             // 智能换肤
-            print("智能换肤-------\(sender.isOn)")
+            debugPrint("智能换肤-------\(sender.isOn)")
             JKDarkModeUtil.setSmartPeelingDarkMode(isSmartPeeling: sender.isOn)
             sender.setOn(JKDarkModeUtil.isSmartPeeling, animated: false)
             // 更新选择
@@ -224,7 +224,7 @@ extension JKDarkModeUtilViewController {
             self.tableView.reloadData()
         } else {
             // 跟随系统
-            print("跟随系统-------\(sender.isOn)")
+            debugPrint("跟随系统-------\(sender.isOn)")
             JKDarkModeUtil.setDarkModeFollowSystem(isFollowSystem: sender.isOn)
             // label1.isHidden = sender.isOn
             // switch1.isHidden = sender.isOn

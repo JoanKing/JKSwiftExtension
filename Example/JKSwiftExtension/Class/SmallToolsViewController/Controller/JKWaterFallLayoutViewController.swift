@@ -30,7 +30,7 @@ extension JKWaterFallLayoutViewController {
     // MARK: 1.02、随机高度
     @objc func test102() {
         let number = Int(arc4random()%150).jk.intToCGFloat
-        print("\(number)")
+        debugPrint("\(number)")
     }
     
     // MARK: 1.01、弹出布局
@@ -68,10 +68,10 @@ extension JKWaterFallLayoutViewController: JKWaterFallLayoutDataSoure, UICollect
     
     // 每个item的大小
     /*
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 50, height: 50)
-    }
-    */
+     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+     return CGSize(width: 50, height: 50)
+     }
+     */
     
     func waterfall(_ waterfall: JKWaterFallLayout, item: Int) -> CGFloat {
         return Int.jk.random(within: 60..<150).jk.intToCGFloat

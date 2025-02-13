@@ -169,35 +169,35 @@ extension UITextFieldExtensionViewController {
 extension UITextFieldExtensionViewController: UITextFieldDelegate {
     // MARK: 将要开始编辑
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        print("将要开始编辑")
+        debugPrint("将要开始编辑")
         return true
     }
     // MARK: 已经开始编辑
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        print("已经开始编辑")
+        debugPrint("已经开始编辑")
     }
     // MARK: 将要结束编辑
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        print("将要结束编辑")
+        debugPrint("将要结束编辑")
         return true
     }
     // MARK: 已经结束编辑
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("已经结束编辑")
+        debugPrint("已经结束编辑")
     }
     // MARK: 文本输入内容将要发生变化（每次输入都会调用）
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        print("文本输入内容将要发生变化（每次输入都会调用）")
+        debugPrint("文本输入内容将要发生变化（每次输入都会调用）")
         return true
     }
     // MARK: 将要清除输入内容，返回值是是否要清除掉内容
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        print("将要清除输入内容，返回值是是否要清除掉内容")
+        debugPrint("将要清除输入内容，返回值是是否要清除掉内容")
         return true
     }
     // MARK: 将要按下Return按钮，返回值是是否结束输入（是否失去焦点）
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("将要按下Return按钮，返回值是是否结束输入（是否失去焦点）")
+        debugPrint("将要按下Return按钮，返回值是是否结束输入（是否失去焦点）")
         return true
     }
 }

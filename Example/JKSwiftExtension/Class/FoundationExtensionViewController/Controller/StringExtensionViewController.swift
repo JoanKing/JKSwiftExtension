@@ -75,9 +75,9 @@ extension StringExtensionViewController {
         let str = "我是一只小小鸟"
         let key = "123456"
         let newString = str.jk.shaCrypt(cryptType: .SHA1, key: key, lower: true) ?? "加密失败"
-        print("原始字符串：\(str)")
-        print("key：\(key)")
-        print("加密后的字符串：\(newString)")
+        debugPrint("原始字符串：\(str)")
+        debugPrint("key：\(key)")
+        debugPrint("加密后的字符串：\(newString)")
     }
 }
 // MARK: - 十六、AES, AES128, DES, DES3, CAST, RC2, RC4, Blowfish 多种加密
@@ -88,9 +88,9 @@ extension StringExtensionViewController {
         let str = "welcome to hangge.com"
         let key = "123456"
         let newString = str.jk.scaCrypt(cryptType: .DES, key: key, encode: true) ?? "加密失败"
-        print("原始字符串：\(str)")
-        print("key：\(key)")
-        print("加密后的字符串：\(newString.jk.scaCrypt(cryptType: .DES, key: key, encode: false) ?? "加密失败")")
+        debugPrint("原始字符串：\(str)")
+        debugPrint("key：\(key)")
+        debugPrint("加密后的字符串：\(newString.jk.scaCrypt(cryptType: .DES, key: key, encode: false) ?? "加密失败")")
     }
     
 }
@@ -107,10 +107,10 @@ extension StringExtensionViewController {
     
     // MARK: 15.01、MD5加密 默认是32位小写加密
     @objc func test1501() {
-        print("32 位小写：\("123456".jk.md5Encrypt())")
-        print("32 位大写：\("123456".jk.md5Encrypt(.uppercase32))")
-        print("16 位小写：\("123456".jk.md5Encrypt(.lowercase16))")
-        print("16 位大写：\("123456".jk.md5Encrypt(.uppercase16))")
+        debugPrint("32 位小写：\("123456".jk.md5Encrypt())")
+        debugPrint("32 位大写：\("123456".jk.md5Encrypt(.uppercase32))")
+        debugPrint("16 位小写：\("123456".jk.md5Encrypt(.lowercase16))")
+        debugPrint("16 位大写：\("123456".jk.md5Encrypt(.uppercase16))")
         /*
          32 位小写：e10adc3949ba59abbe56e057f20f883e
          32 位大写：E10ADC3949BA59ABBE56E057F20F883E
@@ -632,9 +632,9 @@ extension StringExtensionViewController {
         let text = "Swifts is a powerful language. I love swiftUI and Python! python"
         let keywords = ["A"]
         let specialKeywords = ["powerful", "python"]
-
+        
         let highlightedText = text.jk.highlightKeywords(keywords: keywords, normalColor: .black, highlightColor: .red, specialKeywords: specialKeywords, specialColor: UIColor.green, isCaseSensitive: false, isMatchesWholeWords: false)
-  
+        
         var label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.jk.width - 60, height: 200))
         label.backgroundColor = .yellow
         label.textColor = .red
@@ -751,7 +751,7 @@ extension StringExtensionViewController {
         let font = UIFont.systemFont(ofSize: 22)
         
         let size = testString.jk.rectSize(font: font, size: CGSize(width: 200, height: CGFloat(MAXFLOAT)))
-        print("对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)：\(size)")
+        debugPrint("对字符串(多行)指定出字体大小和最大的 Size，获取 (Size)：\(size)")
         
         var testLabel = UILabel(frame: CGRect(x: 0, y: 100, width: size.width, height: size.height))
         testLabel.jk.centerX = self.view.jk.centerX
@@ -777,7 +777,7 @@ extension StringExtensionViewController {
         let font = UIFont.systemFont(ofSize: 22)
         
         let height = testString.jk.rectHeight(font: font, size: CGSize(width: 100, height: CGFloat(MAXFLOAT)))
-        print("对字符串(多行)指定字体及Size，获取 (高度)：\(height)")
+        debugPrint("对字符串(多行)指定字体及Size，获取 (高度)：\(height)")
         
         var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: 100, height: height))
         testLabel.jk.centerX = self.view.jk.centerX
@@ -803,7 +803,7 @@ extension StringExtensionViewController {
         let font = UIFont.systemFont(ofSize: 22)
         
         let width = testString.jk.rectWidth(font: font, size: CGSize(width: 100, height: CGFloat(MAXFLOAT)))
-        print("对字符串(多行)指定字体及Size，获取 (宽度)：\(width)")
+        debugPrint("对字符串(多行)指定字体及Size，获取 (宽度)：\(width)")
         
         var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: width, height: 100))
         testLabel.jk.centerX = self.view.jk.centerX
@@ -829,7 +829,7 @@ extension StringExtensionViewController {
         let font = UIFont.systemFont(ofSize: 22)
         
         let size = testString.jk.singleLineSize(font: font)
-        print("对字符串(单行)指定字体，获取 (Size)：\(size)")
+        debugPrint("对字符串(单行)指定字体，获取 (Size)：\(size)")
         
         var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: size.width, height: size.height))
         testLabel.jk.centerX = self.view.jk.centerX
@@ -855,7 +855,7 @@ extension StringExtensionViewController {
         let font = UIFont.systemFont(ofSize: 22)
         
         let width = testString.jk.singleLineWidth(font: font)
-        print("对字符串(单行)指定字体，获取 (width)：\(width)")
+        debugPrint("对字符串(单行)指定字体，获取 (width)：\(width)")
         
         var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: width, height: 100))
         testLabel.jk.centerX = self.view.jk.centerX
@@ -881,7 +881,7 @@ extension StringExtensionViewController {
         let font = UIFont.systemFont(ofSize: 22)
         
         let height = testString.jk.singleLineHeight(font: font)
-        print("对字符串(单行)指定字体，获取 (Height)：\(height)")
+        debugPrint("对字符串(单行)指定字体，获取 (Height)：\(height)")
         
         var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: 100, height: height))
         testLabel.jk.centerX = self.view.jk.centerX
@@ -907,7 +907,7 @@ extension StringExtensionViewController {
         let font = UIFont.systemFont(ofSize: 22)
         
         let size = testString.jk.sizeAccording(width: 200, font: font)
-        print("字符串通过 label 根据高度&字体——> Size：\(size)")
+        debugPrint("字符串通过 label 根据高度&字体——> Size：\(size)")
         
         var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: size.width, height: size.height))
         testLabel.jk.centerX = self.view.jk.centerX
@@ -931,7 +931,7 @@ extension StringExtensionViewController {
         let font = UIFont.systemFont(ofSize: 22)
         
         let width = testString.jk.widthAccording(width: 200, font: font)
-        print("字符串通过 label 根据高度&字体 ——> Width：\(width)")
+        debugPrint("字符串通过 label 根据高度&字体 ——> Width：\(width)")
         
         var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: width, height: 100))
         testLabel.jk.centerX = self.view.jk.centerX
@@ -955,7 +955,7 @@ extension StringExtensionViewController {
         let font = UIFont.systemFont(ofSize: 22)
         
         let height = testString.jk.heightAccording(width: 200, font: font)
-        print("字符串通过 label 根据宽度&字体 ——> height：\(height)")
+        debugPrint("字符串通过 label 根据宽度&字体 ——> height：\(height)")
         
         var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: 200, height: height))
         testLabel.jk.centerX = self.view.jk.centerX
@@ -982,7 +982,7 @@ extension StringExtensionViewController {
         let lineSpacing: CGFloat = 20
         
         let size = testString.jk.sizeAccording(width: 200, font: font, lineSpacing: lineSpacing)
-        print("字符串根据宽度 & 字体 & 行间距 —> Size：\(size)")
+        debugPrint("字符串根据宽度 & 字体 & 行间距 —> Size：\(size)")
         
         var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: size.width, height: size.height))
         testLabel.jk.centerX = self.view.jk.centerX
@@ -1016,7 +1016,7 @@ extension StringExtensionViewController {
         let size = CGSize(width: 300, height: CGFloat(MAXFLOAT))
         let lineSpacing: CGFloat = 20
         let width = testString.jk.widthAccording(width: size.width, font: font, lineSpacing: 20)
-        print("字符串根据宽度 & 字体 & 行间距 —> width：\(width)")
+        debugPrint("字符串根据宽度 & 字体 & 行间距 —> width：\(width)")
         
         var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: width, height: size.height))
         testLabel.jk.centerX = self.view.jk.centerX
@@ -1049,7 +1049,7 @@ extension StringExtensionViewController {
         let lineSpacing: CGFloat = 20
         
         let height = testString.jk.heightAccording(width: size.width, font: font, lineSpacing: lineSpacing)
-        print("字符串根据宽度 & 字体 & 行间距 —> height：\(height)")
+        debugPrint("字符串根据宽度 & 字体 & 行间距 —> height：\(height)")
         
         var testLabel = UILabel(frame: CGRect(x: 0, y: 70, width: size.width, height: height))
         testLabel.jk.centerX = self.view.jk.centerX
@@ -1074,7 +1074,7 @@ extension StringExtensionViewController {
 
 // MARK: - 五、字符串的转换
 extension StringExtensionViewController {
-
+    
     // MARK: 5.11、大写的金额转数字金额
     /// 大写的金额转数字金额
     @objc func test511() {
@@ -1085,7 +1085,7 @@ extension StringExtensionViewController {
         let money4 = "壹拾贰兆零叁拾肆亿贰仟叁佰肆拾壹万贰仟贰佰叁拾肆元捌角"
         let money5 = "壹拾贰亿叁仟肆佰零万壹仟贰佰叁拾肆元整"
         let money6 = "壹仟贰佰叁拾亿零贰佰叁拾肆元贰分"
-
+        
         let value0 = money0.jk.rMBConvertChineseNumber()
         let value1 = money1.jk.rMBConvertChineseNumber()
         let value2 = money2.jk.rMBConvertChineseNumber()
@@ -1175,7 +1175,7 @@ extension StringExtensionViewController {
         let value5 = str5.jk.toFloat() ?? 0
         JKPrint("字符串: \(str1) 转 Float 后为：\(value1)", "字符串: \(str2) 转 Float 后为：\(value2)", "字符串: \(str3) 转 Float 后为：\(value3)", "字符串: \(str4) 转 Float 后为：\(value4)", "字符串: \(str5) 转 Float 后为：\(value5)")
     }
-
+    
     // MARK: 5.05、字符串转通过NSDecimalNumberHandler转Double
     /// 字符串转通过NSDecimalNumberHandler转Double
     @objc func test505() {
@@ -1347,9 +1347,9 @@ extension StringExtensionViewController {
     @objc func test413() {
         /// 原始字符串
         let str1 = "哈哈:嘿嘿:呵呵"
-        print("原字符串：\(str1)")
-        print("新字符串：\(str1.jk.removeCharacter(characterString: ":"))")
-        print("原字符串：\(str1)")
+        debugPrint("原字符串：\(str1)")
+        debugPrint("新字符串：\(str1.jk.removeCharacter(characterString: ":"))")
+        debugPrint("原字符串：\(str1)")
     }
     
     // MARK: 4.14、判断判断字符串是否已经被编码过
@@ -1538,7 +1538,7 @@ extension StringExtensionViewController {
         JKPrint("复制文字：我是一枚小可爱")
         // "复制：我是一枚小可爱".toast()
         "我是一枚小可爱".jk.copy()
-        print("复制的内容是：\(UIPasteboard.general.string ?? "没有内容")")
+        debugPrint("复制的内容是：\(UIPasteboard.general.string ?? "没有内容")")
     }
     
     // MARK: 1.11、设备的UUID
@@ -1609,8 +1609,8 @@ extension StringExtensionViewController {
     // MARK: 1.01、字符串的长度
     @objc func test101() {
         /*
-        let string = "abc"
-        JKPrint("字符串：\(string) 的长度是：\(string.jk.typeLengh(.utf16))")
+         let string = "abc"
+         JKPrint("字符串：\(string) 的长度是：\(string.jk.typeLengh(.utf16))")
          */
         let string = "我 试"
         debugPrint("字符串：\(string) 的字节长度为：\(string.lengthOfBytes(using: .utf8))")

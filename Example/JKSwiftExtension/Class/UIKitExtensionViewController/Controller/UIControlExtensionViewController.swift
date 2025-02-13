@@ -37,7 +37,7 @@ extension UIControlExtensionViewController {
         btn.jk.preventDoubleHit(hitTime)
         btn.jk.setHandleClick { (btn) in
             guard let weakBtn = btn else { return }
-            print("button的点击事件", "tag：\(weakBtn.tag)")
+            debugPrint("button的点击事件", "tag：\(weakBtn.tag)")
         }
         btn.addTo(self.view)
         JKAsyncs.asyncDelay(10, {

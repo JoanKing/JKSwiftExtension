@@ -9,10 +9,10 @@
 import UIKit
 
 class FourViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.title = "Four"
         self.edgesForExtendedLayout = []
         self.view.backgroundColor = UIColor.randomColor
@@ -32,7 +32,7 @@ class FourViewController: UIViewController {
         let alertController = UIAlertController(title: "\n\n\n\n\n\n\n",
                                                 message: nil,
                                                 preferredStyle: .actionSheet)
-         
+        
         // 添加imageView控件
         let testView = UIView(frame: CGRect(x: 10, y: 10, width: alertController.view.bounds.size.width - 40, height: 135))
         testView.backgroundColor = .randomColor
@@ -43,7 +43,7 @@ class FourViewController: UIViewController {
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         let okAction = UIAlertAction(title: "确定", style: .default, handler: {
             action in
-            print("点击了确定")
+            debugPrint("点击了确定")
         })
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)

@@ -19,7 +19,7 @@ import UIKit
             self.number = 999 
         }
         didSet {
-            print("旧值：\(oldValue) 新值：\(self.number)")
+            debugPrint("旧值：\(oldValue) 新值：\(self.number)")
         }
     }
     
@@ -36,7 +36,7 @@ import UIKit
     }
     
     deinit {
-        print("----销毁-----")
+        debugPrint("----销毁-----")
     }
 }
 

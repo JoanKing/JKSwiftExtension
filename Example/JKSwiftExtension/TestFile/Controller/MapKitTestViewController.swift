@@ -27,18 +27,18 @@ class MapKitTestViewController: UIViewController {
         let search = MKLocalSearch(request: request)
         return search
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.view.backgroundColor = .white
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-
+        
         search.start { (response, error) in
             guard let response = response else {
-                print("Error: \(error?.localizedDescription ?? "Unknown error")")
+                debugPrint("Error: \(error?.localizedDescription ?? "Unknown error")")
                 return
             }
             
@@ -46,11 +46,11 @@ class MapKitTestViewController: UIViewController {
                 print(randomMapItem.name ?? "Unknown name")
                 print(randomMapItem.placemark.coordinate)
             } else {
-                print("No nearby places found.")
+                debugPrint("No nearby places found.")
             }
         }
-
-         
+        
+        
     }
-
+    
 }

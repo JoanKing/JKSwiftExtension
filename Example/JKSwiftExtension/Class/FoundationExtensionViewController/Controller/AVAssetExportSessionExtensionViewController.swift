@@ -9,10 +9,10 @@
 import UIKit
 import AVFoundation
 class AVAssetExportSessionExtensionViewController: BaseViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         headDataArray = ["一、有关视频压缩的扩展"]
         dataArray = [["本地视频压缩"]]
     }
@@ -26,10 +26,10 @@ extension AVAssetExportSessionExtensionViewController {
         AVAssetExportSession.jk.assetExportSession(inputPath: "是本地视频路径", outputPath: "导出视频的路径", outputFileType: .mp4, completionHandler: { (exportSession, duration, videoSize, localVideoPath) in
             switch exportSession.status{
             case .waiting:
-                print("等待压缩")
+                debugPrint("等待压缩")
                 break
             case .exporting:
-                print("压缩中：")
+                debugPrint("压缩中：")
                 break
             case .completed:
                 JKPrint("转码成功")

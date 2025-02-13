@@ -22,13 +22,13 @@ final class Ref<T> {
 }
 
 class JKPrintViewController: BaseViewController, UIDocumentInteractionControllerDelegate {
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         headDataArray = ["一、打印的方式"]
         dataArray = [["打印单个内容", "打印多个内容", "变量的：地址、内存、大小 的打印", "对象的：地址、内存、大小 的打印", "测试"]]
- 
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,7 +51,7 @@ extension JKPrintViewController {
         JKPrint(val: &name1)
         JKPrint(val: &name2)
         
-        print("------------------")
+        debugPrint("------------------")
         
         var x = [1, 2, 3]
         var y = x

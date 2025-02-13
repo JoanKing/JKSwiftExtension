@@ -9,10 +9,10 @@
 import UIKit
 
 @objc class FileManagerExtensionViewController: BaseViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         headDataArray = ["一、沙盒路径的获取", "二、文件以及文件夹的操作 扩展", "三、有关视频缩略图获取的扩展"]
         dataArray = [["获取Home的完整路径名", "获取Documnets的完整路径名", "获取Library的完整路径名", "获取/Library/Cache的完整路径名", "获取Library/Preferences的完整路径名", "获取Tmp的完整路径名"], ["创建文件夹(蓝色的，文件夹和文件是不一样的)", "删除文件夹", "创建文件", "删除文件", "读取文件内容", "把文字，图片，数组，字典写入文件", "从文件 读取 文字，图片，数组，字典", "拷贝(文件夹/文件)的内容 到另外一个(文件夹/文件)，新的(文件夹/文件)如果存在就先删除再 拷贝", "移动(文件夹/文件)的内容 到另外一个(文件夹/文件)，新的(文件夹/文件)如果存在就先删除再 移动", "判断 (文件夹/文件) 是否存在", "获取 (文件夹/文件) 的前一个路径", "判断目录是否可读", "判断目录是否可写", "判断目录是否可执行", "判断目录是否可删除", "根据文件路径获取文件扩展类型", "根据文件路径获取文件名称，是否需要后缀", "对指定路径执行浅搜索，返回指定目录路径下的文件、子目录及符号链接的列表(只寻找一层)", "深度遍历，会递归遍历子文件夹（包括符号链接，所以要求性能的话用enumeratorAtPath）", "深度遍历，会递归遍历子文件夹（但不会递归符号链接）", "计算单个 (文件夹/文件) 的大小，单位为字节 （没有进行转换的）", "计算 (文件夹/文件) 的大小（转换过的）", "获取(文件夹/文件)属性集合", "文件/文件夹比较 是否一样"], ["通过本地(沙盒)视频文件路径获取截图", "通过本地(沙盒)视频文件路径数组获取截图数组", "通过网络视频文件路径获取截图", "通过网络视频文件路径数组获取截图数组"]]
         
@@ -72,7 +72,7 @@ extension FileManagerExtensionViewController {
                 imageView.removeFromSuperview()
             }
         }
-       
+        
     }
     
     // MARK: 3.02、通过本地(沙盒)视频文件路径数组获取截图数组
@@ -80,7 +80,7 @@ extension FileManagerExtensionViewController {
         // 添加录视频的缩略图
         let videoPath = FileManager.jk.DocumnetsDirectory() + "/video.mp4"
         let playImages = FileManager.jk.getLocalVideoImages(videoPaths: [videoPath])
-    
+        
         if !playImages.isEmpty, let image = playImages[0] {
             JKPrint("\(image)")
         }
@@ -91,7 +91,7 @@ extension FileManagerExtensionViewController {
         // 添加录视频的缩略图
         let videoPath = FileManager.jk.DocumnetsDirectory() + "/video.mp4"
         if let image = FileManager.jk.getLocalVideoImage(videoPath: videoPath) {
-            print("\(image)")
+            debugPrint("\(image)")
         }
     }
 }
@@ -133,7 +133,7 @@ extension FileManagerExtensionViewController {
     // MARK: 2.20、深度遍历，会递归遍历子文件夹（但不会递归符号链接）
     @objc func test220() {
         let path = FileManager.jk.LibraryDirectory()
-    
+        
         guard let fileNames = FileManager.jk.deepSearchAllFiles(folderPath: path) else {
             return
         }
@@ -143,7 +143,7 @@ extension FileManagerExtensionViewController {
     // MARK: 2.19、深度遍历，会递归遍历子文件夹（包括符号链接，所以要求性能的话用enumeratorAtPath）
     @objc func test219() {
         let path = FileManager.jk.LibraryDirectory()
-    
+        
         guard let fileNames = FileManager.jk.getAllFileNames(folderPath: path) else {
             return
         }
@@ -153,7 +153,7 @@ extension FileManagerExtensionViewController {
     // MARK: 2.18、对指定路径执行浅搜索，返回指定目录路径下的文件、子目录及符号链接的列表(只寻找一层)
     @objc func test218() {
         let path = FileManager.jk.PreferencesDirectory()
-    
+        
         guard let fileNames = FileManager.jk.shallowSearchAllFiles(folderPath: path) else {
             return
         }

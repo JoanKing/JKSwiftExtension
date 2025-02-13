@@ -9,7 +9,7 @@
 import UIKit
 
 @objcMembers class JKEmptyViewController: BaseViewController {
-
+    
     /// 是否使用Go骑行颜色模式
     private var isUseGoColorMode: Bool
     
@@ -23,7 +23,7 @@ import UIKit
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.view.backgroundColor = .white
         self.navigationItem.rightBarButtonItems = [button1, button2, button3]
         initUI()
@@ -81,7 +81,7 @@ import UIKit
     lazy var empty: JKEmptyView = {
         let emptyView = JKEmptyView()
         emptyView.refreshClosure = {
-            print("刷新------")
+            debugPrint("刷新------")
         }
         return emptyView
     }()

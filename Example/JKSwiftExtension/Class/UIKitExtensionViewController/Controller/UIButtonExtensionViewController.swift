@@ -21,9 +21,9 @@ class UIButtonExtensionViewController: BaseViewController {
     
     @objc func click() {
         testButton.countDown(9, timering: { (number) in
-            print("\(number)")
+            debugPrint("\(number)")
         }, complete: {
-            print("完成")
+            debugPrint("完成")
         }, timeringPrefix: "测试", completeText: "再来一次")
     }
     
@@ -34,10 +34,10 @@ class UIButtonExtensionViewController: BaseViewController {
         button.add(self, action: #selector(click))
         return button
     }()
-
+    
     func autolayoutWaring(isHidden: Bool) {
-            UserDefaults.standard.set(!isHidden, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
-        }
+        UserDefaults.standard.set(!isHidden, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+    }
     
     deinit {
         debugPrint("-----deinit--------")
@@ -76,7 +76,7 @@ extension UIButtonExtensionViewController {
         button1.tag = 100
         button1.jk.setHandleClick { (btn) in
             guard let weakBtn = btn else { return }
-            print("button的事件", "tag：\(weakBtn.tag)")
+            debugPrint("button的事件", "tag：\(weakBtn.tag)")
         }
         button1.jk.touchExtendInset = UIEdgeInsets(top: -50, left: -50, bottom: -50, right: -50)
         testView2.addSubview(button1)
@@ -106,7 +106,7 @@ extension UIButtonExtensionViewController {
         button.tag = 100
         button.jk.setHandleClick { (btn) in
             guard let weakBtn = btn else { return }
-            print("button的事件", "tag：\(weakBtn.tag)")
+            debugPrint("button的事件", "tag：\(weakBtn.tag)")
         }
         self.view.addSubview(button)
         JKAsyncs.asyncDelay(10, {
@@ -127,8 +127,8 @@ extension UIButtonExtensionViewController {
     
     // MARK: 4.04、处于倒计时时，前缀文案，如：「再次获取」 + (xxxs)
     @objc func test404() {
-       guard let result = testButton.timeringPrefix else {
-           debugPrint("-------nil--------")
+        guard let result = testButton.timeringPrefix else {
+            debugPrint("-------nil--------")
             return
         }
         debugPrint("处于倒计时时，前缀文案：\(result)")

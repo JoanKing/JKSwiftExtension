@@ -186,7 +186,7 @@ extension JKFileLog {
             do {
                 // 当前的日期
                 let currentDate = Date.jk.currentDate
-                let dateString = currentDate.jk.toformatterTimeString()
+                let dateString = currentDate.jk.toformatterTimeString(formatter: "yyyy-MM-dd HH:mm:ss:SSS")
                 // 句柄对象
                 let fileHandle = try FileHandle(forWritingTo: filePath)
                 // 函数信息

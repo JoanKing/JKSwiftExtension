@@ -107,12 +107,12 @@ extension AnimationView {
     }
     
     func checkPositiony() {
-        print("positionY\(animationImageView.layer.position.y)")
-        print("中心点\(animationImageView.jk.centerY)")
+        debugPrint("positionY\(animationImageView.layer.position.y)")
+        debugPrint("中心点\(animationImageView.jk.centerY)")
     }
     
     func resetPositiony() {
         animationImageView.layer.position.y = originalCenterY
-        print("positionY\(animationImageView.layer.position.y)")
+        debugPrint("positionY\(animationImageView.layer.position.y)")
     }
 }

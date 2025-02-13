@@ -103,7 +103,7 @@ extension UITextViewExtensionViewController: UITextViewDelegate {
             case "test2" :
                 showAlert(tagType: "test2", payload: (URL as NSURL).resourceSpecifier!.removingPercentEncoding!)
             default:
-                print("这个是普通的url")
+                debugPrint("这个是普通的url")
             }
         }
         return true

@@ -27,7 +27,7 @@ extension UISwitchExtensionViewController {
         sh.backgroundColor = .brown
         sh.jk.setHandle { (result) in
             guard let weakResult = result else { return }
-            print("开关的状态", "\(weakResult)")
+            debugPrint("开关的状态", "\(weakResult)")
         }
         sh.addTo(self.view)
         

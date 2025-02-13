@@ -22,14 +22,14 @@ struct PersonItem: Codable {
 }
 
 class UserDefaultsExtensionViewController: BaseViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         headDataArray = ["一、基本的扩展", "二、模型持久化（复杂类型）"]
         dataArray = [["存值", "取值", "移除单个key存储的值", "移除包含某个key存储的值", "移除所有值"], ["存储模型", "取出模型", "保存模型数组", "读取模型数组"]]
     }
-
+    
 }
 // MARK: - 二、模型持久化（复杂类型）
 extension UserDefaultsExtensionViewController {
@@ -38,7 +38,7 @@ extension UserDefaultsExtensionViewController {
     @objc func test204() {
         let models: [UserDefaultsModel] = UserDefaults.jk.getModelArray(forKey: "GoRideHistory")
         for item in models {
-            print("uid：\(item.uid) name：\(item.name)")
+            debugPrint("uid：\(item.uid) name：\(item.name)")
         }
     }
     //MARK: 2.03、保存模型数组
@@ -67,7 +67,7 @@ extension UserDefaultsExtensionViewController {
 }
 // MARK: - 一、基本的扩展
 extension UserDefaultsExtensionViewController {
-
+    
     // MARK: 1.05、移除所有值
     @objc func test105() {
         UserDefaults.jk.removeAllKeyValue()
