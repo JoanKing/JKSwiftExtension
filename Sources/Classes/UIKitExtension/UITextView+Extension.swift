@@ -208,7 +208,7 @@ public extension JKPOP where Base: UITextView {
                 let oldLength = oldContent.jk.typeLengh(lenghType)
                 if oldLength < maxCharacters, (maxCharacters - oldLength) > 0 {
                     let remainingLength = maxCharacters - oldLength
-                    let copyString = inputingContent.jk.removeBeginEndAllSapcefeed
+                    let copyString = inputingContent.jk.removeBeginEndAllSpacefeed
                     // debugPrint("范围：\(range) copy的字符串：\(copyString) 长度：\(copyString.count)  截取的字符串：\(copyString.jk.sub(to: remainingLength))")
                     // 可以插入字符串
                     let replaceContent = copyString.jk.sub(to: remainingLength)

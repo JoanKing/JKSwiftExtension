@@ -292,7 +292,7 @@ extension UILabelExtensionViewController {
         JKAsyncs.asyncDelay(3, {
         }) {
            let fontSize = testLabel.jk.getFontSizeForLabel()
-            JKPrint("获取字体的大小", "\(fontSize)")
+            JKPrint("获取字体的大小", "\(fontSize ?? 0)")
         }
     }
     

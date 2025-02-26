@@ -945,7 +945,7 @@ public extension JKPOP where Base: UIView {
     ///   - textColor: 水印文字颜色
     ///   - font: 水印文字大小
     func addWater(markText: String, textColor: UIColor = UIColor.black, font: UIFont = UIFont.systemFont(ofSize: 12)) {
-        let waterMark: NSString = markText.jk.toNSString
+        let waterMark = markText.jk.toNSString 
         let textSize: CGSize = waterMark.size(withAttributes: [NSAttributedString.Key.font : font])
         // 多少行
         let line: NSInteger = NSInteger(self.base.jk.height * 3.5 / 80)
