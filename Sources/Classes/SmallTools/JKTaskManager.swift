@@ -4,7 +4,7 @@
 //
 //  Created by chongwang on 2025/2/5.
 //  任务管理器类，用于调度和取消延迟任务。
-
+import Dispatch
 // MARK: - 任务管理器类，用于调度和取消延迟任务。
 /// 通过 `DispatchWorkItem` 实现任务的延迟执行，并支持任务取消。
 public class JKTaskManager {

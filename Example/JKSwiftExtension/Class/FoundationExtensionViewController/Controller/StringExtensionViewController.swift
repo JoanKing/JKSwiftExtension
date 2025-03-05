@@ -90,7 +90,7 @@ extension StringExtensionViewController {
         let newString = str.jk.scaCrypt(cryptType: .DES, key: key, encode: true) ?? "加密失败"
         debugPrint("原始字符串：\(str)")
         debugPrint("key：\(key)")
-        debugPrint("加密后的字符串：\(newString.jk.scaCrypt(cryptType: .DES, key: key, encode: false) ?? "加密失败")")
+        debugPrint("加密后的字符串：\(newString)")
     }
     
 }
