@@ -50,6 +50,8 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/5611a91f-e083-4c77-8ef8-bdc4a91a13c9" alt="微信交流群" width="220">
 
 ## 版本说明  
+  - 2.7.9、版本(2025.03.12)
+    - UITableView扩展增加UITableViewHeaderFooterView相关注册和复用
   - 2.7.8、版本(2025.03.05)
     - JKTaskManager导入import Dispatch
   - 2.7.7、版本(2025.02.26)
