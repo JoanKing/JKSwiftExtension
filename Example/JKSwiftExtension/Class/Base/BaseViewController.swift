@@ -34,7 +34,10 @@ import JKSwiftExtension
         tableView.estimatedRowHeight = 80.0
         // 开启自适应
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedSectionHeaderHeight = 80
+        tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.jk.register(cellClass: BaseViewCell.self)
+        tableView.jk.register(headerFooterClass: BaseHeaderView.self)
         return tableView
     }()
     
@@ -77,6 +80,7 @@ extension BaseViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        /*
         let str = headDataArray[section] as! String
         let size = str.jk.rectSize(font: UIFont.systemFont(ofSize: 18), size: CGSize(width: jk_kScreenW - 20, height: CGFloat(MAXFLOAT)))
         
@@ -88,13 +92,22 @@ extension BaseViewController: UITableViewDelegate, UITableViewDataSource {
         label.numberOfLines = 0
         sectionView.addSubview(label)
         return sectionView
+        */
+        guard let header = tableView.jk.dequeueReusableHeaderFooterView(ofType: BaseHeaderView.self) else {
+            return nil
+        }
+        if let title = headDataArray[section] as? String {
+            header.setData(with: title)
+        }
+        return header
     }
-    
+    /*
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let str = headDataArray[section] as! String
         let size = str.jk.rectSize(font: UIFont.systemFont(ofSize: 18), size: CGSize(width: jk_kScreenW - 20, height: CGFloat(MAXFLOAT)))
         return size.height + 20
     }
+     */
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let sectionFootView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 0.01))

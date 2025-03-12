@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		551E7E9D2BDB584500C1E7EF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 551E7E972BDB56A100C1E7EF /* Localizable.strings */; };
+		5520D4C32D815BAB00B06885 /* BaseHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5520D4C22D815BAB00B06885 /* BaseHeaderView.swift */; };
 		5537F3872B0B4D5500F6BEEC /* JKFileLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5537F3862B0B4D5500F6BEEC /* JKFileLogViewController.swift */; };
 		553FF3782B0EEB3500589AEF /* MapKitTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FF3772B0EEB3500589AEF /* MapKitTestViewController.swift */; };
 		555C223B2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C223A2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift */; };
@@ -216,6 +217,7 @@
 		551E7E9A2BDB56F900C1E7EF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		551E7E9B2BDB56F900C1E7EF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		551E7E9C2BDB56FA00C1E7EF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5520D4C22D815BAB00B06885 /* BaseHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHeaderView.swift; sourceTree = "<group>"; };
 		5537F3862B0B4D5500F6BEEC /* JKFileLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKFileLogViewController.swift; sourceTree = "<group>"; };
 		553FF3772B0EEB3500589AEF /* MapKitTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitTestViewController.swift; sourceTree = "<group>"; };
 		555C223A2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabbarExtensionViewController.swift; sourceTree = "<group>"; };
@@ -629,6 +631,7 @@
 			children = (
 				8483A734254C119700ACF6FD /* BaseViewController.swift */,
 				84CB0CA0260DD144003D2738 /* BaseViewCell.swift */,
+				5520D4C22D815BAB00B06885 /* BaseHeaderView.swift */,
 				84A6FB76255A655700057839 /* BaseNavigationViewController.swift */,
 			);
 			path = Base;
@@ -1262,6 +1265,7 @@
 				E2C465A62855E552008340BA /* UserDefaultsModel.swift in Sources */,
 				84F11DF825DE4A3400209B4C /* CLLocationExtensionViewController.swift in Sources */,
 				847DFF2C2550F8C100EEE785 /* BoolExtensionViewController.swift in Sources */,
+				5520D4C32D815BAB00B06885 /* BaseHeaderView.swift in Sources */,
 				84F937A0258A081700A35E77 /* UICollectionViewExtensionViewController.swift in Sources */,
 				8483A732254C0D6200ACF6FD /* JKPrintViewController.swift in Sources */,
 				E289F90F2850262200D840B7 /* RadiusViewController.swift in Sources */,

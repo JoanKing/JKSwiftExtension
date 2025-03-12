@@ -69,7 +69,29 @@ public extension JKPOP where Base: UITableView {
         return base.dequeueReusableCell(withIdentifier: cellType.className, for: indexPath) as! T
     }
     
-    // MARK: 1.8、给单个section整体cell加圆角
+    // MARK: 1.8、注册 Header/Footer 类
+    /// 注册自定义 HeaderFooterView
+    /// - Parameter headerFooterClass: UITableViewHeaderFooterView 类型
+    func register(headerFooterClass: UITableViewHeaderFooterView.Type) {
+        base.register(headerFooterClass.self, forHeaderFooterViewReuseIdentifier: headerFooterClass.className)
+    }
+    
+    // MARK: 1.9、注册 Header/Footer XIB（可选）
+    /// 注册 Header/Footer XIB（可选）
+    /// - Parameter nib: nib description
+    func registerHeaderFooterView(nib: UINib) {
+        base.register(nib, forHeaderFooterViewReuseIdentifier: nib.className)
+    }
+    
+    // MARK: 1.10、通用复用 Header/Footer 方法(注册后使用该方法)
+    /// 通用复用 Header/Footer 方法
+    /// - Parameter type: Header/Footer
+    /// - Returns: description
+    func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(ofType type: T.Type) -> T? {
+        return base.dequeueReusableHeaderFooterView(withIdentifier: type.className) as? T
+    }
+    
+    // MARK: 1.11、给单个section整体cell加圆角
     /// 给单个section整体cell加圆角
     /// - Parameters:
     ///   - radius: 圆角大小
@@ -123,7 +145,7 @@ public extension JKPOP where Base: UITableView {
         cell.selectedBackgroundView = selectBgView
     }
     
-    //MARK: 1.9、每段的cell数量
+    //MARK: 1.12、每段的cell数量
     /// 每段的cell数量
     /// - Parameter section: 段落
     /// - Returns: cell数量
@@ -131,7 +153,7 @@ public extension JKPOP where Base: UITableView {
         return self.base.numberOfRows(inSection: section)
     }
     
-    //MARK: 1.10、是否是每个section的最后一个cell
+    //MARK: 1.13、是否是每个section的最后一个cell
     /// 是否是每个section的最后一个cell
     /// - Parameter indexPath: 透传indexPath
     /// - Returns: 结果
@@ -139,7 +161,7 @@ public extension JKPOP where Base: UITableView {
         return self.base.numberOfRows(inSection: indexPath.section) == indexPath.row + 1
     }
     
-    //MARK: 1.11、滚动 tableView 一段特定的距离
+    //MARK: 1.14、滚动 tableView 一段特定的距离
     /// 滚动 tableView 一段特定的距离
     /// - Parameters:
     ///   - distance: 要滚动的距离 (正值向下滚动，负值向上滚动)
@@ -155,7 +177,7 @@ public extension JKPOP where Base: UITableView {
         }
     }
     
-    // MARK: 1.12、判断cell是否在可见区域
+    // MARK: 1.15、判断cell是否在可见区域
     /// 判断cell是否在可见区域
     /// - Parameter indexPath: indexPath description
     /// - Returns: description
