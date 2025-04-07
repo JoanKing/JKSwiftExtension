@@ -35,7 +35,7 @@ import JKSwiftExtension
         // 开启自适应
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedSectionHeaderHeight = 80
-        tableView.sectionHeaderHeight = UITableView.automaticDimension
+        tableView.estimatedSectionFooterHeight = UITableView.automaticDimension
         tableView.jk.register(cellClass: BaseViewCell.self)
         tableView.jk.register(headerFooterClass: BaseHeaderView.self)
         return tableView

@@ -14,12 +14,30 @@ class IntExtensionViewController: BaseViewController {
         super.viewDidLoad()
 
         headDataArray = ["一、基本的扩展方法", "二、Int 的基本转换", "三、转换为其他单位"]
-        dataArray = [["是否是偶数", "取区间内的随机数，如取  0..<10 之间的随机数"], ["转 Double", "转 Float", "转 Int64", "转 CGFloat", "转 String", "转 UInt", "转 CountableRange(可数的开区间)"], ["转换万单位", "转换为大小单位：UInt64 -> bytes, KB, MB, GB, TB, PB, EB, ZB, YB"]]
+        dataArray = [["是否是偶数", "取区间内的随机数，如取  0..<10 之间的随机数"], ["转 Double", "转 Float", "转 Int64", "转 CGFloat", "转 String", "转 UInt", "转 CountableRange(可数的开区间)"], ["转换万单位", "转换为大小单位：UInt64 -> bytes, KB, MB, GB, TB, PB, EB, ZB, YB", "数量转换(比如帖子浏览数量)"]]
     }
 }
 
 // MARK: - 二、其他常用方法
 extension IntExtensionViewController {
+    //MARK: 3.3、数量转换(比如帖子浏览数量)
+    @objc func test303() {
+        // 保留位数
+        let scale: Int16 = 1
+        // 值
+        let value1: Int = -123
+        let value2: Int = 0
+        let value3: Int = 800
+        let value4: Int = 1234
+        let value5: Int = 1290
+        let value6: Int = 1001098
+        let array: [Int] = [value1, value2, value3, value4, value5, value6]
+        var resultString: String = "数量转换(比如帖子浏览数量)"
+        array.forEach { value in
+            resultString = resultString + "\n\(value) 保留\(scale)位 转换后为：\(value.jk.formatViewCount(scale: scale, isNeedAddZero: true))"
+        }
+        JKPrint(resultString)
+    }
     
     // MARK: 3.02、转换为大小单位：UInt64 -> "bytes", "KB", "MB", "GB", "TB", "PB",  "EB",  "ZB", "YB"
     @objc func test302() {

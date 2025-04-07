@@ -109,4 +109,28 @@ public extension JKPOP where Base == Int {
         }
         return String(format: "%4.2f %@", convertedValue, tokens[multiplyFactor])
     }
+    
+    //MARK: 3.3、数量转换(比如帖子浏览数量)
+    /// 数量转换(比如帖子浏览数量)
+    /// - Parameters:
+    ///   - scale: 小数点后舍入值的位数，默认 1 位
+    ///   - roundingMode: 小数取舍方式
+    ///   - isNeedAddZero: 是否后面追加0，比如：1.201  保留2位是：1.20 或者
+    ///   - showZeroCount: 入股是0是否返回0，默认返回空字符串
+    /// - Returns: 转换后的结果
+    func formatViewCount(scale: Int16 = 1, roundingMode: NSDecimalNumber.RoundingMode = .plain, isNeedAddZero: Bool = false, showZeroCount: Bool = false) -> String {
+        let absValue = abs(self.base)
+        guard absValue > 0 else {
+            return showZeroCount ? "0" : ""
+        }
+        if absValue < 1000 {
+            return "\(absValue)"
+        } else if absValue < 10000 {
+            let decimalValue = NSDecimalNumberHandler.jk.calculation(type: .dividing, value1: absValue, value2: 1000, roundingMode: roundingMode, scale: scale)
+            return (isNeedAddZero ? "\(String(format: "%.\(scale)f", decimalValue.doubleValue))" : "\(decimalValue)") + "k"
+        } else {
+            let decimalValue = NSDecimalNumberHandler.jk.calculation(type: .dividing, value1: absValue, value2: 10000, roundingMode: roundingMode, scale: scale)
+            return (isNeedAddZero ? "\(String(format: "%.\(scale)f", decimalValue.doubleValue))" : "\(decimalValue)") + "w"
+        }
+    }
 }

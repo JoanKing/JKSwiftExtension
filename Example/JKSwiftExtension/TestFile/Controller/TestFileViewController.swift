@@ -210,7 +210,7 @@ extension TestFileViewController {
     }
     
     @objc func test103() {
-        self.navigationController?.pushViewController(NotificationTetstViewController(), animated: true)
+        self.navigationController?.pushViewController(LanePicViewController(), animated: true)
     }
     
     @objc func test102() {
