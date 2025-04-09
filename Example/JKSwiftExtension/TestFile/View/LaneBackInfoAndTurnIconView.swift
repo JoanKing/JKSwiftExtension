@@ -15,7 +15,7 @@ class LaneBackInfoAndTurnIconView: UIView {
     /// 车道图
     lazy var laneStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.spacing = 8 / UIScreen.main.scale
+        stackView.spacing = 0
         stackView.alignment = .center
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually // 使用 equalSpacing 实现均匀分布
@@ -27,7 +27,7 @@ class LaneBackInfoAndTurnIconView: UIView {
         return (1...10).map { _ in
             let imageView = UIImageView()
             imageView.contentMode = .scaleAspectFit
-            // imageView.backgroundColor = .randomColor
+            imageView.backgroundColor = .randomColor
             return imageView
         }
     }()
@@ -53,7 +53,7 @@ class LaneBackInfoAndTurnIconView: UIView {
     
     private func commonInit() {
         laneStackView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 8 / UIScreen.main.scale, left: 16 / UIScreen.main.scale, bottom: 8 / UIScreen.main.scale, right: 16 / UIScreen.main.scale))
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
         }
     }
     
@@ -111,22 +111,14 @@ class LaneBackInfoAndTurnIconView: UIView {
         let availableWidth = currentWidth - laneStackView.layoutMargins.left - laneStackView.layoutMargins.right - totalSpacing
         
         // 计算每个控件的理想宽度
-        let idealHeight = 56 * 56 / (88 * UIScreen.main.scale)
-        let idealWidth = 56 / UIScreen.main.scale
+//        let idealHeight = 56 * 56 / (88 * UIScreen.main.scale)
+//        let idealWidth = 56 / UIScreen.main.scale
+        let idealHeight: CGFloat = 56 / UIScreen.main.scale
+        let idealWidth: CGFloat = 56 * idealHeight / 88
         
-        // 如果所有控件以理想宽度显示会超出可用宽度，则缩小控件
-        if idealWidth * CGFloat(imageViews.count) > availableWidth {
-            let newWidth = availableWidth / CGFloat(imageViews.count)
-            let newHeight = newWidth * 88 / 56
-            for imageView in imageViews {
-                imageView.widthAnchor.constraint(equalToConstant: newWidth).isActive = true
-                imageView.heightAnchor.constraint(equalToConstant: newHeight).isActive = true
-            }
-        } else {
-            for imageView in imageViews {
-                imageView.widthAnchor.constraint(equalToConstant: idealWidth).isActive = true
-                imageView.heightAnchor.constraint(equalToConstant: idealHeight).isActive = true
-            }
+        for imageView in imageViews {
+            imageView.widthAnchor.constraint(equalToConstant: idealWidth).isActive = true
+            imageView.heightAnchor.constraint(equalToConstant: idealHeight).isActive = true
         }
     }
     
