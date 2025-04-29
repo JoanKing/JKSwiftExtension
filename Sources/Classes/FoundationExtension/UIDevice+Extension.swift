@@ -44,6 +44,11 @@ public enum UIDeviceScreenType: String {
     case IPHONE_15_Plus
     case IPHONE_15_Pro
     case IPHONE_15_ProMax
+    case IPHONE_16_Pro
+    case IPHONE_16_ProMax
+    case IPHONE_16
+    case IPHONE_16_Plus
+    case IPHONE_16_e
 }
 
 // MARK: - 一、基本的扩展
@@ -168,6 +173,16 @@ public extension JKPOP where Base: UIDevice {
                 return "iPhone 15 Pro"
             case "iPhone16,2":
                 return "iPhone 15 Pro Max"
+            case "iPhone17,1":
+                return "iPhone 16 Pro"
+            case "iPhone17,2":
+                return "iPhone 16 Pro Max"
+            case "iPhone17,3":
+                return "iPhone 16"
+            case "iPhone17,4":
+                return "iPhone 16 Plus"
+            case "iPhone17,5":
+                return "iPhone 16e"
             case "iPad1,1":
                 return "iPad"
             case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4":
@@ -204,6 +219,22 @@ public extension JKPOP where Base: UIDevice {
                 return "iPad Pro (11-inch)"
             case "iPad8,5", "iPad8,6", "iPad8,7", "iPad8,8":
                 return "iPad Pro (12.9-inch) (3rd generation)"
+            case "iPad8,9", "iPad8,10":
+                return "iPad Pro (11-inch) (2nd generation)"
+            case "iPad8,11", "iPad8,12":
+                return "iPad Pro (12.9-inch) (4th generation)"
+            case "iPad13,4", "iPad13,5", "iPad13,6", "iPad13,7":
+                return "iPad Pro (11-inch) (3rd generation)"
+            case "iPad13,8", "iPad1395", "iPad13,10", "iPad13,11":
+                return "iPad Pro (12.9-inch) (5th generation)"
+            case "iPad14,3", "iPad14,4":
+                return "iPad Pro (11-inch) (4th generation)"
+            case "iPad14,5", "iPad14,6":
+                return "iPad Pro (12.9-inch) (6th generation)"
+            case "iPad16,3", "iPad16,4":
+                return "iPad Pro 11-inch (M4)"
+            case "iPad16,5", "iPad16,6":
+                return "iiPad Pro 13-inch (M4)"
             case "AppleTV5,3":
                 return "Apple TV"
             case "AppleTV6,2":
@@ -297,6 +328,18 @@ public extension JKPOP where Base: UIDevice {
             return UIDeviceScreenType.IPHONE_15_Pro
         } else if modelName == "iPhone 15 Pro Max" {
             return UIDeviceScreenType.IPHONE_15_ProMax
+        } else if modelName == "iPhone 16 Pro" {
+            return UIDeviceScreenType.IPHONE_16_Pro
+        } else if modelName == "iPhone 16 Pro Max" {
+            return UIDeviceScreenType.IPHONE_16_ProMax
+        } else if modelName == "iPhone 16" {
+            return UIDeviceScreenType.IPHONE_16
+        } else if modelName == "iPhone 15 Pro Max" {
+            return UIDeviceScreenType.IPHONE_15_ProMax
+        } else if modelName == "iPhone 16 Plus" {
+            return UIDeviceScreenType.IPHONE_16_Plus
+        } else if modelName == "iPhone 16e" {
+            return UIDeviceScreenType.IPHONE_16_e
         }
         return UIDeviceScreenType.unKnown
     }
