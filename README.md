@@ -50,6 +50,8 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/5611a91f-e083-4c77-8ef8-bdc4a91a13c9" alt="微信交流群" width="220">
 
 ## 版本说明  
+  - 2.8.2、版本(2025.04.29)
+    - UIDevice+Extension 更新到最新版本的 iphone 16，大家可以自己在 https://theapplewiki.com/wiki/Models#iPad_Pro 获取
   - 2.8.1、版本(2025.04.09)
     - 部分文件缺失Foundation补充
   - 2.8.0、版本(2025.04.07)
