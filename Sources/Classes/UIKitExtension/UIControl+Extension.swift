@@ -81,7 +81,7 @@ public extension UIControl {
     ///   - events: 事件的类型
     /// - Returns: 返回自身
     @discardableResult
-    func remove(_ target: Any?, action: Selector, events: UIControl.Event = .touchUpInside) -> Self {
+    func remove(_ target: Any?, action: Selector?, events: UIControl.Event = .touchUpInside) -> Self {
         self.removeTarget(target, action: action, for: events)
         return self
     }

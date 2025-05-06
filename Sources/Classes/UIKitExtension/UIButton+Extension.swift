@@ -162,7 +162,7 @@ public extension UIButton {
     ///   - state: 状态
     /// - Returns: 返回自身
     @discardableResult
-    func textColor(_ color: UIColor, _ state: UIControl.State = .normal) -> Self {
+    func textColor(_ color: UIColor?, _ state: UIControl.State = .normal) -> Self {
         setTitleColor(color, for: state)
         return self
     }
@@ -172,7 +172,7 @@ public extension UIButton {
     /// - Parameter font: 字体 UIFont
     /// - Returns: 返回自身
     @discardableResult
-    func font(_ font: UIFont) -> Self {
+    func font(_ font: UIFont!) -> Self {
         titleLabel?.font = font
         return self
     }

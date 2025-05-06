@@ -197,8 +197,8 @@ public extension UIScrollView {
     /// - Parameter delegate: 代理
     /// - Returns: 返回自身
     @discardableResult
-    func delegate(_ delegate: UIScrollViewDelegate) -> Self {
-        self.delegate = delegate 
+    func delegate(_ delegate: (any UIScrollViewDelegate)?) -> Self {
+        self.delegate = delegate
         return self
     }
     

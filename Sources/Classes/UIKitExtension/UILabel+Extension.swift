@@ -76,7 +76,7 @@ public extension UILabel {
     /// - Parameter font: 字体的大小
     /// - Returns: 返回自身
     @discardableResult
-    func font(_ font: UIFont) -> Self {
+    func font(_ font: UIFont!) -> Self {
         self.font = font
         return self
     }

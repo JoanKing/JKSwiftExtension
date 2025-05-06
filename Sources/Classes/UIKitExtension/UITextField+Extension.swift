@@ -129,7 +129,7 @@ public extension UITextField {
     /// - Parameter color: 文本颜色
     /// - Returns: 返回自身
     @discardableResult
-    func color(_ color: UIColor) -> Self {
+    func color(_ color: UIColor?) -> Self {
         textColor = color
         return self
     }
@@ -149,7 +149,7 @@ public extension UITextField {
     /// - Parameter font: font
     /// - Returns: 返回自身
     @discardableResult
-    func font(_ font: UIFont) -> Self {
+    func font(_ font: UIFont?) -> Self {
         self.font = font
         return self
     }
@@ -169,7 +169,7 @@ public extension UITextField {
     /// - Parameter delegate: 代理
     /// - Returns: 返回自身
     @discardableResult
-    func delegate(_ delegate: UITextFieldDelegate) -> Self {
+    func delegate(_ delegate: (any UITextFieldDelegate)?) -> Self {
         self.delegate = delegate
         return self
     }

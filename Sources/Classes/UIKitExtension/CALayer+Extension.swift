@@ -167,7 +167,7 @@ public extension CALayer {
     /// - Parameter path: 阴影Path
     /// - Returns: 返回自身
     @discardableResult
-    func shadowPath(_ path: CGPath) -> Self {
+    func shadowPath(_ path: CGPath?) -> Self {
         self.shadowPath = path
         return self
     }
