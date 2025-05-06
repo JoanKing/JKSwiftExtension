@@ -51,7 +51,7 @@ end
 
 ## 版本说明  
   - 2.8.3、版本(2025.05.06)
-    - 链式编程遵循系统的api，比如 `open func setTitleColor(_ color: UIColor?, for state: UIControl.State)` 其中 `color: UIColor?` 是可选，扩展中采用可选形式
+    - 链式编程遵循系统的api，比如 `open func setTitleColor(_ color: UIColor?, for state: UIControl.State)` 其中 `color: UIColor?` 是可选，扩展中规范采用可选形式，其他扩展也遵守系统api范式
   - 2.8.2、版本(2025.04.29)
     - UIDevice+Extension 更新到最新版本的 iphone 16，大家可以自己在 https://theapplewiki.com/wiki/Models#iPad_Pro 获取
   - 2.8.1、版本(2025.04.09)
