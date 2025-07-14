@@ -1896,14 +1896,25 @@ extension JKPOP where Base: ExpressibleByStringLiteral {
     }
     
     // MARK: 10.20、验证URL格式是否正确
-    /// 验证URL格式是否正确
-    /// - Returns: 结果
-    public func verifyUrl() -> Bool {
-        guard let baseString = base as? String, let url = URL(string: baseString) else {
+    /// - Parameter resolvingAgainstBaseURL: URLComponents 的构造方法中的一个参数，它用于决定在解析 URL 时，是否需要把它作为相对 URL 并依据一个“基准 URL（base URL）”来解析
+    /// - Returns: description
+    public func isValidUrl(resolvingAgainstBaseURL: Bool = false) -> Bool {
+        guard let baseString = base as? String else {
             return false
         }
-        // 检测应用是否能打开这个URL实例
-        return UIApplication.shared.canOpenURL(url)
+        let urlString = baseString.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !urlString.isEmpty,
+              let url = URL(string: urlString),
+              let components = URLComponents(url: url, resolvingAgainstBaseURL: resolvingAgainstBaseURL),
+              let scheme = components.scheme,
+              let host = components.host,
+              !host.isEmpty
+        else {
+            return false
+        }
+        // 基础协议检查
+        let allowedSchemes = ["http", "https"] // 仅允许Web协议
+        return allowedSchemes.contains(scheme.lowercased())
     }
     
     // MARK: 10.21、是否是一个有效的文件URL, "file://Documents/file.txt".isValidFileUrl -> true

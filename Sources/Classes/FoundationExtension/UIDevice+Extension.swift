@@ -418,17 +418,13 @@ public extension JKPOP where Base: UIDevice {
     // MARK: 2.4、当前系统的名称
     /// 当前系统的名称
     static var currentSystemName : String {
-        get {
-            return UIDevice.current.systemName
-        }
+        return UIDevice.current.systemName
     }
     
     // MARK: 2.5、当前设备的名称
-    /// 当前设备的名称
+    /// 当前设备的名称(iOS16之后需要申请权限)
     static var currentDeviceName : String {
-        get {
-            return UIDevice.current.name
-        }
+        return UIDevice.current.name
     }
     
     // MARK: 2.6、当前设备是否越狱

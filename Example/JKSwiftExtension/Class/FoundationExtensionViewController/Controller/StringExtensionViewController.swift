@@ -516,7 +516,11 @@ extension StringExtensionViewController {
     // MARK: 10.20、验证URL格式是否正确
     @objc func test1020() {
         let testString = "http://wwww.baidu"
-        JKPrint("验证URL格式是否正确", "\(testString) 验证URL格式是否正确：\(testString.jk.verifyUrl())")
+        debugPrint("验证URL格式是否正确")
+        let urls = ["http://www.example.com", "https://www.example.com", "HTTP://WWW.EXAMPLE.COM", "123://", "www.example.com", "mailto:someone@example.com"]
+        for url in urls {
+            debugPrint("\(url) - \(url.jk.isValidUrl())")
+        }
     }
     
     // MARK: 10.19、是否为数字或者小数点(字符串的组成是：0-9之间的数字或者小数点即可)

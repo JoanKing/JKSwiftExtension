@@ -44,7 +44,6 @@
 		374E78B00201E8F7A2ECCA613F4E8D6E /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC822DE012EFAD27837996F49E71C6 /* DateFormatter+Extension.swift */; };
 		3D3B646B4988314275B40E97BEB16C7F /* ConstraintLayoutGuideDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE860CC123108C310F139114E0B2E6B /* ConstraintLayoutGuideDSL.swift */; };
 		3DE6FECB4A3AB646A7C1B7BCC6A03781 /* UITabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E88F672D8E45F0C17E90BCF44528CD /* UITabBarController+Extension.swift */; };
-		3E519949A4CCA5B9D91C48A47B7840A2 /* JKFileLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15360A6A810E072773022601AFB2DCEA /* JKFileLog.swift */; };
 		4065D7E5F36B9F9D1D830C3D0C00C9DC /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9056FD2B819112D32B179712E1236 /* UIStackView+Extension.swift */; };
 		40A37C72D8F80AE1D193BF4D0463C739 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3249368D4FF5C58F5982796B053CF5 /* UIAlertController+Extension.swift */; };
 		40E701173AD4C5770DCE2453092EE1D9 /* JKDecodeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE39B51E0240C8BB0C6B01CB667A9E5 /* JKDecodeString.swift */; };
@@ -60,6 +59,7 @@
 		541E845FA231FA20FE4640F602A939B2 /* NSRange+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCE0E2B13341EE0647E371D5F94ECE /* NSRange+Extension.swift */; };
 		55586120852BDFB012E80A20DA6EBF6C /* KeyboardAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9D293454D1FB39F7D6476DAC740993 /* KeyboardAccessory.swift */; };
 		556C6EAE8CF549F9202A58B60D116065 /* JKDrawSignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85C86E8DF90D0D136DE4B48A17D656 /* JKDrawSignatureView.swift */; };
+		559B6C472E1A567300642264 /* JKFileLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559B6C462E1A567300642264 /* JKFileLog.swift */; };
 		55B197552D2F62C200D82A2A /* JKScrollviewCardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B197542D2F62C100D82A2A /* JKScrollviewCardLayout.swift */; };
 		55ECCD442D531218004718C8 /* JKTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ECCD432D531218004718C8 /* JKTaskManager.swift */; };
 		5698415D959B5FB5941847B7035C60EE /* JKJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566FC0DAD48C563496ACB2DBAC07AB51 /* JKJSON.swift */; };
@@ -210,7 +210,6 @@
 		0F2DE35617C2B411C67B2B38B195E39D /* URL+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		109F6140FD051E9D7F80E5F90B44C691 /* JKPOP+String.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "JKPOP+String.swift"; sourceTree = "<group>"; };
 		13573153121831B27278B538FD1BAE5E /* UInt+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UInt+Extension.swift"; sourceTree = "<group>"; };
-		15360A6A810E072773022601AFB2DCEA /* JKFileLog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKFileLog.swift; sourceTree = "<group>"; };
 		16DD3C0B0CA11F6D209DD9BBB7672E63 /* JKEmitterable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKEmitterable.swift; sourceTree = "<group>"; };
 		1823FF7173C2AE56A4FD807651942B23 /* Optional+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
 		186DAB464230E8E484310209580454E4 /* Pods-JKSwiftExtension_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JKSwiftExtension_Example-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -260,6 +259,7 @@
 		52581321330C55D5F999888357D16870 /* JKThemeProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKThemeProvider.swift; sourceTree = "<group>"; };
 		52859A3E6C557B664FD8E4D71C16A6EA /* JKPaddingLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKPaddingLabel.swift; sourceTree = "<group>"; };
 		532AB9558629C082C482EF3EC3BF445C /* JKPastedTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKPastedTextField.swift; sourceTree = "<group>"; };
+		559B6C462E1A567300642264 /* JKFileLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKFileLog.swift; sourceTree = "<group>"; };
 		55B197542D2F62C100D82A2A /* JKScrollviewCardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKScrollviewCardLayout.swift; sourceTree = "<group>"; };
 		55ECCD432D531218004718C8 /* JKTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKTaskManager.swift; sourceTree = "<group>"; };
 		566FC0DAD48C563496ACB2DBAC07AB51 /* JKJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKJSON.swift; sourceTree = "<group>"; };
@@ -538,7 +538,7 @@
 				47B0DAF06DE367FEEC019CD022C6ABF3 /* JKDarkModeUtil.swift */,
 				AAE39B51E0240C8BB0C6B01CB667A9E5 /* JKDecodeString.swift */,
 				9D85C86E8DF90D0D136DE4B48A17D656 /* JKDrawSignatureView.swift */,
-				15360A6A810E072773022601AFB2DCEA /* JKFileLog.swift */,
+				559B6C462E1A567300642264 /* JKFileLog.swift */,
 				780FE2C82D7BDA920BE7504E51917A02 /* JKGlobalTools.swift */,
 				DE9DA65DCE5A215B8C74A1B51161EE9A /* JKOperator.swift */,
 				52859A3E6C557B664FD8E4D71C16A6EA /* JKPaddingLabel.swift */,
@@ -1074,7 +1074,6 @@
 				40E701173AD4C5770DCE2453092EE1D9 /* JKDecodeString.swift in Sources */,
 				556C6EAE8CF549F9202A58B60D116065 /* JKDrawSignatureView.swift in Sources */,
 				25859205BFA612A4FFA3E1DC1578E469 /* JKEmitterable.swift in Sources */,
-				3E519949A4CCA5B9D91C48A47B7840A2 /* JKFileLog.swift in Sources */,
 				048F22EB7CCF4A44DC3A71E0C2E8DBB1 /* JKGlobalTools.swift in Sources */,
 				5698415D959B5FB5941847B7035C60EE /* JKJSON.swift in Sources */,
 				7E73ACFD2A1AEFE7D8ED1B24B0DA672A /* JKNibLoadable.swift in Sources */,
@@ -1127,6 +1126,7 @@
 				6B74B508FC487C8D5D2462856BCF4FC2 /* UIImage+Extension.swift in Sources */,
 				EBBC1E4FDAF01AE386858FE7398E7D6F /* UIImageView+Extension.swift in Sources */,
 				7677BED656BC1A76348AEAB628F4C27A /* UILabel+Extension.swift in Sources */,
+				559B6C472E1A567300642264 /* JKFileLog.swift in Sources */,
 				FBE422D3738FADE6E17172BA1015FC78 /* UINavigationBar+Extension.swift in Sources */,
 				D4AA26BF2B0636CF4C0E35A9C5B74D4E /* UINavigationController+Extension.swift in Sources */,
 				1236A8440DEF01354ADB70B8CD05D970 /* UInt+Extension.swift in Sources */,

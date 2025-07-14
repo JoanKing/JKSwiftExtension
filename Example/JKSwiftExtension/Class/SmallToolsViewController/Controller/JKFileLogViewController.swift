@@ -51,7 +51,7 @@ extension JKFileLogViewController {
     //MARK: 1.03、内容的写入：[String: Any] 类型
     @objc func test103() {
         let dictionary = ["name": "大帅", "age": "31"]
-        JKFileLog.writeLog(dictionary)
+        JKFileLog.writeDictionaryLog(dictionary)
     }
     
     //MARK: 1.02、内容的写入：倒序

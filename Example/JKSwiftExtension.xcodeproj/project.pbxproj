@@ -226,6 +226,7 @@
 		556208062D9511D2006C920B /* LanePicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanePicViewController.swift; sourceTree = "<group>"; };
 		556208082D95121E006C920B /* LaneBackInfoAndTurnIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaneBackInfoAndTurnIconView.swift; sourceTree = "<group>"; };
 		55625BC62B39BC770061D11C /* OptionalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalViewController.swift; sourceTree = "<group>"; };
+		557AFA4A2DFABB7A009D230E /* JKSwiftExtension_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JKSwiftExtension_Example.entitlements; sourceTree = "<group>"; };
 		558DE6AC2D12B18B00DAB9E1 /* fanghei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fanghei.ttf; sourceTree = "<group>"; };
 		558DE6AE2D12B40700DAB9E1 /* niu1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = niu1.ttf; sourceTree = "<group>"; };
 		55A7FDD72D3682DE00D59D15 /* JKScrollviewCardLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKScrollviewCardLayoutViewController.swift; sourceTree = "<group>"; };
@@ -478,6 +479,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				557AFA4A2DFABB7A009D230E /* JKSwiftExtension_Example.entitlements */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for JKSwiftExtension */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -1109,9 +1111,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-JKSwiftExtension_Example/Pods-JKSwiftExtension_Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-JKSwiftExtension_Example/Pods-JKSwiftExtension_Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1446,6 +1452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = JKSwiftExtension_Example.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1477,6 +1484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = JKSwiftExtension_Example.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

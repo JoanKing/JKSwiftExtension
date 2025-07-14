@@ -59,7 +59,7 @@ public extension JKPOP where Base: UITextView {
         
         for sentence in sentences {
             // 如果是url链接则跳过
-            if !(sentence as String).jk.verifyUrl() {
+            if !(sentence as String).jk.isValidUrl() {
                 // 再按特殊符号拆分
                 let words: [String] = sentence.components(separatedBy: charactersSet)
                 var bookmark2 = bookmark

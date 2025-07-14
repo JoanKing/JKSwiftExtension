@@ -114,7 +114,7 @@ fileprivate extension UIControl  {
     
     private var hitTime: Double? {
         get { return jk_getAssociatedObject(self, &hitTimerKey) }
-        set { jk_setRetainedAssociatedObject(self, &hitTimerKey, newValue, .OBJC_ASSOCIATION_ASSIGN) }
+        set { jk_setRetainedAssociatedObject(self, &hitTimerKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
     
     func preventDoubleHit(_ hitTime: Double) {

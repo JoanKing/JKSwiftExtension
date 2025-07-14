@@ -51,10 +51,21 @@ extension NSDecimalNumberHandlerExtensionViewController {
     
     // MARK: 1.02、一个数字能否整除另外一个数字
     @objc func test102() {
-        let value1: Double = 12.44
-        let value2: Double = 10.0
-        let value3: Double = 0.02
-        JKPrint("一个数字能否整除另外一个数字", "\(Float(value1 - value2)) 除以 \(value3) 能否整除：\(NSDecimalNumberHandler.jk.isDivisible(value1: Decimal(value1) - Decimal(value2), value2: Decimal(value3)))")
+        
+        let value12 = 12
+        let value13 = 0
+    
+        
+        let value1: Double = 0
+        let value2: Double = 10
+        let value3: Double = 32
+        let value4: Double = 16
+        let value5: Double = 0
+        debugPrint( "\(value5) 除以 \(value5) 能否整除：\(NSDecimalNumberHandler.jk.isDivisible(value1: value4, value2: value5))")
+        debugPrint( "\(value1) 除以 \(value4) 能否整除：\(NSDecimalNumberHandler.jk.isDivisible(value1: value1, value2: value4))")
+        debugPrint( "\(value2) 除以 \(value4) 能否整除：\(NSDecimalNumberHandler.jk.isDivisible(value1: value2, value2: value4))")
+        debugPrint( "\(value3) 除以 \(value4) 能否整除：\(NSDecimalNumberHandler.jk.isDivisible(value1: value3, value2: value4))")
+        debugPrint( "\(value4) 除以 \(value5) 能否整除：\(NSDecimalNumberHandler.jk.isDivisible(value1: value4, value2: value5))")
     }
     
     // MARK: 1.01、向下取整取倍数

@@ -197,7 +197,7 @@ public extension UITableView {
     /// - Parameter delegate: delegate description
     /// - Returns: 返回自身
     @discardableResult
-    func delegate(_ delegate: UITableViewDelegate) -> Self {
+    func delegate(_ delegate: UITableViewDelegate?) -> Self {
         self.delegate = delegate
         return self
     }
@@ -207,7 +207,7 @@ public extension UITableView {
     /// - Parameter dataSource: dataSource description
     /// - Returns: 返回自身
     @discardableResult
-    func dataSource(_ dataSource: UITableViewDataSource) -> Self {
+    func dataSource(_ dataSource: UITableViewDataSource?) -> Self {
         self.dataSource = dataSource
         return self
     }

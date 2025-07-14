@@ -56,6 +56,10 @@ public extension JKPOP where Base: NSDecimalNumberHandler {
     // MARK: 1.2、一个数字能否整除另外一个数字
     static func isDivisible(value1: Any, value2: Any) -> Bool {
         let value = decimalNumberHandlerValue(type: .dividing, value1: value1, value2: value2, roundingMode: .down, scale: 3, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false).stringValue
+        // 被除数四0
+        guard value != "NaN" else { return false }
+        // 除数是0
+        guard let intValue = value.jk.toInt(), intValue != 0 else { return false }
         let valueArray = value.jk.separatedByString(with: ".")
         // 没有小数代表是整除
         guard valueArray.count > 1 else {
