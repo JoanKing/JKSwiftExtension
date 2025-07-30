@@ -11,6 +11,7 @@
  支持：写入自定义路径下，默认写入到 niu.default.fileLoger
  */
 import Foundation
+import UIKit
 
 // MARK: - 日志的类型
 public enum JKFileLogType: Int {

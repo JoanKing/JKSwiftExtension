@@ -12,6 +12,7 @@
 		5537F3872B0B4D5500F6BEEC /* JKFileLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5537F3862B0B4D5500F6BEEC /* JKFileLogViewController.swift */; };
 		553FF3782B0EEB3500589AEF /* MapKitTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FF3772B0EEB3500589AEF /* MapKitTestViewController.swift */; };
 		555C223B2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C223A2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift */; };
+		5560BA602E308F9E0070421F /* JKBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5560BA5F2E308F9E0070421F /* JKBankViewController.swift */; };
 		556208072D9511D2006C920B /* LanePicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556208062D9511D2006C920B /* LanePicViewController.swift */; };
 		556208092D95121E006C920B /* LaneBackInfoAndTurnIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556208082D95121E006C920B /* LaneBackInfoAndTurnIconView.swift */; };
 		55625BC72B39BC770061D11C /* OptionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55625BC62B39BC770061D11C /* OptionalViewController.swift */; };
@@ -223,6 +224,7 @@
 		5537F3862B0B4D5500F6BEEC /* JKFileLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKFileLogViewController.swift; sourceTree = "<group>"; };
 		553FF3772B0EEB3500589AEF /* MapKitTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitTestViewController.swift; sourceTree = "<group>"; };
 		555C223A2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabbarExtensionViewController.swift; sourceTree = "<group>"; };
+		5560BA5F2E308F9E0070421F /* JKBankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKBankViewController.swift; sourceTree = "<group>"; };
 		556208062D9511D2006C920B /* LanePicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanePicViewController.swift; sourceTree = "<group>"; };
 		556208082D95121E006C920B /* LaneBackInfoAndTurnIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaneBackInfoAndTurnIconView.swift; sourceTree = "<group>"; };
 		55625BC62B39BC770061D11C /* OptionalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalViewController.swift; sourceTree = "<group>"; };
@@ -605,6 +607,7 @@
 				55CBC9C62A9C74A000EE88FC /* SegmentViewController.swift */,
 				553FF3772B0EEB3500589AEF /* MapKitTestViewController.swift */,
 				556208062D9511D2006C920B /* LanePicViewController.swift */,
+				5560BA5F2E308F9E0070421F /* JKBankViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1224,6 +1227,7 @@
 				8415464525F5BD75007DE673 /* FBArrowTestLabel.swift in Sources */,
 				84F11D6B25DE0DB500209B4C /* NSRangeExtensionViewController.swift in Sources */,
 				E20237AE28B5F98E00F65F61 /* UIAlertController+Extension1.swift in Sources */,
+				5560BA602E308F9E0070421F /* JKBankViewController.swift in Sources */,
 				E289F9112850279F00D840B7 /* RadiusViewCell.swift in Sources */,
 				55625BC72B39BC770061D11C /* OptionalViewController.swift in Sources */,
 				84D5B11725F4FA2400984F5A /* FBArrowLabel.swift in Sources */,
