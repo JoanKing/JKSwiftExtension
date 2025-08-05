@@ -40,34 +40,39 @@ extension UITableViewExtensionViewController {
     
     // MARK: 2.13、滚动到第几个row、第几个section
     @objc func test213() {
-        let testTableView = UITableView(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
-        testTableView.jk.tableViewNeverAdjustContentInset()
-        testTableView.backgroundColor = .randomColor
-        self.view.addSubview(testTableView)
-        
+        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width:jk_kScreenW - 100, height: 100))
+        testLabel.backgroundColor = .brown
+        testLabel.numberOfLines = 0
+        testLabel.textAlignment = .center
+        testLabel.font = UIFont.systemFont(ofSize: 20)
+        testLabel.text("开始滚动到section:0 row:3 - 中间")
+        self.view.addSubview(testLabel)
         JKAsyncs.asyncDelay(2, {
         }) {
-            testTableView.scroll(row: 2, section: 2, at: .middle, animated: true)
+            self.tableView.scroll(row: 3, section: 0, at: .middle, animated: true)
             JKAsyncs.asyncDelay(2, {
             }) {
-                testTableView.removeFromSuperview()
+                testLabel.removeFromSuperview()
             }
         }
     }
     
     // MARK: 2.12、滚动到第几个IndexPath
     @objc func test212() {
-        let testTableView = UITableView(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
-        testTableView.jk.tableViewNeverAdjustContentInset()
-        testTableView.backgroundColor = .randomColor
-        self.view.addSubview(testTableView)
         
+        let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width:jk_kScreenW - 100, height: 100))
+        testLabel.backgroundColor = .brown
+        testLabel.numberOfLines = 0
+        testLabel.textAlignment = .center
+        testLabel.font = UIFont.systemFont(ofSize: 20)
+        testLabel.text("开始滚动到section:0 row:8 - 顶部")
+        self.view.addSubview(testLabel)
         JKAsyncs.asyncDelay(2, {
         }) {
-            testTableView.scroll(to: IndexPath(row: 2, section: 2), at: .top, animated: true)
+            self.tableView.scroll(to: IndexPath(row: 8, section: 0), at: .top, animated: true)
             JKAsyncs.asyncDelay(2, {
             }) {
-                testTableView.removeFromSuperview()
+                testLabel.removeFromSuperview()
             }
         }
     }

@@ -145,24 +145,30 @@ public extension JKPOP where Base: UIImage {
     }
     
     // MARK: 1.6、裁剪给定区域
-    /// 裁剪给定区域
-    /// - Parameter crop: 裁剪区域
-    /// - Returns: 剪裁后的图片
-    func cropWithCropRect( _ crop: CGRect) -> UIImage? {
-        let cropRect = CGRect(x: crop.origin.x * self.base.scale, y: crop.origin.y * self.base.scale, width: crop.size.width * self.base.scale, height: crop.size.height *  self.base.scale)
-        if cropRect.size.width <= 0 || cropRect.size.height <= 0 {
-            return nil
+    /// 裁剪指定区域
+    /// - Parameter rect: 需要裁剪的区域（以图片左上角为坐标原点，单位为point）
+    /// - Returns: 裁剪后的UIImage对象
+    func cropWithCropRect(_ rect: CGRect) -> UIImage? {
+        // 如果裁剪区域在图片范围内，并且图片方向是正向（.up），则直接用CGImage进行高效裁剪
+        if CGRect(origin: .zero, size: self.base.size).contains(rect),
+           self.base.imageOrientation == .up,
+           let cropped = self.base.cgImage?.cropping(to: rect * self.base.scale)
+        {
+            // 返回裁剪后的UIImage，保持原始scale和方向
+            return UIImage(cgImage: cropped, scale: self.base.scale, orientation: self.base.imageOrientation)
         }
-        var image: UIImage?
-        autoreleasepool{
-            if let cgImage = self.base.cgImage {
-                let imageRef: CGImage? = cgImage.cropping(to: cropRect)
-                if let imageRef = imageRef {
-                    image = UIImage(cgImage: imageRef)
-                }
-            }
+        
+        // 其他情况（如图片方向不是.up），使用UIGraphicsImageRenderer进行绘制裁剪
+        let format = UIGraphicsImageRendererFormat()
+        format.opaque = false
+        format.scale = self.base.scale
+        // 新建画布，大小为裁剪区域rect.size
+        return UIGraphicsImageRenderer(size: rect.size, format: format).image { _ in
+            // 计算绘制时的偏移量，将原图移动，使裁剪区域对齐画布左上角
+            let origin = CGPoint(x: -rect.minX, y: -rect.minY)
+            // 把原图画到画布上，显示裁剪指定区域
+            self.base.draw(in: CGRect(origin: origin, size: self.base.size))
         }
-        return image
     }
     
     // MARK: 1.7、裁剪中间的size图片
@@ -170,41 +176,26 @@ public extension JKPOP where Base: UIImage {
     /// - Parameter crop: 中间裁剪的size
     /// - Returns: 剪裁后的图片
     func cropCenterSize( _ cropSize: CGSize) -> UIImage? {
-        let cropRect = CGRect(x: (self.base.size.width - cropSize.width) * self.base.scale / 2.0, y: (self.base.size.height - cropSize.height) * self.base.scale / 2.0, width: cropSize.width * self.base.scale, height: cropSize.height *  self.base.scale)
-        if cropRect.size.width <= 0 || cropRect.size.height <= 0 || cropRect.size.width > self.base.size.width || cropRect.size.height > self.base.size.height {
-            return nil
-        }
-        var image: UIImage?
-        autoreleasepool{
-            if let cgImage = self.base.cgImage {
-                let imageRef: CGImage? = cgImage.cropping(to: cropRect)
-                if let imageRef = imageRef {
-                    image = UIImage(cgImage: imageRef, scale: self.base.scale, orientation: self.base.imageOrientation)
-                }
-            }
-        }
-        return image
+        let imageSize = self.base.size
+        let originX = (imageSize.width - cropSize.width) / 2
+        let originY = (imageSize.height - cropSize.height) / 2
+        let cropRect = CGRect(origin: CGPoint(x: originX, y: originY), size: cropSize)
+        return cropWithCropRect(cropRect)
     }
     
     // MARK: 1.8、裁剪中间的px的size图片
     /// 裁剪中间的px的size图片
     /// - Parameter crop: 中间裁剪的size
     /// - Returns: 剪裁后的图片
-    func cropCenterPxSize( _ cropPxSize: CGSize) -> UIImage? {
-        let cropRect = CGRect(x: (self.base.size.width * self.base.scale  - cropPxSize.width) / 2.0, y: (self.base.size.height * self.base.scale - cropPxSize.height) / 2.0, width: cropPxSize.width, height: cropPxSize.height)
-        if cropRect.size.width <= 0 || cropRect.size.height <= 0 || cropRect.size.width > self.base.size.width * self.base.scale || cropRect.size.height > self.base.size.height * self.base.scale {
-            return nil
-        }
-        var image: UIImage?
-        autoreleasepool{
-            if let cgImage = self.base.cgImage {
-                let imageRef: CGImage? = cgImage.cropping(to: cropRect)
-                if let imageRef = imageRef {
-                    image = UIImage(cgImage: imageRef, scale: self.base.scale, orientation: self.base.imageOrientation)
-                }
-            }
-        }
-        return image
+    func cropCenterPxSize( _ pxSize: CGSize) -> UIImage? {
+        let scale = self.base.scale
+        // 计算point单位的裁剪区域
+        let sizeInPoint = CGSize(width: pxSize.width / scale, height: pxSize.height / scale)
+        let imageSize = self.base.size
+        let originX = (imageSize.width - sizeInPoint.width) / 2
+        let originY = (imageSize.height - sizeInPoint.height) / 2
+        let cropRect = CGRect(origin: CGPoint(x: originX, y: originY), size: sizeInPoint)
+        return cropWithCropRect(cropRect)
     }
     
     // MARK: 1.9、给图片添加文字水印

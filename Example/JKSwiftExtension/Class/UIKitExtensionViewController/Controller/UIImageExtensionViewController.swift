@@ -1209,9 +1209,11 @@ extension UIImageExtensionViewController {
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
         } _: {
+            debugPrint("原图的大小：\(image.size)")
             guard let newImage = image.jk.cropCenterSize(CGSize(width: image.size.width / 2.0, height: image.size.height / 2.0)) else {
                 return
             }
+            debugPrint("裁剪之后图片的大小：\(newImage.size)")
             imageView.image = newImage
             JKAsyncs.asyncDelay(3) {
             } _: {
@@ -1227,13 +1229,15 @@ extension UIImageExtensionViewController {
             return
         }
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 100, height: 200))
+        imageView.backgroundColor = .randomColor
         imageView.image = image
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
         } _: {
-            guard let newImage = image.jk.cropWithCropRect(CGRect(x: 0, y: 0, width: image.size.width / 2.0, height: image.size.height / 2.0)) else {
+            guard let newImage = image.jk.cropWithCropRect(CGRect(x: 0, y: 0, width: image.size.width * 3.0, height: image.size.height * 3)) else {
                 return
             }
             imageView.image = newImage

@@ -311,8 +311,11 @@ public extension UITableView {
     /// - Returns: 返回自身
     @discardableResult
     func scroll(to indexPath: IndexPath, at scrollPosition: UITableView.ScrollPosition = .middle, animated: Bool = true) -> Self {
-        if indexPath.section < self.numberOfSections,
-           indexPath.row < self.numberOfRows(inSection: indexPath.section) {
+        guard indexPath.section >= 0,
+              indexPath.row >= 0,
+              indexPath.section < self.numberOfSections,
+              indexPath.row < self.numberOfRows(inSection: indexPath.section) else {
+            // indexPath 不合法，不滚动
             return self
         }
         scrollToRow(at: indexPath, at: scrollPosition, animated: animated)
@@ -322,13 +325,17 @@ public extension UITableView {
     // MARK: 2.13、滚动到第几个row、第几个section
     /// 滚动到第几个row、第几个section
     /// - Parameters:
-    ///   - row: 第几 row
-    ///   - section: 第几 section
-    ///   - scrollPosition: 滚动的方式
+    ///   - row: 行索引
+    ///   - section: 区域索引，默认为 0
+    ///   - scrollPosition: 滚动位置，默认为 .middle
     ///   - animated: 是否要动画
     /// - Returns: 返回自身
     @discardableResult
     func scroll(row: Int, section: Int = 0, at scrollPosition: UITableView.ScrollPosition = .middle, animated: Bool = true) -> Self {
+        guard row >= 0, section >= 0 else {
+            // 非法参数，直接返回
+            return self
+        }
         let indexPath = IndexPath(row: row, section: section)
         return scroll(to: indexPath, at: scrollPosition, animated: animated)
     }
