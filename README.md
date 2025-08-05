@@ -52,7 +52,7 @@ end
 ## 版本说明  
   - 2.8.6、版本(2025.08.06)
     - UIImage+Extension扩展中对于图片裁剪的cropWithCropRect、cropCenterSize、cropCenterPxSize三个方法进行优化
-    - UITableView+Extension扩展中滚动到某个方法IndexPath进行边界防护
+    - UITableView+Extension扩展中滚动到某个方法中的IndexPath进行边界防护
   - 2.8.5、版本(2025.07.30)
     - 常规问题修复
   - 2.8.4、版本(2025.07.14)
