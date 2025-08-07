@@ -134,10 +134,23 @@ public class JKVerticalTextView: UIView {
             return
         }
         
+        // 安全检查：确保有效的尺寸
+        guard bounds.width > textInsets.left + textInsets.right + columnWidth,
+              bounds.height > textInsets.top + textInsets.bottom else {
+            columnInfos = []
+            return
+        }
+        
         // 计算字符高度
         let testString = "测试Ag" as NSString
         let testSize = testString.size(withAttributes: [.font: font])
         characterHeight = testSize.height
+        
+        // 安全检查：确保字符高度有效
+        guard characterHeight > 0 else {
+            columnInfos = []
+            return
+        }
         
         // 计算可用区域
         let availableRect = CGRect(
@@ -149,6 +162,12 @@ public class JKVerticalTextView: UIView {
         
         // 计算单列可容纳的字符数
         let charactersPerColumn = calculateCharactersPerColumn(availableHeight: availableRect.height)
+        
+        // 安全检查：确保至少可以显示一个字符
+        guard charactersPerColumn > 0 else {
+            columnInfos = []
+            return
+        }
         
         // 拆分文本
         let textUnits = splitByCharacter ? Array(text).map { String($0) } : text.components(separatedBy: " ")
@@ -214,10 +233,15 @@ public class JKVerticalTextView: UIView {
     
     private func calculateColumnRect(index: Int, availableRect: CGRect) -> CGRect {
         let x = availableRect.origin.x + CGFloat(index) * (columnWidth + columnSpacing)
+        
+        // 确保列不超出可用区域
+        let maxX = availableRect.origin.x + availableRect.width
+        let actualWidth = min(columnWidth, maxX - x)
+        
         return CGRect(
             x: x,
             y: availableRect.origin.y,
-            width: columnWidth,
+            width: max(0, actualWidth),
             height: availableRect.height
         )
     }
@@ -346,6 +370,39 @@ public class JKVerticalTextView: UIView {
         
         let displayedText = columnInfos.map { $0.text }.joined()
         return displayedText.count >= text.count
+    }
+    
+    /// 获取显示的文本百分比
+    /// - Returns: 显示百分比 (0.0 - 1.0)
+    public func getDisplayPercentage() -> Float {
+        guard let text = text, !text.isEmpty else { return 1.0 }
+        
+        let displayedText = columnInfos.map { $0.text }.joined()
+        return Float(displayedText.count) / Float(text.count)
+    }
+    
+    /// 获取每列的文本内容
+    /// - Returns: 每列的文本数组
+    public func getColumnTexts() -> [String] {
+        return columnInfos.map { $0.text }
+    }
+    
+    /// 清空文本内容
+    public func clearText() {
+        text = nil
+    }
+    
+    /// 重置所有参数到默认值
+    public func resetToDefaults() {
+        columnWidth = 100
+        columnSpacing = 20
+        font = UIFont.systemFont(ofSize: 16)
+        textColor = UIColor.black
+        lineSpacing = 2
+        maxColumns = nil
+        textInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        splitByCharacter = true
+        text = nil
     }
 }
 
