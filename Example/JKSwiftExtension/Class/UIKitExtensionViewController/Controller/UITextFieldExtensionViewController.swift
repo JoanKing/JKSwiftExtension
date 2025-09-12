@@ -274,7 +274,7 @@ class TextFildViewTestViewController: UIViewController {
     
     /// "限制输入10个数字
     private var textFiledView1: TestTextFiledView = {
-        let view = TestTextFiledView(frame: CGRect.zero, placeholderContent: "限制输入20个字符", regex: JKRegexCharacterType.type14.rawValue, maxCharacters: 20, lenghType: .lengthOfBytesUtf8)
+        let view = TestTextFiledView(frame: CGRect.zero, placeholderContent: "限制输入20个字符", regex: JKRegexCharacterType.type14.rawValue, maxCharacters: 20, lenghType: .count)
         view.infoTextField.keyboardType = .default
         // 关闭文本框的自动纠错功能：t
         view.infoTextField.autocorrectionType = .no
@@ -435,32 +435,7 @@ extension TestTextFiledView: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let currentTime = Date().timeIntervalSince1970
-        let timeSinceLastReplacement = currentTime - lastReplacementTime
-        
-        // 如果有标记文本，则不做处理，直接允许变化
-        if let markedRange = textField.markedTextRange {
-            // 注意：这里我们只是检查是否存在标记文本范围，如果有，我们直接返回true，不进行后续验证
-            return true
-        }
-        
-        if string.count > 0, let weakRegex = regex, !string.jk.isNineKeyBoard() {
-            let result = textField.jk.isInputMoreLimitLength(shouldChangeTextIn: range, replacementText: string, maxCharacters: maxCharacters, regex: regex, lenghType: lenghType)
-            if !result.isConformRegular {
-                debugPrint("不符合规则：内容shouldChangeCharactersIn：\(textField.text ?? "") string：|\(string)| 长度：\(string.count) 是否高亮：\(textField.markedTextRange)range：\(range)")
-            } else {
-                if result.isMoreLimit {
-                    debugPrint("符合规则-超出限制长度：内容shouldChangeCharactersIn：\(textField.text ?? "") string：|\(string)| 长度：\(string.count) 是否高亮：\(textField.markedTextRange) range：\(range)")
-                }
-            }
-        }
-        debugPrint("测试代理次数：内容shouldChangeCharactersIn：\(textField.text ?? "") string：|\(string)| 长度：\(string.count) 是否高亮 markedTextRange：start:\(textField.markedTextRange?.start) end:\(textField.markedTextRange?.end) range：\(range) timeSinceLastReplacement：\(timeSinceLastReplacement)")
-        let isResult = textField.jk.inputRestrictions(shouldChangeTextIn: range, replacementText: string, maxCharacters: maxCharacters, regex: regex, isInterceptString: true, lenghType: lenghType, isRemovePasteboardNewlineCharacters: true)
-        if infoTextField.isPasting {
-            infoTextField.isPasting = false
-        }
-        lastReplacementTime = currentTime
-        return isResult
+        return textField.jk.inputRestrictions(shouldChangeTextIn: range, replacementText: string, maxCharacters: maxCharacters, regex: regex, lenghType: lenghType, isRemovePasteboardNewlineCharacters: true)
     }
     
     /// 获得焦点

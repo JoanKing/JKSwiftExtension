@@ -152,7 +152,7 @@ public extension JKPOP where Base: UITextView {
                 }
             }
             return false
-        } 
+        }
         
         if let markedTextRange = self.base.markedTextRange {
             // 获取标记的文本
@@ -161,27 +161,15 @@ public extension JKPOP where Base: UITextView {
             // 有高亮
             if range.length == 0 {
                 let oldContentLength = oldContent.jk.typeLengh(lenghType)
-                let markedRange = rangeFromTextRange(textRange: markedTextRange)
-                let markedRangeContent = oldContent.jk.replacingCharacters(range: markedRange)
-                if isMarkedTextRangeCanInput, markedRangeContent.jk.typeLengh(lenghType) < maxCharacters {
-                    return true
+                if isMarkedTextRangeCanInput {
+                    let markedRange = rangeFromTextRange(textRange: markedTextRange)
+                    let markedRangeContent = oldContent.jk.replacingCharacters(range: markedRange)
+                    if markedRangeContent.jk.typeLengh(lenghType) < maxCharacters {
+                        return true
+                    }
                 }
                 // 联想中
-                debugPrint("联想中 内容 markedTextRange：\(markedTextRange) \(inputingContent.jk.isNineKeyBoard())")
-                if inputingContent.jk.isNineKeyBoard() {
-                    return oldContentLength + 1 <= maxCharacters
-                } else {
-                    // 不能输入，看下除去高亮的部分还可以容纳多少可输入的内容进行截取
-                    // 获取除去高亮部分的内容
-                    let removeMarkedRangeString = oldContent.jk.replacingCharacters(range: markedRange)
-                    let remainingLength = maxCharacters - removeMarkedRangeString.jk.typeLengh(lenghType)
-                    // 可以插入字符串
-                    let insertString = getInputText(inputingContent: inputingContent, remainingLength: remainingLength, lenghType: lenghType)
-                    let newString = removeMarkedRangeString.jk.insertString(content: insertString, locat: markedRange.location)
-                    self.base.text = newString
-                    self.moveCursor(position: markedRange.location + insertString.count)
-                    return false
-                }
+                return oldContentLength + 1 <= maxCharacters
             } else {
                 // 正则的判断
                 if let weakRegex = regex, !JKRegexHelper.match(inputingContent, pattern: weakRegex) {
@@ -223,12 +211,19 @@ public extension JKPOP where Base: UITextView {
                     let copyString = inputingContent.jk.removeBeginEndAllSpacefeed
                     // debugPrint("范围：\(range) copy的字符串：\(copyString) 长度：\(copyString.count)  截取的字符串：\(copyString.jk.sub(to: remainingLength))")
                     // 可以插入字符串
-                    let insertString = getInputText(inputingContent: copyString, remainingLength: remainingLength, lenghType: lenghType)
+                    let replaceContent = copyString.jk.sub(to: remainingLength)
                     // let newString = oldContent.jk.insertString(content: replaceContent), locat: range.location)
-                    let newString = oldContent.jk.replacingCharacters(range: range, replacingString: insertString)
+                    let newString = oldContent.jk.replacingCharacters(range: range, replacingString: replaceContent)
                     // debugPrint("老的字符串：\(oldContent) 新的的字符串：\(newString) 长度：\(newString.count)")
                     self.base.text = newString
-                    self.moveCursor(position: range.location + insertString.count)
+                    // 异步改变
+                    JKAsyncs.asyncDelay(0.5) {} _: {
+                        if let selectedRange = self.base.selectedTextRange {
+                            if let newPosition = self.base.position(from: selectedRange.start, offset: remainingLength) {
+                                self.base.selectedTextRange = self.base.textRange(from: newPosition, to: newPosition)
+                            }
+                        }
+                    }
                 }
                 return false
             }
@@ -290,12 +285,5 @@ public extension JKPOP where Base: UITextView {
         // debugPrint("选中的长度：\(selectedRangeLength) 选中的内容：\(selectedText)")
         return selectedRangeLength
     }
-    
-    /// 移动光标到某个位置
-    /// - Parameter position: 为止
-    private func moveCursor(position: Int) {
-        // 确保位置没有超出范围
-        guard let position = self.base.position(from: self.base.beginningOfDocument, offset: position) else { return }
-        self.base.selectedTextRange = self.base.textRange(from: position, to: position)
-    }
 }
+

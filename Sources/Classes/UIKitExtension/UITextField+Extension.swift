@@ -223,7 +223,10 @@ public extension JKPOP where Base: UITextField {
             self.base.sendActions(for: .editingChanged)
             // 异步改变
             JKAsyncs.asyncDelay(0.1) {} _: {
-                self.moveCursor(position: range.location + endString.count)
+                let endPosition = self.base.position(from: self.base.beginningOfDocument, offset: range.location + endString.count)
+                if let endPosition = endPosition {
+                    self.base.selectedTextRange = self.base.textRange(from: endPosition, to: endPosition)
+                }
             }
             return false
         }
@@ -232,33 +235,15 @@ public extension JKPOP where Base: UITextField {
             // 有高亮
             if range.length == 0 {
                 let oldContentLength = oldContent.jk.typeLengh(lenghType)
-                let markedRange = rangeFromTextRange(textRange: markedTextRange)
-                let markedRangeContent = oldContent.jk.replacingCharacters(range: markedRange)
-                if isMarkedTextRangeCanInput, markedRangeContent.jk.typeLengh(lenghType) < maxCharacters {
-                    return true
+                if isMarkedTextRangeCanInput {
+                    let markedRange = rangeFromTextRange(textRange: markedTextRange)
+                    let markedRangeContent = oldContent.jk.replacingCharacters(range: markedRange)
+                    if markedRangeContent.jk.typeLengh(lenghType) < maxCharacters{
+                        return true
+                    }
                 }
                 // 联想中
-                debugPrint("联想中 内容 markedTextRange：\(markedTextRange) \(inputingContent.jk.isNineKeyBoard())")
-                if inputingContent.jk.isNineKeyBoard() {
-                    return oldContentLength + 1 <= maxCharacters
-                } else {
-                    // 不能输入，看下除去高亮的部分还可以容纳多少可输入的内容进行截取
-                    if let weakRegex = regex, !JKRegexHelper.match(" ", pattern: weakRegex) {
-                        inputingContent = inputingContent.jk.removeBeginEndAllSpacefeed
-                    }
-                    // 获取除去高亮部分的内容
-                    let removeMarkedRangeString = oldContent.jk.replacingCharacters(range: markedRange)
-                    let remainingLength = maxCharacters - removeMarkedRangeString.jk.typeLengh(lenghType)
-                    // 可以插入字符串
-                    let insertString = getInputText(inputingContent: inputingContent, remainingLength: remainingLength, lenghType: lenghType)
-                    let newString = removeMarkedRangeString.jk.insertString(content: insertString, locat: markedRange.location)
-                    self.base.text = newString
-                    self.base.sendActions(for: .editingChanged)
-                    JKAsyncs.asyncDelay(0.1) {} _: {
-                        self.moveCursor(position: markedRange.location + insertString.count)
-                    }
-                    return false
-                }
+                return oldContentLength + 1 <= maxCharacters
             } else {
                 // 正则的判断
                 if let weakRegex = regex, !JKRegexHelper.match(inputingContent, pattern: weakRegex) {
@@ -285,24 +270,6 @@ public extension JKPOP where Base: UITextField {
             }
             // 正则的判断
             if let weakRegex = regex, !JKRegexHelper.match(inputingContent, pattern: weakRegex) {
-                // 对于联想词包含空格，正则不允许输入空格
-                if inputingContent.count > 1, !JKRegexHelper.match(" ", pattern: weakRegex) {
-                    // 把空格给过滤掉
-                    let inputString = inputingContent.jk.removeAllLineAndSapcefeed
-                    let oldLength = oldContent.jk.typeLengh(lenghType)
-                    let remainingLength = maxCharacters - oldLength
-                    // 可以插入字符串
-                    let insertString = getInputText(inputingContent: inputString, remainingLength: remainingLength, lenghType: lenghType)
-                    // let newString = oldContent.jk.insertString(content: replaceContent), locat: range.location)
-                    let newString = oldContent.jk.replacingCharacters(range: range, replacingString: insertString)
-                    // debugPrint("老的字符串：\(oldContent) 新的的字符串：\(newString) 长度：\(newString.count)")
-                    self.base.text = newString
-                    self.base.sendActions(for: .editingChanged)
-                    // 插入
-                    JKAsyncs.asyncDelay(0.1) {} _: {
-                        self.moveCursor(position: range.location + insertString.count)
-                    }
-                }
                 return false
             }
             // 2、如果数字大于指定位数，不能输入
@@ -314,107 +281,29 @@ public extension JKPOP where Base: UITextField {
                 }
                 let oldLength = oldContent.jk.typeLengh(lenghType)
                 if oldLength < maxCharacters, (maxCharacters - oldLength) > 0 {
-                    let copyString = inputingContent.jk.removeBeginEndAllSpacefeed
                     let remainingLength = maxCharacters - oldLength
+                    let copyString = inputingContent.jk.removeBeginEndAllSpacefeed
                     // debugPrint("范围：\(range) copy的字符串：\(copyString) 长度：\(copyString.count)  截取的字符串：\(copyString.jk.sub(to: remainingLength))")
                     // 可以插入字符串
-                    let insertString = getInputText(inputingContent: copyString, remainingLength: remainingLength, lenghType: lenghType)
+                    let replaceContent = copyString.jk.sub(to: remainingLength)
                     // let newString = oldContent.jk.insertString(content: replaceContent), locat: range.location)
-                    let newString = oldContent.jk.replacingCharacters(range: range, replacingString: insertString)
+                    let newString = oldContent.jk.replacingCharacters(range: range, replacingString: replaceContent)
                     // debugPrint("老的字符串：\(oldContent) 新的的字符串：\(newString) 长度：\(newString.count)")
                     self.base.text = newString
                     self.base.sendActions(for: .editingChanged)
-                    // 插入
-                    JKAsyncs.asyncDelay(0.1) {} _: {
-                        self.moveCursor(position: range.location + insertString.count)
+                    // 异步改变
+                    JKAsyncs.asyncDelay(0.5) {} _: {
+                        if let selectedRange = self.base.selectedTextRange {
+                            if let newPosition = self.base.position(from: selectedRange.start, offset: remainingLength) {
+                                self.base.selectedTextRange = self.base.textRange(from: newPosition, to: newPosition)
+                            }
+                        }
                     }
                 }
                 return false
             }
         }
         return true
-    }
-    
-    // MARK: 3.2、输入是否超过最大限制或者是符合正则(提示在：- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string; 里面调用)
-    /// 限制字数的输入
-    /// - Parameters:
-    ///   - range: 范围
-    ///   - text: 输入的文字
-    ///   - maxCharacters: 限制字数
-    ///   - regex: 可输入内容(正则)
-    ///   - isInterceptString: 复制文字进来，在字数限制的情况下，多余的字体是否截取掉，默认true
-    ///   - isRemovePasteboardNewlineCharacters: 复制的内容是否移除前后的换行符
-    ///   - isMarkedTextRangeCanInput: 高亮状态，原始数据如果小于限制字数，默认不可以继续输入
-    /// - Returns: 返回是否可输入
-    ///
-    /// 提示：注入想要处理复制的内容：使用的UITextField继承JKPastedTextField，也可以自己按照我的这种方式自己个性化处理
-    func isInputMoreLimitLength(shouldChangeTextIn range: NSRange, replacementText text: String, maxCharacters: Int, regex: String?, lenghType: StringTypeLength = .count) -> (isConformRegular: Bool, isMoreLimit: Bool) {
-        guard !text.isEmpty else {
-            return (false, false)
-        }
-        guard let oldContent = self.base.text else {
-            return (false, false)
-        }
-        // 输入新的内容
-        var inputingContent = text
-        if let pastedTextField = self.base as? JKPastedTextField, pastedTextField.isPasting {
-            // 复制内容，只处理前后的空格和换行
-            inputingContent = inputingContent.jk.removeAllLineAndSapcefeed
-            pastedTextField.isPasting = false
-            if let weakRegex = regex, !JKRegexHelper.match(inputingContent, pattern: weakRegex) {
-                return (false, false)
-            }
-            guard maxCharacters > ((oldContent + inputingContent).jk.typeLengh(lenghType)) else {
-                return (true, true)
-            }
-            return (true, false)
-        }
-        
-        if let markedTextRange = self.base.markedTextRange {
-            // 有高亮
-            if range.length == 0 {
-                let markedRange = rangeFromTextRange(textRange: markedTextRange)
-                let removeMarkedRangeString = oldContent.jk.replacingCharacters(range: markedRange)
-                guard maxCharacters > (removeMarkedRangeString + inputingContent).jk.typeLengh(lenghType) else {
-                    return (true, true)
-                }
-                return (true, false)
-            } else {
-                // 正则的判断
-                if let weakRegex = regex, !JKRegexHelper.match(inputingContent, pattern: weakRegex) {
-                    return (false, false)
-                }
-                let markedRange = rangeFromTextRange(textRange: markedTextRange)
-                let removeMarkedRangeString = oldContent.jk.replacingCharacters(range: markedRange)
-                // 联想选中键盘
-                let allContent = removeMarkedRangeString + inputingContent
-                guard allContent.jk.typeLengh(lenghType) > maxCharacters else {
-                    return (true, false)
-                }
-                return (true, true)
-            }
-        } else {
-            // 正则的判断
-            if let weakRegex = regex, !JKRegexHelper.match(inputingContent, pattern: weakRegex) {
-                // 对于联想词包含空格，正则不允许输入空格的处理，目的是为了联想词可以输入，又把空格给过滤掉
-                if inputingContent.count > 1, !JKRegexHelper.match(" ", pattern: weakRegex) {
-                    // 把空格给过滤掉
-                    let inputString = inputingContent.jk.removeAllLineAndSapcefeed
-                    let oldLength = oldContent.jk.typeLengh(lenghType)
-                    let remainingLength = maxCharacters - oldLength
-                    let insertString = getInputText(inputingContent: inputString, remainingLength: remainingLength, lenghType: lenghType)
-                    // insertString.count != inputString.count代表可以截取了
-                    return (true, insertString.count != inputString.count)
-                }
-
-                return (false, false)
-            }
-            // 2、如果数字大于指定位数，不能输入
-            guard oldContent.jk.typeLengh(lenghType) + inputingContent.jk.typeLengh(lenghType) - getSelectedRangeLength(lenghType: lenghType) <= maxCharacters else {
-                return (true, true)
-            }
-            return (true, false)
-        }
     }
     
     private func getInputText(inputingContent: String, remainingLength: Int, lenghType: StringTypeLength) -> String {
@@ -469,13 +358,5 @@ public extension JKPOP where Base: UITextField {
         let selectedRangeLength = selectedTextRangeText.jk.typeLengh(lenghType)
         // debugPrint("选中的长度：\(selectedRangeLength) 选中的内容：\(selectedTextRangeText)")
         return selectedRangeLength
-    }
-    
-    /// 移动光标到某个位置
-    /// - Parameter position: 为止
-    private func moveCursor(position: Int) {
-        // 确保位置没有超出范围
-        guard let position = self.base.position(from: self.base.beginningOfDocument, offset: position) else { return }
-        self.base.selectedTextRange = self.base.textRange(from: position, to: position)
     }
 }
