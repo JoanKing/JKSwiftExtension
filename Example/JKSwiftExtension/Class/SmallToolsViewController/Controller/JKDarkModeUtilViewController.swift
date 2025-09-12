@@ -43,12 +43,22 @@ class JKDarkModeUtilViewController: UIViewController {
         return array
     }()
     
+    lazy var rightButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        let image = JKDarkModeUtil.image(light: UIImage(named: "good8"), dark: UIImage(named: "good9"))
+        button.setImage(image, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "皮肤设置"
         self.view.backgroundColor = .cBackViewColor
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "跳转", style: .plain, target: self, action: #selector(click))
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
+        // self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "跳转", style: .plain, target: self, action: #selector(click))
         initUI()
         commonUI()
         updateTheme()

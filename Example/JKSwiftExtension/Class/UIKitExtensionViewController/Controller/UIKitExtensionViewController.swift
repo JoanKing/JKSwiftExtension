@@ -30,7 +30,7 @@ class UIKitExtensionViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 0.01))
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: 0.01))
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: jk_kScreenW, height: jk_kSafeDistanceBottom))
         // 设置行高为自动适配
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(BaseViewCell.self, forCellReuseIdentifier: UIKitExtensionViewController.UIKitExtensionViewControllerCellIdentifier)

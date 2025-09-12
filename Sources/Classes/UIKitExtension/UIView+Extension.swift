@@ -1385,8 +1385,17 @@ public extension JKPOP where Base : UIView {
         let gradientLayer = CAGradientLayer().jk.gradientLayer(direction, gradientColors, gradientLocations, transform)
         // 设置其CAGradientLayer对象的frame，并插入view的layer
         gradientLayer.frame = CGRect(x: 0, y: 0, width: self.base.jk.width, height: self.base.jk.height)
+        // 如果有旧的渐变进行移除后添加
         if let sublayers = self.base.layer.sublayers {
-            removeOldGradientLayer(sublayers: sublayers, gradientLayer: gradientLayer)
+            removeOldGradientLayer(sublayers: sublayers)
+        }
+        if let button = self.base as? UIButton {
+            // 对于Button，确保渐变层在图片层之下
+            gradientLayer.zPosition = -1
+            button.layer.insertSublayer(gradientLayer, at: 0)
+            // 确保按钮内容在前面
+            button.titleLabel?.layer.zPosition = 1
+            button.imageView?.layer.zPosition = 1
         } else {
             self.base.layer.insertSublayer(gradientLayer, at: 0)
         }
@@ -1408,7 +1417,7 @@ public extension JKPOP where Base : UIView {
         gradientLayer.frame = CGRect(x: 0, y: 0, width: self.base.jk.width, height: self.base.jk.height)
         if let sublayers = self.base.layer.sublayers {
             // 替换旧的CAGradientLayer
-            removeOldGradientLayer(sublayers: sublayers, gradientLayer: gradientLayer)
+            removeOldGradientLayer(sublayers: sublayers)
         } else {
             self.base.layer.insertSublayer(gradientLayer, at: 0)
         }
@@ -1416,19 +1425,23 @@ public extension JKPOP where Base : UIView {
         startgradientColorAnimation(gradientLayer, startGradientColors, endGradientColors, isRemovedOnCompletion, duration)
     }
     
-    /// 新的CAGradientLayer替换旧的
+    // MARK: 移除之前的渐变色
+    /// 移除之前的渐变色
     /// - Parameters:
     ///   - sublayers: [CALayer]集合
-    ///   - gradientLayer: 新的CAGradientLayer
-    func removeOldGradientLayer(sublayers: [CALayer], gradientLayer: CAGradientLayer) {
-        // 替换旧的CAGradientLayer
-        for (index, layer) in sublayers.enumerated() {
+    @discardableResult
+    func removeOldGradientLayer(sublayers: [CALayer]) -> Bool {
+        // 查找是否设置过渐变
+        var isFound: Bool = false
+        for (_, layer) in sublayers.enumerated() {
             if layer is CAGradientLayer {
-                // 替换旧的CAGradientLayer
-                self.base.layer.replaceSublayer(layer, with: gradientLayer)
+                // 先移除旧的渐变层
+                layer.removeFromSuperlayer()
+                isFound = true
                 break
             }
         }
+        return isFound
     }
     
     private func startgradientColorAnimation(_ gradientLayer: CAGradientLayer, _ startGradientColors: [Any], _ endGradientColors: [Any], _ isRemovedOnCompletion: Bool = true, _ duration: CFTimeInterval = 1.0) {

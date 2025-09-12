@@ -161,7 +161,7 @@ class PresentSecondViewController: PresentFirstViewController {
     }
     
     override func presentEvent() {
-        let vc = PresentThirdViewController()
+        let vc = UINavigationController(rootViewController: PresentThirdViewController())
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)
     }
@@ -172,6 +172,20 @@ class PresentThirdViewController: PresentFirstViewController {
     override func viewDidLoad() {
        super.viewDidLoad()
         self.titleLabel.text = "这是Third"
+        self.button.setTitle("模态转转：PresentThirdViewController", for: .normal)
+    }
+    
+    override func presentEvent() {
+        let vc = PresentFourViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+//MARK: 模态vc4
+class PresentFourViewController: PresentFirstViewController {
+    override func viewDidLoad() {
+       super.viewDidLoad()
+        self.titleLabel.text = "这是Four"
         self.button.setTitle("diss返回PresentFirstViewController", for: .normal)
     }
     

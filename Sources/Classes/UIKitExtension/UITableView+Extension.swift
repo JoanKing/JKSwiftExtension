@@ -352,3 +352,143 @@ public extension UITableView {
         return self
     }
 }
+
+// MARK: - 三、UITableView刷新相关事件
+public extension JKPOP where Base: UITableView {
+    
+    // MARK: 3.01、安全刷新指定的 row
+    /// 安全刷新指定的 row
+    /// - Parameters:
+    ///   - indexPath: 需要刷新的 IndexPath
+    ///   - animation: 动画效果，默认为 .none
+    func safeReloadRow(at indexPath: IndexPath, with animation: UITableView.RowAnimation = .none) {
+        base.safeReloadRows(at: [indexPath], with: animation)
+    }
+    
+    // MARK: 3.02、安全刷新指定的 rows
+    /// 安全刷新指定的 rows
+    /// - Parameters:
+    ///   - indexPaths: 需要刷新的 IndexPath 数组
+    ///   - animation: 动画效果，默认为 .none
+    func safeReloadRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation = .none) {
+        base.safeReloadRows(at: indexPaths, with: animation)
+    }
+    
+    // MARK: 3.03、安全刷新指定的 section
+    /// 安全地重新加载指定的 section
+    /// - Parameters:
+    ///   - section: 要重新加载的 section 索引
+    ///   - animation: 动画类型，默认为 .none
+    func safeReloadSection(_ section: Int, with animation: UITableView.RowAnimation = .none) {
+        base.safeReloadSections([section], with: animation)
+    }
+    
+    // MARK: 3.04、安全刷新多个 sections
+    /// 安全地重新加载多个 sections
+    /// - Parameters:
+    ///   - sections: 要重新加载的 section 索引数组
+    ///   - animation: 动画类型，默认为 .automatic
+    func safeReloadSections(_ sections: [Int], with animation: UITableView.RowAnimation = .automatic) {
+        base.safeReloadSections(sections, with: animation)
+    }
+}
+
+// MARK: - 辅助私有方法
+extension UITableView {
+    
+    /// 安全地刷新指定的 IndexPaths
+    /// - Parameters:
+    ///   - indexPaths: 需要刷新的 IndexPath 数组
+    ///   - animation: 动画效果
+    fileprivate func safeReloadRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
+        guard !indexPaths.isEmpty else {
+            debugPrint("⚠️ IndexPaths 数组为空，无需刷新")
+            return
+        }
+        
+        executeOnMainThread { [weak self] in
+            guard let self = self else { return }
+            
+            let validIndexPaths = self.filterValidIndexPaths(indexPaths)
+            
+            if validIndexPaths.isEmpty {
+                debugPrint("⚠️ 所有 IndexPaths 都无效，刷新整个 TableView")
+                self.reloadData()
+                return
+            }
+            
+            if validIndexPaths.count != indexPaths.count {
+                let invalidPaths = indexPaths.filter { !self.isValidIndexPath($0) }
+                debugPrint("⚠️ 跳过无效的 IndexPaths: \(invalidPaths)")
+            }
+            debugPrint("validIndexPaths：\(validIndexPaths)")
+            self.reloadRows(at: validIndexPaths, with: animation)
+        }
+    }
+    
+    /// 安全地重新加载多个 sections
+    /// - Parameters:
+    ///   - sections: 要重新加载的 section 索引数组
+    ///   - animation: 动画类型
+    fileprivate func safeReloadSections(_ sections: [Int], with animation: UITableView.RowAnimation) {
+        guard !sections.isEmpty else {
+            debugPrint("⚠️ Sections 数组为空，无需刷新")
+            return
+        }
+        
+        executeOnMainThread { [weak self] in
+            guard let self = self else { return }
+            
+            let validSections = sections.filter { self.isValidSection($0) }
+            
+            if validSections.isEmpty {
+                return
+            }
+            
+            if validSections.count != sections.count {
+                let invalidSections = sections.filter { !self.isValidSection($0) }
+                debugPrint("⚠️ 跳过无效的 sections: \(invalidSections)，当前总数: \(self.numberOfSections)")
+            }
+            
+            let indexSet = IndexSet(validSections)
+            self.reloadSections(indexSet, with: animation)
+        }
+    }
+}
+
+// MARK: - 验证辅助方法
+private extension UITableView {
+    
+    /// 验证 IndexPath 是否有效
+    /// - Parameter indexPath: 要验证的 IndexPath
+    /// - Returns: 是否有效
+    func isValidIndexPath(_ indexPath: IndexPath) -> Bool {
+        return isValidSection(indexPath.section) &&
+               indexPath.row >= 0 &&
+               indexPath.row < numberOfRows(inSection: indexPath.section)
+    }
+    
+    /// 验证 section 是否有效
+    /// - Parameter section: 要验证的 section 索引
+    /// - Returns: 是否有效
+    func isValidSection(_ section: Int) -> Bool {
+        return section >= 0 && section < numberOfSections
+    }
+    
+    /// 过滤出有效的 IndexPaths
+    /// - Parameter indexPaths: 要过滤的 IndexPath 数组
+    /// - Returns: 有效的 IndexPath 数组
+    func filterValidIndexPaths(_ indexPaths: [IndexPath]) -> [IndexPath] {
+        return indexPaths.filter { isValidIndexPath($0) }
+    }
+    
+    /// 在主线程执行代码块
+    /// - Parameter block: 要执行的代码块
+    func executeOnMainThread(_ block: @escaping () -> Void) {
+        if Thread.isMainThread {
+            block()
+        } else {
+            DispatchQueue.main.async(execute: block)
+        }
+    }
+}

@@ -160,6 +160,17 @@ public extension Array where Element : Equatable {
         }
         return self
     }
+    
+    // MARK: 3.3、安全移除最后一个元素
+    /// 安全移除最后一个元素
+    /// - Returns: 移除的元素
+    @discardableResult
+    mutating func safeRemoveLast() -> Element? {
+        if !self.isEmpty {
+           return self.removeLast()
+        }
+        return nil
+    }
 }
 
 // MARK: - 四、遵守 NSObjectProtocol 协议对应数组的扩展方法

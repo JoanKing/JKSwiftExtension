@@ -13,8 +13,32 @@ class UITableViewExtensionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headDataArray = ["一、基本扩展", "二、链式编程"]
-        dataArray = [["tableView 在 iOS 11 上的适配", "是否滚动到顶部", "是否滚动到底部", "滚动到什么位置（CGPoint）", "注册自定义cell", "注册Xib自定义cell", "创建UITableViewCell(注册后使用该方法)", "注册 Header/Footer 类", "注册 Header/Footer XIB（可选）", "通用复用 Header/Footer 方法(注册后使用该方法)", "给单个section整体cell加圆角", "每段的cell数量", "是否是每个section的最后一个cell", "滚动 tableView 一段特定的距离", "判断cell是否在可见区域"], ["设置 delegate 代理", "设置 dataSource 代理", "设置行高", "设置段头(sectionHeaderHeight)的高度", "设置段尾(sectionHeaderHeight)的高度", "设置一个默认cell高度", "设置默认段头(estimatedSectionHeaderHeight)高度", "设置默认段尾(estimatedSectionFooterHeight)高度", "设置分割线的样式", "设置 UITableView 的头部 tableHeaderView", "设置 UITableView 的尾部 tableFooterView", "滚动到第几个IndexPath", "滚动到第几个row、第几个section"]]
+        headDataArray = ["一、基本扩展", "二、链式编程", "三、UITabeView刷新"]
+        dataArray = [["tableView 在 iOS 11 上的适配", "是否滚动到顶部", "是否滚动到底部", "滚动到什么位置（CGPoint）", "注册自定义cell", "注册Xib自定义cell", "创建UITableViewCell(注册后使用该方法)", "注册 Header/Footer 类", "注册 Header/Footer XIB（可选）", "通用复用 Header/Footer 方法(注册后使用该方法)", "给单个section整体cell加圆角", "每段的cell数量", "是否是每个section的最后一个cell", "滚动 tableView 一段特定的距离", "判断cell是否在可见区域"], ["设置 delegate 代理", "设置 dataSource 代理", "设置行高", "设置段头(sectionHeaderHeight)的高度", "设置段尾(sectionHeaderHeight)的高度", "设置一个默认cell高度", "设置默认段头(estimatedSectionHeaderHeight)高度", "设置默认段尾(estimatedSectionFooterHeight)高度", "设置分割线的样式", "设置 UITableView 的头部 tableHeaderView", "设置 UITableView 的尾部 tableFooterView", "滚动到第几个IndexPath", "滚动到第几个row、第几个section"], ["安全刷新指定的 row", "安全刷新指定的 rows", "安全刷新指定的 section", "安全刷新多个 sections"]]
+    }
+}
+
+// MARK: - 三、UITabeView刷新
+extension UITableViewExtensionViewController {
+    
+    // MARK: 3.04、安全刷新多个 sections
+    @objc func test304() {
+        self.tableView.jk.safeReloadSections([0, 2, 20])
+    }
+    
+    // MARK: 3.03、安全刷新指定的 section
+    @objc func test303() {
+        self.tableView.jk.safeReloadSection(200)
+    }
+    
+    // MARK: 3.02、安全刷新指定的 rows
+    @objc func test302() {
+        self.tableView.jk.safeReloadRows(at: [IndexPath(row: 2, section: 10), IndexPath(row: 1, section: 0)])
+    }
+    
+    // MARK: 3.01、安全刷新指定的 row
+    @objc func test301() {
+        self.tableView.jk.safeReloadRow(at: IndexPath(row: 2, section: 1))
     }
 }
 

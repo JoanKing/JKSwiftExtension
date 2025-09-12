@@ -14,7 +14,7 @@ class UILabelExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、链式编程", "二、其他的基本扩展", "三、特定区域和特定文字的基本扩展"]
-        dataArray = [["设置文字", "设置文字行数", "设置文字对齐方式", "设置富文本文字", "设置文本颜色", "设置文本颜色（十六进制字符串）", "设置字体的大小", "设置字体的大小", "设置字体的大小（粗体）"], ["获取已知 frame 的 label 的文本行数 & 每一行内容", "获取已知 width 的 label 的文本行数 & 每一行内容", "获取第一行内容", "改变行间距", "改变字间距", "改变字间距和行间距", "添加中划线", "获取已知label 的文本行数 & 每一行内容", "获取字体的大小", "设置行高"], ["设置特定区域的字体大小", "设置特定文字的字体大小", "设置特定区域的字体颜色", "设置特定文字的字体颜色", "设置行间距", "设置特定文字区域的下划线", "设置特定文字的下划线", "设置特定区域的删除线", "设置特定文字的删除线", "插入图片", "首行缩进", "设置特定文字区域的倾斜", "设置特定文字的倾斜"]]
+        dataArray = [["设置文字", "设置文字行数", "设置文字对齐方式", "设置富文本文字", "设置文本颜色", "设置文本颜色（十六进制字符串）", "设置字体的大小", "设置字体的大小", "设置字体的大小（粗体）"], ["获取已知 frame 的 label 的文本行数 & 每一行内容", "获取已知 width 的 label 的文本行数 & 每一行内容", "获取第一行内容", "改变行间距", "改变字间距", "改变字间距和行间距", "添加中划线", "获取已知label 的文本行数 & 每一行内容", "获取字体的大小", "设置行高", "设置文字竖向排列"], ["设置特定区域的字体大小", "设置特定文字的字体大小", "设置特定区域的字体颜色", "设置特定文字的字体颜色", "设置行间距", "设置特定文字区域的下划线", "设置特定文字的下划线", "设置特定区域的删除线", "设置特定文字的删除线", "插入图片", "首行缩进", "设置特定文字区域的倾斜", "设置特定文字的倾斜"]]
     }
     
     @objc func click(sender: UIButton) {
@@ -263,6 +263,62 @@ extension UILabelExtensionViewController {
 
 // MARK: - 二、其他的基本扩展
 extension UILabelExtensionViewController {
+    
+    // MARK: 2.11、设置文字竖向排列
+    @objc func test211() {
+        // 创建三个标签来展示不同的对齐方式
+        let label1 = UILabel(frame: CGRect(x: 10, y: 60, width: 200, height: 300))
+        let label2 = UILabel(frame: CGRect(x: 220, y: 60, width: 200, height: 300))
+        let label3 = UILabel(frame: CGRect(x: 10, y: 470, width: 200, height: 300))
+        
+        [label1, label2, label3].forEach { label in
+            label.font = .systemFont(ofSize: 20)
+            label.textColor = .black
+            label.backgroundColor = .brown
+            view.addSubview(label)
+        }
+        
+        // 左对齐，从右向左排列
+        let leftAlignOptions = UILabel.jk.VerticalTextOptions(
+            isStartFromRight: true,
+            horizontalAlignment: .right,
+            verticalAlignment: .top,
+            maxColumns: 5,
+            lineSpacing: 10,
+            columnSpacing: 10
+        )
+        label1.jk.setVerticalText("这是靠左对齐示例-黄初三年", options: leftAlignOptions)
+        
+        // 居中对齐，从左向右排列
+        let centerAlignOptions = UILabel.jk.VerticalTextOptions(
+            isStartFromRight: true,
+            horizontalAlignment: .center,
+            verticalAlignment: .center,
+            maxColumns: 5,
+            lineSpacing: 20,
+            columnSpacing: 20
+        )
+        label2.jk.setVerticalText("黄初三年，余朝京师，还济洛川。古人有言，斯水之神，名曰宓妃。感宋玉对楚王神女之事，遂作斯赋。", options: centerAlignOptions)
+        
+        // 右对齐，从右向左排列
+        let rightAlignOptions = UILabel.jk.VerticalTextOptions(
+            isStartFromRight: true,
+            horizontalAlignment: .right,
+            verticalAlignment: .top,
+            maxColumns: 5,
+            lineSpacing: 20,
+            columnSpacing: 30
+        )
+        label3.jk.setVerticalText("这是靠右对齐示例-黄初三年", options: rightAlignOptions)
+        
+        JKAsyncs.asyncDelay(10, {
+        }) {
+            label1.removeFromSuperview()
+            label2.removeFromSuperview()
+            label3.removeFromSuperview()
+        }
+    }
+    
     // MARK: 2.10、设置行高
     @objc func test210() {
         let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 300))
@@ -276,6 +332,10 @@ extension UILabelExtensionViewController {
         JKAsyncs.asyncDelay(2, {
         }) {
            testLabel.jk.setLineHeight(lineHeight: 30)
+            JKAsyncs.asyncDelay(2, {
+            }) {
+               testLabel.removeFromSuperview()
+            }
         }
     }
     
@@ -553,11 +613,16 @@ extension UILabelExtensionViewController {
         let testLabel = UILabel(frame: CGRect(x: 50, y: 100, width: 200, height: 100))
         testLabel.backgroundColor = .brown
         testLabel.text("2秒后消失")
-        testLabel.tintColor = .yellow
+        testLabel.jk.gradientColor(.horizontal, [UIColor.brown.cgColor, UIColor.green.cgColor])
+        testLabel.tintColor = .blue
         self.view.addSubview(testLabel)
         JKAsyncs.asyncDelay(2, {
         }) {
-            testLabel.removeFromSuperview()
+            testLabel.jk.gradientColor(.horizontal, [UIColor.yellow.cgColor, UIColor.red.cgColor])
+            JKAsyncs.asyncDelay(2, {
+            }) {
+                testLabel.removeFromSuperview()
+            }
         }
     }
 }

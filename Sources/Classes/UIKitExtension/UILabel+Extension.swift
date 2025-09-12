@@ -105,6 +105,65 @@ public extension UILabel {
 // MARK: - 二、其他的基本扩展
 public extension JKPOP where Base: UILabel {
     
+    /// 水平对齐方式枚举
+    enum HorizontalAlignment {
+        /// 左对齐
+        case left
+        /// 居中对齐
+        case center
+        /// 右对齐
+        case right
+    }
+    
+    /// 垂直对齐方式枚举
+    enum VerticalAlignment {
+        /// 顶部对齐
+        case top
+        /// 垂直居中
+        case center
+        /// 底部对齐
+        case bottom
+    }
+    
+    /// 竖向文字的配置选项，用于自定义文字的排列方式和间距
+    struct VerticalTextOptions {
+        /// 是否从右侧开始排列文字，默认false（从左往右）
+        var isStartFromRight: Bool = false
+        /// 水平方向的对齐方式，默认居中
+        var horizontalAlignment: HorizontalAlignment = .center
+        /// 垂直方向的对齐方式，默认居中
+        var verticalAlignment: VerticalAlignment = .center
+        /// 最大列数，默认无限制
+        var maxColumns: Int = Int.max
+        /// 文字之间的垂直间距，默认5.0点
+        var lineSpacing: CGFloat = 5.0
+        /// 列之间的水平间距，默认10.0点
+        var columnSpacing: CGFloat = 10.0
+        
+        /// 初始化配置选项
+        /// - Parameters:
+        ///   - isStartFromRight: 是否从右侧开始排列
+        ///   - horizontalAlignment: 水平对齐方式
+        ///   - maxColumns: 最大列数
+        ///   - lineSpacing: 文字间垂直间距
+        ///   - columnSpacing: 列间水平间距
+        public init(
+            isStartFromRight: Bool = false,
+            horizontalAlignment: HorizontalAlignment = .center,
+            verticalAlignment: VerticalAlignment = .center,
+            maxColumns: Int = Int.max,
+            lineSpacing: CGFloat = 5.0,
+            columnSpacing: CGFloat = 10.0
+        ) {
+            self.isStartFromRight = isStartFromRight
+            self.horizontalAlignment = horizontalAlignment
+            self.verticalAlignment = verticalAlignment
+            self.maxColumns = maxColumns
+            self.lineSpacing = lineSpacing
+            self.columnSpacing = columnSpacing
+        }
+    }
+    
     // MARK: 2.1、获取已知 frame 的 label 的文本行数 & 每一行内容
     /// 获取已知 frame 的 label 的文本行数 & 每一行内容
     /// - Parameters:
@@ -344,6 +403,130 @@ public extension JKPOP where Base: UILabel {
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedString.length))
         base.attributedText = attributedString
     }
+    
+    // MARK: 2.11、设置文字竖向排列
+    /// 设置竖向排列的文字
+    /// - Parameters:
+    ///   - text: 要显示的文字内容
+    ///   - options: 显示配置选项，默认使用VerticalTextOptions的默认值
+    func setVerticalText(_ text: String, options: VerticalTextOptions = VerticalTextOptions()) {
+        // 1. 移除已有的文字层，避免重叠
+        self.base.layer.sublayers?.forEach { layer in
+            if layer is CATextLayer {
+                layer.removeFromSuperlayer()
+            }
+        }
+        
+        // 2. 将文字转换为字符数组
+        let characters = Array(text)
+        guard !characters.isEmpty else { return }
+        
+        // 3. 获取单个字符的宽度和高度（使用字体的行高）
+        let columnWidth = self.base.font.lineHeight
+        let charHeight = self.base.font.lineHeight
+        
+        // 4. 计算可用空间，考虑边距
+        let verticalPadding: CGFloat = 2      // 上下边距
+        let horizontalPadding: CGFloat = 2    // 左右边距
+        let availableHeight = self.base.bounds.height - (verticalPadding * 2)  // 可用高度
+        let availableWidth = self.base.bounds.width - (horizontalPadding * 2)  // 可用宽度
+        
+        // 5. 计算单列最多能容纳多少字符
+        // n个字符占用的总高度 = n * charHeight + (n-1) * lineSpacing <= availableHeight
+        // 化简得：n * (charHeight + lineSpacing) - lineSpacing <= availableHeight
+        // 即：n <= (availableHeight + lineSpacing) / (charHeight + lineSpacing)
+        let maxCharsPerColumn = max(1, Int((availableHeight + options.lineSpacing) / (charHeight + options.lineSpacing)))
+        
+        // 6. 计算需要的列数，受限于最大列数和可用宽度
+        let requestedColumns = min(options.maxColumns, Int((availableWidth + options.columnSpacing) / (columnWidth + options.columnSpacing)))
+        
+        // 7. 确保至少有一列，并且列数不超过需要的列数
+        let actualColumns = max(1, min(requestedColumns, Int(ceil(Double(characters.count) / Double(maxCharsPerColumn)))))
+        
+        // 8. 计算所有列的总宽度，包含列间距
+        let totalColumnsWidth = CGFloat(actualColumns) * columnWidth + CGFloat(actualColumns - 1) * options.columnSpacing
+        
+        // 9. 根据对齐方式计算起始x坐标
+        let startX: CGFloat
+        switch options.horizontalAlignment {
+        case .left:
+            startX = horizontalPadding
+        case .center:
+            startX = (self.base.bounds.width - totalColumnsWidth) / 2
+        case .right:
+            startX = self.base.bounds.width - horizontalPadding - totalColumnsWidth
+        }
+        
+        // 10. 输出调试信息
+        print("Debug Info:")
+        print("Label Height: \(self.base.bounds.height)")
+        print("Available Height: \(availableHeight)")
+        print("Char Height: \(charHeight)")
+        print("Line Spacing: \(options.lineSpacing)")
+        print("Max Chars Per Column: \(maxCharsPerColumn)")
+        print("Total Characters: \(characters.count)")
+        print("Actual Columns: \(actualColumns)")
+        
+        // 11. 分配字符到每一列
+        var currentIndex = 0
+        for column in 0..<actualColumns {
+            guard currentIndex < characters.count else { break }
+            
+            // 12. 计算当前列应显示的字符数
+            let remainingChars = characters.count - currentIndex
+            let currentColumnChars = min(maxCharsPerColumn, remainingChars)
+            let columnChars = Array(characters[currentIndex..<(currentIndex + currentColumnChars)])
+            
+            // 13. 计算当前列的总高度，包含字符间距
+            let columnHeight = CGFloat(columnChars.count - 1) * (charHeight + options.lineSpacing) + charHeight
+            
+            // 14. 计算当前列的x坐标
+            let x: CGFloat
+            if options.isStartFromRight {
+                // 从右向左排列
+                x = startX + totalColumnsWidth - columnWidth - CGFloat(column) * (columnWidth + options.columnSpacing)
+            } else {
+                // 从左向右排列
+                x = startX + CGFloat(column) * (columnWidth + options.columnSpacing)
+            }
+            
+            // 15. 根据垂直对齐方式计算起始y坐标
+            let y: CGFloat
+            switch options.verticalAlignment {
+            case .top:
+                // 顶部对齐
+                y = verticalPadding
+            case .center:
+                // 垂直居中
+                y = verticalPadding + (availableHeight - columnHeight) / 2
+            case .bottom:
+                // 底部对齐
+                y = self.base.bounds.height - verticalPadding - columnHeight
+            }
+            
+            // 16. 创建并设置每个字符的文字层
+            var currentY = y
+            for char in columnChars {
+                let charLayer = CATextLayer()
+                charLayer.contentsScale = UIScreen.main.scale  // 设置清晰度
+                charLayer.alignmentMode = .center              // 设置文字居中对齐
+                charLayer.string = String(char)                // 设置显示的字符
+                charLayer.font = self.base.font                          // 设置字体
+                charLayer.fontSize = self.base.font.pointSize            // 设置字号
+                charLayer.foregroundColor = self.base.textColor.cgColor  // 设置文字颜色
+                
+                // 设置字符层的frame
+                charLayer.frame = CGRect(x: x, y: currentY, width: columnWidth, height: charHeight)
+                self.base.layer.addSublayer(charLayer)
+                
+                // 更新下一个字符的y坐标
+                currentY += charHeight + options.lineSpacing
+            }
+            
+            // 更新字符索引
+            currentIndex += currentColumnChars
+        }
+    }
 }
 
 // MARK: - 三、特定区域和特定文字的基本扩展
@@ -479,4 +662,6 @@ public extension JKPOP where Base: UILabel {
         let attributedString = base.attributedText?.jk.setSpecificTextBliqueness(text, inclination: inclination)
         base.attributedText = attributedString
     }
+    
+    
 }

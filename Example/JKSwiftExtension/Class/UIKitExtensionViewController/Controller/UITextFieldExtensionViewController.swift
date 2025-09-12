@@ -274,10 +274,14 @@ class TextFildViewTestViewController: UIViewController {
     
     /// "限制输入10个数字
     private var textFiledView1: TestTextFiledView = {
-        let view = TestTextFiledView(frame: CGRect.zero, placeholderContent: "限制输入10个字符", regex: "^[0-9]*$", maxCharacters: 10, lenghType: .utf16)
-        if #available(iOS 10, *) {
-            view.infoTextField.textContentType = .telephoneNumber
-        }
+        let view = TestTextFiledView(frame: CGRect.zero, placeholderContent: "限制输入20个字符", regex: JKRegexCharacterType.type14.rawValue, maxCharacters: 20, lenghType: .lengthOfBytesUtf8)
+        view.infoTextField.keyboardType = .default
+        // 关闭文本框的自动纠错功能：t
+        view.infoTextField.autocorrectionType = .no
+        // 关闭文本预测功能：（部分场景有效）
+        view.infoTextField.autocapitalizationType = .none
+        // 关闭智能连字符
+        view.infoTextField.smartDashesType = .no
         return view
     }()
     lazy var limitTipLabel2: UILabel = {
@@ -364,6 +368,8 @@ class TestTextFiledView: UIView {
     /// 输入的内容发生变化
     var inputChangeClosure: ((String) -> Void)?
     
+    private var lastReplacementTime: TimeInterval = 0
+    
     init(frame: CGRect, placeholderContent: String = "", regex: String? = nil, maxCharacters: Int = 100, lenghType: StringTypeLength = .count) {
         self.placeholderContent = placeholderContent
         self.regex = regex
@@ -423,19 +429,38 @@ extension TestTextFiledView: UITextFieldDelegate {
     //MARK: 内容发生变化
     /// 内容发生变化
     @objc func textDidChange(textField: UITextField) {
-        guard var str = textField.text else { return }
-        if str.count > 0, let weakRegex = regex, !JKRegexHelper.match(str, pattern: weakRegex) {
-            debugPrint("不能输入：\(str)")
-            textField.text = ""
-            str = ""
-        }
-        debugPrint("内容：\(str)")
+        guard let str = textField.text else { return }
+        debugPrint("内容：\(str) 字节数：\(str.jk.typeLengh(lenghType))")
         inputChangeClosure?(str)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentTime = Date().timeIntervalSince1970
+        let timeSinceLastReplacement = currentTime - lastReplacementTime
         
-        return textField.jk.inputRestrictions(shouldChangeTextIn: range, replacementText: string, maxCharacters: maxCharacters, regex: regex, lenghType: lenghType, isRemovePasteboardNewlineCharacters: true)
+        // 如果有标记文本，则不做处理，直接允许变化
+        if let markedRange = textField.markedTextRange {
+            // 注意：这里我们只是检查是否存在标记文本范围，如果有，我们直接返回true，不进行后续验证
+            return true
+        }
+        
+        if string.count > 0, let weakRegex = regex, !string.jk.isNineKeyBoard() {
+            let result = textField.jk.isInputMoreLimitLength(shouldChangeTextIn: range, replacementText: string, maxCharacters: maxCharacters, regex: regex, lenghType: lenghType)
+            if !result.isConformRegular {
+                debugPrint("不符合规则：内容shouldChangeCharactersIn：\(textField.text ?? "") string：|\(string)| 长度：\(string.count) 是否高亮：\(textField.markedTextRange)range：\(range)")
+            } else {
+                if result.isMoreLimit {
+                    debugPrint("符合规则-超出限制长度：内容shouldChangeCharactersIn：\(textField.text ?? "") string：|\(string)| 长度：\(string.count) 是否高亮：\(textField.markedTextRange) range：\(range)")
+                }
+            }
+        }
+        debugPrint("测试代理次数：内容shouldChangeCharactersIn：\(textField.text ?? "") string：|\(string)| 长度：\(string.count) 是否高亮 markedTextRange：start:\(textField.markedTextRange?.start) end:\(textField.markedTextRange?.end) range：\(range) timeSinceLastReplacement：\(timeSinceLastReplacement)")
+        let isResult = textField.jk.inputRestrictions(shouldChangeTextIn: range, replacementText: string, maxCharacters: maxCharacters, regex: regex, isInterceptString: true, lenghType: lenghType, isRemovePasteboardNewlineCharacters: true)
+        if infoTextField.isPasting {
+            infoTextField.isPasting = false
+        }
+        lastReplacementTime = currentTime
+        return isResult
     }
     
     /// 获得焦点
