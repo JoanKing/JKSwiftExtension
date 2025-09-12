@@ -49,9 +49,9 @@ end
 - 邮箱: jkironman@163.com
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/5611a91f-e083-4c77-8ef8-bdc4a91a13c9" alt="微信交流群" width="220">
 
-## 版本说明 
-  - 2.8.7、版本(2025.09.12)
-    - 扩展优化以及部分bug修复
+## 版本说明
+  - 2.8.8、版本(2025.09.12)
+    - UITextFiled和UITextView 还原2.8.6代码
   - 2.8.6、版本(2025.08.06)
     - UIImage+Extension扩展中对于图片裁剪的cropWithCropRect、cropCenterSize、cropCenterPxSize三个方法进行优化
     - UITableView+Extension扩展中滚动到某个方法中的IndexPath进行边界防护
