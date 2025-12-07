@@ -60,6 +60,8 @@
 		502E74DBC2C18C16370E531553C0F901 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6CC3D4D5DA437E4DABBAAF20767F64 /* UIScreen+Extension.swift */; };
 		5451A94BDC38ABC605FA13434EA43D95 /* CLLocation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2287D829C18B5679A2695578FC99412C /* CLLocation+Extension.swift */; };
 		545D5E6F090D3AFA6B30D7CB52F0A0FA /* JKPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612F1918ABA342D8D846B653BDD78536 /* JKPrint.swift */; };
+		554DE50B2EE5B43000DE5518 /* JKDiamondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554DE50A2EE5B43000DE5518 /* JKDiamondView.swift */; };
+		554DE50F2EE5B4D400DE5518 /* JKImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554DE50E2EE5B4D400DE5518 /* JKImageButton.swift */; };
 		5601EF2F77F1BDBAD9330DF2A8D298AC /* Float+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C209B3EF81EFCB4B3D6CA505AAC93333 /* Float+Extension.swift */; };
 		573697C02CBDE0BF77C62A75C1C4E67F /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF0DA384518D7FA0431CED480918955 /* UITableViewCell+Extension.swift */; };
 		57C4F6EFB30DDD14E960AC2D6B34F904 /* SnapKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A2D29E7DCF71E39255CA4CFD9DC2DC6E /* SnapKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -107,7 +109,7 @@
 		918FB794B0309D052E5510395CDC427F /* JKDarkModeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1691B66BD6F818FC986D6D16B993B1A /* JKDarkModeUtil.swift */; };
 		948842C17B5CFBB34468ACE5823090A4 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B414255EE81AF20CA29A11B5787596C /* UITextView+Extension.swift */; };
 		9701AA797D9A2AA738729D175E7FB5EE /* JKOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7D6842AAE999D1353BE7235B34D23F /* JKOperator.swift */; };
-		9E0045B41BFE697DB4ADE151228024D2 /* SnapKit-SnapKit_Privacy in Resources */ = {isa = PBXBuildFile; fileRef = B9DCB5EC0B1CDADD221717CADDF62359 /* SnapKit-SnapKit_Privacy */; };
+		9E0045B41BFE697DB4ADE151228024D2 /* SnapKit_Privacy.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B9DCB5EC0B1CDADD221717CADDF62359 /* SnapKit_Privacy.bundle */; };
 		A2EC910F8F51607CF4CBC7938FE3A32D /* JKRuntime.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4A9DAC7F782BBB6864AC302F7D9ACE /* JKRuntime.swift */; };
 		A376224B911399DE73C1569BA46C6764 /* JKAsyncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8E5695591E384EEB225AED2779C67 /* JKAsyncs.swift */; };
 		A628BDCEEB763FB61B8E361204B6C7EA /* Range+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E59EBB943E756E3FE92F4EB9DC0C0F /* Range+Extension.swift */; };
@@ -135,7 +137,7 @@
 		C1CDDADB73327E2A74A384DC24C7DC01 /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FE735E0CDC81C830788B830A979F48 /* UIScrollView+Extension.swift */; };
 		C388158DD23116382FB0F53C14B14ABC /* NSIndexPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2385EBDA45FB2F33A2BEBB43F719FA8 /* NSIndexPath+Extension.swift */; };
 		C3C5D9084BFC521A297C4975C29C12EB /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09F4262569197B39C9E5D454214CA1 /* Dictionary+Extension.swift */; };
-		C49EE57EFCB6FC8D7A905FE1AF2FF84D /* JKSwiftExtension-JKSwiftExtension in Resources */ = {isa = PBXBuildFile; fileRef = 22EFCFAE2A2CE6D0338326CFB1F1DF8A /* JKSwiftExtension-JKSwiftExtension */; };
+		C49EE57EFCB6FC8D7A905FE1AF2FF84D /* JKSwiftExtension.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 22EFCFAE2A2CE6D0338326CFB1F1DF8A /* JKSwiftExtension.bundle */; };
 		C4BA437A1E8744D8272486F87DEBBB2A /* JKSwiftExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D405743C279B1D9707E5DA32C27949DB /* JKSwiftExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C54A15A94C5DA9610A5054ED32ABE190 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E1BA88117B8C9CE77966C7202C8EE4 /* Int+Extension.swift */; };
 		C6A4302ACE006C4E2CDD481287E2916B /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29359F9733D1045A34DE64FC936D3266 /* Typealiases.swift */; };
@@ -202,7 +204,7 @@
 
 /* Begin PBXFileReference section */
 		0179D94106A852463EF226412929E30A /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
-		0384A56544F46A59672A18E686CA60CC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		0384A56544F46A59672A18E686CA60CC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		05CD9CE6DFACF93BF86370A9474F9895 /* String+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		06D120B6AFD8D8F79E6D41D230035448 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		07559631FE7F3C9A44AEFE2792C6950E /* Debugging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Debugging.swift; path = Sources/Debugging.swift; sourceTree = "<group>"; };
@@ -227,10 +229,10 @@
 		1D7D6842AAE999D1353BE7235B34D23F /* JKOperator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKOperator.swift; sourceTree = "<group>"; };
 		1FEAD86B1B333E5C3BB2F6BBB774040C /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintViewDSL.swift; path = Sources/ConstraintViewDSL.swift; sourceTree = "<group>"; };
 		2287D829C18B5679A2695578FC99412C /* CLLocation+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CLLocation+Extension.swift"; sourceTree = "<group>"; };
-		22EFCFAE2A2CE6D0338326CFB1F1DF8A /* JKSwiftExtension-JKSwiftExtension */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "JKSwiftExtension-JKSwiftExtension"; path = JKSwiftExtension.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		22EFCFAE2A2CE6D0338326CFB1F1DF8A /* JKSwiftExtension.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JKSwiftExtension.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		25085A31BC073950FCC0FCD7A6EFA24F /* Pods-JKSwiftExtension_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-JKSwiftExtension_Example.modulemap"; sourceTree = "<group>"; };
 		278F7CD4A061A62C1CAB257827417094 /* KeyboardAccessory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KeyboardAccessory.swift; sourceTree = "<group>"; };
-		27979ADBBB66BDAF99688F5CC5731408 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Sources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		27979ADBBB66BDAF99688F5CC5731408 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Sources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		29359F9733D1045A34DE64FC936D3266 /* Typealiases.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Typealiases.swift; path = Sources/Typealiases.swift; sourceTree = "<group>"; };
 		2BD151A8E3393F942D401CFB8EE87D36 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		2E0ACFFCC108574621D81B37BF15FE69 /* ConstraintMakerEditable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerEditable.swift; path = Sources/ConstraintMakerEditable.swift; sourceTree = "<group>"; };
@@ -256,7 +258,7 @@
 		3FD2874209A4DED76A140068400365F9 /* URL+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		3FEE227AE35F6625506B5E0D546A6B05 /* JKSwiftExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JKSwiftExtension-dummy.m"; sourceTree = "<group>"; };
 		42AD7B205C7C52AB2176E47A4BD51342 /* UILabel+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
-		46046CFD32583663E4E8D523C4ECA286 /* JKSwiftExtension.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = JKSwiftExtension.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		46046CFD32583663E4E8D523C4ECA286 /* JKSwiftExtension.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = JKSwiftExtension.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		485D9DA42A198146FA90C07FED6116C3 /* UIFont+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		4BC58A3BBFA67C1FBB85215A2F199A9C /* JKUnitConverter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKUnitConverter.swift; sourceTree = "<group>"; };
 		4D9B21F8B436CF9AF877CB0929DC6E57 /* JKDrawSignatureView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKDrawSignatureView.swift; sourceTree = "<group>"; };
@@ -265,6 +267,8 @@
 		50E59EBB943E756E3FE92F4EB9DC0C0F /* Range+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Range+Extension.swift"; sourceTree = "<group>"; };
 		53275A93ABDD0978E5AB973F93B53FC9 /* JKPaddingLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKPaddingLabel.swift; sourceTree = "<group>"; };
 		5529EA07696AD26363CE7EAEB33CE6E0 /* JKNibLoadable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKNibLoadable.swift; sourceTree = "<group>"; };
+		554DE50A2EE5B43000DE5518 /* JKDiamondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKDiamondView.swift; sourceTree = "<group>"; };
+		554DE50E2EE5B4D400DE5518 /* JKImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKImageButton.swift; sourceTree = "<group>"; };
 		583E4415557122B0AA91DC9912100A67 /* Double+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		59A598465C16CDE7D54CB37FAAE8EEDB /* ConstraintDirectionalInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDirectionalInsets.swift; path = Sources/ConstraintDirectionalInsets.swift; sourceTree = "<group>"; };
 		5A41F32D98050222F444395728F93053 /* UIBezierPath+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Extension.swift"; sourceTree = "<group>"; };
@@ -276,7 +280,7 @@
 		64B94BC18A56788D484421001BD348C7 /* ConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintItem.swift; path = Sources/ConstraintItem.swift; sourceTree = "<group>"; };
 		64C4EE0776D813F8963268A978FDAAD7 /* ResourceBundle-SnapKit_Privacy-SnapKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-SnapKit_Privacy-SnapKit-Info.plist"; sourceTree = "<group>"; };
 		6669BE2557F311533B7DD99EE7377695 /* JKPastedTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKPastedTextField.swift; sourceTree = "<group>"; };
-		68877A42BD63BB778BB23FFC0031B17A /* JKSwiftExtension */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JKSwiftExtension; path = JKSwiftExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		68877A42BD63BB778BB23FFC0031B17A /* JKSwiftExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JKSwiftExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68A9028B0F7AA3D411CAD8132134A701 /* JKSwiftExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JKSwiftExtension.modulemap; sourceTree = "<group>"; };
 		6B0C2D13B4265D8F8CD30D59709247EA /* Optional+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
 		6E5AB2FCD4FBA511482064808409A126 /* JKAlertViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKAlertViewController.swift; sourceTree = "<group>"; };
@@ -306,9 +310,9 @@
 		925A7DACB941115EBD15EBD6EFA7BD5C /* JKCircleProgressView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKCircleProgressView.swift; sourceTree = "<group>"; };
 		94C0A2BEB91F4B17FBCDFCFC98A2A1A0 /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraintItem.swift; path = Sources/LayoutConstraintItem.swift; sourceTree = "<group>"; };
 		970207112EB2DF614313E95EFF55B36F /* JKClosure.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKClosure.swift; sourceTree = "<group>"; };
-		979486118B3E90C08386079D57962701 /* SnapKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SnapKit; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		979486118B3E90C08386079D57962701 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A6CC3D4D5DA437E4DABBAAF20767F64 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DB5F3ADE8CF9D1D1F563F5A875514B9 /* Pods-JKSwiftExtension_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JKSwiftExtension_Example-dummy.m"; sourceTree = "<group>"; };
 		9DC24334CAF6B2C1F67592D5E2371819 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		9F33A3C786B2BE4A88ACF335EC3312B8 /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
@@ -331,7 +335,7 @@
 		B6F2C381CD13CCBF168BFE733B21214B /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		B74EA937D09C214564D2352931DB49E4 /* JKRegexHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKRegexHelper.swift; sourceTree = "<group>"; };
 		B95A1FF6ADEBC41AB45D9A36651EE359 /* UINavigationBar+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Extension.swift"; sourceTree = "<group>"; };
-		B9DCB5EC0B1CDADD221717CADDF62359 /* SnapKit-SnapKit_Privacy */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "SnapKit-SnapKit_Privacy"; path = SnapKit_Privacy.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9DCB5EC0B1CDADD221717CADDF62359 /* SnapKit_Privacy.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapKit_Privacy.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAA017302691005B1110DCDC867AAF6F /* JKCustomPickView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKCustomPickView.swift; sourceTree = "<group>"; };
 		BCE860CC123108C310F139114E0B2E6B /* ConstraintLayoutGuideDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuideDSL.swift; path = Sources/ConstraintLayoutGuideDSL.swift; sourceTree = "<group>"; };
 		BF4A9DAC7F782BBB6864AC302F7D9ACE /* JKRuntime.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKRuntime.swift; sourceTree = "<group>"; };
@@ -354,7 +358,7 @@
 		DA1C5C0FF693FB5C1418A40B0147BB30 /* JKSwiftExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JKSwiftExtension.debug.xcconfig; sourceTree = "<group>"; };
 		DE63822BEC8D04268A6B667741C17C19 /* ConstraintPriorityTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriorityTarget.swift; path = Sources/ConstraintPriorityTarget.swift; sourceTree = "<group>"; };
 		DEDA216321F837248956724D738FD49F /* UIImage+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
-		DF87B20A14E3CF6B366CC8266B1703D4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		DF87B20A14E3CF6B366CC8266B1703D4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		DFD4C8793EE72856576B6C88886EDB63 /* AVAssetExportSession+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "AVAssetExportSession+Extension.swift"; sourceTree = "<group>"; };
 		E14936BA45DFA1EEC3C7048AAEBE72A0 /* JKJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKJSON.swift; sourceTree = "<group>"; };
 		E1ECBE77BDB7DDAED96451B71C85B332 /* JKPanView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKPanView.swift; sourceTree = "<group>"; };
@@ -370,7 +374,7 @@
 		ED33CCCA7A7AD3D2FC51F33BA49A695A /* SnapKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SnapKit-Info.plist"; sourceTree = "<group>"; };
 		EE44F4D4E5E4E78998E7CF0E7DB4AA59 /* JKDecodeString.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKDecodeString.swift; sourceTree = "<group>"; };
 		F015264D2EFE4F1E8BDDF418DE3EB571 /* Pods-JKSwiftExtension_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JKSwiftExtension_Example-Info.plist"; sourceTree = "<group>"; };
-		F0711B247CB2E3C02E5EB73F0A177687 /* Pods-JKSwiftExtension_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-JKSwiftExtension_Example"; path = Pods_JKSwiftExtension_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0711B247CB2E3C02E5EB73F0A177687 /* Pods_JKSwiftExtension_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSwiftExtension_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F07E85DE4328B125D39B9C678E31002F /* UIColor+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		F1C58E0CD7BAF13AB8D71BA8E1F11D9B /* JKSwiftExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JKSwiftExtension.release.xcconfig; sourceTree = "<group>"; };
 		F26D916C7F6166A053199B72C0982C50 /* QRCodeImageFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = QRCodeImageFactory.swift; sourceTree = "<group>"; };
@@ -459,6 +463,8 @@
 		4CC652FF459635407571AAB5FD359DA0 /* SmallTools */ = {
 			isa = PBXGroup;
 			children = (
+				554DE50A2EE5B43000DE5518 /* JKDiamondView.swift */,
+				554DE50E2EE5B4D400DE5518 /* JKImageButton.swift */,
 				6E5AB2FCD4FBA511482064808409A126 /* JKAlertViewController.swift */,
 				8BA8E5695591E384EEB225AED2779C67 /* JKAsyncs.swift */,
 				925A7DACB941115EBD15EBD6EFA7BD5C /* JKCircleProgressView.swift */,
@@ -516,7 +522,6 @@
 			children = (
 				FEB6A7422CBE4B723D5050B7C6779F18 /* JKPOP+String.swift */,
 			);
-			name = JKPOPExtension;
 			path = JKPOPExtension;
 			sourceTree = "<group>";
 		};
@@ -559,11 +564,11 @@
 		D069A6B9DC606EEE809C431CB43964E5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				68877A42BD63BB778BB23FFC0031B17A /* JKSwiftExtension */,
-				22EFCFAE2A2CE6D0338326CFB1F1DF8A /* JKSwiftExtension-JKSwiftExtension */,
-				F0711B247CB2E3C02E5EB73F0A177687 /* Pods-JKSwiftExtension_Example */,
-				979486118B3E90C08386079D57962701 /* SnapKit */,
-				B9DCB5EC0B1CDADD221717CADDF62359 /* SnapKit-SnapKit_Privacy */,
+				68877A42BD63BB778BB23FFC0031B17A /* JKSwiftExtension.framework */,
+				22EFCFAE2A2CE6D0338326CFB1F1DF8A /* JKSwiftExtension.bundle */,
+				F0711B247CB2E3C02E5EB73F0A177687 /* Pods_JKSwiftExtension_Example.framework */,
+				979486118B3E90C08386079D57962701 /* SnapKit.framework */,
+				B9DCB5EC0B1CDADD221717CADDF62359 /* SnapKit_Privacy.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -673,7 +678,6 @@
 				DFDEAD75D8D695E4C0DA1FE179C1E0C1 /* Resources */,
 				B10265F198A6F0FD9D0A73E469678726 /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -819,7 +823,7 @@
 			);
 			name = SnapKit;
 			productName = SnapKit;
-			productReference = 979486118B3E90C08386079D57962701 /* SnapKit */;
+			productReference = 979486118B3E90C08386079D57962701 /* SnapKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		1CF1B45877DE7D3486CE9D83A320C705 /* JKSwiftExtension */ = {
@@ -838,7 +842,7 @@
 			);
 			name = JKSwiftExtension;
 			productName = JKSwiftExtension;
-			productReference = 68877A42BD63BB778BB23FFC0031B17A /* JKSwiftExtension */;
+			productReference = 68877A42BD63BB778BB23FFC0031B17A /* JKSwiftExtension.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		84A519CC55B6E9222CED7D3D268F64D4 /* JKSwiftExtension-JKSwiftExtension */ = {
@@ -855,7 +859,7 @@
 			);
 			name = "JKSwiftExtension-JKSwiftExtension";
 			productName = JKSwiftExtension;
-			productReference = 22EFCFAE2A2CE6D0338326CFB1F1DF8A /* JKSwiftExtension-JKSwiftExtension */;
+			productReference = 22EFCFAE2A2CE6D0338326CFB1F1DF8A /* JKSwiftExtension.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		8A8DB685241263AFDF5E6B20FE67B93A /* SnapKit-SnapKit_Privacy */ = {
@@ -872,7 +876,7 @@
 			);
 			name = "SnapKit-SnapKit_Privacy";
 			productName = SnapKit_Privacy;
-			productReference = B9DCB5EC0B1CDADD221717CADDF62359 /* SnapKit-SnapKit_Privacy */;
+			productReference = B9DCB5EC0B1CDADD221717CADDF62359 /* SnapKit_Privacy.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		C2D832E559B369872C37F9E5AE235A46 /* Pods-JKSwiftExtension_Example */ = {
@@ -892,7 +896,7 @@
 			);
 			name = "Pods-JKSwiftExtension_Example";
 			productName = Pods_JKSwiftExtension_Example;
-			productReference = F0711B247CB2E3C02E5EB73F0A177687 /* Pods-JKSwiftExtension_Example */;
+			productReference = F0711B247CB2E3C02E5EB73F0A177687 /* Pods_JKSwiftExtension_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -913,8 +917,6 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			minimizedProjectReferenceProxies = 0;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = D069A6B9DC606EEE809C431CB43964E5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -941,7 +943,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E0045B41BFE697DB4ADE151228024D2 /* SnapKit-SnapKit_Privacy in Resources */,
+				9E0045B41BFE697DB4ADE151228024D2 /* SnapKit_Privacy.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -956,7 +958,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C49EE57EFCB6FC8D7A905FE1AF2FF84D /* JKSwiftExtension-JKSwiftExtension in Resources */,
+				C49EE57EFCB6FC8D7A905FE1AF2FF84D /* JKSwiftExtension.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -985,6 +987,7 @@
 				A9EF8C7AB38568DAE0A181E0057A477F /* CGFloat+Extension.swift in Sources */,
 				81674A7040986ACFE9B503A9D744A81E /* CGPoint+Extension.swift in Sources */,
 				633E7C8E8C30E317B7540E6770F9F06D /* CGRect+Extension.swift in Sources */,
+				554DE50B2EE5B43000DE5518 /* JKDiamondView.swift in Sources */,
 				B7407DDB06D57FC3E2001AA82E892E75 /* CGSize+Extension.swift in Sources */,
 				41651EFE69C8C6A2787A66E9B126F882 /* Character+Extension.swift in Sources */,
 				5451A94BDC38ABC605FA13434EA43D95 /* CLLocation+Extension.swift in Sources */,
@@ -1053,6 +1056,7 @@
 				43131609D173CC8D5259F5E16FC28162 /* UIAlertController+Extension.swift in Sources */,
 				293DCBA997FD237308B4A5C48C3E3669 /* UIApplication+Extension.swift in Sources */,
 				1CD056794A55661D1EB49B6B1EFC209F /* UIBarButtonItem+Extension.swift in Sources */,
+				554DE50F2EE5B4D400DE5518 /* JKImageButton.swift in Sources */,
 				B0A8915414E3653273FF488D530C189E /* UIBezierPath+Extension.swift in Sources */,
 				497E1308C246136B3EB4FA3BCFC13B19 /* UIButton+Extension.swift in Sources */,
 				C6B93F150C240899ADD66ED7BD1EEE19 /* UICollectionView+Extension.swift in Sources */,

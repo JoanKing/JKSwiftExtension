@@ -11,6 +11,8 @@
 		5520D4C32D815BAB00B06885 /* BaseHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5520D4C22D815BAB00B06885 /* BaseHeaderView.swift */; };
 		5537F3872B0B4D5500F6BEEC /* JKFileLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5537F3862B0B4D5500F6BEEC /* JKFileLogViewController.swift */; };
 		553FF3782B0EEB3500589AEF /* MapKitTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FF3772B0EEB3500589AEF /* MapKitTestViewController.swift */; };
+		554DE50D2EE5B44E00DE5518 /* JKDiamondViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554DE50C2EE5B44E00DE5518 /* JKDiamondViewViewController.swift */; };
+		554DE5112EE5B53A00DE5518 /* JKImageButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554DE5102EE5B53A00DE5518 /* JKImageButtonViewController.swift */; };
 		555C223B2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C223A2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift */; };
 		556208072D9511D2006C920B /* LanePicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556208062D9511D2006C920B /* LanePicViewController.swift */; };
 		556208092D95121E006C920B /* LaneBackInfoAndTurnIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556208082D95121E006C920B /* LaneBackInfoAndTurnIconView.swift */; };
@@ -222,6 +224,8 @@
 		5520D4C22D815BAB00B06885 /* BaseHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHeaderView.swift; sourceTree = "<group>"; };
 		5537F3862B0B4D5500F6BEEC /* JKFileLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKFileLogViewController.swift; sourceTree = "<group>"; };
 		553FF3772B0EEB3500589AEF /* MapKitTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitTestViewController.swift; sourceTree = "<group>"; };
+		554DE50C2EE5B44E00DE5518 /* JKDiamondViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKDiamondViewViewController.swift; sourceTree = "<group>"; };
+		554DE5102EE5B53A00DE5518 /* JKImageButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKImageButtonViewController.swift; sourceTree = "<group>"; };
 		555C223A2ADE1E1F004E30C7 /* UITabbarExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabbarExtensionViewController.swift; sourceTree = "<group>"; };
 		556208062D9511D2006C920B /* LanePicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanePicViewController.swift; sourceTree = "<group>"; };
 		556208082D95121E006C920B /* LaneBackInfoAndTurnIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaneBackInfoAndTurnIconView.swift; sourceTree = "<group>"; };
@@ -857,6 +861,8 @@
 			isa = PBXGroup;
 			children = (
 				84BF16CB251DA012002ACE76 /* SmallToolsViewController.swift */,
+				554DE50C2EE5B44E00DE5518 /* JKDiamondViewViewController.swift */,
+				554DE5102EE5B53A00DE5518 /* JKImageButtonViewController.swift */,
 				55DDC56E2BA92D1900B7429E /* JKScreenShieldViewViewController.swift */,
 				E24692AC2A1F062700C8B2C8 /* JKAlertViewControllerViewController.swift */,
 				55BD8A072B22FF7E001AD567 /* JKOperatorViewController.swift */,
@@ -1111,9 +1117,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-JKSwiftExtension_Example/Pods-JKSwiftExtension_Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-JKSwiftExtension_Example/Pods-JKSwiftExtension_Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1162,6 +1172,7 @@
 				8483C4C0255E799B0034A2F7 /* UIStackViewExtensionViewController.swift in Sources */,
 				8483A6CA254BC02B00ACF6FD /* BundleExtensionViewController.swift in Sources */,
 				E2BBEDE129B1EF52005FB04B /* JKWheelPickerCell.swift in Sources */,
+				554DE50D2EE5B44E00DE5518 /* JKDiamondViewViewController.swift in Sources */,
 				E2F4323E2957F8C900ED97F2 /* DeleteViewController.swift in Sources */,
 				8483A735254C119700ACF6FD /* BaseViewController.swift in Sources */,
 				84802818255957560038748A /* UIApplicationExtensionViewController.swift in Sources */,
@@ -1263,6 +1274,7 @@
 				E24692AD2A1F062700C8B2C8 /* JKAlertViewControllerViewController.swift in Sources */,
 				847DFF262550F07600EEE785 /* Int64ExtensionViewController.swift in Sources */,
 				84A6FB73255A40E400057839 /* UIBarButtonItemExtensionViewController.swift in Sources */,
+				554DE5112EE5B53A00DE5518 /* JKImageButtonViewController.swift in Sources */,
 				8480280A2558E7940038748A /* UIScreenExtensionViewController.swift in Sources */,
 				84BEA373254FAC6600CA8A75 /* UIFontExtensionViewController.swift in Sources */,
 				84D7396F26B16E4A00A5538B /* DarkModeHeadView.swift in Sources */,
