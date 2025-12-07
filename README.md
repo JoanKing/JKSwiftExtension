@@ -50,6 +50,9 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/5611a91f-e083-4c77-8ef8-bdc4a91a13c9" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.8.9、版本(2025.12.07)
+    - JKImageButton: 图片和文字的布局
+    - JKDiamondView菱形视图组件
   - 2.8.8、版本(2025.09.12)
     - UITextFiled和UITextView 还原2.8.6代码
   - 2.8.6、版本(2025.08.06)
