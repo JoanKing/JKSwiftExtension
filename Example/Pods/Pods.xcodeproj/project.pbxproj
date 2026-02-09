@@ -60,6 +60,7 @@
 		502E74DBC2C18C16370E531553C0F901 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6CC3D4D5DA437E4DABBAAF20767F64 /* UIScreen+Extension.swift */; };
 		5451A94BDC38ABC605FA13434EA43D95 /* CLLocation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2287D829C18B5679A2695578FC99412C /* CLLocation+Extension.swift */; };
 		545D5E6F090D3AFA6B30D7CB52F0A0FA /* JKPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612F1918ABA342D8D846B653BDD78536 /* JKPrint.swift */; };
+		55339AA32EE6CC92008F7DC6 /* JKTransparentHitTestImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55339AA22EE6CC92008F7DC6 /* JKTransparentHitTestImageView.swift */; };
 		554DE50B2EE5B43000DE5518 /* JKDiamondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554DE50A2EE5B43000DE5518 /* JKDiamondView.swift */; };
 		554DE50F2EE5B4D400DE5518 /* JKImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554DE50E2EE5B4D400DE5518 /* JKImageButton.swift */; };
 		5601EF2F77F1BDBAD9330DF2A8D298AC /* Float+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C209B3EF81EFCB4B3D6CA505AAC93333 /* Float+Extension.swift */; };
@@ -267,6 +268,7 @@
 		50E59EBB943E756E3FE92F4EB9DC0C0F /* Range+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Range+Extension.swift"; sourceTree = "<group>"; };
 		53275A93ABDD0978E5AB973F93B53FC9 /* JKPaddingLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKPaddingLabel.swift; sourceTree = "<group>"; };
 		5529EA07696AD26363CE7EAEB33CE6E0 /* JKNibLoadable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JKNibLoadable.swift; sourceTree = "<group>"; };
+		55339AA22EE6CC92008F7DC6 /* JKTransparentHitTestImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKTransparentHitTestImageView.swift; sourceTree = "<group>"; };
 		554DE50A2EE5B43000DE5518 /* JKDiamondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKDiamondView.swift; sourceTree = "<group>"; };
 		554DE50E2EE5B4D400DE5518 /* JKImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKImageButton.swift; sourceTree = "<group>"; };
 		583E4415557122B0AA91DC9912100A67 /* Double+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 				CB8D0AE6B412A7B87FFBB07B4F368573 /* JKWeakTimer.swift */,
 				278F7CD4A061A62C1CAB257827417094 /* KeyboardAccessory.swift */,
 				F26D916C7F6166A053199B72C0982C50 /* QRCodeImageFactory.swift */,
+				55339AA22EE6CC92008F7DC6 /* JKTransparentHitTestImageView.swift */,
 			);
 			name = SmallTools;
 			path = Sources/Classes/SmallTools;
@@ -1087,6 +1090,7 @@
 				0D0477F7887A5360F0F6F74177030336 /* UIView+Extension.swift in Sources */,
 				FAD8FB8F8B9FCB80DB08F6A0CEE55046 /* UIViewController+Extension.swift in Sources */,
 				7687DB0E28A54F9DD3BAB61351E4A480 /* UIVisualEffectView+Extension.swift in Sources */,
+				55339AA32EE6CC92008F7DC6 /* JKTransparentHitTestImageView.swift in Sources */,
 				E52D75937125E0BFD3D29529416CEAC3 /* URL+Extension.swift in Sources */,
 				19BB4837480EBEC69E758A428143A2A2 /* UserDefaults+Extesnion.swift in Sources */,
 				026ED68577C39005D8D11CF6010FD655 /* WKWebView+Extension.swift in Sources */,

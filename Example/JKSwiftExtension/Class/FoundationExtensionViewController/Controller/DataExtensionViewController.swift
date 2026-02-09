@@ -13,8 +13,25 @@ class DataExtensionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        headDataArray = ["一、基本的扩展"]
-        dataArray = [["base64编码成 Data", "base64解码成 Data", "转成bytes", "Data转16进制的字符串"]]
+        headDataArray = ["一、基本的扩展", "二、给 Data 添加用于在末尾追加 0x00 字节的扩展"]
+        dataArray = [["base64编码成 Data", "base64解码成 Data", "转成bytes", "Data转16进制的字符串"], [ "返回一个新的 Data，该数据为当前 Data 在末尾追加了 count 个 0x00 字节的副本。"]]
+    }
+}
+
+// MARK: 二、给 Data 添加用于在末尾追加 0x00 字节的扩展
+extension DataExtensionViewController {
+    
+    // MARK: 2.1、返回一个新的 Data，该数据为当前 Data 在末尾追加了 count 个 0x00 字节的副本。
+    @objc func test201() {
+        
+        let original = Data([0x0a, 0x0b])
+        let padded = original.jk.paddedWithZeroBytes(7)
+        // 打印十进制字节数组
+        debugPrint("bytes:", Array(padded))
+        // 打印连续十六进制字符串
+        debugPrint("hex:", padded.map { String(format: "%02x", $0) }.joined())
+        // 打印带空格的十六进制（可读性更好）
+        debugPrint("hex spaced:", padded.map { String(format: "%02x", $0) }.joined(separator: " "))
     }
 }
 

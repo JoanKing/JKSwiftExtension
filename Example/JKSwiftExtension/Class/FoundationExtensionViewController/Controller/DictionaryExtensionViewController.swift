@@ -32,8 +32,8 @@ extension DictionaryExtensionViewController {
             "snx": "哈哈",
             "deviceType": 1,
             "appid": 3.14,
-            "Sn": ["测试", "列表"],
-            "DeviceType": "0"
+            "DeviceType": "0",
+            "Sn": ["测试", "列表"]
         ]
         
         // 调用排序方法并打印结果

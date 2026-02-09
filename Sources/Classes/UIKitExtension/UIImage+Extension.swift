@@ -659,20 +659,48 @@ public extension JKPOP where Base: UIImage {
         return scaledImage
     }
     
-    // MARK: 3.4、图片中间 1*1 拉伸——如气泡一般
-    /// 图片中间1*1拉伸——如气泡一般
+    // MARK: 3.4、图片中间 1x1 拉伸, 如气泡一般
+    /// 图片中间 1x1 拉伸, 如气泡一般
     /// - Returns: 拉伸后的图片
-    func strechAsBubble() -> UIImage {
+    func strechAsBubble(resizingMode: UIImage.ResizingMode = .stretch) -> UIImage {
         let top = self.base.size.height * 0.5
         let left = self.base.size.width * 0.5
         let bottom = self.base.size.height * 0.5
         let right = self.base.size.width * 0.5
         let edgeInsets = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
         // 拉伸
-        return self.base.resizableImage(withCapInsets: edgeInsets, resizingMode: .stretch)
+        return self.base.resizableImage(withCapInsets: edgeInsets, resizingMode: resizingMode)
     }
     
-    // MARK: 3.5、图片设置拉伸
+    // MARK: 3.5、生成"安全区不变形、中间区域拉伸"的图片
+    /// 生成"安全区不变形、中间区域拉伸"的图片
+    /// - Parameters:
+    ///   - capInsets: 安全区边缘（不会被拉伸的区域）
+    ///   - resizingMode: 中间区域的调整模式（默认：拉伸）
+    /// - Returns: 处理后的可拉伸图片
+    func stretchedWithSafeArea(
+        capInsets: UIEdgeInsets,
+        resizingMode: UIImage.ResizingMode = .stretch
+    ) -> UIImage {
+        /*
+         提示：在使用图片作为背景图片的时候，如果要跟随父视图变化。如果加油其他的视图也是跟随俯视图变化，可以设置UIImageView的抗压缩和内容拉拉伸的优先级为低,
+         这样图片的优先级会变低，跟随俯视图变化，不会占据主导地位
+         比如：
+         // 内容拥抱(视图 “抱紧” 自己内容、抗拒被拉伸的程度)优先级，举例：你不想被人拉胳膊，优先级越高，越抗拒被拉长
+         imageView.setContentHuggingPriority(.defaultLow, for: .vertical)
+         imageView.setContentHuggingPriority(.defaultLow, for: .horizontal)
+         // 内容压缩抵抗优先级(视图 “保护” 自己内容、抗拒被压缩的程度)，举例：你不想被人挤扁，优先级越高，越抗拒被压短/窄
+         imageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+         imageView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+         */
+        // 调用系统方法处理图片
+        return self.base.resizableImage(
+            withCapInsets: capInsets,
+            resizingMode: resizingMode
+        )
+    }
+    
+    // MARK: 3.6、图片设置拉伸
     /// 图片设置拉伸
     /// - Parameters:
     ///   - edgeInsets: 拉伸区域
@@ -683,7 +711,7 @@ public extension JKPOP where Base: UIImage {
         return self.base.resizableImage(withCapInsets: edgeInsets, resizingMode: resizingMode)
     }
     
-    // MARK: 3.6、调整图像方向 避免图像有旋转
+    // MARK: 3.7、调整图像方向 避免图像有旋转
     /// 调整图像方向 避免图像有旋转
     /// - Returns: 返正常的图片
     func fixOrientation() -> UIImage {

@@ -45,3 +45,19 @@ public extension JKPOP where Base == Data {
         return hexString
     }
 }
+
+// MARK: 二、给 Data 添加用于在末尾追加 0x00 字节的扩展
+public extension JKPOP where Base == Data {
+    
+    // MARK: 2.1、返回一个新的 Data，该数据为当前 Data 在末尾追加了 count 个 0x00 字节的副本。
+    /// 返回一个新的 Data，该数据为当前 Data 在末尾追加了 count 个 0x00 字节的副本。
+    /// - Parameter count: 要追加的 0 字节数量。若 count <= 0 则返回原数据（不变）。
+    /// - Returns: 追加了零字节后的新 Data。
+    func paddedWithZeroBytes(_ count: Int) -> Data {
+        guard  self.base.count > 0 else { return self.base }
+        var result = self.base
+        result.append(Data(repeating: 0, count: count))
+        return result
+    }
+}
+

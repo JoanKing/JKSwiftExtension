@@ -12,8 +12,23 @@ class JKImageButtonViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupImageButtons1()
+    }
+    
+    private func setupImageButtons1() {
+        view.backgroundColor = .systemBackground
         
-        setupImageButtons()
+        // 图片在左侧的按钮
+        let leftButton = JKImageButton(position: .left, spacing: 8)
+        leftButton.frame = CGRect(x: 50, y: 200, width: jk_kScreenW - 100, height: 50)
+        leftButton.setTitle("左侧图标", for: .normal)
+        leftButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        leftButton.setTitleColor(.systemBlue, for: .normal)
+        leftButton.tintColor = .systemRed
+        leftButton.backgroundColor = .systemGray6
+        leftButton.layer.cornerRadius = 8
+        // leftButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(leftButton)
     }
     
     private func setupImageButtons() {
@@ -63,6 +78,17 @@ class JKImageButtonViewController: UIViewController {
         bottomButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bottomButton)
         
+        // 图片在下方的按钮
+        let bottomButton5 = JKImageButton()
+        bottomButton5.setImage(UIImage(named: "close"), for: .normal)
+        bottomButton5.setTitleColor(.systemBlue, for: .normal)
+        bottomButton5.tintColor = .systemPurple
+        bottomButton5.backgroundColor = .brown
+        bottomButton5.layer.cornerRadius = 8
+        bottomButton5.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bottomButton5)
+        
+        
         // 添加点击事件
         leftButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
         topButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
@@ -95,6 +121,12 @@ class JKImageButtonViewController: UIViewController {
             bottomButton.widthAnchor.constraint(equalToConstant: 120),
             bottomButton.heightAnchor.constraint(equalToConstant: 80)
         ])
+        
+        bottomButton5.snp.makeConstraints { make in
+            make.top.equalTo(bottomButton.snp.bottom).offset(100)
+            make.width.height.equalTo(100)
+            make.centerX.equalToSuperview()
+        }
     }
     
     @objc private func buttonTapped(_ sender: JKImageButton) {

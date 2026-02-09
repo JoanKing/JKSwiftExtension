@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		551E7E9D2BDB584500C1E7EF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 551E7E972BDB56A100C1E7EF /* Localizable.strings */; };
 		5520D4C32D815BAB00B06885 /* BaseHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5520D4C22D815BAB00B06885 /* BaseHeaderView.swift */; };
+		55339A9F2EE6C04A008F7DC6 /* JKTransparentHitTestImageViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55339A9E2EE6C04A008F7DC6 /* JKTransparentHitTestImageViewViewController.swift */; };
 		5537F3872B0B4D5500F6BEEC /* JKFileLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5537F3862B0B4D5500F6BEEC /* JKFileLogViewController.swift */; };
 		553FF3782B0EEB3500589AEF /* MapKitTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FF3772B0EEB3500589AEF /* MapKitTestViewController.swift */; };
 		554DE50D2EE5B44E00DE5518 /* JKDiamondViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554DE50C2EE5B44E00DE5518 /* JKDiamondViewViewController.swift */; };
@@ -222,6 +223,7 @@
 		551E7E9B2BDB56F900C1E7EF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		551E7E9C2BDB56FA00C1E7EF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5520D4C22D815BAB00B06885 /* BaseHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHeaderView.swift; sourceTree = "<group>"; };
+		55339A9E2EE6C04A008F7DC6 /* JKTransparentHitTestImageViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKTransparentHitTestImageViewViewController.swift; sourceTree = "<group>"; };
 		5537F3862B0B4D5500F6BEEC /* JKFileLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKFileLogViewController.swift; sourceTree = "<group>"; };
 		553FF3772B0EEB3500589AEF /* MapKitTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitTestViewController.swift; sourceTree = "<group>"; };
 		554DE50C2EE5B44E00DE5518 /* JKDiamondViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKDiamondViewViewController.swift; sourceTree = "<group>"; };
@@ -861,6 +863,7 @@
 			isa = PBXGroup;
 			children = (
 				84BF16CB251DA012002ACE76 /* SmallToolsViewController.swift */,
+				55339A9E2EE6C04A008F7DC6 /* JKTransparentHitTestImageViewViewController.swift */,
 				554DE50C2EE5B44E00DE5518 /* JKDiamondViewViewController.swift */,
 				554DE5102EE5B53A00DE5518 /* JKImageButtonViewController.swift */,
 				55DDC56E2BA92D1900B7429E /* JKScreenShieldViewViewController.swift */,
@@ -1173,6 +1176,7 @@
 				8483A6CA254BC02B00ACF6FD /* BundleExtensionViewController.swift in Sources */,
 				E2BBEDE129B1EF52005FB04B /* JKWheelPickerCell.swift in Sources */,
 				554DE50D2EE5B44E00DE5518 /* JKDiamondViewViewController.swift in Sources */,
+				55339A9F2EE6C04A008F7DC6 /* JKTransparentHitTestImageViewViewController.swift in Sources */,
 				E2F4323E2957F8C900ED97F2 /* DeleteViewController.swift in Sources */,
 				8483A735254C119700ACF6FD /* BaseViewController.swift in Sources */,
 				84802818255957560038748A /* UIApplicationExtensionViewController.swift in Sources */,

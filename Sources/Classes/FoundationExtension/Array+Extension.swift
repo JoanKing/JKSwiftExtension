@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+
 // MARK: - 一、数组 的基本扩展
 public extension Array {
     
@@ -25,19 +26,32 @@ public extension Array {
         self.append(contentsOf: elements)
     }
     
-    // MARK: 1.3、数组 -> JSON字符串
-    /// 字典转换为JSONString
-    func toJSON() -> String? {
-        let array = self
-        guard JSONSerialization.isValidJSONObject(array) else {
-            JKPrint("无法解析出JSONString")
-            return ""
+    // MARK: 1.3、数组转换为 JSON 字符串
+    /// 数组转换为 JSON 字符串
+    /// - Parameter options: JSON 序列化选项（默认空，可传 .prettyPrinted 格式化输出）
+    /// - Returns: 转换后的 JSON 字符串，失败则返回 nil
+    func toJSON(options: JSONSerialization.WritingOptions = []) -> String? {
+        // 1、检查是否可以序列化
+        /**
+         1.1、isValidJSONObject 的核心：校验数据是否能被序列化成标准 JSON，仅支持 JSON 规范的基础类型（字符串 / 数字 / 布尔 / 数组 / 字典 / NSNull）。
+         1.2、合法数据的关键规则：字典 Key 必须是 String，集合元素不能是自定义对象 / Date/UIImage 等非基础类型，不能直接存 nil（用 NSNull 替代）。
+         1.3、不合法数据的处理：需手动将自定义对象 / 特殊类型（如 Date）转换成 String/Number 等基础类型，再参与序列化。
+         */
+        guard JSONSerialization.isValidJSONObject(self) else {
+            debugPrint("Array: 无法解析出 JSONString，格式不合规")
+            return nil
         }
-        let data : NSData = try! JSONSerialization.data(withJSONObject: array, options: []) as NSData
-        let JSONString = NSString(data:data as Data,encoding: String.Encoding.utf8.rawValue)
-        return JSONString! as String
+        // 2、尝试转换（使用外部传入的 options 参数）
+        do {
+            let data = try JSONSerialization.data(withJSONObject: self, options: options)
+            // 3、直接将 Data 转为 String
+            return String(data: data, encoding: .utf8)
+        } catch {
+            debugPrint("Array: JSON 序列化失败 - \(error.localizedDescription)")
+            return nil
+        }
     }
-    
+
     // MARK: 1.4、分隔数组
     /// 分隔数组
     /// - Parameter condition: condition description
@@ -223,5 +237,26 @@ public extension Array where Self.Element == String {
     /// - Returns: 转化后的字符串
     func toString(separator: String = "") -> String {
         return self.joined(separator: separator)
+    }
+}
+
+public extension Array where Element: Encodable {
+    
+    /// 将包含 Codable 对象的数组转换为 JSON 字符串
+    func toJSONString(prettyPrint: Bool = false) -> String? {
+        let encoder = JSONEncoder()
+        
+        // 如果需要格式化输出（换行和缩进）
+        if prettyPrint {
+            encoder.outputFormatting = .prettyPrinted
+        }
+        
+        do {
+            let data = try encoder.encode(self)
+            return String(data: data, encoding: .utf8)
+        } catch {
+            debugPrint("数组转 JSON 失败: \(error)")
+            return nil
+        }
     }
 }

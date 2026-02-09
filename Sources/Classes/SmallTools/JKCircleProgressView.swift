@@ -8,12 +8,13 @@ import UIKit
 
 public class JKCircleProgressView: UIView {
     // MARK: - Properties
+    /// 进度条宽度
     public var lineWidth: CGFloat = 10 {
         didSet {
             updatePath()
         }
     }
-
+    /// 进度槽颜色
     public var trackColor = UIColor(red: 245 / 255.0, green: 245 / 255.0, blue: 245 / 255.0, alpha: 1) {
         didSet {
             trackLayer.strokeColor = trackColor.cgColor
@@ -25,7 +26,7 @@ public class JKCircleProgressView: UIView {
             progressLayer.strokeColor = progressColor.cgColor
         }
     }
-
+    /// 进度条颜色
     public var progress: Int {
         get { return currentProgress }
         set { setProgress(newValue, animated: false) }
@@ -35,6 +36,7 @@ public class JKCircleProgressView: UIView {
 
     // MARK: - Layers
     private let trackLayer = CAShapeLayer()
+    /// 进度条
     private let progressLayer = CAShapeLayer()
 
     // MARK: - Initialization
@@ -73,6 +75,7 @@ public class JKCircleProgressView: UIView {
     private func updatePath() {
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
         let radius = min(bounds.size.width, bounds.size.height) / 2 - lineWidth / 2
+        // 进度条路径（整个圆圈）
         let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: angleToRadian(-90), endAngle: angleToRadian(270), clockwise: true)
 
         trackLayer.path = path.cgPath
@@ -99,7 +102,7 @@ public class JKCircleProgressView: UIView {
         updatePath()
     }
 
-    // MARK: - Helper
+    /// 将角度转为弧度
     private func angleToRadian(_ angle: Double) -> CGFloat {
         return CGFloat(angle / 180.0 * Double.pi)
     }

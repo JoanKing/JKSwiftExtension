@@ -159,20 +159,13 @@ public extension JKPOP where Base == Dictionary<String, Any> {
     }
     
     /// 2.2、对字典进行排序，排序规则是key的字母大小
-    func sortDictionary() -> [(key: String, value: Any)] {
-        // 定义比较闭包
-        let compareKeys: (String, String) -> Bool = { key1, key2 in
-            // 如果两个键相等，则直接返回 false，避免重复项
-            if key1 == key2 {
-                return false
-            }
-            
-            // 直接比较整个字符串，使用字典顺序进行比较，并保持大小写敏感性
-            return key1.compare(key2, options: []) == .orderedAscending
+    func sortDictionary() -> [String: Any] {
+        guard let data = try? JSONSerialization.data(withJSONObject: self.base, options: .sortedKeys) else { return self.base }
+        guard let jsonString = String(data: data, encoding: .utf8) else { return self.base }
+        guard let dictionary = jsonString.jk.jsonStringToDictionary() else {
+            return self.base
         }
-        
-        // 使用自定义比较函数对字典进行排序，并返回排序后的键值对数组
-        return self.base.sorted(by: { compareKeys($0.key, $1.key) })
+        return dictionary
     }
 }
 
