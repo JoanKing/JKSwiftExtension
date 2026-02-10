@@ -14,7 +14,7 @@ class UIApplicationExtensionViewController: BaseViewController {
         super.viewDidLoad()
         
         headDataArray = ["一、基本的扩展", "二、打开系统应用和第三方APP"]
-        dataArray = [["获取当前的keyWindow", "获取屏幕的方向", "获取根控制器", "设备信息的获取", "app定位区域", "网络状态是否可用", "消息推送是否可用", "注册APNs远程推送", "app商店链接", "打开app商店链接", "app详情链接", "评分App链接", "打开评分App界面", "设置APP是否常亮", "APP主动崩溃"], ["打开系统app", "打开淘宝"], ["打开系统app，比如safari", "打开第三方app，比如淘宝"]]
+        dataArray = [["获取当前的keyWindow", "获取屏幕的方向", "获取根控制器", "设备信息的获取", "app定位区域", "消息推送是否可用", "注册APNs远程推送", "app商店链接", "打开app商店链接", "app详情链接", "评分App链接", "打开评分App界面", "设置APP是否常亮", "APP主动崩溃"], ["打开系统app", "打开淘宝"], ["打开系统app，比如safari", "打开第三方app，比如淘宝"]]
     }
 }
 
@@ -119,62 +119,57 @@ extension UIApplicationExtensionViewController {
 // MARK: - 一、基本的扩展
 extension UIApplicationExtensionViewController {
 
-    // MARK: 1.15、APP主动崩溃
-    @objc func test115() {
+    // MARK: 1.14、APP主动崩溃
+    @objc func test114() {
         JKPrint("app详情链接：\(UIApplication.jk.exitApp())")
     }
     
-    // MARK: 1.14、设置APP是否常亮
-    @objc func test114() {
+    // MARK: 1.13、设置APP是否常亮
+    @objc func test113() {
         JKPrint("设置APP是否常亮：\(UIApplication.jk.isIdleTimerDisabled(isIdleTimerDisabled: true))")
     }
     
-    //MARK: 1.13、打开评分App界面
-    @objc func test113() {
+    //MARK: 1.12、打开评分App界面
+    @objc func test112() {
         JKPrint("打开评分App界面")
         UIApplication.jk.openRateAppUrlWithID("1142110895")
     }
     
-    // MARK: 1.12、评分App链接
-    @objc func test112() {
+    // MARK: 1.11、评分App链接
+    @objc func test111() {
         // 这里以打开抖音详情链接为例
         JKPrint("评分App链接：\(UIApplication.jk.rateAppUrlWithID("1142110895"))")
     }
     
-    // MARK: 1.11、app详情链接
-    @objc func test111() {
+    // MARK: 1.10、app详情链接
+    @objc func test110() {
         // 这里以抖音详情链接为例
         UIApplication.jk.appDetailUrlWithID("1142110895")
     }
     
-    // MARK: 1.10、打开app商店链接
-    @objc func test110() {
+    // MARK: 1.09、打开app商店链接
+    @objc func test109() {
         // 这里以抖音为例 打开app商店链接
         JKPrint("打开app商店链接")
         UIApplication.jk.openAppSroreUrlWithID("1142110895")
     }
     
-    // MARK: 1.09、app商店链接
-    @objc func test109() {
+    // MARK: 1.08、app商店链接
+    @objc func test108() {
         // 这里以抖音为例
         JKPrint("app商店链接：\(UIApplication.jk.appSroreUrlWithID("1142110895"))")
     }
     
-    // MARK: 1.08、注册APNs远程推送
-    @objc func test108() {
+    // MARK: 1.07、注册APNs远程推送
+    @objc func test107() {
         JKPrint("注册APNs远程推送：\(UIApplication.jk.registerAPNsWithDelegate(self))")
     }
     
-    // MARK: 1.07、消息推送是否可用
-    @objc func test107() {
+    // MARK: 1.06、消息推送是否可用
+    @objc func test106() {
         UIApplication.jk.checkPushNotification { authorized in
             JKPrint("消息推送是否可用：\(authorized)")
         }
-    }
-    
-    // MARK: 1.06、网络状态是否可用
-    @objc func test106() {
-        JKPrint("网络状态是否可用：\(UIApplication.jk.reachable())")
     }
     
     // MARK: 1.05、app定位区域

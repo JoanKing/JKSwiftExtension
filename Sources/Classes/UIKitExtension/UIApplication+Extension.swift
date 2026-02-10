@@ -81,14 +81,7 @@ public extension JKPOP where Base: UIApplication {
         return content
     }
     
-    // MARK: 1.6、网络状态是否可用
-    /// 网络状态是否可用
-    static func reachable() -> Bool {
-        let data = NSData(contentsOf: URL(string: "https://www.baidu.com/")!)
-        return (data != nil)
-    }
-    
-    // MARK: 1.7、检查用户是否打开系统推送权限
+    // MARK: 1.6、检查用户是否打开系统推送权限
     /// 检查用户是否打开系统推送权限
     // 判断用户是否允许推送
     static func checkPushNotification(completion: @escaping (_ authorized: Bool) -> ()) {
@@ -106,7 +99,7 @@ public extension JKPOP where Base: UIApplication {
         }
     }
     
-    // MARK: 1.8、注册APNs远程推送
+    // MARK: 1.7、注册APNs远程推送
     /// 注册APNs远程推送
     static func registerAPNsWithDelegate(_ delegate: Any) {
         if #available(iOS 10.0, *) {
@@ -159,14 +152,14 @@ public extension JKPOP where Base: UIApplication {
         }
     }
     
-    // MARK: 1.9、app商店链接
+    // MARK: 1.8、app商店链接
     /// app商店链接
     @discardableResult
     static func appSroreUrlWithID(_ appleID: String) -> String {
         return "itms-apps://itunes.apple.com/app/id\(appleID)?mt=8"
     }
     
-    // MARK: 1.10、打开app商店链接
+    // MARK: 1.09、打开app商店链接
     /// app商店链接
     static func openAppSroreUrlWithID(_ appleID: String)  {
         let appStoreUrl = appSroreUrlWithID(appleID)
@@ -174,7 +167,7 @@ public extension JKPOP where Base: UIApplication {
         }
     }
     
-    // MARK: 1.11、app详情链接
+    // MARK: 1.10、app详情链接
     /// app详情链接
     @discardableResult
     static func appDetailUrlWithID(_ appleID: String) -> String {
@@ -182,14 +175,14 @@ public extension JKPOP where Base: UIApplication {
         return detailUrl
     }
     
-    // MARK: 1.12、评分App链接
+    // MARK: 1.11、评分App链接
     /// 评分App链接
     @discardableResult
     static func rateAppUrlWithID(_ appleID: String) -> String {
         return "itms-apps://itunes.apple.com/app/id\(appleID)?action=write-review"
     }
     
-    // MARK: 1.13、打开评分App界面
+    // MARK: 1.12、打开评分App界面
     /// 打开评分App链接
     static func openRateAppUrlWithID(_ appleID: String) {
         let rateAppUrl = rateAppUrlWithID(appleID)
@@ -197,13 +190,13 @@ public extension JKPOP where Base: UIApplication {
         }
     }
     
-    //MARK: 1.14、设置APP是否常亮
+    //MARK: 1.13、设置APP是否常亮
     /// 设置APP是否常亮
     static func isIdleTimerDisabled(isIdleTimerDisabled: Bool) {
         UIApplication.shared.isIdleTimerDisabled = isIdleTimerDisabled
     }
     
-    //MARK: 1.15、APP主动崩溃
+    //MARK: 1.14、APP主动崩溃
     /// APP主动崩溃
     static func exitApp() {
         // 默认的程序结束函数
