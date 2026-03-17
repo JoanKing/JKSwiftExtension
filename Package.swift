@@ -17,7 +17,8 @@ let package = Package(
     targets: [
         .target(
             name: "JKSwiftExtension",
-            path: "Classes",
+            path: "Sources",
+            sources: ["Classes"],
             resources: [.process("Assets/ironman.png")]
         )
     ]
