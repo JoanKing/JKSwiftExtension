@@ -50,8 +50,6 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/5611a91f-e083-4c77-8ef8-bdc4a91a13c9" alt="微信交流群" width="220">
 
 ## 版本说明
-  - 2.8.12、版本(2026.03.17)
-    - 调整Package位置
   - 2.8.11、版本(2026.02.10)
     - 部分扩展优化
   - 2.8.10、版本(2026.02.09)
