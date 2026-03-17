@@ -17,11 +17,8 @@ let package = Package(
     targets: [
         .target(
             name: "JKSwiftExtension",
-            path: "Sources",
+            path: "Classes",
             resources: [.process("Assets/ironman.png")]
-        ),
-        .testTarget(
-            name: "JKSwiftExtensionTests",
-            dependencies: ["JKSwiftExtension"]),
+        )
     ]
 )
