@@ -1,5 +1,5 @@
 PODS:
-  - JKSwiftExtension (2.8.6)
+  - JKSwiftExtension (2.8.12)
   - SnapKit (5.7.1)
 
 DEPENDENCIES:
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JKSwiftExtension: 459bcb6fec33201793046af68601f9539caeb511
+  JKSwiftExtension: 8e67a4c475339bfc3476646ed6fe4d2482eb46eb
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
 
 PODFILE CHECKSUM: cc584c186fef3380df7edbb3c8fd21a180fb5eae
