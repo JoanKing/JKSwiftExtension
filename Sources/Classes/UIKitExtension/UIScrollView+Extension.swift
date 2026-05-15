@@ -86,7 +86,7 @@ public extension JKPOP where Base: UIScrollView {
         self.base.setContentOffset(CGPoint(x: 0, y: CGFloat(index) * self.base.frame.size.height), animated: false)
         let splitFrame = CGRect(x: 0, y: CGFloat(index) * self.base.frame.size.height, width: base.bounds.size.width, height: base.bounds.size.height)
         JKAsyncs.asyncDelay(Double(Int64(0.3 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {
-        } _: {
+        } mainTask: {
             self.base.drawHierarchy(in: splitFrame, afterScreenUpdates: true)
             if index < maxIndex {
                 self.snapShotContentScrollPage(index: index + 1, maxIndex: maxIndex, callback: callback)

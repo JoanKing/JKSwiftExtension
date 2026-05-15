@@ -37,7 +37,7 @@ extension UISliderExtensionViewController {
         self.view.addSubview(slider)
         
         JKAsyncs.asyncDelay(20) {
-        } _: {
+        } mainTask: {
             slider.removeFromSuperview()
         }
     }

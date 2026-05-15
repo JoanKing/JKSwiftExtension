@@ -39,17 +39,17 @@ class JKCircleProgressViewViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         JKAsyncs.asyncDelay(0) {
-        } _: {[weak self] in
+        } mainTask: {[weak self] in
             guard let weakSelf = self else { return }
             weakSelf.progressView.setProgress(25, animated: true)
             JKAsyncs.asyncDelay(1) {
-            } _: {
+            } mainTask: {
                 weakSelf.progressView.setProgress(65, animated: false)
                 JKAsyncs.asyncDelay(1) {
-                } _: {
+                } mainTask: {
                     weakSelf.progressView.setProgress(10, animated: true)
                     JKAsyncs.asyncDelay(1) {
-                    } _: {
+                    } mainTask: {
                         weakSelf.progressView.setProgress(90, animated: false)
                     }
                 }

@@ -27,7 +27,7 @@ extension UIImageViewExtensionViewController {
         gifImageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(gifImageView)
         JKAsyncs.asyncDelay(5) {
-        } _: {[weak self] in
+        } mainTask: {[weak self] in
             guard let weakSelf = self else { return }
             weakSelf.gifImageView.removeFromSuperview()
         }
@@ -43,7 +43,7 @@ extension UIImageViewExtensionViewController {
         gifImageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(gifImageView)
         JKAsyncs.asyncDelay(5) {
-        } _: {[weak self] in
+        } mainTask: {[weak self] in
             guard let weakSelf = self else { return }
             weakSelf.gifImageView.removeFromSuperview()
         }
@@ -57,7 +57,7 @@ extension UIImageViewExtensionViewController {
         gifImageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(gifImageView)
         JKAsyncs.asyncDelay(5) {
-        } _: {[weak self] in
+        } mainTask: {[weak self] in
             guard let weakSelf = self else { return }
             weakSelf.gifImageView.removeFromSuperview()
         }

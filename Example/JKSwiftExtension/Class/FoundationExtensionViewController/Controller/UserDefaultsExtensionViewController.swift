@@ -80,7 +80,7 @@ extension UserDefaultsExtensionViewController {
         UserDefaults.jk.userDefaultsSetValue(value: "3", key: "3_key_tes")
         JKAsyncs.asyncDelay(3) {
             debugPrint("异步------")
-        } _: {
+        } mainTask: {
             UserDefaults.jk.removeContainKey("_key_test")
         }
     }

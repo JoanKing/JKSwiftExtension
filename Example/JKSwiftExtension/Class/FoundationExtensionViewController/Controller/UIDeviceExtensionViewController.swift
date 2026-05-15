@@ -34,13 +34,13 @@ extension UIDeviceExtensionViewController {
     @objc func test403() {
         JKPrint("UIImpactFeedbackGenerator 来设置的手机振动")
         JKAsyncs.asyncDelay(1) {
-        } _: {
+        } mainTask: {
             UIDevice.jk.impactFeedbackGenerator(style: .light)
             JKAsyncs.asyncDelay(2) {
-            } _: {
+            } mainTask: {
                 UIDevice.jk.impactFeedbackGenerator(style: .medium)
                 JKAsyncs.asyncDelay(2) {
-                } _: {
+                } mainTask: {
                     UIDevice.jk.impactFeedbackGenerator(style: .heavy)
                 }
             }
@@ -52,13 +52,13 @@ extension UIDeviceExtensionViewController {
     @objc func test402() {
         JKPrint("UINotificationFeedbackGenerator 来设置的手机振动")
         JKAsyncs.asyncDelay(1) {
-        } _: {
+        } mainTask: {
             UIDevice.jk.notificationFeedbackGeneratorSuccess(.success)
             JKAsyncs.asyncDelay(2) {
-            } _: {
+            } mainTask: {
                 UIDevice.jk.notificationFeedbackGeneratorSuccess(.error)
                 JKAsyncs.asyncDelay(2) {
-                } _: {
+                } mainTask: {
                     UIDevice.jk.notificationFeedbackGeneratorSuccess(.warning)
                 }
             }
@@ -69,15 +69,15 @@ extension UIDeviceExtensionViewController {
     @objc func test401() {
         JKPrint("通过SystemSoundID震动")
         JKAsyncs.asyncDelay(1) {
-        } _: {
+        } mainTask: {
             // 1、短振动，普通短震，3D Touch 中 Peek 震动反馈
             UIDevice.jk.systemSoundIDShock(type: .short3DTouchPeekVibration)
             JKAsyncs.asyncDelay(2) {
-            } _: {
+            } mainTask: {
                 // 2、普通短震，3D Touch 中 Pop 震动反馈,home 键的振动
                 UIDevice.jk.systemSoundIDShock(type: .short3DPopHomeVibration)
                 JKAsyncs.asyncDelay(2) {
-                } _: {
+                } mainTask: {
                     // 3、连续三次短震
                     UIDevice.jk.systemSoundIDShock(type: .thereshortVibration)
                 }

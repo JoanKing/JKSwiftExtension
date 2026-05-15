@@ -125,7 +125,7 @@ fileprivate extension UIControl  {
     @objc func c_preventDoubleHit(_ base: UIControl)  {
         base.isUserInteractionEnabled = false
         JKAsyncs.asyncDelay(hitTime ?? 1.0) {
-        } _: {
+        } mainTask: {
             base.isUserInteractionEnabled = true
         }
     }

@@ -145,7 +145,7 @@ public extension JKPOP where Base: UITextView {
             let newString = oldContent.jk.insertString(content: endString, locat: range.location)
             self.base.text = newString
             // 异步改变
-            JKAsyncs.asyncDelay(0.1) {} _: {
+            JKAsyncs.asyncDelayMain(0.1) {
                 let endPosition = self.base.position(from: self.base.beginningOfDocument, offset: range.location + endString.count)
                 if let endPosition = endPosition {
                     self.base.selectedTextRange = self.base.textRange(from: endPosition, to: endPosition)
@@ -217,7 +217,7 @@ public extension JKPOP where Base: UITextView {
                     // debugPrint("老的字符串：\(oldContent) 新的的字符串：\(newString) 长度：\(newString.count)")
                     self.base.text = newString
                     // 异步改变
-                    JKAsyncs.asyncDelay(0.5) {} _: {
+                    JKAsyncs.asyncDelayMain(0.5) {
                         if let selectedRange = self.base.selectedTextRange {
                             if let newPosition = self.base.position(from: selectedRange.start, offset: remainingLength) {
                                 self.base.selectedTextRange = self.base.textRange(from: newPosition, to: newPosition)

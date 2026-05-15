@@ -7,6 +7,7 @@
 
 import UIKit
 import StoreKit
+import NetworkExtension
 import SystemConfiguration.CaptiveNetwork
 // MARK: - 一、基本的工具
 public struct JKGlobalTools {
@@ -182,8 +183,8 @@ public struct JKGlobalTools {
         }
     }
     
-    // MARK: 1.7、获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information
-    /// 获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information
+    // MARK: 1.7、获取连接wifi的ip地址
+    /// 获取连接wifi的ip地址,
     public static func getWiFiIP() -> String? {
         var address: String?
         // get list of all interfaces on the local machine
@@ -210,21 +211,32 @@ public struct JKGlobalTools {
         return address
     }
     
-    // MARK: 1.8、获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information
+    // MARK: 1.8、获取连接wifi的名字和mac地址(BSSID), 需要定位权限和添加Access WiFi information
     /// 获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information
-    public static func getWifiNameWithMac() -> (wifiName: String?, macIP: String?) {
-        guard let interfaces: NSArray = CNCopySupportedInterfaces() else {
+    public static func getWifiNameWithMac() async -> (wifiName: String?, macIP: String?) {
+        if #available(iOS 14.0, *) {
+            return await withCheckedContinuation { continuation in
+                NEHotspotNetwork.fetchCurrent { network in
+                    continuation.resume(returning: (network?.ssid, network?.bssid))
+                }
+            }
+        } else {
+            return legacyGetWifiInfo()
+        }
+    }
+    
+
+    // iOS 14 以下的旧方法
+    private static func legacyGetWifiInfo() -> (wifiName: String?, macIP: String?) {
+        guard let interfaces = CNCopySupportedInterfaces() as? [CFString] else {
             return (nil, nil)
         }
-        var ssid: String?
-        var mac: String?
-        for sub in interfaces {
-            if let dict = CFBridgingRetain(CNCopyCurrentNetworkInfo(sub as! CFString)) {
-                ssid = dict["SSID"] as? String
-                mac = dict["BSSID"] as? String
+        for interface in interfaces {
+            if let info = CNCopyCurrentNetworkInfo(interface) as? [String: Any] {
+                return (info["SSID"] as? String, info["BSSID"] as? String)
             }
         }
-        return (ssid, mac)
+        return (nil, nil)
     }
     
     // MARK: 1.9、打开设置界面

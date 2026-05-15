@@ -39,10 +39,10 @@ extension JKPlaceHolderTextViewViewController {
         }
         
         JKAsyncs.asyncDelay(10) {
-        } _: {
+        } mainTask: {
             textView.text = "这是placeHolder0123456789-9876543210-123456789----"
             JKAsyncs.asyncDelay(3) {
-            } _: {
+            } mainTask: {
                 textView.removeFromSuperview()
             }
         }

@@ -14,7 +14,7 @@ class JKGlobalToolsViewController: BaseViewController {
         super.viewDidLoad()
     
         headDataArray = ["一、基本的工具", "二、控制台的操作"]
-        dataArray = [["拨打电话", "App更新", "从 storyboard 中唤醒 viewcontroller", "传进某个版本号 个 当前app版本号作对比", "获取本机IP", "前往App Store进行评价", "跳转URL", "获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information", "获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information", "打开设置界面", "退出app（类似点击home键盘）"], ["autolayout自适应布局是否警告"]]
+        dataArray = [["拨打电话", "App更新", "从 storyboard 中唤醒 viewcontroller", "传进某个版本号 个 当前app版本号作对比", "获取本机IP", "前往App Store进行评价", "跳转URL", "获取连接wifi的ip地址", "获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information", "打开设置界面", "退出app（类似点击home键盘）"], ["autolayout自适应布局是否警告"]]
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,12 +46,16 @@ extension JKGlobalToolsViewController {
     
     // MARK: 1.09、获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information
     @objc func test109() {
-        JKPrint("获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information", "连接wifi的名字：\(JKGlobalTools.getWifiNameWithMac().wifiName ?? "没有获取到")", "连接wifi的mac地址：\(JKGlobalTools.getWifiNameWithMac().macIP ?? "没有获取到")")
+        debugPrint("需要先获取定位权限⚠️")
+        Task {
+            let wifiNameWithMac = await JKGlobalTools.getWifiNameWithMac()
+            JKPrint("获取连接wifi的名字和mac地址, 需要定位权限和添加Access WiFi information", "连接wifi的名字：\(wifiNameWithMac.wifiName ?? "没有获取到")", "连接wifi的mac地址：\(wifiNameWithMac.macIP ?? "没有获取到")")
+        }
     }
     
-    // MARK: 1.08、获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information
+    // MARK: 1.08、获取连接wifi的ip地址
     @objc func test108() {
-        JKPrint("获取连接wifi的ip地址, 需要定位权限和添加Access WiFi information", "连接wifi的ip地址：\(JKGlobalTools.getWiFiIP() ?? "没有获取到")")
+        JKPrint("获取连接wifi的ip地址：\(JKGlobalTools.getWiFiIP() ?? "没有获取到")")
     }
     
     // MARK: 1.07、跳转URL

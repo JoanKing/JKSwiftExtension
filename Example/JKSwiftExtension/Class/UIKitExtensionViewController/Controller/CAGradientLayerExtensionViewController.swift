@@ -34,7 +34,7 @@ extension CAGradientLayerExtensionViewController {
         button.layer.insertSublayer(gradientLayer, at: 0)
         
         JKAsyncs.asyncDelay(2) {
-        } _: {
+        } mainTask: {
             button.removeFromSuperview()
         }
     }

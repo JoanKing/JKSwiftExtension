@@ -33,10 +33,10 @@ extension UIViewExtensionViewController {
         
         testView.jk.gradientColorAnimation(startGradientColors: [UIColor.brown.cgColor, UIColor.green.cgColor], endGradientColors: [UIColor.yellow.cgColor, UIColor.purple.cgColor])
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             testView.jk.gradientColorAnimation(startGradientColors: [UIColor.red.cgColor, UIColor.black.cgColor], endGradientColors: [UIColor.orange.cgColor, UIColor.green.cgColor])
             JKAsyncs.asyncDelay(3) {
-            } _: {
+            } mainTask: {
                 testView.removeFromSuperview()
             }
         }
@@ -53,10 +53,10 @@ extension UIViewExtensionViewController {
         testView.jk.gradientColor(.horizontal, [UIColor.brown.cgColor, UIColor.green.cgColor])
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             testView.jk.gradientColor(.horizontal, [UIColor.blue.cgColor, UIColor.red.cgColor])
             JKAsyncs.asyncDelay(3) {
-            } _: {
+            } mainTask: {
                 testView.removeFromSuperview()
             }
         }
@@ -78,7 +78,7 @@ extension UIViewExtensionViewController {
         }
         JKAsyncs.asyncDelay(5) {
             
-        } _: {
+        } mainTask: {
             testView.removeFromSuperview()
         }
     }
@@ -95,7 +95,7 @@ extension UIViewExtensionViewController {
         }
         JKAsyncs.asyncDelay(5) {
             
-        } _: {
+        } mainTask: {
             testView.removeFromSuperview()
         }
     }
@@ -112,7 +112,7 @@ extension UIViewExtensionViewController {
         }, for: .left)
         JKAsyncs.asyncDelay(5) {
             
-        } _: {
+        } mainTask: {
             testView.removeFromSuperview()
         }
     }
@@ -127,7 +127,7 @@ extension UIViewExtensionViewController {
         testView.jk.addGestureSwip(self, action: #selector(swip), for: .right)
         JKAsyncs.asyncDelay(5) {
             
-        } _: {
+        } mainTask: {
             testView.removeFromSuperview()
         }
     }
@@ -148,7 +148,7 @@ extension UIViewExtensionViewController {
         }, for: .right)
         JKAsyncs.asyncDelay(5) {
             
-        } _: {
+        } mainTask: {
             testView.removeFromSuperview()
         }
     }
@@ -175,7 +175,7 @@ extension UIViewExtensionViewController {
         }
         JKAsyncs.asyncDelay(5) {
             
-        } _: {
+        } mainTask: {
             testView.removeFromSuperview()
         }
     }
@@ -193,7 +193,7 @@ extension UIViewExtensionViewController {
         }, for: 2)
         JKAsyncs.asyncDelay(5) {
             
-        } _: {
+        } mainTask: {
             testView.removeFromSuperview()
         }
     }
@@ -211,7 +211,7 @@ extension UIViewExtensionViewController {
         }
         JKAsyncs.asyncDelay(5) {
             
-        } _: {
+        } mainTask: {
             testView.removeFromSuperview()
         }
     }
@@ -229,7 +229,7 @@ extension UIViewExtensionViewController {
         }
         JKAsyncs.asyncDelay(5) {
             
-        } _: {
+        } mainTask: {
             testView.removeFromSuperview()
         }
     }
@@ -302,7 +302,7 @@ extension UIViewExtensionViewController {
         }
         JKAsyncs.asyncDelay(2) {
             
-        } _: {
+        } mainTask: {
             testView.removeFromSuperview()
         }
     }
@@ -328,7 +328,7 @@ extension UIViewExtensionViewController {
         }
         JKAsyncs.asyncDelay(2) {
             
-        } _: {
+        } mainTask: {
             testView.removeFromSuperview()
         }
     }
@@ -354,7 +354,7 @@ extension UIViewExtensionViewController {
         }
         JKAsyncs.asyncDelay(2) {
             
-        } _: {
+        } mainTask: {
             testView.removeFromSuperview()
         }
         
@@ -384,7 +384,7 @@ extension UIViewExtensionViewController {
         debugPrint("视图是否包含WKWebView：\(testView.jk.isContainsWKWebView())")
         
         JKAsyncs.asyncDelay(2) {
-        } _: {
+        } mainTask: {
             testView.removeFromSuperview()
         }
     }
@@ -398,13 +398,13 @@ extension UIViewExtensionViewController {
         self.view.addSubview(testView)
         
         JKAsyncs.asyncDelay(2) {
-        } _: {
+        } mainTask: {
             testView.jk.shake(direction: .horizontal, times: 3, interval: 0.1, delta: 2) {
                 JKAsyncs.asyncDelay(2) {
-                } _: {
+                } mainTask: {
                     testView.jk.shake(direction: .vertical, times: 3, interval: 0.1, delta: 2) {
                         JKAsyncs.asyncDelay(2) {
-                        } _: {
+                        } mainTask: {
                             testView.removeFromSuperview()
                         }
                     }
@@ -428,7 +428,7 @@ extension UIViewExtensionViewController {
         self.view.addSubview(testView)
         
         JKAsyncs.asyncDelay(5) {
-        } _: {
+        } mainTask: {
             testView.removeFromSuperview()
         }
     }
@@ -989,7 +989,7 @@ extension UIViewExtensionViewController {
             testView.jk.setRotation(-180)
         }) { (result) in
             JKAsyncs.asyncDelay(2) {
-            } _: {
+            } mainTask: {
                 UIView.animate(withDuration: 4, animations: {
                     testView.jk.setRotation(-270)
                 }) { (result) in
@@ -1074,7 +1074,7 @@ extension UIViewExtensionViewController {
             testView.jk.setScale(x: 2, y: 2)
         }) { (result) in
             JKAsyncs.asyncDelay(3) {
-            } _: {
+            } mainTask: {
                 testView.removeFromSuperview()
             }
         }
@@ -1096,7 +1096,7 @@ extension UIViewExtensionViewController {
             testView.jk.flip(isHorizontal: true)
         }) { (result) in
             JKAsyncs.asyncDelay(2) {
-            } _: {
+            } mainTask: {
                 testView.removeFromSuperview()
             }
         }
@@ -1111,12 +1111,12 @@ extension UIViewExtensionViewController {
         testView.addSubview(testView2)
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(2) {
-        } _: {
+        } mainTask: {
             UIView.animate(withDuration: 3, animations: {
                 testView2.jk.moveToPoint(point: CGPoint(x: 90, y: 90))
             }) { (result) in
                 JKAsyncs.asyncDelay(2) {
-                } _: {
+                } mainTask: {
                     testView.removeFromSuperview()
                 }
             }

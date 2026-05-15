@@ -238,10 +238,7 @@ public extension JKDarkModeUtil {
     /// - Returns: 最终图片
     static func image(light: UIImage?, dark: UIImage?) -> UIImage? {
         if #available(iOS 13.0, *) {
-            guard let weakLight = light, let weakDark = dark, let config = weakLight.configuration else { return light }
-            let lightImage = weakLight.withConfiguration(config.withTraitCollection(UITraitCollection(userInterfaceStyle: UIUserInterfaceStyle.light)))
-            lightImage.imageAsset?.register(weakDark, with: config.withTraitCollection(UITraitCollection(userInterfaceStyle: UIUserInterfaceStyle.dark)))
-            return lightImage.imageAsset?.image(with: UITraitCollection.current) ?? light
+            return UIImage.jk.image(light: light, dark: dark)
         } else {
             // iOS 13 以下主题色的使用
             if JKDarkModeUtil.isLight {

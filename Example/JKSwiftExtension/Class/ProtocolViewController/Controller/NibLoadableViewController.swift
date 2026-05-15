@@ -31,7 +31,7 @@ extension NibLoadableViewController {
         self.view.addSubview(testView)
         
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             testView.removeFromSuperview()
         }
     }

@@ -1735,13 +1735,29 @@ public extension JKPOP where Base: UIImage {
     ///   - dark: 深色图片
     /// - Returns: 最终图片
     static func image(light: UIImage?, dark: UIImage?) -> UIImage? {
+        // 1. 判空处理
+        guard let lightImage = light, let darkImage = dark else {
+            return light // 或者返回 dark，取决于你的业务逻辑
+        }
+        
+        // 2. iOS 13 以下直接返回浅色图
         if #available(iOS 13.0, *) {
-            guard let weakLight = light, let weakDark = dark, let config = weakLight.configuration else { return light }
-            let lightImage = weakLight.withConfiguration(config.withTraitCollection(UITraitCollection(userInterfaceStyle: UIUserInterfaceStyle.light)))
-            lightImage.imageAsset?.register(weakDark, with: config.withTraitCollection(UITraitCollection(userInterfaceStyle: UIUserInterfaceStyle.dark)))
-            return lightImage.imageAsset?.image(with: UITraitCollection.current) ?? light
+            let imageAsset = UIImageAsset()
+    
+            // 注册浅色模式图片
+            let lightTrait = UITraitCollection(userInterfaceStyle: .light)
+            imageAsset.register(lightImage, with: lightTrait)
+            
+            // 注册深色模式图片
+            let darkTrait = UITraitCollection(userInterfaceStyle: .dark)
+            imageAsset.register(darkImage, with: darkTrait)
+            
+            // 【关键点】：返回一个能够根据 TraitCollection 自动切换的动态图片
+            return imageAsset.image(with: .current)
+            // 注意：在 iOS 13 中，从 imageAsset 生成的图片在 draw 或 display 时会自动处理响应
+            // 如果想更保险，可以直接返回一个包装后的图片
         } else {
-            return light
+            return lightImage
         }
     }
 }

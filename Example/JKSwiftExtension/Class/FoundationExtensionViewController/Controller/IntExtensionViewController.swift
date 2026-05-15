@@ -56,7 +56,7 @@ extension IntExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
         let imageDataSize = data.count.jk.covertUInt64ToString()

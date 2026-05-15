@@ -34,7 +34,7 @@ extension JKPhotoAlbumUtilViewController {
         self.view.addSubview(imageView)
         
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             JKPhotoAlbumUtil.saveImageInAlbum(image: image) { result, authorizedStatus  in
                 let authorizedStatusMessage = JKPhotoAlbumUtilViewController.authorizedStatusMessage(authorizeStatus: authorizedStatus, imageView: imageView)
                 switch result{
@@ -62,7 +62,7 @@ extension JKPhotoAlbumUtilViewController {
         self.view.addSubview(imageView)
         
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             JKPhotoAlbumUtil.saveImageInAlbum(image: image, isCustomPhotoAlbumName: true) { result, authorizedStatus in
                 let authorizedStatusMessage = JKPhotoAlbumUtilViewController.authorizedStatusMessage(authorizeStatus: authorizedStatus, imageView: imageView)
                 switch result{
@@ -100,7 +100,7 @@ extension JKPhotoAlbumUtilViewController {
          case limited = 4 // User has authorized this application for limited photo library access. Add PHPhotoLibr
          */
         JKAsyncs.asyncDelay(1) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
         if authorizeStatus == .notDetermined {

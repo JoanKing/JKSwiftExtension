@@ -23,7 +23,7 @@ extension DispatchQueueExtensionViewController {
     @objc func test204() {
         JKAsyncs.asyncDelay(2) {
             JKPrint("异步延迟回到主线程(子线程执行任务，然后回到主线程执行任务)", "当前的线程是：\(Thread.current)")
-        } _: {
+        } mainTask: {
             JKPrint("异步延迟回到主线程(子线程执行任务，然后回到主线程执行任务)", "当前的线程是：\(Thread.current)")
         }
     }
@@ -39,7 +39,7 @@ extension DispatchQueueExtensionViewController {
     @objc func test202() {
         JKAsyncs.async {
             JKPrint("异步做任务后回到主线程做任务：子线程做任务", "当前的线程是：\(Thread.current)")
-        } _: {
+        } mainTask: {
             JKPrint("异步做任务后回到主线程做任务：回到主线程", "当前的线程是：\(Thread.current)")
         }
     }

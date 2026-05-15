@@ -222,7 +222,7 @@ public extension JKPOP where Base: UITextField {
             self.base.text = newString
             self.base.sendActions(for: .editingChanged)
             // 异步改变
-            JKAsyncs.asyncDelay(0.1) {} _: {
+            JKAsyncs.asyncDelay(0.1) {} mainTask: {
                 let endPosition = self.base.position(from: self.base.beginningOfDocument, offset: range.location + endString.count)
                 if let endPosition = endPosition {
                     self.base.selectedTextRange = self.base.textRange(from: endPosition, to: endPosition)
@@ -292,7 +292,7 @@ public extension JKPOP where Base: UITextField {
                     self.base.text = newString
                     self.base.sendActions(for: .editingChanged)
                     // 异步改变
-                    JKAsyncs.asyncDelay(0.5) {} _: {
+                    JKAsyncs.asyncDelay(0.5) {} mainTask: {
                         if let selectedRange = self.base.selectedTextRange {
                             if let newPosition = self.base.position(from: selectedRange.start, offset: remainingLength) {
                                 self.base.selectedTextRange = self.base.textRange(from: newPosition, to: newPosition)

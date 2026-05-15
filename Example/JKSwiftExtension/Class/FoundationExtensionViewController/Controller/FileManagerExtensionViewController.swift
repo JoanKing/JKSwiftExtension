@@ -44,7 +44,7 @@ extension FileManagerExtensionViewController {
                 weakSelf.view.addSubview(imageView2)
                 
                 JKAsyncs.asyncDelay(3) {
-                } _: {
+                } mainTask: {
                     imageView1.removeFromSuperview()
                     imageView2.removeFromSuperview()
                 }
@@ -68,7 +68,7 @@ extension FileManagerExtensionViewController {
             imageView.jk.centerX = weakSelf.view.jk.centerX
             weakSelf.view.addSubview(imageView)
             JKAsyncs.asyncDelay(3) {
-            } _: {
+            } mainTask: {
                 imageView.removeFromSuperview()
             }
         }

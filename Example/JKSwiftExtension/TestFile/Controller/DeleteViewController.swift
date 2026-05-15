@@ -289,7 +289,7 @@ extension DeleteViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
         JKAsyncs.asyncDelay(0.1) {
-        } _: {
+        } mainTask: {
             if var deleteView = tableView.jk.findSubView(childViewClassName: "UISwipeActionStandardButton") {
                 deleteView.backgroundColor = .blue
                 deleteView.layer.cornerRadius = 10

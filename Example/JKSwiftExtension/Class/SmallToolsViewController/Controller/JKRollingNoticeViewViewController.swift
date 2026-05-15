@@ -26,7 +26,7 @@ class JKRollingNoticeViewViewController: UIViewController {
         dataArray2 = ["我", "爱", "你"]
         dataArray3 = ["xib自定义1", "xib自定义2"]
         JKAsyncs.asyncDelay(1) {
-        } _: {[weak self] in
+        } mainTask: {[weak self] in
             guard let weakSelf = self else { return }
             weakSelf.rollingNoticeView.reloadDataAndStartRoll()
             weakSelf.rollingNoticeView2.reloadDataAndStartRoll()

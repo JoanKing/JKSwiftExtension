@@ -555,7 +555,7 @@ extension UIScrollViewExtensionViewController {
         scrollView.addSubview(testView)
         
         JKAsyncs.asyncDelay(2) {
-        } _: {
+        } mainTask: {
             scrollView.removeFromSuperview()
         }
     }

@@ -72,7 +72,7 @@ class JKWheelPickerViewController: UIViewController {
         debugPrint("当前的月份:\(currentMoon)")
        // monthPicker.select(3, animated: false)
         JKAsyncs.asyncDelay(0) {
-        } _: {[weak self] in
+        } mainTask: {[weak self] in
             guard let self else {
                 return
             }

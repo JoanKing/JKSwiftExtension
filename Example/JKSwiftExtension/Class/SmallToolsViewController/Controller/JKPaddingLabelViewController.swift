@@ -39,7 +39,7 @@ extension JKPaddingLabelViewController {
         }
         
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             label.removeFromSuperview()
         }
     }

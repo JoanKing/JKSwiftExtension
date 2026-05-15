@@ -28,15 +28,15 @@ extension UIImageExtensionViewController {
     @objc func test901() {
         
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
-        imageView.image = UIImage.jk.image(light: UIImage(named: "tabbar_item_home"), dark: UIImage(named: "tabbar_item_home"))
+        imageView.image = UIImage.jk.image(light: UIImage(named: "good2"), dark: UIImage(named: "good3"))
         imageView.contentMode = .scaleAspectFit
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         
         JKAsyncs.asyncDelay(2) {
-        } _: {
+        } mainTask: {
             JKAsyncs.asyncDelay(5) {
-            } _: {
+            } mainTask: {
                 imageView.removeFromSuperview()
             }
         }
@@ -57,10 +57,10 @@ extension UIImageExtensionViewController {
         self.view.addSubview(imageView1)
         
         JKAsyncs.asyncDelay(2) {
-        } _: {
+        } mainTask: {
             imageView1.image = image
             JKAsyncs.asyncDelay(5) {
-            } _: {
+            } mainTask: {
                 imageView1.removeFromSuperview()
             }
         }
@@ -110,7 +110,7 @@ extension UIImageExtensionViewController {
         }
         
         JKAsyncs.asyncDelay(5) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -125,10 +125,10 @@ extension UIImageExtensionViewController {
         self.view.addSubview(imageView1)
         
         JKAsyncs.asyncDelay(2) {
-        } _: {
+        } mainTask: {
             imageView1.image = image1?.jk.pixAll()
             JKAsyncs.asyncDelay(2) {
-            } _: {
+            } mainTask: {
                 imageView1.removeFromSuperview()
             }
         }
@@ -150,15 +150,15 @@ extension UIImageExtensionViewController {
         imageView2.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView2)
         JKAsyncs.asyncDelay(2) {
-        } _: {
+        } mainTask: {
             let image3 = UIImage(named: "testicon")?.jk.filter(filterType: .CISepiaTone, alpha: 0.8)
             imageView2.image = image3
             JKAsyncs.asyncDelay(2) {
-            } _: {
+            } mainTask: {
                 let image4 = UIImage(named: "testicon")?.jk.filter(filterType: .CIPhotoEffectNoir, alpha: nil)
                 imageView2.image = image4
                 JKAsyncs.asyncDelay(2) {
-                } _: {
+                } mainTask: {
                     imageView1.removeFromSuperview()
                     imageView2.removeFromSuperview()
                 }
@@ -189,7 +189,7 @@ extension UIImageExtensionViewController {
         imageView2.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView2)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView1.removeFromSuperview()
             imageView2.removeFromSuperview()
         }
@@ -214,7 +214,7 @@ extension UIImageExtensionViewController {
         imageView2.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView2)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView1.removeFromSuperview()
             imageView2.removeFromSuperview()
         }
@@ -239,7 +239,7 @@ extension UIImageExtensionViewController {
         imageView2.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView2)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView1.removeFromSuperview()
             imageView2.removeFromSuperview()
         }
@@ -264,7 +264,7 @@ extension UIImageExtensionViewController {
         imageView2.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView2)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView1.removeFromSuperview()
             imageView2.removeFromSuperview()
         }
@@ -289,7 +289,7 @@ extension UIImageExtensionViewController {
         imageView2.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView2)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView1.removeFromSuperview()
             imageView2.removeFromSuperview()
         }
@@ -314,7 +314,7 @@ extension UIImageExtensionViewController {
         imageView2.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView2)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView1.removeFromSuperview()
             imageView2.removeFromSuperview()
         }
@@ -339,7 +339,7 @@ extension UIImageExtensionViewController {
         imageView2.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView2)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView1.removeFromSuperview()
             imageView2.removeFromSuperview()
         }
@@ -364,7 +364,7 @@ extension UIImageExtensionViewController {
         imageView2.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView2)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView1.removeFromSuperview()
             imageView2.removeFromSuperview()
         }
@@ -389,7 +389,7 @@ extension UIImageExtensionViewController {
         imageView2.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView2)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView1.removeFromSuperview()
             imageView2.removeFromSuperview()
         }
@@ -414,7 +414,7 @@ extension UIImageExtensionViewController {
         imageView2.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView2)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView1.removeFromSuperview()
             imageView2.removeFromSuperview()
         }
@@ -444,7 +444,7 @@ extension UIImageExtensionViewController {
         gifImageView.startAnimating()
         
         JKAsyncs.asyncDelay(5) {
-        } _: {[weak self] in
+        } mainTask: {[weak self] in
             guard let weakSelf = self else { return }
             weakSelf.gifImageView.removeFromSuperview()
         }
@@ -471,7 +471,7 @@ extension UIImageExtensionViewController {
         gifImageView.startAnimating()
         
         JKAsyncs.asyncDelay(5) {
-        } _: {[weak self] in
+        } mainTask: {[weak self] in
             guard let weakSelf = self else { return }
             weakSelf.gifImageView.removeFromSuperview()
         }
@@ -498,7 +498,7 @@ extension UIImageExtensionViewController {
         gifImageView.startAnimating()
         
         JKAsyncs.asyncDelay(5) {
-        } _: {[weak self] in
+        } mainTask: {[weak self] in
             guard let weakSelf = self else { return }
             weakSelf.gifImageView.removeFromSuperview()
         }
@@ -514,7 +514,7 @@ extension UIImageExtensionViewController {
         gifImageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(gifImageView)
         JKAsyncs.asyncDelay(5) {
-        } _: {[weak self] in
+        } mainTask: {[weak self] in
             guard let weakSelf = self else { return }
             weakSelf.gifImageView.removeFromSuperview()
         }
@@ -530,7 +530,7 @@ extension UIImageExtensionViewController {
         gifImageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(gifImageView)
         JKAsyncs.asyncDelay(5) {
-        } _: {[weak self] in
+        } mainTask: {[weak self] in
             guard let weakSelf = self else { return }
             weakSelf.gifImageView.removeFromSuperview()
         }
@@ -546,7 +546,7 @@ extension UIImageExtensionViewController {
         gifImageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(gifImageView)
         JKAsyncs.asyncDelay(5) {
-        } _: {[weak self] in
+        } mainTask: {[weak self] in
             guard let weakSelf = self else { return }
             weakSelf.gifImageView.removeFromSuperview()
         }
@@ -571,7 +571,7 @@ extension UIImageExtensionViewController {
         gifImageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(gifImageView)
         JKAsyncs.asyncDelay(5) {
-        } _: {[weak self] in
+        } mainTask: {[weak self] in
             guard let weakSelf = self else { return }
             weakSelf.gifImageView.removeFromSuperview()
         }
@@ -606,7 +606,7 @@ extension UIImageExtensionViewController {
         JKPrint("获取图片每个二维码里面的信息数组：\(qrCodeFeatures)")
         
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -624,7 +624,7 @@ extension UIImageExtensionViewController {
         JKPrint("图片中二维码数组：\(qrCodeFeatures)")
         
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -638,7 +638,7 @@ extension UIImageExtensionViewController {
         self.view.addSubview(imageView)
         
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -659,7 +659,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -676,7 +676,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -700,7 +700,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -718,7 +718,7 @@ extension UIImageExtensionViewController {
             }
             imageView.image = UIImage(data: weakData)
             JKAsyncs.asyncDelay(3) {
-            } _: {
+            } mainTask: {
                 imageView.removeFromSuperview()
             }
         })
@@ -737,7 +737,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -757,7 +757,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -776,7 +776,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -831,10 +831,10 @@ extension UIImageExtensionViewController {
         }
         
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             label.text = "豫章故郡，洪都新府。星分翼轸，地接衡庐。襟三江而带五湖，控蛮荆而引瓯越。物华天宝，龙光射牛斗之墟；人杰地灵，徐孺下陈蕃之榻。雄州雾列，俊采星驰。台隍枕夷夏之交，宾主尽东南之美。都督阎公之雅望，棨戟遥临；宇文新州之懿范，襜帷暂驻。十旬休假，胜友如云；千里逢迎，高朋满座。腾蛟起凤，孟学士之词宗；紫电青霜，王将军之武库。家君作宰，路出名区；童子何知，躬逢胜饯。"
             JKAsyncs.asyncDelay(3) {
-            } _: {
+            } mainTask: {
                 bgView.removeFromSuperview()
             }
         }
@@ -855,7 +855,7 @@ extension UIImageExtensionViewController {
         }
         
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -873,7 +873,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -891,7 +891,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -909,7 +909,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -930,7 +930,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -947,7 +947,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -964,7 +964,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -981,7 +981,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -998,7 +998,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -1018,13 +1018,13 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(2) {
-        } _: {
+        } mainTask: {
             // 像素化后的图片
             if let weakImage = image.jk.imageByRemoveBlackBg() {
                 imageView.image = weakImage
             }
             JKAsyncs.asyncDelay(2) {
-            } _: {
+            } mainTask: {
                 imageView.removeFromSuperview()
             }
         }
@@ -1041,13 +1041,13 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(2) {
-        } _: {
+        } mainTask: {
             // 像素化后的图片
             if let weakImage = image.jk.imageByRemoveWhiteBg() {
                 imageView.image = weakImage
             }
             JKAsyncs.asyncDelay(2) {
-            } _: {
+            } mainTask: {
                 imageView.removeFromSuperview()
             }
         }
@@ -1064,11 +1064,11 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(2) {
-        } _: {
+        } mainTask: {
             // 像素化后的图片
             imageView.image = image.jk.getPixellateImage(fuzzyValue: 10)
             JKAsyncs.asyncDelay(2) {
-            } _: {
+            } mainTask: {
                 imageView.removeFromSuperview()
             }
         }
@@ -1085,11 +1085,11 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(2) {
-        } _: {
+        } mainTask: {
             // 设置高斯模糊
             imageView.image = image.jk.getGaussianBlurImage(fuzzyValue: 10)
             JKAsyncs.asyncDelay(2) {
-            } _: {
+            } mainTask: {
                 imageView.removeFromSuperview()
             }
         }
@@ -1106,7 +1106,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             image.savePhotosImageToAlbum { (isSuccess: Bool, error: Error?) in
                 if isSuccess {
                     debugPrint("保存成功!")
@@ -1115,7 +1115,7 @@ extension UIImageExtensionViewController {
                 }
             }
             JKAsyncs.asyncDelay(3) {
-            } _: {
+            } mainTask: {
                 imageView.removeFromSuperview()
             }
         }
@@ -1132,11 +1132,11 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(1) {
-        } _: {
+        } mainTask: {
             image.jk.saveImageToPhotoAlbum { (result) in
                 debugPrint("保存结果：\(result)")
                 JKAsyncs.asyncDelay(3) {
-                } _: {
+                } mainTask: {
                     imageView.removeFromSuperview()
                 }
             }
@@ -1161,7 +1161,7 @@ extension UIImageExtensionViewController {
         self.view.addSubview(imageView)
         
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -1177,10 +1177,10 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.image = image.jk.tint(color: .green, blendMode: .destinationIn)
             JKAsyncs.asyncDelay(3) {
-            } _: {
+            } mainTask: {
                 imageView.removeFromSuperview()
             }
         }
@@ -1197,7 +1197,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -1214,7 +1214,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -1230,7 +1230,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -1246,13 +1246,13 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             guard let newImage = image.jk.cropCenterPxSize(CGSize(width: 100, height: 100)) else {
                 return
             }
             imageView.image = newImage
             JKAsyncs.asyncDelay(3) {
-            } _: {
+            } mainTask: {
                 imageView.removeFromSuperview()
             }
         }
@@ -1270,7 +1270,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             debugPrint("原图的大小：\(image.size)")
             guard let newImage = image.jk.cropCenterSize(CGSize(width: image.size.width / 2.0, height: image.size.height / 2.0)) else {
                 return
@@ -1278,7 +1278,7 @@ extension UIImageExtensionViewController {
             debugPrint("裁剪之后图片的大小：\(newImage.size)")
             imageView.image = newImage
             JKAsyncs.asyncDelay(3) {
-            } _: {
+            } mainTask: {
                 imageView.removeFromSuperview()
             }
         }
@@ -1298,13 +1298,13 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             guard let newImage = image.jk.cropWithCropRect(CGRect(x: 0, y: 0, width: image.size.width * 3.0, height: image.size.height * 3)) else {
                 return
             }
             imageView.image = newImage
             JKAsyncs.asyncDelay(3) {
-            } _: {
+            } mainTask: {
                 imageView.removeFromSuperview()
             }
         }
@@ -1319,7 +1319,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -1342,7 +1342,7 @@ extension UIImageExtensionViewController {
         self.view.addSubview(imageView)
         
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -1357,7 +1357,7 @@ extension UIImageExtensionViewController {
             JKPrint("获取到了视频的第第一帧")
             imageView.image = image
             JKAsyncs.asyncDelay(3) {
-            } _: {
+            } mainTask: {
                 imageView.removeFromSuperview()
             }
         }
@@ -1375,7 +1375,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -1392,7 +1392,7 @@ extension UIImageExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }

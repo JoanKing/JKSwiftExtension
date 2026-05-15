@@ -51,7 +51,7 @@ extension UIBezierPathExtensionViewController {
         self.view.layer.addSublayer(shapeLayer)
         
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             shapeLayer.removeFromSuperlayer()
         }
     }
@@ -87,7 +87,7 @@ extension UIBezierPathExtensionViewController {
         self.view.layer.addSublayer(shapeLayer)
         
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             shapeLayer.removeFromSuperlayer()
         }
     }

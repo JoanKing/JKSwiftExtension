@@ -90,12 +90,12 @@ extension JKDiamondViewViewController {
         self.view.addSubview(imageView)
         
         JKAsyncs.asyncDelay(3) {
-        } _: {[weak self] in
+        } mainTask: {[weak self] in
             guard let self else { return }
             diamond.backgroundImageView.image =  UIImage(named: "pet_bg")
             imageView.image = image
             JKAsyncs.asyncDelay(3) {
-            } _: {[weak self] in
+            } mainTask: {[weak self] in
                 guard let self else { return }
                 diamond.backgroundImageView.image = nil
                 // 方式2：使用渐变色填充（会覆盖 fillColor）
@@ -108,7 +108,7 @@ extension JKDiamondViewViewController {
                 // 自定义渐变位置（可选）
                 diamond.gradientLocations = [0, 0.5, 1.0]  // 红色在0%，橙色在50%，黄色在100%
                 JKAsyncs.asyncDelay(3) {
-                } _: {[weak self] in
+                } mainTask: {[weak self] in
                     guard let self else { return }
                     // 方式2：使用渐变色填充（会覆盖 fillColor）
                     diamond.gradientColors = nil

@@ -76,10 +76,10 @@ extension CALayerExtensionViewController {
         bodAni.toValue = CGRect(x: 100, y: 150, width: 100, height: 100)
         
         JKAsyncs.asyncDelay(1) {
-        } _: {
+        } mainTask: {
             imageView.layer.jk.baseAnimationGroup(animations: [posAni, opcAni, bodAni], duration: 3, repeatNumber: 1, removedOnCompletion: false, option: .default)
             JKAsyncs.asyncDelay(4) {
-            } _: {
+            } mainTask: {
                 testView.removeFromSuperview()
                 imageView.removeFromSuperview()
             }
@@ -97,10 +97,10 @@ extension CALayerExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(1) {
-        } _: {
+        } mainTask: {
             imageView.layer.jk.addSpringAnimationBounds(toValue: CGRect(x: 0, y: 150, width: 100, height: 100))
             JKAsyncs.asyncDelay(6) {
-            } _: {
+            } mainTask: {
                 imageView.removeFromSuperview()
             }
         }
@@ -119,11 +119,11 @@ extension CALayerExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(2) {
-        } _: {
+        } mainTask: {
             imageView.image = UIImage(named: "testicon")
             imageView.layer.jk.addTransition(type: .moveIn, subtype: .fromLeft, duration: 1.5)
             JKAsyncs.asyncDelay(2) {
-            } _: {
+            } mainTask: {
                 imageView.removeFromSuperview()
             }
         }
@@ -152,7 +152,7 @@ extension CALayerExtensionViewController {
         
         JKAsyncs.asyncDelay(15) {
             
-        } _: {
+        } mainTask: {
             testLayer.removeFromSuperlayer()
             testLayer.removeAllAnimations()
             testLayer1.removeFromSuperlayer()
@@ -170,7 +170,7 @@ extension CALayerExtensionViewController {
         
         JKAsyncs.asyncDelay(3) {
             
-        } _: {
+        } mainTask: {
             testLayer.removeFromSuperlayer()
             testLayer.removeAllAnimations()
         }
@@ -211,7 +211,7 @@ extension CALayerExtensionViewController {
         
         JKAsyncs.asyncDelay(Double(duration) * Double(repeatNumber) + 2) {
             
-        } _: {
+        } mainTask: {
             testView1.removeFromSuperview()
             testView2.removeFromSuperview()
             testView3.removeFromSuperview()
@@ -241,7 +241,7 @@ extension CALayerExtensionViewController {
         
         JKAsyncs.asyncDelay(3) {
             
-        } _: {
+        } mainTask: {
             testLayer1.removeFromSuperlayer()
             testLayer.removeFromSuperlayer()
             testLayer.removeAllAnimations()
@@ -265,7 +265,7 @@ extension CALayerExtensionViewController {
         
         JKAsyncs.asyncDelay(3) {
             
-        } _: {
+        } mainTask: {
             testLayer1.removeFromSuperlayer()
             testLayer.removeFromSuperlayer()
             testLayer.removeAllAnimations()
@@ -289,7 +289,7 @@ extension CALayerExtensionViewController {
         
         JKAsyncs.asyncDelay(3) {
             
-        } _: {
+        } mainTask: {
             testLayer1.removeFromSuperlayer()
             testLayer.removeFromSuperlayer()
             testLayer.removeAllAnimations()
@@ -320,7 +320,7 @@ extension CALayerExtensionViewController {
         
         JKAsyncs.asyncDelay(3) {
             
-        } _: {
+        } mainTask: {
             testLayer1.removeFromSuperlayer()
             testLayer2.removeFromSuperlayer()
             testLayer.removeFromSuperlayer()
@@ -352,7 +352,7 @@ extension CALayerExtensionViewController {
         
         JKAsyncs.asyncDelay(3) {
             
-        } _: {
+        } mainTask: {
             testLayer1.removeFromSuperlayer()
             testLayer2.removeFromSuperlayer()
             testLayer.removeFromSuperlayer()
@@ -383,7 +383,7 @@ extension CALayerExtensionViewController {
         testLayer.jk.animationMovePoint(to: CGPoint(x: 150, y: 150), duration: 5, delay: 1, repeatNumber: 1, removedOnCompletion: false, option: .default)
         JKAsyncs.asyncDelay(6) {
             
-        } _: {
+        } mainTask: {
             testLayer1.removeFromSuperlayer()
             testLayer2.removeFromSuperlayer()
             testLayer.removeFromSuperlayer()

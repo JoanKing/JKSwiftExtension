@@ -19,14 +19,6 @@ class TestFileViewController: BaseViewController {
         
         headDataArray = ["一、基本的使用"]
         dataArray = [["设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "设置有内边距的label", "数组测试", "struct", "test", "9", "网络权限的判断"]]
-        if #available(iOS 11.0, *) {
-            let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-            let topPadding = window?.safeAreaInsets.top
-            
-            //状态栏高度
-            let statusBarHeight = UIApplication.shared.statusBarFrame.height;
-            debugPrint("顶部距离：\(topPadding ?? 0) 状态栏高度：\(statusBarHeight)")
-        }
         
         /*
          var userInfo: [String: Any] = ["firstName": "大帅",
@@ -287,7 +279,7 @@ extension TestFileViewController {
             
             workingGroup.enter()
             JKAsyncs.asyncDelay(index == 2 ? 5 : 1) {
-            } _: {
+            } mainTask: {
                 debugPrint("接口 \(index) 数据请求完成 值：\(image)")
                 imageUrls[index] = "\(image)"
                 workingGroup.leave()
@@ -320,7 +312,7 @@ extension TestFileViewController {
         
         workingGroup.enter()
         JKAsyncs.asyncDelay(5) {
-        } _: {
+        } mainTask: {
             debugPrint("接口1执行结束")
             workingGroup.leave()
         }
@@ -328,7 +320,7 @@ extension TestFileViewController {
         workingGroup.enter()
         JKAsyncs.asyncDelay(2) {
             debugPrint("")
-        } _: {
+        } mainTask: {
             debugPrint("接口2执行结束")
             workingGroup.leave()
         }
@@ -374,14 +366,14 @@ extension TestFileViewController {
     
     func netWork1(finishClosure: @escaping (() -> Void)) {
         JKAsyncs.asyncDelay(10) {
-        } _: {
+        } mainTask: {
             finishClosure()
         }
     }
     
     func netWork2(finishClosure: @escaping (() -> Void)) {
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             finishClosure()
         }
     }

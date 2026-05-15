@@ -70,7 +70,7 @@ extension UIStackViewExtensionViewController {
         }
         
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             stackView.removeFromSuperview()
         }
     }
@@ -92,7 +92,7 @@ extension UIStackViewExtensionViewController {
         stackView.addSubview(testLabel2)
         
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             stackView.removeFromSuperview()
         }
     }
@@ -117,7 +117,7 @@ extension UIStackViewExtensionViewController {
         stackView.addSubview(testLabel2)
         
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             stackView.removeFromSuperview()
         }
     }
@@ -142,7 +142,7 @@ extension UIStackViewExtensionViewController {
         stackView.addSubview(testLabel2)
         
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             stackView.removeFromSuperview()
         }
     }
@@ -167,7 +167,7 @@ extension UIStackViewExtensionViewController {
         stackView.addSubview(testLabel2)
         
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             stackView.removeFromSuperview()
         }
     }
@@ -192,7 +192,7 @@ extension UIStackViewExtensionViewController {
         stackView.addSubview(testLabel2)
         
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             stackView.removeFromSuperview()
         }
     }
@@ -216,7 +216,7 @@ extension UIStackViewExtensionViewController {
         stackView.addSubview(testLabel2)
         
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             stackView.removeFromSuperview()
         }
     }

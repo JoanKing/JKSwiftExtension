@@ -44,7 +44,7 @@ extension NSAttributedStringExtensionViewController {
         self.view.addSubview(testLabel)
         
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             testLabel.removeFromSuperview()
         }
     }

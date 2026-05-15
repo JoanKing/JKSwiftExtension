@@ -146,12 +146,10 @@ public extension JKEmitterable where Self : UIViewController {
         // 4.将发射器的Layer添加到父Layer中
         view.layer.addSublayer(emitter)
         
-        JKAsyncs.asyncDelay(0.1) {
-        } _: {
+        JKAsyncs.asyncDelayMain(0.1) {
             guard style.cellFireOnce else { return }
             emitter.birthRate = 0
-            JKAsyncs.asyncDelay(1) {
-            } _: {[weak self] in
+            JKAsyncs.asyncDelayMain(1) {[weak self] in
                 guard let weakSelf = self else { return }
                 weakSelf.stopEmitter()
             }

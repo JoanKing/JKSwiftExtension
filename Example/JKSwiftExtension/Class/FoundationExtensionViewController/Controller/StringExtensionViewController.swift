@@ -1560,7 +1560,7 @@ extension StringExtensionViewController {
         imageView.jk.centerX = self.view.jk.centerX
         self.view.addSubview(imageView)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             imageView.removeFromSuperview()
         }
     }
@@ -1601,7 +1601,7 @@ extension StringExtensionViewController {
         self.view.addSubview(label)
         
         JKAsyncs.asyncDelay(2) {
-        } _: {
+        } mainTask: {
             label.removeFromSuperview()
         }
     }

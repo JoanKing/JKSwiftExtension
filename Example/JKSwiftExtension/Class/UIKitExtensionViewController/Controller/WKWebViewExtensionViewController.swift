@@ -32,7 +32,7 @@ extension WKWebViewExtensionViewController {
         self.view.addSubview(wkWebView)
         
         JKAsyncs.asyncDelay(5) {
-        } _: {
+        } mainTask: {
             wkWebView.jk.snapShotContentScroll { image in
                 guard let weakImage = image else {
                     return
@@ -43,7 +43,7 @@ extension WKWebViewExtensionViewController {
                         debugPrint("保存图片成功------")
                     }
                     JKAsyncs.asyncDelay(2) {
-                    } _: {
+                    } mainTask: {
                         wkWebView.removeFromSuperview()
                     }
                 }
@@ -61,11 +61,11 @@ extension WKWebViewExtensionViewController {
         self.view.addSubview(wkWebView)
         
         JKAsyncs.asyncDelay(5) {
-        } _: {
+        } mainTask: {
             debugPrint("JS代码调用------------")
             wkWebView.jk.loadUrl("https://www.baidu.com")
             JKAsyncs.asyncDelay(10) {
-            } _: {
+            } mainTask: {
                 wkWebView.removeFromSuperview()
             }
         }
@@ -81,11 +81,11 @@ extension WKWebViewExtensionViewController {
         self.view.addSubview(wkWebView)
         
         JKAsyncs.asyncDelay(5) {
-        } _: {
+        } mainTask: {
             debugPrint("JS代码调用------------")
             wkWebView.jk.javaScriptFromTextSizeRatio(200)
             JKAsyncs.asyncDelay(5) {
-            } _: {
+            } mainTask: {
                 wkWebView.removeFromSuperview()
             }
         }
@@ -102,13 +102,13 @@ extension WKWebViewExtensionViewController {
         self.view.addSubview(wkWebView)
         
         JKAsyncs.asyncDelay(5) {
-        } _: {
+        } mainTask: {
             debugPrint("JS代码调用------------")
             wkWebView.jk.evaluateJsCode(jsCode) { response, error in
                 
             }
             JKAsyncs.asyncDelay(5) {
-            } _: {
+            } mainTask: {
                 wkWebView.removeFromSuperview()
             }
         }
@@ -128,11 +128,11 @@ extension WKWebViewExtensionViewController {
         self.view.addSubview(wkWebView)
         
         JKAsyncs.asyncDelay(5) {
-        } _: {
+        } mainTask: {
             debugPrint("JS代码调用------------")
             wkWebView.jk.addUserScript(jScript)
             JKAsyncs.asyncDelay(5) {
-            } _: {
+            } mainTask: {
                 wkWebView.removeFromSuperview()
             }
         }
@@ -161,7 +161,7 @@ extension WKWebViewExtensionViewController {
         self.view.addSubview(wkWebView)
         
         JKAsyncs.asyncDelay(5) {
-        } _: {
+        } mainTask: {
             // wkWebView.removeFromSuperview()
         }
     }

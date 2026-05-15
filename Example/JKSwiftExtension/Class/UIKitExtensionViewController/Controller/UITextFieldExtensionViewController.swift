@@ -44,7 +44,7 @@ extension UITextFieldExtensionViewController {
         testTextFiled.backgroundColor = .randomColor
         self.view.addSubview(testTextFiled)
         JKAsyncs.asyncDelay(300) {
-        } _: { [weak self] in
+        } mainTask: { [weak self] in
             guard let weakSelf = self else { return }
             weakSelf.testTextFiled.removeFromSuperview()
         }
@@ -56,7 +56,7 @@ extension UITextFieldExtensionViewController {
         testTextFiled.backgroundColor = .randomColor
         self.view.addSubview(testTextFiled)
         JKAsyncs.asyncDelay(300) {
-        } _: { [weak self] in
+        } mainTask: { [weak self] in
             guard let weakSelf = self else { return }
             weakSelf.testTextFiled.removeFromSuperview()
         }
@@ -68,7 +68,7 @@ extension UITextFieldExtensionViewController {
         textFiled.backgroundColor = .randomColor
         self.view.addSubview(textFiled)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             textFiled.removeFromSuperview()
         }
     }
@@ -79,7 +79,7 @@ extension UITextFieldExtensionViewController {
         textFiled.backgroundColor = .randomColor
         self.view.addSubview(textFiled)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             textFiled.removeFromSuperview()
         }
     }
@@ -90,7 +90,7 @@ extension UITextFieldExtensionViewController {
         textFiled.backgroundColor = .randomColor
         self.view.addSubview(textFiled)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             textFiled.removeFromSuperview()
         }
     }
@@ -101,7 +101,7 @@ extension UITextFieldExtensionViewController {
         textFiled.backgroundColor = .randomColor
         self.view.addSubview(textFiled)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             textFiled.removeFromSuperview()
         }
     }
@@ -112,7 +112,7 @@ extension UITextFieldExtensionViewController {
         textFiled.backgroundColor = .randomColor
         self.view.addSubview(textFiled)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             textFiled.removeFromSuperview()
         }
     }
@@ -124,7 +124,7 @@ extension UITextFieldExtensionViewController {
         textFiled.backgroundColor = .randomColor
         self.view.addSubview(textFiled)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             textFiled.removeFromSuperview()
         }
     }
@@ -135,7 +135,7 @@ extension UITextFieldExtensionViewController {
         textFiled.backgroundColor = .randomColor
         self.view.addSubview(textFiled)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             textFiled.removeFromSuperview()
         }
     }
@@ -149,7 +149,7 @@ extension UITextFieldExtensionViewController {
         textFiled.backgroundColor = .randomColor
         self.view.addSubview(textFiled)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             textFiled.removeFromSuperview()
         }
     }
@@ -160,7 +160,7 @@ extension UITextFieldExtensionViewController {
         textFiled.backgroundColor = .randomColor
         self.view.addSubview(textFiled)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             textFiled.removeFromSuperview()
         }
     }
@@ -215,7 +215,7 @@ extension UITextFieldExtensionViewController {
         textFiled.jk.setPlaceholderAttribute(font: UIFont.systemFont(ofSize: 16), color: UIColor.randomColor)
         self.view.addSubview(textFiled)
         JKAsyncs.asyncDelay(1000) {
-        } _: {
+        } mainTask: {
             textFiled.removeFromSuperview()
         }
     }
@@ -227,7 +227,7 @@ extension UITextFieldExtensionViewController {
         textFiled.jk.addLeftIcon(UIImage(named: "ironman"), leftViewFrame: CGRect(x: 20, y: 20, width: 30, height: 30), imageSize: CGSize(width: 20, height: 20))
         self.view.addSubview(textFiled)
         JKAsyncs.asyncDelay(5) {
-        } _: {
+        } mainTask: {
             JKPrint("是否都是数字", "结果是：\(textFiled.jk.validateDigits())")
             textFiled.removeFromSuperview()
         }
@@ -241,7 +241,7 @@ extension UITextFieldExtensionViewController {
         textFiled.jk.addLeftIcon(UIImage(named: "ironman"), leftViewFrame: CGRect(x: 20, y: 20, width: 30, height: 30), imageSize: CGSize(width: 20, height: 20))
         self.view.addSubview(textFiled)
         JKAsyncs.asyncDelay(300) {
-        } _: {
+        } mainTask: {
             textFiled.removeFromSuperview()
         }
     }
@@ -253,7 +253,7 @@ extension UITextFieldExtensionViewController {
         textFiled.jk.addLeftTextPadding(20)
         self.view.addSubview(textFiled)
         JKAsyncs.asyncDelay(3) {
-        } _: {
+        } mainTask: {
             textFiled.removeFromSuperview()
         }
     }
