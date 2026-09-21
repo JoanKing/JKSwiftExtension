@@ -50,6 +50,22 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/5611a91f-e083-4c77-8ef8-bdc4a91a13c9" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.9.1、版本(2026.09.21)
+    - 新增JKTextFieldAutoLimiter、JKTextViewAutoLimiter输入限制器，配套JKPasteAwareTextField、JKPasteAwareTextView，覆盖全部粘贴入口，精准处理粘贴超限和粘贴替换选中文本等场景
+    - 新增JKRegexHelper正则校验表达式集合JKRegexCharacterType
+    - String+Extension：customCountOfChars改为按字符簇遍历，修复emoji被拆成两个码元导致重复计数的问题，并补充CJK扩展区段；removeBeginEndAllSapceAndLinefeed合并使用whitespacesAndNewlines
+    - JKPrint：打印内容与结束符之间补充换行
+    - UIApplication+Extension：新增activeWindow，优先取当前活跃场景(foregroundActive)的window，适配iPad分屏、Stage Manager、折叠屏等多场景
+    - UIView+Extension：
+      - 状态栏高度和安全区统一改用当前活跃场景的window，修正灵动岛机型statusBarFrame与安全区不一致的偏差
+      - jk_kNavFrameH改为基于顶部安全区计算，jk_kStatusBarFrameH、jk_kSafeDistanceTop/Bottom同步优化
+      - 修复gradientColorAnimation在视图已有子layer(如UIButton)时不生效的问题
+      - toImage补充UIGraphicsEndImageContext，避免图形上下文泄漏
+      - drawDashLine填充色改为透明、addCornerAndShadow底层layer背景色改为透明
+      - addBorder不再强制masksToBounds，避免和阴影同时使用时裁剪阴影
+      - set3DRotationX补充m34透视，与Y/Z轴旋转保持一致
+    - UIViewController+Extension：新增navBarHeight，取导航栏底部位置，适配iPad(50)、横屏(32)、大标题、iOS26液态玻璃等形态
+    - 测试用例修复：UIViewExtensionViewController中test315改为test515、test502布局时机、test401视图移除
   - 2.9.0、版本(2026.05.15)
     - JKAsyncs优化
     - Issues问题处理
