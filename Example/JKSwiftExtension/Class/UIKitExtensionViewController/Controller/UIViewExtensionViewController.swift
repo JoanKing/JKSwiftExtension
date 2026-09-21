@@ -691,7 +691,7 @@ extension UIViewExtensionViewController {
             make.center.equalToSuperview()
             make.size.equalTo(CGSize(width: 200, height: 100))
         }
-        testView.layoutIfNeeded()
+        self.view.layoutIfNeeded()
         testView.jk.addCorner(conrners: [.topLeft, .bottomRight], radius: 50, borderWidth: 10, borderColor: .randomColor)
         JKAsyncs.asyncDelay(2, {
         }) {
@@ -906,7 +906,7 @@ extension UIViewExtensionViewController {
     }
     
     // MARK: 5.15、毛玻璃效果
-    @objc func test315() {
+    @objc func test515() {
         let image = UIImage(named: "testicon")
         var imageView = UIImageView(frame: CGRect(x: 0, y: 150, width: 200, height: 200))
         imageView.image = image
@@ -993,7 +993,7 @@ extension UIViewExtensionViewController {
                 UIView.animate(withDuration: 4, animations: {
                     testView.jk.setRotation(-270)
                 }) { (result) in
-                    // testView.removeFromSuperview()
+                    testView.removeFromSuperview()
                 }
             }
             
@@ -1272,7 +1272,7 @@ extension UIViewExtensionViewController {
     }
 }
 
-// MARK: - 二、机型的判断
+// MARK: - 二、屏幕尺寸常用的常量
 extension UIViewExtensionViewController {
     
     //MARK: 2.12、屏幕16:9比例系数下的高
@@ -1344,12 +1344,6 @@ extension UIViewExtensionViewController {
     //MARK: 2.01、屏幕的宽
     /// 屏幕的宽
     @objc func test201() {
-        debugPrint("模型：\(UIDevice.current.model)")
-        if UIDevice.current.model.contains("iPhone X") {
-            // 是iPhone X
-        } else {
-            // 不是iPhone X
-        }
         JKPrint("屏幕的宽：\(jk_kScreenW)")
     }
 }

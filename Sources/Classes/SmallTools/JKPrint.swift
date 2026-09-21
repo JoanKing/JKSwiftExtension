@@ -32,7 +32,7 @@ public func JKPrint(_ msg: Any...,
     let fileName = file.lastPathComponent
     // 2. 扔到串行队列中去执行打印和写入，避免并发冲突
     jkLogQueue.async {
-        let prefix = "---begin---------------🚀----------------\n当前时间：\(currentDate)\n当前文件完整的路径是：\(file)\n当前文件是：\(fileName)\n第 \(line) 行 \n第 \(column) 列 \n函数名：\(fn)\n打印内容如下：\n\(msgStr)---end-----------------😊----------------"
+        let prefix = "---begin---------------🚀----------------\n当前时间：\(currentDate)\n当前文件完整的路径是：\(file)\n当前文件是：\(fileName)\n第 \(line) 行 \n第 \(column) 列 \n函数名：\(fn)\n打印内容如下：\n\(msgStr)\n---end-----------------😊----------------"
         print(prefix)
         guard isWriteLog else {
             return

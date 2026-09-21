@@ -152,48 +152,35 @@ public var jk_kScreenH: CGFloat { return UIScreen.main.bounds.height }
 // MARK: 2.3、获取statusBar状态栏的高度
 /// 获取statusBar状态栏的高度
 public var jk_kStatusBarFrameH: CGFloat {
-    if #available(iOS 13.0, *) {
-        let window: UIWindow? = UIApplication.shared.windows.first
-        let statusBarHeight = (window?.windowScene?.statusBarManager?.statusBarFrame.height) ?? 0
+    if let statusBarHeight = UIApplication.jk.activeWindow?.windowScene?.statusBarManager?.statusBarFrame.height, statusBarHeight > 0 {
         return statusBarHeight
-        /*
-        let scene = UIApplication.shared.connectedScenes.first
-        guard let windowScene = scene as? UIWindowScene else { return 0 }
-        guard let statusBarManager = windowScene.statusBarManager else { return 0 }
-        return statusBarManager.statusBarFrame.height
-         */
-    } else {
-        // 防止界面没有出来获取为0的情况
-        return UIApplication.shared.statusBarFrame.height > 0 ? UIApplication.shared.statusBarFrame.height : 44
     }
+    // 防止界面没有出来获取为0的情况
+    return UIApplication.jk.activeWindow?.safeAreaInsets.top ?? 0
 }
 
 // MARK: 2.4、顶部安全区高度
 /// 2.4、顶部安全区高度
 public var jk_kSafeDistanceTop: CGFloat {
-    if #available(iOS 13.0, *) {
-        let scene = UIApplication.shared.connectedScenes.first
-        guard let windowScene = scene as? UIWindowScene else { return 0 }
-        guard let window = windowScene.windows.first else { return 0 }
-        return window.safeAreaInsets.top
-    }
-    return 0
+    // 优先当前活跃场景下可用的 window，多场景下更准确
+    return UIApplication.jk.activeWindow?.safeAreaInsets.top ?? 0
 }
 
 // MARK: 2.5、获取导航栏的高度
 /// 2.5、获取导航栏的高度
-public var jk_kNavFrameH: CGFloat { return 44 + jk_kStatusBarFrameH }
+///
+/// - Note: 这是一个全局估算值，用「顶部安全区高度(已含状态栏/刘海/灵动岛) + 44」计算，
+///         可以修正灵动岛机型 `statusBarFrame` 与 `safeAreaInsets.top` 不一致导致的偏差。
+///         但 44 只适用于 iPhone 竖屏，无法覆盖 iPad(50)、横屏(32)、大标题、
+///         iOS 26 液态玻璃以及折叠屏/双屏等形态。
+///         需要精确值请使用 `vc.jk.navBarHeight`。
+public var jk_kNavFrameH: CGFloat { return jk_kSafeDistanceTop + 44 }
 
 // MARK: 2.6、底部安全区高度
 /// 2.6、底部安全区高度
 public var jk_kSafeDistanceBottom: CGFloat {
-    if #available(iOS 13.0, *) {
-        let scene = UIApplication.shared.connectedScenes.first
-        guard let windowScene = scene as? UIWindowScene else { return 0 }
-        guard let window = windowScene.windows.first else { return 0 }
-        return window.safeAreaInsets.bottom
-    }
-    return 0
+    // 优先当前活跃场景下可用的 window，多场景下更准确
+    return UIApplication.jk.activeWindow?.safeAreaInsets.bottom ?? 0
 }
 
 // MARK: 2.7、屏幕底部Tabbar高度
@@ -422,14 +409,13 @@ extension JKPOP where Base: UIView {
     /// - Parameter angle: 旋转角度，angle参数是旋转的角度，为弧度制 0-2π
     public func set3DRotationX(_ angle: CGFloat) {
         // 初始化3D变换,获取默认值
-        //var transform = CATransform3DIdentity
+        var transform = CATransform3DIdentity
         // 透视 1/ -D，D越小，透视效果越明显，必须在有旋转效果的前提下，才会看到透视效果
         // 当我们有垂直于z轴的旋转分量时，设置m34的值可以增加透视效果，也可以理解为景深效果
-        // transform.m34 = 1.0 / -1000.0
+        transform.m34 = 1.0 / -1000.0
         // 空间旋转，x，y，z决定了旋转围绕的中轴，取值为 (-1,1) 之间
-        //transform = CATransform3DRotate(transform, angle, 1.0, 0.0, 0.0)
-        //self.base.layer.transform = transform
-        self.base.layer.transform = CATransform3DMakeRotation(angle, 1.0, 0.0, 0.0)
+        transform = CATransform3DRotate(transform, angle, 1.0, 0.0, 0.0)
+        self.base.layer.transform = transform
     }
     
     // MARK: 4.3、沿 Y 轴方向旋转多少度(3D旋转)
@@ -584,7 +570,7 @@ public extension JKPOP where Base: UIView {
         let fixframe = self.base.frame
         subLayer.frame = fixframe
         subLayer.cornerRadius = radius
-        subLayer.backgroundColor = shadowColor.cgColor
+        subLayer.backgroundColor = UIColor.clear.cgColor
         subLayer.masksToBounds = false
         // shadowColor阴影颜色
         subLayer.shadowColor = shadowColor.cgColor
@@ -630,7 +616,6 @@ public extension JKPOP where Base: UIView {
     func addBorder(borderWidth: CGFloat, borderColor: UIColor) {
         base.layer.borderWidth = borderWidth
         base.layer.borderColor = borderColor.cgColor
-        base.layer.masksToBounds = true
     }
     
     // MARK: 5.7、添加顶部的 边框
@@ -713,7 +698,7 @@ public extension JKPOP where Base: UIView {
         let shapeLayer = CAShapeLayer()
         shapeLayer.bounds = self.base.bounds
         shapeLayer.anchorPoint = CGPoint(x: 0, y: 0)
-        shapeLayer.fillColor = UIColor.blue.cgColor
+        shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.strokeColor = strokeColor.cgColor
         
         shapeLayer.lineWidth = lineWidth
@@ -989,6 +974,7 @@ public extension JKPOP where Base: UIView {
         guard let ctx = UIGraphicsGetCurrentContext() else { return nil }
         self.base.layer.render(in: ctx)
         let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
         return image
         // 下面的方法会导致子视图自动绘制
         /*
@@ -1418,9 +1404,9 @@ public extension JKPOP where Base : UIView {
         if let sublayers = self.base.layer.sublayers {
             // 替换旧的CAGradientLayer
             removeOldGradientLayer(sublayers: sublayers)
-        } else {
-            self.base.layer.insertSublayer(gradientLayer, at: 0)
         }
+        // 无论是否存在子 layer，都需要插入新的渐变层
+        self.base.layer.insertSublayer(gradientLayer, at: 0)
         // 启动动画
         startgradientColorAnimation(gradientLayer, startGradientColors, endGradientColors, isRemovedOnCompletion, duration)
     }

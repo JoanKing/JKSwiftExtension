@@ -435,7 +435,7 @@ extension TestTextFiledView: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return textField.jk.inputRestrictions(shouldChangeTextIn: range, replacementText: string, maxCharacters: maxCharacters, regex: regex, lenghType: lenghType, isRemovePasteboardNewlineCharacters: true)
+        return textField.jk.inputRestrictions(shouldChangeTextIn: range, replacementText: string, maxCharacters: maxCharacters, regex: regex, isInterceptString: false, lenghType: lenghType, isRemovePasteboardNewlineCharacters: true)
     }
     
     /// 获得焦点

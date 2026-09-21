@@ -21,6 +21,30 @@ public extension JKPOP where Base: UIApplication {
         }
     }
     
+    //MARK: 1.1.1、获取当前活跃场景下可用的 window
+    /// 获取当前活跃场景下可用的 window(优先 keyWindow)
+    ///
+    /// 先锁定处于 `foregroundActive` 的 WindowScene，再在该场景内取 keyWindow；
+    /// 过滤过严时做防御性降级，尽量不返回 nil。
+    /// 多场景(iPad 分屏 / Stage Manager / 折叠屏等)下比跨场景的 `keyWindow` 更准确。
+    /// - Note: `safeAreaInsets` 等属性请在主线程访问
+    static var activeWindow: UIWindow? {
+        if #available(iOS 13.0, *) {
+            let scenes = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }
+            let activeScene = scenes.first { $0.activationState == .foregroundActive } ?? scenes.first
+            guard let scene = activeScene else { return nil }
+            // 1. 优先 normal 层级的正常窗口中的 keyWindow
+            let candidateWindows = scene.windows.filter { !$0.isHidden && $0.windowLevel == .normal }
+            // 2. 防御性降级：过滤过严时放宽到该场景内任意 keyWindow / 任意 window
+            return candidateWindows.first { $0.isKeyWindow }
+                ?? candidateWindows.first
+                ?? scene.windows.first { $0.isKeyWindow }
+                ?? scene.windows.first
+        } else {
+            return UIApplication.shared.keyWindow
+        }
+    }
+    
     // MARK: 1.2、获取屏幕的方向
     /// 获取屏幕的方向
     static var screenOrientation: UIInterfaceOrientation {

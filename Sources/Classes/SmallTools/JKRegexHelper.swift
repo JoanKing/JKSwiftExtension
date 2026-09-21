@@ -83,6 +83,26 @@ public enum JKRegexDigitalType: String {
 // MARK: - 一、正则匹配的使用
 public struct JKRegexHelper {
 
+    /// 已编译正则缓存（线程安全，避免高频输入时重复编译）
+    private static let regexCache: NSCache<NSString, NSRegularExpression> = {
+        let cache = NSCache<NSString, NSRegularExpression>()
+        cache.countLimit = 200
+        return cache
+    }()
+
+    /// 获取缓存的已编译正则（按 pattern + options 组合缓存）
+    private static func compiledRegex(pattern: String, options: NSRegularExpression.Options) -> NSRegularExpression? {
+        let key = "\(options.rawValue)|\(pattern)" as NSString
+        if let cached = regexCache.object(forKey: key) {
+            return cached
+        }
+        guard let regex = try? NSRegularExpression(pattern: pattern, options: options) else {
+            return nil
+        }
+        regexCache.setObject(regex, forKey: key)
+        return regex
+    }
+
     // MARK: 1.1、通用匹配
     /// 通用匹配
     /// - Parameters:
@@ -95,6 +115,80 @@ public struct JKRegexHelper {
         }
         let matches = regex.matches(in: input, options: [], range: NSMakeRange(0, input.utf16.count))
         return matches.count > 0
+    }
+
+    // MARK: 1.1.1、整串匹配（白名单校验）
+    /// 判断整串文本是否完全匹配正则（用于白名单校验：要求整个字符串被 pattern 完全覆盖）
+    /// - Parameters:
+    ///   - input: 待校验的字符串
+    ///   - pattern: 匹配规则
+    ///   - options: 正则匹配选项
+    /// - Returns: 整串完全匹配返回 `true`，否则返回 `false`
+    public static func isFullMatch(_ input: String, pattern: String, options: NSRegularExpression.Options = []) -> Bool {
+        guard let regex = compiledRegex(pattern: pattern, options: options) else {
+            return false
+        }
+        let range = NSRange(location: 0, length: input.utf16.count)
+        guard let match = regex.firstMatch(in: input, options: [], range: range) else {
+            return false
+        }
+        return match.range.location == 0 && match.range.length == input.utf16.count
+    }
+
+    // MARK: 1.1.2、白名单过滤（剔除非法字符）
+    /// 依据白名单正则过滤非法字符，仅保留符合字符集的字符
+    /// - 仅支持形如 `^[...]+$` / `^[...]*$` / `[...]` 的“字符类白名单”正则
+    /// - Parameters:
+    ///   - input: 原始字符串
+    ///   - pattern: 字符白名单正则（如 `^[0-9]*$`、`^[\u4E00-\u9FA5A-Za-z0-9]+$`）
+    /// - Returns: 过滤后的字符串（仅含白名单内字符）；若 pattern 不是字符类白名单，无法安全过滤则返回 `nil`
+    public static func filterWhitelistedCharacters(_ input: String, pattern: String) -> String? {
+        guard !input.isEmpty else { return input }
+        guard let charClass = extractCharClass(from: pattern) else {
+            return nil
+        }
+        // 构造“非法字符”反集正则（如 [0-9] -> [^0-9]），一次性删除所有非法字符，避免逐字符匹配的 O(n*m)
+        let negated = negateCharClass(charClass)
+        guard let regex = compiledRegex(pattern: negated, options: []) else {
+            return nil
+        }
+        let range = NSRange(location: 0, length: input.utf16.count)
+        return regex.stringByReplacingMatches(in: input, options: [], range: range, withTemplate: "")
+    }
+
+    /// 将字符类反转为匹配“非法字符”的反集（如 `[0-9]` -> `[^0-9]`）
+    private static func negateCharClass(_ charClass: String) -> String {
+        var s = charClass
+        s.insert("^", at: s.index(after: s.startIndex))
+        return s
+    }
+
+    /// 从白名单正则中提取字符类（如 `^[0-9]*$` -> `[0-9]`）；非纯字符类或取反字符类返回 nil
+    private static func extractCharClass(from pattern: String) -> String? {
+        var p = pattern
+        if p.hasPrefix("^") { p.removeFirst() }
+        if p.hasSuffix("$") { p.removeLast() }
+        p = stripTrailingQuantifier(from: p)
+        // 仅当剩余部分形如 [...] 且非取反（[^...]）时才视为字符类白名单
+        guard p.hasPrefix("["), p.hasSuffix("]"), !p.hasPrefix("[^") else {
+            return nil
+        }
+        return p
+    }
+
+    /// 剥离末尾量词：支持 + * ? 以及 {m} {m,} {m,n}
+    private static func stripTrailingQuantifier(from p: String) -> String {
+        var s = p
+        if s.hasSuffix("}") {
+            if let braceIdx = s.lastIndex(of: "{"), braceIdx > s.startIndex {
+                return String(s[..<braceIdx])
+            }
+            return s
+        }
+        while let last = s.last, last == "+" || last == "*" || last == "?" {
+            s.removeLast()
+        }
+        return s
     }
     
     // MARK: 1.2、获取匹配的Range

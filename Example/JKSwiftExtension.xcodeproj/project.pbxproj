@@ -186,6 +186,8 @@
 		E277B95D28DF016800DC0319 /* PresetntThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E277B95C28DF016800DC0319 /* PresetntThreeViewController.swift */; };
 		E277B95F28DF017700DC0319 /* PresetntFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E277B95E28DF017700DC0319 /* PresetntFourViewController.swift */; };
 		E27F0F0E2A38A10900FC98D6 /* din-2014_bold-italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E27F0F0D2A38A10900FC98D6 /* din-2014_bold-italic.ttf */; };
+		E2853CBC30552FE300498005 /* JKTextFieldAutoLimiterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2853CBB30552FE300498005 /* JKTextFieldAutoLimiterViewController.swift */; };
+		E2853CBE30552FF600498005 /* JKTextViewAutoLimiterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2853CBD30552FF600498005 /* JKTextViewAutoLimiterViewController.swift */; };
 		E289F90F2850262200D840B7 /* RadiusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E289F90E2850262200D840B7 /* RadiusViewController.swift */; };
 		E289F9112850279F00D840B7 /* RadiusViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E289F9102850279F00D840B7 /* RadiusViewCell.swift */; };
 		E289F9182850D19500D840B7 /* SpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E289F9172850D19500D840B7 /* SpeechViewController.swift */; };
@@ -413,6 +415,8 @@
 		E277B95C28DF016800DC0319 /* PresetntThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetntThreeViewController.swift; sourceTree = "<group>"; };
 		E277B95E28DF017700DC0319 /* PresetntFourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetntFourViewController.swift; sourceTree = "<group>"; };
 		E27F0F0D2A38A10900FC98D6 /* din-2014_bold-italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "din-2014_bold-italic.ttf"; sourceTree = "<group>"; };
+		E2853CBB30552FE300498005 /* JKTextFieldAutoLimiterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKTextFieldAutoLimiterViewController.swift; sourceTree = "<group>"; };
+		E2853CBD30552FF600498005 /* JKTextViewAutoLimiterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKTextViewAutoLimiterViewController.swift; sourceTree = "<group>"; };
 		E289F90E2850262200D840B7 /* RadiusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiusViewController.swift; sourceTree = "<group>"; };
 		E289F9102850279F00D840B7 /* RadiusViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiusViewCell.swift; sourceTree = "<group>"; };
 		E289F9172850D19500D840B7 /* SpeechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechViewController.swift; sourceTree = "<group>"; };
@@ -894,6 +898,8 @@
 				E2CFA13928597E9000E342DE /* JKPanViewViewController.swift */,
 				55A7FDD72D3682DE00D59D15 /* JKScrollviewCardLayoutViewController.swift */,
 				55ECCD452D531315004718C8 /* JKTaskManagerViewController.swift */,
+				E2853CBB30552FE300498005 /* JKTextFieldAutoLimiterViewController.swift */,
+				E2853CBD30552FF600498005 /* JKTextViewAutoLimiterViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1120,9 +1126,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-JKSwiftExtension_Example/Pods-JKSwiftExtension_Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-JKSwiftExtension_Example/Pods-JKSwiftExtension_Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1154,6 +1164,7 @@
 				8480281625594C1E0038748A /* UIAlertControllerExtensionViewController.swift in Sources */,
 				84A6FB79255A65EC00057839 /* UIButtonExtensionViewController.swift in Sources */,
 				E2FA6872299B8FC300535471 /* JKCustomPickViewViewController.swift in Sources */,
+				E2853CBE30552FF600498005 /* JKTextViewAutoLimiterViewController.swift in Sources */,
 				8485CC7E2520368D00E2FCD0 /* QRCodeImageFactoryViewController.swift in Sources */,
 				84E96DD925C7E2D300D76D5C /* CAGradientLayerExtensionViewController.swift in Sources */,
 				E24BE977296FA5E1002B5ADE /* NSMutableAttributedStringExtensionViewController.swift in Sources */,
@@ -1233,6 +1244,7 @@
 				E20237AE28B5F98E00F65F61 /* UIAlertController+Extension1.swift in Sources */,
 				E289F9112850279F00D840B7 /* RadiusViewCell.swift in Sources */,
 				55625BC72B39BC770061D11C /* OptionalViewController.swift in Sources */,
+				E2853CBC30552FE300498005 /* JKTextFieldAutoLimiterViewController.swift in Sources */,
 				84D5B11725F4FA2400984F5A /* FBArrowLabel.swift in Sources */,
 				E2BBEDDF29B1ED8E005FB04B /* JKWheelPicker.swift in Sources */,
 				844A635425664F9B000059EC /* ThreeViewController.swift in Sources */,

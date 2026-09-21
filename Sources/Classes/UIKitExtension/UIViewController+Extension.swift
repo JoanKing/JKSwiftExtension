@@ -103,6 +103,21 @@ public extension JKPOP where Base: UIViewController {
         return true
     }
     
+    // MARK: 1.8、当前控制器顶部导航栏的总高度(包含状态栏/刘海/灵动岛)
+    /// 当前控制器顶部导航栏的总高度(包含状态栏/刘海/灵动岛)
+    ///
+    /// 优先取 `UINavigationController` 导航栏的底部位置，可以自适应：
+    /// iPad、横屏、大标题、iOS 26 液态玻璃以及折叠屏/双屏(Duo)等形态；
+    /// 当控制器没有导航栏时，回退到顶部安全区高度。
+    ///
+    /// - Note: 请在 `viewDidLayoutSubviews` 之后取值，保证布局已完成
+    var navBarHeight: CGFloat {
+        if let navigationController = base.navigationController, !navigationController.isNavigationBarHidden {
+            return navigationController.navigationBar.frame.maxY
+        }
+        return base.view.safeAreaInsets.top
+    }
+    
     //MARK: 寻找到对应的presentingViewController
     /// 寻找到对应的presentingViewController
     /// - Parameters:

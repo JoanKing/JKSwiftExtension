@@ -256,22 +256,24 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     func customCountOfChars() -> Int {
         var count = 0
         guard let string = baseString, !string.isEmpty else { return 0 }
-        // string.utf16来获取UTF-16编码的字符数组，这样可以直接访问每个字符的unichar值
-        let utf16View = string.utf16
-        for c in utf16View {
-            /*
-            if let scalar = UnicodeScalar(c) {
-                let character = String(scalar)
-                debugPrint("原字符串: \(c), 对应的字符: \(character)")
-            } else {
-                debugPrint("原字符串: \(c), 无法转换为有效的 Unicode 字符")
+        // 按字符簇（grapheme cluster）遍历，避免 emoji 等代理对字符被拆成两个码元重复计数
+        for character in string {
+            var isChinese = false
+            for scalar in character.unicodeScalars {
+                let value = scalar.value
+                // 中文相关 Unicode 区段：CJK 基本区、扩展A、兼容表意文字、扩展B~G
+                if (0x4E00...0x9FFF).contains(value) ||
+                   (0x3400...0x4DBF).contains(value) ||
+                   (0xF900...0xFAFF).contains(value) ||
+                   (0x20000...0x2A6DF).contains(value) ||
+                   (0x2A700...0x2B73F).contains(value) ||
+                   (0x2B740...0x2B81F).contains(value) ||
+                   (0x2B820...0x2CEAF).contains(value) {
+                    isChinese = true
+                    break
+                }
             }
-             */
-            if c >= 0x4E00 {
-                count += 2
-            } else {
-                count += 1
-            }
+            count += isChinese ? 2 : 1
         }
         return count
     }
@@ -594,9 +596,7 @@ public extension JKPOP where Base: ExpressibleByStringLiteral {
     /// 去除字符串前后的 换行和空格
     var removeBeginEndAllSapceAndLinefeed: String {
         guard let baseString = base as? String else { return "" }
-        var resultString = baseString.trimmingCharacters(in: CharacterSet.whitespaces)
-        resultString = resultString.trimmingCharacters(in: CharacterSet.newlines)
-        return resultString
+        return baseString.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     // MARK: 4.4、去掉所有空格
