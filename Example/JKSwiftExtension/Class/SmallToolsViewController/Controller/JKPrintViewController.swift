@@ -29,6 +29,8 @@ class JKPrintViewController: BaseViewController, UIDocumentInteractionController
         headDataArray = ["一、打印的方式"]
         dataArray = [["打印单个内容", "打印多个内容", "变量的：地址、内存、大小 的打印", "对象的：地址、内存、大小 的打印", "测试"]]
         
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -96,7 +98,8 @@ extension JKPrintViewController {
     
     // MARK: 1.01、打印单个内容
     @objc func test101() {
-        JKPrint("第 1 个内容")
+        // JKPrint("第 1 个内容")
+        JKPrintBrief("哈哈----", "嘿嘿😀", isWriteLog: true)
     }
 }
 

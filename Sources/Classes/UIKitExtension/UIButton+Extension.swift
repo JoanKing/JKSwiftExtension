@@ -275,7 +275,7 @@ public extension UIButton {
     ///   - state: 状态
     /// - Returns: 返回自身
     @discardableResult
-    func bgImage(forParent aClass: AnyClass, bundleName: String, _ imageName: String, _: UIControl.State = .normal) -> Self {
+    func bgImage(forParent aClass: AnyClass, bundleName: String, _ imageName: String, _ state: UIControl.State = .normal) -> Self {
         guard let path = Bundle(for: aClass).path(forResource: bundleName, ofType: "bundle") else {
             return self
         }
@@ -329,6 +329,9 @@ public extension UIButton {
 public extension JKPOP where Base: UIButton {
     
     /// 图片 和 title 的布局样式
+    ///
+    /// - Note: `imgLeft` / `imgRight` 在 RTL(从右到左)环境下跟随阅读方向，
+    ///         即分别表示 leading(起始侧) / trailing(结束侧)，会自动镜像
     enum ImageTitleLayout {
         case imgTop
         case imgBottom
@@ -338,12 +341,29 @@ public extension JKPOP where Base: UIButton {
     
     // MARK: 3.1、设置图片和 title 的位置关系(提示：title和image要在设置布局关系之前设置)
     /// 设置图片和 title 的位置关系(提示：title和image要在设置布局关系之前设置)
+    ///
+    /// - Note: iOS 15+ 且按钮已使用 `UIButton.Configuration` 时，走 `imagePlacement` + `imagePadding`，
+    ///         由系统自动适配 RTL；其余情况走传统 inset 方案，并在 RTL 环境下做镜像补偿
     /// - Parameters:
     ///   - layout: 布局
     ///   - spacing: 间距
     /// - Returns: 返回自身
     @discardableResult
     func setImageTitleLayout(_ layout: ImageTitleLayout, spacing: CGFloat = 0) -> UIButton {
+        // 1. 已使用 Configuration 的按钮：交给系统，天然支持 RTL
+        if #available(iOS 15.0, *), var config = base.configuration {
+            switch layout {
+            case .imgLeft:   config.imagePlacement = .leading
+            case .imgRight:  config.imagePlacement = .trailing
+            case .imgTop:    config.imagePlacement = .top
+            case .imgBottom: config.imagePlacement = .bottom
+            }
+            config.imagePadding = spacing
+            base.configuration = config
+            return base
+        }
+        // 2. 传统 inset 方案：先清掉上一次的布局，避免多次调用后样式叠加
+        resetImageTitleLayout()
         switch layout {
         case .imgLeft:
             alignHorizontal(spacing: spacing, imageFirst: true)
@@ -357,16 +377,33 @@ public extension JKPOP where Base: UIButton {
         return self.base
     }
     
+    /// 清空图片和 title 的位置关系，避免多次调用后样式叠加
+    private func resetImageTitleLayout() {
+        base.transform = .identity
+        base.imageView?.transform = .identity
+        base.titleLabel?.transform = .identity
+        base.imageEdgeInsets = .zero
+        base.titleEdgeInsets = .zero
+        base.contentEdgeInsets = .zero
+    }
+    
+    /// 当前布局方向是否为从右到左
+    private var isRTL: Bool {
+        base.effectiveUserInterfaceLayoutDirection == .rightToLeft
+    }
+    
     /// 水平方向
     /// - Parameters:
     ///   - spacing: 间距
-    ///   - imageFirst: 图片是否优先
+    ///   - imageFirst: 图片是否优先(即图片在 leading 侧)
     private func alignHorizontal(spacing: CGFloat, imageFirst: Bool) {
         let edgeOffset = spacing / 2
-        base.imageEdgeInsets = UIEdgeInsets(top: 0, left: -edgeOffset,
-                                            bottom: 0,right: edgeOffset)
-        base.titleEdgeInsets = UIEdgeInsets(top: 0, left: edgeOffset,
-                                            bottom: 0, right: -edgeOffset)
+        // RTL 下 UIKit 已经镜像了 image/title 的位置，但 edgeInsets 不会镜像，需要取反补偿
+        let direction: CGFloat = isRTL ? -1 : 1
+        base.imageEdgeInsets = UIEdgeInsets(top: 0, left: -edgeOffset * direction,
+                                            bottom: 0,right: edgeOffset * direction)
+        base.titleEdgeInsets = UIEdgeInsets(top: 0, left: edgeOffset * direction,
+                                            bottom: 0, right: -edgeOffset * direction)
         if !imageFirst {
             base.transform = CGAffineTransform(scaleX: -1, y: 1)
             base.imageView?.transform = CGAffineTransform(scaleX: -1, y: 1)
@@ -394,15 +431,17 @@ public extension JKPOP where Base: UIButton {
         let imageHorizontalOffset = (titleSize.width) / 2
         let titleHorizontalOffset = (imageSize.width) / 2
         let sign: CGFloat = imageTop ? 1 : -1
+        // 水平方向的居中偏移在 RTL 下也需要取反补偿
+        let direction: CGFloat = isRTL ? -1 : 1
         
         base.imageEdgeInsets = UIEdgeInsets(top: -imageVerticalOffset * sign,
-                                            left: imageHorizontalOffset,
+                                            left: imageHorizontalOffset * direction,
                                             bottom: imageVerticalOffset * sign,
-                                            right: -imageHorizontalOffset)
+                                            right: -imageHorizontalOffset * direction)
         base.titleEdgeInsets = UIEdgeInsets(top: titleVerticalOffset * sign,
-                                            left: -titleHorizontalOffset,
+                                            left: -titleHorizontalOffset * direction,
                                             bottom: -titleVerticalOffset * sign,
-                                            right: titleHorizontalOffset)
+                                            right: titleHorizontalOffset * direction)
         // increase content height to avoid clipping
         let edgeOffset = (min(imageSize.height, titleSize.height) + spacing) / 2
         base.contentEdgeInsets = UIEdgeInsets(top: edgeOffset, left: 0, bottom: edgeOffset, right: 0)
@@ -443,7 +482,8 @@ public extension UIButton {
         self.timer = DispatchSource.makeTimerSource(queue:DispatchQueue.global())
         self.timer?.schedule(deadline: .now(), repeating: .seconds(1))
         self.isTiming = true
-        self.timer?.setEventHandler(handler: {
+        self.timer?.setEventHandler(handler: { [weak self] in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 remainingCount = count - Int(ProcessInfo().systemUptime - begin)
                 if remainingCount <= 0 {
@@ -521,7 +561,6 @@ public extension UIButton {
     /// 时间对象
     var timer: DispatchSourceTimer? {
         get {
-            debugPrint("时间打印：\(&JKUIButtonExpandSizeKey)")
             if let value = objc_getAssociatedObject(self, &TimerKey.timer_key) {
                 return value as? DispatchSourceTimer
             }
@@ -535,10 +574,10 @@ public extension UIButton {
     typealias TimeringBlock = (Int) -> ()
     typealias CompletionBlock = () -> ()
     private struct TimerKey {
-        static var timer_key = UnsafeRawPointer("timer_key".withCString { $0 })
-        static var running_key = UnsafeRawPointer("running_key".withCString { $0 })
-        static var timeringPrefix_key = UnsafeRawPointer("timering_prefix_key".withCString { $0 })
-        static var reEnableCond_key = UnsafeRawPointer("re_enable_cond_key".withCString { $0 })
+        static var timer_key: UInt8 = 0
+        static var running_key: UInt8 = 0
+        static var timeringPrefix_key: UInt8 = 0
+        static var reEnableCond_key: UInt8 = 0
     }
 }
 
@@ -566,12 +605,14 @@ public extension JKPOP where Base: UIButton {
     /// - Returns: 闭包事件
     func setHandleClick(controlEvents: UIControl.Event = .touchUpInside, buttonCallBack: ((_ button: UIButton?) -> ())?){
         base.swiftCallBack = buttonCallBack
+        // 先移除同一事件上的旧 target，避免重复调用导致回调被多次触发
+        base.removeTarget(base, action: #selector(base.swiftButtonAction), for: controlEvents)
         base.addTarget(base, action: #selector(base.swiftButtonAction), for: controlEvents)
     }
 }
 
 // MARK: - 六、Button扩大点击事件
-private var JKUIButtonExpandSizeKey = UnsafeRawPointer("JKUIButtonExpandSizeKey".withCString { $0 })
+private var JKUIButtonExpandSizeKey: UInt8 = 0
 public extension UIButton {
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         if self.jk.touchExtendInset == .zero || isHidden || !isEnabled {

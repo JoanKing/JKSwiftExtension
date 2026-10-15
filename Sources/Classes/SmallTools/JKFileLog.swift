@@ -13,20 +13,52 @@
 import Foundation
 import UIKit
 
+// MARK: - 时间戳
+/// 获取当前时间戳字符串，格式：`yyyy-MM-dd HH:mm:ss.SSS`
+/// 使用 gettimeofday + strftime，比 DateFormatter 快一个数量级
+func timestamp() -> String {
+    var tv = timeval()
+    gettimeofday(&tv, nil)
+
+    var tmValue = tm()
+    var seconds = tv.tv_sec
+    localtime_r(&seconds, &tmValue)
+
+    var buffer = [CChar](repeating: 0, count: 32)
+    strftime(&buffer, buffer.count, "%Y-%m-%d %H:%M:%S", &tmValue)
+
+    let millisecond = Int(tv.tv_usec) / 1000
+    let millisecondStr = millisecond < 10 ? "00\(millisecond)" : (millisecond < 100 ? "0\(millisecond)" : "\(millisecond)")
+    return String(cString: buffer) + "." + millisecondStr
+}
+
 // MARK: - 日志的类型
-public enum JKFileLogType: Int {
-    // 文件夹路径
-    var folderPath: String {
-        return FileManager.jk.DocumnetsDirectory() + "/JKSwiftExtension.default.logfile"
-    }
-    
+public enum JKFileLogType {
     /// 基本日志
     case appBase
-    /// 日志的路径
+    /// 自定义日志：可以自定义文件夹路径和文件名字
+    /// - Parameters:
+    ///   - folderPath: 日志所在的文件夹路径
+    ///   - fileName: 日志文件名字
+    case custom(folderPath: String, fileName: String)
+
+    /// 文件夹路径
+    var folderPath: String {
+        switch self {
+        case .appBase:
+            return FileManager.jk.DocumnetsDirectory() + "/JKSwiftExtension.default.logfile"
+        case let .custom(folderPath, _):
+            return folderPath
+        }
+    }
+
+    /// 日志文件名字
     var defaultFileName: String {
         switch self {
         case .appBase:
             return "appLog.txt"
+        case let .custom(_, fileName):
+            return fileName
         }
     }
 }
@@ -44,6 +76,8 @@ public class JKFileLog: NSObject {
     private static let queue: DispatchQueue = {
         return DispatchQueue(label: "com.JKSwiftExtension.log")
     }()
+    /// 已完成目录/文件创建准备的路径集合，避免每次写入都做磁盘探测（仅在 queue 上访问）
+    private static var preparedLogPaths = Set<String>()
 }
 
 //MARK: - 一、详细日志的操作
@@ -67,43 +101,24 @@ extension JKFileLog {
                               column: Int = #column,
                                   fn: String = #function) {
         #if DEBUG
+        // 时间取调用时刻，避免排队导致时间偏差
+        let dateString = timestamp()
+        let functionMessage = "file：\(file) line：\(line) column：\(column) function：\(fn)"
+        // 控制台打印完整信息（含文件位置），方便定位问题
+        print("\(dateString)\n\(functionMessage)\n\(content)")
         queue.async {
-            // 1、先判默认文件夹是否存在
-            let createFolderResult = FileManager.jk.createFolder(folderPath: type.folderPath)
-            guard createFolderResult.isSuccess else { return }
-            // 2、在判断下是否自定义了文件名
-            let fileName: String = type.defaultFileName
-            guard let filePath = URL(string: type.folderPath + "/\(fileName)") else { return }
-            let createFileResult = FileManager.jk.createFile(filePath: filePath.absoluteString)
-            guard createFileResult.isSuccess else { return }
-            // 3.文件内容的写入
-            do {
-                let currentDate = Date()
-                let dateString = currentDate.jk.toformatterTimeString(formatter: "yyyy-MM-dd HH:mm:ss:SSS")
-                let fileHandle = try FileHandle(forWritingTo: filePath)
-                // 函数信息
-                let functionMessage = "file：\(file) line：\(line) column：\(column) function：\(fn)"
-                // 写入的内容
-                var stringToWrite = ""
-                // 追加还是插入开头
-                if isSeekToEndOfFile {
-                    stringToWrite = "\n" + dateString + "\n" + "\(functionMessage)" + "\n" + "☕️ log：\(content)"
-                    // 文件可以追加，找到末尾位置并添加
-                    fileHandle.seekToEndOfFile()
-                } else {
-                    // 插入在开头的话，就需要先读取出来再组合一起写入
-                    let oldContent = getFilePathContent(type: type)
-                    stringToWrite = dateString + "\n" + "\(functionMessage)" + "\n" + "log：\(content)" + "\n" + oldContent
-                    fileHandle.seek(toFileOffset: 0)
-                }
-                if let contentData = stringToWrite.data(using: .utf8) {
-                    // 写入要写入的内容
-                    fileHandle.write(contentData)
-                }
-                // 关闭文件句柄
-                fileHandle.closeFile()
-            } catch let error as NSError {
-                debugPrint("failed to append: \(error)")
+            // 1、确保目录和文件已创建（同一路径只处理一次）
+            guard prepareLogFile(type: type) else { return }
+            // 2、写入文件时只保留时间和内容，不写文件位置信息
+            if isSeekToEndOfFile {
+                // 追加到尾部：时间 + tab + 内容
+                let stringToWrite = "\n" + dateString + "\t" + content
+                write(stringToWrite, type: type, toStart: false)
+            } else {
+                // 插入到开头：先读取旧内容再拼接
+                let oldContent = getFilePathContent(type: type)
+                let stringToWrite = dateString + "\t" + content + "\n" + oldContent
+                write(stringToWrite, type: type, toStart: true)
             }
         }
         #endif
@@ -150,50 +165,24 @@ extension JKFileLog {
     /// - Parameters:
     ///   - content: 内容
     ///   - isSeekToEndOfFile: 是否内容追加到尾部，默认尾部追加
-    ///   - logFileName: 文件的名字
-    ///   - file: 文件路径
-    ///   - line: 打印内容所在的 行
-    ///   - column: 打印内容所在的 列
-    ///   - fn: 打印内容的函数名
+    ///   - type: 日志类型，可指定写入的文件夹和文件名字，默认 .appBase
+    ///   - time: 时间字符串，默认使用 `timestamp()` 生成，也可由调用方传入以复用时间
     public static func writeSimpleLog(_ content: String,
                                 isSeekToEndOfFile: Bool = true,
-                                      type: JKFileLogType = .appBase) {
+                                      type: JKFileLogType = .appBase,
+                                      time: String? = nil) {
         #if DEBUG
+        let dateString = time ?? timestamp()
         queue.async {
-            // 1、先判默认文件夹是否存在
-            let createFolderResult = FileManager.jk.createFolder(folderPath: type.folderPath)
-            guard createFolderResult.isSuccess else { return }
-            // 2、在判断下是否自定义了文件名
-            let fileName: String = type.defaultFileName
-            guard let filePath = URL(string: type.folderPath + "/\(fileName)") else { return }
-            let createFileResult = FileManager.jk.createFile(filePath: filePath.absoluteString)
-            guard createFileResult.isSuccess else { return }
-            // 3.文件内容的写入
-            do {
-                let currentDate = Date()
-                let dateString = currentDate.jk.toformatterTimeString(formatter: "yyyy-MM-dd HH:mm:ss:SSS")
-                let fileHandle = try FileHandle(forWritingTo: filePath)
-                // 写入的内容
-                var stringToWrite = ""
-                // 追加还是插入开头
-                if isSeekToEndOfFile {
-                    stringToWrite = "\n" + dateString + " ：\(content)"
-                    // 文件可以追加，找到末尾位置并添加
-                    fileHandle.seekToEndOfFile()
-                } else {
-                    // 插入在开头的话，就需要先读取出来再组合一起写入
-                    let oldContent = getFilePathContent(type: type)
-                    stringToWrite = dateString + " ：\(content)" + "\n" + oldContent
-                    fileHandle.seek(toFileOffset: 0)
-                }
-                if let contentData = stringToWrite.data(using: .utf8) {
-                    // 写入要写入的内容
-                    fileHandle.write(contentData)
-                }
-                // 关闭文件句柄
-                fileHandle.closeFile()
-            } catch let error as NSError {
-                debugPrint("failed to append: \(error)")
+            // 1、确保目录和文件已创建（同一路径只处理一次）
+            guard prepareLogFile(type: type) else { return }
+            // 2、文件内容的写入
+            if isSeekToEndOfFile {
+                write("\n" + dateString + " ：\(content)", type: type, toStart: false)
+            } else {
+                // 插入到开头：先读取旧内容再拼接
+                let oldContent = getFilePathContent(type: type)
+                write(dateString + " ：\(content)" + "\n" + oldContent, type: type, toStart: true)
             }
         }
         #endif
@@ -233,8 +222,8 @@ extension JKFileLog {
     public static func getFilePathContent(type: JKFileLogType = .appBase) -> String {
         // 1、获取文件路径
         let path = getLogFilePath(type)
-        guard let fileURL = URL(string: path) else { return "" }
-        guard FileManager.jk.judgeFileOrFolderExists(filePath: fileURL.absoluteString) else { return "" }
+        let fileURL = URL(fileURLWithPath: path)
+        guard FileManager.jk.judgeFileOrFolderExists(filePath: fileURL.path) else { return "" }
         do {
             let fileHandle = try FileHandle(forReadingFrom: fileURL)
             let fileData = fileHandle.readDataToEndOfFile()
@@ -263,11 +252,13 @@ extension JKFileLog {
     public static func removeLogFile(type: JKFileLogType = .appBase) -> Bool {
         // 1、获取文件路径
         let path = getLogFilePath(type)
-        // 2、判断文件的路径是否存在
-        guard let fileURL = URL(string: path) else { return true }
-        guard FileManager.jk.judgeFileOrFolderExists(filePath: fileURL.absoluteString) else { return true }
-        // 3、存在的就进行移除
-        let result = FileManager.jk.removefile(filePath: fileURL.absoluteString)
+        // 2、移除缓存标记，保证下次写入会重新创建文件
+        queue.async { preparedLogPaths.remove(path) }
+        // 3、判断文件的路径是否存在
+        let fileURL = URL(fileURLWithPath: path)
+        guard FileManager.jk.judgeFileOrFolderExists(filePath: fileURL.path) else { return true }
+        // 4、存在的就进行移除
+        let result = FileManager.jk.removefile(filePath: fileURL.path)
         return result.isSuccess
     }
     
@@ -292,5 +283,63 @@ extension JKFileLog {
             UIViewController.jk.topViewController()?.present(activityViewController, animated: true, completion: nil)
         }
         return true
+    }
+}
+
+//MARK: - 四、内部工具方法
+extension JKFileLog {
+
+    /// 确保日志文件及其所在目录存在
+    /// 同一路径只处理一次，避免每次写入都做磁盘探测
+    /// - Parameter type: 日志类型
+    /// - Returns: 是否准备成功
+    static func prepareLogFile(type: JKFileLogType) -> Bool {
+        let filePath = getLogFilePath(type)
+        if preparedLogPaths.contains(filePath) { return true }
+        // 1、目录不存在则创建
+        guard FileManager.jk.createFolder(folderPath: type.folderPath).isSuccess else { return false }
+        // 2、文件不存在则创建
+        guard FileManager.jk.createFile(filePath: filePath).isSuccess else { return false }
+        // 3、给日志文件打上“请勿备份到 iCloud”的标签
+        var url = URL(fileURLWithPath: filePath)
+        var resourceValues = URLResourceValues()
+        resourceValues.isExcludedFromBackup = true
+        try? url.setResourceValues(resourceValues)
+        // 4、记录已准备，后续写入直接复用
+        preparedLogPaths.insert(filePath)
+        return true
+    }
+
+    /// 把字符串写入日志文件
+    /// - Parameters:
+    ///   - string: 要写入的内容
+    ///   - type: 日志类型
+    ///   - toStart: true 写到文件开头，false 追加到文件末尾
+    static func write(_ string: String, type: JKFileLogType, toStart: Bool) {
+        guard let data = string.data(using: .utf8) else { return }
+        let fileURL = URL(fileURLWithPath: getLogFilePath(type))
+        do {
+            let fileHandle = try FileHandle(forWritingTo: fileURL)
+            // 适配新旧版本 API 并安全写入
+            if #available(iOS 13.4, macOS 10.15.4, *) {
+                if toStart {
+                    try fileHandle.seek(toOffset: 0)
+                } else {
+                    try fileHandle.seekToEnd()
+                }
+                try fileHandle.write(contentsOf: data)
+                try fileHandle.close()
+            } else {
+                if toStart {
+                    fileHandle.seek(toFileOffset: 0)
+                } else {
+                    fileHandle.seekToEndOfFile()
+                }
+                fileHandle.write(data)
+                fileHandle.closeFile()
+            }
+        } catch let error as NSError {
+            debugPrint("failed to append: \(error)")
+        }
     }
 }

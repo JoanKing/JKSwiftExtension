@@ -8,9 +8,6 @@
 import UIKit
 import Foundation
 
-// 专门用于日志处理的串行队列，保证多线程调用时的线程安全
-private let jkLogQueue = DispatchQueue(label: "com.jk.swift.logQueue")
-
 // 之前是 JKPrint<T>(_ msg: T...
 // MARK: - 自定义打印
 /// 自定义打印
@@ -21,101 +18,43 @@ private let jkLogQueue = DispatchQueue(label: "com.jk.swift.logQueue")
 /// - Parameter fn: 打印内容的函数名
 public func JKPrint(_ msg: Any...,
                isWriteLog: Bool = false,
+                     type: JKFileLogType = .appBase,
                      file: NSString = #file,
                      line: Int = #line,
                    column: Int = #column,
                        fn: String = #function) {
     #if DEBUG
-    // 1. 先把基础信息在当前线程处理好
+    // 1. 在当前线程处理好基础信息，避免把原始值带进异步写入
     let msgStr = msg.map { "\($0)" }.joined(separator: "\n")
-    let currentDate = Date().jk.toformatterTimeString(formatter:"MM-dd HH:mm:ss.SSS")
+    let currentDate = timestamp()
     let fileName = file.lastPathComponent
-    // 2. 扔到串行队列中去执行打印和写入，避免并发冲突
-    jkLogQueue.async {
-        let prefix = "---begin---------------🚀----------------\n当前时间：\(currentDate)\n当前文件完整的路径是：\(file)\n当前文件是：\(fileName)\n第 \(line) 行 \n第 \(column) 列 \n函数名：\(fn)\n打印内容如下：\n\(msgStr)\n---end-----------------😊----------------"
-        print(prefix)
-        guard isWriteLog else {
-            return
-        }
-        // 3. 调用公共的写入方法
-        writeLogToFile(prefix: prefix, currentDate: currentDate)
-    }
+    let prefix = "---begin---------------🚀----------------\n当前时间：\(currentDate)\n当前文件完整的路径是：\(file)\n当前文件是：\(fileName)\n第 \(line) 行 \n第 \(column) 列 \n函数名：\(fn)\n打印内容如下：\n\(msgStr)\n---end-----------------😊----------------"
+    // 2. 打印保持同步，保证日志输出顺序
+    print(prefix)
+    // 3. 打印保留完整信息，写文件只落实际日志内容（不含文件位置）
+    guard isWriteLog else { return }
+    JKFileLog.writeSimpleLog(msgStr, type: type, time: currentDate)
     #endif
 }
 
 // MARK: - 简洁打印（只包含时间和内容）
-/// 简洁自定义打印
-public func JKPrintBrief(_ msg: Any..., isWriteLog: Bool = false) {
+/// 带时间戳的打印函数，格式：`2026-09-14 11:32:23.046: 内容`
+/// Release 环境下不打印函数体
+
+/// 打印（签名与系统 print 一致）
+/// - Parameters:
+///   - items: 要打印的内容，可传多个
+///   - separator: 多个内容之间的分隔符，默认空格
+///   - terminator: 结尾字符，默认换行
+public func JKPrintBrief(_ items: Any..., separator: String = " ", terminator: String = "\n", isWriteLog: Bool = false, type: JKFileLogType = .appBase) {
     #if DEBUG
-    let msgStr = msg.map { "\($0)" }.joined(separator: " ")
-    let currentDate = Date().jk.toformatterTimeString(formatter:"MM-dd HH:mm:ss.SSS")
-    
-    jkLogQueue.async {
-        let prefix = "[\(currentDate)] \(msgStr)"
-        print(prefix)
-        guard isWriteLog else { return }
-        
-        // 3. 调用公共的写入方法
-        writeLogToFile(prefix: prefix, currentDate: currentDate)
-    }
+    let content = items.map { "\($0)" }.joined(separator: separator)
+    let time = timestamp()
+    print("\(time): \(content)", terminator: terminator)
+    // 不需要写文件时直接返回，避免无谓的队列调度
+    guard isWriteLog else { return }
+    JKFileLog.writeSimpleLog(content, type: type, time: time)
     #endif
-}
-
-
-// MARK: - 私有写入逻辑
-/// 将内容写入到日志文件中
-private func writeLogToFile(prefix: String, currentDate: String) {
-    // 1. 获取目标目录（Library/Application Support/Logs）
-    guard let appSupportURL = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first else { return }
-    let logDirURL = appSupportURL.appendingPathComponent("Logs")
-    
-    // 2. 如果文件夹不存在，则创建它
-    if !FileManager.default.fileExists(atPath: logDirURL.path) {
-        do {
-            try FileManager.default.createDirectory(at: logDirURL, withIntermediateDirectories: true, attributes: nil)
-        } catch {
-            print("创建日志文件夹失败: \(error)")
-            return
-        }
-    }
-    
-    // 3. 调用底层的 appendText 执行写入
-    let logFileURL = logDirURL.appendingPathComponent("log.txt")
-    appendText(fileURL: logFileURL, string: prefix, currentDate: currentDate)
-}
-
-// 在文件末尾追加新内容
-private func appendText(fileURL: URL, string: String, currentDate: String) {
-    do {
-        // 如果文件不存在则新建一个
-        if !FileManager.default.fileExists(atPath: fileURL.path) {
-            FileManager.default.createFile(atPath: fileURL.path, contents: nil, attributes: nil)
-            
-            // ！！！核心：给新建的日志文件打上“请勿备份到 iCloud”的标签
-            var excludedURL = fileURL
-            var resourceValues = URLResourceValues()
-            resourceValues.isExcludedFromBackup = true
-            try excludedURL.setResourceValues(resourceValues)
-        }
-        
-        let fileHandle = try FileHandle(forWritingTo: fileURL)
-        
-        let stringToWrite = "\n\(currentDate)：\(string)"
-        guard let data = stringToWrite.data(using: .utf8) else { return }
-        
-        // 适配新旧版本 API 并安全写入
-        if #available(iOS 13.4, macOS 10.15.4, *) {
-            try fileHandle.seekToEnd()
-            try fileHandle.write(contentsOf: data)
-            try fileHandle.close() // 重要：用完关闭
-        } else {
-            fileHandle.seekToEndOfFile()
-            fileHandle.write(data)
-            fileHandle.closeFile() // 重要：用完关闭
-        }
-    } catch {
-        print("failed to append: \(error)")
-    }
 }
 
 public func JKPrintPointer<T>(ptr: UnsafePointer<T>) {

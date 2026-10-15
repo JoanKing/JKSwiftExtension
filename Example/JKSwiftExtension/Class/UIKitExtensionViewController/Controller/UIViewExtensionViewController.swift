@@ -477,7 +477,7 @@ extension UIViewExtensionViewController {
         testView.backgroundColor = .randomColor
         testView.center.x = self.view.center.x
         testView.clipsToBounds = true
-        testView.jk.addWater(markText: "这是水印", textColor: .red, font: .systemFont(ofSize: 19))
+        testView.jk.addWater(markText: "", textColor: .red, font: .systemFont(ofSize: 19))
         self.view.addSubview(testView)
         JKAsyncs.asyncDelay(3, {
         }) {

@@ -78,7 +78,7 @@ extension UIButtonExtensionViewController {
             guard let weakBtn = btn else { return }
             debugPrint("button的事件", "tag：\(weakBtn.tag)")
         }
-        button1.jk.touchExtendInset = UIEdgeInsets(top: -50, left: -50, bottom: -50, right: -50)
+        button1.jk.touchExtendInset = UIEdgeInsets(top: -75, left: -50, bottom: -50, right: -50)
         testView2.addSubview(button1)
         
         button1.snp.makeConstraints { make in

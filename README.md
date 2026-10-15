@@ -50,6 +50,11 @@ end
 <img src="https://github.com/JoanKing/JKSwiftExtension/assets/19670000/5611a91f-e083-4c77-8ef8-bdc4a91a13c9" alt="微信交流群" width="220">
 
 ## 版本说明
+  - 2.9.2、版本(2026.10.15)
+    - JKPrint：统一使用 timestamp()(gettimeofday+strftime)生成时间，移除 DateFormatter 及其共享可变实例；写文件前先判断 isWriteLog，打印保持同步、写文件异步；删除重复的串行队列与本地写入逻辑，统一走 JKFileLog
+    - JKFileLog：抽取公用 timestamp() 统一时间来源；writeLog 写文件不再包含 file/line/column/function，改为「时间\t内容」；新增目录/文件创建缓存 preparedLogPaths 减少磁盘 IO，removeLogFile 同步失效缓存；统一新旧 FileHandle 写入 API；writeSimpleLog 新增可选 time 参数
+    - UIButton+Extension：修复 bgImage(forParent:bundleName:) 忽略传入 state 的问题；删除 timer getter 残留的 debugPrint；关联对象 key 改用安全的 UInt8 地址，消除 withCString 悬垂指针；setHandleClick 先 removeTarget 再 addTarget，避免重复回调；countDown 事件闭包改 [weak self] 解除循环引用
+    - UIView+Extension：修复 gradientColorAnimation 的 isRemovedOnCompletion 参数不生效；addWater 增加空文案/宽度为 0 的防护，避免除零崩溃；手势捏合/旋转去除强解包；渐变层增加 name 仅移除自身添加的渐变层，避免误删用户渐变层；addShadow 增加 shadowPath 避免离屏渲染；bottom/right setter 统一 tempFrame 写法；shake 文档默认次数更正
   - 2.9.1、版本(2026.09.21)
     - 新增JKTextFieldAutoLimiter、JKTextViewAutoLimiter输入限制器，配套JKPasteAwareTextField、JKPasteAwareTextView，覆盖全部粘贴入口，精准处理粘贴超限和粘贴替换选中文本等场景
     - 新增JKRegexHelper正则校验表达式集合JKRegexCharacterType

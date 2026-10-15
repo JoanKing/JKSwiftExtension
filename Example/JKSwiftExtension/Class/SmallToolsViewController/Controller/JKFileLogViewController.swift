@@ -15,6 +15,7 @@ class JKFileLogViewController: BaseViewController {
         super.viewDidLoad()
         headDataArray = ["一、日志的操作"]
         dataArray = [["内容的写入正序", "内容的写入倒序", "内容的写入：[String: Any] 类型", "读取日志内容", "获取日志文件路径", "移除日志文件", "导出日志"]]
+        JKPrint("路径：\(FileManager.jk.DocumnetsDirectory() )")
     }
 }
 
@@ -61,8 +62,8 @@ extension JKFileLogViewController {
     
     //MARK: 1.01、内容的写入：正序
     @objc func test101() {
+        JKFileLog.writeLog("123")
         for i in 0...2 {
-            JKFileLog.writeLog("123")
             JKFileLog.writeLog("hello(正序)：\(i)", isSeekToEndOfFile: true)
         }
     }

@@ -16,6 +16,9 @@ public enum JKDashLineDirection: Int {
     case horizontal = 1
 }
 
+/// 由本扩展添加的渐变层名字，用于精确移除，避免误删用户自己的渐变层
+private let jkGradientLayerName = "JKSwiftExtension.GradientLayer"
+
 extension UIView: JKPOPCompatible {}
 // MARK: - 一、机型的判断
 // MARK: 1.1、设备型号
@@ -343,7 +346,9 @@ public extension JKPOP where Base: UIView {
             return base.frame.origin.y + base.frame.size.height
         }
         set(newValue) {
-            base.frame.origin.y = newValue - base.frame.size.height
+            var tempFrame: CGRect = base.frame
+            tempFrame.origin.y = newValue - tempFrame.size.height
+            base.frame = tempFrame
         }
     }
     
@@ -354,7 +359,9 @@ public extension JKPOP where Base: UIView {
             return base.frame.origin.x + base.frame.size.width
         }
         set(newValue) {
-            base.frame.origin.x = newValue - base.frame.size.width
+            var tempFrame: CGRect = base.frame
+            tempFrame.origin.x = newValue - tempFrame.size.width
+            base.frame = tempFrame
         }
     }
     
@@ -534,6 +541,10 @@ public extension JKPOP where Base: UIView {
     ///   - shadowOffset: 阴影的偏移度：CGSizeMake(X[正的右偏移,负的左偏移], Y[正的下偏移,负的上偏移])
     ///   - shadowOpacity: 阴影的透明度
     ///   - shadowRadius: 阴影半径，默认 3
+    ///
+    /// - Note: 会同时设置 `shadowPath` 以避免离屏渲染、提升性能；
+    ///         若在自动布局下调用，请先设置好 frame 或先调用 layoutIfNeeded，否则 bounds 为 0 时不会设置 shadowPath，
+    ///         且 view 尺寸变化后 shadowPath 不会自动更新，需要重新调用本方法。
     func addShadow(shadowColor: UIColor, shadowOffset: CGSize, shadowOpacity: Float, shadowRadius: CGFloat = 3) {
         // 设置阴影颜色
         base.layer.shadowColor = shadowColor.cgColor
@@ -543,6 +554,10 @@ public extension JKPOP where Base: UIView {
         base.layer.shadowRadius = shadowRadius
         // 设置阴影偏移量
         base.layer.shadowOffset = shadowOffset
+        // 设置阴影路径，避免离屏渲染；bounds 为空时跳过，等布局完成后再调用
+        if base.bounds.width > 0, base.bounds.height > 0 {
+            base.layer.shadowPath = UIBezierPath(roundedRect: base.bounds, cornerRadius: base.layer.cornerRadius).cgPath
+        }
     }
     
     // MARK: 5.4、添加阴影和圆角并存
@@ -898,8 +913,10 @@ public extension UIView {
 // MARK: - 七、其他的方法
 // 抖动方向枚举
 public enum JKShakeDirection: Int {
-    case horizontal  //水平抖动
-    case vertical  //垂直抖动
+    /// 水平抖动
+    case horizontal
+    /// 垂直抖动
+    case vertical
 }
 
 public extension JKPOP where Base: UIView {
@@ -930,12 +947,16 @@ public extension JKPOP where Base: UIView {
     ///   - textColor: 水印文字颜色
     ///   - font: 水印文字大小
     func addWater(markText: String, textColor: UIColor = UIColor.black, font: UIFont = UIFont.systemFont(ofSize: 12)) {
-        let waterMark = markText.jk.toNSString 
+        // 空文案或尺寸为 0 时不绘制，避免后面除零导致 NSInteger(inf) 崩溃
+        guard !markText.isEmpty, self.base.jk.width > 0, self.base.jk.height > 0 else { return }
+        let waterMark = markText.jk.toNSString
         let textSize: CGSize = waterMark.size(withAttributes: [NSAttributedString.Key.font : font])
+        let textWidth = markText.jk.rectWidth(font: font, size: CGSize(width: self.base.jk.width, height: CGFloat(MAXFLOAT)))
+        guard textWidth > 0 else { return }
         // 多少行
         let line: NSInteger = NSInteger(self.base.jk.height * 3.5 / 80)
         // 多少列：自己的宽度/(每个水印的宽度+间隔)
-        let row: NSInteger = NSInteger(self.base.jk.width / markText.jk.rectWidth(font: font, size: CGSize(width: self.base.jk.width, height: CGFloat(MAXFLOAT))))
+        let row: NSInteger = NSInteger(self.base.jk.width / textWidth)
         for i in 0..<line {
             for j in 0..<row {
                 let textLayer: CATextLayer = CATextLayer()
@@ -1004,7 +1025,7 @@ public extension JKPOP where Base: UIView {
     /// 视图抖动
     /// - Parameters:
     ///   - direction: 抖动方向（默认是水平方向）
-    ///   - times: 抖动次数（默认5次）
+    ///   - times: 抖动次数（默认3次）
     ///   - interval: 每次抖动时间（默认0.1秒）
     ///   - delta: 抖动偏移量（默认2）
     ///   - completion: 抖动动画结束后的回调
@@ -1320,13 +1341,12 @@ public extension JKPOP where Base: UIView {
         let obj = UIPinchGestureRecognizer(target: nil, action: nil)
         addCommonGestureRecognizer(obj)
         obj.addAction { (recognizer) in
-            if let sender = recognizer as? UIPinchGestureRecognizer {
-                let location = recognizer.location(in: sender.view!.superview)
-                sender.view!.center = location
-                sender.view!.transform = sender.view!.transform.scaledBy(x: sender.scale, y: sender.scale)
-                sender.scale = 1.0
-                action(recognizer)
-            }
+            guard let sender = recognizer as? UIPinchGestureRecognizer, let view = sender.view else { return }
+            let location = sender.location(in: view.superview)
+            view.center = location
+            view.transform = view.transform.scaledBy(x: sender.scale, y: sender.scale)
+            sender.scale = 1.0
+            action(recognizer)
         }
         return obj
     }
@@ -1340,11 +1360,10 @@ public extension JKPOP where Base: UIView {
         let obj = UIRotationGestureRecognizer(target: nil, action: nil)
         addCommonGestureRecognizer(obj)
         obj.addAction { (recognizer) in
-            if let sender = recognizer as? UIRotationGestureRecognizer {
-                sender.view!.transform = sender.view!.transform.rotated(by: sender.rotation)
-                sender.rotation = 0.0
-                action(recognizer)
-            }
+            guard let sender = recognizer as? UIRotationGestureRecognizer, let view = sender.view else { return }
+            view.transform = view.transform.rotated(by: sender.rotation)
+            sender.rotation = 0.0
+            action(recognizer)
         }
         return obj
     }
@@ -1369,6 +1388,7 @@ public extension JKPOP where Base : UIView {
     func gradientColor(_ direction: JKViewGradientDirection = .horizontal, _ gradientColors: [Any], _ gradientLocations: [NSNumber]? = nil, _ transform: CATransform3D? = nil) {
         // 获取渐变对象
         let gradientLayer = CAGradientLayer().jk.gradientLayer(direction, gradientColors, gradientLocations, transform)
+        gradientLayer.name = jkGradientLayerName
         // 设置其CAGradientLayer对象的frame，并插入view的layer
         gradientLayer.frame = CGRect(x: 0, y: 0, width: self.base.jk.width, height: self.base.jk.height)
         // 如果有旧的渐变进行移除后添加
@@ -1399,6 +1419,7 @@ public extension JKPOP where Base : UIView {
     func gradientColorAnimation(direction: JKViewGradientDirection = .horizontal, startGradientColors: [Any], endGradientColors: [Any], isRemovedOnCompletion: Bool = true, duration: CFTimeInterval = 1.0, gradientLocations: [NSNumber]? = nil) {
         // 获取渐变对象
         let gradientLayer = CAGradientLayer().jk.gradientLayer(direction, startGradientColors, gradientLocations)
+        gradientLayer.name = jkGradientLayerName
         // 设置其CAGradientLayer对象的frame，并插入view的layer
         gradientLayer.frame = CGRect(x: 0, y: 0, width: self.base.jk.width, height: self.base.jk.height)
         if let sublayers = self.base.layer.sublayers {
@@ -1413,14 +1434,14 @@ public extension JKPOP where Base : UIView {
     
     // MARK: 移除之前的渐变色
     /// 移除之前的渐变色
-    /// - Parameters:
-    ///   - sublayers: [CALayer]集合
+    /// - Parameter sublayers: [CALayer]集合
+    /// - Note: 只移除由本扩展添加的渐变层，避免误删用户自己添加的 CAGradientLayer
     @discardableResult
     func removeOldGradientLayer(sublayers: [CALayer]) -> Bool {
         // 查找是否设置过渐变
         var isFound: Bool = false
-        for (_, layer) in sublayers.enumerated() {
-            if layer is CAGradientLayer {
+        for layer in sublayers {
+            if layer is CAGradientLayer, layer.name == jkGradientLayerName {
                 // 先移除旧的渐变层
                 layer.removeFromSuperlayer()
                 isFound = true
@@ -1438,8 +1459,11 @@ public extension JKPOP where Base : UIView {
         colorChangeAnimation.fromValue = startGradientColors
         colorChangeAnimation.toValue = endGradientColors
         colorChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
-        // 动画结束后保持最终的效果
-        colorChangeAnimation.isRemovedOnCompletion = false
+        // isRemovedOnCompletion 语义为「动画结束后是否保持最终效果」：保持时动画不移除（并保留终值）
+        colorChangeAnimation.isRemovedOnCompletion = !isRemovedOnCompletion
+        if isRemovedOnCompletion {
+            gradientLayer.colors = endGradientColors
+        }
         gradientLayer.add(colorChangeAnimation, forKey: "colorChange")
     }
 }
